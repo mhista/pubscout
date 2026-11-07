@@ -1,0 +1,52 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "6.0.1",
+  "generatedAt": "2026-11-07T09:28:18.013Z",
+  "data": {
+    "primary_category": "backend",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Flutter plugin that sends uncaught errors and crash reports to Firebase Crashlytics.",
+    "what_it_does": "Integrates Firebase Crashlytics into a Flutter app, automatically capturing uncaught exceptions and custom logs. It uploads crash symbols for Android and iOS to improve stack traces in the Firebase console.",
+    "use_when": [
+      "You need automatic crash reporting for Flutter apps",
+      "You already use other Firebase services and want a unified backend"
+    ],
+    "avoid_when": [
+      "You cannot modify native Android/iOS projects (e.g., pure web Flutter)",
+      "You need a lightweight, pure‑Dart solution without native SDKs"
+    ],
+    "strengths": [
+      "Deep integration with Firebase ecosystem",
+      "Handles symbol upload and native crash data",
+      "Supported on Android, iOS, and macOS"
+    ],
+    "weaknesses": [
+      "Requires native setup and platform-specific configuration",
+      "Minimum Android SDK 24 and macOS 11 may limit older devices"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add Firebase configuration files (GoogleService-Info.plist, google-services.json), update Android build.gradle and iOS podfile, ensure firebase_core is initialized, and set up Crashlytics in native projects.",
+    "alternatives": [
+      {
+        "name": "firebase_core",
+        "why_pick_it": "Required for any Firebase plugin; provides core initialization"
+      },
+      {
+        "name": "firebase_analytics",
+        "why_pick_it": "If you only need analytics without crash reporting"
+      },
+      {
+        "name": "firebase_remote_config",
+        "why_pick_it": "For remote feature flags when crash reporting isn’t needed"
+      }
+    ],
+    "minimal_example": "import 'package:firebase_core/firebase_core.dart';\nimport 'package:firebase_crashlytics/firebase_crashlytics.dart';\n\nvoid main() async {\n  WidgetsFlutterBinding.ensureInitialized();\n  await Firebase.initializeApp();\n  FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterError;\n  runApp(MyApp());\n}",
+    "confidence": 0.98
+  }
+}

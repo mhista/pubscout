@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "7.1.2",
+  "generatedAt": "2026-11-07T09:33:56.479Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Record audio from the microphone to a file or stream with multiple codec options.",
+    "what_it_does": "Provides a cross‑platform API to capture audio on Android, iOS, macOS, Windows, web and Linux. Supports pause/resume, amplitude monitoring, device selection and various encoders.",
+    "use_when": [
+      "You need to record audio locally or stream it in real time.",
+      "You require support for multiple platforms and codecs."
+    ],
+    "avoid_when": [
+      "You need a pure Dart solution without native dependencies.",
+      "You cannot install external tools on Linux (parecord, pactl, ffmpeg)."
+    ],
+    "strengths": [
+      "Broad platform coverage with feature parity.",
+      "Multiple encoder choices including AAC, Opus, WAV, FLAC, PCM.",
+      "Stream‑based API for real‑time processing."
+    ],
+    "weaknesses": [
+      "Linux requires external binaries to be installed.",
+      "Background recording support was removed in v7.0.0."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add microphone permission entries for Android, iOS and macOS. Install parecord, pactl and ffmpeg on Linux. Follow platform‑specific setup guides for Android and iOS.",
+    "alternatives": [],
+    "minimal_example": "import 'package:record/record.dart';\n\nfinal recorder = AudioRecorder();\nif (await recorder.hasPermission()) {\n  await recorder.start(const RecordConfig(), path: 'myFile.m4a');\n  // ...\n  final filePath = await recorder.stop();\n}\nrecorder.dispose();",
+    "confidence": 0.97
+  }
+}

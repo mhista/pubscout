@@ -1,0 +1,46 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "2.1.6",
+  "generatedAt": "2026-11-07T09:33:36.827Z",
+  "data": {
+    "primary_category": "files",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Provides Flutter APIs to locate common filesystem directories on Android, iOS, macOS, Linux and Windows.",
+    "what_it_does": "The plugin exposes methods such as getTemporaryDirectory, getApplicationDocumentsDirectory, and getDownloadsDirectory to retrieve platform‑specific paths. It abstracts platform differences behind a unified Dart API.",
+    "use_when": [
+      "You need to read or write files in standard app directories without handling platform‑specific path logic yourself",
+      "You require access to the downloads folder or external storage on Android"
+    ],
+    "avoid_when": [
+      "Your app only stores data in a key‑value store or database and doesn't need raw file paths",
+      "You need advanced file‑system features like picking files via UI dialogs"
+    ],
+    "strengths": [
+      "Simple, well‑documented API",
+      "Supports all major desktop and mobile platforms",
+      "Handles platform nuances and null/UnsupportedError cases"
+    ],
+    "weaknesses": [
+      "Only provides directory paths, not file‑picker UI",
+      "Requires native plugin setup for each platform"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the package to pubspec.yaml; the plugin automatically registers native code. No additional permissions beyond platform defaults (e.g., Android storage permissions if accessing external storage).",
+    "alternatives": [
+      {
+        "name": "open_file",
+        "why_pick_it": "If you need to open files with associated apps rather than just obtain paths"
+      }
+    ],
+    "minimal_example": "final dir = await getApplicationDocumentsDirectory();\nprint('App docs dir: ${dir.path}');",
+    "confidence": 0.97
+  }
+}

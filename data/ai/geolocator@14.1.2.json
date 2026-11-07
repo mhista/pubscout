@@ -1,0 +1,51 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.8-flash",
+  "version": "14.1.2",
+  "generatedAt": "2026-11-07T09:29:28.738Z",
+  "data": {
+    "primary_category": "maps",
+    "secondary_categories": [
+      "device"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Cross-platform plugin to access device GPS, location updates, and coordinate calculations.",
+    "what_it_does": "Provides access to native location services across Android, iOS, macOS, Windows, Linux, and Web. Allows developers to check and request permissions, query current or last known positions, and stream continuous location updates. Also includes utility functions to calculate distance and bearing between coordinates.",
+    "use_when": [
+      "You need current GPS coordinates or continuous position tracking on mobile, desktop, or web.",
+      "You need built-in handling for location permissions and service status checks.",
+      "You need to calculate distance or bearing between geographic coordinates."
+    ],
+    "avoid_when": [
+      "You only need address geocoding or reverse geocoding without raw GPS data (use the dedicated geocoding package instead).",
+      "You only need map rendering without location retrieval (use flutter_map directly)."
+    ],
+    "strengths": [
+      "Comprehensive platform support covering Android, iOS, macOS, Windows, Linux, and Web.",
+      "Built-in permission handling and location service status queries.",
+      "Provides both one-off location queries and continuous stream updates."
+    ],
+    "weaknesses": [
+      "Extensive native configuration required, including Info.plist keys, manifest permissions, and background capability settings.",
+      "Web platform has limitations such as lack of support for last-known position and app settings navigation."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding location permissions to AndroidManifest.xml (and background permissions if needed), adding usage descriptions to Info.plist on iOS/macOS, and configuring entitlements or Podfile bypass flags.",
+    "alternatives": [
+      {
+        "name": "geocoding",
+        "why_pick_it": "Pick geocoding when you only need to convert addresses to coordinates or vice versa, as geocoding features were separated from geolocator."
+      },
+      {
+        "name": "flutter_map",
+        "why_pick_it": "Pick flutter_map when you need to render and interact with map tiles rather than just fetch GPS coordinates."
+      }
+    ],
+    "minimal_example": "Future<Position> determinePosition() async {\n  bool serviceEnabled = await Geolocator.isLocationServiceEnabled();\n  if (!serviceEnabled) {\n    return Future.error('Location services are disabled.');\n  }\n\n  LocationPermission permission = await Geolocator.checkPermission();\n  if (permission == LocationPermission.denied) {\n    permission = await Geolocator.requestPermission();\n    if (permission == LocationPermission.denied) {\n      return Future.error('Location permissions are denied');\n    }\n  }\n\n  if (permission == LocationPermission.deniedForever) {\n    return Future.error('Location permissions are permanently denied.');\n  }\n\n  return await Geolocator.getCurrentPosition();\n}",
+    "confidence": 1
+  }
+}

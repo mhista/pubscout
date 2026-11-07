@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.8-flash",
+  "version": "6.0.1",
+  "generatedAt": "2026-11-07T09:30:00.815Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Loads configuration variables from .env asset files or strings into Flutter apps.",
+    "what_it_does": "Loads key-value pairs from `.env` files bundled as Flutter assets or parsed from raw strings. Provides typed getters and fallback options to access non-sensitive configuration values like API URLs and feature flags globally. Supports variable interpolation, overriding files, and programmatic merges.",
+    "use_when": [
+      "You need to manage environment-specific configurations (such as base URLs or log levels) across development, staging, and production",
+      "You want a familiar .env syntax with support for variable interpolation and typed values (int, double, bool)"
+    ],
+    "avoid_when": [
+      "Storing sensitive secrets like private API keys, tokens, or passwords, because asset files are packaged into the app binary and easily extracted"
+    ],
+    "strengths": [
+      "Built-in typed getters (`getInt`, `getDouble`, `getBool`) with optional fallbacks",
+      "Supports multiple environment layering via `overrideWithFiles` and programmatic overrides via `mergeWith`",
+      "Handles variable interpolation (`$BASE_URL/v1` and `${BASE_URL}/v1`) natively"
+    ],
+    "weaknesses": [
+      "Insecure for confidential secrets since asset files are bundled publicly within client builds",
+      "Requires `.env` files to be manually registered under the Flutter `assets` section in `pubspec.yaml`"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires adding the `.env` file to the `assets` list in `pubspec.yaml`.",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:flutter_dotenv/flutter_dotenv.dart';\n\nFuture<void> main() async {\n  await dotenv.load(fileName: '.env');\n  runApp(const MyApp());\n}\n\nclass MyApp extends StatelessWidget {\n  const MyApp({super.key});\n  @override\n  Widget build(BuildContext context) {\n    final apiUrl = dotenv.get('API_URL', fallback: 'https://default.example.com');\n    return MaterialApp(home: Scaffold(body: Center(child: Text(apiUrl))));\n  }\n}",
+    "confidence": 1
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.2.4",
+  "generatedAt": "2026-11-07T09:30:12.142Z",
+  "data": {
+    "primary_category": "images",
+    "secondary_categories": [
+      "camera",
+      "files"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Flutter plugin for selecting images/videos from the gallery and capturing new ones via camera.",
+    "what_it_does": "Provides APIs to pick single or multiple images, videos, or mixed media from the device's library or take new photos and videos using the camera. It returns cross-platform XFile objects representing the selected media.",
+    "use_when": [
+      "You need users to select existing photos or videos from their device gallery.",
+      "Your app requires taking new pictures or recording videos using the device camera.",
+      "You need cross-platform support for picking media across mobile, web, and desktop."
+    ],
+    "avoid_when": [
+      "You need full in-app custom camera viewfinders and advanced hardware controls instead of a simple photo-capture intent.",
+      "You require complex image editing, filtering, or heavy image manipulation out of the box."
+    ],
+    "strengths": [
+      "Supports multiple platform implementations (Android, iOS, Web, Windows, macOS, Linux).",
+      "Handles lost data recovery on Android when low-memory kills the application.",
+      "Uses modern native pickers such as PHPicker on iOS and Android Photo Picker on newer versions."
+    ],
+    "weaknesses": [
+      "Desktop platforms have limited support and require a third-party camera delegate for capturing photos.",
+      "Android low-memory process death requires manual implementation of retrieveLostData checks."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires iOS Info.plist permission descriptions for photo library, camera, and microphone. macOS requires user-selected files read-only entitlement. Android requires no configuration out of the box.",
+    "alternatives": [
+      {
+        "name": "image",
+        "why_pick_it": "If you need to decode, manipulate, and convert image formats directly in Dart code."
+      },
+      {
+        "name": "extended_image",
+        "why_pick_it": "If you need advanced image loading, zooming, panning, and cropping widgets."
+      }
+    ],
+    "minimal_example": "final picker = ImagePicker();\nfinal XFile? image = await picker.pickImage(source: ImageSource.gallery);",
+    "confidence": 1
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.0.0",
+  "generatedAt": "2026-11-07T09:30:11.703Z",
+  "data": {
+    "primary_category": "dependency-injection",
+    "secondary_categories": [
+      "codegen"
+    ],
+    "approach": [
+      "code generation"
+    ],
+    "one_liner": "Convenient code generator for get_it dependency injection.",
+    "what_it_does": "Injectable automates the wiring and registration of services for get_it using annotations like @injectable, @singleton, and @module. It analyzes your classes and generates an initialization extension method for your GetIt instance.",
+    "use_when": [
+      "You are using get_it for dependency injection in your Flutter or Dart application",
+      "You want to eliminate boilerplate code for registering factories and singletons"
+    ],
+    "avoid_when": [
+      "You prefer manual service registration without code generation tools",
+      "You are not using get_it"
+    ],
+    "strengths": [
+      "Reduces boilerplate associated with get_it registrations",
+      "Supports asynchronous initialization, singletons, factories, and factory parameters",
+      "Supports environments and named registrations"
+    ],
+    "weaknesses": [
+      "Requires running a code generator (build_runner or lean_builder)",
+      "Adds an extra build step during development"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add injectable and get_it to dependencies, and injectable_generator and build_runner (or lean_builder) to dev_dependencies. Create a configuration function annotated with @InjectableInit and run the generator.",
+    "alternatives": [
+      {
+        "name": "get_it",
+        "why_pick_it": "If you prefer manual service registration without using a code generator."
+      }
+    ],
+    "minimal_example": "import '<FILE_NAME>.config.dart';\n\t\nfinal getIt = GetIt.instance;  \n  \n@InjectableInit()  \nvoid configureDependencies() => getIt.init();  \n\nvoid main() {  \n configureDependencies();  \n runApp(MyApp());  \n}",
+    "confidence": 1
+  }
+}

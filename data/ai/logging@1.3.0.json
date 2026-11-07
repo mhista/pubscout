@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "1.3.0",
+  "generatedAt": "2026-11-07T09:55:26.868Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "Provides configurable logging with levels and stream listeners for Dart apps.",
+    "what_it_does": "The package lets you create named loggers, set hierarchical log levels, and listen to log records via streams. It supports lazy message evaluation and level change notifications.",
+    "use_when": [
+      "You need structured, level‑filtered logging in a Dart or Flutter project",
+      "You want to capture logs without adding external dependencies"
+    ],
+    "avoid_when": [
+      "You require remote log aggregation or analytics services",
+      "You need a UI log viewer or persistent storage"
+    ],
+    "strengths": [
+      "Zero dependencies and BSD‑3 license",
+      "Fine‑grained level control and hierarchical logging",
+      "Stream‑based API enables custom handling"
+    ],
+    "weaknesses": [
+      "No built‑in persistence or remote transport",
+      "Only provides logging, not log analysis tools"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:logging/logging.dart';\n\nvoid main() {\n  Logger.root.level = Level.ALL;\n  Logger.root.onRecord.listen((r) => print('${r.level.name}: ${r.time}: ${r.message}'));\n  final log = Logger('MyClass');\n  log.fine('debug message');\n  log.severe('error', Exception('oops'));\n}",
+    "confidence": 0.98
+  }
+}

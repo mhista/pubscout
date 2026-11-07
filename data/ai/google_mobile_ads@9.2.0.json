@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "9.2.0",
+  "generatedAt": "2026-11-07T09:29:39.441Z",
+  "data": {
+    "primary_category": "payments",
+    "secondary_categories": [
+      "ui-kits"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter plugin to show AdMob banner, interstitial, rewarded and native ads.",
+    "what_it_does": "Provides a Dart API that wraps the Google Mobile Ads SDK for Android and iOS. Lets you load and display various ad formats and configure ad request settings.",
+    "use_when": [
+      "You need to monetize a Flutter app with AdMob or Ad Manager ads",
+      "You require banner, interstitial, rewarded or native ad support on Android and iOS"
+    ],
+    "avoid_when": [
+      "You prefer a fully open‑source ad solution without Google dependencies",
+      "You target platforms other than Android or iOS"
+    ],
+    "strengths": [
+      "Official Google‑maintained plugin",
+      "Supports all major ad formats",
+      "Regular updates and bug fixes"
+    ],
+    "weaknesses": [
+      "Requires native SDK setup and platform‑specific configuration",
+      "Limited to Google’s ad ecosystem"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add the plugin to pubspec, run flutter pub get, then follow Android (update AndroidManifest, Gradle) and iOS (add App Transport Security exceptions, update Info.plist) setup steps in the official docs.",
+    "alternatives": [
+      {
+        "name": "in_app_purchase",
+        "why_pick_it": "If you need to sell digital goods or subscriptions instead of showing ads"
+      }
+    ],
+    "minimal_example": "import 'package:google_mobile_ads/google_mobile_ads.dart';\n\nvoid main() {\n  WidgetsFlutterBinding.ensureInitialized();\n  MobileAds.instance.initialize();\n  runApp(MyApp());\n}\n\nclass MyApp extends StatelessWidget {\n  final BannerAd _banner = BannerAd(\n    adUnitId: '<YOUR_AD_UNIT_ID>',\n    size: AdSize.banner,\n    request: AdRequest(),\n    listener: BannerAdListener(),\n  )..load();\n\n  @override\n  Widget build(BuildContext context) {\n    return MaterialApp(\n      home: Scaffold(\n        appBar: AppBar(title: Text('AdMob Banner')),\n        body: Center(child: AdWidget(ad: _banner)),\n      ),\n    );\n  }\n}",
+    "confidence": 0.97
+  }
+}

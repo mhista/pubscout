@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "11.2.0",
+  "generatedAt": "2026-11-07T09:23:48.595Z",
+  "data": {
+    "primary_category": "navigation",
+    "secondary_categories": [
+      "codegen"
+    ],
+    "approach": [
+      "code generation",
+      "declarative"
+    ],
+    "one_liner": "A Flutter package for declarative, strongly‑typed navigation with code‑gen support.",
+    "what_it_does": "AutoRoute generates strongly‑typed route classes and navigation helpers from annotated router definitions. It handles deep linking, nested routes, guards and custom transitions automatically.",
+    "use_when": [
+      "App needs deep linking or guarded routes",
+      "Complex/nested navigation structures",
+      "You want type‑safe arguments and reduced boilerplate"
+    ],
+    "avoid_when": [
+      "Very simple apps with few screens",
+      "You prefer pure runtime routing without code generation"
+    ],
+    "strengths": [
+      "Strongly‑typed arguments and routes",
+      "Built‑in deep‑linking and route guards",
+      "Code generation removes boilerplate",
+      "Supports nested and tab navigation"
+    ],
+    "weaknesses": [
+      "Requires build_runner and code‑gen step",
+      "Learning curve for annotations and generated code",
+      "Adds compile‑time dependency"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add auto_route to dependencies and auto_route_generator + build_runner to dev_dependencies, then run dart run build_runner build/watch to generate code.",
+    "alternatives": [],
+    "minimal_example": "@AutoRouterConfig()\nclass AppRouter extends RootStackRouter {\n  @override\n  List<AutoRoute> get routes => [\n    AutoRoute(page: HomeRoute.page),\n  ];\n}\n\nfinal _appRouter = AppRouter();\nMaterialApp.router(routerDelegate: _appRouter.delegate(), routeInformationParser: _appRouter.defaultRouteParser());",
+    "confidence": 0.97
+  }
+}

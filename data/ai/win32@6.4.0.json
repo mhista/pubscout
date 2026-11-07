@@ -1,0 +1,46 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "6.4.0",
+  "generatedAt": "2026-11-07T09:35:02.014Z",
+  "data": {
+    "primary_category": "web-desktop",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Call common Windows APIs and COM objects directly from Dart using FFI.",
+    "what_it_does": "Exposes a curated surface of Win32 and COM APIs via Dart FFI. Enables Windows-specific capabilities that are not accessible through standard dart:io or Flutter plugins.",
+    "use_when": [
+      "Building Flutter desktop apps for Windows that require low-level system or hardware access.",
+      "Writing cross-platform packages with a Windows-specific native backend.",
+      "Developing command-line tools or background services on Windows needing native file, process, or security APIs."
+    ],
+    "avoid_when": [
+      "Targeting non-Windows platforms like Android, iOS, or macOS.",
+      "Building standard multiplatform apps where regular Flutter plugins or dart:io provide sufficient functionality."
+    ],
+    "strengths": [
+      "Provides direct, low-level access to Win32 and COM APIs in Dart.",
+      "Eliminates the need for MSVC to build native wrappers in recent versions.",
+      "Supports robust error handling and modern FFI usage."
+    ],
+    "weaknesses": [
+      "Restricted entirely to the Windows platform.",
+      "Requires manual resource management and dealing with raw platform pointers."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Works out of the box on Windows targets; no local MSVC compiler is strictly required for default prebuilt binaries.",
+    "alternatives": [
+      {
+        "name": "window_manager",
+        "why_pick_it": "If you only need window management and desktop framing features rather than raw Win32 bindings."
+      }
+    ],
+    "minimal_example": "import 'package:ffi/ffi.dart';\nimport 'package:win32/win32.dart';\n\nvoid main() {\n  using((arena) {\n    final Win32Result(:value, :error) = MessageBox(\n      null,\n      arena.pcwstr('Hello from Dart'),\n      arena.pcwstr('Dart Win32 MessageBox Demo'),\n      MB_OK | MB_ICONINFORMATION,\n    );\n    switch (value) {\n      case IDOK:\n        print('OK pressed');\n      case 0:\n        throw WindowsException(error.toHRESULT());\n    }\n  });\n}",
+    "confidence": 1
+  }
+}

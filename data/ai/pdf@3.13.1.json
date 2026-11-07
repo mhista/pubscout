@@ -1,0 +1,50 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.8-flash",
+  "version": "3.13.1",
+  "generatedAt": "2026-11-07T09:34:46.338Z",
+  "data": {
+    "primary_category": "files",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A PDF generation library for Dart and Flutter using a widget-like layout system.",
+    "what_it_does": "Provides low-level PDF byte generation alongside a high-level widget system modeled after Flutter's layout concepts. It supports multi-page layouts with automatic pagination, TrueType fonts, SVGs, images, and tables. Documents can be serialized directly into byte arrays or streamed for memory-bounded output.",
+    "use_when": [
+      "You need to generate PDF reports, invoices, or multi-page documents programmatically across Flutter or pure Dart environments.",
+      "You want to build PDF document layouts using familiar Flutter-like widgets such as Row, Column, Container, and Table.",
+      "You require automatic page breaking and header/footer management across variable-length content."
+    ],
+    "avoid_when": [
+      "You only need to display, view, or open existing PDF files (you need a viewer or opener package instead).",
+      "You need hardware printing or OS share sheets out-of-the-box without pairing it with an additional plugin like printing."
+    ],
+    "strengths": [
+      "Familiar declarative widget layout system reduces the learning curve for Flutter developers.",
+      "Supports automatic multi-page flows with configurable headers, footers, and page breaks via MultiPage.",
+      "Pure Dart implementation works across Android, iOS, Web, macOS, Linux, and Windows."
+    ],
+    "weaknesses": [
+      "Does not handle native printing or device share dialogs directly; requires separate packages like printing.",
+      "Loading, editing, or encrypting existing PDFs requires external dependencies or separate crypto libraries."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "open_file",
+        "why_pick_it": "Pick open_file if you need to view or launch the generated PDF in the device's default viewer rather than generating the document itself."
+      },
+      {
+        "name": "path_provider",
+        "why_pick_it": "Pick path_provider to resolve local directories for saving the generated PDF files onto the device filesystem."
+      }
+    ],
+    "minimal_example": "import 'package:pdf/pdf.dart';\nimport 'package:pdf/widgets.dart' as pw;\n\nfinal pdf = pw.Document();\n\npdf.addPage(\n  pw.Page(\n    pageFormat: PdfPageFormat.a4,\n    build: (pw.Context context) {\n      return pw.Center(\n        child: pw.Text('Hello World'),\n      );\n    },\n  ),\n);\n\nfinal bytes = await pdf.save();",
+    "confidence": 1
+  }
+}

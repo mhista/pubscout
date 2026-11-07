@@ -1,0 +1,46 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "10.0.0",
+  "generatedAt": "2026-11-07T09:23:54.122Z",
+  "data": {
+    "primary_category": "testing",
+    "secondary_categories": [
+      "state-management"
+    ],
+    "approach": [
+      "stream-based",
+      "declarative"
+    ],
+    "one_liner": "A testing library that makes it easy to test blocs and cubits.",
+    "what_it_does": "Provides utilities like blocTest and whenListen to simplify testing state changes, emitted states, and async operations in blocs and cubits. It handles stream closing and expectations sequencing automatically.",
+    "use_when": [
+      "You are writing unit tests for blocs or cubits",
+      "You need to verify emitted states in order after an action",
+      "You need to stub state streams using whenListen"
+    ],
+    "avoid_when": [
+      "You are not using the bloc state management package",
+      "You are testing UI widgets rather than business logic"
+    ],
+    "strengths": [
+      "Simplifies asynchronous bloc testing with clear syntax",
+      "Provides built-in support for seeding states, skipping events, and waiting on async operations",
+      "Integrates seamlessly with package:test and mocktail"
+    ],
+    "weaknesses": [
+      "Strictly tied to the bloc ecosystem"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [
+      {
+        "name": "riverpod",
+        "why_pick_it": "Choose if you use Riverpod for state management instead of bloc."
+      }
+    ],
+    "minimal_example": "group('CounterBloc', () => {\n  blocTest(\n    'emits [1] when CounterIncrementPressed is added',\n    build: () => CounterBloc(),\n    act: (bloc) => bloc.add(CounterIncrementPressed()),\n    expect: () => [1],\n  );\n});",
+    "confidence": 1
+  }
+}

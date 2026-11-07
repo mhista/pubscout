@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.1.3",
+  "generatedAt": "2026-11-07T09:55:26.559Z",
+  "data": {
+    "primary_category": "codegen",
+    "secondary_categories": [],
+    "approach": [
+      "code generation"
+    ],
+    "one_liner": "Dart template generator for quick file creation",
+    "what_it_does": "Mason provides a core generator that can be used to build custom code generation tools. It loads bricks from local or Git sources and renders templates with variables. The generated files are written to a target directory.",
+    "use_when": [
+      "You need to generate boilerplate files consistently across a team",
+      "You want to create custom generators for your own project structure",
+      "You are already using mason_cli and want to extend it with custom bricks"
+    ],
+    "avoid_when": [
+      "You need runtime UI generation or dynamic widget creation",
+      "You are building a library that requires runtime code execution"
+    ],
+    "strengths": [
+      "Fast, consistent file generation",
+      "Supports Git bricks and local bricks",
+      "Hook system for pre/post generation logic"
+    ],
+    "weaknesses": [
+      "Only for file generation, not runtime code",
+      "Requires manual setup of bricks",
+      "Limited to Dart/Flutter projects"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add mason to pubspec, import mason, create a Brick, call MasonGenerator.fromBrick, and generate to a DirectoryGeneratorTarget",
+    "alternatives": [],
+    "minimal_example": "import 'dart:io';\nimport 'package:mason/mason.dart';\n\nFuture<void> main() async {\n  final brick = Brick.git(\n    const GitPath(\n      'https://github.com/felangel/mason',\n      path: 'bricks/greeting',\n    ),\n  );\n  final generator = await MasonGenerator.fromBrick(brick);\n  final target = DirectoryGeneratorTarget(Directory.current);\n  await generator.generate(target, vars: <String, dynamic>{'name': 'Dash'});\n}\n",
+    "confidence": 0.9
+  }
+}

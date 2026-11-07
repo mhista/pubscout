@@ -1,0 +1,46 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.8-flash",
+  "version": "7.0.0",
+  "generatedAt": "2026-11-07T09:36:06.140Z",
+  "data": {
+    "primary_category": "forms",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Customizable animated PIN and OTP code input widget with autofill support.",
+    "what_it_does": "Provides a dedicated input widget for PIN codes, passcodes, and one-time passwords (OTP). It supports animated state transitions between default, focused, submitted, and error themes along with form validation. It handles clipboard pasting and integrates with iOS keyboard autofill and Android SMS retrieval workflows.",
+    "use_when": [
+      "Building two-factor authentication (2FA) or phone verification screens requiring OTP input.",
+      "Designing passcodes, lock screens, or gift voucher code entries.",
+      "Needing smooth animated transitions between different input box states (focused, error, completed)."
+    ],
+    "avoid_when": [
+      "Only needing standard multiline or single-line generic text inputs without individual digit cells.",
+      "Working on legacy Flutter setups that cannot satisfy the Flutter >= 3.44.0 requirement of version 7.0.0."
+    ],
+    "strengths": [
+      "Extensively customizable with separate themes for default, focused, submitted, and error states.",
+      "Supports iOS native autofill out of the box and integrates smoothly with Android SMS APIs.",
+      "Includes built-in Form validation, custom cursors, obscuring widgets, and haptic feedback."
+    ],
+    "weaknesses": [
+      "Android SMS autofill requires external packages (like smart_auth) or custom Firebase Auth handling rather than working out of the box.",
+      "Breaking change in version 7.0.0 migrated to material_ui, requiring newer Flutter and Dart SDK versions."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "iOS autofill works out of the box; Android automatic SMS retrieval requires configuration with Firebase Auth or third-party packages like smart_auth.",
+    "alternatives": [
+      {
+        "name": "pin_code_fields",
+        "why_pick_it": "Offers an established alternative for PIN and OTP input fields if you are targeting older Flutter SDK versions."
+      }
+    ],
+    "minimal_example": "Pinput(\n  defaultPinTheme: PinTheme(\n    width: 56,\n    height: 56,\n    decoration: BoxDecoration(\n      border: Border.all(color: Colors.grey),\n      borderRadius: BorderRadius.circular(8),\n    ),\n  ),\n  validator: (pin) => pin == '2222' ? null : 'Pin is incorrect',\n  onCompleted: (pin) => print(pin),\n);",
+    "confidence": 0.95
+  }
+}

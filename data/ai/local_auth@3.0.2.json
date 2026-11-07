@@ -1,0 +1,53 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "3.0.2",
+  "generatedAt": "2026-11-07T09:31:21.337Z",
+  "data": {
+    "primary_category": "auth",
+    "secondary_categories": [
+      "device"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter plugin for on‑device authentication using biometrics, PIN, pattern or passcode.",
+    "what_it_does": "Provides a unified API to check device authentication capabilities and to prompt the user for biometric or device‑level authentication. It abstracts platform‑specific implementations for Android, iOS, macOS and Windows. Errors are returned as structured LocalAuthException codes.",
+    "use_when": [
+      "You need local, on‑device authentication without a backend",
+      "You want biometric, face, fingerprint or fallback PIN/passcode support across mobile and desktop",
+      "You require a simple API to check enrollment and authenticate the user"
+    ],
+    "avoid_when": [
+      "Your app targets web platforms",
+      "You need social or OAuth based sign‑in flows",
+      "You require server‑side token validation"
+    ],
+    "strengths": [
+      "Native biometric and device‑level authentication on multiple platforms",
+      "Fallback to PIN/pattern/passcode when biometrics unavailable",
+      "Clear error handling with LocalAuthException codes",
+      "Simple, synchronous‑style API"
+    ],
+    "weaknesses": [
+      "No web support",
+      "Requires native setup and permissions per platform",
+      "Windows cannot enforce biometric‑only authentication"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add local_auth and platform packages to pubspec, configure Android manifest (USE_BIOMETRIC permission), iOS Info.plist (NSFaceIDUsageDescription), and follow platform‑specific README links for additional steps.",
+    "alternatives": [
+      {
+        "name": "google_sign_in",
+        "why_pick_it": "Provides Google OAuth sign‑in and works on web as well as mobile"
+      },
+      {
+        "name": "firebase_auth",
+        "why_pick_it": "Offers a full suite of authentication methods (email/password, social, anonymous) with server‑side token handling"
+      }
+    ],
+    "minimal_example": "import 'package:local_auth/local_auth.dart';\n\nfinal LocalAuthentication auth = LocalAuthentication();\nfinal bool canAuth = await auth.canCheckBiometrics || await auth.isDeviceSupported();\nif (canAuth) {\n  final bool didAuth = await auth.authenticate(\n    localizedReason: 'Please authenticate to continue',\n    biometricOnly: true,\n  );\n  // proceed based on didAuth\n}",
+    "confidence": 0.97
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.8-flash",
+  "version": "7.2.0",
+  "generatedAt": "2026-11-07T09:30:18.912Z",
+  "data": {
+    "primary_category": "auth",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Official Flutter plugin for authenticating users and requesting OAuth scopes via Google Sign-In.",
+    "what_it_does": "Allows Flutter apps to authenticate users using their Google accounts across Android, iOS, macOS, and Web. Handles lightweight sign-in, explicit authentication UI flows, and separate OAuth authorization for Google APIs. Provides access tokens and server auth codes for backend verification.",
+    "use_when": [
+      "Your application needs to allow users to sign in with their Google account.",
+      "You need OAuth access tokens or server auth codes to call Google APIs on behalf of the user."
+    ],
+    "avoid_when": [
+      "You only need local device biometrics or PIN authentication without Google accounts.",
+      "You are targeting Windows or Linux desktop platforms where this plugin is not supported."
+    ],
+    "strengths": [
+      "Official Flutter plugin supporting Android, iOS, macOS, and Web.",
+      "Decouples basic authentication from authorization, matching modern OAuth security standards.",
+      "Supports lightweight silent sign-in and streaming authentication state events."
+    ],
+    "weaknesses": [
+      "Requires platform-specific setup and integration steps for each target OS.",
+      "Web platform has specific constraints, such as mandatory SDK-rendered buttons and non-refreshing access tokens."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires client ID configuration and separate native setup across Android, iOS/macOS, and Web.",
+    "alternatives": [
+      {
+        "name": "firebase_auth",
+        "why_pick_it": "Pick if you want a complete identity platform supporting multiple providers (email, Google, Apple) alongside backend auth state management."
+      },
+      {
+        "name": "local_auth",
+        "why_pick_it": "Pick if you need device-level biometric or passcode checks rather than federated Google account sign-in."
+      }
+    ],
+    "minimal_example": "final GoogleSignIn signIn = GoogleSignIn.instance;\nawait signIn.initialize(clientId: clientId, serverClientId: serverClientId);\nsignIn.authenticationEvents.listen((event) {\n  // Handle auth event\n});\nawait signIn.attemptLightweightAuthentication();\n\nif (signIn.supportsAuthenticate()) {\n  await signIn.authenticate();\n}",
+    "confidence": 1
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.6.1",
+  "generatedAt": "2026-11-07T09:34:21.902Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Lock mechanism to prevent concurrent access to asynchronous code.",
+    "what_it_does": "Provides a basic Lock, ReentrantLock, MultiLock, and GlobalLock to ensure that critical sections of asynchronous operations run sequentially within a single isolate or globally across processes. Preserves return values and handles timeouts when acquiring locks.",
+    "use_when": [
+      "You need to provide transactions on database systems lacking built-in transaction mechanisms like MongoDB or file systems",
+      "You want to ensure asynchronous UI operations in a web app do not conflict",
+      "You need cross-isolate, cross-process, or cross-browser tab synchronization using GlobalLock"
+    ],
+    "avoid_when": [
+      "You need cross-process synchronization and are running on node (where GlobalLock is limited to the current process)"
+    ],
+    "strengths": [
+      "No dependencies other than the Dart SDK",
+      "Supports browser, DartVM, and Flutter across multiple platforms",
+      "Offers reentrant lock options via Zones and multi-lock capabilities"
+    ],
+    "weaknesses": [
+      "The name is biased since Dart is single-threaded; it only helps handle asynchronous await interleaving",
+      "Basic locks are not reentrant by default"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:synchronized/synchronized.dart';\n\nFuture<void> main() async {\n  var lock = Lock();\n  await lock.synchronized(() async {\n    // Only this block can run (once) until done\n  });\n}",
+    "confidence": 1
+  }
+}

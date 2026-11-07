@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "10.3.0",
+  "generatedAt": "2026-11-07T09:34:04.015Z",
+  "data": {
+    "primary_category": "devtools",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Crash reporting and error tracking library for Dart and Flutter applications.",
+    "what_it_does": "A crash reporting and error-tracking library that sends exceptions, stack traces, and performance monitoring metrics to Sentry.io. It supports Dart VM and Web, offering features like HTTP request breadcrumbs and error capture.",
+    "use_when": [
+      "You need to capture and report runtime crashes or exceptions to a centralized dashboard.",
+      "You want to track HTTP request performance and catch failed network requests as errors."
+    ],
+    "avoid_when": [
+      "You are using Flutter and should instead use the dedicated `sentry_flutter` package for full native crash support.",
+      "You do not use Sentry.io as your error tracking backend."
+    ],
+    "strengths": [
+      "Comprehensive error capture including unhandled exceptions and HTTP requests.",
+      "Supports both Dart VM and Web platforms.",
+      "Easy integration with `Sentry.init` or custom error zones."
+    ],
+    "weaknesses": [
+      "For Flutter applications, this base package lacks some native features provided by `sentry_flutter`.",
+      "Requires an external Sentry.io account and DSN setup."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Sign up for a Sentry.io account to obtain a DSN, add the dependency, and initialize the SDK in your main function.",
+    "alternatives": [],
+    "minimal_example": "import 'package:sentry/sentry.dart';\n\nFuture<void> main() async {\n  await Sentry.init(\n    (options) {\n      options.dsn = 'https://example@sentry.io/example';\n    },\n    appRunner: initApp,\n  );\n}\n\nvoid initApp() {\n  // your app code\n}",
+    "confidence": 0.95
+  }
+}

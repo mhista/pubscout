@@ -1,0 +1,53 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.22.0",
+  "generatedAt": "2026-11-07T09:30:02.391Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "code generation"
+    ],
+    "one_liner": "A lightweight and fast NoSQL key-value database written in pure Dart.",
+    "what_it_does": "Hive CE provides a cross-platform NoSQL database solution built for Dart and Flutter. It allows developers to store data using simple key-value boxes with support for encryption, isolates, and type adapters.",
+    "use_when": [
+      "You need a fast, lightweight NoSQL database for key-value storage.",
+      "You need cross-platform support including mobile, desktop, and web.",
+      "You want built-in encryption and simple type adapter generation."
+    ],
+    "avoid_when": [
+      "You require complex relational queries, foreign keys, or a full SQL engine.",
+      "You are using a Dart SDK older than version 3."
+    ],
+    "strengths": [
+      "Blazing fast performance with no native dependencies.",
+      "Built-in strong encryption support.",
+      "Cross-platform compatibility including mobile, desktop, and browser."
+    ],
+    "weaknesses": [
+      "Writes can be lost if the process is killed before the future completes and before a manual flush.",
+      "Lacks advanced relational database features like SQL joins."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires Dart 3. Add the package to dependencies and initialize boxes as needed.",
+    "alternatives": [
+      {
+        "name": "shared_preferences",
+        "why_pick_it": "Best for extremely simple key-value settings data on mobile platforms."
+      },
+      {
+        "name": "sqflite",
+        "why_pick_it": "Best when you specifically need a relational SQLite database with SQL queries."
+      },
+      {
+        "name": "drift",
+        "why_pick_it": "Best for type-safe reactive SQL databases with complex relational schemas."
+      }
+    ],
+    "minimal_example": "import 'package:hive_ce/hive_ce.dart';\n\nvoid example() {\n  final box = Hive.box('myBox');\n  box.put('name', 'David');\n  final name = box.get('name');\n  print('Name: $name');\n}",
+    "confidence": 0.95
+  }
+}

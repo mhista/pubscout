@@ -1,0 +1,46 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.8-flash",
+  "version": "1.8.2",
+  "generatedAt": "2026-11-07T09:35:55.552Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "web-desktop"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Keep the device screen awake across mobile, desktop, and web platforms.",
+    "what_it_does": "Controls the screen wakelock to prevent a device display from dimming or turning off automatically. It provides simple imperative functions to enable, disable, or query the wakelock state across all supported platforms. Because it only manages the screen state rather than CPU background execution, it requires no special platform permissions.",
+    "use_when": [
+      "Playing video or audio media where user interaction is absent but the display must stay active.",
+      "Displaying long-form reading, dashboards, recipes, or presentation screens without unwanted screen timeouts.",
+      "Targeting multiple platforms including mobile, desktop, and web with a unified screen wakelock API."
+    ],
+    "avoid_when": [
+      "You need background CPU processing while the screen is off (partial wakelocks are not supported).",
+      "General window management or desktop-specific window controls are needed beyond keeping the display awake."
+    ],
+    "strengths": [
+      "No special permissions required on any platform.",
+      "Comprehensive platform support covering Android, iOS, macOS, Windows, Linux, and Web.",
+      "Simple API with enable, disable, toggle, and status check methods."
+    ],
+    "weaknesses": [
+      "High minimum SDK requirements (requires Flutter SDK >=3.41.0 and Dart SDK >=3.11.0).",
+      "May require manual ndkVersion adjustments in Android Gradle configurations if errors arise."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "No permissions required. On Android, you may need to explicitly specify an NDK version in build.gradle if prompted.",
+    "alternatives": [
+      {
+        "name": "window_manager",
+        "why_pick_it": "Pick if you need desktop window management (resizing, positioning, always-on-top) rather than just mobile/cross-platform screen wakelocks."
+      }
+    ],
+    "minimal_example": "import 'package:wakelock_plus/wakelock_plus.dart';\n\n// Keep the screen awake\nWakelockPlus.enable();\n\n// Allow the screen to sleep again\nWakelockPlus.disable();\n\n// Check if wakelock is currently active\nbool isEnabled = await WakelockPlus.enabled;",
+    "confidence": 1
+  }
+}

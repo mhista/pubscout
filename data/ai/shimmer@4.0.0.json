@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.0.0",
+  "generatedAt": "2026-11-07T09:34:09.976Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "animation"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Paints a moving highlight over skeleton placeholders and call-to-action text.",
+    "what_it_does": "Provides a Flutter widget that applies a moving highlight effect using shaders. It is commonly used for creating skeleton screens during loading states or sliding highlights on call-to-action text.",
+    "use_when": [
+      "You need to display skeleton loading placeholder screens for asynchronous data.",
+      "You want to create a sliding highlight effect on text or buttons like a slide-to-unlock feature."
+    ],
+    "avoid_when": [
+      "You are wrapping individual rows in separate Shimmer widgets within a long list instead of wrapping the whole list.",
+      "Your app does not meet the Flutter >=3.44.0 requirement introduced in version 4.0.0."
+    ],
+    "strengths": [
+      "Lightweight widget utilizing a ShaderMaskLayer for efficient rendering.",
+      "Supports customizable gradients, direction, period, loops, and enabled state."
+    ],
+    "weaknesses": [
+      "Requires using the standalone material_ui package and Flutter >=3.44.0 in version 4.0.0.",
+      "Complex child widgets with images or decorated text may render incorrectly because the shader replaces their colors."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires adding the shimmer dependency and the standalone material_ui package (Flutter 3.44+).",
+    "alternatives": [
+      {
+        "name": "skeletonizer",
+        "why_pick_it": "Alternative package listed in catalog for skeleton placeholders."
+      }
+    ],
+    "minimal_example": "Shimmer.fromColors(\n  baseColor: Colors.grey.shade300,\n  highlightColor: Colors.grey.shade100,\n  child: Column(\n    children: [\n      Container(height: 200, color: Colors.white),\n      const SizedBox(height: 16),\n      Container(height: 12, color: Colors.white),\n    ],\n  ),\n);",
+    "confidence": 1
+  }
+}

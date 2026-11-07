@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "7.1.1",
+  "generatedAt": "2026-11-07T09:34:03.940Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "Flutter plugin to access accelerometer, gyroscope, magnetometer, and barometer sensors.",
+    "what_it_does": "Provides a set of broadcast streams to access device sensors such as accelerometer, user accelerometer, gyroscope, magnetometer, and barometer. Allows configuring sampling rates where supported by the platform.",
+    "use_when": [
+      "You need to read motion, rotation, or orientation data from physical device sensors.",
+      "You are building a compass, pedometer, or motion-controlled game/utility."
+    ],
+    "avoid_when": [
+      "You need sensor access on unsupported platforms like Windows, Linux, or macOS.",
+      "You require magnetometer or barometer features on web browsers where they are not supported."
+    ],
+    "strengths": [
+      "Supports multiple crucial sensors like accelerometer, gyroscope, magnetometer, and barometer.",
+      "Provides stream-based event handling with customizable sampling intervals.",
+      "Recognized as a Flutter Favorite package."
+    ],
+    "weaknesses": [
+      "Platform restrictions apply (e.g., no macOS, Windows, or Linux support; limited web and iOS capabilities).",
+      "Some low-end or older Android devices might lack specific sensors, requiring manual error handling."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "On iOS, you must include the NSMotionUsageDescription key in Info.plist to prevent crashes when accessing barometer data.",
+    "alternatives": [],
+    "minimal_example": "import 'package:sensors_plus/sensors_plus.dart';\n\naccelerometerEvents.listen(\n  (AccelerometerEvent event) {\n    print(event);\n  },\n  onError: (error) {\n    // Logic to handle error\n    },\n  cancelOnError: true,\n);",
+    "confidence": 1
+  }
+}

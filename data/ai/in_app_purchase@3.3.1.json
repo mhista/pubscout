@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.3.1",
+  "generatedAt": "2026-11-07T09:30:18.716Z",
+  "data": {
+    "primary_category": "payments",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Flutter plugin for making in-app purchases through the App Store and Google Play.",
+    "what_it_does": "Provides a storefront-independent API to show available in-app products, load owned products, and purchase consumables, non-consumables, and subscriptions across Android, iOS, and macOS.",
+    "use_when": [
+      "You need to sell digital goods or subscriptions inside your mobile or desktop app.",
+      "You want a unified API targeting both Google Play Billing and Apple App Store (StoreKit 1 & 2)."
+    ],
+    "avoid_when": [
+      "You are processing physical goods or general payment gateway transactions via web or external credit cards.",
+      "You do not want to configure store-specific items and developer accounts on Google Play and App Store."
+    ],
+    "strengths": [
+      "Unified interface across Android, iOS, and macOS.",
+      "Supports subscriptions, consumables, and non-consumables.",
+      "Stream-based architecture for listening to purchase updates."
+    ],
+    "weaknesses": [
+      "Requires platform-specific configuration and store setup.",
+      "Consumable restoration must be handled manually via a custom backend."
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Requires configuring products in Google Play Console and App Store Connect, setting up appropriate app signing/permissions, and handling native store SDK requirements.",
+    "alternatives": [],
+    "minimal_example": "final bool available = await InAppPurchase.instance.isAvailable();\nconst productIds = <String>{'product1', 'product2'};\nfinal ProductDetailsResponse response = await InAppPurchase.instance.queryProductDetails(productIds);",
+    "confidence": 1
+  }
+}

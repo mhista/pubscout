@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "2.1.0",
+  "generatedAt": "2026-11-07T09:31:45.177Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "Utilities to resolve MIME types from file names, magic bytes, and to parse multipart streams.",
+    "what_it_does": "Provides functions to look up a MIME type based on a filename or header bytes and to get a file extension from a MIME type. Includes a stream transformer that splits multipart/form-data into separate parts.",
+    "use_when": [
+      "You need to determine MIME types for files without external libraries",
+      "You need to parse multipart/form-data streams in a server or client",
+      "You want a lightweight, pure‑Dart solution for MIME handling"
+    ],
+    "avoid_when": [
+      "You require a full‑featured HTTP client that already handles multipart parsing",
+      "You need advanced MIME type detection beyond extensions and basic magic numbers"
+    ],
+    "strengths": [
+      "Zero dependencies, pure Dart",
+      "Supports both extension and magic‑byte lookup",
+      "Provides a ready‑to‑use multipart stream transformer"
+    ],
+    "weaknesses": [
+      "Limited to the built‑in MIME table; not exhaustive for obscure types",
+      "No async API for large file scanning beyond header bytes"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:mime/mime.dart';\n\nvoid main() {\n  print(lookupMimeType('test.html')); // text/html\n  print(lookupMimeType('test', headerBytes: [0xFF, 0xD8])); // image/jpeg\n}\n",
+    "confidence": 0.97
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.11.2",
+  "generatedAt": "2026-11-07T09:34:27.955Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "no codegen",
+      "imperative"
+    ],
+    "one_liner": "Time zone databases and time zone aware DateTime class in Dart.",
+    "what_it_does": "Provides the IANA time zone database and a TZDateTime class that implements DateTime with support for different locations and time zones. Offers multiple database variants (default, all, 10y) and specific initialization options for Dart libraries, browsers, and standalone environments.",
+    "use_when": [
+      "You need to handle dates and times across multiple specific world time zones.",
+      "Your application requires accurate historical or future Daylight Saving Time (DST) rules."
+    ],
+    "avoid_when": [
+      "You only need basic UTC or local device time without specific time zone database lookups.",
+      "You need to automatically detect the current time zone of the device natively without platform-dependent configuration."
+    ],
+    "strengths": [
+      "Includes comprehensive IANA time zone database variants (default, all, 10y).",
+      "TZDateTime implements the core DateTime interface for seamless drop-in usage."
+    ],
+    "weaknesses": [
+      "Getting the current timezone of the device is platform-dependent and not a goal of the package.",
+      "Standalone environment initialization likely will not work in a Flutter environment."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires initializing a time zone database variant before use via the appropriate library import (e.g., package:timezone/data/latest.dart).",
+    "alternatives": [],
+    "minimal_example": "import 'package:timezone/data/latest.dart' as tz;\nimport 'package:timezone/timezone.dart' as tz;\n\nvoid main() {\n  tz.initializeTimeZones();\n  var detroit = tz.getLocation('America/Detroit');\n  var now = tz.TZDateTime.now(detroit);\n}",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.12.2",
+  "generatedAt": "2026-11-07T09:27:38.015Z",
+  "data": {
+    "primary_category": "camera",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Flutter plugin to preview, capture photos/video and stream camera images.",
+    "what_it_does": "Provides a widget for live camera preview, methods to take pictures and record video, and an image stream API. Works on Android, iOS and Web.",
+    "use_when": [
+      "You need direct access to device cameras for photos, video or real‑time image processing",
+      "You require a cross‑platform solution that supports Android, iOS and Web"
+    ],
+    "avoid_when": [
+      "You only need simple image picking without live preview",
+      "You prefer a higher‑level abstraction like barcode scanning only"
+    ],
+    "strengths": [
+      "Full‑screen preview widget",
+      "Supports zero‑shutter‑lag and video stabilization",
+      "Image stream for custom processing",
+      "Works on three major platforms"
+    ],
+    "weaknesses": [
+      "Requires native permission handling and lifecycle management",
+      "No built‑in UI for scanning or advanced effects",
+      "Plugin size adds native binaries"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add camera and microphone usage descriptions to iOS Info.plist; ensure Android minSdk 24; handle app lifecycle and permission errors manually.",
+    "alternatives": [
+      {
+        "name": "mobile_scanner",
+        "why_pick_it": "If you only need QR/barcode scanning with a simpler API and less lifecycle handling"
+      }
+    ],
+    "minimal_example": "import 'package:camera/camera.dart';\nimport 'package:flutter/material.dart';\n\nlate List<CameraDescription> _cameras;\n\nFuture<void> main() async {\n  WidgetsFlutterBinding.ensureInitialized();\n  _cameras = await availableCameras();\n  runApp(const CameraApp());\n}\n\nclass CameraApp extends StatefulWidget {\n  const CameraApp({super.key});\n  @override\n  State<CameraApp> createState() => _CameraAppState();\n}\n\nclass _CameraAppState extends State<CameraApp> {\n  late CameraController _controller;\n  @override\n  void initState() {\n    super.initState();\n    _controller = CameraController(_cameras[0], ResolutionPreset.max);\n    _controller.initialize().then((_) => setState(() {}));\n  }\n  @override\n  void dispose() { _controller.dispose(); super.dispose(); }\n  @override\n  Widget build(BuildContext context) {\n    if (!_controller.value.isInitialized) return const SizedBox();\n    return MaterialApp(home: CameraPreview(_controller));\n  }\n}\n",
+    "confidence": 0.97
+  }
+}

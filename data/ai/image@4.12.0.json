@@ -1,0 +1,52 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.12.0",
+  "generatedAt": "2026-11-07T09:30:05.722Z",
+  "data": {
+    "primary_category": "images",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Pure Dart library to load, manipulate, encode, and decode various image formats.",
+    "what_it_does": "Provides a comprehensive set of pure Dart tools to decode, manipulate, encode, and draw onto images across multiple platforms without native dependencies. It supports numerous formats like JPEG, PNG, WebP, and GIF, offering capabilities such as resizing, filtering, cropping, and pixel access.",
+    "use_when": [
+      "You need to process, resize, or encode images in pure Dart or on the server/web without native bindings.",
+      "You want to perform image manipulation tasks like color adjustments, filters, or drawing shapes programmatically."
+    ],
+    "avoid_when": [
+      "You only need a basic widget to pick images from the device gallery or camera.",
+      "You require complex vector graphic rendering like SVG display."
+    ],
+    "strengths": [
+      "Written in pure Dart with no native dependencies, working across servers, command-line, web, and all Flutter platforms.",
+      "Supports a wide array of read/write image formats including animated formats.",
+      "Includes a Command API for running image processing operations inside a separate isolate."
+    ],
+    "weaknesses": [
+      "Heavy image processing operations on large files can consume significant CPU and memory if not offloaded to isolates.",
+      "Not a UI widget by itself for rendering images directly in a Flutter widget tree."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "image_picker",
+        "why_pick_it": "Pick images from the device gallery or camera using native UI elements."
+      },
+      {
+        "name": "flutter_svg",
+        "why_pick_it": "Render SVG files directly as widgets in Flutter."
+      },
+      {
+        "name": "extended_image",
+        "why_pick_it": "Advanced Flutter image widget featuring zooming, panning, cropping, and caching."
+      }
+    ],
+    "minimal_example": "import 'package:image/image.dart' as img;\n\nFuture<void> main() async {\n  final image = img.Image(width: 256, height: 256);\n  for (final pixel in image) {\n    pixel\n      ..r = pixel.x\n      ..g = pixel.y;\n  }\n  final png = img.encodePng(image);\n}",
+    "confidence": 1
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "6.15.2",
+  "generatedAt": "2026-11-07T09:55:27.538Z",
+  "data": {
+    "primary_category": "codegen",
+    "secondary_categories": [],
+    "approach": [
+      "code generation"
+    ],
+    "one_liner": "Automatically generate code for converting Dart classes to and from JSON.",
+    "what_it_does": "Provides Dart Build System builders to generate `fromJson` and `toJson` methods for annotated classes. It inspects class annotations and fields to handle serialization boilerplate safely.",
+    "use_when": [
+      "You need to serialize and deserialize JSON data into strongly-typed Dart objects.",
+      "You want compile-time safety and better performance compared to manual casting or runtime reflection."
+    ],
+    "avoid_when": [
+      "Your project cannot use code generation or build tools.",
+      "You prefer writing manual parsing logic or using runtime reflection."
+    ],
+    "strengths": [
+      "Eliminates boilerplate for JSON parsing and serialization",
+      "Supports custom type converters, enums, and JSON Schema generation"
+    ],
+    "weaknesses": [
+      "Requires running a code generator (build_runner) during development",
+      "Generated files add to your source tree and require regeneration on model changes"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add json_annotation to dependencies, and json_serializable and build_runner to dev_dependencies. Run `dart run build_runner build` to generate code.",
+    "alternatives": [
+      {
+        "name": "freezed",
+        "why_pick_it": "If you want immutable data classes, union types, and built-in copyWith methods alongside JSON serialization."
+      },
+      {
+        "name": "pigeon",
+        "why_pick_it": "If you are generating strongly-typed platform channel messaging code between Flutter and host platforms rather than standard JSON objects."
+      }
+    ],
+    "minimal_example": "import 'package:json_annotation/json_annotation.dart';\n\npart 'example.g.dart';\n\n@JsonSerializable()\nclass Person {\n  final String firstName, lastName;\n  Person({required this.firstName, required this.lastName});\n  factory Person.fromJson(Map<String, dynamic> json) => _$PersonFromJson(json);\n  Map<String, dynamic> toJson() => _$PersonToJson(this);\n}",
+    "confidence": 1
+  }
+}

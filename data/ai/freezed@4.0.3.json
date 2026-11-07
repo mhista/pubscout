@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.0.3",
+  "generatedAt": "2026-11-07T09:29:15.932Z",
+  "data": {
+    "primary_category": "codegen",
+    "secondary_categories": [],
+    "approach": [
+      "code generation"
+    ],
+    "one_liner": "Code generation for immutable classes, tagged unions, and cloning without boilerplate.",
+    "what_it_does": "Freezed is a code generator for Dart that automatically generates boilerplate for immutable classes, such as constructors, copyWith methods, toString overrides, equality operators, and JSON serialization. It also supports union types, deep copying, and custom methods via a simple syntax.",
+    "use_when": [
+      "You need to create complex immutable data models and state classes in Dart or Flutter.",
+      "You want automatic support for copyWith, equality, hashCode, and toString without writing manual code.",
+      "You are implementing union types or tagged data models."
+    ],
+    "avoid_when": [
+      "You prefer completely avoiding build_runner and code generation tools in your project workflow.",
+      "You are working with simple mutable objects that do not require immutability or cloning."
+    ],
+    "strengths": [
+      "Significantly reduces boilerplate code for data models.",
+      "Supports union types, deep cloning, default values, and asserts.",
+      "Integrates seamlessly with json_serializable for de/serialization."
+    ],
+    "weaknesses": [
+      "Requires running a code generator (build_runner) during development.",
+      "Can introduce steep debugging curves when generated files go out of sync."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding build_runner, freezed, and freezed_annotation to pubspec.yaml and running the build_runner watch command.",
+    "alternatives": [
+      {
+        "name": "json_serializable",
+        "why_pick_it": "If you specifically need JSON parsing without the broader immutable data class features of Freezed."
+      }
+    ],
+    "minimal_example": "import 'package:freezed_annotation/freezed_annotation.dart';\n\npart 'main.freezed.dart';\npart 'main.g.dart';\n\n@freezed\nabstract class Person with _$Person {\n  const factory Person({\n    required String firstName,\n    required String lastName,\n    required int age,\n  }) = _Person;\n\n  factory Person.fromJson(Map<String, Object?> json) => _$PersonFromJson(json);\n}",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.8-flash",
+  "version": "9.3.0",
+  "generatedAt": "2026-11-07T09:29:27.964Z",
+  "data": {
+    "primary_category": "dependency-injection",
+    "secondary_categories": [
+      "devtools"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "A fast, type-safe service locator for Dart and Flutter without BuildContext or code generation.",
+    "what_it_does": "Decouples interfaces from implementations by providing a global container to register and retrieve objects. Supports singletons, lazy singletons, factories, asynchronous initialization, and hierarchical scopes. Includes a Flutter DevTools extension to inspect registrations and their states at runtime.",
+    "use_when": [
+      "You need to access dependencies from business logic or background code without a BuildContext",
+      "You prefer runtime manual registration over code generation and annotations",
+      "You need scoped lifetimes, async object orchestration, or easy mock swapping in tests"
+    ],
+    "avoid_when": [
+      "You prefer compile-time dependency injection managed via code generation",
+      "You strictly avoid global state and service locator patterns"
+    ],
+    "strengths": [
+      "O(1) lookups using Dart maps with no code-generation overhead or build_runner steps",
+      "Rich lifecycle management including scopes, async initialization readiness (`allReady`), and LIFO disposal",
+      "Includes a dedicated DevTools extension to visually inspect registered objects"
+    ],
+    "weaknesses": [
+      "Relies on runtime resolution, meaning missing registrations fail at runtime rather than compile-time",
+      "Service locator pattern can obscure direct class dependencies if overused"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Pure Dart package with no platform-specific configuration needed. Optional DevTools extension setup requires enabling debug events.",
+    "alternatives": [
+      {
+        "name": "injectable",
+        "why_pick_it": "Pick injectable if you want compile-time code generation and annotations built on top of get_it."
+      }
+    ],
+    "minimal_example": "final getIt = GetIt.instance;\n\nvoid configureDependencies() {\n  getIt.registerSingleton<ApiClient>(ApiClient());\n  getIt.registerLazySingleton<UserRepository>(() => UserRepository(getIt<ApiClient>()));\n}\n\n// Access anywhere\nfinal repo = getIt<UserRepository>();",
+    "confidence": 1
+  }
+}

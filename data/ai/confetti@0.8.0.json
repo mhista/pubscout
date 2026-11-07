@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.8.0",
+  "generatedAt": "2026-11-07T09:27:51.757Z",
+  "data": {
+    "primary_category": "animation",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Widget that emits confetti particles with customizable physics",
+    "what_it_does": "ConfettiWidget renders animated confetti particles on the screen. The ConfettiController controls the emission timing and lifecycle.",
+    "use_when": [
+      "Celebrate achievements or milestones",
+      "Add visual flair to UI interactions",
+      "Provide feedback after user actions"
+    ],
+    "avoid_when": [
+      "Use with very high particle counts on low-end devices",
+      "Rely on it for critical UI flows where performance is paramount"
+    ],
+    "strengths": [
+      "Easy to integrate via a single widget",
+      "Highly configurable physics and appearance",
+      "Performance optimizations for 120Hz and low frame rates"
+    ],
+    "weaknesses": [
+      "Can impact performance if many particles are emitted",
+      "No built‑in platform‑specific features like permissions"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "```dart\nfinal controller = ConfettiController(duration: const Duration(seconds: 1));\n\n@override\nvoid initState() {\n  super.initState();\n  controller..addListener(() => setState(() {}))..play();\n}\n\n@override\nvoid dispose() {\n  controller.dispose();\n  super.dispose();\n}\n\n@override\nWidget build(BuildContext context) {\n  return ConfettiWidget(\n    confettiController: controller,\n    blastDirectionality: BlastDirectionality.explosive,\n    shouldLoop: false,\n  );\n}\n```",
+    "confidence": 0.9
+  }
+}

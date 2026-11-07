@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "7.3.2",
+  "generatedAt": "2026-11-07T09:27:45.140Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Discover the state of network connectivity (WiFi, mobile, ethernet) on Android, iOS, Web and desktops.",
+    "what_it_does": "Allows Flutter applications to check the current network connectivity status and listen to connection changes in real-time. It supports various connection types such as mobile, Wi-Fi, ethernet, VPN, bluetooth, and satellite across multiple platforms.",
+    "use_when": [
+      "You need to detect if the device is connected to Wi-Fi, cellular, or other networks",
+      "Your app needs to react to network connection state changes via a stream"
+    ],
+    "avoid_when": [
+      "You are relying solely on connectivity status to guarantee actual internet access or reachability",
+      "You need detailed Wi-Fi SSID or MAC address details on platforms where privacy restrictions block it"
+    ],
+    "strengths": [
+      "Cross-platform support including Android, iOS, Web, macOS, Windows, and Linux",
+      "Provides both a one-time check and a real-time event stream",
+      "Flutter favorite package with regular updates"
+    ],
+    "weaknesses": [
+      "Connection type availability does not guarantee actual internet access",
+      "Web implementation has browser limitations and relies on experimental APIs or fallback to online status",
+      "Background connectivity changes are not communicated on Android O and above"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires minimum Flutter >=3.19.0, Dart >=3.3.0, iOS >=13.0, macOS >=10.15, and Java 17.",
+    "alternatives": [],
+    "minimal_example": "import 'package:connectivity_plus/connectivity_plus.dart';\n\nfinal List<ConnectivityResult> connectivityResult = await (Connectivity().checkConnectivity());\nif (connectivityResult.hasConnectivity) {\n  // Connectivity available\n}",
+    "confidence": 1
+  }
+}

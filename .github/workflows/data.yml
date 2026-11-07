@@ -1,0 +1,63 @@
+# Nightly package refresh: sync pub.dev + GitHub, write AI summaries for packages
+# that need one, rebuild data/catalog.json and commit it. Vercel sees the commit
+# and redeploys, so the live site updates itself. No manual indexing.
+#
+# Setup (once): GitHub repo → Settings → Secrets and variables → Actions → New
+# repository secret: GEMINI_API_KEY, GROQ_API_KEY, and GH_PAT (your fine-grained
+# GitHub token; the built-in Actions token only allows 1,000 API calls an hour).
+# Run it now: Actions tab → "Refresh package data" → Run workflow.
+name: Refresh package data
+
+on:
+  schedule:
+    # Cron is UTC. "17 3 * * *" = 03:17 UTC = 04:17 in Lagos (WAT), every day.
+    - cron: "17 3 * * *"
+  workflow_dispatch: # the "Run workflow" button
+
+permissions:
+  contents: write
+
+concurrency:
+  group: refresh-data
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+
+      # data/raw is a rebuildable download cache, kept between runs so only changed packages are re-fetched.
+      - name: Restore raw cache
+        uses: actions/cache@v4
+        with:
+          path: data/raw
+          key: raw-${{ github.run_id }}
+          restore-keys: raw-
+
+      - name: Sync pub.dev and GitHub
+        run: node scripts/sync.mjs
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_PAT || secrets.GITHUB_TOKEN }}
+          SYNC_LIMIT: 2000
+
+      - name: Tag, summarise and score
+        run: node scripts/build-catalog.mjs
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          AI_PROVIDERS: gemini,groq
+          AI_REFRESH: major
+
+      - name: Commit if anything changed
+        run: |
+          git config user.name "pubscout-bot"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/catalog.json data/history.json data/ai data/embeddings.json
+          if git diff --cached --quiet; then echo "No changes"; exit 0; fi
+          git commit -m "data: nightly refresh"
+          git push

@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "7.1.0",
+  "generatedAt": "2026-11-07T09:33:43.878Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "testing"
+    ],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "Build fast, composable, and type-safe grammars and parsers in plain Dart code.",
+    "what_it_does": "PetitParser allows developers to build small, specialized parsers directly in plain Dart code and combine them like LEGO bricks to parse text, configuration values, or complex programming languages. It provides type-safe combinators, character predicates, and transformation methods without requiring external code generators or fragile regular expressions.",
+    "use_when": [
+      "You need to parse custom text formats, configuration files, or DSLs directly in Dart.",
+      "You want a type-safe and composable alternative to complex regular expressions.",
+      "You want to build and test grammars in-memory without a separate code-generation step."
+    ],
+    "avoid_when": [
+      "You are parsing simple JSON or formats with widely available dedicated serializers.",
+      "You prefer external generator tools (like ANTLR) over code-as-grammar libraries."
+    ],
+    "strengths": [
+      "Fully type-safe using modern Dart features and records.",
+      "Highly composable with a rich set of combinators and builders.",
+      "No external code generators required.",
+      "Built-in tools for debugging and viewing execution trees."
+    ],
+    "weaknesses": [
+      "Steeper learning curve for developers unfamiliar with parser combinators.",
+      "May be overkill for trivial string manipulation tasks."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:petitparser/petitparser.dart';\n\nvoid main() {\n  final key = letter().plus().flatten();\n  final value = digit().plus().flatten().map(int.parse);\n  final parser = key.trim().skip(after: char('=')).then(value.trim()).map2((k, v) => (key: k, value: v));\n  final result = parser.parse('port = 8080');\n  print(result.value); // (key: port, value: 8080)\n}",
+    "confidence": 1
+  }
+}

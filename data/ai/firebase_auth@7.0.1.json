@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "7.0.1",
+  "generatedAt": "2026-11-07T09:28:01.673Z",
+  "data": {
+    "primary_category": "auth",
+    "secondary_categories": [
+      "backend"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Flutter plugin for Firebase Authentication enabling passwords, phone numbers, and identity providers.",
+    "what_it_does": "Enables authentication in Flutter apps using the Firebase Authentication API. Supports passwords, phone numbers, and identity providers like Google, Facebook, and Twitter.",
+    "use_when": [
+      "You are using Firebase as your backend infrastructure",
+      "You need to authenticate users via email, phone, or federated social identity providers"
+    ],
+    "avoid_when": [
+      "You are not using Firebase for your backend services"
+    ],
+    "strengths": [
+      "Official Flutter plugin backed by Firebase",
+      "Supports multiple platforms including Android, iOS, web, Windows, and macOS",
+      "Handles complex authentication flows such as OAuth and phone verification out of the box"
+    ],
+    "weaknesses": [
+      "Tied directly into the Firebase ecosystem",
+      "Requires platform-specific configuration and setup steps"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding Firebase configuration files for each target platform, initializing Firebase Core, and following Firebase setup instructions for Android, iOS, web, Windows, and macOS.",
+    "alternatives": [
+      {
+        "name": "google_sign_in",
+        "why_pick_it": "If you specifically need Google Sign-In without the full Firebase Auth suite."
+      },
+      {
+        "name": "local_auth",
+        "why_pick_it": "If you only need on-device biometric authentication like fingerprint or face ID."
+      }
+    ],
+    "minimal_example": "import 'package:firebase_auth/firebase_auth.dart';\n\nFuture<void> signIn() async {\n  try {\n    final credential = await FirebaseAuth.instance.signInWithEmailAndPassword(\n      email: 'user@example.com',\n      password: 'correct-horse-battery-staple'\n    );\n  } on FirebaseAuthException catch (e) {\n    // handle exception\n  }\n}",
+    "confidence": 0.95
+  }
+}

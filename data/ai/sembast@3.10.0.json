@@ -1,0 +1,54 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.10.0",
+  "generatedAt": "2026-11-07T09:33:58.328Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "stream-based",
+      "no codegen"
+    ],
+    "one_liner": "A NoSQL persistent embedded document-based database for Dart and Flutter.",
+    "what_it_does": "Sembast stores documents in a single file or in-memory, supporting transactions, encryption via codecs, and change listeners. It works across all platforms without requiring native plugins.",
+    "use_when": [
+      "You need a simple, single-file NoSQL database for local storage",
+      "You want support across all platforms including Flutter Web and desktop without native plugins",
+      "You need transactional writes and query filtering on JSON-compatible maps"
+    ],
+    "avoid_when": [
+      "You need complex relational queries or multi-table joins",
+      "You are dealing with massive datasets that exceed memory limits, as the database loads entirely in memory when opened"
+    ],
+    "strengths": [
+      "Pure Dart implementation with 100% platform support",
+      "Supports encryption via custom codecs",
+      "Familiar document-store paradigm with transaction support and change listeners"
+    ],
+    "weaknesses": [
+      "Loads the entire database into memory when opened",
+      "Not suited for complex relational data modeling"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "No native plugin setup required; simply add path_provider to locate the database file on Flutter.",
+    "alternatives": [
+      {
+        "name": "hive_ce",
+        "why_pick_it": "If you want a lightweight key-value and box-based NoSQL database optimized for speed."
+      },
+      {
+        "name": "sqflite",
+        "why_pick_it": "If you prefer a traditional relational SQL database for SQLite-supported platforms."
+      },
+      {
+        "name": "shared_preferences",
+        "why_pick_it": "If you only need to store simple key-value configuration data."
+      }
+    ],
+    "minimal_example": "import 'package:path/path.dart';\nimport 'package:path_provider/path_provider.dart';\nimport 'package:sembast/sembast_io.dart';\n\nfinal dir = await getApplicationDocumentsDirectory();\nawait dir.create(recursive: true);\nfinal dbPath = join(dir.path, 'my_database.db');\nfinal db = await databaseFactoryIo.openDatabase(dbPath);\n\nvar store = StoreRef.main();\nawait store.record('title').put(db, 'Simple application');",
+    "confidence": 1
+  }
+}

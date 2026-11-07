@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.0.0",
+  "generatedAt": "2026-11-07T09:34:10.000Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "animation",
+      "ui-kits"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Converts already built widgets into skeleton loaders with a shimmer effect.",
+    "what_it_does": "Skeletonizer reduces your existing layouts into skeletons and applies painting effects like a shimmer. It automatically handles widget shapes or lets you manually construct skeletons using specialized Bone widgets.",
+    "use_when": [
+      "You want to display loading placeholders that automatically match your actual UI layouts.",
+      "You need custom shimmer bones for icons, text, and avatars with minimal boilerplate."
+    ],
+    "avoid_when": [
+      "You are using complex custom painters that require explicit Skeleton.shade annotations and you cannot modify them."
+    ],
+    "strengths": [
+      "Reduces duplicate work by turning existing UI layouts into skeletons automatically.",
+      "Provides fine-grained control via annotations like Skeleton.ignore, Skeleton.keep, and Skeleton.replace.",
+      "Supports manual layout building with specialized Bone widgets."
+    ],
+    "weaknesses": [
+      "Requires fake data or mock models to render the layout structure correctly when enabled.",
+      "Network images and certain assets may throw errors if not replaced or conditionally disabled when skeletonization is active."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "No native setup or build_runner required. Simply wrap widgets with Skeletonizer.",
+    "alternatives": [
+      {
+        "name": "shimmer",
+        "why_pick_it": "If you want a classic, standalone shimmer effect rather than automatically skeletonizing existing widget trees."
+      }
+    ],
+    "minimal_example": "Skeletonizer(\n  enabled: _loading,\n  child: ListView.builder(\n    itemCount: 7,\n    itemBuilder: (context, index) {\n      return Card(\n        child: ListTile(\n          title: Text('Item number $index as title'),\n          subtitle: const Text('Subtitle here'),\n          trailing: const Icon(Icons.ac_unit),\n        ),\n      );\n    },\n  ),\n)",
+    "confidence": 0.95
+  }
+}

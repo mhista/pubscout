@@ -1,0 +1,47 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "9.0.1",
+  "generatedAt": "2026-11-07T09:23:49.403Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Open iOS and Android phone settings pages from a Flutter app.",
+    "what_it_does": "A Flutter plugin that provides methods to open specific device settings pages, such as Wi-Fi, location, volume, and general application settings, on Android and iOS.",
+    "use_when": [
+      "You need to direct users to specific system settings pages from within your app.",
+      "You want to open Android Q+ settings panels for quick configuration changes."
+    ],
+    "avoid_when": [
+      "You only need to launch general URLs or web pages.",
+      "You need to directly modify system settings without user navigation."
+    ],
+    "strengths": [
+      "Supports multiple platform settings types including location, Wi-Fi, and volume panels.",
+      "Dependency-free core package with optional AI proposals via a companion package.",
+      "Supports Swift Package Manager for iOS integration."
+    ],
+    "weaknesses": [
+      "Settings panels are limited to Android Q and higher.",
+      "Unsupported settings types fallback to general application settings."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "For iOS using Objective-C, add use_frameworks! to your Runner project Podfile. Swift Package Manager is also supported.",
+    "alternatives": [
+      {
+        "name": "url_launcher",
+        "why_pick_it": "If you primarily need to open standard URLs, phone calls, or emails rather than specific OS settings pages."
+      },
+      {
+        "name": "permission_handler",
+        "why_pick_it": "If you need to handle permissions and request user access instead of just navigating to the settings screen."
+      }
+    ],
+    "minimal_example": "ElevatedButton(\n  onPressed: () => AppSettings.openAppSettings(type: AppSettingsType.location),\n  child: const Text('Open Location Settings'),\n)",
+    "confidence": 1
+  }
+}

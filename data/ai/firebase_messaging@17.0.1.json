@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "17.0.1",
+  "generatedAt": "2026-11-07T09:28:08.176Z",
+  "data": {
+    "primary_category": "notifications",
+    "secondary_categories": [
+      "backend"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Flutter plugin for Firebase Cloud Messaging to deliver messages on Android, iOS, web, and macOS.",
+    "what_it_does": "Allows Flutter apps to reliably receive and handle cross-platform push notifications and cloud messages using the Firebase Cloud Messaging API. It supports background message delivery, handling notification taps, and FID registration APIs.",
+    "use_when": [
+      "You need reliable push notification delivery across Android, iOS, web, and macOS.",
+      "Your application backend is already integrated with Firebase."
+    ],
+    "avoid_when": [
+      "You do not use Firebase services in your application stack.",
+      "You only require purely local notifications without backend push support."
+    ],
+    "strengths": [
+      "Official, well-maintained Firebase plugin with Flutter Favorite status.",
+      "Cross-platform support including Android, iOS, web, and macOS."
+    ],
+    "weaknesses": [
+      "Requires platform-specific configuration and Firebase setup.",
+      "Breaking changes can occur with major version bumps of Firebase SDKs."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires configuring Firebase in your project, adding platform-specific setup (like iOS UNUserNotificationCenter delegate and APNs registration), and setting the minimum Android SDK version to 24.",
+    "alternatives": [],
+    "minimal_example": "FirebaseMessaging messaging = FirebaseMessaging.instance;\n\nNotificationSettings settings = await messaging.requestPermission(\n  alert: true,\n  badge: true,\n  sound: true,\n);\n\nFirebaseMessaging.onMessage.listen((RemoteMessage message) {\n  print('Got a message whilst in the foreground!');\n  print('Message data: ${message.data}');\n});",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "3.7.1",
+  "generatedAt": "2026-11-07T09:34:23.030Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "localization"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Humanize dates into fuzzy timestamps like \"15 minutes ago\"",
+    "what_it_does": "Provides a single format function that converts a DateTime into a human‑readable relative string. It ships with English and Spanish messages and allows adding or overriding locales via setLocaleMessages.",
+    "use_when": [
+      "You need a quick relative time display in a UI",
+      "You want to support multiple languages without pulling in a heavy i18n library",
+      "You prefer a small, dependency‑free package for date formatting"
+    ],
+    "avoid_when": [
+      "You need full locale‑aware date formatting with plural rules",
+      "You require complex calendar or timezone handling beyond simple relative strings"
+    ],
+    "strengths": [
+      "Simple API – one function call",
+      "Extensible locale system – add custom messages",
+      "No runtime dependencies – lightweight"
+    ],
+    "weaknesses": [
+      "Limited to relative time strings only",
+      "Only basic plural handling – not full i18n",
+      "Requires manual locale registration for additional languages"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add to pubspec and import package: import 'package:timeago/timeago.dart' as timeago;",
+    "alternatives": [],
+    "minimal_example": "import 'package:timeago/timeago.dart' as timeago;\n\nvoid main() {\n  final fifteenAgo = DateTime.now().subtract(Duration(minutes: 15));\n  print(timeago.format(fifteenAgo)); // 15 minutes ago\n  print(timeago.format(fifteenAgo, locale: 'es')); // hace 15 minutos\n}\n",
+    "confidence": 0.9
+  }
+}

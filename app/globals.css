@@ -1,0 +1,105 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --ground: 242 244 247; --card: 255 255 255; --line: 221 227 234; --line-soft: 233 237 242;
+    --ink: 14 26 43; --body: 71 84 103; --muted: 124 136 153;
+    --cobalt: 51 70 245; --cobalt-deep: 36 52 214; --cobalt-wash: 233 236 255;
+    --action: 51 70 245; --action-hover: 36 52 214;
+    --good: 14 159 110; --good-wash: 227 245 238;
+    --fair: 185 124 0; --fair-wash: 251 241 220;
+    --poor: 209 67 67; --poor-wash: 251 233 233;
+    --code-bg: 14 26 43; --code-line: 31 44 64;
+    --grid: 14 26 43;
+    color-scheme: light;
+  }
+  .dark {
+    --ground: 10 17 28; --card: 16 25 38; --line: 36 50 72; --line-soft: 26 37 54;
+    --ink: 231 237 245; --body: 166 179 196; --muted: 115 130 150;
+    --cobalt: 129 142 255; --cobalt-deep: 160 170 255; --cobalt-wash: 30 37 84;
+    --action: 79 93 240; --action-hover: 98 112 255;
+    --good: 52 195 143; --good-wash: 15 42 34;
+    --fair: 226 169 59; --fair-wash: 46 36 16;
+    --poor: 240 114 114; --poor-wash: 52 24 24;
+    --code-bg: 6 11 19; --code-line: 30 42 60;
+    --grid: 231 237 245;
+    color-scheme: dark;
+  }
+  html { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+  body { @apply bg-ground text-ink font-sans text-base; font-feature-settings: "ss01", "cv11"; }
+  ::selection { background: rgb(var(--action)); color: #fff; }
+  :focus-visible { outline: 2px solid rgb(var(--cobalt)); outline-offset: 2px; border-radius: 6px; }
+  h1, h2, h3 { @apply font-semibold; }
+  code, kbd, .mono { @apply font-mono; font-feature-settings: "zero"; }
+}
+
+@layer components {
+  .wrap { @apply mx-auto w-full max-w-site px-5 sm:px-8; }
+
+  .btn { @apply inline-flex min-h-[40px] items-center justify-center gap-2 rounded px-4 text-sm font-medium transition duration-150 ease-out active:scale-[0.98] disabled:opacity-50; touch-action: manipulation; }
+  .btn-cobalt { @apply btn bg-action text-white hover:bg-action-hover; }
+  .btn-ink { @apply btn bg-ink text-ground hover:bg-ink/85; }
+  .btn-line { @apply btn border border-line bg-card text-ink hover:border-ink/40; }
+  .btn-ghost { @apply btn text-body hover:bg-ink/5 hover:text-ink; }
+
+  .chip { @apply inline-flex items-center gap-1.5 rounded-sm border border-line bg-card px-2 py-0.5 text-xs text-body; }
+  a.chip { @apply hover:border-ink/40 hover:text-ink; }
+
+  .panel { @apply rounded-lg border border-line bg-card; }
+  .rule { @apply border-line; }
+
+  .field { @apply block h-10 w-full rounded border border-line bg-card px-3 text-sm text-ink outline-none transition placeholder:text-muted focus:border-cobalt; }
+
+  .link { @apply text-cobalt underline-offset-2 hover:underline; }
+  .eyebrow { @apply text-sm font-medium text-muted; }
+
+  .check { @apply h-4 w-4 shrink-0 rounded-sm border-line accent-[rgb(var(--action))]; }
+
+  /* Docs sidebar links */
+  .navlink { @apply flex items-center justify-between gap-3 rounded-md px-2.5 py-1.5 text-sm text-body transition-colors duration-150 hover:bg-ink/[0.05] hover:text-ink; }
+  .navlink[aria-current="page"] { @apply bg-ink/[0.07] font-medium text-ink; }
+
+  /* Faint engineering-paper grid, used once, behind the home hero */
+  .paper-grid {
+    background-image:
+      linear-gradient(to right, rgb(var(--grid) / 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgb(var(--grid) / 0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+    mask-image: radial-gradient(ellipse 70% 60% at 60% 40%, black 30%, transparent 75%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; scroll-behavior: auto !important; }
+}
+
+/* Motion. One orchestrated moment (the pubspec lines arriving on the home page);
+   everything else answers an action or reveals data. All of it is switched off by
+   the prefers-reduced-motion rule above. */
+body { transition: background-color .25s ease, color .25s ease; }
+
+@keyframes rise-in { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: none; } }
+.rise-in { animation: rise-in .7s cubic-bezier(.16,1,.3,1) both; }
+
+@keyframes line-in { from { opacity: 0; transform: translateX(-6px); } to { opacity: 1; transform: none; } }
+.line-in { animation: line-in .45s cubic-bezier(.16,1,.3,1) both; }
+
+@keyframes fill { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+.bar-fill { transform-origin: left center; animation: fill .9s cubic-bezier(.16,1,.3,1) both; }
+
+@keyframes pop-in { from { opacity: 0; transform: translateY(-4px) scale(.98); } to { opacity: 1; transform: none; } }
+.pop-in { animation: pop-in .16s cubic-bezier(.16,1,.3,1) both; transform-origin: top left; }
+
+@keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+.fade-in { animation: fade-in .18s ease-out both; }
+
+@keyframes tick { 0% { transform: scale(.4); opacity: 0; } 60% { transform: scale(1.18); } 100% { transform: scale(1); opacity: 1; } }
+.tick { animation: tick .32s cubic-bezier(.16,1,.3,1) both; }
+
+/* The pubspec caret blinks, and the tray slides up once. */
+@keyframes caret { 0%, 49% { opacity: 1; } 50%, 100% { opacity: 0; } }
+.caret { animation: caret 1.1s steps(1) infinite; }
+@keyframes tray-in { from { transform: translateY(16px); opacity: 0; } to { transform: none; opacity: 1; } }
+.tray-in { animation: tray-in .35s cubic-bezier(.16,1,.3,1) both; }

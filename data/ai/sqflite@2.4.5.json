@@ -1,0 +1,53 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.4.5",
+  "generatedAt": "2026-11-07T09:34:16.214Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "SQLite plugin for Flutter supporting iOS, Android and MacOS.",
+    "what_it_does": "Provides a self-contained, embedded SQL database engine for Flutter applications. Offers helpers for insert, query, update, and delete operations along with transaction and batch support.",
+    "use_when": [
+      "You need a robust relational database with complex SQL queries on device.",
+      "You want support for transactions and batch operations.",
+      "You are targeting iOS, Android, and macOS platforms natively."
+    ],
+    "avoid_when": [
+      "You are looking for a simple key-value store without SQL queries.",
+      "You prefer compile-time safe database queries via code generation."
+    ],
+    "strengths": [
+      "Mature and widely used in the Flutter ecosystem.",
+      "Supports transactions and batch execution for performance.",
+      "Executes database operations in a background thread on iOS and Android."
+    ],
+    "weaknesses": [
+      "Concurrent read and write transactions are not supported due to SQLite limitations.",
+      "Does not support complex types like DateTime or bool natively out of the box."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add to pubspec.yaml via flutter pub add sqflite. Linux, Windows, and Web require additional packages like sqflite_common_ffi or sqflite_common_ffi_web.",
+    "alternatives": [
+      {
+        "name": "drift",
+        "why_pick_it": "If you want type-safe SQL queries and code generation."
+      },
+      {
+        "name": "hive_ce",
+        "why_pick_it": "If you prefer a lightweight key-value NoSQL database."
+      },
+      {
+        "name": "shared_preferences",
+        "why_pick_it": "If you only need to store simple configuration key-value pairs."
+      }
+    ],
+    "minimal_example": "import 'package:sqflite/sqflite.dart';\n\nvar db = await openDatabase('my_db.db');\nawait db.transaction((txn) async {\n  int id1 = await txn.rawInsert('INSERT INTO Test(name, value, num) VALUES(\"some name\", 1234, 456.789)');\n});\nawait db.close();",
+    "confidence": 1
+  }
+}

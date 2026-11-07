@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.1.0",
+  "generatedAt": "2026-11-07T09:27:56.279Z",
+  "data": {
+    "primary_category": "forms",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Customizable dropdown button widget with steady menu, search, and multiselect support.",
+    "what_it_does": "Extends Flutter's core Dropdown Button with a steady dropdown menu that opens below the button by default. It provides extensive customization options including searchable dropdowns, multiselect with checkboxes, custom heights per item, and form field integration.",
+    "use_when": [
+      "You need a highly customizable dropdown menu with search or multi-select capabilities.",
+      "You want the dropdown menu to stay anchored and steady below the button.",
+      "You need to use dropdown fields inside a Flutter Form with custom decorations."
+    ],
+    "avoid_when": [
+      "You only require the standard, unmodified Flutter DropdownButton.",
+      "You are using a Flutter SDK older than version 3.32.0."
+    ],
+    "strengths": [
+      "Supports searchable dropdowns and multi-select with checkboxes out of the box.",
+      "Allows custom heights and widgets per menu item, such as dividers.",
+      "Replaces `value` with `ValueListenable` to eliminate unnecessary parent `setState` calls."
+    ],
+    "weaknesses": [
+      "Introduces breaking changes in version 3.0.0 replacing standard `DropdownMenuItem` and `value` bindings.",
+      "Requires a minimum Flutter SDK version of 3.32.0."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "none",
+    "alternatives": [],
+    "minimal_example": "final selected = ValueNotifier<String?>(null);\n\n@override\nWidget build(BuildContext context) {\n  return DropdownButton2<String>(\n    valueListenable: selected,\n    hint: const Text('Select Item'),\n    items: ['Item 1', 'Item 2'].map((String item) => DropdownItem<String>(\n      value: item,\n      child: Text(item),\n    )).toList(),\n    onChanged: (value) => selected.value = value,\n  );\n}",
+    "confidence": 0.95
+  }
+}

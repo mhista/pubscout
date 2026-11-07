@@ -1,0 +1,46 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "1.12.2",
+  "generatedAt": "2026-11-07T09:34:17.388Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Provides parsing, inspection, and readable formatting of Dart stack traces.",
+    "what_it_does": "The package can convert native StackTrace objects into Trace objects, format them into human‑readable strings, and capture asynchronous stack chains. It also offers utilities like terse formatting to collapse core library frames.",
+    "use_when": [
+      "You need clearer error logs during development or production debugging",
+      "You want to track asynchronous call stacks across zones",
+      "You need to format stack traces for reporting or logging"
+    ],
+    "avoid_when": [
+      "You only need simple stack traces and want to avoid extra dependencies",
+      "Your app size constraints are extremely tight and you cannot afford any extra package"
+    ],
+    "strengths": [
+      "Produces concise, readable stack traces",
+      "Supports asynchronous stack chain capture",
+      "Works on all Dart platforms",
+      "No code generation required"
+    ],
+    "weaknesses": [
+      "Adds runtime overhead when capturing chains",
+      "Limited to stack‑trace manipulation; not a full logging solution"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "logging",
+        "why_pick_it": "Provides general logging facilities but lacks stack‑trace parsing and chain features"
+      }
+    ],
+    "minimal_example": "import 'package:stack_trace/stack_trace.dart';\n\nvoid main() {\n  try {\n    throw 'error';\n  } catch (e, st) {\n    print(Trace.from(st)); // human‑readable stack trace\n  }\n}",
+    "confidence": 0.97
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "4.0.0",
+  "generatedAt": "2026-11-07T09:33:36.545Z",
+  "data": {
+    "primary_category": "files",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Plugin to open local files with native apps across Android, iOS, web, desktop",
+    "what_it_does": "It launches the appropriate native application to view or edit a file given its path. Supports custom MIME types and handles platform-specific permissions.",
+    "use_when": [
+      "Need to open documents from a Flutter app",
+      "Want to delegate file handling to the device’s default apps"
+    ],
+    "avoid_when": [
+      "You need to edit files within the app",
+      "You require full control over file rendering"
+    ],
+    "strengths": [
+      "Cross‑platform support (Android, iOS, web, desktop)",
+      "Handles many file types out of the box",
+      "Simple API: OpenFile.open(path)"
+    ],
+    "weaknesses": [
+      "Requires native configuration on Android (FileProvider)",
+      "No in‑app preview or editing",
+      "Limited to opening existing files"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add dependency, configure Android FileProvider and permissions, iOS UTI setup may be needed",
+    "alternatives": [
+      {
+        "name": "path",
+        "why_pick_it": "Use for file path manipulation"
+      },
+      {
+        "name": "path_provider",
+        "why_pick_it": "Locate platform directories"
+      }
+    ],
+    "minimal_example": "import 'package:open_file/open_file.dart';\n\nOpenFile.open('/sdcard/example.txt');",
+    "confidence": 0.85
+  }
+}

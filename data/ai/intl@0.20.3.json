@@ -1,0 +1,46 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.20.3",
+  "generatedAt": "2026-11-07T09:30:20.582Z",
+  "data": {
+    "primary_category": "localization",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A Dart library for internationalization and localization, providing message translation, plural/gender handling, and date/number formatting.",
+    "what_it_does": "It supplies core i18n utilities such as Intl, DateFormat, NumberFormat, and BidiFormatter. The library supports locale-aware formatting, message extraction, and runtime locale switching.",
+    "use_when": [
+      "You need to format dates, numbers, or currencies for multiple locales.",
+      "You require message translation with plural and gender support.",
+      "You want to change the app locale at runtime or per operation."
+    ],
+    "avoid_when": [
+      "You only need basic string formatting without locale awareness.",
+      "You prefer a lightweight solution without async initialization."
+    ],
+    "strengths": [
+      "Comprehensive locale support via CLDR v48.",
+      "Async initialization keeps bundle size small.",
+      "Built-in plural, gender, and bidi handling.",
+      "Supports web, mobile, and desktop platforms."
+    ],
+    "weaknesses": [
+      "Requires async init for locale data.",
+      "Large dependency on CLDR data can increase bundle size if many locales used.",
+      "No code generation; messages must be manually extracted."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Call `initializeDateFormatting()` and `initializeMessages()` asynchronously before using formatting. No build_runner needed.",
+    "alternatives": [
+      {
+        "name": "timeago",
+        "why_pick_it": "Provides relative time formatting for many locales, simpler than full i18n."
+      }
+    ],
+    "minimal_example": "```dart\nimport 'package:intl/intl.dart';\n\nvoid main() {\n  Intl.defaultLocale = 'fr';\n  var formatter = DateFormat.yMd('fr');\n  print(formatter.format(DateTime.now()));\n}\n```",
+    "confidence": 0.9
+  }
+}

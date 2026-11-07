@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "29.1.0",
+  "generatedAt": "2026-11-07T09:33:44.429Z",
+  "data": {
+    "primary_category": "codegen",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "code generation"
+    ],
+    "one_liner": "Code generator tool to make communication between Flutter and host platforms type-safe.",
+    "what_it_does": "Pigeon is a code generator that replaces standard platform channels with type-safe generated code. It removes the necessity to manage strings across multiple platforms and handles generating Dart and native language bindings.",
+    "use_when": [
+      "You want type-safe communication between Flutter and host platforms.",
+      "You want to avoid writing boilerplate platform channel code manually.",
+      "You need high performance communication using native interop (FFI/JNI) or platform channels."
+    ],
+    "avoid_when": [
+      "You want to split generated code across separate public packages, which is strongly discouraged.",
+      "Targeting platforms where specific native interop features are unsupported and you cannot use platform channels instead."
+    ],
+    "strengths": [
+      "Removes the need to write custom platform channel boilerplate.",
+      "Provides type-safety and eliminates string management across multiple languages.",
+      "Supports both traditional asynchronous platform channels and experimental high-performance native interop (FFI/JNI)."
+    ],
+    "weaknesses": [
+      "Breaking changes in generated code are common because it favors internal improvements over consistency.",
+      "Using Pigeon-generated code in public APIs is strongly discouraged due to inter-version compatibility constraints."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add pigeon as a dev_dependency, create a .dart file outside 'lib' to define the interface, run pigeon to generate code, and implement the host-language bindings in your native projects.",
+    "alternatives": [],
+    "minimal_example": "const String aStringConstant = 'stringConstantValue';\nconst int anIntConstant = 42;\n\n@HostApi()\nabstract class HostApi {\n  String getMessage();\n}",
+    "confidence": 0.95
+  }
+}

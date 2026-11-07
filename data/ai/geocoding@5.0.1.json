@@ -1,0 +1,51 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "5.0.1",
+  "generatedAt": "2026-11-07T09:29:04.303Z",
+  "data": {
+    "primary_category": "maps",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Flutter plugin for forward and reverse geocoding using platform services.",
+    "what_it_does": "Provides methods to convert coordinates to addresses and addresses to coordinates. Wraps native iOS, macOS, and Android geocoding APIs behind a simple Dart API.",
+    "use_when": [
+      "You need to obtain human‑readable addresses from lat/long values",
+      "You need to convert user‑entered addresses into geographic coordinates"
+    ],
+    "avoid_when": [
+      "You require offline geocoding or custom data sources",
+      "You need high‑volume batch geocoding beyond platform rate limits"
+    ],
+    "strengths": [
+      "Uses native platform geocoding services (no extra API keys)",
+      "Simple API with single Geocoding class",
+      "Supports Android, iOS, and macOS"
+    ],
+    "weaknesses": [
+      "Relies on platform rate limits and network availability",
+      "No support for Windows, Linux, or web",
+      "Limited to free built‑in services, no advanced features"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the package to pubspec.yaml; no additional native configuration beyond default platform permissions for location services.",
+    "alternatives": [
+      {
+        "name": "geolocator",
+        "why_pick_it": "Provides location tracking and also basic geocoding with more control over permissions"
+      },
+      {
+        "name": "flutter_map",
+        "why_pick_it": "If you need full map UI integration alongside geocoding"
+      }
+    ],
+    "minimal_example": "import 'package:geocoding/geocoding.dart';\n\nFuture<void> example() async {\n  List<Placemark> placemarks = await Geocoding().placemarkFromCoordinates(52.2165, 6.9438);\n  print(placemarks.first.street);\n}",
+    "confidence": 0.97
+  }
+}

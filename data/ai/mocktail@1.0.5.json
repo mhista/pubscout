@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.5",
+  "generatedAt": "2026-11-07T09:31:53.310Z",
+  "data": {
+    "primary_category": "testing",
+    "secondary_categories": [],
+    "approach": [
+      "no codegen",
+      "declarative"
+    ],
+    "one_liner": "Dart mock library with null safety support and no manual mocks or code generation.",
+    "what_it_does": "Mocktail provides a simple API for creating mocks in Dart without the need for manual mocks or code generation. It uses closures to handle catching TypeError instances when stubbing and verifying return types.",
+    "use_when": [
+      "You want to write unit tests with mocks in Dart or Flutter without running build_runner.",
+      "You want a mocking API inspired by mockito that supports null safety out of the box."
+    ],
+    "avoid_when": [
+      "You prefer compile-time safe code-generated mocks.",
+      "You need to stub or verify extension methods directly."
+    ],
+    "strengths": [
+      "No code generation or manual mocks required.",
+      "Familiar API inspired by mockito.",
+      "Supports argument matchers and fallback values."
+    ],
+    "weaknesses": [
+      "Cannot directly stub or verify extension methods.",
+      "Requires registering fallback values for custom types when using argument matchers."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Not documented",
+    "alternatives": [],
+    "minimal_example": "import 'package:mocktail/mocktail.dart';\n\nclass Cat {\n  String sound() => 'meow!';\n}\n\nclass MockCat extends Mock implements Cat {}\n\nvoid main() {\n  final cat = MockCat();\n  when(() => cat.sound()).thenReturn('meow');\n  expect(cat.sound(), 'meow');\n  verify(() => cat.sound()).called(1);\n}",
+    "confidence": 1
+  }
+}

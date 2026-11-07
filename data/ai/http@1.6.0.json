@@ -1,0 +1,50 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "1.6.0",
+  "generatedAt": "2026-11-07T09:30:04.105Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "A composable, Future‑based library for making HTTP requests across platforms.",
+    "what_it_does": "Provides high‑level functions and client classes to perform HTTP GET, POST, and other requests. Supports persistent connections, request retry, and aborting on web, mobile, and desktop.",
+    "use_when": [
+      "Simple REST calls without heavy abstraction",
+      "Need cross‑platform support (mobile, web, desktop)",
+      "Want easy testability with mock clients"
+    ],
+    "avoid_when": [
+      "Require built‑in authentication or OAuth flows",
+      "Need GraphQL or gRPC client features",
+      "Prefer code‑generated API clients"
+    ],
+    "strengths": [
+      "Multi‑platform (mobile, web, desktop)",
+      "Simple, Future‑based API",
+      "Easy to mock for testing",
+      "Retry and abort capabilities"
+    ],
+    "weaknesses": [
+      "No built‑in JSON serialization or auth helpers",
+      "Limited to low‑level HTTP, no higher‑level abstractions",
+      "No code generation"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "May require additional Android/iOS network configuration (e.g., cleartext traffic settings).",
+    "alternatives": [
+      {
+        "name": "dio",
+        "why_pick_it": "Offers richer features like interceptors, FormData, and built‑in cancellation."
+      }
+    ],
+    "minimal_example": "import 'package:http/http.dart' as http;\n\nvoid main() async {\n  var url = Uri.https('example.com', 'path');\n  var response = await http.get(url);\n  print('Status: ${response.statusCode}');\n  print('Body: ${response.body}');\n}",
+    "confidence": 0.99
+  }
+}
