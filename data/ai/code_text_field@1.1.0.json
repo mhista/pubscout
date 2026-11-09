@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.1.0",
+  "generatedAt": "2026-11-09T11:18:28.765Z",
+  "data": {
+    "primary_category": "forms",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A customizable code text field supporting syntax highlighting and scrolling.",
+    "what_it_does": "Provides a CodeField widget paired with a CodeController to parse and highlight text input according to a specified language or custom pattern/string maps. It supports vertical and horizontal scrolling, line numbers, and custom code modifiers.",
+    "use_when": [
+      "You need to build a code editor inside your Flutter application",
+      "You want real-time syntax highlighting for various programming languages"
+    ],
+    "avoid_when": [
+      "You only need a standard single-line or multi-line text input without syntax highlighting",
+      "You require complex IDE features like full language servers and deep code analysis"
+    ],
+    "strengths": [
+      "Supports 189 built-in languages and 90 themes via flutter_highlight",
+      "Includes code modifiers for automatic indentation and tab management",
+      "Supports both pattern-based and string-based custom parsing rules"
+    ],
+    "weaknesses": [
+      "Autocomplete disabling on Android does not work yet",
+      "Limited to text input and syntax highlighting features rather than a full IDE"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the dependency to pubspec.yaml and optionally include a monospace font asset for proper code rendering.",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:code_text_field/code_text_field.dart';\nimport 'package:highlight/languages/dart.dart';\nimport 'package:flutter_highlight/themes/monokai-sublime.dart';\n\nclass CodeEditor extends StatefulWidget {\n  @override\n  _CodeEditorState createState() => _CodeEditorState();\n}\n\nclass _CodeEditorState extends State<CodeEditor> {\n  CodeController? _codeController;\n\n  @override\n  void initState() {\n    super.initState();\n    final source = \"void main() {\\n    print(\\\"Hello, world!\\\");\\n}\";\n    _codeController = CodeController(\n      text: source,\n      language: dart,\n      theme: monokaiSublimeTheme,\n    );\n  }\n\n  @override\n  void dispose() {\n    _codeController?.dispose();\n    super.dispose();\n  }\n\n  @override\n  Widget build(BuildContext context) {\n    return CodeField(\n      controller: _codeController!,\n      textStyle: TextStyle(fontFamily: 'SourceCode'),\n    );\n  }\n}",
+    "confidence": 1
+  }
+}

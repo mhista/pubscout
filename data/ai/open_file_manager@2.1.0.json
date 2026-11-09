@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.1.0",
+  "generatedAt": "2026-11-09T11:12:04.812Z",
+  "data": {
+    "primary_category": "files",
+    "secondary_categories": [
+      "device"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "A Flutter plugin to open the default system file manager app on Android and iOS.",
+    "what_it_does": "Allows your app to open the native File Manager on Android (such as Downloads or Recent) or the Files app on iOS (to the app's Documents folder). You can also specify custom subdirectories or folder paths.",
+    "use_when": [
+      "You want users to view downloaded files inside the system file manager",
+      "You need to open the app's documents directory directly in the iOS Files app"
+    ],
+    "avoid_when": [
+      "You need to pick files within your app instead of launching an external app",
+      "You require fine-grained file manipulation and reading inside Dart code"
+    ],
+    "strengths": [
+      "Simple API with platform-specific configurations",
+      "Supports opening specific folder paths on both Android and iOS"
+    ],
+    "weaknesses": [
+      "Requires platform configuration on iOS (Info.plist)",
+      "Limited to opening specific folders in external applications rather than file management inside the app"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "For iOS, you must add UISupportsDocumentBrowser to Info.plist and save at least one file to the app's Documents folder.",
+    "alternatives": [
+      {
+        "name": "file_picker",
+        "why_pick_it": "Pick files or directories using native UI components instead of launching the standalone file manager application."
+      }
+    ],
+    "minimal_example": "import 'package:open_file_manager/open_file_manager.dart';\n\nopenFileManager(\n    androidConfig: AndroidConfig(\n        folderType: AndroidFolderType.recent,\n    ),\n    iosConfig: IosConfig(\n        folderPath: 'Reports/Sheets',\n    ),\n);",
+    "confidence": 0.95
+  }
+}

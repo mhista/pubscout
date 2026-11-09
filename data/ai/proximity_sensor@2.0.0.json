@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "2.0.0",
+  "generatedAt": "2026-11-09T11:10:47.391Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "stream-based"
+    ],
+    "one_liner": "Flutter plugin to read proximity sensor events on Android and iOS",
+    "what_it_does": "Provides a stream of proximity sensor changes and optional screen‑off behavior. It supports Android (min SDK 23) and iOS, handling necessary permissions and platform differences.",
+    "use_when": [
+      "When you need proximity sensor data for UI or logic",
+      "When you want to turn off the screen while the device is close to a surface",
+      "When building AR, gaming or accessibility features that rely on proximity"
+    ],
+    "avoid_when": [
+      "When targeting Flutter versions below 3.44",
+      "When using Android versions below 12 if you need WAKE_LOCK permission"
+    ],
+    "strengths": [
+      "Simple API with a single Stream",
+      "Cross‑platform support (Android & iOS)",
+      "Handles required permissions and platform quirks"
+    ],
+    "weaknesses": [
+      "Requires Flutter >=3.44 and Dart ^3.12",
+      "Android 12+ needed for explicit exported activity",
+      "No support for virtual proximity sensors on some devices"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dependency, import package, add <uses-permission android:name=\"android.permission.WAKE_LOCK\"/> if using setProximityScreenOff(true). No build_runner needed.",
+    "alternatives": [],
+    "minimal_example": "import 'package:proximity_sensor/proximity_sensor.dart';\n\nStreamSubscription? _subscription;\n\nvoid startListening() {\n  _subscription = ProximitySensor.events.listen((event) {\n    print('Proximity: $event');\n  });\n}\n\nvoid stopListening() {\n  _subscription?.cancel();\n}\n",
+    "confidence": 0.9
+  }
+}

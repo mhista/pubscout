@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.0+1",
+  "generatedAt": "2026-11-09T11:20:24.146Z",
+  "data": {
+    "primary_category": "devtools",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Logging appenders for the dart logging package for print, file, and remote logging.",
+    "what_it_does": "Provides native Dart appenders for the logging package. Includes local logging options like PrintAppender and RotatingFileAppender, alongside remote logging options for services such as logz.io, loki, and Graylog (GELF).",
+    "use_when": [
+      "You are using the dart logging package and need local file or console appenders.",
+      "You want to batch and send logs to remote services like logz.io, loki, or Graylog during beta testing."
+    ],
+    "avoid_when": [
+      "You require a completely custom logging facade that does not use the standard dart logging package."
+    ],
+    "strengths": [
+      "Supports multiple local and remote logging targets out of the box.",
+      "Batches log entries for remote logging to stay reasonably performant.",
+      "Includes features like exception chaining and color formatters for interactive terminals."
+    ],
+    "weaknesses": [
+      "Remote logging appenders may not be wise to use heavily in production due to network batching limitations.",
+      "Limited built-in configuration alternatives beyond the documented remote services."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Install package logging and logging_appenders, then attach the appenders to your loggers.",
+    "alternatives": [],
+    "minimal_example": "import 'package:logging/logging.dart';\nimport 'package:logging_appenders/logging_appenders.dart';\n\nfinal _logger = Logger('main');\n\nvoid main() {\n  PrintAppender.setupLogging();\n  _logger.fine('Lorem ipsum');\n}",
+    "confidence": 0.95
+  }
+}

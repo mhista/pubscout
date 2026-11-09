@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.4.4",
+  "generatedAt": "2026-11-09T11:43:49.066Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "ScrollController that supports scrolling to an index and listening to index changes.",
+    "what_it_does": "Provides a custom ScrollController implementation that allows scrolling a list view directly to a specific item index. It also exposes callbacks and listeners to detect when the current visible index changes during scrolling.",
+    "use_when": [
+      "You need to programmatically scroll a ListView or ScrollView to a specific item index.",
+      "You need to track which item index is currently visible or active during user scrolling."
+    ],
+    "avoid_when": [
+      "You are using a non-scrollable UI layout.",
+      "You do not need index tracking or scroll-to-index capabilities."
+    ],
+    "strengths": [
+      "Supports scrolling to a specific index easily.",
+      "Allows listening to index changes both programmatically and via user scroll.",
+      "Supports fixed item sizes as well as variable item sizes via wrappers."
+    ],
+    "weaknesses": [
+      "Requires wrapping list items with specific widgets (AnchorItemWrapper) unless using fixed sizes.",
+      "Adds extra overhead to standard list management."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Not documented",
+    "alternatives": [],
+    "minimal_example": "late final AnchorScrollController _scrollController;\n\n@override\nvoid initState() {\n  super.initState();\n  _scrollController = AnchorScrollController(\n    onIndexChanged: (index) {\n      print('Current index: $index');\n    },\n  );\n}\n\n@override\nWidget build(BuildContext context) {\n  return ListView.builder(\n    controller: _scrollController,\n    itemCount: 10,\n    itemBuilder: (context, index) => AnchorItemWrapper(\n      index: index,\n      controller: _scrollController,\n      child: Text('Item $index'),\n    ),\n  );\n}",
+    "confidence": 1
+  }
+}

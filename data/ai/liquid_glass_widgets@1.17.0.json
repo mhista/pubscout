@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.17.0",
+  "generatedAt": "2026-11-09T11:08:23.092Z",
+  "data": {
+    "primary_category": "ui-kits",
+    "secondary_categories": [
+      "widgets",
+      "theming"
+    ],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "iOS-style liquid glass widgets with fragment shader blur, refraction, and jelly physics.",
+    "what_it_does": "Provides native-like iOS glass widgets, navigation surfaces, and controls built on custom fragment shaders. It offers real frosted glass blur, jelly interactions, and dynamic lighting effects across platforms.",
+    "use_when": [
+      "You want to replicate Apple's iOS liquid glass design language in a Flutter application.",
+      "You need performance-tuned shader-based blurs, liquid morphing effects, and glass navigation chrome."
+    ],
+    "avoid_when": [
+      "You are building a strict Material design app that does not use glassmorphism or iOS styles.",
+      "Your target devices have extremely low-end GPUs that struggle with heavy fragment shaders."
+    ],
+    "strengths": [
+      "High fidelity iOS-style liquid glass design with shader-based blur and chromatic aberration.",
+      "Zero external pubspec dependencies besides Flutter.",
+      "Comprehensive collection of navigation chrome, layout widgets, and interactive controls."
+    ],
+    "weaknesses": [
+      "Heavy reliance on fragment shaders may impact performance on older or low-end devices.",
+      "Requires manual initialization and wrapping setup in `main()`."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires calling `WidgetsFlutterBinding.ensureInitialized()` and `await LiquidGlassWidgets.initialize()` in `main()`, then wrapping the app with `LiquidGlassWidgets.wrap()`.",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:liquid_glass_widgets/liquid_glass_widgets.dart';\n\nvoid main() async {\n  WidgetsFlutterBinding.ensureInitialized();\n  await LiquidGlassWidgets.initialize();\n\n  runApp(LiquidGlassWidgets.wrap(child: const MyApp()));\n}\n\nclass MyApp extends StatelessWidget {\n  const MyApp({super.key});\n\n  @override\n  Widget build(BuildContext context) {\n    return MaterialApp(\n      home: GlassScaffold(\n        appBar: GlassAppBar(title: const Text('My App')),\n        body: const Center(child: GlassContainer.card(child: Text('Hello, Glass!'))),\n      ),\n    );\n  }\n}",
+    "confidence": 0.95
+  }
+}

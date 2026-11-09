@@ -1,0 +1,52 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.7.1",
+  "generatedAt": "2026-11-09T11:36:56.762Z",
+  "data": {
+    "primary_category": "forms",
+    "secondary_categories": [
+      "utils",
+      "codegen"
+    ],
+    "approach": [
+      "declarative",
+      "code generation"
+    ],
+    "one_liner": "Schema validation library with bidirectional codecs and JSON Schema support.",
+    "what_it_does": "Ack provides schema validation and bidirectional codecs for Dart and Flutter. It allows developers to define validation rules using a fluent API, validate external payloads against schemas, import and export JSON Schemas, and generate immutable models.",
+    "use_when": [
+      "You need to validate incoming API payloads and user inputs against structured rules.",
+      "You want bidirectional codecs that handle both parsing and serialization in a single definition.",
+      "You need to import or export JSON Schema definitions in your Dart/Flutter applications."
+    ],
+    "avoid_when": [
+      "You are already heavily invested in built_value or json_serializable for your serialization needs and do not want to migrate.",
+      "You only need simple state management or dependency injection."
+    ],
+    "strengths": [
+      "Fluent, easy-to-read API for defining complex data validation logic.",
+      "Built-in JSON Schema import and export support.",
+      "Reduces boilerplate for validation and JSON conversion."
+    ],
+    "weaknesses": [
+      "Requires migrating away from other annotation systems if you adopt its built-in code generation via `@Schemable()`.",
+      "Full A2UI coverage is not supported."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add ack to pubspec.yaml and import 'package:ack/ack.dart'.",
+    "alternatives": [
+      {
+        "name": "json_serializable",
+        "why_pick_it": "If you prefer standard annotation-based JSON serialization without custom schema validation logic."
+      },
+      {
+        "name": "freezed",
+        "why_pick_it": "If your primary goal is generating immutable union types and data classes with built-in copyWith and equality."
+      }
+    ],
+    "minimal_example": "import 'package:ack/ack.dart';\n\nfinal userSchema = Ack.object({\n  'name': Ack.string().minLength(2).maxLength(50),\n  'email': Ack.string().email(),\n  'age': Ack.integer().min(0).max(120).optional(),\n});\n\nfinal result = userSchema.safeParse({\n  'name': 'John Doe',\n  'email': 'john@example.com',\n  'age': 30,\n});",
+    "confidence": 0.95
+  }
+}

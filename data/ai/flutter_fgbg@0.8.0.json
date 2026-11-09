@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.8.0",
+  "generatedAt": "2026-11-09T11:08:28.566Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "stream-based",
+      "declarative"
+    ],
+    "one_liner": "Detects when the Flutter app goes to the background or foreground at the app level.",
+    "what_it_does": "Detects true app-level background and foreground events rather than individual Activity or ViewController state changes. Provides a built-in widget and a stream to listen for lifecycle transitions.",
+    "use_when": [
+      "You need to detect true app-level background and foreground transitions",
+      "You want to avoid false triggers caused by opening new activities, view controllers, or FaceID prompts"
+    ],
+    "avoid_when": [
+      "You only need standard widget binding observations for embedding activities"
+    ],
+    "strengths": [
+      "Avoids false positives from native container changes like FaceID prompts",
+      "Provides both a reactive widget and an event stream",
+      "Includes ignoreWhile API to bypass specific events like image picking"
+    ],
+    "weaknesses": [
+      "Can be triggered by actions like picking an image on newer Android versions that open external apps",
+      "Requires a clean build after adding to integrate native code"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires a clean build to integrate the plugin native code into the app.",
+    "alternatives": [],
+    "minimal_example": "FGBGNotifier(\n    onEvent: (event) {\n        print(event);\n    },\n    child: Container(),\n)",
+    "confidence": 1
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.0.1",
+  "generatedAt": "2026-11-09T11:17:23.730Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "stream-based"
+    ],
+    "one_liner": "Detects incoming calls and phone call status on Android and iOS.",
+    "what_it_does": "Allows you to quickly know if your Android or iOS device is receiving a call and track the current status of the call via a stream. On Android, it can also provide the caller's phone number if the optional permission is granted.",
+    "use_when": [
+      "You need to detect incoming phone calls in your app",
+      "You need to monitor the status changes of cellular phone calls on Android or iOS"
+    ],
+    "avoid_when": [
+      "You need to answer, reject, end, or record phone calls",
+      "You need to detect VoIP calls from apps like WhatsApp or Telegram"
+    ],
+    "strengths": [
+      "Easy-to-use stream-based API for call state tracking",
+      "Supports both Android and iOS platforms",
+      "Provides call duration updates"
+    ],
+    "weaknesses": [
+      "Does not work on the iOS simulator",
+      "Caller phone number is only available on Android, not iOS",
+      "Does not support third-party VoIP calls from apps like WhatsApp or Telegram"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add READ_PHONE_STATE permission to AndroidManifest.xml. READ_CALL_LOG is optional and only needed for caller phone numbers on Android.",
+    "alternatives": [],
+    "minimal_example": "StreamBuilder<PhoneState>(\n  stream: PhoneState.stream,\n  builder: (context, snapshot) {\n    return Text('Call state: ${snapshot.data}');\n  },\n)",
+    "confidence": 1
+  }
+}

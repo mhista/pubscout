@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "6.0.0",
+  "generatedAt": "2026-11-09T11:23:06.203Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [
+      "ui-kits",
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Trim videos in Flutter on Android, iOS, macOS, and the web",
+    "what_it_does": "Provides a customizable video trimmer UI with playback controls, timeline scrubbing, and video or GIF export. Supports native implementation on Android, iOS, and macOS, and runs via Mediabunny on the web.",
+    "use_when": [
+      "You need a user interface to let users select and trim a portion of a video.",
+      "You need cross-platform video trimming supporting mobile, desktop (macOS), and the web."
+    ],
+    "avoid_when": [
+      "You only need a background video processing or transcoding pipeline without any UI.",
+      "You need advanced non-linear video editing with multi-track timelines and filters."
+    ],
+    "strengths": [
+      "Includes customizable trim viewers and playback controls.",
+      "Runs natively on mobile and desktop without requiring external FFmpeg binaries.",
+      "Supports web platform via WebCodecs."
+    ],
+    "weaknesses": [
+      "Requires manual disposal of the Trimmer instance.",
+      "Web support depends on browser capability (WebCodecs support)."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Android minSdk must be at least 24. On macOS, sandboxed apps require the user-selected read-only entitlement. No special Info.plist keys are strictly needed unless using a separate file picker plugin.",
+    "alternatives": [],
+    "minimal_example": "final Trimmer _trimmer = Trimmer();\n\n@override\nvoid initState() {\n  super.initState();\n  _trimmer.loadVideo(videoPath: widget.videoPath);\n}\n\n@override\nvoid dispose() {\n  _trimmer.dispose();\n  super.dispose();\n}\n\n// In build:\nVideoViewer(trimmer: _trimmer)",
+    "confidence": 0.95
+  }
+}

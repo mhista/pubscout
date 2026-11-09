@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.1.0",
+  "generatedAt": "2026-11-09T11:54:55.832Z",
+  "data": {
+    "primary_category": "forms",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A Flutter widget for editing and managing tags with auto-suggestions and Material behavior.",
+    "what_it_does": "Provides a tag editor input field with built-in auto-suggestions, validation support, custom tag builders, and debounced input handling. Designed with Gmail-style tag inputs and keyboard accessibility shortcuts.",
+    "use_when": [
+      "You need a Gmail-style tag input field with suggestions and validation.",
+      "Users need to add, delete, and navigate through multiple tags inline."
+    ],
+    "avoid_when": [
+      "You only need a standard single-value TextField without tags.",
+      "You require complex non-Material styling outside the scope of custom builders."
+    ],
+    "strengths": [
+      "Includes auto-suggestions with custom builder support.",
+      "Built-in debounced input and throttled callbacks.",
+      "Keyboard accessibility with Tab key shortcuts and arrow key navigation."
+    ],
+    "weaknesses": [
+      "Limited to tag editing use cases.",
+      "Depends on external packages like pointer_interceptor and debounce_throttle."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [],
+    "minimal_example": "TagEditor(\n  length: values.length,\n  delimiters: [',', ' '],\n  hasAddButton: true,\n  inputDecoration: const InputDecoration(\n    border: InputBorder.none,\n    hintText: 'Enter tags...',\n  ),\n  onTagChanged: (newValue) {\n    setState(() {\n      values.add(newValue);\n    });\n  },\n  tagBuilder: (context, index) => Chip(\n    label: Text(values[index]),\n  ),\n  findSuggestions: (String query) => [],\n)",
+    "confidence": 0.9
+  }
+}

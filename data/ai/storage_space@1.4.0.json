@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.4.0",
+  "generatedAt": "2026-11-09T11:33:02.217Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "storage"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Get device storage space and app-specific storage usage with readable sizes.",
+    "what_it_does": "Retrieves the total, free, and available disk space on Android and iOS devices. Also calculates the specific storage space used by the app itself, including its cache and data, and provides utility helpers for human-readable sizes.",
+    "use_when": [
+      "You need to display free and total device storage to the user",
+      "You want to check if the device is low on storage space",
+      "You need to inspect how much storage your app's installation and data are consuming"
+    ],
+    "avoid_when": [
+      "You need to persist key-value pairs or structured data on the device",
+      "You need a secure storage mechanism for sensitive user data"
+    ],
+    "strengths": [
+      "Provides both raw byte values and human-readable size strings",
+      "No special permissions required on Android or iOS",
+      "Includes app-specific storage breakdown (app size, data size, cache)"
+    ],
+    "weaknesses": [
+      "Limited to device storage inspection; cannot write or manage files directly",
+      "Platform support restricted to Android and iOS"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires Flutter 3.24+ (Dart 3.5+), Android API 21+, and iOS 13+. Includes an iOS privacy manifest declaring disk space API usage reasons.",
+    "alternatives": [],
+    "minimal_example": "StorageSpace freeSpace = await getStorageSpace(\n  lowOnSpaceThreshold: 2 * 1024 * 1024 * 1024,\n  fractionDigits: 1,\n);",
+    "confidence": 1
+  }
+}

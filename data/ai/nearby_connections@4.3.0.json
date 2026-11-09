@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "4.3.0",
+  "generatedAt": "2026-11-09T11:24:55.555Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Android plugin for offline peer‑to‑peer data transfer using the Nearby Connections API.",
+    "what_it_does": "Exposes the Android Nearby Connections API to Flutter, allowing devices to advertise, discover, and exchange bytes or files without internet. Handles connection lifecycle and payload transmission.",
+    "use_when": [
+      "You need offline, local networking between Android devices",
+      "You need to send files or binary data directly between phones"
+    ],
+    "avoid_when": [
+      "You require iOS, web, or desktop support",
+      "You prefer a cross‑platform solution with fewer native permissions"
+    ],
+    "strengths": [
+      "Works fully offline using Google’s native Nearby API",
+      "Supports both byte and file payloads",
+      "Recent updates keep dependencies current"
+    ],
+    "weaknesses": [
+      "Android‑only; no iOS/web support",
+      "Requires many runtime permissions and manifest changes",
+      "Setup can be verbose and error‑prone"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add multiple Android permissions (location, Bluetooth, Wi‑Fi, storage) to AndroidManifest.xml, request them at runtime (e.g., via permission_handler), and set compileSdkVersion >=32 if targeting Android 12+.",
+    "alternatives": [],
+    "minimal_example": "await Nearby().startAdvertising('myDevice', Strategy.P2P_CLUSTER, onConnectionInitiated: (id, info) {}, onConnectionResult: (id, status) {}, onDisconnected: (id) {}, serviceId: 'com.example.app');",
+    "confidence": 0.93
+  }
+}

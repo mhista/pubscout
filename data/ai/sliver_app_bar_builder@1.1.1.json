@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "1.1.1",
+  "generatedAt": "2026-11-09T11:15:52.195Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "layout"
+    ],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "Customizable sliver app bar using builder callbacks.",
+    "what_it_does": "Provides a SliverAppBar replacement that lets you build the bar, content, and actions with builders. The builders receive expand ratio and current heights for fine‑grained UI adjustments.",
+    "use_when": [
+      "You need a sliver app bar that changes appearance as it collapses",
+      "You want to animate titles, actions, or background based on scroll"
+    ],
+    "avoid_when": [
+      "A simple static AppBar is sufficient",
+      "You are not using a CustomScrollView or slivers"
+    ],
+    "strengths": [
+      "Full control over bar, content, and actions via builders",
+      "Access to expandRatio, barHeight, and contentHeight for animations",
+      "Works on all Flutter platforms"
+    ],
+    "weaknesses": [
+      "Adds boilerplate compared to the built‑in SliverAppBar",
+      "Only works within slivers, not regular Scaffold app bars",
+      "No built‑in theming or preset styles"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "CustomScrollView(\n  slivers: [\n    SliverAppBarBuilder(\n      barHeight: 60,\n      pinned: true,\n      leadingActions: [\n        (context, expandRatio, barHeight, overlapsContent) => SizedBox(\n          height: barHeight,\n          child: const BackButton(),\n        ),\n      ],\n      initialContentHeight: 150,\n      contentBuilder: (context, expandRatio, contentHeight, centerPadding, overlapsContent) =>\n        Container(\n          alignment: Alignment.centerLeft,\n          height: 60,\n          transform: Matrix4.translationValues(10 + (1 - expandRatio) * 40, 0, 0),\n          child: Text(\n            'My Title',\n            style: TextStyle(\n              fontSize: 22 + expandRatio * 10,\n              color: Colors.white,\n              fontWeight: FontWeight.bold,\n            ),\n          ),\n        ),\n    ),\n  ],\n);",
+    "confidence": 0.9
+  }
+}

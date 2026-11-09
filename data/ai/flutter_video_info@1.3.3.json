@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "1.3.3",
+  "generatedAt": "2026-11-09T11:12:02.063Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "A Flutter plugin that extracts basic metadata from local video files on Android and iOS.",
+    "what_it_does": "It uses the native MediaMetadataRetriever (Android) and equivalent iOS APIs to read title, path, author, mimetype, dimensions, filesize, duration, orientation, creation date, framerate and location of a video file. The data is returned as a simple Dart object.",
+    "use_when": [
+      "You need to display or process video file information such as duration or resolution before playback",
+      "You need to store or sort local videos based on their metadata"
+    ],
+    "avoid_when": [
+      "You require video streaming or remote URL metadata",
+      "You need advanced video processing or editing capabilities",
+      "You target platforms other than Android or iOS"
+    ],
+    "strengths": [
+      "Native APIs provide accurate metadata",
+      "Supports both Android and iOS",
+      "Null‑safety and simple async API"
+    ],
+    "weaknesses": [
+      "Works only with local file paths",
+      "Limited to the listed metadata fields",
+      "May require additional permissions on Android and iOS"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add NSPhotoLibraryUsageDescription (and other needed keys) to iOS Info.plist; ensure appropriate Android permissions (e.g., READ_EXTERNAL_STORAGE) for accessing video files",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter_video_info/flutter_video_info.dart';\n\nfinal videoInfo = FlutterVideoInfo();\nvar info = await videoInfo.getVideoInfo('path/to/video.mp4');\nprint('Duration: ${info.duration}, Width: ${info.width}, Height: ${info.height}');",
+    "confidence": 0.92
+  }
+}

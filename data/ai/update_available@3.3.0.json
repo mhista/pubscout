@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.3.0",
+  "generatedAt": "2026-11-09T11:23:12.404Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Check if an update is available for your Flutter app on Android and iOS.",
+    "what_it_does": "Provides a single asynchronous function to check update availability for your app based on published versions on Android and iOS. Returns a sealed Availability class indicating whether an update is available, no update is available, or the status is unknown.",
+    "use_when": [
+      "You want support for both iOS and Android update checks",
+      "You want the bare minimum information about update availability to build your own custom upgrade screen"
+    ],
+    "avoid_when": [
+      "You want built-in user interfaces or pre-made alert and card widgets for updates",
+      "You are testing Android updates locally without publishing an app bundle to Google Play Internal App Sharing"
+    ],
+    "strengths": [
+      "Simple API with a single function getUpdateAvailability",
+      "Supports both iOS and Android platforms",
+      "Exposes sealed class Availability for exhaustive switch-case handling"
+    ],
+    "weaknesses": [
+      "Does not provide any built-in user interfaces or dialogs",
+      "Android implementation requires setting up Internal App Sharing and publishing test app bundles to properly test"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dependency to pubspec.yaml. Android testing requires setting up Google Play Internal App Sharing and app signing.",
+    "alternatives": [],
+    "minimal_example": "void printAvailability() async {\n    final updateAvailability = await getUpdateAvailability();\n\n    final text = switch (availability) {\n      UpdateAvailable() => \"There's an update to you app! Please, update it so you have access to the latest features!\",\n      NoUpdateAvailable() => 'No update is available for your app.',\n      UnknownAvailability() => \"It was not possible to determine if there is or not an update for your app.\",\n    };\n\n    print(text);\n}",
+    "confidence": 0.95
+  }
+}

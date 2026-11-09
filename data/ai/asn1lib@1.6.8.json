@@ -1,0 +1,37 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.8-flash",
+  "version": "1.6.8",
+  "generatedAt": "2026-11-09T11:09:49.761Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Encodes and decodes ASN.1 objects using BER byte encoding in Dart.",
+    "what_it_does": "Provides classes to construct, serialize, and parse ASN.1 data structures using Basic Encoding Rules (BER). It supports primitive ASN.1 types like sequences, integers, octet strings, and booleans, with limited handling for context-specific and application tags. It includes security safeguards against common denial-of-service vectors in untrusted input.",
+    "use_when": [
+      "Working with cryptographic structures, certificates, or keys that require BER/DER ASN.1 encoding or decoding",
+      "Implementing network protocols like LDAP or SNMP that serialize messages with ASN.1 BER"
+    ],
+    "avoid_when": [
+      "Dealing with non-BER formats or complex schema-driven ASN.1 specifications requiring full compiler support",
+      "Only needing standard data formats like JSON, XML, or YAML"
+    ],
+    "strengths": [
+      "Zero external dependencies, running on pure Dart across all platforms",
+      "Recent updates address security issues like CPU exhaustion, stack overflows, and integer overflows on untrusted inputs",
+      "Provides a relaxed parsing mode for gracefully handling unsupported or nested structures"
+    ],
+    "weaknesses": [
+      "Minimal support for ASN.1 Application, Context-specific, and Private classes requiring manual casting"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:asn1lib/asn1lib.dart';\n\nvoid main() {\n  var sequence = ASN1Sequence();\n  sequence.add(ASN1Integer(42));\n  sequence.add(ASN1OctetString('test'));\n  var bytes = sequence.encodedBytes;\n\n  var parser = ASN1Parser(bytes);\n  var decodedSequence = parser.nextObject() as ASN1Sequence;\n}",
+    "confidence": 0.95
+  }
+}

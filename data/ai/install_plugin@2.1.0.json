@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "2.1.0",
+  "generatedAt": "2026-11-09T11:20:36.205Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Installs Android APKs and opens iOS App Store URLs from Flutter.",
+    "what_it_does": "Provides a Flutter plugin to programmatically install an APK on Android devices and to launch the App Store on iOS via a URL. Handles required Android permissions and offers simple Dart API calls.",
+    "use_when": [
+      "You need to install an APK downloaded at runtime on Android",
+      "You want to redirect users to an iOS App Store page from your app"
+    ],
+    "avoid_when": [
+      "You rely on official app stores for distribution only",
+      "You need a cross‑platform package that also handles updates or store listings"
+    ],
+    "strengths": [
+      "Supports Android 5‑13 and handles permission nuances",
+      "Simple API with install and gotoAppStore functions",
+      "Works for both network‑downloaded and local APKs"
+    ],
+    "weaknesses": [
+      "Requires manual AndroidManifest permission setup",
+      "Only covers APK install and iOS URL launch, no broader store management",
+      "Limited to Android/iOS, no web or desktop support"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add READ_EXTERNAL_STORAGE, REQUEST_INSTALL_PACKAGES, and WRITE_EXTERNAL_STORAGE permissions to AndroidManifest. Ensure iOS project uses Swift. No build_runner needed.",
+    "alternatives": [],
+    "minimal_example": "await InstallPlugin.install('/path/to/app.apk'); // Android install\nawait InstallPlugin.install('https://itunes.apple.com/app/id123456'); // iOS App Store redirect",
+    "confidence": 0.85
+  }
+}

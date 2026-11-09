@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.23.1",
+  "generatedAt": "2026-11-09T11:53:33.891Z",
+  "data": {
+    "primary_category": "images",
+    "secondary_categories": [
+      "backend",
+      "files"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Upload media files directly to Cloudinary without exposing API secrets.",
+    "what_it_does": "Allows Flutter apps to upload images and files directly to Cloudinary using unsigned upload presets. It also provides URL generation helpers for Cloudinary image transformations.",
+    "use_when": [
+      "You need to upload user photos or videos directly to Cloudinary.",
+      "You want to perform client-side image transformations via Cloudinary URL generation."
+    ],
+    "avoid_when": [
+      "You are using a backend other than Cloudinary.",
+      "You need secure authenticated uploads requiring secret keys on the client side (which is not recommended)."
+    ],
+    "strengths": [
+      "Supports chunked uploads for files larger than 100MB.",
+      "Provides upload progress monitoring.",
+      "Includes image transformation and URL generation utilities."
+    ],
+    "weaknesses": [
+      "Limited to Cloudinary backend services.",
+      "Relies on unsigned upload presets configuration on Cloudinary's dashboard."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires setting up an unsigned upload preset on your Cloudinary account.",
+    "alternatives": [],
+    "minimal_example": "import 'package:cloudinary_public/cloudinary_public.dart';\n\nfinal cloudinary = CloudinaryPublic('CLOUD_NAME', 'UPLOAD_PRESET', cache: false);\n\ntry {\n  CloudinaryResponse response = await cloudinary.uploadFile(\n    CloudinaryFile.fromFile(image.path, resourceType: CloudinaryResourceType.Image),\n  );\n} on CloudinaryException catch (e) {\n  print(e.message);\n}",
+    "confidence": 0.95
+  }
+}

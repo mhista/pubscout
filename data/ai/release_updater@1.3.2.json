@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.3.2",
+  "generatedAt": "2026-11-09T11:47:51.433Z",
+  "data": {
+    "primary_category": "files",
+    "secondary_categories": [
+      "utils",
+      "backend"
+    ],
+    "approach": [
+      "imperative",
+      "declarative"
+    ],
+    "one_liner": "Automatically update release and installation files in a local directory.",
+    "what_it_does": "Provides an API and CLI tools to automatically update release and installation files in a local directory. It includes utilities to package releases into ZIP bundles and serve them via an HTTP server.",
+    "use_when": [
+      "You need to implement self-updating capabilities for a local Dart application.",
+      "You want to generate release bundles and serve them over HTTP for multiple platforms."
+    ],
+    "avoid_when": [
+      "You are deploying standard mobile apps via Google Play or the Apple App Store.",
+      "You do not need local file installation updates or custom release servers."
+    ],
+    "strengths": [
+      "Includes built-in CLI tools for packing and serving releases.",
+      "Supports multiple platforms (Android, iOS, Windows, macOS, Linux).",
+      "Integrates with HTTP providers and basic authentication for uploads."
+    ],
+    "weaknesses": [
+      "Requires setting up and managing a custom release server for updates.",
+      "Documentation outside of the README relies entirely on external API docs."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires configuring a release JSON file for the packer and optionally running the release server CLI.",
+    "alternatives": [],
+    "minimal_example": "import 'dart:io';\nimport 'package:release_updater/release_updater_io.dart';\n\nvoid main() async {\n  var storage = ReleaseStorageDirectory('appx', Directory('/install/path'));\n  var provider = ReleaseProviderHttp.baseURL('https://your.domain/appx/releases');\n  var releaseUpdater = ReleaseUpdater(storage, provider);\n  var version = await releaseUpdater.update();\n  print('»  Updated to version: $version');\n}",
+    "confidence": 0.95
+  }
+}

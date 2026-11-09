@@ -1,0 +1,50 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "10.0.0",
+  "generatedAt": "2026-11-09T11:26:59.223Z",
+  "data": {
+    "primary_category": "camera",
+    "secondary_categories": [
+      "images",
+      "files"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter plugin for offline document scanning, QR/barcode scanning, and OCR data capture.",
+    "what_it_does": "Provides ready-to-use UI and APIs for capturing documents, automatic cropping, applying image filters, and extracting data from MRZs, check MICR, VINs, and barcodes entirely on-device.",
+    "use_when": [
+      "You need robust offline document scanning with auto-cropping and perspective correction.",
+      "Your app requires data extraction modules like MRZ (passports/IDs), barcodes, or VIN scanning."
+    ],
+    "avoid_when": [
+      "You only need a simple, lightweight camera preview without heavy document processing features.",
+      "You require a completely free open-source solution with no commercial licensing fees."
+    ],
+    "strengths": [
+      "High-level Ready-To-Use UI components for fast integration.",
+      "Runs entirely offline without sending data to external servers.",
+      "Includes advanced features like automatic capture, user guidance, and document quality analysis."
+    ],
+    "weaknesses": [
+      "Requires a commercial license key for long-term usage (free 60-second trial per session otherwise).",
+      "Large SDK footprint due to comprehensive native scanning binaries."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding CAMERA permission and configuration in AndroidManifest.xml and iOS Info.plist, plus SDK initialization with a license key.",
+    "alternatives": [
+      {
+        "name": "mobile_scanner",
+        "why_pick_it": "You only need lightweight, high-performance barcode and QR scanning without document workflow features."
+      },
+      {
+        "name": "cunning_document_scanner",
+        "why_pick_it": "You want a simpler free document cropping scanner wrapper."
+      }
+    ],
+    "minimal_example": "import 'package:scanbot_sdk/scanbot_sdk.dart';\n\nvoid startScanning() async {\n  var configuration = DocumentScanningFlow();\n  var documentResult = await ScanbotSdk.document.startScanner(configuration);\n  if (documentResult is Ok<DocumentData>) {\n    var documentData = documentResult.value;\n  }\n}",
+    "confidence": 0.95
+  }
+}

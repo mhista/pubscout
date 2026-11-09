@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.2.0",
+  "generatedAt": "2026-11-09T11:35:17.382Z",
+  "data": {
+    "primary_category": "camera",
+    "secondary_categories": [
+      "device"
+    ],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "Communicate with Zebra DataWedge barcode scanners using the DataWedge Intent API in Flutter.",
+    "what_it_does": "A Flutter plugin that enables communication with Zebra DataWedge scanners on Android via intents. It allows apps to initialize scanners, create profiles, listen to scan results and scanner events on streams, and control scanner actions.",
+    "use_when": [
+      "Building a Flutter application that runs on Zebra Android devices with built-in barcode scanners",
+      "Integrating with the Zebra DataWedge Intent API to manage profiles and capture scan results"
+    ],
+    "avoid_when": [
+      "Targeting non-Android platforms or generic smartphone cameras for barcode scanning without Zebra hardware",
+      "Needing a general-purpose cross-platform camera barcode scanner"
+    ],
+    "strengths": [
+      "Direct integration with Zebra DataWedge APIs and Android intents",
+      "Provides streams for scan results, scanner events, and status changes",
+      "Supports profile creation and management for DataWedge"
+    ],
+    "weaknesses": [
+      "Android-only plugin",
+      "Requires specific Zebra hardware running DataWedge"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires Android configuration for Zebra DataWedge and compatible Zebra hardware.",
+    "alternatives": [],
+    "minimal_example": "FlutterDataWedge dw = FlutterDataWedge();\nawait dw.initialize();\nawait createDefaultProfile(profileName: \"Example Profile\");\nStreamSubscription onScanSubscription = dw.onScanResult.listen((ScanResult result) {\n    print(result.data);\n});",
+    "confidence": 0.95
+  }
+}

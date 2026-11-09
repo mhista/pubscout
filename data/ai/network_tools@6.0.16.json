@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "6.0.16",
+  "generatedAt": "2026-11-09T11:25:47.283Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "utils",
+      "device"
+    ],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "Discover open ports, devices on a subnet, and perform network scanning.",
+    "what_it_does": "Network Tools helps you scan local subnets to discover active hosts and connected devices, scan ports on a single device or range, and perform mDNS device searches. It supports concurrent scans, progress callbacks, and running scans in background isolates.",
+    "use_when": [
+      "You need to discover all active devices on the local subnet.",
+      "You need to scan ports on a target IP address or range.",
+      "You need to resolve mDNS devices and retrieve device information."
+    ],
+    "avoid_when": [
+      "You are building web applications (requires Dart native/mobile/desktop platforms).",
+      "You only need high-level HTTP requests rather than raw TCP/IP or network discovery."
+    ],
+    "strengths": [
+      "Fast subnet and port scanning with bounded concurrency.",
+      "Supports running scans in background isolates to keep the UI responsive.",
+      "Provides streaming results as ports or hosts resolve."
+    ],
+    "weaknesses": [
+      "Requires platform-specific permissions and configurations (such as local network access on iOS or multicast locks on Android).",
+      "Some advanced features or permissions vary by operating system platform."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires initializing network tools with your app document directory in the main function. Android requires a MulticastLock and location permissions for Wi-Fi details; iOS requires multicast networking entitlement and local network permission.",
+    "alternatives": [],
+    "minimal_example": "Future<void> main() async {\n  WidgetsFlutterBinding.ensureInitialized();\n  final appDocDirectory = await getApplicationDocumentsDirectory();\n  await configureNetworkTools(appDocDirectory.path, enableDebugging: true);\n  runApp(const MyApp());\n}",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.1.0",
+  "generatedAt": "2026-11-09T11:11:58.771Z",
+  "data": {
+    "primary_category": "payments",
+    "secondary_categories": [
+      "device"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Prompt users for in-app updates using StoreKit on iOS and Play Core API on Android.",
+    "what_it_does": "A Flutter plugin that provides native in-app update experiences. It uses StoreKit on iOS to display the App Store product page inside the app and Google Play's In-App Updates API on Android for immediate or flexible update flows.",
+    "use_when": [
+      "You want to prompt users to update your app directly inside the app on Android and iOS.",
+      "You need to support immediate or flexible update flows on Android using Google Play.",
+      "You want to check for available updates and download progress programmatically."
+    ],
+    "avoid_when": [
+      "Your app targets platforms other than Android and iOS (such as Web or Desktop).",
+      "You prefer completely custom UI update prompts rather than native store sheets."
+    ],
+    "strengths": [
+      "Supports native in-app updates on both Android and iOS from a single package.",
+      "Provides stream-based tracking of download progress on Android.",
+      "Allows checking version availability before displaying prompts on both platforms."
+    ],
+    "weaknesses": [
+      "iOS version checking relies on an unofficial iTunes Lookup endpoint that can experience CDN caching delays.",
+      "iOS does not support true forced blocking updates natively.",
+      "Does not work on iOS simulators."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires iOS 13.0 or later and testing on a real device. No native setup or AppDelegate changes needed.",
+    "alternatives": [],
+    "minimal_example": "import 'package:in_app_update_flutter/in_app_update_flutter.dart';\n\nfinal plugin = InAppUpdateFlutter();\nfinal info = await plugin.checkUpdateAndroid();\n\nif (info.updateAvailability == UpdateAvailabilityAndroid.updateAvailable &&\n    info.isImmediateUpdateAllowed) {\n  await plugin.startImmediateUpdateAndroid();\n}",
+    "confidence": 0.95
+  }
+}

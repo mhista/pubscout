@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.0.34",
+  "generatedAt": "2026-11-09T11:20:30.525Z",
+  "data": {
+    "primary_category": "maps",
+    "secondary_categories": [
+      "backend"
+    ],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "Store and query Cloud Firestore documents based on geographic locations.",
+    "what_it_does": "geoflutterfire_plus allows Flutter apps to query geographic data saved in Cloud Firestore by using Geohashes. It provides tools to save geographic points, fetch locations within a radius, and subscribe to real-time location query streams.",
+    "use_when": [
+      "You need to query Cloud Firestore documents within a specific geographic radius in real-time",
+      "You want to store location points along with their geohash strings in Firestore"
+    ],
+    "avoid_when": [
+      "You require built-in limit or orderBy queries directly on the geo query (limit and orderBy are currently not supported due to geohash algorithm and Firestore limitations)",
+      "You are not using Cloud Firestore as your backend"
+    ],
+    "strengths": [
+      "Enables radius-based location queries on Cloud Firestore",
+      "Supports real-time streams of location query results via rxdart",
+      "Works well with typed data using withConverter"
+    ],
+    "weaknesses": [
+      "Does not support limit and orderBy queries out of the box",
+      "Requires proper Firestore composite indexes for custom query conditions"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires cloud_firestore configured in your Flutter project.",
+    "alternatives": [],
+    "minimal_example": "final GeoFirePoint center = GeoFirePoint(const GeoPoint(35.681236, 139.767125));\nfinal Stream<List<DocumentSnapshot<Map<String, dynamic>>>> stream = GeoCollectionReference<Map<String, dynamic>>(FirebaseFirestore.instance.collection('locations')).subscribeWithin(\n  center: center,\n  radiusInKm: 50,\n  field: 'geo',\n  geopointFrom: (data) => (data['geo'] as Map<String, dynamic>)['geopoint'] as GeoPoint,\n);",
+    "confidence": 0.95
+  }
+}

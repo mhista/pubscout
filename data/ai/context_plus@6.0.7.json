@@ -1,0 +1,52 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "6.0.7",
+  "generatedAt": "2026-11-09T11:33:02.660Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative",
+      "hooks"
+    ],
+    "one_liner": "Convenient value propagation and reactive observation for Flutter widgets.",
+    "what_it_does": "Combines context_ref and context_watch to let you bind, propagate, and observe reactive values like Streams, Futures, Listenables, and Notifiers directly through the BuildContext with minimal boilerplate.",
+    "use_when": [
+      "You want to share values down the widget tree without verbose InheritedWidgets.",
+      "You want to easily watch Listenables, Futures, or Streams inside widgets with automatic rebuilding.",
+      "You want a lightweight alternative to heavier state management frameworks."
+    ],
+    "avoid_when": [
+      "You already rely heavily on Riverpod or Bloc for all state management and dependency injection.",
+      "Your project cannot use ContextPlus.root at the root of the application."
+    ],
+    "strengths": [
+      "Drastically reduces boilerplate for watching streams, futures, and listenables.",
+      "Unifies context_ref and context_watch into a single package.",
+      "Supports multi-value observing via records up to 4 values.",
+      "Automatic cleanup and disposal of bound values tied to BuildContext lifecycle."
+    ],
+    "weaknesses": [
+      "Requires wrapping your app in ContextPlus.root.",
+      "Relies on custom extension methods on BuildContext and Ref which might have a learning curve for new team members."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Wrap your root widget in ContextPlus.root(child: MaterialApp(...)) and optionally add the context_plus_lint plugin.",
+    "alternatives": [
+      {
+        "name": "provider",
+        "why_pick_it": "Traditional and widely adopted approach for dependency injection and state propagation via BuildContext."
+      },
+      {
+        "name": "riverpod",
+        "why_pick_it": "Compile-safe, context-independent state management and dependency injection."
+      }
+    ],
+    "minimal_example": "final _stream = Ref<Stream>();\n\nclass Example extends StatelessWidget {\n  @override\n  Widget build(BuildContext context) {\n    final streamSnapshot = _stream.watch(context);\n    return const Text('Watching stream');\n  }\n}",
+    "confidence": 1
+  }
+}

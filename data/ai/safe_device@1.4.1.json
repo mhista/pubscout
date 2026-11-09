@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "1.4.1",
+  "generatedAt": "2026-11-09T11:07:11.335Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Detect jailbreak/root, emulator, mock location and other safety flags on iOS/Android devices.",
+    "what_it_does": "The plugin provides async methods to check if the device is jail‑broken/rooted, running on an emulator, using mock GPS, on external storage or in development mode. It also aggregates these checks into a single safety flag.",
+    "use_when": [
+      "You need to block or warn users on compromised devices",
+      "You want to enforce security policies before allowing sensitive actions"
+    ],
+    "avoid_when": [
+      "Precise location tracking is required without extra permissions",
+      "False‑positive risk is unacceptable for your user base"
+    ],
+    "strengths": [
+      "Broad detection of jailbreak, root and many Android emulators",
+      "Configurable at startup to disable mock‑location checks",
+      "Detailed breakdown methods for debugging"
+    ],
+    "weaknesses": [
+      "May produce false positives on some manufacturers",
+      "Requires location permission on Android for mock‑location detection",
+      "iOS mock‑location detection relies on jailbreak/emulator status"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add safe_device to pubspec, call SafeDevice.init (optional config), request location permission on Android for mock‑location checks, no extra native setup beyond standard plugin integration.",
+    "alternatives": [],
+    "minimal_example": "import 'package:safe_device/safe_device.dart';\n\nvoid main() async {\n  SafeDevice.init(SafeDeviceConfig(mockLocationCheckEnabled: false));\n  bool isSafe = await SafeDevice.isSafeDevice;\n  print('Device safe: $isSafe');\n}",
+    "confidence": 0.93
+  }
+}

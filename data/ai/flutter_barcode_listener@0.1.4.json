@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.1.4",
+  "generatedAt": "2026-11-09T11:11:35.848Z",
+  "data": {
+    "primary_category": "camera",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Listen for any hardware barcode scanner without manufacturer SDKs.",
+    "what_it_does": "It listens for raw keyboard events from hardware barcode scanners that act as keyboards. It groups fast character sequences ending with an enter key and triggers a callback when a barcode is recognized.",
+    "use_when": [
+      "You are using a hardware barcode scanner that acts as a keyboard and doesn't require focus on a text input.",
+      "You need cross-platform support for hardware scanners without implementing per-manufacturer SDKs."
+    ],
+    "avoid_when": [
+      "You only need to capture barcodes via the device's built-in camera.",
+      "You are satisfied with using a focused text input control (TextField) to capture scanned text."
+    ],
+    "strengths": [
+      "Supports external hardware scanners including bluetooth and wifi ones.",
+      "Cross-platform support across Android, iOS, web, Windows, macOS, and Linux.",
+      "Does not require manufacturer-specific SDKs."
+    ],
+    "weaknesses": [
+      "Relies on timing and buffering heuristics to differentiate between manual typing and barcode scans.",
+      "May require tuning parameters like bufferDuration or useKeyDown depending on the platform."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "mobile_scanner",
+        "why_pick_it": "Pick mobile_scanner if you want to scan barcodes using the device camera rather than external hardware keyboard scanners."
+      },
+      {
+        "name": "google_mlkit_barcode_scanning",
+        "why_pick_it": "Pick google_mlkit_barcode_scanning for advanced on-device camera-based barcode and QR code detection."
+      }
+    ],
+    "minimal_example": "BarcodeListener(\n  onBarcodeScanned: (barcode) {\n    print(barcode);\n  },\n  child: Text('My App'),\n)",
+    "confidence": 0.95
+  }
+}

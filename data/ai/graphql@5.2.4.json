@@ -1,0 +1,51 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "5.2.4",
+  "generatedAt": "2026-11-09T11:06:28.100Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "utils",
+      "storage"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "A Dart GraphQL client offering queries, mutations, subscriptions and cache management.",
+    "what_it_does": "Provides a GraphQLClient to send queries, mutations and subscriptions to any GraphQL server. Includes built‑in caching, persistence via HiveStore and link composition for authentication and websockets.",
+    "use_when": [
+      "You need a full‑featured GraphQL client in a pure Dart/Flutter app",
+      "You want built‑in caching, persistence and link system for auth or websockets"
+    ],
+    "avoid_when": [
+      "You only need simple HTTP GET/POST without GraphQL features",
+      "You prefer a code‑gen based client like graphql_flutter's generated types"
+    ],
+    "strengths": [
+      "Rich feature set: caching, persistence, link composition",
+      "Supports queries, mutations, subscriptions and custom links",
+      "Works on all Flutter platforms"
+    ],
+    "weaknesses": [
+      "Setup can be verbose compared to plain HTTP calls",
+      "No built‑in code generation; you must handle types manually"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add graphql to pubspec, optionally add hive/hive_ce for persistence, initialize HiveStore if using cache persistence",
+    "alternatives": [
+      {
+        "name": "http",
+        "why_pick_it": "For simple REST/GraphQL calls without caching or link system"
+      },
+      {
+        "name": "dio",
+        "why_pick_it": "Offers advanced HTTP features and interceptors, useful for basic GraphQL over HTTP"
+      }
+    ],
+    "minimal_example": "import 'package:graphql/client.dart';\n\nfinal httpLink = HttpLink('https://api.github.com/graphql');\nfinal authLink = AuthLink(getToken: () async => 'Bearer YOUR_TOKEN');\nfinal link = authLink.concat(httpLink);\nfinal client = GraphQLClient(cache: GraphQLCache(), link: link);\n\nfinal query = gql(r'''query { viewer { login } }''');\nfinal result = await client.query(QueryOptions(document: query));\nprint(result.data);",
+    "confidence": 0.93
+  }
+}

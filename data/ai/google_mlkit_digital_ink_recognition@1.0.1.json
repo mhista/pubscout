@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.1",
+  "generatedAt": "2026-11-09T11:11:40.604Z",
+  "data": {
+    "primary_category": "ai-ml",
+    "secondary_categories": [
+      "device"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Flutter plugin for Google ML Kit Digital Ink Recognition",
+    "what_it_does": "A plugin to recognize handwritten text on digital surfaces across hundreds of languages and classify sketches using Google's ML Kit. It passes calls via platform channels to native iOS and Android APIs.",
+    "use_when": [
+      "You need to recognize handwritten text or shapes in a mobile Flutter app.",
+      "You want on-device machine learning processing for digital ink recognition."
+    ],
+    "avoid_when": [
+      "You are building for web or desktop platforms, which are not supported.",
+      "You cannot meet the native requirements like iOS deployment target 15.0."
+    ],
+    "strengths": [
+      "Supports over 300 languages and shape/emoji classification models.",
+      "Runs natively on-device via Google's ML Kit APIs."
+    ],
+    "weaknesses": [
+      "Not supported on web or non-mobile platforms.",
+      "Requires manual native setup steps such as configuring iOS deployment targets and bundling model files."
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Requires iOS deployment target 15.0+, Swift Package Manager setup, linker flags (-ObjC, -all_load), downloading MLKitDigitalInkRecognition_resource.bundle, and setting Android minSdkVersion 21+ and compileSdkVersion 36.",
+    "alternatives": [],
+    "minimal_example": "final digitalInkRecognizer = DigitalInkRecognizer(languageCode: languageCode);\nfinal p1 = StrokePoint(x: x1, y: y1, t: DateTime.now().millisecondsSinceEpoch);\nStroke stroke1 = Stroke();\nstroke1.points = [p1];\nInk ink = Ink();\nink.strokes = [stroke1];\nfinal List<RecognitionCandidate> candidates = await digitalInkRecognizer.recognize(ink);\ndigitalInkRecognizer.close();",
+    "confidence": 0.95
+  }
+}

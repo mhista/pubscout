@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.0.1+5",
+  "generatedAt": "2026-11-09T11:26:54.500Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Binary codec for efficient encoding/decoding of Dart objects without a schema.",
+    "what_it_does": "Provides StandardMessageCodec to convert supported Dart objects to a binary format and back. It operates directly on bytes, avoiding UTF‑8 parsing overhead.",
+    "use_when": [
+      "Need fast, binary message exchange in Flutter/Dart",
+      "Working with dynamic data where a schema like protobuf is unnecessary"
+    ],
+    "avoid_when": [
+      "Require built‑in schema validation or versioning",
+      "Need human‑readable payloads such as JSON"
+    ],
+    "strengths": [
+      "High performance binary encoding",
+      "No code generation or schema required",
+      "Cross‑platform support (mobile, web, desktop)"
+    ],
+    "weaknesses": [
+      "No automatic compatibility checks",
+      "Manual responsibility for data structure correctness"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "void main(){final ByteData? data=const StandardMessageCodec().encodeMessage(<Object,Object>{'foo':true,3:'fizz'});print('The encoded message is $data');}",
+    "confidence": 0.9
+  }
+}

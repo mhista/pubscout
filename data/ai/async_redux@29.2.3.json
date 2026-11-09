@@ -1,0 +1,52 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "29.2.3",
+  "generatedAt": "2026-11-09T11:24:48.552Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "declarative"
+    ],
+    "one_liner": "An optimized and mature version of Redux for state management in Flutter applications.",
+    "what_it_does": "Holds application state in a central store and updates it via dispatched actions that can execute synchronous or asynchronous logic. Widgets can rebuild using context extensions to read or select state portions.",
+    "use_when": [
+      "You prefer a Redux architecture for managing app state in Flutter",
+      "You need advanced async action handling with built-in mixins like debounce, throttle, and retry"
+    ],
+    "avoid_when": [
+      "You prefer stream-based architectures like BLoC",
+      "You want a zero-boilerplate dependency injection and state solution like Riverpod"
+    ],
+    "strengths": [
+      "Simple to learn and easy to use compared to traditional Redux",
+      "Rich set of built-in action mixins for retry, debouncing, throttling, and polling",
+      "Powerful testing support and debugging capabilities"
+    ],
+    "weaknesses": [
+      "Requires writing explicit action classes for state updates, which can involve more boilerplate than simpler providers",
+      "Tied to the Redux pattern concept"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Not documented",
+    "alternatives": [
+      {
+        "name": "bloc",
+        "why_pick_it": "Choose bloc if you prefer event-driven, stream-based state management with separate BLoC and Cubit classes."
+      },
+      {
+        "name": "riverpod",
+        "why_pick_it": "Choose riverpod for compile-time safe, global state management without needing context for provider lookups."
+      },
+      {
+        "name": "provider",
+        "why_pick_it": "Choose provider for lightweight dependency injection and basic inherited widget state wrapping."
+      }
+    ],
+    "minimal_example": "var store = Store<AppState>(initialState: AppState('Mary', 25));\n\nWidget build(context) {\n  return StoreProvider<AppState>(\n    store: store,\n    child: MaterialApp(home: MyWidget()), \n  );                      \n}",
+    "confidence": 0.95
+  }
+}

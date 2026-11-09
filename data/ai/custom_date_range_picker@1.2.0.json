@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.2.0",
+  "generatedAt": "2026-11-09T11:50:13.528Z",
+  "data": {
+    "primary_category": "forms",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "A customizable date range picker dialog with smooth animations for Android and iOS.",
+    "what_it_does": "Provides a customizable date range picker dialog that allows users to select a start and end date within minimum and maximum bounds. It can be triggered via a function call, offering custom styling options such as primary and background colors.",
+    "use_when": [
+      "You need a user interface for picking a date range in a Flutter application.",
+      "You want to customize the colors and styling of the date range picker dialog."
+    ],
+    "avoid_when": [
+      "You require a persistent inline calendar widget rather than a modal dialog.",
+      "You need complex event scheduling capabilities built directly into the calendar."
+    ],
+    "strengths": [
+      "Customizable primary and background colors.",
+      "Supports minimum and maximum allowable date boundaries."
+    ],
+    "weaknesses": [
+      "Limited to a modal dialog implementation based on the provided usage.",
+      "Lacks advanced calendar features like event markers or custom cell builders."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "calendar_date_picker2",
+        "why_pick_it": "Provides highly customizable calendar date picker widgets including single, range, and multi-date selection modes."
+      }
+    ],
+    "minimal_example": "showCustomDateRangePicker(\n  context,\n  dismissible: true,\n  minimumDate: DateTime.now().subtract(const Duration(days: 30)),\n  maximumDate: DateTime.now().add(const Duration(days: 30)),\n  endDate: endDate,\n  startDate: startDate,\n  backgroundColor: Colors.white,\n  primaryColor: Colors.green,\n  onApplyClick: (start, end) {\n    setState(() {\n      endDate = end;\n      startDate = start;\n    });\n  },\n  onCancelClick: () {\n    setState(() {\n      endDate = null;\n      startDate = null;\n    });\n  },\n);",
+    "confidence": 0.95
+  }
+}

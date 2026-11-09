@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "5.0.2",
+  "generatedAt": "2026-11-09T11:20:14.302Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "layout"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Widget that reports its size changes via a callback.",
+    "what_it_does": "Provides a MeasureSize widget that calls a callback with the rendered size of its child. MeasureSizeBuilder can measure multiple prototypes in a single layout pass.",
+    "use_when": [
+      "You need to react to a widget's size after it is rendered",
+      "Building adaptive layouts that depend on actual widget dimensions"
+    ],
+    "avoid_when": [
+      "You require size information before the first layout pass",
+      "You need to measure PreferredSizeWidget reliably"
+    ],
+    "strengths": [
+      "Low overhead size detection",
+      "Simple API with just a child and onChange callback",
+      "MeasureSizeBuilder can handle multiple widgets efficiently"
+    ],
+    "weaknesses": [
+      "Does not work with PreferredSizeWidget on the first frame",
+      "Only provides size after layout, not during build"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:measure_size/measure_size.dart';\n\nWidget child = Text('Lorem ipsum');\n\nMeasureSize(\n  onChange: (Size newSize) {\n    // newSize is the displayed size of child\n  },\n  child: child,\n);",
+    "confidence": 0.95
+  }
+}

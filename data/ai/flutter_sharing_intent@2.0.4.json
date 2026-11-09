@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.4",
+  "generatedAt": "2026-11-09T11:23:06.930Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "files"
+    ],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "Receive shared photos, videos, text, and files from other apps.",
+    "what_it_does": "Allows your Flutter application to act as a share target, receiving content like images, videos, text, URLs, and files shared from other apps. It provides methods to handle initial sharing when the app opens and listens to a stream for incoming shares while the app is running.",
+    "use_when": [
+      "Your app needs to accept shared media or text from external applications via the OS share sheet.",
+      "You want to process incoming URLs, photos, or documents sent from another app."
+    ],
+    "avoid_when": [
+      "You only need to pick files from within your own app (use file_picker instead).",
+      "You do not want to configure native Android intent filters and iOS Share Extensions."
+    ],
+    "strengths": [
+      "Supports multiple types of media including images, videos, text, and files.",
+      "Provides both stream subscriptions for active app states and initial sharing retrieval."
+    ],
+    "weaknesses": [
+      "Requires manual and intricate native setup for both Android Manifest and iOS Share Extension.",
+      "iOS implementation requires setting up an App Group and an extension target."
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Requires adding intent filters in AndroidManifest.xml and creating a Share Extension target with an App Group and custom Swift view controller on iOS.",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:flutter_sharing_intent/flutter_sharing_intent.dart';\nimport 'package:flutter_sharing_intent/model/sharing_file.dart';\n\nvoid main() {\n  runApp(const MyApp());\n}\n\nclass MyApp extends StatefulWidget {\n  const MyApp({super.key});\n\n  @override\n  State<MyApp> createState() => _MyAppState();\n}\n\nclass _MyAppState extends State<MyApp> {\n  List<SharedFile>? list;\n\n  @override\n  void initState() {\n    super.initState();\n    FlutterSharing_intent.instance.getInitialSharing().then((List<SharedFile> value) {\n      setState(() {\n        list = value;\n      });\n    });\n  }\n\n  @override\n  Widget build(BuildContext context) {\n    return MaterialApp(\n      home: Scaffold(\n        body: Center(\n          child: Text('Sharing data: \\n${list?.join(\"\\n\\n\")}\\n'),\n        ),\n      ),\n    );\n  }\n}",
+    "confidence": 0.95
+  }
+}

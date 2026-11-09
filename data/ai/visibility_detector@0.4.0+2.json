@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.4.0+2",
+  "generatedAt": "2026-11-09T11:07:09.821Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Widget that reports visibility changes of its child",
+    "what_it_does": "Wraps a child widget and notifies a callback when its visibility changes. The callback receives a VisibilityInfo with the visible fraction.",
+    "use_when": [
+      "Track analytics or ad impressions",
+      "Trigger lazy loading or animations when a widget becomes visible",
+      "Detect when a widget is scrolled off screen"
+    ],
+    "avoid_when": [
+      "When visibility must account for opacity or overlapping widgets",
+      "When precise pixel-level visibility is required"
+    ],
+    "strengths": [
+      "Simple API, no extra dependencies",
+      "Cross-platform support (android, ios, web, desktop)",
+      "Coalesced callbacks reduce overhead"
+    ],
+    "weaknesses": [
+      "Does not consider widget opacity",
+      "Visible fraction may be inaccurate if obscured by other widgets"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "VisibilityDetector(\n  key: Key('my-widget-key'),\n  onVisibilityChanged: (visibilityInfo) {\n    var visiblePercentage = visibilityInfo.visibleFraction * 100;\n    debugPrint(\n        'Widget ${visibilityInfo.key} is ${visiblePercentage}% visible');\n  },\n  child: someOtherWidget,\n);",
+    "confidence": 0.9
+  }
+}

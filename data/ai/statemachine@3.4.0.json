@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "3.4.0",
+  "generatedAt": "2026-11-09T11:16:21.642Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "A typed state machine library for Dart and Flutter allowing explicit state definitions and transitions.",
+    "what_it_does": "It lets you define states, transitions, and callbacks using streams, futures, timeouts, or manual triggers. Machines can be nested and support typed identifiers for states.",
+    "use_when": [
+      "You need explicit, deterministic state flow with clear entry/exit logic",
+      "You want to model complex UI or business logic as a finite state machine",
+      "You prefer typed state identifiers over stringly‑typed solutions"
+    ],
+    "avoid_when": [
+      "Simple UI state that can be handled with setState or Provider",
+      "You need a full reactive state‑management solution like Bloc or Riverpod"
+    ],
+    "strengths": [
+      "Typed states reduce runtime errors",
+      "Supports multiple transition sources (streams, futures, timeouts)",
+      "Nested machines enable hierarchical state modeling"
+    ],
+    "weaknesses": [
+      "No built‑in UI binding; you must wire state changes manually",
+      "Limited ecosystem compared to larger state‑management packages"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:statemachine/statemachine.dart';\n\nfinal machine = Machine<String>();\nfinal start = machine.newState('start');\nfinal active = machine.newState('active');\nstart.onEntry(() => print('started'));\nstart.onTimeout(Duration(seconds:1),()=>active.enter());\nmachine.start();",
+    "confidence": 0.97
+  }
+}

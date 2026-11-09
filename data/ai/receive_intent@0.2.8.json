@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.2.8",
+  "generatedAt": "2026-11-09T11:19:00.740Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "Flutter plugin to expose Android Intents to Dart, including initial and new intents, and return results.",
+    "what_it_does": "It forwards the Intent that started the Flutter activity to Dart, and streams any subsequent Intents received while the activity is running. It also exposes caller info and allows sending a result back to the originating activity.",
+    "use_when": [
+      "You need to handle deep links or app links on Android",
+      "You want to receive share intents or any custom intent actions",
+      "You need to return a result to an Android activity that started Flutter for result"
+    ],
+    "avoid_when": [
+      "You only need to handle standard deep links (uni_links covers that)",
+      "You need cross-platform intent handling (iOS not supported)"
+    ],
+    "strengths": [
+      "Full access to Android Intent data, including extras, action, categories, and component info",
+      "Provides a stream for real-time intent handling",
+      "Supports returning results to the calling activity"
+    ],
+    "weaknesses": [
+      "Android-only, no iOS support",
+      "Requires manual intent-filter configuration in AndroidManifest",
+      "No code generation or declarative API"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add intent-filter to AndroidManifest.xml, import package, call ReceiveIntent.getInitialIntent() and listen to ReceiveIntent.receivedIntentStream. No build_runner needed.",
+    "alternatives": [],
+    "minimal_example": "import 'package:receive_intent/receive_intent.dart';\n\nFuture<void> init() async {\n  final intent = await ReceiveIntent.getInitialIntent();\n  ReceiveIntent.receivedIntentStream.listen((intent) {\n    // handle new intent\n  });\n}",
+    "confidence": 0.85
+  }
+}

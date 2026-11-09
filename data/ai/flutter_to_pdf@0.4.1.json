@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.4.1",
+  "generatedAt": "2026-11-09T11:46:47.771Z",
+  "data": {
+    "primary_category": "files",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Export any Flutter widget to a PDF document, page, or widget natively in Dart.",
+    "what_it_does": "Allows developers to wrap Flutter widgets in an ExportFrame and export them directly to PDF documents, pages, or widgets. It supports customization through export options such as page formats, text fields, checkboxes, custom TTF fonts, and image capture for complex widgets like CustomPaint and charts.",
+    "use_when": [
+      "You need to generate PDF files from standard Flutter widget layouts.",
+      "You want to export forms, invoices, or UI components directly to PDF without dealing with low-level PDF painting code."
+    ],
+    "avoid_when": [
+      "You need complex multi-page document pagination layouts natively designed with PDF primitives rather than Flutter widgets.",
+      "Your UI heavily relies on unsupported platform-specific platform views."
+    ],
+    "strengths": [
+      "Lets you use standard Flutter widget trees for PDF creation.",
+      "Supports custom TTF fonts and interactive text fields or checkboxes.",
+      "Provides a CaptureWrapper for complex custom paints and charts."
+    ],
+    "weaknesses": [
+      "Requires unique keys for text fields, checkboxes, and captured wrapper widgets to apply individual options properly.",
+      "Not documented for server-side Dart usage outside of Flutter."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Simply add the package dependency and import it in your Dart code. Custom fonts or specific widget keys may require configuration.",
+    "alternatives": [],
+    "minimal_example": "final ExportDelegate exportDelegate = ExportDelegate();\n\nExportFrame(\n  frameId: 'someFrameId',\n  exportDelegate: exportDelegate,\n  child: SomeWidget(),\n);\n\nfinal pdf = await exportDelegate.exportToPdfDocument('someFrameId');",
+    "confidence": 0.95
+  }
+}

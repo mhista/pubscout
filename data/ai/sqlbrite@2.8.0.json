@@ -1,0 +1,52 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.8.0",
+  "generatedAt": "2026-11-09T11:33:20.047Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "Reactive stream wrapper around sqflite for Flutter.",
+    "what_it_does": "Sqlbrite wraps sqflite databases to introduce reactive stream semantics to SQL operations. Queries return streams that emit new data immediately and again whenever the underlying table is modified.",
+    "use_when": [
+      "You want reactive SQL queries in Flutter using sqflite and RxDart.",
+      "You need automatic query re-execution when tables are updated."
+    ],
+    "avoid_when": [
+      "You need a full ORM or type-safe query mechanism.",
+      "You need automated database migrations."
+    ],
+    "strengths": [
+      "Integrates seamlessly with sqflite and RxDart.",
+      "Provides convenient extension methods like mapToOne and mapToList.",
+      "Allows full control of query notification frequency using RxDart operators."
+    ],
+    "weaknesses": [
+      "Not an ORM or a type-safe query builder.",
+      "Does not handle database migrations."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Wrap an existing sqflite Database instance in a BriteDatabase.",
+    "alternatives": [
+      {
+        "name": "drift",
+        "why_pick_it": "Drift is a reactive, type-safe SQL database for Flutter and Dart with built-in migration support and generated code."
+      },
+      {
+        "name": "sqflite",
+        "why_pick_it": "Sqflite is the standard non-reactive SQLite plugin if you do not need stream semantics."
+      },
+      {
+        "name": "hive_ce",
+        "why_pick_it": "Hive CE is a lightweight key-value database if you do not require relational SQL features."
+      }
+    ],
+    "minimal_example": "final Database db = await openDb();\nfinal briteDb = BriteDatabase(db);\n\nfinal Stream<List<Entity>> listQuery$ = briteDb.createQuery(\n  'table',\n  where: 'name LIKE ?',\n  whereArgs: [queryName],\n).mapToList((row) => Entity.fromJson(row));",
+    "confidence": 1
+  }
+}

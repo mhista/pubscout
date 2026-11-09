@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "7.2.2",
+  "generatedAt": "2026-11-09T11:06:27.812Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Send emails via SMTP with support for HTML, attachments, and TLS.",
+    "what_it_does": "Provides a Dart API to compose email messages, attach files or inline images, and transmit them through an existing SMTP server. Includes address validation and secure connection handling.",
+    "use_when": [
+      "You need to send transactional or notification emails directly from a Dart/Flutter backend",
+      "You require attachment or HTML email support without a third‑party service"
+    ],
+    "avoid_when": [
+      "Running in Flutter Web (no raw socket support)",
+      "You need inbound email handling or an SMTP server"
+    ],
+    "strengths": [
+      "Supports TLS/SSL and CHUNKING for large attachments",
+      "Built‑in address validators and pre‑configured services (Gmail, Yahoo, etc.)",
+      "Allows persistent connections for bulk sending"
+    ],
+    "weaknesses": [
+      "Cannot be used on the client side in browsers",
+      "Requires managing SMTP credentials securely"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:mailer/mailer.dart';\nimport 'package:mailer/smtp_server.dart';\n\nvoid main() async {\n  var smtpServer = gmail('user@gmail.com', 'appPassword');\n  var message = Message()\n    ..from = Address('user@gmail.com', 'Your Name')\n    ..recipients.add('dest@example.com')\n    ..subject = 'Test'\n    ..text = 'Hello from Dart!';\n  await send(message, smtpServer);\n}",
+    "confidence": 0.9
+  }
+}

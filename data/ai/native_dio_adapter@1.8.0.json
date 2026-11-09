@@ -1,0 +1,48 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "1.8.0",
+  "generatedAt": "2026-11-09T11:07:50.932Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "A Dio HTTP client adapter that uses native platform HTTP stacks via cupertino_http and cronet_http.",
+    "what_it_does": "It replaces Dio's default HttpClientAdapter with a native implementation, delegating requests to the platform's networking APIs. It supports Cronet fallback and embedded Cronet on Android.",
+    "use_when": [
+      "You need Dio but want native networking features like VPN, HTTP/3, or proxy support",
+      "You target iOS, macOS, Android and want platform‑specific networking behavior"
+    ],
+    "avoid_when": [
+      "You require a pure Dart implementation for all platforms",
+      "You need a lightweight HTTP client without Dio overhead"
+    ],
+    "strengths": [
+      "Leverages native networking stacks for better performance and feature support",
+      "Provides Cronet fallback and embedded Cronet options",
+      "Works transparently with existing Dio code"
+    ],
+    "weaknesses": [
+      "Only works on platforms with native support; other platforms fall back to Dart http",
+      "Adds native dependencies and potential build complexity",
+      "Requires minimum Flutter 3.35.6 and Dart 3.4.0"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add the package to pubspec, ensure Flutter version >=3.35.6, and on Android configure Cronet if using embedded Cronet via dart-define. No extra code generation needed.",
+    "alternatives": [
+      {
+        "name": "dio",
+        "why_pick_it": "Standard Dio adapter using Dart's HttpClient, simpler for pure Dart environments"
+      },
+      {
+        "name": "http",
+        "why_pick_it": "Lightweight pure Dart HTTP client without Dio abstraction"
+      }
+    ],
+    "minimal_example": "final dio = Dio();\ndio.httpClientAdapter = NativeAdapter();",
+    "confidence": 0.92
+  }
+}

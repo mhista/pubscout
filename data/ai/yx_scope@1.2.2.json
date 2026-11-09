@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.2.2",
+  "generatedAt": "2026-11-09T11:39:17.872Z",
+  "data": {
+    "primary_category": "dependency-injection",
+    "secondary_categories": [],
+    "approach": [
+      "no codegen",
+      "declarative"
+    ],
+    "one_liner": "A compile-safe dependency injection framework with advanced scoping capabilities.",
+    "what_it_does": "yx_scope is a pure Dart dependency injection framework that allows declaring dependency trees and scopes without code generation. It uses ScopeContainers and ScopeHolders to manage the lifecycle of isolated sets of dependencies with compile-safe checks.",
+    "use_when": [
+      "You want compile-safe dependency injection without relying on code generation.",
+      "Your application requires explicit and nested scoping of dependencies.",
+      "You want DI containers to be driven by application logic rather than UI widget creation."
+    ],
+    "avoid_when": [
+      "You prefer a traditional service locator pattern like get_it.",
+      "You want automated registration via annotations and builders."
+    ],
+    "strengths": [
+      "Compile-safe access to dependencies and existence of active scopes",
+      "No code generation required",
+      "Supports asynchronous dependencies and custom scope nesting"
+    ],
+    "weaknesses": [
+      "Requires manual declaration of dependency containers and scopes",
+      "Less community-standard compared to global service locators"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Pure Dart package, add to pubspec.yaml and create scope container classes.",
+    "alternatives": [
+      {
+        "name": "get_it",
+        "why_pick_it": "If you prefer a global service locator approach instead of declarative scope containers."
+      },
+      {
+        "name": "injectable",
+        "why_pick_it": "If you prefer code-generation based dependency injection with annotations."
+      }
+    ],
+    "minimal_example": "class AppScopeContainer extends ScopeContainer {\n  late final routerDelegateDep = dep(() => AppRouterDelegate());\n}\n\nclass AppScopeHolder extends ScopeHolder<AppScopeContainer> {\n  @override\n  AppScopeContainer createContainer() => AppScopeContainer();\n}",
+    "confidence": 1
+  }
+}

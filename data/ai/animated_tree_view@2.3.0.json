@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.3.0",
+  "generatedAt": "2026-11-09T11:10:46.070Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "animation",
+      "layout"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A hierarchical tree view widget with animations, based on AnimatedList.",
+    "what_it_does": "Visualizes hierarchical tree data structures as linear list views using AnimatedList and SliverAnimatedList. Supports infinite nesting levels, node expansion and collapse animations, customizable indentation, and tree diffing.",
+    "use_when": [
+      "You need to display hierarchical or tree-structured data in your Flutter app.",
+      "You want smooth expand and collapse animations for nested tree nodes.",
+      "You require support for both standard lists and slivers."
+    ],
+    "avoid_when": [
+      "You only need a flat, non-nested list view (use standard ListView or AnimatedList instead).",
+      "You need extremely complex indexed node operations on large datasets where O(n^m) traversal cost becomes a bottleneck."
+    ],
+    "strengths": [
+      "Supports infinite levels and child nodes with built-in expansion animations.",
+      "Offers both standard (TreeView) and sliver (SliverTreeView) variants.",
+      "Includes Tree Diff Util to automatically apply changes when the underlying tree updates."
+    ],
+    "weaknesses": [
+      "Indexed tree variants have an expensive traversal complexity of O(n^m).",
+      "Requires specific controller setup (AutoScrollController) for certain expansion behaviors in slivers."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [],
+    "minimal_example": "TreeView.simple(\n    tree: TreeNode.root(),\n    builder: (context, node) {\n        return ListTile(\n          title: Text(\"Item ${node.level}-${node.key}\"),\n          subtitle: Text('Level ${node.level}'),\n        );\n    },\n)",
+    "confidence": 1
+  }
+}

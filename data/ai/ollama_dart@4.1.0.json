@@ -1,0 +1,55 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "4.1.0",
+  "generatedAt": "2026-11-09T11:23:52.644Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "ai-ml"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Type‑safe Dart client for Ollama’s chat, generation, embeddings, and model management APIs",
+    "what_it_does": "Provides a pure Dart wrapper around the Ollama API, supporting chat completions, streaming, embeddings, tool calling, model CRUD, and cloud web search. It handles retries, aborts, and error handling internally.",
+    "use_when": [
+      "You need to interact with Ollama locally or via Ollama Cloud from Dart or Flutter.",
+      "You want type‑safe request/response models without Flutter dependencies.",
+      "You need streaming or abortable requests for long‑running LLM calls.",
+      "You require full model management (pull, push, delete, etc.) in your app or CLI."
+    ],
+    "avoid_when": [
+      "You are already using a different LLM client that covers your needs, such as llamadart or gpt_markdown.",
+      "You need a lightweight HTTP wrapper without LLM features.",
+      "You are targeting a platform that does not support the required dependencies (http, logging, meta)."
+    ],
+    "strengths": [
+      "Pure Dart, no Flutter dependency; works on mobile, web, desktop, and server.",
+      "Full API coverage including model management and System One.",
+      "Built‑in streaming, retries, abort support, and error handling.",
+      "Type‑safe request/response models."
+    ],
+    "weaknesses": [
+      "Requires Dart 3.12+; may be too feature‑heavy for simple use cases.",
+      "No code generation; you write requests manually.",
+      "Limited to Ollama API; not a general LLM client."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dependency in pubspec, import package, create OllamaClient(); no build_runner or permissions needed.",
+    "alternatives": [
+      {
+        "name": "llamadart",
+        "why_pick_it": "Provides a lightweight client for local llama models, but lacks cloud web search and System One features."
+      },
+      {
+        "name": "gpt_markdown",
+        "why_pick_it": "Offers Markdown rendering for GPT responses, but does not cover model management or embeddings."
+      }
+    ],
+    "minimal_example": "import 'package:ollama_dart/ollama_dart.dart';\n\nFuture<void> main() async {\n  final client = OllamaClient();\n  try {\n    final response = await client.chat.create(\n      request: ChatRequest(\n        model: 'gpt-oss',\n        messages: [ChatMessage.user('Explain Dart isolates.')],\n      ),\n    );\n    print(response.message?.content);\n  } finally {\n    client.close();\n  }\n}",
+    "confidence": 0.92
+  }
+}

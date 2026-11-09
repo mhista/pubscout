@@ -1,0 +1,56 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "6.4.0",
+  "generatedAt": "2026-11-09T11:12:17.404Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [
+      "dependency-injection",
+      "navigation"
+    ],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "A simple yet powerful state management technique for Flutter with zero boilerplate.",
+    "what_it_does": "Provides an integrated approach to state management, dependency injection, and navigation using reactive state injection. Handles asynchronous status automatically and supports state persistence and undo/redo.",
+    "use_when": [
+      "You want state management with zero boilerplate and no code generation",
+      "You need built-in dependency injection, routing, and state persistence",
+      "You want simple handling of asynchronous futures and streams without manual tracking variables"
+    ],
+    "avoid_when": [
+      "You prefer the explicit event-to-state mapping of BLoC",
+      "You want to use Riverpod or Provider ecosystem instead"
+    ],
+    "strengths": [
+      "Zero boilerplate with no code generation required",
+      "Comprehensive feature set including dependency injection, navigation, and persistence",
+      "Built-in handling of asynchronous states (idle, waiting, error, data)"
+    ],
+    "weaknesses": [
+      "Less community adoption compared to Riverpod or Provider",
+      "Relies on a proprietary global/functional injection approach which can be unconventional"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add states_rebuilder to dependencies in pubspec.yaml",
+    "alternatives": [
+      {
+        "name": "riverpod",
+        "why_pick_it": "If you prefer a compile-safe, provider-based dependency and state management library."
+      },
+      {
+        "name": "flutter_bloc",
+        "why_pick_it": "If you prefer strict event-driven architecture with predictable state transitions."
+      },
+      {
+        "name": "provider",
+        "why_pick_it": "If you want a lightweight, standard InheritedWidget wrapper for state propagation."
+      }
+    ],
+    "minimal_example": "class ViewModel {\n  final counter = 0.inj();\n  increment() => counter.state++;\n}\nfinal viewModel = ViewModel();\n\nclass CounterApp extends ReactiveStatelessWidget {\n  @override\n  Widget build(BuildContext context) {\n    return Text('Value: ${viewModel.counter.state}');\n  }\n}",
+    "confidence": 0.95
+  }
+}

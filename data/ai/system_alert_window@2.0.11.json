@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.11",
+  "generatedAt": "2026-11-09T11:37:40.191Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Show overlay windows or notification bubbles over all other apps with callback events.",
+    "what_it_does": "A Flutter plugin to show a Truecaller-like overlay window or notification bubble over all other apps. Supports Android bubble APIs, overlay permissions, isolate communication, and passing custom Flutter UI inside the overlay.",
+    "use_when": [
+      "You need to build a floating overlay window like a caller ID app.",
+      "You want to display notification bubbles or overlay views on Android above other applications."
+    ],
+    "avoid_when": [
+      "You only need standard in-app widgets or local notifications.",
+      "You require robust, fully-featured iOS overlay support (iOS help needed)."
+    ],
+    "strengths": [
+      "Supports custom Flutter UI inside the overlay window via entry points.",
+      "Handles Android 11+ bubble APIs and older overlay draw permissions automatically."
+    ],
+    "weaknesses": [
+      "iOS support is limited/displays as a notification in the notification center.",
+      "Requires platform-specific configuration and permissions like SYSTEM_ALERT_WINDOW."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires Android permissions such as SYSTEM_ALERT_WINDOW, FOREGROUND_SERVICE, and WAKE_LOCK in the AndroidManifest.xml, and a dedicated entry point function annotated with @pragma('vm:entry-point').",
+    "alternatives": [],
+    "minimal_example": "@pragma(\"vm:entry-point\")\nvoid overlayMain() {\n  runApp(const MaterialApp(\n    debugShowCheckedModeBanner: false,\n    home: Material(child: Text(\"My overlay\"))\n  ));\n}\n\nawait SystemAlertWindow.requestPermissions;\nawait SystemAlertWindow.showSystemWindow();",
+    "confidence": 0.95
+  }
+}

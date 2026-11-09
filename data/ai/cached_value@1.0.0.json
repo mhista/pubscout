@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.0",
+  "generatedAt": "2026-11-09T11:24:47.758Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A simple way to cache values that result from expensive operations.",
+    "what_it_does": "Provides a CachedValue class that stores computed values and avoids recalculating them on every access. Supports manual invalidation, declarative dependencies, and time-to-live (TTL) expiration.",
+    "use_when": [
+      "You need to cache results of expensive operations or object instances across frames in render objects.",
+      "Values need to be automatically invalidated when specified dependencies change.",
+      "Values should expire automatically after a specific time-to-live duration."
+    ],
+    "avoid_when": [
+      "You need persistent storage across app restarts.",
+      "Your dependency callback performs expensive operations."
+    ],
+    "strengths": [
+      "Simple and lightweight API for memory caching",
+      "Supports declarative dependency tracking and TTL out of the box",
+      "Useful for performance optimization in render objects and paint routines"
+    ],
+    "weaknesses": [
+      "Memory-only cache with no built-in disk persistence",
+      "Dependency callbacks are executed on every value access"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "final factorialCache = CachedValue(() => factorial(originalValue)).withDependency(() => originalValue);",
+    "confidence": 1
+  }
+}

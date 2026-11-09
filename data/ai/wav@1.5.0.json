@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "1.5.0",
+  "generatedAt": "2026-11-09T11:17:20.216Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Pure Dart library for reading and writing WAV and raw audio files.",
+    "what_it_does": "Provides simple tools to read WAV or raw audio files, inspect their metadata and sample data, modify the samples, and write the result back. Supports 8‑32‑bit PCM and 32/64‑bit float formats on all major platforms.",
+    "use_when": [
+      "You need to parse, edit, or generate WAV files in a pure‑Dart environment",
+      "Cross‑platform projects where adding native audio libraries is undesirable"
+    ],
+    "avoid_when": [
+      "You require real‑time audio playback or recording",
+      "You need support for compressed or non‑PCM audio formats",
+      "Streaming large audio files without loading them entirely into memory"
+    ],
+    "strengths": [
+      "Zero external dependencies – works everywhere Dart runs",
+      "Supports multiple PCM bit depths and float formats",
+      "Simple, synchronous API for reading and writing files"
+    ],
+    "weaknesses": [
+      "No playback or recording capabilities",
+      "Cannot write WAVE_FORMAT_EXTENSIBLE files",
+      "Limited to PCM/float formats only"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "final wav = await Wav.readFile('input.wav');\nprint(wav.format);\nprint(wav.samplesPerSecond);\nfor (final chan in wav.channels) {\n  for (int i = 0; i < chan.length; ++i) {\n    chan[i] /= 2; // decrease volume\n  }\n}\nawait wav.writeFile('output.wav');",
+    "confidence": 0.9
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.7.0",
+  "generatedAt": "2026-11-09T11:51:54.835Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [],
+    "approach": [
+      "declarative",
+      "stream-based",
+      "no codegen"
+    ],
+    "one_liner": "State management library bridging BLoC semantics with signals primitives.",
+    "what_it_does": "Bridges the Business Logic Component (BLoC) pattern with reactive signals primitives to provide synchronous state management. It features event concurrency transformers, VM Service telemetry, and stream interop extensions.",
+    "use_when": [
+      "You want BLoC-style architecture with synchronous state propagation.",
+      "You need fine-grained reactive updates using signals primitives.",
+      "You require event concurrency transformers like Mutex, droppable, or sequential."
+    ],
+    "avoid_when": [
+      "You prefer the standard asynchronous Stream-based bloc package.",
+      "You are using a completely different state management approach like Riverpod or Provider."
+    ],
+    "strengths": [
+      "Synchronous state propagation without microtask delays.",
+      "Streamless event concurrency transformers.",
+      "Built-in DevTools telemetry and observer support."
+    ],
+    "weaknesses": [
+      "Adds an extra conceptual layer combining signals and BLoC semantics.",
+      "Requires adherence to its specific synchronous lifecycle contract."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add bloc_signals to dependencies in pubspec.yaml.",
+    "alternatives": [
+      {
+        "name": "bloc",
+        "why_pick_it": "Choose standard package:bloc if you want the classic stream-based BLoC architecture without signals primitives."
+      },
+      {
+        "name": "riverpod",
+        "why_pick_it": "Choose riverpod if you prefer a global provider and compilation-safe dependency injection approach to reactive state management."
+      }
+    ],
+    "minimal_example": "import 'package:bloc_signals/bloc_signals.dart';\n\nclass CounterCubit extends CubitSignal<int> {\n  CounterCubit() : super(initialState: 0);\n\n  void increment() => emit(stateValue + 1);\n  void decrement() => emit(stateValue - 1);\n}",
+    "confidence": 0.95
+  }
+}

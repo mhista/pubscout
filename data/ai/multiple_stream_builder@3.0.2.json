@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.0.2",
+  "generatedAt": "2026-11-09T11:54:37.687Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "stream-based",
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "Flutter widgets to replace multiple nested StreamBuilder widgets with a single builder.",
+    "what_it_does": "Provides a set of StreamBuilder widgets (e.g., StreamBuilder3) that accept multiple streams and tuples of initial data, allowing you to handle multiple streams simultaneously in a single builder function instead of nesting multiple StreamBuilder widgets.",
+    "use_when": [
+      "You need to listen to multiple streams within the same part of your UI.",
+      "You want to avoid deeply nested StreamBuilder boilerplate."
+    ],
+    "avoid_when": [
+      "You are using a state management solution that already handles multiple streams or reactive state cleanly.",
+      "You only need to listen to a single stream."
+    ],
+    "strengths": [
+      "Eliminates deeply nested StreamBuilder code.",
+      "Supports up to 15 streams using dedicated builders.",
+      "Simple declarative usage matching standard Flutter APIs."
+    ],
+    "weaknesses": [
+      "Relies on custom tuple types instead of native collections for streams and initial data.",
+      "Limited to stream handling; not a full state management solution."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "Widget build(BuildContext context) {\n  return StreamBuilder3<int, int, int>(\n    streams: StreamTuple3(stream1, stream2, stream3),\n    initialData: InitialDataTuple3(0, 0, 0),\n    builder: (context, snapshots) {\n      return Text(\n        'stream1: ${snapshots.snapshot1.data} - stream2: ${snapshots.snapshot2.data} - stream3: ${snapshots.snapshot3.data}',\n      );\n    },\n  );\n}",
+    "confidence": 1
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.0.7",
+  "generatedAt": "2026-11-09T11:20:24.840Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Dart library implementing the Yin pitch detection algorithm.",
+    "what_it_does": "Detects pitch from audio samples. Supports both float (List<double>) and int (UInt8List) PCM buffers. Returns pitch, probability and a flag indicating detection.",
+    "use_when": [
+      "You need to extract pitch from recorded audio samples.",
+      "You are building an audio analysis or music app that requires pitch detection.",
+      "You have PCM audio data in either float or int format."
+    ],
+    "avoid_when": [
+      "You need continuous real‑time pitch tracking with low latency.",
+      "You require a high‑performance native implementation for large audio streams."
+    ],
+    "strengths": [
+      "Pure Dart implementation, no native dependencies.",
+      "Supports both float and int PCM buffers.",
+      "Simple API with clear documentation."
+    ],
+    "weaknesses": [
+      "No support for real‑time streaming or live audio capture.",
+      "Limited performance benchmarks; may not be suitable for high‑volume audio processing."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "```dart\nfinal detector = PitchDetector(44100, 2000);\nfinal result = await detector.getPitchFromFloatBuffer(audioSample);\nprint(result.pitch);\n```",
+    "confidence": 0.9
+  }
+}

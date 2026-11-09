@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.2.1",
+  "generatedAt": "2026-11-09T11:51:54.788Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "maps"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Fetch current weather and 5-day forecasts via the OpenWeatherMap API.",
+    "what_it_does": "A weather plugin that uses the OpenWeatherMap API to retrieve current weather status and 5-day weather forecasts. Weather data can be fetched by providing a city name or latitude and longitude.",
+    "use_when": [
+      "You need to display current weather conditions or forecasts using OpenWeatherMap.",
+      "You want to query weather data via city names or coordinates."
+    ],
+    "avoid_when": [
+      "You require an offline weather database or caching layer.",
+      "You need to use a weather provider other than OpenWeatherMap."
+    ],
+    "strengths": [
+      "Supports multiple languages for weather reports.",
+      "Handles both current weather and 5-day forecasts.",
+      "Allows temperature conversion between Celsius, Fahrenheit, and Kelvin."
+    ],
+    "weaknesses": [
+      "Requires an external API key from OpenWeatherMap.",
+      "No built-in geolocation fetching (requires a separate package like geolocator)."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires an API key from OpenWeatherMap. For device geolocation, the geolocator plugin is recommended.",
+    "alternatives": [
+      {
+        "name": "http",
+        "why_pick_it": "If you prefer building custom API requests to a weather service directly without a wrapper."
+      },
+      {
+        "name": "dio",
+        "why_pick_it": "If you need advanced HTTP features like interceptors or global configuration for making API requests."
+      }
+    ],
+    "minimal_example": "WeatherFactory wf = WeatherFactory(\"YOUR_API_KEY\");\nWeather w = await wf.currentWeatherByCityName(\"Kongens Lyngby\");",
+    "confidence": 1
+  }
+}

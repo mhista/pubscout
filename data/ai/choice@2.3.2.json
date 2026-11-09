@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.3.2",
+  "generatedAt": "2026-11-09T11:26:39.652Z",
+  "data": {
+    "primary_category": "forms",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "Create single or multiple choice inline and prompted widgets in Flutter.",
+    "what_it_does": "Choice provides a flexible, composable API for building single or multiple choice selection widgets. It supports inline lists (wrapped, scrollable) and prompted modals (dialogs, bottom sheets, new pages) with features like searching, grouping, and asynchronous data loading.",
+    "use_when": [
+      "You need custom single or multi-select chips, lists, or dropdown alternatives.",
+      "You want prompted selection modals (bottom sheets or dialogs) with built-in search."
+    ],
+    "avoid_when": [
+      "You are using native form dropdown fields that do not require advanced composability or inline chip groups.",
+      "You need a full form validation engine rather than just selection widgets."
+    ],
+    "strengths": [
+      "Supports both inline and prompted choice displays.",
+      "Highly composable API allowing custom builders for items, lists, anchors, and modals.",
+      "Handles both single and multiple selection natively."
+    ],
+    "weaknesses": [
+      "Sorting items must be handled outside the package.",
+      "Some complex widget combinations require understanding multiple specific constructors."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "Choice<String>.inline(\n  clearable: true,\n  value: ChoiceSingle.value(selectedValue),\n  onChanged: ChoiceSingle.onChanged(setSelectedValue),\n  itemCount: choices.length,\n  itemBuilder: (state, i) {\n    return ChoiceChip(\n      selected: state.selected(choices[i]),\n      onSelected: state.onSelected(choices[i]),\n      label: Text(choices[i]),\n    );\n  },\n  listBuilder: ChoiceList.createScrollable(\n    spacing: 10,\n  ),\n)",
+    "confidence": 1
+  }
+}

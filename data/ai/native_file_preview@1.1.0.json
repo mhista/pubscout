@@ -1,0 +1,46 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.1.0",
+  "generatedAt": "2026-11-09T11:31:57.716Z",
+  "data": {
+    "primary_category": "files",
+    "secondary_categories": [
+      "device"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "A Flutter plugin providing native file preview capabilities for iOS and Android.",
+    "what_it_does": "Allows Flutter applications to open and preview various file formats using the operating system's built-in viewers. It supports local file paths, file:// URLs, and content:// URIs on Android and iOS.",
+    "use_when": [
+      "You need to let users preview documents, images, audio, or video using native OS viewers.",
+      "You want an easy way to trigger QuickLook on iOS or Intent-based viewing on Android."
+    ],
+    "avoid_when": [
+      "You need a custom in-app document viewer widget embedded directly inside your widget tree.",
+      "Your target platforms do not include iOS or Android."
+    ],
+    "strengths": [
+      "Cross-platform compatibility for iOS and Android",
+      "Uses native UI integration (QuickLook and Android Intent system)",
+      "Supports multiple file formats (PDF, DOC, images, audio, video, archives, etc.)",
+      "Supports local paths, file:// URLs, and content:// URIs"
+    ],
+    "weaknesses": [
+      "Actual file support depends on the apps installed on the user's device (especially on Android)",
+      "Only provides full-screen native previews, not embeddable UI components"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Android requires a FileProvider configuration in AndroidManifest.xml and a file_paths.xml resource file. iOS requires no additional setup.",
+    "alternatives": [
+      {
+        "name": "file_picker",
+        "why_pick_it": "If you primarily need to let users select files from their device storage rather than preview them."
+      }
+    ],
+    "minimal_example": "import 'package:native_file_preview/native_file_preview.dart';\n\nfinal _nativeFilePreview = NativeFilePreview();\n\nFuture<void> _previewFile(String filePath) async {\n  await _nativeFilePreview.previewFile(filePath);\n}",
+    "confidence": 0.95
+  }
+}

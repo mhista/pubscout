@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "3.0.0",
+  "generatedAt": "2026-11-09T11:19:51.932Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "web-desktop",
+      "networking"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter plugin to embed Crisp live‑chat on Android, iOS, Web and desktop.",
+    "what_it_does": "It wraps the official Crisp SDKs and web chat widget, exposing a Dart API to open the chat, configure user data, show local messages and trigger bot scenarios. The same API works across mobile, web and desktop platforms.",
+    "use_when": [
+      "You need a ready‑made live‑chat solution powered by Crisp across all Flutter targets",
+      "You want iOS video/audio call support built‑in without extra code"
+    ],
+    "avoid_when": [
+      "You require a custom chat UI or a different chat provider",
+      "You need extensive offline messaging or storage"
+    ],
+    "strengths": [
+      "Cross‑platform (mobile, web, desktop) with a single API",
+      "Supports native SDK features like iOS video calls and local operator messages",
+      "Simple declarative configuration via CrispConfig"
+    ],
+    "weaknesses": [
+      "Tied to the Crisp service only",
+      "iOS video calls only; Android lacks this feature",
+      "Requires native setup (permissions, Info.plist, Android manifest)"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add INTERNET permission on Android, set compileSdk/minSdk, add NSCameraUsageDescription and NSMicrophoneUsageDescription (and Photo Library) to iOS Info.plist, ensure iOS deployment target >=14 and Xcode 16.3+, include desktop_webview_window for desktop/web.",
+    "alternatives": [],
+    "minimal_example": "import 'package:crisp_chat/crisp_chat.dart';\n\nvoid main() async {\n  WidgetsFlutterBinding.ensureInitialized();\n  await CrispChat.initialize(websiteId: 'YOUR_WEBSITE_ID');\n  runApp(MyApp());\n}\n\nclass MyApp extends StatelessWidget {\n  @override\n  Widget build(BuildContext context) => MaterialApp(\n        home: Scaffold(\n          appBar: AppBar(title: Text('Crisp Demo')),\n          body: Center(\n            child: ElevatedButton(\n              onPressed: () => CrispChat.openCrispChat(),\n              child: Text('Open Chat'),\n            ),\n          ),\n        ),\n      );\n}",
+    "confidence": 0.9
+  }
+}

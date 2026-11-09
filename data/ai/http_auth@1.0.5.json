@@ -1,0 +1,55 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.5",
+  "generatedAt": "2026-11-09T11:31:12.889Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "auth"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Dart http middleware for HTTP Basic and Digest authentication",
+    "what_it_does": "Provides an http middleware wrapper that adds HTTP Basic and Digest authentication support to standard requests. It includes clients for BasicAuth, DigestAuth, and NegotiateAuth for automatic method detection.",
+    "use_when": [
+      "You need to authenticate http requests using HTTP Basic authentication.",
+      "You need to authenticate http requests using HTTP Digest authentication.",
+      "You want automatic detection between Basic and Digest authentication protocols."
+    ],
+    "avoid_when": [
+      "You are using OAuth2 or token-based authentication services instead of standard HTTP Basic/Digest.",
+      "You are using an alternative networking package that already manages authentication natively like dio."
+    ],
+    "strengths": [
+      "Supports both HTTP Basic and Digest authentication out of the box.",
+      "Offers automatic protocol detection via NegotiateAuthClient.",
+      "Integrates directly with the standard http package."
+    ],
+    "weaknesses": [
+      "Limited to HTTP Basic and Digest authentication methods.",
+      "Not documented for complex custom auth flows outside of Basic and Digest."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "dio",
+        "why_pick_it": "A powerful HTTP client for Dart, which supports interceptors for handling auth tokens and custom workflows."
+      },
+      {
+        "name": "oauth2",
+        "why_pick_it": "If your backend requires OAuth2 authorization flows instead of basic or digest credentials."
+      },
+      {
+        "name": "http",
+        "why_pick_it": "The underlying core library if you prefer to implement custom authentication headers manually."
+      }
+    ],
+    "minimal_example": "import 'package:http_auth/http_auth.dart';\n\nmain() async {\n  var client = http_auth.BasicAuthClient('user', 'passwd');\n  var response = client.get('http://httpbin.org/basic-auth/user/passwd');\n}",
+    "confidence": 0.95
+  }
+}

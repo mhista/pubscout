@@ -1,0 +1,48 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "7.2.0",
+  "generatedAt": "2026-11-09T11:46:53.919Z",
+  "data": {
+    "primary_category": "devtools",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "In-app observability and QA diagnostics toolkit with logs, network tracing, and layout inspection.",
+    "what_it_does": "ISpect provides an in-app debugging panel and QA diagnostics toolkit for Flutter and Dart. It allows engineers and testers to inspect logs, network calls, database operations, routing, BLoC events, and widget layouts directly inside internal builds without attaching an external debugger. The toolkit is compile-time guarded to ensure it can be completely tree-shaken out of production releases.",
+    "use_when": [
+      "You need an in-app debug panel for internal builds, QA, and staging environments.",
+      "You want to inspect network requests, logs, and widget trees directly on a device without a debugger."
+    ],
+    "avoid_when": [
+      "You are building a production release where no internal developer tools should be included or you forget to configure the compile-time flag.",
+      "you only want lightweight logging without any Flutter UI or in-app overlay."
+    ],
+    "strengths": [
+      "Compile-time release gating ensures zero overhead in production binaries.",
+      "Comprehensive suite covering logs, network tracing, layout inspection, and export features."
+    ],
+    "weaknesses": [
+      "Requires careful compile-time flag management to ensure release safety.",
+      "Adds extra UI dependencies and widget wrappers to the app entry point."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Wrap the app with ISpectBuilder and initialize ISpect.run, then run builds with --dart-define=ISPECT_ENABLED=true for internal testing.",
+    "alternatives": [
+      {
+        "name": "talker",
+        "why_pick_it": "Provides advanced exception handling and in-app log management with a modular plugin architecture."
+      },
+      {
+        "name": "logger",
+        "why_pick_it": "Choose this if you only need a clean console logger without any in-app Flutter UI panels."
+      }
+    ],
+    "minimal_example": "void main() => ISpect.run(() => runApp(const MyApp()));",
+    "confidence": 0.95
+  }
+}

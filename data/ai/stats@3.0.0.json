@@ -1,0 +1,36 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.0.0",
+  "generatedAt": "2026-11-09T11:35:05.050Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Calculate common statistical values for a set of numbers.",
+    "what_it_does": "Calculates statistical metrics like min, max, mean, count, and sum of squares over a List or Stream of numbers. Also supports calculating confidence intervals.",
+    "use_when": [
+      "You need to compute basic statistics like mean, min, and max from a collection or stream of numbers.",
+      "You want to calculate confidence intervals based on numerical data."
+    ],
+    "avoid_when": [
+      "You need advanced statistical features like median, which were removed in version 3.0.0."
+    ],
+    "strengths": [
+      "Supports calculating stats on the fly from a Stream using a transformer.",
+      "Simple API with minimal dependencies."
+    ],
+    "weaknesses": [
+      "Does not support median calculations as of version 3.0.0."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'dart:convert';\nimport 'package:stats/stats.dart';\n\nvoid main() {\n  final input = [1, 2, 3, 4, 5, 6, 7, 8];\n  final stats = Stats.fromData(input);\n  final confidence = ConfidenceInterval.calculate(\n    stats,\n    ConfidenceLevel.percent95,\n  );\n  print(confidence);\n}",
+    "confidence": 1
+  }
+}

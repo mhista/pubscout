@@ -1,0 +1,50 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.16.0",
+  "generatedAt": "2026-11-09T11:07:28.012Z",
+  "data": {
+    "primary_category": "auth",
+    "secondary_categories": [
+      "testing"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Mocks for Firebase Auth to enable unit testing of authentication flows.",
+    "what_it_does": "Provides a MockFirebaseAuth that mimics Firebase Auth behavior, including sign‑in, sign‑out, user management and event streams. It also allows throwing custom exceptions for testing error handling.",
+    "use_when": [
+      "Writing unit tests for Firebase Auth flows",
+      "Testing error handling in authentication",
+      "Mocking Firebase Auth in CI environments"
+    ],
+    "avoid_when": [
+      "Replacing real Firebase Auth in production code",
+      "Using in performance‑critical production builds"
+    ],
+    "strengths": [
+      "Full API coverage of firebase_auth",
+      "Supports event streams (authStateChanges, userChanges, idTokenChanges)",
+      "Customizable exception throwing",
+      "Compatible with google_sign_in_mocks for Google sign‑in tests"
+    ],
+    "weaknesses": [
+      "Only works with Flutter (no pure Dart support)",
+      "Requires firebase_auth dependency, adding weight to the project",
+      "No support for all firebase_auth methods (e.g., fetchSignInMethodsForEmail removed)",
+      "Documentation focuses on usage, not advanced configuration"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add to dev_dependencies, import package, no special permissions or build_runner needed",
+    "alternatives": [
+      {
+        "name": "firebase_auth",
+        "why_pick_it": "Real implementation for production"
+      }
+    ],
+    "minimal_example": "import 'package:firebase_auth_mocks/firebase_auth_mocks.dart';\nimport 'package:google_sign_in_mocks/google_sign_in_mocks.dart';\n\nfinal auth = MockFirebaseAuth();\nfinal googleSignIn = MockGoogleSignIn();\nfinal account = await googleSignIn.signIn();\nfinal credential = GoogleAuthProvider.getCredential(\n  accessToken: (await account.authentication).accessToken,\n  idToken: (await account.authentication).idToken,\n);\nfinal userCredential = await auth.signInWithCredential(credential);\nprint(userCredential.user?.displayName);",
+    "confidence": 0.92
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.1.2",
+  "generatedAt": "2026-11-09T11:44:58.449Z",
+  "data": {
+    "primary_category": "notifications",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative",
+      "imperative"
+    ],
+    "one_liner": "A Flutter package to show custom in-app notifications with any widgets.",
+    "what_it_does": "Allows developers to display custom in-app notifications using any Flutter widget. It requires placing an InAppNotification widget in the app tree and calling a static method to trigger notifications.",
+    "use_when": [
+      "You want to display custom widget-based alerts or notifications within the app.",
+      "You need swipe-to-dismiss gestures for in-app messages."
+    ],
+    "avoid_when": [
+      "You need background push notifications delivered via operating system services."
+    ],
+    "strengths": [
+      "Supports custom widgets for notification bodies.",
+      "Includes horizontal swipe gesture to dismiss notifications.",
+      "Automatic consideration of safe area padding."
+    ],
+    "weaknesses": [
+      "Relies on placing an InAppNotification widget high in the app tree.",
+      "Limited documentation beyond basic usage and roadmaps."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Place the InAppNotification widget above your MaterialApp in the widget tree.",
+    "alternatives": [
+      {
+        "name": "flutter_local_notifications",
+        "why_pick_it": "For system-level local notifications instead of custom in-app overlay notifications."
+      },
+      {
+        "name": "toastification",
+        "why_pick_it": "Alternative UI options for rich toast and banner notifications."
+      },
+      {
+        "name": "bot_toast",
+        "why_pick_it": "Provides flexible toast and notification overlay management."
+      }
+    ],
+    "minimal_example": "return InAppNotification(\n  child: MaterialApp(\n    title: 'In-App Notification Demo',\n    home: const HomePage(),\n  ),\n);\n\nInAppNotification.show(\n  child: NotificationBody(count: _count),\n  context: context,\n  onTap: () => print('Notification tapped!'),\n);",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.8-flash",
+  "version": "2.1.1",
+  "generatedAt": "2026-11-09T11:15:44.172Z",
+  "data": {
+    "primary_category": "files",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "An Android plugin to download single or multiple files to public downloads or app directories.",
+    "what_it_does": "Downloads files directly to Android's public downloads or app-specific storage with progress notifications and callbacks. Supports bulk downloads, parallel execution limits, cancellation, and custom headers. It handles Android 10+ storage restrictions without requiring complex native configuration.",
+    "use_when": [
+      "You need to download files into Android's public Downloads directory or app directory with progress tracking.",
+      "You want built-in support for system download notifications and parallel/sequential bulk downloading on Android."
+    ],
+    "avoid_when": [
+      "You need iOS, web, or desktop support (this package only supports Android).",
+      "You only need local file path access rather than downloading files over HTTP/HTTPS."
+    ],
+    "strengths": [
+      "Supports parallel and batch downloads with configurable limits.",
+      "Provides download cancellation and progress callbacks.",
+      "Handles Android-specific storage and notification permissions conveniently."
+    ],
+    "weaknesses": [
+      "Android-only; does not work on iOS, web, or desktop platforms."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires adding INTERNET and WRITE_EXTERNAL_STORAGE permissions in AndroidManifest.xml (and DOWNLOAD_WITHOUT_NOTIFICATION if disabling notifications).",
+    "alternatives": [],
+    "minimal_example": "FileDownloader.downloadFile(\n  url: 'https://example.com/file.jpg',\n  name: 'file.jpg',\n  onProgress: (String? fileName, double progress) {\n    print('Progress: $progress');\n  },\n  onDownloadCompleted: (String path) {\n    print('Downloaded to: $path');\n  },\n  onDownloadError: (String error) {\n    print('Error: $error');\n  },\n);",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "2.0.0",
+  "generatedAt": "2026-11-09T11:13:59.052Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "state-management"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "A singleton-based config manager that loads JSON from assets, files, URLs or maps and exposes values via getters.",
+    "what_it_does": "It merges configuration files into a single map and makes them available throughout a Flutter app. You can load from assets, file paths, URLs, or Dart maps, and override values at runtime.",
+    "use_when": [
+      "You need a simple, non-reactive configuration store for small to medium apps.",
+      "You want to load configuration from multiple sources (assets, files, URLs) without extra dependencies.",
+      "You prefer a straightforward API over complex state management solutions."
+    ],
+    "avoid_when": [
+      "You require reactive updates to UI when configuration changes.",
+      "You need strong type safety or compile-time validation of config keys.",
+      "You are building a large-scale app that already uses a dedicated state management library."
+    ],
+    "strengths": [
+      "Easy to set up and use with minimal boilerplate.",
+      "Supports multiple loading sources (assets, path, URL, map).",
+      "Provides updateValue and clear methods for runtime overrides.",
+      "MIT license and small dependency footprint."
+    ],
+    "weaknesses": [
+      "No reactive or stream-based updates – UI must be rebuilt manually.",
+      "Configuration values are untyped (Map<String, dynamic>).",
+      "Limited error handling documentation for load failures."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dependency in pubspec and call GlobalConfiguration().loadFromAsset or other load method before runApp.",
+    "alternatives": [
+      {
+        "name": "http",
+        "why_pick_it": "Use http for custom network fetching and manual parsing if you need more control over requests."
+      }
+    ],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:global_configuration/global_configuration.dart';\n\nvoid main() async {\n  await GlobalConfiguration().loadFromAsset('app_settings');\n  runApp(MyApp());\n}\n\nclass MyApp extends StatelessWidget {\n  @override\n  Widget build(BuildContext context) {\n    return MaterialApp(\n      home: Scaffold(\n        body: Center(\n          child: Text(GlobalConfiguration().getString('key1')),\n        ),\n      ),\n    );\n  }\n}\n",
+    "confidence": 0.92
+  }
+}

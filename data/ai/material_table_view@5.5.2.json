@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "5.5.2",
+  "generatedAt": "2026-11-09T11:20:13.288Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "ui-kits"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Feature-rich data table widget for Flutter with virtualization and frozen columns.",
+    "what_it_does": "Provides a comprehensive table view solution with horizontal and vertical scrolling, fixed-width frozen columns, lazy row building for large datasets, and custom cell and row styling widgets.",
+    "use_when": [
+      "You need to display massive datasets with millions of rows efficiently using virtualization.",
+      "Your table requires sticky or frozen columns that stay on screen during horizontal scrolling."
+    ],
+    "avoid_when": [
+      "You need to wrap table rows in widgets that require compositing like standard Opacity or RepaintBoundary without package alternatives.",
+      "You want built-in state management for sorting and filtering."
+    ],
+    "strengths": [
+      "Supports billions of rows via lazy building (virtualization).",
+      "Frozen columns with automatic responsiveness and unfrozen fallback priorities.",
+      "Sliver variant for integration into CustomScrollViews."
+    ],
+    "weaknesses": [
+      "Strict limitations on row-wrapping widgets due to custom composition optimizations.",
+      "State management is completely left to the developer."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "TableView.builder(\n  columns: [\n    const TableColumn(width: 56.0, freezePriority: 100),\n    for (var i = 1; i < 100; i++) const TableColumn(width: 64),\n  ],\n  rowCount: 1048576,\n  rowHeight: 56.0,\n  rowBuilder: (context, row, contentBuilder) {\n    return Material(\n      type: MaterialType.transparency,\n      child: InkWell(\n        onTap: () => print('Row $row clicked'),\n        child: contentBuilder(\n          context,\n          (context, column) => Text('$column'),\n        ),\n      ),\n    );\n  },\n)",
+    "confidence": 0.95
+  }
+}

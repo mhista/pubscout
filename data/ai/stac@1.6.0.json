@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.6.0",
+  "generatedAt": "2026-11-09T11:22:01.908Z",
+  "data": {
+    "primary_category": "ui-kits",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A Server-Driven UI framework for Flutter that renders JSON payloads into native widgets.",
+    "what_it_does": "Stac allows developers to build and update mobile or web user interfaces in real time via JSON payloads delivered from a server. It uses a Dart DSL to write UIs that compile into JSON and render natively on the client at runtime.",
+    "use_when": [
+      "You need to ship UI changes and updates instantly without going through app store review cycles.",
+      "You want to perform A/B testing or personalize layouts dynamically from a backend schema across Android, iOS, and Web."
+    ],
+    "avoid_when": [
+      "Your application requires highly complex custom native rendering logic that cannot easily be serialized into JSON.",
+      "You need completely offline-first operations with zero network dependency for dynamic screen updates."
+    ],
+    "strengths": [
+      "Instant over-the-air UI updates without updating the native client app.",
+      "Familiar Dart DSL syntax that mirrors writing traditional Flutter code.",
+      "Built-in network requests, form validation, and screen caching support."
+    ],
+    "weaknesses": [
+      "Dependent on a backend infrastructure to supply the UI JSON schemas.",
+      "Limited to the prebuilt components and registered custom widgets supported by the Stac framework."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires initializing Stac in main.dart via Stac.initialize() and setting up server endpoints to serve the dynamic UI JSON payloads.",
+    "alternatives": [],
+    "minimal_example": "void main() async {\n  await Stac.initialize();\n  runApp(const MyApp());\n}\n\nclass MyApp extends StatelessWidget {\n  const MyApp({super.key});\n\n  @override\n  Widget build(BuildContext context) {\n    return MaterialApp(\n      home: Stac(routeName: 'get_started'),\n    );\n  }\n}",
+    "confidence": 0.95
+  }
+}

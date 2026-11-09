@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.1.1",
+  "generatedAt": "2026-11-09T11:39:21.939Z",
+  "data": {
+    "primary_category": "forms",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A simple multiselect dropdown widget for Flutter.",
+    "what_it_does": "It provides a concise way to create a multi-select ComboBox or SelectBox widget in Flutter. It allows users to pick multiple options from a dropdown list and displays the selected values.",
+    "use_when": [
+      "You need a straightforward multi-select dropdown widget in your form.",
+      "You want to allow users to select multiple items from a list with minimal setup."
+    ],
+    "avoid_when": [
+      "You need complex form builder integrations or advanced custom validations not provided by the widget.",
+      "You require extensive UI customization beyond the documented parameters."
+    ],
+    "strengths": [
+      "Very easy to set up and use with minimal boilerplate.",
+      "Supports generic types and custom value separators."
+    ],
+    "weaknesses": [
+      "Limited to dropdown-style multi-selection.",
+      "Relies on states_rebuilder which might not fit every app's architecture."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "class Home extends StatefulWidget {\n  const Home({Key? key}) : super(key: key);\n\n  @override\n  _HomeState createState() => _HomeState();\n}\n\nclass _HomeState extends State<Home> {\n  List<String> selected = [];\n\n  @override\n  Widget build(BuildContext context) {\n    return Scaffold(\n        body: Center(\n      child: Padding(\n        padding: const EdgeInsets.all(20.0),\n        child: DropDownMultiSelect(\n          onChanged: (List<String> x) {\n            setState(() {\n              selected = x;\n            });\n          },\n          options: ['a', 'b', 'c', 'd'],\n          selectedValues: selected,\n          whenEmpty: 'Select Something',\n        ),\n      ),\n    ));\n  }\n}",
+    "confidence": 0.95
+  }
+}

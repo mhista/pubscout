@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.0.2",
+  "generatedAt": "2026-11-09T11:54:26.072Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "A Flutter widget that allows listening to multiple ValueListenables simultaneously.",
+    "what_it_does": "It provides a single widget, MultiValueListenableBuilder, which accepts a list of ValueListenables and a builder callback. When any of the provided listenables change, the builder triggers a rebuild with the updated values.",
+    "use_when": [
+      "You need to rebuild a widget when any of multiple ValueListenables changes",
+      "You want to avoid deeply nesting multiple ValueListenableBuilders"
+    ],
+    "avoid_when": [
+      "You are using a heavy state management solution like BLoC, Riverpod, or Provider that already handles multiple values",
+      "You only need to listen to a single ValueListenable"
+    ],
+    "strengths": [
+      "Simplifies code by eliminating nested ValueListenableBuilders",
+      "Lightweight with no external dependencies other than Flutter"
+    ],
+    "weaknesses": [
+      "Limited to basic ValueListenable observation",
+      "Does not provide complex state management features or business logic patterns"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "MultiValueListenableBuilder(\n    valueListenables: [\n        listenable0,\n        listenable1,\n    ],\n    builder: (context, values, child) {\n        return YourWidget(\n            values.elementAt(0),\n            values.elementAt(1),\n            child: child,\n        );\n    },\n    child: YourOptionalChildWidget(),\n)",
+    "confidence": 0.95
+  }
+}

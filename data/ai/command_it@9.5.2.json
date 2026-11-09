@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "9.5.2",
+  "generatedAt": "2026-11-09T11:47:57.605Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "Wrap sync and async functions as callable Command objects with reactive state.",
+    "what_it_does": "Wraps synchronous or asynchronous functions into callable Command objects. It automatically exposes execution state like running, errors, and results as ValueListenables for easy reactive UI integration.",
+    "use_when": [
+      "You want automatic loading states and error handling for async operations without boilerplate try/catch blocks.",
+      "You want to prevent parallel executions of the same action natively.",
+      "You want a lightweight alternative to heavier state management frameworks."
+    ],
+    "avoid_when": [
+      "You need complex event-driven BLoC patterns or heavily structured architectural models.",
+      "You rely entirely on non-ValueListenable state providers."
+    ],
+    "strengths": [
+      "Eliminates manual try/catch and loading state boilerplate.",
+      "Built-in protection against parallel execution.",
+      "Integrates seamlessly with ValueListenable and watch_it."
+    ],
+    "weaknesses": [
+      "Requires learning the Command pattern paradigm.",
+      "Circular pipes can cause infinite loops if not carefully constructed."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires listen_it as a dependency. No native configuration or code generation needed.",
+    "alternatives": [],
+    "minimal_example": "final incrementCommand = Command.createAsyncNoParam<String>(\n  () async => '1',\n  initialValue: '0',\n);\n\nElevatedButton(\n  onPressed: incrementCommand.run,\n  child: Text('Increment'),\n);",
+    "confidence": 0.95
+  }
+}

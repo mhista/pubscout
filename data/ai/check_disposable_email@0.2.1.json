@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.2.1",
+  "generatedAt": "2026-11-09T11:31:12.505Z",
+  "data": {
+    "primary_category": "forms",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Check whether an email address uses a valid or disposable domain name.",
+    "what_it_does": "Provides methods to validate email address formats, extract and normalize domains, and check if an email uses a known disposable or temporary email service. Features optimized O(1) domain lookups with a built-in list of over 3,200 domains.",
+    "use_when": [
+      "You want to prevent users from registering with temporary or disposable email addresses.",
+      "You need RFC 5322 compliant email format validation alongside disposable domain checks."
+    ],
+    "avoid_when": [
+      "You need to verify the email box actually exists by sending an email or performing an MX record lookup."
+    ],
+    "strengths": [
+      "Fast O(1) set-based lookups for disposable domains",
+      "Provides detailed validation results including format checks and error messages",
+      "Comprehensive null safety and whitespace handling"
+    ],
+    "weaknesses": [
+      "Relies on a static built-in list of disposable domains which may require package updates to catch newly created temporary email providers"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:check_disposable_email/check_disposable_email.dart';\n\nbool isValid = Disposable.instance.hasValidEmail('user@gmail.com');\nEmailValidationResult result = Disposable.instance.validateEmail('user@mailinator.com');",
+    "confidence": 0.95
+  }
+}

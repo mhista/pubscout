@@ -1,0 +1,46 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.8.0",
+  "generatedAt": "2026-11-09T11:54:32.062Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "auth"
+    ],
+    "approach": [
+      "declarative",
+      "stream-based"
+    ],
+    "one_liner": "A GraphQL link for package:graphql that manages authentication tokens transparently.",
+    "what_it_does": "Provides a GraphQL link that automatically attaches authentication tokens, proactively or reactively refreshes expired tokens, retries failed requests, and manages authentication states via a stream.",
+    "use_when": [
+      "You are using package:graphql and need automated token refresh on unauthenticated errors.",
+      "You want to handle single-flight requests so concurrent token refreshes don't duplicate calls."
+    ],
+    "avoid_when": [
+      "You are building a REST API client instead of GraphQL (use fresh or dio instead).",
+      "You do not use token-based authentication."
+    ],
+    "strengths": [
+      "Single-flight token refresh prevents concurrent duplicate refresh requests.",
+      "Provides an authenticationStatus stream for clean reactive navigation or login state management.",
+      "Supports custom token formats and pluggable storage layers."
+    ],
+    "weaknesses": [
+      "Requires custom implementation of token persistence (TokenStorage) for long-term storage.",
+      "Tied directly to package:graphql link architecture."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Implement TokenStorage to save tokens persistently across app restarts and plug FreshLink into your GraphQL Link chain.",
+    "alternatives": [
+      {
+        "name": "oauth2",
+        "why_pick_it": "If you need an OAuth2 client for REST APIs instead of GraphQL."
+      }
+    ],
+    "minimal_example": "final freshLink = FreshLink.oAuth2(\n  tokenStorage: InMemoryTokenStorage<OAuth2Token>(),\n  refreshToken: (token, client) async {\n    final response = await client.post(\n      Uri.parse('https://api.example.com/auth/refresh'),\n      body: jsonEncode({'refresh_token': token?.refreshToken}),\n    );\n    final body = jsonDecode(response.body) as Map<String, dynamic>;\n    if (body['error'] == 'refresh_token_revoked') return null;\n    return OAuth2Token(\n      accessToken: body['access_token'],\n      refreshToken: body['refresh_token'],\n      expiresIn: body['expires_in'],\n      issuedAt: DateTime.now(),\n    );\n  },\n  shouldRefresh: (response) =>\n      response.errors?.any((e) => e.message.contains('UNAUTHENTICATED')) ??\n      false,\n);\n\nfinal link = Link.from([freshLink, HttpLink('https://api.example.com/graphql')]);",
+    "confidence": 0.95
+  }
+}

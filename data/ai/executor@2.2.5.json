@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.2.5",
+  "generatedAt": "2026-11-09T11:29:43.907Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "async tools"
+    ],
+    "one_liner": "Executes async tasks with a configurable maximum concurrency and rate.",
+    "what_it_does": "Executes asynchronous tasks while strictly respecting a configurable maximum concurrency limit and rate. Provides methods for scheduling tasks, tracking running or waiting counts, and joining execution blocks.",
+    "use_when": [
+      "You need to limit concurrent asynchronous operations like network requests or database writes.",
+      "You want to control the execution rate of a batch of asynchronous tasks."
+    ],
+    "avoid_when": [
+      "You are looking for the Dart team's pool library and prefer that specific ecosystem alternative.",
+      "You do not have any concurrency or rate-limiting requirements for your async tasks."
+    ],
+    "strengths": [
+      "Configurable maximum concurrency and rate.",
+      "Supports joining execution with waiting options.",
+      "Preserves caller stacktraces when tasks fail."
+    ],
+    "weaknesses": [
+      "Limited feature set beyond basic async scheduling and rate control."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "async",
+        "why_pick_it": "Offers general asynchronous tools and utilities maintained directly by the Dart team."
+      }
+    ],
+    "minimal_example": "final executor = Executor(concurrency: 10);\nfor (var i = 0; i < 20; i++) {\n  executor.scheduleTask(() async {\n    // your async task here\n  });\n}\nawait executor.join(withWaiting: true);\nawait executor.close();",
+    "confidence": 1
+  }
+}

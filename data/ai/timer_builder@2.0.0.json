@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "2.0.0",
+  "generatedAt": "2026-11-09T11:21:47.756Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "A Flutter widget that rebuilds its child on scheduled, periodic or dynamic time events.",
+    "what_it_does": "TimerBuilder provides factory constructors to create widgets that automatically call setState at specified times. It can rebuild on a fixed interval, on a list of DateTime schedules, or on custom time streams. The widget works on all Flutter platforms.",
+    "use_when": [
+      "Displaying a live clock or countdown",
+      "Limiting UI rebuild frequency for frequently changing data",
+      "Showing time‑since or time‑until an event"
+    ],
+    "avoid_when": [
+      "Needing sub‑millisecond precision or heavy computational work on each tick",
+      "Complex UI logic that should be handled outside of a simple timer"
+    ],
+    "strengths": [
+      "Simple, declarative API",
+      "Null‑safe and works on all platforms",
+      "No additional setup or code generation required"
+    ],
+    "weaknesses": [
+      "Only handles time‑based rebuilds, no built‑in animation support",
+      "Can cause unnecessary rebuilds if overused"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:timer_builder/timer_builder.dart';\n\nclass ClockWidget extends StatelessWidget {\n  @override\n  Widget build(BuildContext context) {\n    return TimerBuilder.periodic(Duration(seconds: 1), builder: (context) {\n      return Text('${DateTime.now()}');\n    });\n  }\n}",
+    "confidence": 0.97
+  }
+}

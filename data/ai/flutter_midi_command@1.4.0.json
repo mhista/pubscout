@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.4.0",
+  "generatedAt": "2026-11-09T11:22:08.013Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [
+      "device",
+      "web-desktop"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Send and receive MIDI messages between Flutter and physical or virtual MIDI devices.",
+    "what_it_does": "A Flutter plugin that wraps platform MIDI APIs (CoreMIDI, android.media.midi, ALSA, win32, and Web MIDI) to send and receive MIDI messages. It supports USB, Bluetooth Low Energy (BLE), virtual devices, and network sessions, while including a typed MIDI parser and generator.",
+    "use_when": [
+      "Building music applications that need to communicate with hardware keyboards or synthesizers via USB or Bluetooth MIDI.",
+      "Developing cross-platform music tech tools requiring low-level MIDI message parsing and generation."
+    ],
+    "avoid_when": [
+      "Your project targets Flutter versions below 3.44.0.",
+      "You do not need hardware MIDI interaction and only require software audio playback."
+    ],
+    "strengths": [
+      "Cross-platform support spanning Android, iOS, web, Windows, macOS, and Linux.",
+      "Built-in typed MIDI parser and generator supporting running status and interleaved realtime bytes.",
+      "Supports multiple transports including USB, BLE, virtual devices, and network sessions."
+    ],
+    "weaknesses": [
+      "Requires minimum platform and Flutter SDK versions (such as Flutter 3.44.0+).",
+      "Platform-specific permissions and setup (like Bluetooth or network usage descriptions) must be configured manually by the app owner."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires Kotlin and Swift support, configuring platform minimum versions, and setting up native permissions/capabilities for Bluetooth or network sessions depending on the transports used.",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter_midi_command/flutter_midi_command.dart';\n\nfinal MidiCommand midi = MidiCommand();\n\nFuture<void> listDevices() async {\n  final devices = await midi.devices;\n  print(devices);\n}",
+    "confidence": 0.95
+  }
+}

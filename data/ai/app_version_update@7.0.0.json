@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "7.0.0",
+  "generatedAt": "2026-11-09T11:20:18.244Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Check if local app version matches Play Store or Apple Store and prompt updates.",
+    "what_it_does": "Retrieves the version and store URL for the local app and compares it against the respective app store version. It provides built-in dialogs, bottom sheets, and pages to prompt users to update.",
+    "use_when": [
+      "You need to enforce or suggest app updates from the Play Store and App Store.",
+      "You want pre-built UI components like alert dialogs or bottom sheets for updates."
+    ],
+    "avoid_when": [
+      "You require advanced in-app update flows managed natively via Google Play In-App Updates API.",
+      "Your app is not hosted on public stores."
+    ],
+    "strengths": [
+      "Supports both Android and iOS stores easily.",
+      "Provides built-in customizable UI options like dialogs, bottom sheets, and pages."
+    ],
+    "weaknesses": [
+      "Relies on scraping or querying store pages via HTTP which might be fragile to store layout changes.",
+      "Requires manual version comparison handling setup."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires INTERNET permission on Android and NSAppTransportSecurity configuration on iOS.",
+    "alternatives": [],
+    "minimal_example": "await AppVersionUpdate.checkForUpdates(\n  appleId: '284882215',\n  playStoreId: 'com.facebook.katana',\n).then((data) async {\n  if (data.canUpdate!) {\n    AppVersionUpdate.showAlertUpdate(appVersionResult: data, context: context);\n  }\n});",
+    "confidence": 0.95
+  }
+}

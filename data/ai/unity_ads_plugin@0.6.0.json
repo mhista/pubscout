@@ -1,0 +1,48 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.6.0",
+  "generatedAt": "2026-11-09T11:39:09.879Z",
+  "data": {
+    "primary_category": "payments",
+    "secondary_categories": [
+      "games"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter plugin to display Unity Banner, Interstitial, and Rewarded Video Ads.",
+    "what_it_does": "Integrates the Unity Ads SDK into Flutter applications for Android and iOS. It allows developers to initialize the SDK, manage privacy consent, load ads, and display banner or fullscreen video ads with status callbacks.",
+    "use_when": [
+      "You want to monetize your Flutter mobile application using Unity Ads.",
+      "You need to display banner, interstitial, or rewarded video ads."
+    ],
+    "avoid_when": [
+      "You prefer using AdMob or another ad network instead of Unity Ads."
+    ],
+    "strengths": [
+      "Supports Unity Banner, Rewarded, and Interstitial Video Ads",
+      "Provides privacy consent management and server-to-server reward callbacks",
+      "Firebase Test Lab support on Android"
+    ],
+    "weaknesses": [
+      "Requires managing native Unity SDK initialization and placement IDs",
+      "Android fullscreen ads may require Manifest adjustments to avoid separate recent apps tasks"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires setting up game IDs from Unity Ads, configuring platform-specific settings, and potentially adjusting Android Manifest task affinities for fullscreen ads.",
+    "alternatives": [
+      {
+        "name": "google_mobile_ads",
+        "why_pick_it": "If you want to display ads through Google AdMob / Google Ad Manager instead of Unity Ads."
+      },
+      {
+        "name": "yandex_mobileads",
+        "why_pick_it": "If you want to integrate Yandex Mobile Ads SDK instead of Unity Ads."
+      }
+    ],
+    "minimal_example": "import 'package:unity_ads_plugin/unity_ads_plugin.dart';\n\nvoid main() {\n  UnityAds.init(\n    gameId: 'YOUR_GAME_ID',\n    testMode: true,\n    onComplete: () => print('Unity Ads Initialized'),\n    onFailed: (error, message) => print('Unity Ads Initialization Failed: $error $message'),\n  );\n}",
+    "confidence": 1
+  }
+}

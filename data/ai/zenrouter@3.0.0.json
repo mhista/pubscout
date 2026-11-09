@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.0.0",
+  "generatedAt": "2026-11-09T11:39:04.141Z",
+  "data": {
+    "primary_category": "navigation",
+    "secondary_categories": [],
+    "approach": [
+      "declarative",
+      "imperative",
+      "code generation"
+    ],
+    "one_liner": "Type-safe Flutter routing with deep linking, web support, and visual route graphs.",
+    "what_it_does": "Defines application screens as types and composes routes as a graph for navigation. Supports imperative stacks, declarative diffing, and a full coordinator model with URI parsing and deep linking.",
+    "use_when": [
+      "You need type-safe navigation and robust deep linking in Flutter apps",
+      "You want to organize routes as a graph or manifest with browser URL synchronization"
+    ],
+    "avoid_when": [
+      "You prefer a very lightweight navigation package without graph-based definitions",
+      "You are maintaining a legacy app using standard Navigator 1.0 imperative push/pop without deep links"
+    ],
+    "strengths": [
+      "Type-safe navigation parameters and deep-link generation",
+      "Visual route graph and DevTools support via zenrouter_devtools",
+      "Supports multiple navigation paradigms (imperative, declarative, and coordinator)"
+    ],
+    "weaknesses": [
+      "Requires understanding a custom routing ecosystem compared to basic Navigator",
+      "Migration from older versions requires updating capability mixins and manifest bindings"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add dependencies to pubspec.yaml and optionally use zenrouter_devtools or zenrouter_file_generator for codegen.",
+    "alternatives": [
+      {
+        "name": "go_router",
+        "why_pick_it": "Official declarative routing package with path-based navigation syntax."
+      },
+      {
+        "name": "auto_route",
+        "why_pick_it": "Route generation library using annotations for strongly-typed navigation."
+      }
+    ],
+    "minimal_example": "final path = NavigationPath<AppRoute>.create();\n\nNavigationStack(\n  path: path,\n  resolver: (route) => StackTransition.material(route.build(context)),\n);\n\npath.push(ProfileRoute());",
+    "confidence": 0.95
+  }
+}

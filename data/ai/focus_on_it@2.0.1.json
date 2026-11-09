@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.1",
+  "generatedAt": "2026-11-09T11:24:47.789Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "state-management"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Get notified when a Flutter widget is focused or unfocused and react to it.",
+    "what_it_does": "Provides a widget wrapper that triggers callbacks when a view or app lifecycle state changes. It lets you detect focus, visibility, foreground/background states, and app lifecycle events.",
+    "use_when": [
+      "You need to pause or resume videos or camera previews when a widget comes into view.",
+      "You want to trigger data synchronization when a specific screen or widget is focused.",
+      "You need to handle app lifecycle events at the widget level."
+    ],
+    "avoid_when": [
+      "You only need global app lifecycle observation without widget-level granularity.",
+      "Your project uses a Flutter version below 3.13.0."
+    ],
+    "strengths": [
+      "Offers 13 different events including focus, visibility, and app lifecycle changes.",
+      "Successor to the unmaintained Focus Detector package with modern AppLifecycleListener support.",
+      "Supports Android, iOS, Windows, macOS, and Linux."
+    ],
+    "weaknesses": [
+      "Requires a minimum Dart SDK of 3.1.0 and Flutter 3.13.0+.",
+      "Web testing requires setting a specific environment variable (--dart-define=TEST=true)."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "FocusOnIt(\n  onFocus: () {\n    logger.i('Focus Gained.');\n  },\n  onUnfocus: () {\n    logger.i('Focus Lost.');\n  },\n  child: const Placeholder(),\n)",
+    "confidence": 0.95
+  }
+}

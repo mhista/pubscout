@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.19.5",
+  "generatedAt": "2026-11-09T11:35:11.601Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "forms"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Flutter widget providing a searchable, sortable, and paginated list UI.",
+    "what_it_does": "It renders a list view combined with a customizable search field, allowing users to filter items synchronously or asynchronously. It also supports expansion groups, slivers, pull-to-refresh, and pagination.",
+    "use_when": [
+      "You need to display a list of items with an integrated search bar.",
+      "You require support for asynchronous data sources and filtering.",
+      "You need features like pagination, pull-to-refresh, or expansion groups out-of-the-box."
+    ],
+    "avoid_when": [
+      "You need a standard non-searchable list view where custom search is unnecessary.",
+      "You are building your own highly custom search architecture with explicit controllers and custom animations."
+    ],
+    "strengths": [
+      "Supports synchronous and asynchronous data loading and filtering.",
+      "Provides multiple constructors including slivers and expansion groups.",
+      "Highly customizable search field and state widgets."
+    ],
+    "weaknesses": [
+      "Tied specifically to its own list implementation wrapper, which may limit deep customization of underlying scroll physics or layout."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "SearchableList<Actor>(\n  initialList: actors,\n  itemBuilder: (actor) => ActorItem(actor: actor),\n  filter: (query) => actors\n      .where((a) => a.name.toLowerCase().contains(query.toLowerCase()))\n      .toList(),\n  emptyWidget: const Center(child: Text('No results')),\n  inputDecoration: InputDecoration(labelText: 'Search actor'),\n)",
+    "confidence": 1
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.3.0",
+  "generatedAt": "2026-11-09T11:41:33.532Z",
+  "data": {
+    "primary_category": "animation",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A Flutter library for explicit, implicit, and staggered animations using the Animator and AnimateWidget.",
+    "what_it_does": "Provides simplified interfaces like Animator and AnimateWidget to separate animation setup from the UI. It supports implicit, explicit, and staggered animations without being constrained to dedicated AnimatedFoo widgets.",
+    "use_when": [
+      "You want to perform implicit or explicit animations without needing dedicated AnimatedFoo widgets.",
+      "You need to implement complex staggered animations easily.",
+      "You want to separate animation setup logic from the user interface."
+    ],
+    "avoid_when": [
+      "You prefer using low-level AnimationController and standard Flutter transition widgets exclusively.",
+      "You want a dedicated Rive or Lottie runtime package."
+    ],
+    "strengths": [
+      "Simplifies both implicit and explicit animations under unified widgets.",
+      "Supports staggered animations and custom curves per animated value.",
+      "Allows control of animations from outside the widget using AnimatorKey."
+    ],
+    "weaknesses": [
+      "Depends on the states_rebuilder library ecosystem.",
+      "Documentation outside of README examples is sparse."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [
+      {
+        "name": "flutter_animate",
+        "why_pick_it": "Provides a comprehensive chainable extension-based animation system for Flutter widgets."
+      },
+      {
+        "name": "animate_do",
+        "why_pick_it": "Offers ready-to-use entrance and attention animation widgets based on Animate.css."
+      }
+    ],
+    "minimal_example": "Center(\n    child: AnimateWidget(\n        duration: const Duration(seconds: 2),\n        curve: Curves.fastOutSlowIn,\n        builder: (context, animate) => Container(\n            width: animate.call(100.0),\n            height: animate(200.0, 'height'),\n            color: animate(Colors.blue),\n            child: const FlutterLogo(size: 75),\n        ),\n    ),\n)",
+    "confidence": 0.95
+  }
+}

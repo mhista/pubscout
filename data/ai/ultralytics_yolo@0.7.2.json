@@ -1,0 +1,50 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.7.2",
+  "generatedAt": "2026-11-09T11:54:25.971Z",
+  "data": {
+    "primary_category": "camera",
+    "secondary_categories": [
+      "ai-ml"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter plugin for running Ultralytics YOLO computer vision models on Android and iOS.",
+    "what_it_does": "Runs Ultralytics YOLO models for single-image and real-time camera inference across Android and iOS. Supports object detection, instance segmentation, semantic segmentation, depth estimation, classification, pose estimation, and oriented bounding boxes.",
+    "use_when": [
+      "You need to run YOLO object detection or computer vision tasks in a Flutter app",
+      "You want support for live camera inference using YOLOView",
+      "You want automatic discovery and downloading of official YOLO model assets"
+    ],
+    "avoid_when": [
+      "You require text recognition or generic machine learning tasks not suited for YOLO models",
+      "You want an on-device LLM package instead of computer vision"
+    ],
+    "strengths": [
+      "Supports multiple YOLO tasks including detection, segmentation, pose, and depth estimation",
+      "Provides both single-image inference and real-time camera preview widgets",
+      "Handles automatic model discovery, download, and caching"
+    ],
+    "weaknesses": [
+      "Requires specific native Gradle configurations and platform runtimes for optimal acceleration (like QNN)",
+      "Agpl-3.0 license may restrict commercial usage depending on your application structure"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires platform configuration such as Android minSdkVersion 24, and optional native runtime additions if using Qualcomm NPU (QNN) models.",
+    "alternatives": [
+      {
+        "name": "google_mlkit_commons",
+        "why_pick_it": "Use Google ML Kit for on-device machine learning tasks without custom YOLO weights."
+      },
+      {
+        "name": "tflite_flutter",
+        "why_pick_it": "Use raw TensorFlow Lite interpreter bindings for general custom TFLite models instead of Ultralytics YOLO specifically."
+      }
+    ],
+    "minimal_example": "import 'package:ultralytics_yolo/ultralytics_yolo.dart';\n\nfinal modelId = YOLO.defaultOfficialModel() ?? 'yolo26n';\n\nYOLOView(\n  modelPath: modelId,\n  onResult: (results) {\n    for (final r in results) {\n      debugPrint('${r.className}: ${r.confidence}');\n    }\n  },\n)",
+    "confidence": 0.95
+  }
+}

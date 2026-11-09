@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.3.1",
+  "generatedAt": "2026-11-09T11:55:48.450Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "ai-ml"
+    ],
+    "approach": [
+      "declarative",
+      "stream-based"
+    ],
+    "one_liner": "Fast Markdown parser and canvas renderer for Flutter with text selection and streaming.",
+    "what_it_does": "Parses and renders Markdown text on a Flutter canvas with custom render objects. Supports cross-widget text selection, streaming parsing for LLM token outputs, and opt-in syntax highlighting.",
+    "use_when": [
+      "Displaying markdown text from AI assistants like ChatGPT and Gemini",
+      "Streaming markdown content token by token into chat interfaces",
+      "Requiring robust cross-block and cross-widget text selection for markdown"
+    ],
+    "avoid_when": [
+      "You only need to display plain non-markdown text",
+      "You do not need custom canvas-rendered markdown features"
+    ],
+    "strengths": [
+      "High performance parser and renderer with optimized streaming support",
+      "Cross-block and cross-widget text selection surviving list disposals",
+      "Dependency-free code-block syntax highlighting with 65+ languages"
+    ],
+    "weaknesses": [
+      "API updates between minor versions may require adjustments for custom painters or selection surfaces",
+      "Advanced customizations require understanding custom render objects and specialized scopes"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "No native platform steps or permissions required.",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:flutter_md/flutter_md.dart';\n\nvoid main() => runApp(const ExampleApp());\n\nclass ExampleApp extends StatelessWidget {\n  const ExampleApp({super.key});\n\n  static final Markdown _markdown = Markdown.fromString('''\n# Hello, **flutter_md**\n\nA paragraph with *emphasis*, `inline code` and a\n[link](https://pub.dev/packages/flutter_md).\n''');\n\n  @override\n  Widget build(BuildContext context) => MaterialApp(\n        home: Scaffold(\n          body: SafeArea(\n            child: SingleChildScrollView(\n              padding: const EdgeInsets.all(16),\n              child: MarkdownWidget(markdown: _markdown),\n            ),\n          ),\n        ),\n      );\n}",
+    "confidence": 1
+  }
+}

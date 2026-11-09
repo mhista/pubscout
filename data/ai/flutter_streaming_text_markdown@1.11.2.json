@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.11.2",
+  "generatedAt": "2026-11-09T11:40:16.312Z",
+  "data": {
+    "primary_category": "ai-ml",
+    "secondary_categories": [
+      "animation",
+      "widgets"
+    ],
+    "approach": [
+      "stream-based",
+      "declarative"
+    ],
+    "one_liner": "Stream LLM responses into Flutter as live markdown with typewriter animations and markdown support.",
+    "what_it_does": "Takes a Stream of text chunks from an LLM and renders them smoothly as markdown with built-in typewriter or fade animations, LaTeX support, and RTL text handling. It also provides programmatic controls like pause, resume, and skip.",
+    "use_when": [
+      "You need to render incoming token streams from LLMs like ChatGPT, Claude, or Gemini as live markdown.",
+      "You want typewriter or fade reveal animations for streamed text without breaking markdown syntax."
+    ],
+    "avoid_when": [
+      "You only need to display static markdown that never streams.",
+      "You are building a complete chat UI with bubbles, composer, and scroll management (use a chat UI package instead)."
+    ],
+    "strengths": [
+      "Optimized specifically for LLM text streaming with smooth pacing and animations.",
+      "Tolerates half-finished markdown syntax without flashing raw markers.",
+      "Includes presets for popular AI models like ChatGPT and Claude."
+    ],
+    "weaknesses": [
+      "Depends on specific third-party markdown and math rendering packages.",
+      "Animation and styling require configuring custom themes or passing specific parameters."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "class ReplyView extends StatelessWidget {\n  const ReplyView({super.key});\n  @override\n  Widget build(BuildContext context) {\n    return StreamingTextMarkdown.claude(stream: fakeLlmReply());\n  }\n}",
+    "confidence": 1
+  }
+}

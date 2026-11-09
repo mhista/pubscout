@@ -1,0 +1,54 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "5.0.0",
+  "generatedAt": "2026-11-09T11:10:11.101Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Predictable state container for Dart and Flutter using Redux pattern.",
+    "what_it_does": "Provides a Store, reducers, and middleware to manage immutable app state in a unidirectional data flow. Works with any Dart code and can be combined with Flutter via flutter_redux.",
+    "use_when": [
+      "You need a single source of truth with explicit state transitions",
+      "You want time‑travel debugging or easy state persistence",
+      "Your app benefits from middleware for logging, async, or side‑effects"
+    ],
+    "avoid_when": [
+      "You prefer a more lightweight solution like Provider",
+      "You need built‑in dependency injection or code‑generated models"
+    ],
+    "strengths": [
+      "Clear, testable architecture",
+      "Supports middleware, dev tools, and time‑travel debugging",
+      "Works on all Flutter platforms"
+    ],
+    "weaknesses": [
+      "More boilerplate than simple state solutions",
+      "Steep learning curve for newcomers",
+      "No built‑in DI or code generation"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add redux to pubspec, then create Store, reducers, and optionally use flutter_redux for UI binding",
+    "alternatives": [
+      {
+        "name": "bloc",
+        "why_pick_it": "Offers similar unidirectional flow with built‑in event/state separation and less boilerplate"
+      },
+      {
+        "name": "provider",
+        "why_pick_it": "Simpler API for small apps, integrates directly with Flutter widget tree"
+      },
+      {
+        "name": "riverpod",
+        "why_pick_it": "Modern, compile‑time safety and flexible provider system without boilerplate"
+      }
+    ],
+    "minimal_example": "import 'package:redux/redux.dart';\n\nenum Actions {increment, decrement}\n\nint counterReducer(int state, action) =>\n    action == Actions.increment ? state + 1 :\n    action == Actions.decrement ? state - 1 : state;\n\nvoid main() {\n  final store = Store<int>(counterReducer, initialState: 0);\n  store.dispatch(Actions.increment);\n  print(store.state); // 1\n}",
+    "confidence": 0.95
+  }
+}

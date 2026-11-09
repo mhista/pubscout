@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.1.0",
+  "generatedAt": "2026-11-09T11:40:22.580Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Dart package helping your app interact with WhatsApp via HTTP links (universal links).",
+    "what_it_does": "The whatsapp_unilink package helps you build HTTP links for WhatsApp by converting phone numbers into the expected format and handling encoding details. It supports both string and Uri representations, allowing you to easily open WhatsApp chats with pre-filled phone numbers and text.",
+    "use_when": [
+      "You need to generate WhatsApp universal links with optional phone numbers and pre-filled text.",
+      "You want a simple utility to format phone numbers correctly for WhatsApp interactions."
+    ],
+    "avoid_when": [
+      "You need to convert local phone numbers to international formats based on the device's locale.",
+      "You require an in-app chat interface rather than launching external WhatsApp links."
+    ],
+    "strengths": [
+      "Hides encoding and link building details.",
+      "Supports converting WhatsAppUnilink instances to both String and Uri.",
+      "Works on all Dart projects without any Flutter-specific dependency."
+    ],
+    "weaknesses": [
+      "Does not convert local phone numbers to international format automatically.",
+      "Relies on external packages like url_launcher to actually open the links in a Flutter app."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "No special native setup or permissions required by this package itself, though url_launcher may require platform-specific configuration to launch external URLs.",
+    "alternatives": [],
+    "minimal_example": "import 'package:whatsapp_unilink/whatsapp_unilink.dart';\nimport 'package:url_launcher/url_launcher.dart';\n\nlaunchWhatsAppUri() async {\n  final link = WhatsAppUnilink(\n    phoneNumber: '+001-(555)1234567',\n    text: \"Hey! I'm inquiring about the apartment listing\",\n  );\n  await launch(link.asUri());\n}",
+    "confidence": 1
+  }
+}

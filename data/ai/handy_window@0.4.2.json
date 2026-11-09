@@ -1,0 +1,47 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.4.2",
+  "generatedAt": "2026-11-09T11:26:06.796Z",
+  "data": {
+    "primary_category": "ui-kits",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Provides modern Handy-style windows with rounded bottom corners on Linux.",
+    "what_it_does": "The package replaces the default Flutter window on Linux with a libhandy‑styled window that has rounded bottom corners. It works by adjusting the native GTK code before the Flutter view is shown.",
+    "use_when": [
+      "Building a Flutter desktop app for Linux that should match the Ubuntu/GTK look",
+      "Needing rounded‑corner windows without writing custom GTK code"
+    ],
+    "avoid_when": [
+      "Targeting Windows, macOS, or web platforms",
+      "Running on Linux distributions without libhandy or GLib ≥ 2.58"
+    ],
+    "strengths": [
+      "Native Ubuntu‑style appearance",
+      "Simple Dart API – just add the dependency",
+      "Works with recent Flutter versions"
+    ],
+    "weaknesses": [
+      "Linux‑only; no support for other desktop platforms",
+      "Requires manual changes to C runner files",
+      "Limited to Ubuntu 20.04+ due to libhandy version"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add handy_window to pubspec.yaml and modify linux/runner/my_application.cc (or linux/my_application.cc for older Flutter) to call fl_register_plugins before showing the window, as shown in the README.",
+    "alternatives": [
+      {
+        "name": "gtk",
+        "why_pick_it": "Provides low‑level GTK bindings for custom window handling without the Handy‑specific styling"
+      }
+    ],
+    "minimal_example": "dependencies:\n  handy_window: ^0.4.2\n\n// Then edit linux/runner/my_application.cc as described in the README to register plugins before gtk_widget_show.",
+    "confidence": 0.9
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "2.0.1",
+  "generatedAt": "2026-11-09T11:16:51.334Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [
+      "codegen"
+    ],
+    "approach": [
+      "code generation",
+      "stream-based"
+    ],
+    "one_liner": "Flutter-only drift implementation using sqflite for SQLite storage.",
+    "what_it_does": "Provides a Drift database backend that runs on top of the sqflite plugin. It lets you write Drift tables and queries while storing data via sqflite’s file‑based SQLite. Ideal for projects that already use sqflite or are migrating from moor_flutter.",
+    "use_when": [
+      "Migrating an existing moor_flutter project to Drift",
+      "You want a pure‑Flutter SQLite solution without native sqlite3 libs",
+      "You already depend on sqflite and prefer to keep a single storage plugin"
+    ],
+    "avoid_when": [
+      "Targeting web or desktop platforms where sqflite isn’t supported",
+      "Needing the highest possible SQLite performance provided by native libraries",
+      "You prefer a zero‑code‑gen approach"
+    ],
+    "strengths": [
+      "Easy migration from moor_flutter",
+      "No need for sqlite3_flutter_libs or other native binaries",
+      "Works with existing sqflite infrastructure"
+    ],
+    "weaknesses": [
+      "Only supports Flutter platforms (android, ios, macos)",
+      "Relies on sqflite which can be slower than native sqlite3",
+      "Does not support code‑generation‑free usage"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "drift",
+        "why_pick_it": "Standard Drift setup using NativeDatabase for full native performance"
+      },
+      {
+        "name": "sqflite",
+        "why_pick_it": "Manual SQLite queries without Drift’s type‑safe API"
+      },
+      {
+        "name": "sqlite3",
+        "why_pick_it": "Provides native SQLite bindings for higher performance"
+      }
+    ],
+    "minimal_example": "import 'package:drift/drift.dart';\nimport 'package:drift_sqflite/drift_sqflite.dart';\n\n@DriftDatabase(tables: [Todos, Categories])\nclass MyDatabase extends _$MyDatabase {\n  MyDatabase() : super(_openConnection());\n  @override\n  int get schemaVersion => 1;\n}\n\nQueryExecutor _openConnection() {\n  return SqfliteQueryExecutor.inDatabaseFolder(path: 'db.sqlite');\n}",
+    "confidence": 0.97
+  }
+}

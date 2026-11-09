@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.2.24",
+  "generatedAt": "2026-11-09T11:10:34.318Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Dart async extensions for Future, FutureOr, and performance improvements.",
+    "what_it_does": "Provides extensions and utility functions for Future and FutureOr to optimize synchronous and asynchronous code paths, reduce GC overhead, and add arithmetic operators and try-catch-finally chains for async blocks.",
+    "use_when": [
+      "You want to interoperate between sync and async code without unnecessary Future allocations",
+      "You need arithmetic operators directly on Future and FutureOr instances",
+      "You want to handle execution chains using utility functions like asyncTry"
+    ],
+    "avoid_when": [
+      "You prefer sticking strictly to standard library async/await primitives without third-party extension methods"
+    ],
+    "strengths": [
+      "Improves performance and reduces GC overhead for mixed sync/async computations",
+      "Comprehensive helper methods for FutureOr manipulation and error handling"
+    ],
+    "weaknesses": [
+      "Relies on custom extension paradigms instead of native language primitives"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "async",
+        "why_pick_it": "Provides official Dart asynchronous utilities and collection extensions from the core team."
+      }
+    ],
+    "minimal_example": "import 'package:async_extension/async_extension.dart';\n\nvoid doComputation() {\n  FutureOr<int> n = computeSomething();\n  var n10 = n.resolveMapped((n) => n * 10);\n  n10.onResolve((n) => print('n10: $n'));\n}",
+    "confidence": 1
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.8-flash",
+  "version": "1.27.3",
+  "generatedAt": "2026-11-09T11:09:33.059Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "devtools"
+    ],
+    "approach": [
+      "declarative",
+      "imperative"
+    ],
+    "one_liner": "Observe visible child widgets and scroll to specific indices in ScrollViews.",
+    "what_it_does": "Observes child elements currently displayed within Flutter scrollable widgets without modifying their structure. It provides controllers to track visible indices, scroll precisely to specified items, and handle scroll positioning challenges such as chat message list jumping.",
+    "use_when": [
+      "You need to know which child items are currently visible in a ListView, GridView, or PageView",
+      "You need to scroll directly to a specific child widget by index",
+      "You are implementing chat session views and need to maintain scroll position during message updates"
+    ],
+    "avoid_when": [
+      "You only need simple, fixed-offset scrolling natively provided by ScrollController",
+      "Your scroll view has a very small, fixed set of widgets where manual keys and Scrollable.ensureVisible suffice"
+    ],
+    "strengths": [
+      "Supports multiple scroll widgets including ListView, GridView, PageView, SliverList, and NestedScrollView",
+      "Non-invasive integration by wrapping existing scrollable widgets in observer widgets",
+      "Includes dedicated chat scrolling helpers to prevent viewport jitter when inserting items"
+    ],
+    "weaknesses": [
+      "Detailed implementation examples and API usage require consulting external wiki or article links"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "None",
+    "alternatives": [],
+    "minimal_example": "ListViewObserver(\n  child: ListView.builder(\n    itemCount: 100,\n    itemBuilder: (ctx, index) => ListTile(title: Text('Item $index')),\n  ),\n  onObserve: (resultModel) {\n    print('Displaying indices: ${resultModel.displayingChildIndexList}');\n  },\n)",
+    "confidence": 0.95
+  }
+}

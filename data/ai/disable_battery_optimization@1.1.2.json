@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.1.2",
+  "generatedAt": "2026-11-09T11:20:30.235Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Check and disable battery optimizations and auto-start settings on Android devices.",
+    "what_it_does": "Allows Flutter apps to check native and manufacturer-specific battery optimizations and auto-start permissions. Displays custom dialogs and guides users to disable these restrictions on devices like Xiaomi, Samsung, Oppo, Huawei, and OnePlus.",
+    "use_when": [
+      "Your background services or alarms are being killed by aggressive Android battery management",
+      "You need to guide users through manufacturer-specific settings to keep your app running"
+    ],
+    "avoid_when": [
+      "Your app does not rely on background execution or alarms",
+      "You only need general device information without modifying power settings"
+    ],
+    "strengths": [
+      "Supports manufacturer-specific optimizations for vendors like Xiaomi, Samsung, Oppo, and Huawei",
+      "Provides helper methods to check all battery optimizations at once"
+    ],
+    "weaknesses": [
+      "Cannot programmatically determine if the user actually changed manufacturer-specific settings",
+      "Android only plugin"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires Android platform setup and appropriate permissions to show battery optimization dialogs.",
+    "alternatives": [
+      {
+        "name": "battery_plus",
+        "why_pick_it": "Use battery_plus if you only need to read general battery state and level rather than modifying power optimization settings."
+      }
+    ],
+    "minimal_example": "bool isBatteryOptimizationDisabled = await DisableBatteryOptimization.isBatteryOptimizationDisabled;",
+    "confidence": 0.95
+  }
+}

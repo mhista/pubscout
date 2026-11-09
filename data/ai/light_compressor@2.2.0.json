@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.2.0",
+  "generatedAt": "2026-11-09T11:52:41.179Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "A Flutter plugin for video compression on Android, iOS, and macOS.",
+    "what_it_does": "Generates a compressed MP4 video with modified width, height, and bitrate from a source video path, reducing high bitrates while maintaining good quality. It provides progress updates via a stream and allows compression cancellation.",
+    "use_when": [
+      "You need to compress video files before uploading them in your Flutter app.",
+      "You want to target Android, iOS, and macOS platforms with video optimization."
+    ],
+    "avoid_when": [
+      "You need complex video editing features beyond compression, scaling, and bitrate modification."
+    ],
+    "strengths": [
+      "Supports multiple video qualities (very_low to very_high).",
+      "Provides compression progress updates via a stream.",
+      "Allows cancelling ongoing compression tasks."
+    ],
+    "weaknesses": [
+      "Requires platform-specific configuration for permissions on Android and iOS.",
+      "Requires specific build.gradle configurations and minimum Kotlin version on Android."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding NSPhotoLibraryUsageDescription in iOS Info.plist, storage/media permissions in AndroidManifest.xml, and JitPack repository along with Kotlin version updates in Android build.gradle files.",
+    "alternatives": [],
+    "minimal_example": "final LightCompressor _lightCompressor = LightCompressor();\nfinal Result response = await _lightCompressor.compressVideo(\n  path: _sourcePath,\n  destinationPath: _destinationPath,\n  videoQuality: VideoQuality.medium,\n  isMinBitrateCheckEnabled: false,\n  video: Video(videoName: videoName),\n  android: AndroidConfig(isSharedStorage: true, saveAt: SaveAt.Movies),\n  ios: IOSConfig(saveInGallery: true),);",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "1.0.6",
+  "generatedAt": "2026-11-09T11:14:27.430Z",
+  "data": {
+    "primary_category": "maps",
+    "secondary_categories": [],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "Convert any Flutter widget into a Google Maps BitmapDescriptor for marker icons.",
+    "what_it_does": "The package adds an extension that renders a widget to an image and creates a BitmapDescriptor. This allows custom widgets, including text and images, to be used as map markers.",
+    "use_when": [
+      "You need custom marker icons beyond static images",
+      "You want to display dynamic data or text on map markers",
+      "You prefer a Flutter‑only solution without native drawing code"
+    ],
+    "avoid_when": [
+      "Performance is critical for thousands of markers",
+      "You need offline rendering without a Flutter UI context"
+    ],
+    "strengths": [
+      "Simple API with .toBitmapDescriptor()",
+      "Supports logical and image size control",
+      "Works on Android, iOS, and web"
+    ],
+    "weaknesses": [
+      "May be slower for large or many markers",
+      "Relies on widget rendering which can fail for complex widgets"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:widget_to_marker/widget_to_marker.dart';\n\nMarker(\n  markerId: const MarkerId('1'),\n  position: const LatLng(30.0, 30.0),\n  icon: await TextOnImage(text: 'Hello').toBitmapDescriptor(\n    logicalSize: const Size(150, 150),\n    imageSize: const Size(150, 150),\n  ),\n);",
+    "confidence": 0.9
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.1.0",
+  "generatedAt": "2026-11-09T11:22:15.733Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "device"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Provides a persistent unique device identifier for Android and iOS.",
+    "what_it_does": "The package generates a device‑specific UUID that survives app uninstall/reinstall on both Android and iOS. It uses MediaDrm on Android and the native Keychain on iOS to store the identifier.",
+    "use_when": [
+      "You need a stable identifier for licensing, analytics, or device‑specific settings across reinstalls",
+      "You target only Android and iOS and want a simple plug‑and‑play solution"
+    ],
+    "avoid_when": [
+      "You require a privacy‑preserving identifier that resets on reinstall",
+      "You need support for web, desktop, or other platforms",
+      "Your app cannot use native APIs or keychain access"
+    ],
+    "strengths": [
+      "Uninstall‑resistant ID on both platforms",
+      "No extra configuration beyond adding the plugin",
+      "Supports latest Flutter SDK"
+    ],
+    "weaknesses": [
+      "Limited to mobile platforms only",
+      "May raise privacy concerns due to persistent identifier",
+      "Relies on native APIs, so debugging can be harder"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "uuid",
+        "why_pick_it": "Generates random UUIDs without native persistence, useful when a non‑persistent identifier is sufficient"
+      }
+    ],
+    "minimal_example": "final deviceId = await MobileDeviceIdentifier().getDeviceId();",
+    "confidence": 0.9
+  }
+}

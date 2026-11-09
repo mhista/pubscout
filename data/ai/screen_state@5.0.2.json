@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "5.0.2",
+  "generatedAt": "2026-11-09T11:41:33.179Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "Tracks screen state events on Android and iOS.",
+    "what_it_does": "A Flutter plugin that reports screen events such as screen on, screen off, and unlocks while the application is running. It provides a stream of ScreenStateEvent objects to listen for state changes.",
+    "use_when": [
+      "You need to track screen on and off events in your application.",
+      "You need to detect screen unlocks on supported Android and iOS devices."
+    ],
+    "avoid_when": [
+      "You are running your app inside the iOS simulator where detection does not function.",
+      "Your application targets platforms other than Android and iOS."
+    ],
+    "strengths": [
+      "Provides a simple stream-based API for screen events.",
+      "Supports both Android and iOS platforms."
+    ],
+    "weaknesses": [
+      "iOS detection has specific limitations such as requiring passcodes for unlock events and not working in the simulator.",
+      "Low brightness settings on iOS may erroneously generate screen on events."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires adding screen_state as a dependency in pubspec.yaml. Android requires minSdk 24 and iOS requires iOS 15.0.",
+    "alternatives": [],
+    "minimal_example": "Screen _screen;\nStreamSubscription<ScreenStateEvent> _subscription;\n\nvoid onData(ScreenStateEvent event) {\n    print(event);\n}\n\nvoid startListening() {\n    _screen = new Screen();\n    try {\n      _subscription = _screen.screenStateStream.listen(onData);\n    } on ScreenStateException catch (exception) {\n      print(exception);\n    }\n}",
+    "confidence": 0.95
+  }
+}

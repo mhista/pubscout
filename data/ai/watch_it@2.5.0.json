@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.5.0",
+  "generatedAt": "2026-11-09T11:21:16.362Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [
+      "dependency-injection"
+    ],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "State management powered by get_it to observe changes and rebuild widgets automatically.",
+    "what_it_does": "Allows Flutter widgets to observe changes of objects inside the get_it service locator and automatically rebuild when data changes. It eliminates boilerplate builders like ValueListenableBuilder and StreamBuilder.",
+    "use_when": [
+      "You are already using get_it for dependency injection and want reactive UI updates",
+      "You want to avoid widget tree nesting and boilerplate builders"
+    ],
+    "avoid_when": [
+      "You prefer built-in Flutter mechanisms like InheritedWidget or setState",
+      "You cannot follow the strict watch ordering rules"
+    ],
+    "strengths": [
+      "Zero boilerplate with no builders or manual subscriptions",
+      "Automatic disposal of subscriptions when widgets are destroyed",
+      "Type safe with compile-time error checking via generics"
+    ],
+    "weaknesses": [
+      "Requires strict adherence to watch ordering rules (index-based retrieval)",
+      "Tight coupling with get_it service locator"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires adding watch_it and get_it to pubspec.yaml.",
+    "alternatives": [],
+    "minimal_example": "class CounterWidget extends WatchingWidget {\n  @override\n  Widget build(BuildContext context) {\n    final count = watchValue((CounterModel m) => m.count);\n    return Text('$count');\n  }\n}",
+    "confidence": 1
+  }
+}

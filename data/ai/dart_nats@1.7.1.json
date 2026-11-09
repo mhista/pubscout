@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.7.1",
+  "generatedAt": "2026-11-09T11:42:04.106Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "backend"
+    ],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "A Dart and Flutter client library for the NATS messaging system.",
+    "what_it_does": "Allows Dart and Flutter applications to communicate with NATS messaging servers. Supports publish-subscribe, request-reply patterns, JetStream persistence, and multiple authentication methods across TCP and WebSockets.",
+    "use_when": [
+      "You need to connect a Flutter app or Dart service to a NATS messaging cluster",
+      "You require real-time pub/sub or request-reply messaging patterns",
+      "You want support for WebSockets on the web and raw TCP sockets on native platforms"
+    ],
+    "avoid_when": [
+      "Your backend is built around HTTP/REST or GraphQL without a NATS intermediary",
+      "You are looking for a general-purpose state management or local storage solution"
+    ],
+    "strengths": [
+      "Supports both TCP and WebSocket transports for native and web platforms",
+      "Includes robust connection lifecycle management, background retries, and heartbeats",
+      "Offers advanced features like queue groups, wildcard subscriptions, and experimental JetStream support"
+    ],
+    "weaknesses": [
+      "JetStream, Key-Value, and Object Store APIs are currently experimental",
+      "Requires a running NATS server infrastructure to be useful"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the dependency to pubspec.yaml and connect using a NATS server URI.",
+    "alternatives": [],
+    "minimal_example": "final client = Client();\nawait client.connect(Uri.parse('nats://localhost:4222'));\nfinal sub = client.sub('sensors.temperature');\nsub.stream.listen((Message msg) {\n  print('Received payload: ${msg.string}');\n});",
+    "confidence": 0.95
+  }
+}

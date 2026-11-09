@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.8-flash",
+  "version": "0.3.0",
+  "generatedAt": "2026-11-09T11:19:18.950Z",
+  "data": {
+    "primary_category": "files",
+    "secondary_categories": [
+      "web-desktop"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Creates and manages security-scoped bookmarks to retain macOS sandbox file access across launches",
+    "what_it_does": "Provides macOS desktop apps with the ability to create security-scoped bookmarks for files picked by users. It enables apps to resolve stored bookmarks across app restarts to regain sandboxed file access, managing access lifecycles and tracking stale paths. It also supports volume display names and stale bookmark rewrites when files are moved or renamed.",
+    "use_when": [
+      "Building a sandboxed macOS Flutter app that needs persistent file access across app relaunches",
+      "Preserving access to user-selected files on external drives or arbitrary folders in macOS App Sandbox",
+      "Handling stale bookmark resolution and scope management when files are renamed or moved"
+    ],
+    "avoid_when": [
+      "Developing for non-macOS platforms or apps that run outside the macOS App Sandbox",
+      "Apps that only need temporary file access during a single session without persisting access"
+    ],
+    "strengths": [
+      "Handles stale bookmarks by automatically providing refreshed bytes when target files move or rename",
+      "Provides per-ID security scope management to cleanly enter and release file access",
+      "Returns typed UnresolvableBookmark errors with native NSError domain and code details"
+    ],
+    "weaknesses": [
+      "Platform-exclusive to macOS desktop apps",
+      "Requires manual configuration of macOS sandbox entitlements to function"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires enabling com.apple.security.app-sandbox, com.apple.security.files.user-selected.read-write, and com.apple.security.files.bookmarks.app-scope entitlements in both DebugProfile.entitlements and Release.entitlements.",
+    "alternatives": [],
+    "minimal_example": "final SecureBookmarks secureBookmarks = SecureBookmarks();\nfinal SecureBookmarkMint mint = await secureBookmarks.mint(File('/path/to/file'));\n\n// Later, resolve to access:\nfinal SecureBookmarkResolution resolution = await secureBookmarks.resolve(\n  id: 'my-doc',\n  bookmarkBytes: mint.bookmark,\n);\n// Access file at resolution.path, then release:\nawait secureBookmarks.release('my-doc');",
+    "confidence": 0.95
+  }
+}

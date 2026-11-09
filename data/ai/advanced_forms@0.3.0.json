@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.3.0",
+  "generatedAt": "2026-11-09T11:23:00.157Z",
+  "data": {
+    "primary_category": "forms",
+    "secondary_categories": [
+      "state-management",
+      "widgets"
+    ],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "Flutter form validation and state management with typed controllers and validators.",
+    "what_it_does": "Provides typed field controllers for text, checkboxes, dropdowns, and multi-select fields, along with built-in sync and async validation, cross-field rules, and subforms. It manages form-level state and integrates with custom validation modes.",
+    "use_when": [
+      "You need complex form validation with async checks or cross-field dependencies.",
+      "You want typed field controllers without writing code generation.",
+      "You need to handle nested subforms and dynamic fields."
+    ],
+    "avoid_when": [
+      "You are looking for simple built-in Flutter Form and TextFormField widgets without a custom controller architecture.",
+      "You require a code-generation-based form library."
+    ],
+    "strengths": [
+      "Typed field controllers and composable validators out of the box.",
+      "Supports async validation with debouncing and timeout handling.",
+      "Granular rebuilds per field instead of rebuilding the entire form.",
+      "Handles nested subforms and conditional sections easily."
+    ],
+    "weaknesses": [
+      "Requires adopting a specific controller architecture rather than standard Flutter Form fields.",
+      "Migration from standard Flutter forms requires rewriting form logic and controllers."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "class SignupFormController extends AdvancedFormController {\n  SignupFormController() {\n    registerFields([firstName, lastName]);\n  }\n\n  final firstName = AdvancedTextFieldController(\n    validator: filled('First name is required'),\n  );\n  final lastName = AdvancedTextFieldController(\n    validator: filled('Last name is required'),\n  );\n\n  Future<void> submit() async {\n    if (await validate()) {\n      // send it\n    }\n  }\n}",
+    "confidence": 1
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.8-flash",
+  "version": "0.0.25",
+  "generatedAt": "2026-11-09T11:11:36.995Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "files"
+    ],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "Flutter plugin to receive incoming shared text, files, and media from other apps.",
+    "what_it_does": "Enables Flutter applications to handle incoming shared content such as text, URLs, images, and videos from the system share sheet on iOS and Android. It also provides APIs to record conversations to populate direct share suggestions and shortcuts.",
+    "use_when": [
+      "Your app needs to receive text, links, or files shared from other applications via the native share sheet",
+      "You want to support direct sharing into specific conversation targets or shortcuts"
+    ],
+    "avoid_when": [
+      "You only need to trigger outgoing shares to other apps (use an outgoing share package instead)",
+      "Desktop or web platforms are required, as it only supports Android and iOS"
+    ],
+    "strengths": [
+      "Supports both initial shared media when launched and real-time streaming updates when running",
+      "Provides built-in integration for iOS Share Extensions and Android direct share targets",
+      "Handles multiple media types including images, videos, URLs, text, and documents"
+    ],
+    "weaknesses": [
+      "Requires extensive native iOS and Android configuration including creating an iOS Share Extension and App Groups",
+      "No support for desktop or web platforms"
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Requires extensive native setup: creating an iOS Share Extension target, configuring App Groups and URL schemes in Info.plist, adjusting Podfiles, and defining intent filters and shortcut XML in Android.",
+    "alternatives": [],
+    "minimal_example": "final handler = ShareHandlerPlatform.instance;\nfinal initialMedia = await handler.getInitialSharedMedia();\n\nhandler.sharedMediaStream.listen((SharedMedia media) {\n  print(\"Shared text: ${media.content}\");\n  print(\"Shared files: ${media.attachments?.length}\");\n});",
+    "confidence": 0.95
+  }
+}

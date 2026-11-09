@@ -1,0 +1,46 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.0.0",
+  "generatedAt": "2026-11-09T11:54:31.691Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "images"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "An Unsplash REST API client for Dart and Flutter.",
+    "what_it_does": "Provides a client to interact with the Unsplash REST API. Allows fetching metadata about photos, random photos, and handling custom photo variant URLs.",
+    "use_when": [
+      "You need to fetch high-resolution photos and metadata from Unsplash in your application."
+    ],
+    "avoid_when": [
+      "You need endpoints that act on behalf of a user, which are not implemented yet."
+    ],
+    "strengths": [
+      "Easy setup with Unsplash app credentials.",
+      "Built-in utilities for resizing and customizing photo URLs."
+    ],
+    "weaknesses": [
+      "Endpoints acting on behalf of a user are not yet implemented."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires registering as a developer on the Unsplash developer portal and obtaining credentials (access and secret keys).",
+    "alternatives": [
+      {
+        "name": "http",
+        "why_pick_it": "If you prefer making custom raw HTTP requests to the Unsplash API rather than using a dedicated wrapper."
+      },
+      {
+        "name": "dio",
+        "why_pick_it": "If you need advanced networking features like interceptors, global configuration, and robust error handling for REST requests."
+      }
+    ],
+    "minimal_example": "final client = UnsplashClient(\n  settings: ClientSettings(credentials: AppCredentials(\n    accessKey: '...',\n    secretKey: '...',\n  )),\n);\n\nfinal photos = await client.photos.random(count: 1).goAndGet();\nfinal photo = photos.first;\nclient.close();",
+    "confidence": 0.95
+  }
+}

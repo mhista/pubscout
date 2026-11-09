@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.3.0",
+  "generatedAt": "2026-11-09T11:46:01.688Z",
+  "data": {
+    "primary_category": "maps",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Customizable world and country maps using CustomPainter for Flutter.",
+    "what_it_does": "Provides a widget to display world maps or specific country maps with customizable colors per region. It offers tap and hover callbacks that return area details, IDs, and names.",
+    "use_when": [
+      "You need to visualize data geographically using custom colors for countries or states",
+      "You want a lightweight vector-based map instead of a full native map SDK"
+    ],
+    "avoid_when": [
+      "You need live GPS geolocation, routing, or interactive tile layers",
+      "You need to render a very high number of separate map widgets simultaneously"
+    ],
+    "strengths": [
+      "Fully customizable colors per country or state using ISO codes",
+      "Built-in tap and hover callbacks with area details",
+      "Includes a RepaintBoundary wrapper for performance"
+    ],
+    "weaknesses": [
+      "Large vector maps can be heavy and expensive to repaint",
+      "ID structures can differ between different country maps"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "No special native configuration or permissions are required.",
+    "alternatives": [
+      {
+        "name": "flutter_map",
+        "why_pick_it": "Choose flutter_map if you need tile-based interactive map layers, markers, and geolocation rather than static vector country shapes."
+      }
+    ],
+    "minimal_example": "SimpleMap(\n    instructions: SMapWorld.instructions,\n    defaultColor: Colors.grey,\n    colors: SMapWorldColors(\n        uS: Colors.green,\n        cN: Colors.green,\n        ru: Colors.green,\n    ).toMap(),\n    callback: (id, name, tapdetails) {\n        print(id);\n    },\n)",
+    "confidence": 0.95
+  }
+}

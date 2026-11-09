@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "5.0.3",
+  "generatedAt": "2026-11-09T11:33:16.152Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Lightweight UDP library for Dart supporting Unicast, Broadcast, Multicast and Loopback communications.",
+    "what_it_does": "Provides a UDP implementation for sending and receiving datagrams over the network. Supports binding to endpoints, broadcasting, multicasting, and handling data streams.",
+    "use_when": [
+      "You need to send or receive UDP datagrams in Dart",
+      "You need support for broadcast, multicast, or loopback communications"
+    ],
+    "avoid_when": [
+      "You need reliable, connection-oriented TCP communication",
+      "You are communicating over HTTP, WebSockets, or gRPC"
+    ],
+    "strengths": [
+      "Easy to use API with stream support",
+      "Supports unicast, broadcast, multicast, and loopback",
+      "No external dependencies"
+    ],
+    "weaknesses": [
+      "Limited to UDP protocol capabilities (no built-in reliability or ordering)"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "var sender = await UDP.bind(Endpoint.any(port: Port(65000)));\nvar dataLength = await sender.send(\"Hello World!\".codeUnits, Endpoint.broadcast(port: Port(65001)));\nsender.close();",
+    "confidence": 1
+  }
+}

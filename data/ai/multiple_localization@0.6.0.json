@@ -1,0 +1,46 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.6.0",
+  "generatedAt": "2026-11-09T11:11:15.474Z",
+  "data": {
+    "primary_category": "localization",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Support for multiple ARB and messages localization files for the intl package.",
+    "what_it_does": "Allows using multiple ARB localization files and registering separate delegates for each. It solves the intl package limitation where only the first initializeMessages call is processed.",
+    "use_when": [
+      "You need to add intl localization with ARB files to a separate package and use it in a main project with its own localization files.",
+      "You want to specify a fallback locale for your intl translations."
+    ],
+    "avoid_when": [
+      "You only have a single localization file for your application."
+    ],
+    "strengths": [
+      "Enables modular localization across different packages and the main app.",
+      "Supports fallback locale configuration.",
+      "Supports overriding package localization strings inside the main project."
+    ],
+    "weaknesses": [
+      "Providing a fallback locale loads all messages into memory at application start.",
+      "Requires manual setup in localization delegates instead of built-in generator support."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Replace initializeMessages with MultipleLocalizations.load inside your LocalizationsDelegate load method.",
+    "alternatives": [
+      {
+        "name": "easy_localization",
+        "why_pick_it": "Provides a comprehensive localization solution with JSON/YAML/CSV/TXT support without relying on the standard intl generator flow."
+      },
+      {
+        "name": "slang",
+        "why_pick_it": "Offers strongly typed localizations with code generation and multi-file support out of the box."
+      }
+    ],
+    "minimal_example": "@override\nFuture<AppLocalizations> load(Locale locale) {\n  return MultipleLocalizations.load(\n      initializeMessages, locale, (l) => AppLocalizations(l),\n      setDefaultLocale: true);\n}",
+    "confidence": 1
+  }
+}

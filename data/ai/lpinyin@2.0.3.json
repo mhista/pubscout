@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.8-flash",
+  "version": "2.0.3",
+  "generatedAt": "2026-11-09T11:09:58.551Z",
+  "data": {
+    "primary_category": "localization",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Converts Chinese characters to Pinyin with support for multiple formats and simplified/traditional script.",
+    "what_it_does": "lpinyin converts Chinese characters into Pinyin representations with options for tone marks, tone numbers, or without tones. It handles polyphonic words (heteronyms) using dictionary lookups, converts between simplified and traditional Chinese characters, and allows custom user dictionaries.",
+    "use_when": [
+      "Sorting or indexing Chinese contacts, lists, or city names alphabetically by Pinyin or initials",
+      "Implementing Pinyin-based search or auto-complete for Chinese text",
+      "Converting between simplified and traditional Chinese characters"
+    ],
+    "avoid_when": [
+      "Working exclusively with non-Chinese text or languages that do not require romanization"
+    ],
+    "strengths": [
+      "No external dependencies, enabling lightweight pure-Dart cross-platform use",
+      "Supports multiple Pinyin formats including tone marks, no tones, and acronym initials",
+      "Allows adding custom dictionaries for Pinyin, polyphonic words, and traditional characters"
+    ],
+    "weaknesses": [
+      "Changelog entries provide minimal detail regarding bug fixes and version updates",
+      "Requires manual addition of custom dictionary mappings if uncommon polyphonic contexts are not covered"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:lpinyin/lpinyin.dart';\n\nvoid main() {\n  String text = '天府广场';\n\n  // Get short Pinyin (initials)\n  String initials = PinyinHelper.getShortPinyin(text); // tfgc\n\n  // Convert to Pinyin without tones\n  String pinyin = PinyinHelper.getPinyinE(\n    text,\n    separator: ' ',\n    format: PinyinFormat.WITHOUT_TONE,\n  ); // tian fu guang chang\n}",
+    "confidence": 0.95
+  }
+}

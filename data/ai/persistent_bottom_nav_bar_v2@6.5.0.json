@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.8-flash",
+  "version": "6.5.0",
+  "generatedAt": "2026-11-09T11:12:39.310Z",
+  "data": {
+    "primary_category": "navigation",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative",
+      "imperative"
+    ],
+    "one_liner": "Customizable persistent bottom navigation bar with 17 prebuilt styles and separate tab stacks.",
+    "what_it_does": "Provides a persistent bottom navigation bar widget that maintains separate navigation stacks across tabs when switching. It includes 17 prebuilt bar styles, supports custom styling, and integrates with go_router and Android back button handling. It also enables scroll-to-top on double tap, animated icons, and hiding the bar during scroll.",
+    "use_when": [
+      "You need a bottom navigation bar that preserves the navigation history of each tab independently.",
+      "You want prebuilt, styled navigation bar animations without designing custom bar components from scratch.",
+      "You need features like hiding navigation bars on scroll, animated tab icons, or scroll-to-top behavior."
+    ],
+    "avoid_when": [
+      "You only require Flutter's standard BottomNavigationBar or NavigationBar without nested navigators.",
+      "Your routing architecture already manages stateful nested navigation exclusively via standard go_router StatefulShellRoute."
+    ],
+    "strengths": [
+      "Offers 17 prebuilt, animated navigation bar styles ready out-of-the-box.",
+      "Maintains individual navigation stacks per tab without discarding state.",
+      "Supports integration with go_router for declarative routing."
+    ],
+    "weaknesses": [
+      "Replaces standard Scaffold page structures and requires adapting page layouts around PersistentTabView.",
+      "Tight dependency on go_router version bumps can lead to dependency constraints across major Flutter versions."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Works as a top-level container similar to Scaffold; avoid nesting inside Scaffold.body.",
+    "alternatives": [],
+    "minimal_example": "PersistentTabView(\n  tabs: [\n    PersistentTabConfig(\n      screen: YourFirstScreen(),\n      item: ItemConfig(\n        icon: const Icon(Icons.home),\n        title: 'Home',\n      ),\n    ),\n    PersistentTabConfig(\n      screen: YourSecondScreen(),\n      item: ItemConfig(\n        icon: const Icon(Icons.settings),\n        title: 'Settings',\n      ),\n    ),\n  ],\n  navBarBuilder: (navBarConfig) => Style1BottomNavBar(\n    navBarConfig: navBarConfig,\n  ),\n)",
+    "confidence": 0.95
+  }
+}

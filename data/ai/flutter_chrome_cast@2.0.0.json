@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.0",
+  "generatedAt": "2026-11-09T11:20:12.073Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [
+      "device"
+    ],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "Integrate Google Cast devices to discover, connect, and control media playback.",
+    "what_it_does": "A Flutter plugin for integrating Google Cast SDK on Android and iOS. Enables discovery of Chromecast and Cast-enabled devices, session management, and media streaming controls.",
+    "use_when": [
+      "You need to stream media from your Flutter app to Chromecast and Google Cast-enabled receivers.",
+      "You require cross-platform device discovery and session management for Google Cast."
+    ],
+    "avoid_when": [
+      "You need to integrate with non-Chromecast or DLNA devices (use media_cast_dlna instead).",
+      "You only need local audio or video playback without casting."
+    ],
+    "strengths": [
+      "Supports cross-platform discovery and media streaming on Android and iOS.",
+      "Provides stream-based APIs for real-time status updates.",
+      "Includes modular imports to optimize bundle size and compile times."
+    ],
+    "weaknesses": [
+      "Requires platform-specific configuration in Info.plist and AndroidManifest.xml.",
+      "Android Cast SDK-internal logs cannot be fully configured due to CAF limitations."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding permissions and metadata to AndroidManifest.xml and local network usage descriptions and Bonjour services configuration to iOS Info.plist.",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter_chrome_cast/flutter_chrome_cast.dart';\n\nFuture<void> initPlatformState() async {\n  const appId = GoogleCastDiscoveryCriteria.kDefaultApplicationId;\n  final options = GoogleCastOptionsAndroid(appId: appId);\n  GoogleCastContext.instance.setSharedInstanceWithOptions(options);\n}",
+    "confidence": 0.95
+  }
+}

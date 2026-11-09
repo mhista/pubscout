@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.7.0",
+  "generatedAt": "2026-11-09T11:48:56.119Z",
+  "data": {
+    "primary_category": "forms",
+    "secondary_categories": [
+      "localization",
+      "widgets"
+    ],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "Compile-time sealed world data with country, currency, language, and phone pickers.",
+    "what_it_does": "Provides compile-time constant, tree-shakable classes containing ISO world data (countries, currencies, languages, phone codes) and ready-to-use Material widgets and customizable pickers for them. It supports automatic localization via a locale delegate.",
+    "use_when": [
+      "You need country, currency, language, or phone code pickers in your app.",
+      "You want compile-time constant, tree-shakable world data without external API calls."
+    ],
+    "avoid_when": [
+      "You only need a simple color picker or date picker.",
+      "You do not need ISO country or currency data structures."
+    ],
+    "strengths": [
+      "Tree-shakable and compile-time constant data structures.",
+      "Includes customizable pickers and theme extensions out of the box.",
+      "Built-in automatic translation delegate supporting many locales."
+    ],
+    "weaknesses": [
+      "Focused exclusively on world data and related pickers, not a general-purpose form builder.",
+      "Adds static dataset overhead if only a tiny fraction of countries are needed (though tree-shakable)."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the dependency to pubspec.yaml and optionally register the TypedLocaleDelegate in your MaterialApp for localization.",
+    "alternatives": [],
+    "minimal_example": "MaterialApp(\n  localizationsDelegates: const [\n    ...GlobalMaterialLocalizations.delegates,\n    TypedLocaleDelegate(),\n  ],\n  home: Scaffold(\n    body: Center(\n      child: CountryPicker(\n        onSelect: (country) => debugPrint('$country'),\n      ),\n    ),\n  ),\n)",
+    "confidence": 1
+  }
+}

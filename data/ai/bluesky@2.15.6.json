@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.15.6",
+  "generatedAt": "2026-11-09T11:26:50.869Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "auth",
+      "backend"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based",
+      "code generation"
+    ],
+    "one_liner": "A Dart and Flutter library for Bluesky Social and the AT Protocol.",
+    "what_it_does": "Provides complete API coverage for Bluesky Social, AT Protocol, chat, and Ozone moderation tools. It handles user authentication, feeds, profiles, and real-time event firehoses.",
+    "use_when": [
+      "You are building an application specifically for Bluesky Social.",
+      "You need to integrate AT Protocol services, feeds, or chat functionality."
+    ],
+    "avoid_when": [
+      "You are building a general REST or GraphQL backend application unrelated to Bluesky.",
+      "You only need standard Firebase or Supabase authentication and storage."
+    ],
+    "strengths": [
+      "Complete coverage of app.bsky, chat.bsky, and tools.ozone endpoints.",
+      "Supports advanced authentication including session management and OAuth DPoP.",
+      "Includes client-side notification grouping and real-time firehose support."
+    ],
+    "weaknesses": [
+      "Tightly coupled to Bluesky and AT Protocol specifications.",
+      "Relies on external code generation annotations for data models."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the dependency via pub add and initialize the client using either basic credentials or OAuth.",
+    "alternatives": [],
+    "minimal_example": "import 'package:bluesky/atproto.dart';\nimport 'package:bluesky/bluesky.dart';\n\nFuture<void> main(List<String> args) async {\n  final session = await createSession(\n    service: 'bsky.social',\n    identifier: 'your.handle.bsky.social',\n    password: 'your-app-password',\n  );\n\n  final bsky = Bluesky.fromSession(session.data);\n  final timeline = await bsky.feed.getTimeline(limit: 50);\n}",
+    "confidence": 1
+  }
+}

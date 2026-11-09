@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "3.0.1",
+  "generatedAt": "2026-11-09T11:10:50.952Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Convert between Hijri (Umm al‑Qura) and Gregorian dates with locale support.",
+    "what_it_does": "Provides a HijriCalendar class to create, format, compare, and validate Hijri dates. Allows switching and adding locales for Arabic and English representations. Includes conversion methods to and from Gregorian DateTime objects.",
+    "use_when": [
+      "You need to display or compute Islamic (Hijri) dates in a Flutter/Dart app",
+      "You require locale‑aware month and day names for Hijri calendar"
+    ],
+    "avoid_when": [
+      "You need a full calendar UI widget (this package only provides data conversion)",
+      "You require time‑zone aware or astronomical Hijri calculations beyond the Umm al‑Qura table"
+    ],
+    "strengths": [
+      "Simple API for common Hijri‑Gregorian conversions",
+      "Supports adding custom locales and validates them",
+      "Null‑safety and works on all Flutter platforms"
+    ],
+    "weaknesses": [
+      "No built‑in UI components for date picking",
+      "Limited to the Umm al‑Qura calendar; not suitable for other Hijri calculation methods"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:hijri/hijri.dart';\n\nvoid main(){\n  var today = HijriCalendar.now();\n  print('${today.hYear}/${today.hMonth}/${today.hDay}'); // e.g., 1439/9/14\n  var greg = HijriCalendar.fromDate(DateTime(2018,11,12));\n  print(greg.toString()); // 04/03/1440H\n}",
+    "confidence": 0.97
+  }
+}

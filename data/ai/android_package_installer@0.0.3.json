@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.0.3",
+  "generatedAt": "2026-11-09T11:40:28.358Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "files"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "A Flutter plugin for installing Android packages from APK files.",
+    "what_it_does": "A Flutter plugin that uses the native Android Package Installer to install applications directly from an APK file. It returns a status code representing the installation outcome and requires a minimum API level of 21.",
+    "use_when": [
+      "You need to install APK files programmatically within an Android app",
+      "You are building a custom in-app updater or app store client for Android"
+    ],
+    "avoid_when": [
+      "You are targeting iOS or platforms other than Android",
+      "You want a fully managed store distribution update without manual APK management"
+    ],
+    "strengths": [
+      "Direct integration with the Android Package Installer",
+      "Provides status codes for installation results"
+    ],
+    "weaknesses": [
+      "Android-only platform support",
+      "Requires manual native configuration (permissions, FileProvider, XML paths)"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding permissions (REQUEST_INSTALL_PACKAGES, READ_EXTERNAL_STORAGE, MANAGE_EXTERNAL_STORAGE) to AndroidManifest.xml, setting up an intent filter, configuring a FileProvider, and creating a file_paths.xml resource.",
+    "alternatives": [],
+    "minimal_example": "import 'package:android_package_installer/android_package_installer.dart';\n\nint? statusCode = await AndroidPackageInstaller.installApk(apkFilePath: '/sdcard/Download/com.example.apk');\nif (statusCode != null) {\n  PackageInstallerStatus installationStatus = PackageInstallerStatus.byCode(statusCode);\n  print(installationStatus.name);\n}",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.9.0",
+  "generatedAt": "2026-11-09T11:07:00.532Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "files"
+    ],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "Receives shared photos, videos, text, and files from other apps.",
+    "what_it_does": "Enables Flutter applications to receive sharing intents from other apps, such as photos, videos, text, URLs, and arbitrary file types. It supports Android intents and iOS Share extensions with automatic redirection or a custom compose UI.",
+    "use_when": [
+      "Your app needs to accept shared content or files sent from external apps like the system gallery or browser.",
+      "You want to build an iOS Share extension alongside your Android sharing setup."
+    ],
+    "avoid_when": [
+      "You only need to share data outward to other apps rather than receive incoming items."
+    ],
+    "strengths": [
+      "Supports multiple file types including images, videos, text, URLs, and raw files.",
+      "Provides both stream-based listeners and initial media fetching.",
+      "Handles both Android intent filters and iOS Share extensions."
+    ],
+    "weaknesses": [
+      "Requires manual native setup for both Android Manifest and iOS target extensions.",
+      "iOS setup requires Swift Package Manager configuration and creating a Share Extension target."
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Requires adding intent filters in AndroidManifest.xml, creating an iOS Share Extension target in Xcode, enabling Swift Package Manager, configuring App Groups, and writing custom platform integration code like SceneDelegate and ShareViewController.",
+    "alternatives": [],
+    "minimal_example": "ReceiveSharingIntent.instance.getInitialMedia().then((value) {\n  // Handle initial shared media\n});\n\nReceiveSharingIntent.instance.getMediaStream().listen((value) {\n  // Handle incoming shared media while app is running\n}, onError: (err) {\n  // Handle error\n});",
+    "confidence": 1
+  }
+}

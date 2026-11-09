@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.3.1",
+  "generatedAt": "2026-11-09T11:32:16.476Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "auth"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "One-way string hashing for salted passwords using the Unix crypt format.",
+    "what_it_does": "It implements SHA-256 and SHA-512 crypt hash formats commonly used in Unix, POSIX systems, and LDAP authentication. It provides functionality to generate crypt format hashes with custom or random salts and rounds, as well as to verify entered passwords against existing hashes.",
+    "use_when": [
+      "You need to verify or generate Unix crypt format passwords for LDAP or POSIX integration.",
+      "You require SHA-256 or SHA-512 password hashing with salt and round configurations."
+    ],
+    "avoid_when": [
+      "You are building a general-purpose modern application auth backend where bcrypt, Argon2, or platform-standard auth (like Firebase Auth) are preferred.",
+      "You need algorithms other than SHA-256 and SHA-512 crypt."
+    ],
+    "strengths": [
+      "Supports both SHA-256 and SHA-512 Unix crypt formats.",
+      "Allows configuring iteration rounds and custom salts.",
+      "Provides cryptographically secure random salt generation."
+    ],
+    "weaknesses": [
+      "Limited to only SHA-256 and SHA-512 Unix crypt formats.",
+      "Older insecure algorithms are not supported (by design)."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:crypt/crypt.dart';\n\nvoid main() {\n  final c1 = Crypt.sha256('p@ssw0rd');\n  final bool isValid = c1.match('p@ssw0rd');\n  print(isValid);\n}",
+    "confidence": 1
+  }
+}

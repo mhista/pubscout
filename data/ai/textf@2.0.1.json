@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.1",
+  "generatedAt": "2026-11-09T11:48:43.624Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "forms",
+      "theming"
+    ],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "Drop-in Text and TextEditingController replacements for inline Markdown-like text formatting",
+    "what_it_does": "Provides Textf and TextfEditingController widgets that support inline Markdown formatting like bold, italic, code, links, highlights, and super/subscripts directly in Flutter text layouts and text fields.",
+    "use_when": [
+      "You need inline markdown formatting in chat messages, comments, or UI labels",
+      "You want live formatting updates as users type in a TextField"
+    ],
+    "avoid_when": [
+      "You need a full Markdown renderer supporting multi-line structures like lists, tables, or blockquotes",
+      "You need deep nesting beyond 2 levels"
+    ],
+    "strengths": [
+      "Zero dependencies",
+      "Drop-in replacements for standard Text and TextEditingController widgets",
+      "Supports live formatting in text fields as the user types"
+    ],
+    "weaknesses": [
+      "Inline-first with limited block support (only ATX headings and thematic breaks)",
+      "Maximum of 2 nesting levels of formatting",
+      "Selections cannot span across links due to WidgetSpan usage"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:textf/textf.dart';\n\nclass MyWidget extends StatelessWidget {\n  final _controller = TextfEditingController();\n\n  @override\n  Widget build(BuildContext context) {\n    return Column(\n      children: [\n        Textf(\n          '**Bold**, *italic*, `code`, and [links](https://flutter.dev)',\n          style: TextStyle(fontSize: 16),\n        ),\n        TextField(controller: _controller),\n      ],\n    );\n  }\n}",
+    "confidence": 0.95
+  }
+}

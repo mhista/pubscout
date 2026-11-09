@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "1.2.0",
+  "generatedAt": "2026-11-09T11:20:56.711Z",
+  "data": {
+    "primary_category": "maps",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "A Dart library that clusters geospatial points for map visualizations.",
+    "what_it_does": "It groups nearby latitude/longitude points into clusters based on zoom level and radius. You provide a list of objects implementing the Clusterable interface and retrieve clusters, their children, or individual points for a given map viewport.",
+    "use_when": [
+      "You need client‑side clustering of many markers in a Flutter or Dart map UI",
+      "You want a lightweight, pure‑Dart solution without native dependencies"
+    ],
+    "avoid_when": [
+      "You require server‑side clustering or integration with a specific map SDK that provides its own clustering",
+      "You need advanced styling or animation of clusters out of the box"
+    ],
+    "strengths": [
+      "Zero external dependencies",
+      "Supports null safety",
+      "Works on all Flutter platforms",
+      "Simple API"
+    ],
+    "weaknesses": [
+      "No built‑in map widget integration",
+      "Clustering algorithm may be slower for very large datasets compared to native SDKs",
+      "Limited customization of cluster appearance"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "final fluster = Fluster<MapMarker>(\n  minZoom: 0,\n  maxZoom: 20,\n  radius: 150,\n  extent: 2048,\n  nodeSize: 64,\n  points: markers,\n  createCluster: (cluster, lng, lat) => MapMarker(\n    markerId: cluster.id.toString(),\n    latitude: lat,\n    longitude: lng,\n  ),\n);\n\nfinal clusters = fluster.clusters([-180, -85, 180, 85], currentZoom);",
+    "confidence": 0.8
+  }
+}

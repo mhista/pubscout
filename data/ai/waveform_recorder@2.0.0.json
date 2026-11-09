@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.0",
+  "generatedAt": "2026-11-09T11:11:53.272Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative",
+      "stream-based"
+    ],
+    "one_liner": "Flutter package for recording audio with real-time waveform visualization.",
+    "what_it_does": "Provides a WaveformRecorder widget and WaveformRecorderController to record audio while visualizing the waveform in real time. It supports cross-platform audio recording and exposes the resulting recording as an XFile.",
+    "use_when": [
+      "You are building chat applications that require voice messaging features.",
+      "You need to show a real-time audio waveform while recording sound."
+    ],
+    "avoid_when": [
+      "You only need background audio playback without recording or visual waveforms."
+    ],
+    "strengths": [
+      "Real-time waveform visualization during recording",
+      "Cross-platform support including web, mobile, and desktop",
+      "Clean controller-based API with automatic state management"
+    ],
+    "weaknesses": [
+      "Requires manual platform setup and permissions via the underlying record package",
+      "Temporary files on native platforms must be manually cleaned up by your app"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires setting up the underlying record package instructions, including platform-specific permissions like microphone access (e.g., NSMicrophoneUsageDescription on macOS).",
+    "alternatives": [
+      {
+        "name": "record",
+        "why_pick_it": "Pick if you need raw audio recording capabilities without the built-in waveform UI widget."
+      },
+      {
+        "name": "audioplayers",
+        "why_pick_it": "Pick if your primary requirement is playing back recorded audio streams or files rather than recording with a waveform."
+      }
+    ],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:waveform_recorder/waveform_recorder.dart';\n\nclass RecorderExample extends StatefulWidget {\n  const RecorderExample({super.key});\n\n  @override\n  State<RecorderExample> createState() => _RecorderExampleState();\n}\n\nclass _RecorderExampleState extends State<RecorderExample> {\n  final _waveController = WaveformRecorderController();\n\n  @override\n  void dispose() {\n    _waveController.dispose();\n    super.dispose();\n  }\n\n  @override\n  Widget build(BuildContext context) => Scaffold(\n        body: Center(\n          child: _waveController.isRecording\n              ? WaveformRecorder(\n                  height: 48,\n                  controller: _waveController,\n                )\n              : ElevatedButton(\n                  onPressed: () => _waveController.startRecording(),\n                  child: const Text('Start Recording'),\n                ),\n        ),\n      );\n}",
+    "confidence": 0.95
+  }
+}

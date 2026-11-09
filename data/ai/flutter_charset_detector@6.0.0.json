@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "6.0.0",
+  "generatedAt": "2026-11-09T11:37:34.057Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Detect and decode the character encoding of text bytes automatically.",
+    "what_it_does": "It automatically analyzes raw text bytes of unknown character sets and decodes them into readable strings. The package relies on native Mozilla universal charset detection libraries across platforms.",
+    "use_when": [
+      "You need to read text files with unknown or mixed encodings.",
+      "You are handling raw bytes from network requests or file inputs where the charset is not specified."
+    ],
+    "avoid_when": [
+      "You already know the exact charset of the text bytes you are trying to decode.",
+      "You only need standard UTF-8 parsing."
+    ],
+    "strengths": [
+      "Supports multiple platforms including Android, iOS, macOS, and Web.",
+      "Automatically determines character sets using proven Mozilla-derived libraries."
+    ],
+    "weaknesses": [
+      "Detection accuracy depends on the underlying native libraries and input size.",
+      "Detectable charsets differ slightly between platforms."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Web requires TextDecoder support. Other platforms require no special setup.",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter_charset_detector/flutter_charset_detector.dart';\n\nUint8List bytes = getBytes();\nDecodingResult result = CharsetDetector.autoDecode(bytes);\nprint(result.charset);\nprint(result.string);",
+    "confidence": 1
+  }
+}

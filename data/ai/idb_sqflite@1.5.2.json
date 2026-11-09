@@ -1,0 +1,52 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.5.2",
+  "generatedAt": "2026-11-09T11:51:08.534Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [
+      "web-desktop"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "IndexedDB API implementation on top of sqflite for Flutter and Dart VM",
+    "what_it_does": "Provides an IndexedDB-compatible database interface built on top of sqflite, enabling code to use IndexedDB patterns across mobile, web, and desktop platforms. It also includes a simplified wrapper API called SDB.",
+    "use_when": [
+      "You need an IndexedDB-compatible API sharing code across web, mobile, and desktop",
+      "You want to store structured data locally using sqflite as the backend engine"
+    ],
+    "avoid_when": [
+      "You need a high-performance native ORM or complex relational SQL queries",
+      "You prefer standard sqflite or drift APIs over IndexedDB concepts"
+    ],
+    "strengths": [
+      "Brings IndexedDB API support to mobile and desktop via sqflite",
+      "Works across Android, iOS, Web, Windows, macOS, and Linux"
+    ],
+    "weaknesses": [
+      "Performance is constrained by running an IndexedDB emulation layer over SQLite",
+      "API style follows IndexedDB rather than native Dart/SQL idioms"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "sqflite",
+        "why_pick_it": "If you prefer standard SQLite database operations directly instead of an IndexedDB wrapper layer."
+      },
+      {
+        "name": "drift",
+        "why_pick_it": "If you want a robust, type-safe reactive SQL database library for Flutter."
+      },
+      {
+        "name": "hive_ce",
+        "why_pick_it": "If you are looking for a fast, lightweight NoSQL key-value database."
+      }
+    ],
+    "minimal_example": "import 'package:idb_sqflite/idb_sqflite.dart';\nimport 'package:sqflite/sqflite.dart';\n\nFuture main() async {\n  var factory = getIdbFactorySqflite(databaseFactory);\n  const String storeName = \"records\";\n  Database db = await factory.open(\"my_records.db\", version: 1,\n      onUpgradeNeeded: (VersionChangeEvent event) {\n    Database db = event.database;\n    db.createObjectStore(storeName, autoIncrement: true);\n  });\n  var txn = db.transaction(storeName, idbModeReadWrite);\n  var store = txn.objectStore(storeName);\n  var key = await store.put({\"some\": \"data\"});\n  await txn.completed;\n}",
+    "confidence": 0.95
+  }
+}

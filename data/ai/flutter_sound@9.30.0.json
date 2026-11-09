@@ -1,0 +1,51 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "9.30.0",
+  "generatedAt": "2026-11-09T11:09:51.511Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "Play and record audio on Flutter across mobile, web and desktop.",
+    "what_it_does": "Provides APIs to playback audio from assets, files, URLs, buffers or Dart streams. Also records audio to files, buffers or Dart streams with various codecs.",
+    "use_when": [
+      "You need both playback and recording in the same app",
+      "You want to process live audio data via Dart streams",
+      "Cross‑platform support (iOS, Android, Web, desktop) is required"
+    ],
+    "avoid_when": [
+      "You only need simple playback without recording",
+      "You prefer a smaller, lightweight plugin",
+      "You need a fully GPL‑compatible license"
+    ],
+    "strengths": [
+      "Full‑stack audio: play + record",
+      "Stream‑based APIs for live processing",
+      "Supports many codecs and platforms"
+    ],
+    "weaknesses": [
+      "Large plugin with native code, can be heavyweight",
+      "Some platform bugs (e.g., iOS buffer underflow, Android recorder regressions)",
+      "MPL‑2.0 license has a weak copyleft clause that may affect modifications"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add platform‑specific permissions (e.g., RECORD_AUDIO, WRITE_EXTERNAL_STORAGE on Android; microphone usage description on iOS). No build_runner needed.",
+    "alternatives": [
+      {
+        "name": "audioplayers",
+        "why_pick_it": "Lightweight playback‑only solution"
+      },
+      {
+        "name": "record",
+        "why_pick_it": "Simple recording‑only plugin"
+      }
+    ],
+    "minimal_example": "import 'package:flutter_sound/flutter_sound.dart';\n\nfinal player = FlutterSoundPlayer();\nawait player.openAudioSession();\nawait player.startPlayer(fromURI: 'https://example.com/audio.mp3');\n// ... later\nawait player.stopPlayer();\nawait player.closeAudioSession();",
+    "confidence": 0.9
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "1.2.0",
+  "generatedAt": "2026-11-09T11:06:08.066Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "backend"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Serve static files over HTTP with the shelf package",
+    "what_it_does": "shelf_static provides a Handler that serves files from a directory, supporting range requests, ETag and Cache‑Control headers. It replaces blocking IO with async calls for better concurrency.",
+    "use_when": [
+      "Building a simple web server or API that needs to serve static assets",
+      "Prototyping or testing a shelf‑based application",
+      "Serving documentation or public files in a Dart backend"
+    ],
+    "avoid_when": [
+      "You need a highly optimized CDN‑style static file server with advanced caching or compression",
+      "Your project already uses another static file server that integrates with your framework"
+    ],
+    "strengths": [
+      "Non‑blocking async file access",
+      "Built‑in support for HTTP range, ETag, and Cache‑Control",
+      "Easy integration with shelf middleware",
+      "Responsive directory listing UI"
+    ],
+    "weaknesses": [
+      "Limited to the shelf ecosystem",
+      "No built‑in HTTPS support (handled by shelf_io or other server)",
+      "No advanced caching or compression features"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add shelf_static to pubspec, import, create a handler with createStaticHandler, and serve with shelf_io. No extra permissions or build_runner needed.",
+    "alternatives": [],
+    "minimal_example": "import 'package:shelf/shelf_io.dart' as io;\nimport 'package:shelf_static/shelf_static.dart';\n\nvoid main() {\n  var handler = createStaticHandler('example/files', defaultDocument: 'index.html');\n  io.serve(handler, 'localhost', 8080);\n}\n",
+    "confidence": 0.95
+  }
+}

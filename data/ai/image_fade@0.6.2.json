@@ -1,0 +1,51 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.6.2",
+  "generatedAt": "2026-11-09T11:31:52.783Z",
+  "data": {
+    "primary_category": "images",
+    "secondary_categories": [
+      "widgets",
+      "animation"
+    ],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "A widget that cross-fades from a placeholder to a loaded image with progress and error support.",
+    "what_it_does": "ImageFade is a Flutter widget that displays a placeholder and optional progress indicator while an image loads. Once loaded, it cross-fades to the target image and handles error states. It also supports sync durations and dynamic image updates.",
+    "use_when": [
+      "You want to display a placeholder with a cross-fade animation when loading images.",
+      "You need loading progress or error handling built directly into your image widget.",
+      "You are using CachedNetworkImageProvider and want smooth fade transitions."
+    ],
+    "avoid_when": [
+      "You only need basic built-in Flutter image fade-in capabilities without custom placeholders or progress indicators."
+    ],
+    "strengths": [
+      "Supports custom placeholders, loading builders, and error builders.",
+      "Compatible with CachedNetworkImageProvider.",
+      "Uses optimized performance paths like Image.opacity and AnimatedBuilder."
+    ],
+    "weaknesses": [
+      "Limited to image rendering and transition features only.",
+      "Does not include advanced disk/memory caching out of the box (requires an external provider like CachedNetworkImageProvider)."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "cached_network_image",
+        "why_pick_it": "Provides a comprehensive image loading and caching solution with built-in placeholder and error widgets."
+      },
+      {
+        "name": "octo_image",
+        "why_pick_it": "Provides flexible image building with placeholders, error widgets, and various image transformers."
+      }
+    ],
+    "minimal_example": "ImageFade(\n  image: NetworkImage(url),\n  duration: const Duration(milliseconds: 900),\n  placeholder: Container(\n    color: const Color(0xFFCFCDCA),\n  ),\n)",
+    "confidence": 1
+  }
+}

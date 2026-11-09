@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.1.0",
+  "generatedAt": "2026-11-09T11:34:59.474Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "layout"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A scrollable list where items are grouped into sections with sticky headers.",
+    "what_it_does": "Renders a list of items divided into groups with customizable headers. Sticky headers stay pinned at the top while scrolling through their respective group, and it supports programmatic scrolling via a custom controller.",
+    "use_when": [
+      "You need a chat-like interface with grouped messages.",
+      "You want section headers that stick to the top of the list during scroll.",
+      "You need to programmatically scroll to specific indexes or elements within a grouped list."
+    ],
+    "avoid_when": [
+      "You do not need programmatic scrolling or sticky headers, where standard ListView or GroupedList would suffice."
+    ],
+    "strengths": [
+      "Built-in sticky header support with floating and background color options.",
+      "Supports programmatic scrolling and jumping via a specialized controller.",
+      "Easy setup for chat interfaces by reversing the list and order."
+    ],
+    "weaknesses": [
+      "Relies on scrollable_positioned_list, which may have different performance characteristics than standard Flutter lists."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "StickyGroupedListView<dynamic, String>(\n  elements: _elements,\n  groupBy: (dynamic element) => element['group'],\n  groupSeparatorBuilder: (dynamic element) => Text(element['group']),\n  itemBuilder: (context, dynamic element) => Text(element['name']),\n)",
+    "confidence": 1
+  }
+}

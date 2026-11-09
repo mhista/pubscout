@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.1.0",
+  "generatedAt": "2026-11-09T11:25:54.484Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A Flutter library for ListView and SliverList that adds scroll-to-bottom loading functionality.",
+    "what_it_does": "It wraps a ListView or SliverList to detect when the user scrolls to the bottom and triggers a load more callback. It supports pagination state handling like loading, success, fail, and finish.",
+    "use_when": [
+      "You need infinite scrolling or pagination for a ListView or SliverList.",
+      "You want a simple widget wrapper to handle loading more items as the user scrolls."
+    ],
+    "avoid_when": [
+      "You are using widgets other than ListView or SliverList.",
+      "Not documented for non-list scrollable views."
+    ],
+    "strengths": [
+      "Supports both ListView and SliverList.",
+      "Customizable delegate and text builder for loading states.",
+      "Handles null safety."
+    ],
+    "weaknesses": [
+      "Only supports ListView and SliverList, other widgets are not supported.",
+      "Limited documentation outside of the basic README."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "LoadMore(\n  isFinish: count >= 60,\n  onLoadMore: _loadMore,\n  child: ListView.builder(\n    itemBuilder: (BuildContext context, int index) {\n      return Container(\n        child: Text(list[index].toString()),\n        height: 40.0,\n        alignment: Alignment.center,\n      );\n    },\n    itemCount: count,\n  ),\n)",
+    "confidence": 0.95
+  }
+}

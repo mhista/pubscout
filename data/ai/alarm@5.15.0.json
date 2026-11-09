@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "5.15.0",
+  "generatedAt": "2026-11-09T11:26:45.110Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [
+      "notifications",
+      "device"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "A Flutter plugin to set and manage alarms on iOS and Android devices.",
+    "what_it_does": "Allows you to set, cancel, and listen to alarms on iOS and Android. It handles audio playback, system volume control, vibrations, and notifications using native code.",
+    "use_when": [
+      "You need to build a clock or alarm app with custom sounds and notifications.",
+      "You require alarms to trigger even when the app is in the background or terminated."
+    ],
+    "avoid_when": [
+      "You only need basic background task execution without user-facing alarms."
+    ],
+    "strengths": [
+      "Supports custom audio assets, looping, and vibrations.",
+      "Handles volume control and fading settings.",
+      "Provides event streams for tracking alarm states and updates."
+    ],
+    "weaknesses": [
+      "Requires manual native setup for both iOS and Android.",
+      "Some features behave differently depending on the operating system."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires following specific iOS and Android installation guides for native permissions and capabilities.",
+    "alternatives": [],
+    "minimal_example": "WidgetsFlutterBinding.ensureInitialized();\nawait Alarm.init();\n\nfinal alarmSettings = AlarmSettings(\n  id: 42,\n  dateTime: DateTime.now().add(const Duration(seconds: 10)),\n  assetAudioPath: 'assets/alarm.mp3',\n);\nawait Alarm.set(alarmSettings: alarmSettings);",
+    "confidence": 1
+  }
+}

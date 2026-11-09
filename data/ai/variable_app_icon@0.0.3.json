@@ -1,0 +1,35 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.0.3",
+  "generatedAt": "2026-11-09T11:46:01.283Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Plugin to use multiple app icons on Android and iOS.",
+    "what_it_does": "Allows Flutter applications to dynamically change their app icon on both Android and iOS devices. Developers configure icons via AndroidManifest.xml and Xcode, then invoke Dart methods to switch them at runtime.",
+    "use_when": [
+      "Your app needs to let users choose a custom app icon variant.",
+      "You are targeting both Android and iOS platforms."
+    ],
+    "avoid_when": [
+      "You only need static app icons configured at build time."
+    ],
+    "strengths": [
+      "Supports both Android (via activity-alias) and iOS.",
+      "Straightforward programmatic API via Dart."
+    ],
+    "weaknesses": [
+      "Requires manual native configuration in both AndroidManifest.xml and Xcode Build Settings."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding icons to Android mipmap folders and configuring activity-alias tags in AndroidManifest.xml. For iOS, requires enabling 'Include All App Icon Assets' in Xcode and listing alternate app icon sets.",
+    "alternatives": [],
+    "minimal_example": "VariableAppIcon.iOSDefaultAppIcon = iosAppIcons[0];\nVariableAppIcon.androidAppIconIds = androidIconIds;\n\nawait VariableAppIcon.changeAppIcon(\n  androidIconId: \"appicon.TEAL\",\n  iosIcon: \"AppIcon2\",\n);",
+    "confidence": 0.95
+  }
+}

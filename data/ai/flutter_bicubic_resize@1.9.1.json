@@ -1,0 +1,52 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.9.1",
+  "generatedAt": "2026-11-09T11:32:02.656Z",
+  "data": {
+    "primary_category": "images",
+    "secondary_categories": [
+      "ai-ml",
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Fast native image resize, crop, and compression for Flutter using FFI.",
+    "what_it_does": "Decodes, resizes, crops, and encodes images via a native C pipeline using bicubic interpolation. It supports JPEG, PNG, raw buffers, and ML tensor preprocessing with automatic batching and EXIF orientation handling.",
+    "use_when": [
+      "You need high-performance image resizing, cropping, or compression that avoids heavy Dart processing.",
+      "You are preparing image inputs for machine learning models (like TensorFlow Lite or PyTorch) with custom normalization and tensor layouts.",
+      "You need to process batches of images in parallel across isolates with progress reporting."
+    ],
+    "avoid_when": [
+      "You need a UI widget that automatically loads and displays network images with caching.",
+      "You require complex image manipulation features not covered by basic resizing, cropping, compression, and format conversion."
+    ],
+    "strengths": [
+      "Native C performance via ffi provides fast execution times.",
+      "Comprehensive ML preprocessing features including tensor normalization and presets for common models.",
+      "Built-in batch processing with isolate concurrency control and progress tracking."
+    ],
+    "weaknesses": [
+      "Limited to JPEG, PNG, and raw RGB/RGBA byte formats.",
+      "Does not include higher-level UI widgets for rendering or interactive cropping."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Zero external Dart dependencies other than ffi; compiled native C code runs out of the box on supported platforms.",
+    "alternatives": [
+      {
+        "name": "image",
+        "why_pick_it": "If you need a pure Dart image processing library with a broad array of image manipulation filters and encoders that doesn't rely on native FFI compilation."
+      },
+      {
+        "name": "flutter_image_compress",
+        "why_pick_it": "If you specifically need optimized native compression for files on Android and iOS without advanced ML tensor conversions."
+      }
+    ],
+    "minimal_example": "import 'package:flutter_bicubic_resize/flutter_bicubic_resize.dart';\n\nfinal resized = BicubicResizer.resizeJpeg(\n  jpegBytes: originalBytes,\n  outputWidth: 224,\n  outputHeight: 224,\n  quality: 95,\n);",
+    "confidence": 1
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "9.3.2",
+  "generatedAt": "2026-11-09T11:17:23.678Z",
+  "data": {
+    "primary_category": "codegen",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "code generation"
+    ],
+    "one_liner": "Dart code generator for Squadron workers to bridge the gap with Web Workers and Isolates.",
+    "what_it_does": "Generates code for Workers and WorkerPools based on service classes annotated to run in dedicated threads. Bridges the gap between your worker service and Web Workers or Isolates.",
+    "use_when": [
+      "You are using Squadron for multithreading and need to generate worker and worker pool code.",
+      "You want to offload CPU-bound and long running tasks to Web Workers or Isolates in Dart."
+    ],
+    "avoid_when": [
+      "You are not using the Squadron concurrency library.",
+      "You prefer writing manual isolate and web worker boilerplate without code generation."
+    ],
+    "strengths": [
+      "Automates boilerplate generation for workers and worker pools.",
+      "Bridges web workers and isolates seamlessly for Squadron services."
+    ],
+    "weaknesses": [
+      "Requires build runner / code generation setup.",
+      "Strictly tied to the Squadron package ecosystem."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Install as a development dependency and configure build_runner alongside the squadron package.",
+    "alternatives": [],
+    "minimal_example": "@SquadronService(baseUrl: '~/workers', targetPlatform: TargetPlatform.vm | TargetPlatform.web)\nbase class HelloWorld {\n  @squadronMethod\n  FutureOr<String> hello([String? name]) {\n    name = name?.trim() ?? 'World';\n    return 'Hello, $name!';\n  }\n}",
+    "confidence": 0.95
+  }
+}
