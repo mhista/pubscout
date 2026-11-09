@@ -11,7 +11,7 @@ export type Explainer = {
   avoidWhen: string[];
   strengths: string[];
   weaknesses: string[];
-  setupEffort: "low" | "medium" | "high";
+  setupEffort: "low" | "medium" | "high" | null;
   setupNotes: string;
   alternatives: { name: string; why_pick_it: string }[];
   example: string;

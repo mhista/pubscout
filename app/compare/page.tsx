@@ -40,7 +40,7 @@ const ROWS: RowDef[] = [
   { label: "Code generation", get: (p) => (p.usesCodegen ? "Yes" : "No") },
   { label: "Direct dependencies", get: (p) => p.dependencyCount, best: "min" },
   { label: "License", get: (p) => (p.license ? p.license.toUpperCase() : "Unknown") },
-  { label: "Setup effort", get: (p) => (p.explainer ? p.explainer.setupEffort[0].toUpperCase() + p.explainer.setupEffort.slice(1) : "—") },
+  { label: "Setup effort", get: (p) => (p.explainer?.setupEffort ? p.explainer.setupEffort[0].toUpperCase() + p.explainer.setupEffort.slice(1) : "—") },
 ];
 
 export default async function ComparePage({ searchParams }: Props) {

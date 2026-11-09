@@ -142,7 +142,7 @@ export default async function PackagePage({ params }: Props) {
             <h2 id="setup" className="text-lg">Setup</h2>
             <dl className="mt-4 grid max-w-prose gap-x-8 gap-y-3 text-sm sm:grid-cols-2">
               <Fact k="Kind" v={KIND_LABELS[p.kind]} />
-              {ex && <Fact k="Effort" v={ex.setupEffort[0].toUpperCase() + ex.setupEffort.slice(1)} />}
+              {ex?.setupEffort && <Fact k="Effort" v={ex.setupEffort[0].toUpperCase() + ex.setupEffort.slice(1)} />}
               <Fact k="Code generation" v={p.usesCodegen ? "Yes (build_runner)" : "No"} />
               <Fact k="Direct dependencies" v={String(p.dependencyCount)} />
             </dl>

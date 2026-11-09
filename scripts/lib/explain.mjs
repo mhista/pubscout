@@ -61,13 +61,52 @@ function parseJson(text) {
   return JSON.parse(text.slice(start, end + 1));
 }
 
+const KEYS = /^(primary_category|secondary_categories|approach|one_liner|what_it_does|use_when|avoid_when|strengths|weaknesses|setup_effort|setup_notes|alternatives|minimal_example|confidence)$/;
+const EFFORT = ["low", "medium", "high"];
+
+/**
+ * Models sometimes return half-broken JSON inside a valid object, e.g. a whole list
+ * squashed into one string ("a\",\"b\",\"c") or the next keys spilling into an array
+ * (["…", "setup_effort", ":", "low"]). Repair what we can; return null if it's unusable.
+ */
+export function repairExplainer(d) {
+  if (!d || typeof d !== "object") return null;
+  const out = { ...d };
+  let leakedEffort = null;
+  const list = (v) => {
+    const items = (Array.isArray(v) ? v : typeof v === "string" && v ? [v] : [])
+      .flatMap((x) => String(x ?? "").split(/"\s*,\s*"/))
+      .map((x) => x.replace(/^[\s"'\[\]{},:]+|[\s"'\[\]{},:]+$/g, "").trim());
+    const kept = [];
+    for (let i = 0; i < items.length; i++) {
+      const x = items[i];
+      if (KEYS.test(x)) { // everything from here on is spilled keys
+        const next = items.slice(i + 1).find((y) => y && y !== ":")?.toLowerCase();
+        if (x === "setup_effort" && EFFORT.includes(next)) leakedEffort = next;
+        break;
+      }
+      if (x.length >= 3) kept.push(x);
+    }
+    return kept.slice(0, 4);
+  };
+  for (const k of ["use_when", "avoid_when", "strengths", "weaknesses", "approach"]) out[k] = list(out[k]);
+  const effort = String(out.setup_effort ?? "").toLowerCase();
+  out.setup_effort = EFFORT.includes(effort) ? effort : leakedEffort;
+  for (const k of ["what_it_does", "one_liner", "setup_notes", "minimal_example"]) out[k] = typeof out[k] === "string" ? out[k] : "";
+  out.alternatives = Array.isArray(out.alternatives) ? out.alternatives.filter((a) => a && typeof a.name === "string") : [];
+  // Without these the summary isn't worth showing; the package goes back to "summary pending".
+  if (out.what_it_does.trim().length < 20 || !out.use_when.length) return null;
+  return out;
+}
+
 /** Drop anything that isn't in our taxonomy / catalog. */
-function validate(out, taxonomy, catalogNames, raw) {
+function validate(raw_out, taxonomy, catalogNames, raw) {
+  const out = repairExplainer(raw_out);
+  if (!out) throw new Error("malformed summary (missing what_it_does/use_when)");
   const slugs = new Set(taxonomy.categories.map((c) => c.slug));
   if (!slugs.has(out.primary_category)) throw new Error(`unknown category ${out.primary_category}`);
   out.secondary_categories = (out.secondary_categories ?? []).filter((s) => slugs.has(s) && s !== out.primary_category).slice(0, 4);
   out.alternatives = (out.alternatives ?? []).filter((a) => a?.name && a.name !== raw.name && catalogNames.has(a.name)).slice(0, 3);
-  for (const k of ["use_when", "avoid_when", "strengths", "weaknesses", "approach"]) out[k] = Array.isArray(out[k]) ? out[k].slice(0, 4) : [];
   out.one_liner = String(out.one_liner ?? "").slice(0, 140);
   return out;
 }
@@ -86,6 +125,13 @@ const breakingKey = (v) => {
 
 /** A usable summary for this package (same version, or an earlier one per AI_REFRESH), or null. */
 export function cachedExplain(raw) {
+  const found = findCached(raw);
+  if (!found) return null;
+  const data = repairExplainer(found.data); // older runs may have saved a malformed summary
+  return data ? { ...found, data } : null;   // unusable → summarise again
+}
+
+function findCached(raw) {
   const exact = readJson(path.join(AI_DIR, `${raw.name}@${raw.version}.json`));
   if (exact && exact.promptVersion === PROMPT_VERSION) return exact;
   if (REFRESH === "every") return null;
