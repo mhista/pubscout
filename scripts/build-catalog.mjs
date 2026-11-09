@@ -22,6 +22,7 @@ import { createAiChain } from "./lib/ai.mjs";
 import { buildRelations } from "./lib/relations.mjs";
 import { updateEmbeddings } from "./lib/embed.mjs";
 import { essentialNames, pinnedNames } from "./lib/pinned.mjs";
+import { scrub } from "./lib/scrub.mjs";
 
 loadEnv();
 const SAMPLE = process.argv.includes("--sample");
@@ -215,7 +216,8 @@ const entries = await pool(raws, 4, async (raw) => {
   };
 });
 
-const pkgs = entries.filter(Boolean);
+// Mask sample keys/tokens copied from READMEs (see scripts/lib/scrub.mjs).
+const pkgs = entries.filter(Boolean).map(scrub);
 
 // ---- 2. category distributions (popularity is ranked within category) -------
 const downloadsByCat = new Map(), likesByCat = new Map(), platformsByCat = new Map();

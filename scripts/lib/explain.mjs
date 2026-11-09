@@ -7,6 +7,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import { DATA, readJson, writeJson } from "./util.mjs";
+import { scrub } from "./scrub.mjs";
 
 export const PROMPT_VERSION = 2;
 
@@ -109,7 +110,7 @@ export async function explain(raw, facts, taxonomy, { catalogNames, neighbours, 
   if (!out) return null;
   const data = validate(parseJson(out.text), taxonomy, catalogNames, raw);
   const record = { promptVersion: PROMPT_VERSION, provider: out.provider, model: out.model, version: raw.version, generatedAt: new Date().toISOString(), data };
-  writeJson(path.join(AI_DIR, `${raw.name}@${raw.version}.json`), record, true);
+  writeJson(path.join(AI_DIR, `${raw.name}@${raw.version}.json`), scrub(record), true);
   // Keep one summary file per package: drop the ones this replaces.
   for (const f of (aiFiles ??= fs.existsSync(AI_DIR) ? fs.readdirSync(AI_DIR) : [])) {
     if (f.startsWith(`${raw.name}@`) && f !== `${raw.name}@${raw.version}.json`) fs.rmSync(path.join(AI_DIR, f), { force: true });
