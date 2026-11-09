@@ -1,0 +1,50 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "4.1.1",
+  "generatedAt": "2026-11-08T15:37:51.757Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Type-safe API to read, modify, and write pubspec.yaml while preserving comments.",
+    "what_it_does": "pubspec_manager lets you load a pubspec.yaml into a strongly typed object, change any field or comment, and write it back. It keeps all comments and non‑spec content intact.",
+    "use_when": [
+      "You need to programmatically update a pubspec and keep comments",
+      "You want a type‑safe interface for pubspec manipulation",
+      "You need to read/write pubspecs in a build script or CI"
+    ],
+    "avoid_when": [
+      "You only need simple YAML parsing",
+      "You are working on a very large monorepo where performance is critical"
+    ],
+    "strengths": [
+      "Preserves comments and formatting",
+      "Full support for all documented pubspec keys",
+      "Type‑safe API reduces runtime errors",
+      "Allows access to non‑spec content via Document view"
+    ],
+    "weaknesses": [
+      "No code generation support",
+      "Not a general YAML library",
+      "Limited to pubspec.yaml use cases"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "yaml",
+        "why_pick_it": "General YAML parsing without comment preservation"
+      },
+      {
+        "name": "pubspec_parse",
+        "why_pick_it": "Simple pubspec parsing but no comment support"
+      }
+    ],
+    "minimal_example": "final pubspec = PubSpec.load();\npubspec.version.set('1.2.3');\npubspec.save();",
+    "confidence": 0.9
+  }
+}

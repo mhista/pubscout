@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.2.1",
+  "generatedAt": "2026-11-08T15:38:02.818Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "A simple WebSocket client for Dart with automatic reconnection logic.",
+    "what_it_does": "Provides a WebSocket client that establishes connections immediately, handles automatic reconnections using backoff strategies, and exposes streams for messages and connection states.",
+    "use_when": [
+      "You need a WebSocket connection with built-in automatic reconnection logic.",
+      "You want configurable backoff strategies like Constant, Linear, or Binary Exponential."
+    ],
+    "avoid_when": [
+      "You require complex high-level messaging protocols built on top of WebSockets without writing custom logic."
+    ],
+    "strengths": [
+      "Built-in automatic reconnection with customizable backoff strategies.",
+      "Exposes real-time connection state stream and queryable connection status.",
+      "Wasm compatibility and support for web platform."
+    ],
+    "weaknesses": [
+      "Calling close() permanently terminates reconnection attempts, requiring a new instance to reconnect.",
+      "Limited to basic WebSocket communication."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "web_socket_channel",
+        "why_pick_it": "If you prefer the lower-level channel abstraction provided by the official package rather than the built-in auto-reconnect client."
+      }
+    ],
+    "minimal_example": "final socket = WebSocket(Uri.parse('ws://localhost:8080'));\n\nsocket.messages.listen((message) {\n  // Handle incoming messages.\n});\n\nsocket.send('ping');\nsocket.close();",
+    "confidence": 1
+  }
+}

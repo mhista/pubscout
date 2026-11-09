@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.1",
+  "generatedAt": "2026-11-08T15:51:49.778Z",
+  "data": {
+    "primary_category": "devtools",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "A Dio interceptor that prints HTTP requests as cURL commands in the terminal.",
+    "what_it_does": "It intercepts HTTP requests made through the Dio package and outputs them as copy-pasteable cURL commands in the terminal. It supports GET, POST, DELETE, and PUT requests, automatically converts FormData to plain maps, and formats request bodies correctly.",
+    "use_when": [
+      "You need to debug Dio HTTP requests by replaying them as cURL commands in a terminal.",
+      "You want to easily share HTTP requests with backend developers or import them into Postman."
+    ],
+    "avoid_when": [
+      "You are not using the Dio package for network requests.",
+      "You require complex logging dashboards or graphical request inspection tools."
+    ],
+    "strengths": [
+      "Generates clean cURL commands from Dio requests effortlessly.",
+      "Handles FormData conversion automatically for file uploads.",
+      "Uses dart:developer.log for cleaner terminal output on Android."
+    ],
+    "weaknesses": [
+      "Limited only to Dio and cURL command logging.",
+      "Does not provide an in-app visual UI inspector for requests."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Simply add the interceptor to your Dio instance.",
+    "alternatives": [],
+    "minimal_example": "_dio = Dio();\n\n_dio.interceptors.add(CurlLoggerDioInterceptor());",
+    "confidence": 0.95
+  }
+}

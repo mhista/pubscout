@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.2.0",
+  "generatedAt": "2026-11-08T16:01:14.314Z",
+  "data": {
+    "primary_category": "web-desktop",
+    "secondary_categories": [
+      "device"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Restrict a Windows app to a single instance and bring existing windows to the front.",
+    "what_it_does": "Forces a single instance of your Windows app, bringing the existing window to the front when a new instance is opened. It allows passing startup arguments and an optional callback when a second instance tries to launch.",
+    "use_when": [
+      "You want to prevent users from opening multiple instances of your Windows desktop app",
+      "You need to bring the existing application window to the foreground when a secondary launch is attempted"
+    ],
+    "avoid_when": [
+      "Your application targets mobile, web, or non-Windows desktop platforms exclusively",
+      "You want to allow multiple independent instances of your app to run simultaneously"
+    ],
+    "strengths": [
+      "Brings the correct window to the front even if it is minimized",
+      "Supports passing custom arguments and exit functions to secondary instances",
+      "Simple and straightforward setup in the main function"
+    ],
+    "weaknesses": [
+      "Platform-restricted to Windows",
+      "Functionality is not supported on web even though it builds"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add WidgetsFlutterBinding.ensureInitialized() and make main async, then call WindowsSingleInstance.ensureSingleInstance() with arguments and a unique custom app string.",
+    "alternatives": [],
+    "minimal_example": "void main(List<String> args) async {\n    WidgetsFlutterBinding.ensureInitialized();\n    await WindowsSingleInstance.ensureSingleInstance(\n        args,\n        \"custom_identifier\",\n        onSecondWindow: (args) {\n            print(args);\n        });\n    runApp(const MyApp());\n}",
+    "confidence": 1
+  }
+}

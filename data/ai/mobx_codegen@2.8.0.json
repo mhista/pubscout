@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "2.8.0",
+  "generatedAt": "2026-11-08T15:38:45.618Z",
+  "data": {
+    "primary_category": "codegen",
+    "secondary_categories": [
+      "state-management"
+    ],
+    "approach": [
+      "code generation"
+    ],
+    "one_liner": "Generates MobX store boilerplate from @observable, @computed and @action annotations.",
+    "what_it_does": "Runs build_runner to create *.g.dart files that implement MobX reactivity for annotated store classes. Lets you write clean abstract stores and get generated mixins automatically.",
+    "use_when": [
+      "You want MobX state management with compile‑time generated code",
+      "You prefer annotations over manual boilerplate",
+      "You already use build_runner in your project"
+    ],
+    "avoid_when": [
+      "You need a pure Dart/Flutter solution without code generation",
+      "You prefer other state‑management patterns like Provider or Riverpod"
+    ],
+    "strengths": [
+      "Reduces manual MobX boilerplate",
+      "Integrates with Dart's build system",
+      "Keeps store definitions concise and type‑safe"
+    ],
+    "weaknesses": [
+      "Requires build_runner step and generated files",
+      "Only works with MobX, not other state‑management libs"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add mobx_codegen to dev_dependencies, run `flutter pub run build_runner build` after defining abstract Store classes",
+    "alternatives": [],
+    "minimal_example": "import 'package:mobx/mobx.dart';\npart 'todos.g.dart';\n\nclass Todo = TodoBase with _$Todo;\n\nabstract class TodoBase with Store {\n  TodoBase(this.description);\n\n  @observable\n  String description = '';\n\n  @observable\n  bool done = false;\n}",
+    "confidence": 0.97
+  }
+}

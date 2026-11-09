@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.2.0",
+  "generatedAt": "2026-11-08T15:23:20.895Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Sanitizes HTML to prevent XSS exploits by restricting elements and attributes to a safe subset.",
+    "what_it_does": "It parses HTML into an in-memory DOM tree and filters elements and attributes to prevent cross-site scripting (XSS) exploits and avoid interference with the host page. It removes inline JavaScript, CSS, forms, and other potentially dangerous elements, following rules similar to GitHub Flavored Markdown sanitization.",
+    "use_when": [
+      "You need to embed untrusted HTML safely in a website or app",
+      "You are rendering user-generated markdown or HTML content"
+    ],
+    "avoid_when": [
+      "You need to allow custom inline CSS or complex HTML structures",
+      "You require a non-strict HTML sanitizer that preserves most styles and scripts"
+    ],
+    "strengths": [
+      "Strict filtering to safeguard against XSS attacks",
+      "Modeled after robust GitHub Flavored Markdown sanitization rules",
+      "Simple function API"
+    ],
+    "weaknesses": [
+      "Very strict, completely disallows CSS properties",
+      "Not documented for non-standard HTML extensions"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:sanitize_html/sanitize_html.dart' show sanitizeHtml;\n\nvoid main() {\n  print(sanitizeHtml('<a href=\"javascript:alert();\">evil link</a>'));\n}",
+    "confidence": 1
+  }
+}

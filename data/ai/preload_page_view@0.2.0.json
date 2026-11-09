@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.2.0",
+  "generatedAt": "2026-11-08T15:59:26.708Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "ui-kits"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A PageView widget that supports preloading pages before they are scrolled into view.",
+    "what_it_does": "PreloadPageView allows developers to preload a specified number of pages before and after the current page. It provides a similar API to the official Flutter PageView, including builder methods and a dedicated controller.",
+    "use_when": [
+      "You need to preload images or web requests before the user scrolls to adjacent pages in a PageView.",
+      "You want a drop-in alternative to Flutter's standard PageView with preloading capabilities."
+    ],
+    "avoid_when": [
+      "You do not need to preload content or manage off-screen page lifecycles differently than standard Flutter widgets.",
+      "You require complex non-standard scroll physics not supported by the underlying implementation."
+    ],
+    "strengths": [
+      "Drop-in replacement for the standard PageView widget.",
+      "Supports setting a custom number of preloaded pages using preloadPagesCount."
+    ],
+    "weaknesses": [
+      "Relies on a custom implementation separate from the official Flutter SDK PageView.",
+      "Documentation is minimal and lacks advanced configuration examples."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [],
+    "minimal_example": "return new PreloadPageView.builder(\n  itemCount: ...,\n  itemBuilder: ...,\n  onPageChanged: (int position) {},\n  preloadPagesCount: 3,\n  controller: PreloadPageController(),\n);",
+    "confidence": 0.95
+  }
+}

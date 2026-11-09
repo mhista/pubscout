@@ -1,0 +1,51 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.13.2",
+  "generatedAt": "2026-11-07T10:59:33.639Z",
+  "data": {
+    "primary_category": "images",
+    "secondary_categories": [
+      "storage",
+      "widgets"
+    ],
+    "approach": [
+      "declarative",
+      "imperative"
+    ],
+    "one_liner": "Community edition of cached network image using Hive for fast cache reads.",
+    "what_it_does": "Loads images from the internet and caches them persistently on disk using hive_ce. Provides widgets and image providers with placeholders, error handling, and interceptors.",
+    "use_when": [
+      "You need high-performance network image loading and caching with zero-jank list scrolling.",
+      "You want a drop-in community-maintained alternative to the original cached_network_image package."
+    ],
+    "avoid_when": [
+      "You need native support for unsupported image formats like SVG or HEIC without external decoders.",
+      "You are already using a different caching mechanism that conflicts with Hive."
+    ],
+    "strengths": [
+      "Up to 8x faster cache reads compared to the original sqflite-based implementation.",
+      "Persistent IndexedDB caching on the web platform.",
+      "HTTP and cache interceptor chains for advanced request/response manipulation."
+    ],
+    "weaknesses": [
+      "Cache interceptors are only available on native IO targets and not on web.",
+      "Still relies on Flutter's built-in image codec for decoding formats."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "No special platform permissions or configuration steps are required beyond adding the package dependency.",
+    "alternatives": [
+      {
+        "name": "cached_network_image",
+        "why_pick_it": "Pick the original package if you prefer the un-forked Baseflow version, though it is largely unmaintained."
+      },
+      {
+        "name": "image",
+        "why_pick_it": "Pick this if you need a general-purpose Dart image processing library rather than a network image widget."
+      }
+    ],
+    "minimal_example": "CachedNetworkImage(\n  imageUrl: 'https://via.placeholder.com/350x150',\n  placeholder: (context, url) => CircularProgressIndicator(),\n  errorWidget: (context, url, error) => Icon(Icons.error),\n)",
+    "confidence": 0.95
+  }
+}

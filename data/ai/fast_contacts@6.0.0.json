@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "6.0.0",
+  "generatedAt": "2026-11-07T11:09:47.462Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "A fast plugin for accessing and fetching the device's contacts list.",
+    "what_it_does": "FastContacts provides a high-performance way to read contacts from the device's contact book on Android and iOS. It allows fetching the entire list of contacts, getting individual contacts by ID, and retrieving contact images or thumbnails quickly.",
+    "use_when": [
+      "You need to fetch the entire device contacts list efficiently.",
+      "Performance when loading large contact books (1000+ contacts) is critical."
+    ],
+    "avoid_when": [
+      "You need to manage or prompt for permissions directly within the package (permission_handler is required).",
+      "Targeting platforms other than Android and iOS."
+    ],
+    "strengths": [
+      "Significantly faster than alternative contact-reading plugins.",
+      "Handles decoding on background threads so the UI isolate does not hang."
+    ],
+    "weaknesses": [
+      "Does not handle permissions natively; a separate permission plugin is required.",
+      "Limited platform support (only Android and iOS)."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add READ_CONTACTS permission in AndroidManifest.xml and NSContactsUsageDescription in Info.plist for iOS. Use a separate permission handler to request permissions.",
+    "alternatives": [],
+    "minimal_example": "import 'package:fast_contacts/fast_contacts.dart';\n\nfinal contacts = await FastContacts.getAllContacts();",
+    "confidence": 0.95
+  }
+}

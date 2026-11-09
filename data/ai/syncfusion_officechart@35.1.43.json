@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "35.1.43",
+  "generatedAt": "2026-11-08T15:57:14.752Z",
+  "data": {
+    "primary_category": "charts",
+    "secondary_categories": [
+      "files"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Create Excel charts programmatically in XLSX format without a UI.",
+    "what_it_does": "Syncfusion Flutter OfficeChart is a non-UI library written natively in Dart for creating Excel charts from scratch. It allows developers to generate XLSX files containing pie, column, bar, line, and stacked charts along with various chart elements.",
+    "use_when": [
+      "You need to programmatically generate Excel files containing charts from a Flutter application.",
+      "You are already using Syncfusion's XlsIO library to export spreadsheet data and need to add visual charts to those sheets."
+    ],
+    "avoid_when": [
+      "You need interactive UI widgets to display charts inside your Flutter app's user interface.",
+      "You cannot use commercial or Syncfusion community-licensed packages in your project."
+    ],
+    "strengths": [
+      "Supports multiple chart types including pie, column, bar, line, and stacked variants.",
+      "Operates entirely natively in Dart without relying on external native binaries for document generation.",
+      "Integrates seamlessly with syncfusion_flutter_xlsio."
+    ],
+    "weaknesses": [
+      "It is a commercial package requiring a proper Syncfusion license.",
+      "It is strictly for file generation (non-UI) rather than displaying charts on-screen."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires a Syncfusion Commercial or Community license.",
+    "alternatives": [],
+    "minimal_example": "final Workbook workbook = Workbook();\nfinal Worksheet sheet = workbook.worksheets[0];\nsheet.getRangeByName('A1').setText('John');\nsheet.getRangeByName('B1').setNumber(10);\nfinal ChartCollection charts = ChartCollection(sheet);\nfinal Chart chart = charts.add();\nchart.chartType = ExcelChartType.column;\nchart.dataRange = sheet.getRangeByName('A1:B1');\nsheet.charts = charts;\nList<int> bytes = workbook.saveAsStream();\nworkbook.dispose();",
+    "confidence": 1
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.5.2",
+  "generatedAt": "2026-11-07T11:05:00.329Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "A Dart library for building Model Context Protocol (MCP) servers and clients.",
+    "what_it_does": "Provides base classes and mixins to implement MCP servers and clients, exposing capabilities and utilities defined by the MCP spec. It supports communication over streams, including stdio, and handles initialization, capability negotiation, and RPC calls.",
+    "use_when": [
+      "You need to build a local MCP server or client for a Dart application",
+      "You want to expose or consume MCP capabilities such as prompts, resources, or tools",
+      "You prefer a stream‑based, imperative API for RPC communication"
+    ],
+    "avoid_when": [
+      "You only need simple HTTP or WebSocket communication",
+      "You require authentication or push notifications",
+      "You need a fully featured AI client library with built‑in models"
+    ],
+    "strengths": [
+      "Built‑in support for MCP protocol versions and capability negotiation",
+      "Stream‑based API fits well with Dart async streams",
+      "Extensible mixins for server and client capabilities",
+      "Supports stdio transport out of the box"
+    ],
+    "weaknesses": [
+      "Experimental and rapidly evolving",
+      "No built‑in authentication or authorization",
+      "Limited transport support (only stdio currently)",
+      "No code generation or declarative UI helpers"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dependency to pubspec, import server.dart or client.dart, extend MCPServer/MCPClient, provide a StreamChannel for communication.",
+    "alternatives": [],
+    "minimal_example": "import 'package:dart_mcp/server.dart';\n\nclass MyServer extends MCPServer {\n  MyServer(StreamChannel channel) : super(channel);\n}\n",
+    "confidence": 0.75
+  }
+}

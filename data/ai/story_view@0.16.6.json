@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.16.6",
+  "generatedAt": "2026-11-08T16:03:03.309Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [
+      "widgets",
+      "images"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Display WhatsApp & Instagram-like stories or inline feeds with playback gestures.",
+    "what_it_does": "Displays customizable stories containing text, images, GIFs, and videos with built-in navigation gestures like pause, forward, and rewind. It can be used fullscreen or inline within lists and columns.",
+    "use_when": [
+      "You need to build Instagram or WhatsApp style stories into your application.",
+      "You want to display inline story items inside lists or columns like a news app."
+    ],
+    "avoid_when": [
+      "You require complex social network backend features; this package only handles the UI and playback viewing component."
+    ],
+    "strengths": [
+      "Supports still images, GIFs, and video playback with caching",
+      "Includes touch gestures for pause, rewind, and forward out of the box",
+      "Provides animated progress indicators for each story item"
+    ],
+    "weaknesses": [
+      "Limited to story viewing components and may require custom UI styling to match specific design systems."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "final controller = StoryController();\n\n@override\nWidget build(context) {\n  List<StoryItem> storyItems = [\n    StoryItem.text(title: \"Hello\", backgroundColor: Colors.red),\n    StoryItem.pageImage(url: \"...\", controller: controller),\n  ];\n\n  return StoryView(\n    storyItems,\n    controller: controller,\n    repeat: true,\n    onStoryShow: (s) {},\n    onComplete: () {},\n  );\n}",
+    "confidence": 0.95
+  }
+}

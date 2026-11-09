@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "5.60.0",
+  "generatedAt": "2026-11-08T15:26:45.661Z",
+  "data": {
+    "primary_category": "backend",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter client for PostHog analytics, feature flags, and session replay",
+    "what_it_does": "Sends events, identifies users, tracks sessions, and supports feature flags and session replay across iOS, Android, Web, macOS, Windows, and Linux.",
+    "use_when": [
+      "You need analytics and feature flag support in a Flutter app",
+      "You want session replay for debugging",
+      "You target multiple platforms including desktop"
+    ],
+    "avoid_when": [
+      "You only need simple logging or a lightweight analytics SDK",
+      "You are building a web‑only app and prefer a pure web solution"
+    ],
+    "strengths": [
+      "Cross‑platform support (mobile, web, desktop)",
+      "Built‑in feature flag handling",
+      "Session replay and crash capture on mobile",
+      "Easy to set up with a single setup call"
+    ],
+    "weaknesses": [
+      "Desktop support is experimental and limited to core analytics",
+      "No push notification or survey support on desktop",
+      "Requires native platform setup for path_provider"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dependency, import package, call `Posthog().setup(config)` in main, optionally set `config.enableWindowsAndLinux = false` for desktop disable.",
+    "alternatives": [],
+    "minimal_example": "```dart\nimport 'package:posthog_flutter/posthog_flutter.dart';\n\nvoid main() async {\n  WidgetsFlutterBinding.ensureInitialized();\n  await Posthog().setup(PostHogConfig(\n    projectToken: 'YOUR_TOKEN',\n    host: 'https://app.posthog.com',\n  ));\n  runApp(MyApp());\n}\n```",
+    "confidence": 0.9
+  }
+}

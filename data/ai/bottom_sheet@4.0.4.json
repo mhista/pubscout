@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.0.4",
+  "generatedAt": "2026-11-08T15:53:00.638Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Flexible bottom sheet that can be resized and scrolled.",
+    "what_it_does": "Provides a custom bottom sheet widget that can be resized in response to drag gestures and scrolled even without a list. Includes options for sticky headers and height based on content.",
+    "use_when": [
+      "You need a bottom sheet that is both draggable and scrollable.",
+      "You require sticky headers inside your bottom sheet.",
+      "You want custom anchor points and flexible sizing for bottom sheets."
+    ],
+    "avoid_when": [
+      "Standard platform modal bottom sheets fulfill all your requirements without extra customization.",
+      "You do not need drag resizing or custom scrolling behavior."
+    ],
+    "strengths": [
+      "Can be resized via drag gestures and scrolled even without a list.",
+      "Supports sticky headers via `showStickyFlexibleBottomSheet`.",
+      "Customizable anchors, minimum, initialization, and maximum heights."
+    ],
+    "weaknesses": [
+      "Adds an external dependency (`bottom_inset_observer`) for keyboard and inset handling."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "No native configuration steps required.",
+    "alternatives": [],
+    "minimal_example": "showFlexibleBottomSheet(\n  minHeight: 0,\n  initHeight: 0.5,\n  maxHeight: 1,\n  context: context,\n  builder: (context, scrollController, bottomSheetOffset) {\n    return Material(\n      child: ListView(\n        controller: scrollController,\n        children: const [ListTile(title: Text('Item'))],\n      ),\n    );\n  },\n  anchors: [0, 0.5, 1],\n  isSafeArea: true,\n);",
+    "confidence": 1
+  }
+}

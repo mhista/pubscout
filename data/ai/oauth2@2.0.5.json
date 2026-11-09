@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.5",
+  "generatedAt": "2026-11-08T15:26:15.907Z",
+  "data": {
+    "primary_category": "auth",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "A client library for OAuth2 authentication and authorized HTTP requests.",
+    "what_it_does": "Allows apps to authenticate with remote services via OAuth2 using flows like Authorization Code Grant, Client Credentials Grant, and Resource Owner Password Grant. Provides an authorized HTTP client to make requests with the user's credentials.",
+    "use_when": [
+      "You need to authenticate users via OAuth2 in Dart or Flutter applications",
+      "You need to persist and automatically refresh user OAuth2 credentials"
+    ],
+    "avoid_when": [
+      "You are using Firebase or Supabase authentication which have dedicated backend SDKs",
+      "You only need standard unauthenticated HTTP requests"
+    ],
+    "strengths": [
+      "Supports multiple OAuth2 grant types including Authorization Code with PKCE, Client Credentials, and Resource Owner Password",
+      "Handles automatic saving and refreshing of credentials",
+      "Integrates seamlessly with the standard package:http client"
+    ],
+    "weaknesses": [
+      "Requires manual platform-specific implementation for handling redirect URLs and launching browsers",
+      "Does not support all possible OAuth2 flows"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires setting up URL launching, deep links, or WebViews on mobile and custom web redirection code to capture the OAuth2 redirect response.",
+    "alternatives": [],
+    "minimal_example": "import 'package:oauth2/oauth2.dart' as oauth2;\n\nfinal authorizationEndpoint = Uri.parse('http://example.com/oauth2/authorization');\nfinal tokenEndpoint = Uri.parse('http://example.com/oauth2/token');\n\nvar client = await oauth2.clientCredentialsGrant(\n    authorizationEndpoint, 'my client identifier', 'my client secret');\n\nvar response = await client.read('https://example.com/api/some_resource.json');",
+    "confidence": 0.95
+  }
+}

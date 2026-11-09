@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "13.3.1",
+  "generatedAt": "2026-11-07T16:24:11.108Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "device"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Share text, files, or URIs via native share dialogs on mobile, web, and desktop.",
+    "what_it_does": "Provides a simple API to invoke the platform’s share sheet, supporting text, files, and URIs. On web it uses the Web Share API or falls back to downloading files.",
+    "use_when": [
+      "You need to share content from a Flutter app to other apps or the system share sheet.",
+      "You want a cross‑platform solution without writing native code for each platform."
+    ],
+    "avoid_when": [
+      "You need advanced sharing features like custom share targets or deep integration with specific apps.",
+      "You are targeting Linux only, as file sharing is not supported there."
+    ],
+    "strengths": [
+      "Cross‑platform API with minimal boilerplate.",
+      "Supports files, text, and URIs on all major platforms.",
+      "Web fallback downloads files if Web Share API is unavailable.",
+      "No code generation required."
+    ],
+    "weaknesses": [
+      "File sharing not available on Linux.",
+      "Requires Java 17/Kotlin 2.2.0 for Android, which may be a hurdle for older projects.",
+      "Limited customization of the share sheet beyond title and excluded activities."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dependency, import package, and call SharePlus.instance.share(). No special permissions needed.",
+    "alternatives": [],
+    "minimal_example": "import 'package:share_plus/share_plus.dart';\n\nSharePlus.instance.share(\n  ShareParams(text: 'Check out this link', files: [XFile('path/to/file.jpg')])\n);",
+    "confidence": 0.92
+  }
+}

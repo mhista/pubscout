@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.1",
+  "generatedAt": "2026-11-08T15:25:21.004Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "auth"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Decode Json Web Tokens and check expiration status without a password.",
+    "what_it_does": "Decodes JSON Web Tokens (JWT) base64-encoded headers and payloads into a Map. Provides utility methods to check if a token is expired, retrieve its expiration date, check token age, and get remaining time.",
+    "use_when": [
+      "You need to inspect JWT payload data on the client side",
+      "You need to check token expiration or remaining time in Dart or Flutter"
+    ],
+    "avoid_when": [
+      "You need to cryptographically verify or sign JWT signatures on the client"
+    ],
+    "strengths": [
+      "Lightweight with no external dependencies",
+      "Works across all platforms including Dart-only environments",
+      "Simple static methods for quick decoding and expiration checks"
+    ],
+    "weaknesses": [
+      "Does not verify the cryptographic signature of the token",
+      "Throws FormatException on invalid tokens instead of returning null"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "String yourToken = \"Your JWT\";\nMap<String, dynamic> decodedToken = JwtDecoder.decode(yourToken);\nbool hasExpired = JwtDecoder.isExpired(yourToken);",
+    "confidence": 1
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.1.0",
+  "generatedAt": "2026-11-08T15:55:14.836Z",
+  "data": {
+    "primary_category": "forms",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Android and iOS OTP autofill plugin using SMS User Consent and Retriever APIs.",
+    "what_it_does": "It provides text editing controllers and interactors to automatically read and parse one-time passwords (OTP) from incoming SMS messages on Android and iOS. It also supports custom strategies like push notifications or testing inputs.",
+    "use_when": [
+      "You need automated SMS verification code input (OTP) for phone authentication.",
+      "You need to support both Android SMS Retriever/User Consent APIs and iOS native text field autofill."
+    ],
+    "avoid_when": [
+      "You only need standard text field input without SMS auto-reading capabilities.",
+      "You are targeting platforms other than Android and iOS."
+    ],
+    "strengths": [
+      "Supports both SMS User Consent API and SMS Retriever API on Android.",
+      "Includes helper classes like OTPTextEditController and OTPInteractor for quick implementation.",
+      "Allows custom strategies (e.g., push notifications or testing)."
+    ],
+    "weaknesses": [
+      "Requires manual setup of native minimum SDK version on Android.",
+      "Relies on parsing SMS text formats correctly via regular expressions."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "On Android, set minSdkVersion at least to 19 in android/app/build.gradle.",
+    "alternatives": [
+      {
+        "name": "pinput",
+        "why_pick_it": "If you need a complete customizable PIN input widget set rather than just text controller bindings."
+      },
+      {
+        "name": "pin_code_fields",
+        "why_pick_it": "If you prefer a pin code field UI component."
+      }
+    ],
+    "minimal_example": "late OTPTextEditController controller;\nfinal scaffoldKey = GlobalKey();\n\n@override\nvoid initState() {\n  super.initState();\n  controller = OTPTextEditController(\n    codeLength: 5,\n    onCodeReceive: (code) => print('Your Application receive code - $code'),\n  )..startListenUserConsent(\n      (code) {\n        final exp = RegExp(r'(\\d{5})');\n        return exp.stringMatch(code ?? '') ?? '';\n      },\n    );\n}",
+    "confidence": 0.95
+  }
+}

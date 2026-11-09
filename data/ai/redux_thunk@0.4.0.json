@@ -1,0 +1,47 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.4.0",
+  "generatedAt": "2026-11-08T16:01:44.609Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "A Redux middleware that allows dispatching async functions as actions.",
+    "what_it_does": "Provides thunkMiddleware to intercept and execute ThunkActions in a Redux store. Enables performing asynchronous work and dispatching subsequent actions.",
+    "use_when": [
+      "You are using Redux.dart and need to handle asynchronous operations.",
+      "You want to dispatch functions that take the Store as an argument."
+    ],
+    "avoid_when": [
+      "You are not using the Redux state management pattern.",
+      "You prefer modern state management alternatives like Riverpod or Bloc."
+    ],
+    "strengths": [
+      "Enables asynchronous work in Redux architectures.",
+      "Simple API with a single thunkMiddleware."
+    ],
+    "weaknesses": [
+      "Limited to Redux.dart ecosystem.",
+      "No advanced side-effect handling features beyond basic functions."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add thunkMiddleware to your Redux Store middleware list.",
+    "alternatives": [
+      {
+        "name": "bloc",
+        "why_pick_it": "Provides a predictable state management solution with built-in stream and async support without Redux boilerplate."
+      },
+      {
+        "name": "riverpod",
+        "why_pick_it": "A robust, modern state management library supporting async operations natively."
+      }
+    ],
+    "minimal_example": "final store = new Store<String>(\n  reducer,\n  middleware: [thunkMiddleware],\n);\n\nvoid action(Store<String> store) async {\n  final searchResults = await new Future.delayed(\n    new Duration(seconds: 1),\n    () => \"Search Results\",\n  );\n\n  store.dispatch(searchResults);\n}",
+    "confidence": 1
+  }
+}

@@ -7,6 +7,10 @@
  *   node scripts/build-catalog.mjs --sample   # from data/sample (offline demo data)
  *   node scripts/build-catalog.mjs --no-ai    # skip LLM calls, use cached AI results only
  *   node scripts/build-catalog.mjs --ai-limit 50   # at most 50 new AI calls this run
+ *   node scripts/build-catalog.mjs --allow-shrink  # build even if the catalog would lose >30% of its packages
+ *
+ * Packages that left the top SYNC_LIMIT more than STALE_DAYS ago (default 30) are left out,
+ * unless they're pinned (requested on the site, overridden, or a "works with" package).
  */
 import fs from "node:fs";
 import path from "node:path";
@@ -17,6 +21,7 @@ import { cachedExplain, explain } from "./lib/explain.mjs";
 import { createAiChain } from "./lib/ai.mjs";
 import { buildRelations } from "./lib/relations.mjs";
 import { updateEmbeddings } from "./lib/embed.mjs";
+import { essentialNames, pinnedNames } from "./lib/pinned.mjs";
 
 loadEnv();
 const SAMPLE = process.argv.includes("--sample");
@@ -39,6 +44,34 @@ if (SAMPLE) {
     process.exit(1);
   }
   raws = fs.readdirSync(dir).filter((f) => f.endsWith(".json")).map((f) => readJson(path.join(dir, f))).filter(Boolean);
+
+  // Hide packages that dropped out of the synced set a while ago (their numbers would be stale).
+  const STALE_DAYS = Number(process.env.STALE_DAYS ?? 30);
+  const pinned = new Set(pinnedNames());
+  const stale = raws.filter((r) => !pinned.has(r.name) && daysSince(r.listedAt ?? r.syncedAt) > STALE_DAYS);
+  if (stale.length) {
+    const staleSet = new Set(stale.map((r) => r.name));
+    raws = raws.filter((r) => !staleSet.has(r.name));
+    console.log(`  Left out ${stale.length} packages that haven't been in the top list for ${STALE_DAYS}+ days (e.g. ${stale.slice(0, 3).map((r) => r.name).join(", ")}).`);
+  }
+
+  // Lower-ranked packages (outside the nightly top SYNC_LIMIT) must clear a small bar to be listed,
+  // so growing the catalog adds useful packages rather than abandoned experiments.
+  const TOP = Number(process.env.SYNC_LIMIT ?? 2000);
+  const MIN_DL = Number(process.env.TAIL_MIN_DOWNLOADS ?? 100);
+  const weak = raws.filter((r) => !pinned.has(r.name) && (r.rank ?? 0) > TOP && (r.discontinued || (r.score?.downloads30d ?? 0) < MIN_DL));
+  if (weak.length) {
+    const weakSet = new Set(weak.map((r) => r.name));
+    raws = raws.filter((r) => !weakSet.has(r.name));
+    console.log(`  Left out ${weak.length} lower-ranked packages that are discontinued or under ${MIN_DL} downloads a month.`);
+  }
+
+  // Safety: an empty or partial data/raw (say, a lost CI cache) must not wipe the live catalog.
+  const prevCount = readJson(path.join(DATA, "catalog.json"))?.source === "sample" ? 0 : readJson(path.join(DATA, "catalog.json"))?.count ?? 0;
+  if (prevCount >= 200 && raws.length < prevCount * 0.7 && !process.argv.includes("--allow-shrink")) {
+    console.error(`Refusing to build: data/raw has ${raws.length} packages but the current catalog has ${prevCount}. Run \`npm run data:sync\` first, or pass --allow-shrink if this is intended.`);
+    process.exit(2);
+  }
 }
 console.log(`Building catalog from ${raws.length} packages${SAMPLE ? " (sample data)" : " already synced into data/raw"}…`);
 if (!SAMPLE && raws.length < Number(process.env.SYNC_LIMIT || 2000)) {
@@ -55,10 +88,17 @@ if (!SAMPLE) {
   else if (!NO_AI) console.log("  No AI keys (GEMINI_API_KEY / GROQ_API_KEY): categories from keyword rules, summaries only where cached.");
 }
 let aiExhausted = false;
+const ESSENTIAL = new Set(essentialNames());
 
 // ---- 1. facts + tags --------------------------------------------------------
 const rulesByName = new Map(raws.map((r) => [r.name, classifyByRules(r, taxonomy)]));
 let aiCalls = 0, aiFailed = 0;
+
+// AI quota is limited, so summarise the most useful packages first: essentials and
+// requested ones, then by downloads. Anything left over is marked "summary pending"
+// and picked up first by the next run; the build itself never waits on AI.
+const PRIORITY = new Set(pinnedNames());
+raws.sort((a, b) => (PRIORITY.has(b.name) - PRIORITY.has(a.name)) || b.score.downloads30d - a.score.downloads30d);
 
 const entries = await pool(raws, 4, async (raw) => {
   const facts = deriveFacts(raw);
@@ -168,7 +208,10 @@ const entries = await pool(raws, 4, async (raw) => {
           generatedAt: ai.generatedAt,
         }
       : null,
+    // Has docs but no AI summary yet (quota ran out, or the AI call failed). Retried every run.
+    summaryPending: !ai && !SAMPLE && Boolean(raw.docs?.readme),
     syncedAt: raw.syncedAt ?? null,
+    rank: raw.rank ?? null, // position in pub.dev's ranking when last synced
   };
 });
 
@@ -203,6 +246,7 @@ for (const p of pkgs) {
   p.scores = scorePackage(p, ctx);
   p.flags = flagsFor(p, now);
   p.badges = badgesFor(p, history, now);
+  p.essential = ESSENTIAL.has(p.name);
 }
 
 // ---- 4. related ("works with") vs alternatives ("could replace") -------------
@@ -238,6 +282,15 @@ writeJson(path.join(DATA, "catalog.json"), {
 });
 
 if (chain.enabled) console.log(`  AI usage: ${chain.stats()}`);
+if (!SAMPLE) {
+  const pending = pkgs.filter((p) => p.summaryPending);
+  const withSummary = pkgs.filter((p) => p.explainer).length;
+  console.log(`  Summaries: ${withSummary} of ${pkgs.length} packages have one, ${aiCalls} written this run${aiFailed ? `, ${aiFailed} failed` : ""}.`);
+  if (pending.length) {
+    console.log(`  Pending: ${pending.length} packages still need a summary (e.g. ${pending.slice(0, 4).map((p) => p.name).join(", ")}).`);
+    console.log("  They're on the site with their pub.dev description for now; the next run (or tonight's job) continues with them first.");
+  }
+}
 const untagged = pkgs.filter((p) => !p.primaryCategory).length;
 console.log(`Wrote data/catalog.json: ${pkgs.length} packages, ${untagged} without a category${aiCalls ? `, ${aiCalls} AI calls` : ""}${aiFailed ? `, ${aiFailed} AI failures` : ""}.`);
 if (untagged) console.log("  Tip: add them to data/overrides.json, e.g. { \"some_pkg\": { \"primary\": \"widgets\" } }");

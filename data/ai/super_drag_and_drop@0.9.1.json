@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.9.1",
+  "generatedAt": "2026-11-08T15:41:37.766Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Native drag and drop for Flutter across desktop, mobile and web.",
+    "what_it_does": "Provides a DragItemWidget and DropRegion that enable native drag‑and‑drop interactions. It supports custom data formats, virtual files and multi‑finger gestures on iOS.",
+    "use_when": [
+      "Need to drag content between Flutter apps or to external apps",
+      "Require custom data formats or virtual file support",
+      "Need multi‑finger drag on iOS",
+      "Want a single‑purpose widget for drag‑and‑drop"
+    ],
+    "avoid_when": [
+      "You need a lightweight plugin without Rust or NDK dependencies",
+      "You only need simple drag‑and‑drop on a single platform"
+    ],
+    "strengths": [
+      "Cross‑platform support (Android, iOS, macOS, Windows, Linux, Web)",
+      "High performance via Rust backend",
+      "Supports custom data formats and virtual files",
+      "Multi‑finger drag on iOS"
+    ],
+    "weaknesses": [
+      "Requires Rust toolchain and NDK for first build",
+      "Large binary size on some platforms",
+      "Web drag support limited to same tab"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Install Rust (or let plugin download binaries). On Android, NDK will be auto‑installed; specify minSdkVersion 23. Add a content provider in AndroidManifest.xml if using custom data or super_clipboard.",
+    "alternatives": [],
+    "minimal_example": "```dart\nclass MyDraggableWidget extends StatelessWidget {\n  @override\n  Widget build(BuildContext context) {\n    return DragItemWidget(\n      dragItemProvider: (request) async {\n        final item = DragItem(localData: {'x': 3, 'y': 4});\n        item.add(Formats.plainText('Plain Text Data'));\n        item.add(Formats.htmlText.lazy(() => '<b>HTML generated on demand</b>'));\n        return item;\n      },\n      allowedOperations: () => [DropOperation.copy],\n      child: const DraggableWidget(child: Text('This widget is draggable')),\n    );\n  }\n}\n```",
+    "confidence": 0.9
+  }
+}

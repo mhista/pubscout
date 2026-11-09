@@ -1,0 +1,50 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "10.0.0",
+  "generatedAt": "2026-11-08T15:57:09.149Z",
+  "data": {
+    "primary_category": "ai-ml",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "stream-based",
+      "declarative"
+    ],
+    "one_liner": "Pure Dart client for the Anthropic API to access Claude models.",
+    "what_it_does": "Provides type-safe access to Anthropic's Claude models with support for messages, streaming, tool use, extended thinking, multimodal inputs, files, and batch processing. Runs across mobile, desktop, web, and server-side Dart.",
+    "use_when": [
+      "You need to integrate Claude models into a Dart or Flutter application",
+      "You require type-safe access to Anthropic API features like tool calling, streaming, and vision"
+    ],
+    "avoid_when": [
+      "You are using a different AI provider like Google Gemini or OpenAI exclusively",
+      "You need an on-device local model instead of a cloud-hosted API"
+    ],
+    "strengths": [
+      "Pure Dart with minimal dependencies",
+      "Comprehensive coverage of Anthropic API features including messages, streaming, and tools",
+      "Strict semantic versioning"
+    ],
+    "weaknesses": [
+      "Requires an external API key and internet connection to Anthropic's servers",
+      "Not suitable for offline on-device inference"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires setting the ANTHROPIC_API_KEY environment variable or configuring an ApiKeyProvider.",
+    "alternatives": [
+      {
+        "name": "firebase_ai",
+        "why_pick_it": "Choose this if you want to use Google's Gemini models via Firebase instead of Anthropic."
+      },
+      {
+        "name": "llamadart",
+        "why_pick_it": "Choose this if you want to run local Llama models rather than using a hosted cloud API."
+      }
+    ],
+    "minimal_example": "import 'package:anthropic_sdk_dart/anthropic_sdk_dart.dart';\n\nFuture<void> main() async {\n  final client = AnthropicClient.fromEnvironment();\n\n  try {\n    final response = await client.messages.create(\n      MessageCreateRequest(\n        model: 'claude-sonnet-5',\n        maxTokens: 1024,\n        messages: [InputMessage.user('What is the capital of France?')],\n      ),\n    );\n\n    print(response.text);\n  } finally {\n    client.close();\n  }\n}",
+    "confidence": 1
+  }
+}

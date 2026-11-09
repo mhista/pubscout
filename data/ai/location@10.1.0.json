@@ -1,0 +1,50 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "10.1.0",
+  "generatedAt": "2026-11-07T16:28:10.058Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "Flutter plugin to get real-time device location across platforms.",
+    "what_it_does": "Provides a simple API to request the current location and listen to continuous location updates. Supports background mode on Android and iOS and works on web, Windows, macOS, and Linux.",
+    "use_when": [
+      "you need raw GPS/Network location on multiple platforms",
+      "you want background location tracking while the app is alive",
+      "you prefer a lightweight solution without map UI"
+    ],
+    "avoid_when": [
+      "you need built‑in map widgets or advanced geofencing",
+      "you require location after the app is terminated"
+    ],
+    "strengths": [
+      "cross‑platform (Android, iOS, web, desktop)",
+      "background mode support on Android/iOS",
+      "stream of location changes via onLocationChanged"
+    ],
+    "weaknesses": [
+      "no map UI or geofencing features",
+      "background tracking stops when app is killed",
+      "manual permission handling per platform"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add location permissions to AndroidManifest (ACCESS_COARSE_LOCATION, ACCESS_FINE_LOCATION, FOREGROUND_SERVICE, optional ACCESS_BACKGROUND_LOCATION). Add NSLocationWhenInUseUsageDescription / NSLocationAlwaysAndWhenInUseUsageDescription and UIBackgroundModes=location to iOS Info.plist. Enable App Sandbox > Location on macOS. No extra steps for web, Windows, Linux.",
+    "alternatives": [
+      {
+        "name": "geolocator",
+        "why_pick_it": "Offers similar cross‑platform location APIs with additional features like geofencing and distance calculations"
+      },
+      {
+        "name": "safe_device",
+        "why_pick_it": "Provides a unified, permission‑safe wrapper for device sensors including location"
+      }
+    ],
+    "minimal_example": "import 'package:location/location.dart';\n\nFuture<void> getCurrentLocation() async {\n  final location = Location();\n  if (!await location.serviceEnabled()) await location.requestService();\n  if (await location.hasPermission() == PermissionStatus.denied) {\n    await location.requestPermission();\n  }\n  final locData = await location.getLocation();\n  print('Lat: ${locData.latitude}, Lon: ${locData.longitude}');\n}\n",
+    "confidence": 0.93
+  }
+}

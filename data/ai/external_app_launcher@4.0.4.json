@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "4.0.4",
+  "generatedAt": "2026-11-07T11:08:44.832Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter plugin to launch external apps or URLs on Android and iOS.",
+    "what_it_does": "Provides APIs to open another app by package name or URL scheme, check if an app is installed, and open URLs in browsers or Safari. Handles platform-specific requirements like Android 11+ package visibility and iOS URL scheme whitelisting.",
+    "use_when": [
+      "You need to open a third‑party app from your Flutter app",
+      "You want to check if a specific app is installed before launching",
+      "You need to open a URL in a specific browser or Safari"
+    ],
+    "avoid_when": [
+      "You only need to open web URLs (use url_launcher instead)",
+      "You need deep navigation within your own app"
+    ],
+    "strengths": [
+      "Handles Android 11+ package visibility automatically",
+      "Supports iOS URL scheme whitelisting and Safari opening",
+      "Provides fallback to app stores if app not installed",
+      "Adds Huawei AppGallery support"
+    ],
+    "weaknesses": [
+      "Requires native manifest changes on Android",
+      "Requires Info.plist changes on iOS",
+      "No support for deep linking into app content beyond URL scheme"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add <queries> block in AndroidManifest.xml for each target package; add LSApplicationQueriesSchemes in Info.plist for iOS URL schemes; no build_runner needed.",
+    "alternatives": [],
+    "minimal_example": "await LaunchApp.openApp(\n  androidPackageName: 'com.instagram.android',\n  iosUrlScheme: 'instagram://',\n  appStoreLink: 'itms-apps://itunes.apple.com/app/id389801252',\n);",
+    "confidence": 0.92
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "3.2.0",
+  "generatedAt": "2026-11-08T15:16:21.817Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "device"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Cross‑platform abstraction for querying runtime platform info in Dart.",
+    "what_it_does": "Provides a unified API to access native and web platform details, with mock support for tests. It wraps dart:io Platform on native runtimes and exposes browser data on the web.",
+    "use_when": [
+      "Need to detect OS or browser in a single API",
+      "Require testable platform mocks",
+      "Build apps that run on multiple Dart platforms without conditional imports"
+    ],
+    "avoid_when": [
+      "You only target a single platform and want minimal dependencies",
+      "You need advanced device features beyond basic platform info"
+    ],
+    "strengths": [
+      "Simple, zero‑dependency API",
+      "Built‑in test mocking",
+      "Supports all major Dart platforms",
+      "No code generation required"
+    ],
+    "weaknesses": [
+      "Limited to platform info only, no device capabilities",
+      "Requires manual null checks for web vs native",
+      "API changes in 3.2.0 may need migration"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "plugin_platform_interface",
+        "why_pick_it": "Provides a base for platform interfaces but requires custom implementation"
+      },
+      {
+        "name": "browser_launcher",
+        "why_pick_it": "Only for web browser detection, not cross‑platform"
+      }
+    ],
+    "minimal_example": "import 'package:platform/platform.dart';\n\nvoid main() {\n  switch (Platform.current) {\n    case Platform(:var nativePlatform?):\n      print('Running on ${nativePlatform.operatingSystem} v.${nativePlatform.operatingSystemVersion}');\n    case Platform(:var browserPlatform?):\n      print('Running on ${browserPlatform.userAgent}');\n  }\n}",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.1.6",
+  "generatedAt": "2026-11-08T15:29:54.284Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Dartlang port of socket.io-client for web, flutter, and dartvm",
+    "what_it_does": "Provides a client implementation to connect to Socket.io servers from Dart and Flutter applications. Supports web, Android, iOS, Windows, macOS, and Linux platforms using WebSockets.",
+    "use_when": [
+      "You need real-time, bidirectional event-based communication with a Socket.io backend.",
+      "Building cross-platform Flutter or pure Dart applications that require WebSocket connectivity with Socket.io."
+    ],
+    "avoid_when": [
+      "You are using simple REST endpoints where standard HTTP requests are sufficient.",
+      "Your backend does not use the Socket.io protocol."
+    ],
+    "strengths": [
+      "Supports reconnection logic, custom headers, and explicit transport settings.",
+      "Compatible across web, desktop, and mobile Flutter environments."
+    ],
+    "weaknesses": [
+      "Socket instances are cached by scheme, port, and host, requiring careful handling of configuration options on initial creation.",
+      "Extra headers cannot be sent on the WebSocket handshake on web browsers."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "On macOS, ensure network client entitlements are configured. On Android/iOS, check network security policies for HTTP connections if not using HTTPS.",
+    "alternatives": [],
+    "minimal_example": "import 'package:socket_io_client/socket_io_client.dart' as IO;\n\nmain() {\n  IO.Socket socket = IO.io('http://localhost:3000');\n  socket.onConnect((_) {\n    print('connect');\n    socket.emit('msg', 'test');\n  });\n  socket.on('event', (data) => print(data));\n  socket.onDisconnect((_) => print('disconnect'));\n}",
+    "confidence": 0.95
+  }
+}

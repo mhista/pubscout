@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.3.3",
+  "generatedAt": "2026-11-07T11:09:00.560Z",
+  "data": {
+    "primary_category": "testing",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Fake asynchronous events like timers and microtasks for deterministic testing.",
+    "what_it_does": "Provides a FakeAsync class that makes it easy to deterministically test code using asynchronous features like Futures, Streams, Timers, and microtasks. It lets you explicitly control the notion of current time and fires scheduled events immediately without real time elapsing.",
+    "use_when": [
+      "You want to test code containing time-based asynchronous events deterministically.",
+      "You need to avoid waiting for real time to pass during unit tests involving timeouts or delays."
+    ],
+    "avoid_when": [
+      "You are writing integration tests requiring real hardware or network I/O that cannot be mocked."
+    ],
+    "strengths": [
+      "Allows explicit control over the current time in tests.",
+      "Integrates seamlessly with the clock package for controlling DateTime.now() and Stopwatch."
+    ],
+    "weaknesses": [
+      "Cannot control real hardware time or OS-level delays outside of Dart's asynchronous zone mechanisms."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "fakeAsync((async) {\n  expect(Completer().future.timeout(Duration(seconds: 5)),\n      throwsA(isA<TimeoutException>()));\n  async.elapse(Duration(seconds: 5));\n});",
+    "confidence": 1
+  }
+}

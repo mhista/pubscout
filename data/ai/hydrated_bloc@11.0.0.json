@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "11.0.0",
+  "generatedAt": "2026-11-07T11:26:04.848Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [
+      "state-management"
+    ],
+    "approach": [
+      "stream-based",
+      "no codegen"
+    ],
+    "one_liner": "Automatically persists and restores bloc and cubit states.",
+    "what_it_does": "Extends the bloc state management library to automatically save states to local storage and restore them upon application restart. It provides built-in persistence using Hive CE with custom serialization via toJson and fromJson methods.",
+    "use_when": [
+      "You are using the bloc state management library and need to persist user sessions or application state across app restarts",
+      "You want automatic caching of bloc and cubit states without writing manual storage boilerplate"
+    ],
+    "avoid_when": [
+      "You are managing state using a framework other than bloc or cubit",
+      "You require highly complex relational database queries where a key-value store is insufficient"
+    ],
+    "strengths": [
+      "Seamless integration with package:bloc and package:flutter_bloc",
+      "Platform-agnostic and performant storage layer built on Hive CE, supporting web and native platforms",
+      "Customizable storage directories, prefixes, and per-instance storage overrides"
+    ],
+    "weaknesses": [
+      "Requires manual implementation of toJson and fromJson for every persisted bloc or cubit",
+      "Relies entirely on the bloc architecture ecosystem"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Initialize HydratedBloc.storage with HydratedStorage.build during app startup before calling runApp.",
+    "alternatives": [],
+    "minimal_example": "Future<void> main() async {\n  WidgetsFlutterBinding.ensureInitialized();\n  HydratedBloc.storage = await HydratedStorage.build(\n    storageDirectory: kIsWeb\n        ? HydratedStorageDirectory.web\n        : HydratedStorageDirectory((await getTemporaryDirectory()).path),\n  );\n  runApp(App());\n}",
+    "confidence": 1
+  }
+}

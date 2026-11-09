@@ -1,0 +1,50 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.3.2",
+  "generatedAt": "2026-11-08T15:44:04.315Z",
+  "data": {
+    "primary_category": "layout",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "Scale the entire UI design proportionally based on device size.",
+    "what_it_does": "Scales every widget, font, button, and image simultaneously across the application. It replaces standard initialization methods to apply a proportional scaling factor to the UI and MediaQuery data.",
+    "use_when": [
+      "your UI design is fixed-width",
+      "you want to scale the entire UI proportionally, not just part of it"
+    ],
+    "avoid_when": [
+      "you are building a fully responsive fluid layout that adapts per breakpoint",
+      "you only want to scale specific components rather than the entire UI"
+    ],
+    "strengths": [
+      "scales everything simultaneously including text, images, and buttons",
+      "simple setup by replacing runApp or WidgetsFlutterBinding",
+      "supports enabling and disabling scaling on demand"
+    ],
+    "weaknesses": [
+      "may not suit designs that require different layouts on different screen aspect ratios",
+      "forces a fixed-width design paradigm rather than true responsive design"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "responsive_framework",
+        "why_pick_it": "Provides robust adaptive layout, scaling, and breakpoint features for different screen sizes."
+      },
+      {
+        "name": "sizer",
+        "why_pick_it": "Allows sizing widgets and fonts relative to screen width and height percentages."
+      }
+    ],
+    "minimal_example": "void main() {\n  runAppScaled(const MyApp(), scaleFactor: (deviceSize) {\n    const double widthOfDesign = 375;\n    return deviceSize.width / widthOfDesign;\n  });\n}",
+    "confidence": 0.95
+  }
+}

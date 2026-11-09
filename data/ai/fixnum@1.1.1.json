@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "1.1.1",
+  "generatedAt": "2026-11-07T11:10:14.086Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "no codegen"
+    ],
+    "one_liner": "Provides 32‑ and 64‑bit signed fixed‑width integer types for Dart.",
+    "what_it_does": "The package defines Int32 and Int64 classes that behave consistently on the Dart VM and when compiled to JavaScript. It includes parsing, conversion, and bit‑wise operations with overflow handling.",
+    "use_when": [
+      "You need precise 32‑ or 64‑bit integer arithmetic across platforms",
+      "You require deterministic overflow behavior for low‑level algorithms",
+      "You work with binary protocols or file formats that specify fixed‑width integers"
+    ],
+    "avoid_when": [
+      "Performance‑critical code can use native int if platform guarantees size",
+      "You only need arbitrary‑precision integers (use BigInt)"
+    ],
+    "strengths": [
+      "Consistent behavior on VM and JS",
+      "Full set of parsing and conversion helpers",
+      "No external dependencies"
+    ],
+    "weaknesses": [
+      "Adds a wrapper type instead of using native int",
+      "Limited to signed 32/64‑bit, no unsigned variants"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:fixnum/fixnum.dart';\n\nvoid main() {\n  Int64 a = Int64.parseInt('1234567890123456789');\n  Int64 b = Int64(42);\n  print((a + b).toString());\n}",
+    "confidence": 0.97
+  }
+}

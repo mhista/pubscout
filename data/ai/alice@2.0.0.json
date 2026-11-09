@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.0",
+  "generatedAt": "2026-11-07T10:54:43.114Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "devtools"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Advanced HTTP network inspector and logger with a native UI for Flutter.",
+    "what_it_does": "Alice intercepts REST API requests and responses to provide a built-in on-device UI for inspecting headers, bodies, response times, and timelines. It supports major HTTP clients like Dio, http, Chopper, and GraphQL.",
+    "use_when": [
+      "You need to inspect and debug HTTP traffic directly on-device without setting up an external proxy.",
+      "You want a searchable visual history of all REST API requests, responses, and timeline metrics during development."
+    ],
+    "avoid_when": [
+      "You are running a production release where network logging and interception could leak sensitive information or degrade performance.",
+      "You do not use REST/GraphQL HTTP clients compatible with Alice's interceptor adapters."
+    ],
+    "strengths": [
+      "Broad compatibility with popular Dart HTTP clients including Dio, http, Chopper, Retrofit, and GraphQL.",
+      "Rich on-device UI features like interactive JSON/XML viewers, request replay, statistics dashboard, and a floating overlay bubble.",
+      "Capture-time security redaction for sensitive headers and body keys."
+    ],
+    "weaknesses": [
+      "Requires adding client-specific adapter packages and wiring them into each HTTP client instance.",
+      "Increases application size and dependency footprint if many adapters are integrated."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Initialize Alice configuration, pass the navigator key to your MaterialApp, and attach the client-specific adapter (e.g., alice_dio) to your network client.",
+    "alternatives": [
+      {
+        "name": "pretty_dio_logger",
+        "why_pick_it": "If you only use Dio and prefer seeing requests and responses formatted directly in the developer console instead of an on-device UI."
+      },
+      {
+        "name": "talker",
+        "why_pick_it": "If you want a more general-purpose logging and debugging tool that handles exceptions, routing, and block events alongside network traffic."
+      }
+    ],
+    "minimal_example": "final configuration = AliceConfiguration(showOverlayBubble: true);\nfinal alice = Alice(configuration: configuration);\n\nMaterialApp(\n  navigatorKey: alice.getNavigatorKey(),\n  home: Scaffold(...),\n);",
+    "confidence": 1
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.3.4",
+  "generatedAt": "2026-11-07T11:25:07.809Z",
+  "data": {
+    "primary_category": "ui-kits",
+    "secondary_categories": [
+      "widgets",
+      "layout"
+    ],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "A horizontal data table with a fixed column on the left-hand side.",
+    "what_it_does": "Creates a horizontal data table widget that supports a fixed first column (or right-side column in RTL mode), fixed headers and footers, scroll synchronization, and optional pull-to-refresh/load features.",
+    "use_when": [
+      "You need to display tabular data with a locked/fixed first column while scrolling horizontally.",
+      "You require fixed headers or footers alongside a scrollable grid of data.",
+      "You need built-in pull-to-refresh or pull-to-load functionality within a horizontal table."
+    ],
+    "avoid_when": [
+      "You only need a basic vertical-only list or standard Flutter DataTable without horizontal fixed columns.",
+      "You require complex spreadsheet-like editing features built-in out of the box."
+    ],
+    "strengths": [
+      "Provides fixed left/right column capability with synchronized scrolling.",
+      "Supports pull-to-refresh and pull-to-load new data features.",
+      "Allows both index-based builders or direct lists of child widgets."
+    ],
+    "weaknesses": [
+      "Pull-to-refresh implementation requires matching indicator widgets and specific controllers to synchronize properly.",
+      "Customizing scroll physics can sometimes conflict with built-in refresh actions."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "HorizontalDataTable(\n  leftHandSideColumnWidth: 100,\n  rightHandSideColumnWidth: 600,\n  isFixedHeader: true,\n  headerWidgets: _getTitleWidget(),\n  leftSideItemBuilder: _generateFirstColumnRow,\n  rightSideItemBuilder: _generateRightHandSideColumnRow,\n  itemCount: widget.user.userInfo.length,\n)",
+    "confidence": 0.95
+  }
+}

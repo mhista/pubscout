@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.1",
+  "generatedAt": "2026-11-07T11:23:04.674Z",
+  "data": {
+    "primary_category": "ai-ml",
+    "secondary_categories": [
+      "camera"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter plugin to use Google's ML Kit Text Recognition on Android and iOS.",
+    "what_it_does": "A Flutter plugin providing access to Google's ML Kit Text Recognition API. It allows your app to recognize text in Chinese, Devanagari, Japanese, Korean, and Latin character sets from input images.",
+    "use_when": [
+      "You need to extract text from images or camera feeds in mobile applications",
+      "You want on-device text recognition for Chinese, Devanagari, Japanese, Korean, or Latin scripts"
+    ],
+    "avoid_when": [
+      "You need web or desktop support, as it is only built for mobile platforms",
+      "You need complex non-Latin script text recognition natively on iOS without fallback"
+    ],
+    "strengths": [
+      "Uses native Google ML Kit APIs for robust performance",
+      "Supports multiple character scripts including Chinese, Japanese, Korean, Devanagari, and Latin"
+    ],
+    "weaknesses": [
+      "Mobile platforms only (iOS and Android); web and desktop are not supported",
+      "Non-Latin scripts are not yet natively supported on iOS"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires setting minimum iOS deployment target to 15.0, Swift Package Manager setup with linker flags, resource bundles for iOS, and optional Android build.gradle dependencies for specific non-Latin scripts.",
+    "alternatives": [
+      {
+        "name": "google_ml_kit",
+        "why_pick_it": "Provides a comprehensive single package for all ML Kit features instead of separate individual packages."
+      }
+    ],
+    "minimal_example": "final textRecognizer = TextRecognizer(script: TextRecognitionScript.latin);\nfinal RecognizedText recognizedText = await textRecognizer.processImage(inputImage);\nString text = recognizedText.text;\ntextRecognizer.close();",
+    "confidence": 1
+  }
+}

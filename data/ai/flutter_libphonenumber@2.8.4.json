@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.8.4",
+  "generatedAt": "2026-11-08T15:38:02.714Z",
+  "data": {
+    "primary_category": "localization",
+    "secondary_categories": [
+      "forms",
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Synchronous and asynchronous phone number formatting and parsing in Flutter apps.",
+    "what_it_does": "Wraps native libphonenumber libraries (libphonenumber and PhoneNumberKit) to provide formatting, parsing, and real-time masking for phone numbers. It preloads region masks during initialization to allow synchronous number formatting.",
+    "use_when": [
+      "You need to format and validate international phone numbers in forms or text fields.",
+      "You require synchronous phone number formatting to avoid UI jank during typing."
+    ],
+    "avoid_when": [
+      "You need a general-purpose text masking library not specifically meant for phone numbers."
+    ],
+    "strengths": [
+      "Supports synchronous formatting using preloaded masks.",
+      "Provides a TextField input formatter for real-time validation and masking.",
+      "Cross-platform support including Android, iOS, Web, and macOS."
+    ],
+    "weaknesses": [
+      "Requires an explicit `init()` call prior to use or synchronous formatting will fail."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Must call await init() before formatting phone numbers or using text formatters.",
+    "alternatives": [],
+    "minimal_example": "await init();\nfinal rawNumber = '+14145556666';\nfinal formattedNumber = formatNumberSync(rawNumber);",
+    "confidence": 0.95
+  }
+}

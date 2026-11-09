@@ -1,0 +1,37 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.3.0",
+  "generatedAt": "2026-11-07T11:19:09.061Z",
+  "data": {
+    "primary_category": "web-desktop",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Intercept window close events on desktop and web to confirm exiting.",
+    "what_it_does": "Allows your Flutter application to intercept window close requests on Windows, macOS, Linux, and web platforms. It lets you run asynchronous functions such as dialog prompts to confirm if the user really wants to quit, preventing accidental data loss.",
+    "use_when": [
+      "You are building a desktop or web app and need to prompt users before they close the window if they have unsaved work.",
+      "You want to handle WM_CLOSE, windowShouldClose, and delete-event signals seamlessly."
+    ],
+    "avoid_when": [
+      "Your application targets mobile platforms exclusively.",
+      "You have a multi-window macOS app where strict window mapping is required."
+    ],
+    "strengths": [
+      "Simple API to intercept window closing via handlers.",
+      "Supports multiple desktop platforms (Windows, macOS, Linux) and web."
+    ],
+    "weaknesses": [
+      "Limited multi-window support on macOS since it listens to the first window in the application list.",
+      "Web support is limited to the browser's onbeforeunload event limitations."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Not documented",
+    "alternatives": [],
+    "minimal_example": "FlutterWindowClose.setWindowShouldCloseHandler(() async {\n    return await showDialog(\n        context: context,\n        builder: (context) {\n          return AlertDialog(\n          title: const Text('Do you really want to quit?'),\n          actions: [\n            ElevatedButton(\n            onPressed: () => Navigator.of(context).pop(true),\n            child: const Text('Yes')),\n            ElevatedButton(\n            onPressed: () => Navigator.of(context).pop(false),\n            child: const Text('No')),\n          ]);\n        });\n});",
+    "confidence": 1
+  }
+}

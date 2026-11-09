@@ -1,0 +1,46 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.0.1",
+  "generatedAt": "2026-11-07T11:21:07.638Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "localization"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Relative time formatting for Dart and Flutter supporting 22 locales and CLDR plurals.",
+    "what_it_does": "Turns a DateTime into relative text like \"just now\", \"5 minutes ago\", or \"in 3 days\". It runs in both Flutter and plain Dart with an injectable clock and multiple style options.",
+    "use_when": [
+      "You need relative timestamps in feeds, chats, notifications, or logs.",
+      "You require correct CLDR plural rules for multiple languages.",
+      "You need to run relative time formatting in pure Dart outside of Flutter."
+    ],
+    "avoid_when": [
+      "You need calendar phrasing like \"yesterday\" or \"last week\".",
+      "You need multi-unit durations such as \"2 hours 5 minutes\"."
+    ],
+    "strengths": [
+      "Supports 22 locales with CLDR plurals and fallback mechanisms.",
+      "Injectable clock for deterministic tests and server-corrected time.",
+      "Provides nextChange helper for efficient UI refresh scheduling."
+    ],
+    "weaknesses": [
+      "Occitan is restricted to long style due to lack of CLDR data.",
+      "Months are fixed to 30 days and years to 365 days."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "timeago",
+        "why_pick_it": "Wider set of pre-built message files and higher usage community."
+      }
+    ],
+    "minimal_example": "final timeAgo = GetTimeAgo.parse(DateTime.now().subtract(const Duration(minutes: 5)));",
+    "confidence": 1
+  }
+}

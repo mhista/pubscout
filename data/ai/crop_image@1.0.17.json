@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.17",
+  "generatedAt": "2026-11-07T11:03:04.415Z",
+  "data": {
+    "primary_category": "images",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "An image cropper widget written in pure Dart with 90-degree rotation support.",
+    "what_it_does": "Provides a customizable crop image widget that works across mobile, web, and desktop without relying on native mobile cropper packages. Allows programmatic control over crop rectangles, aspect ratios, and rotations.",
+    "use_when": [
+      "You need a cross-platform image cropper widget built entirely in Dart",
+      "You need to customize the appearance of the crop grid, corners, and scrim",
+      "You want to programmatically control aspect ratios, sizes, and rotations"
+    ],
+    "avoid_when": [
+      "You are using Flutter Web with the HTML web renderer and need to call croppedBitmap() (CanvasKit is required)",
+      "You want a fully featured native photo editing UI kit with filters and drawings"
+    ],
+    "strengths": [
+      "Written completely in Dart without external native mobile dependencies",
+      "Supports all platforms supported by Flutter: mobile, web, and desktop",
+      "Offers a CropController for programmatic manipulation of crop and rotation"
+    ],
+    "weaknesses": [
+      "croppedBitmap() and croppedImage() result in an exception on Flutter Web using the HTML web renderer"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [],
+    "minimal_example": "final controller = CropController(\n  aspectRatio: 1,\n  defaultCrop: Rect.fromLTRB(0.1, 0.1, 0.9, 0.9),\n);\n\nCropImage(\n  controller: controller,\n  image: Image.asset('path_to_image.png'),\n);",
+    "confidence": 0.95
+  }
+}

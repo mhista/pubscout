@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.5",
+  "generatedAt": "2026-11-07T11:19:14.498Z",
+  "data": {
+    "primary_category": "layout",
+    "secondary_categories": [
+      "device"
+    ],
+    "approach": [
+      "declarative",
+      "stream-based"
+    ],
+    "one_liner": "iPhone Duo hinge angle, fold posture and fold/camera regions for Flutter.",
+    "what_it_does": "Bridges iPhone Duo hinge angles, fold postures, and display regions to Flutter via a platform channel. Provides widgets and streams to build fold-aware layouts and handle size classes on iOS.",
+    "use_when": [
+      "Building a Flutter app that needs to support the iPhone Duo foldable device",
+      "Reading live hinge angles or fold postures on iOS",
+      "Adapting layouts based on iOS size classes and fold geometry"
+    ],
+    "avoid_when": [
+      "Working exclusively on non-iOS platforms where this package provides no fold data",
+      "Looking for a generic Android folding screen solution which Flutter handles natively"
+    ],
+    "strengths": [
+      "Safe to depend on unconditionally on non-foldable and non-iOS devices",
+      "Provides both stream-based low-level angle access and InheritedModel widget tree integration",
+      "Opt-in MediaQuery display feature bridging to prevent accidental dialog splitting"
+    ],
+    "weaknesses": [
+      "Limited to iOS foldables (specifically iPhone Duo)",
+      "Requires manual Podfile and target adjustments on newer Xcode toolchains"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires raising the iOS deployment target to 15.0 in the Podfile and configuring Xcode build settings for compatibility with newer toolchains.",
+    "alternatives": [],
+    "minimal_example": "FoldableProvider(\n  child: MaterialApp(\n    home: FoldAwareBuilder(\n      builder: (context, constraints, fold) {\n        if (!fold.spansDivision) return const SinglePane();\n        return Row(\n          children: const [Expanded(child: Leading), Expanded(child: Trailing)],\n        );\n      },\n    ),\n  ),\n)",
+    "confidence": 0.95
+  }
+}

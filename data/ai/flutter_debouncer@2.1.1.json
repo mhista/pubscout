@@ -1,0 +1,37 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.1.1",
+  "generatedAt": "2026-11-08T15:57:26.661Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "A Flutter plugin providing debouncing and throttling utilities.",
+    "what_it_does": "A Flutter plugin that simplifies the implementation of debouncing and throttling logic for user interactions such as button presses and text input changes. It provides dedicated Debouncer and Throttler classes to manage execution timing.",
+    "use_when": [
+      "You need to limit the rate at which a function is called, such as handling search text input.",
+      "You want to prevent multiple rapid button clicks from triggering duplicate actions."
+    ],
+    "avoid_when": [
+      "You are looking for a complete state management solution.",
+      "You need reactive streams or asynchronous utilities already covered by core Dart packages."
+    ],
+    "strengths": [
+      "Simple API with named parameters for debouncing and throttling.",
+      "Supports custom behavior types like leading-edge execution."
+    ],
+    "weaknesses": [
+      "Limited to basic timer-based debouncing and throttling.",
+      "GPL-3.0 license may not suit all projects."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "final Debouncer _debouncer = Debouncer();\n\nvoid _handleTextFieldChange(String value) {\n  const duration = Duration(milliseconds: 500);\n  _debouncer.debounce(\n    duration: duration,\n    onDebounce: () {\n      setState(() {\n        debouncedText = value;\n      });\n    },\n  );\n}",
+    "confidence": 0.95
+  }
+}

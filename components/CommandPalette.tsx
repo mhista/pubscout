@@ -131,7 +131,17 @@ export function CommandPalette() {
         </div>
         <div ref={listRef} id="palette-list" role="listbox" className="max-h-[min(60vh,440px)] overflow-y-auto p-2">
           {!index && <p className="px-3 py-6 text-sm text-muted">Loading packages…</p>}
-          {index && !items.length && <p className="px-3 py-6 text-sm text-body">Nothing matches by name. Describe what you need and press Enter to let AI find it.</p>}
+          {index && !items.length && (
+            <div className="px-3 py-6 text-sm text-body">
+              <p>Nothing matches by name. Describe what you need and press Enter to let AI find it.</p>
+              {/^[a-z][a-z0-9_]{1,63}$/.test(q.trim().toLowerCase()) && (
+                <p className="mt-2">
+                  Looking for a specific package?{" "}
+                  <a href={`/request?name=${encodeURIComponent(q.trim().toLowerCase())}`} className="link">Request <span className="font-mono">{q.trim().toLowerCase()}</span></a>
+                </p>
+              )}
+            </div>
+          )}
           {groups.map(({ g, list }) => (
             <div key={g} className="mb-1">
               <p className="px-3 pb-1 pt-2 text-xs font-medium text-muted">{g}</p>

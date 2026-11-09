@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "7.1.0",
+  "generatedAt": "2026-11-08T15:59:33.480Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "files"
+    ],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "Flutter plugin for over-the-air updates, downloading and installing APKs on Android.",
+    "what_it_does": "Provides over-the-air (OTA) updates for Android by downloading the file with progress reporting and triggering app installation intents. Also supports a PackageInstaller method and silent updates for system apps.",
+    "use_when": [
+      "You need to implement in-app self-updates (OTA) for Android applications.",
+      "You need download progress reporting during the update file retrieval.",
+      "You are building system apps, kiosk apps, or custom Android ROMs requiring silent installation."
+    ],
+    "avoid_when": [
+      "You are publishing primarily through official stores like Google Play which handle updates automatically.",
+      "You need fully functional iOS OTA updates out of the box (iOS safari redirection is currently not functioning)."
+    ],
+    "strengths": [
+      "Supports download progress reporting via streams.",
+      "Supports SHA-256 checksum verification to ensure file integrity.",
+      "Supports silent installation for system apps."
+    ],
+    "weaknesses": [
+      "iOS support is currently not functioning.",
+      "Requires manual setup of Android permissions, FileProvider, and core library desugaring."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires enabling core library desugaring in build.gradle, adding AndroidManifest permissions, FileProvider, and InstallResultReceiver.",
+    "alternatives": [],
+    "minimal_example": "OtaUpdate().execute('https://internal1.4q.sk/flutter_hello_world.apk', destinationFilename: 'flutter_hello_world.apk').listen((OtaEvent event) { setState(() => currentEvent = event); });",
+    "confidence": 0.95
+  }
+}

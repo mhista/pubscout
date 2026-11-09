@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.6.1",
+  "generatedAt": "2026-11-07T11:20:05.662Z",
+  "data": {
+    "primary_category": "auth",
+    "secondary_categories": [
+      "utils",
+      "networking"
+    ],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "Token refresh library exposing core components for custom OAuth2 and auth refresh implementations.",
+    "what_it_does": "Provides core components like FreshMixin and TokenStorage to handle token lifecycle management, token refresh deduplication, and stream-based authentication status. It is designed to be used when building custom token refresh integrations for HTTP clients like package:http.",
+    "use_when": [
+      "You are building a custom auth refresh integration for package:http or another non-Dio client.",
+      "You need centralized single-flight token refresh coordination to prevent concurrent refresh calls.",
+      "You want stream-based tracking of authentication status (initial, authenticated, unauthenticated)."
+    ],
+    "avoid_when": [
+      "You are using the dio HTTP client (use fresh_dio instead).",
+      "You are using GraphQL with gql_link (use fresh_graphql instead)."
+    ],
+    "strengths": [
+      "Handles single-flight refresh coordination automatically so concurrent refresh attempts share one in-flight operation.",
+      "Provides token storage abstractions and standard OAuth2 token classes.",
+      "Stream-based authentication status monitoring."
+    ],
+    "weaknesses": [
+      "Requires manual implementation for custom HTTP clients compared to ready-made integration packages.",
+      "Most users must use separate integration packages (fresh_dio or fresh_graphql) rather than package:fresh directly."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [],
+    "minimal_example": "class MyHttpFresh extends MyHttpClient with FreshMixin<OAuth2Token> {\n  MyHttpFresh({required TokenStorage<OAuth2Token> tokenStorage}) {\n    this.tokenStorage = tokenStorage;\n  }\n\n  @override\n  Future<OAuth2Token> performTokenRefresh(OAuth2Token? token) async {\n    final response = await post('/auth/refresh', body: {'refresh_token': token?.refreshToken});\n    return OAuth2Token(\n      accessToken: response['access_token'],\n      refreshToken: response['refresh_token'],\n    );\n  }\n}",
+    "confidence": 0.95
+  }
+}

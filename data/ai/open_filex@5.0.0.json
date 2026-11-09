@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "5.0.0",
+  "generatedAt": "2026-11-08T15:24:30.756Z",
+  "data": {
+    "primary_category": "files",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Plugin to open files via native apps, returning a string result",
+    "what_it_does": "open_filex lets a Flutter app launch the appropriate native application to open a file and returns the result as a string. It supports iOS, Android, desktop (via ffi) and web.",
+    "use_when": [
+      "You need to open a file with the default system app",
+      "You want a simple cross‑platform solution without writing platform code",
+      "You need to get a result string from the opened app"
+    ],
+    "avoid_when": [
+      "You need to edit or read the file contents within Flutter",
+      "You require fine‑grained file handling or custom file pickers"
+    ],
+    "strengths": [
+      "Cross‑platform support (iOS, Android, desktop, web)",
+      "No extra dependencies beyond flutter and ffi",
+      "Handles platform‑specific permissions and FileProvider setup"
+    ],
+    "weaknesses": [
+      "Requires native configuration on Android (FileProvider)",
+      "iOS deployment target must be 13.0 or higher",
+      "No built‑in file picking or editing features"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add Android FileProvider XML and manifest entries; bump iOS deployment target to 13.0; no build_runner needed",
+    "alternatives": [],
+    "minimal_example": "import 'package:open_filex/open_filex.dart';\n\nOpenFilex.open(\"/sdcard/example.txt\");",
+    "confidence": 0.9
+  }
+}

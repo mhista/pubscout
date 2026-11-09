@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.0.2",
+  "generatedAt": "2026-11-07T11:08:06.104Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "A Server-Sent Events client for Dart and Flutter with auto-reconnection.",
+    "what_it_does": "Handles connection, parsing, and data management for Server-Sent Events (SSE) streams in Dart and Flutter. It supports auto-reconnection with backoff, interceptors, mid-flight request aborts, and web platform integration.",
+    "use_when": [
+      "Your application needs to consume a Server-Sent Events (SSE) stream from a backend",
+      "You require automatic reconnection logic with exponential or linear backoff",
+      "You need web support for SSE streams with CORS and custom headers"
+    ],
+    "avoid_when": [
+      "Your backend uses traditional REST requests without streaming",
+      "You are building a real-time bidirectional feature that strictly requires WebSockets instead of server-to-client streaming"
+    ],
+    "strengths": [
+      "WHATWG SSE spec-compliant parsing with lastEventId and retry support",
+      "Built-in auto-reconnection with exponential and linear backoff, jitter, and max backoff capping",
+      "Supports interceptors, mid-flight aborts, and idle timeout detection"
+    ],
+    "weaknesses": [
+      "Limited primarily to Server-Sent Events rather than full WebSocket bidirectional messaging",
+      "Requires webConfig setup specifically on the web platform"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires Dart SDK >=3.4.0 and Flutter >=3.0.0. On web, requires passing a WebConfig instance to the connect method.",
+    "alternatives": [],
+    "minimal_example": "import 'package:eventflux/eventflux.dart';\n\nvoid main() {\n  EventFlux.instance.connect(\n    EventFluxConnectionType.get,\n    'https://example.com/events',\n    onSuccessCallback: (EventFluxResponse? response) {\n      response?.stream?.listen((EventFluxData data) {\n        print('Event: ${data.event}');\n        print('Data: ${data.data}');\n      });\n    },\n  );\n}",
+    "confidence": 0.95
+  }
+}

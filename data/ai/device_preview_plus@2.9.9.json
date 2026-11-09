@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "2.9.9",
+  "generatedAt": "2026-11-07T11:06:17.583Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Simulates how a Flutter app looks and behaves on various devices and configurations.",
+    "what_it_does": "Provides a widget that wraps your app to emulate different screen sizes, orientations, locales, and system settings. It keeps the app state and offers plugin hooks for screenshots and file exploration.",
+    "use_when": [
+      "Testing UI on multiple device form factors without physical devices",
+      "Demonstrating app appearance to stakeholders during development"
+    ],
+    "avoid_when": [
+      "Need precise performance metrics from real hardware",
+      "Testing platform-specific native features"
+    ],
+    "strengths": [
+      "Fast visual feedback across many device profiles",
+      "Keeps app state while switching devices",
+      "Extensible via plugins"
+    ],
+    "weaknesses": [
+      "Cannot replace testing on actual devices for performance or native behavior",
+      "Limited to UI simulation, not full device capabilities"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:device_preview_plus/device_preview_plus.dart';\n\nvoid main() => runApp(\n  DevicePreview(\n    enabled: !kReleaseMode,\n    builder: (context) => MyApp(),\n  ),\n);\n\nclass MyApp extends StatelessWidget {\n  @override\n  Widget build(BuildContext context) {\n    return MaterialApp(\n      useInheritedMediaQuery: true,\n      locale: DevicePreview.locale(context),\n      builder: DevicePreview.appBuilder,\n      home: const Scaffold(body: Center(child: Text('Hello'))),\n    );\n  }\n}\n",
+    "confidence": 0.87
+  }
+}

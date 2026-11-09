@@ -1,0 +1,37 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.3.0",
+  "generatedAt": "2026-11-08T15:38:08.447Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "A Flutter plugin providing access to NFC features on Android and iOS.",
+    "what_it_does": "Allows Flutter apps to check NFC availability, start and stop NFC sessions, and interact with various NFC tags and card types across Android and iOS platforms.",
+    "use_when": [
+      "Building an app that needs to read or write NFC tags",
+      "Integrating Near Field Communication features on both Android and iOS"
+    ],
+    "avoid_when": [
+      "You do not need hardware-level device features like NFC",
+      "You only need barcode or QR scanning (use camera instead)"
+    ],
+    "strengths": [
+      "Cross-platform support for both Android and iOS",
+      "Provides platform-specific and abstract tag classes"
+    ],
+    "weaknesses": [
+      "Requires manual native permission configuration for Android and iOS",
+      "Breaking changes between major versions require code updates"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding NFC permissions and entries to AndroidManifest.xml and Info.plist/Entitlements for iOS.",
+    "alternatives": [],
+    "minimal_example": "NfcAvailability availability = await NfcManager.instance.checkAvailability();\n\nNfcManager.instance.startSession(\n  onDiscovered: (NfcTag tag) async {\n    print(tag);\n    await NfcManager.instance.stopSession();\n  },\n);",
+    "confidence": 1
+  }
+}

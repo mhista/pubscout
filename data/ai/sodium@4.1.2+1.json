@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.1.2+1",
+  "generatedAt": "2026-11-08T15:55:20.249Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Dart bindings for the libsodium cryptographic library for Dart-VM and Web.",
+    "what_it_does": "Provides an easy-to-use Dart API that mirrors the native libsodium C API, supporting secret-key cryptography, public-key signatures, hashing, random data generation, and more. Works on Android, iOS, Linux, Windows, macOS, and Web.",
+    "use_when": [
+      "You need robust, high-performance cryptographic operations (encryption, hashing, digital signatures) in your Dart or Flutter app.",
+      "You need cross-platform cryptographic support for both native platforms and the web."
+    ],
+    "avoid_when": [
+      "You only need simple base64 or basic hashing functions that are already covered by standard Dart libraries like `dart:convert` or `crypto` without native binary dependencies.",
+      "You want a purely pure-Dart implementation of cryptographic primitives without relying on native compilation or WASM/JS bundling."
+    ],
+    "strengths": [
+      "Supports all major platforms including Dart-VM and Web.",
+      "Leverages native build hooks to build native dependencies on demand.",
+      "Provides SecureKey wrappers for managing sensitive material in memory securely."
+    ],
+    "weaknesses": [
+      "Requires proper cleanup (disposing of `SecureKey` instances) to avoid memory leaks.",
+      "Web deployment requires manually downloading and adding the `sodium.js` script to your project via helper commands."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add the dependency to pubspec.yaml. For web targets, you must run `dart run sodium:update_web` to download and integrate `sodium.js`. Native platforms build dependencies automatically using build hooks.",
+    "alternatives": [],
+    "minimal_example": "import 'package:sodium/sodium.dart';\n\nfinal sodium = await SodiumInit.init();\nfinal nonce = sodium.randombytes.buf(sodium.crypto.secretBox.nonceBytes);\nfinal key = sodium.crypto.secretBox.keygen();\nkey.dispose();",
+    "confidence": 0.95
+  }
+}

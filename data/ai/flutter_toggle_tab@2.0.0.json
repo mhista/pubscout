@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.0",
+  "generatedAt": "2026-11-07T11:18:19.515Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "ui-kits",
+      "forms"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A customisable toggle tab widget for Flutter with animated selection and adaptive widths.",
+    "what_it_does": "Provides a toggle tab widget supporting text, icons, and counter widgets. It features animated indicators, gradients, custom margins, and adaptive widths.",
+    "use_when": [
+      "You need a segmented control or toggle tab widget to switch between different views.",
+      "You require customizable tab indicators with animations, icons, or badges."
+    ],
+    "avoid_when": [
+      "You need a complex tab navigation system with page views or multiple full screens (use Flutter's default TabBar instead).",
+      "Your application is using legacy material imports and hasn't upgraded to Flutter 3.47 and the standalone material_ui package."
+    ],
+    "strengths": [
+      "Supports adaptive widths, icons, badges, and gradient backgrounds.",
+      "Includes animated selection indicators with customizable duration and curves.",
+      "Uses local ValueNotifier state management for optimized rebuilding."
+    ],
+    "weaknesses": [
+      "Requires Flutter 3.47+ and Dart 3.13+, which may be too new for older projects.",
+      "Depends on the standalone material_ui package."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add flutter_toggle_tab and material_ui to pubspec.yaml and ensure Flutter 3.47+ requirements are met.",
+    "alternatives": [],
+    "minimal_example": "ValueListenableBuilder<int>(\n  valueListenable: selectedIndex,\n  builder: (context, currentIndex, _) => FlutterToggleTab(\n    width: 90,\n    borderRadius: 30,\n    dataTabs: [\n      DataTab(title: 'Popular'),\n      DataTab(title: 'Recent'),\n    ],\n    selectedIndex: currentIndex,\n    selectedLabelIndex: (index) => selectedIndex.value = index,\n  ),\n)",
+    "confidence": 1
+  }
+}

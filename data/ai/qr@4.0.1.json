@@ -1,0 +1,50 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "4.0.1",
+  "generatedAt": "2026-11-08T15:20:21.194Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "A pure‑Dart library for generating QR code data and image matrices.",
+    "what_it_does": "It creates QR code payloads with configurable error correction and ECI support, then produces a module matrix that can be rendered manually. The API is immutable and works on all Dart platforms.",
+    "use_when": [
+      "You need to generate QR codes in pure Dart or Flutter without a ready‑made widget",
+      "You want full control over rendering the QR modules yourself",
+      "You require ECI (Extended Channel Interpretation) or custom payload building"
+    ],
+    "avoid_when": [
+      "You need a ready‑made Flutter widget for QR display",
+      "You need QR scanning functionality"
+    ],
+    "strengths": [
+      "Supports all QR versions (1‑40) and error‑correction levels",
+      "ECI support for multi‑language payloads",
+      "Pure Dart, works on all platforms",
+      "Immutable API reduces bugs"
+    ],
+    "weaknesses": [
+      "No built‑in Flutter widget, you must render the matrix yourself",
+      "Breaking API changes in recent major versions",
+      "Requires Dart SDK ^3.13.0"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "qr_flutter",
+        "why_pick_it": "Provides a ready‑made Flutter widget to render QR codes directly"
+      },
+      {
+        "name": "pretty_qr_code",
+        "why_pick_it": "Offers a customizable Flutter widget with additional styling options"
+      }
+    ],
+    "minimal_example": "import 'package:qr/qr.dart';\n\nfinal qrCode = QrCode(\n  payload: QrPayload.fromString('Hello, world in QR form!'),\n  errorCorrectLevel: QrErrorCorrectLevel.low,\n);\nfinal qrImage = QrImage(qrCode);\n// Render qrImage.moduleCount x qrImage.moduleCount matrix as needed",
+    "confidence": 0.95
+  }
+}

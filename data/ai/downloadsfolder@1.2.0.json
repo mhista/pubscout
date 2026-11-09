@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.2.0",
+  "generatedAt": "2026-11-08T16:05:21.126Z",
+  "data": {
+    "primary_category": "files",
+    "secondary_categories": [
+      "device"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Retrieve download folder paths and copy files into downloads on mobile and desktop.",
+    "what_it_does": "Retrieves the path to the platform's downloads directory, copies files into the download folder with unique names, and opens the download folder in the system's file explorer. Supports Android, iOS, Windows, macOS, and Linux.",
+    "use_when": [
+      "You need to save downloaded files directly to the device's downloads folder.",
+      "You need to open the system downloads folder from your Flutter application."
+    ],
+    "avoid_when": [
+      "You are looking for a general file picker dialog (use file_picker instead).",
+      "You want to manage app-specific temporary or document storage (use path_provider instead)."
+    ],
+    "strengths": [
+      "Supports cross-platform download folder path retrieval and opening.",
+      "Handles unique file naming automatically when copying files to avoid overwrites.",
+      "Bypasses MANAGE_EXTERNAL_STORAGE restrictions on Android 29+ using MediaStore."
+    ],
+    "weaknesses": [
+      "Does not manage write permissions automatically as of version 1.2.0 (requires manual handling).",
+      "Requires platform-specific configuration for iOS and macOS (entitlements and Info.plist keys)."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires Android permission configurations for older SDKs, Info.plist updates for iOS, and entitlements configuration for macOS.",
+    "alternatives": [
+      {
+        "name": "path_provider",
+        "why_pick_it": "If you only need standard application directories like temporary or documents directories without specific download folder integrations."
+      },
+      {
+        "name": "file_picker",
+        "why_pick_it": "If your main requirement is letting users pick files or save files via native dialogs."
+      }
+    ],
+    "minimal_example": "import 'package:downloadsfolder/downloadsfolder.dart';\n\nvoid main() async {\n  try {\n    Directory downloadDirectory = await getDownloadDirectory();\n    print('Downloads folder path: ${downloadDirectory.path}');\n  } catch (e) {\n    print('Failed to retrieve downloads folder path $e');\n  }\n}",
+    "confidence": 1
+  }
+}

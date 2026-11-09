@@ -1,0 +1,48 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.1",
+  "generatedAt": "2026-11-07T11:23:04.696Z",
+  "data": {
+    "primary_category": "ai-ml",
+    "secondary_categories": [
+      "localization"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter plugin for Google's ML Kit On-Device Translation.",
+    "what_it_does": "A Flutter plugin that uses Google's ML Kit On-Device Translation to dynamically translate text between more than 50 languages. It provides APIs to run translation locally on the device and manage the required language models.",
+    "use_when": [
+      "You need offline or on-device text translation between multiple languages.",
+      "You want to avoid sending sensitive user text to a remote translation API."
+    ],
+    "avoid_when": [
+      "You need translation support on the web platform.",
+      "You want an easy Dart-only localization solution for static app strings."
+    ],
+    "strengths": [
+      "Performs translation entirely on-device without needing internet connectivity during runtime.",
+      "Supports over 50 languages using native Google ML Kit APIs."
+    ],
+    "weaknesses": [
+      "Does not support the web platform.",
+      "Requires manual native configuration and model management."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires minimum iOS deployment target 15.0 with Swift Package Manager setup, linker flags (-ObjC, -all_load), and downloading MLKitTranslate_resource.bundle. Android requires minSdkVersion 21 and compileSdkVersion 36.",
+    "alternatives": [
+      {
+        "name": "intl",
+        "why_pick_it": "For static app localization and message formatting without heavy on-device machine learning models."
+      },
+      {
+        "name": "flutter_localization",
+        "why_pick_it": "For built-in Flutter localization support across different locales."
+      }
+    ],
+    "minimal_example": "final onDeviceTranslator = OnDeviceTranslator(sourceLanguage: TranslateLanguage.english, targetLanguage: TranslateLanguage.spanish);\nfinal String response = await onDeviceTranslator.translateText('Hello world');\nonDeviceTranslator.close();",
+    "confidence": 0.95
+  }
+}

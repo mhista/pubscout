@@ -1,0 +1,46 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.9.1",
+  "generatedAt": "2026-11-07T11:11:41.592Z",
+  "data": {
+    "primary_category": "images",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Widget that displays a BlurHash placeholder and transitions to the real image",
+    "what_it_does": "It decodes a BlurHash string into a blurred image and shows it while the actual image loads. Once loaded it fades to the real image.",
+    "use_when": [
+      "You need a lightweight placeholder for network images",
+      "You want a quick visual cue before image download completes"
+    ],
+    "avoid_when": [
+      "You need to encode images into BlurHash",
+      "You require custom image processing beyond decoding"
+    ],
+    "strengths": [
+      "Pure Dart implementation, no native dependencies",
+      "Supports multiple optimization modes for performance",
+      "Works on all Flutter platforms (web, mobile, desktop)"
+    ],
+    "weaknesses": [
+      "No encoding support",
+      "Performance can be slower in standard mode",
+      "Limited to BlurHash only"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dependency to pubspec and import package",
+    "alternatives": [
+      {
+        "name": "cached_network_image",
+        "why_pick_it": "Provides caching, placeholder, and error handling for network images, but not BlurHash decoding"
+      }
+    ],
+    "minimal_example": "```dart\nBlurHash(hash: \"L5H2EC=PM+yV0g-mq.wG9c010J}I\", optimizationMode: BlurHashOptimizationMode.approximation),\n```",
+    "confidence": 0.85
+  }
+}

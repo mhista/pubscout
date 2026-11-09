@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "5.8.1",
+  "generatedAt": "2026-11-08T15:21:27.720Z",
+  "data": {
+    "primary_category": "testing",
+    "secondary_categories": [],
+    "approach": [
+      "code generation"
+    ],
+    "one_liner": "A mock framework inspired by Mockito with APIs for Fakes, Mocks, behavior verification, and stubbing.",
+    "what_it_does": "Provides APIs to create mock and fake classes for testing Dart and Flutter applications. It supports behavior verification, method stubbing, argument matchers, and code generation for null-safe classes.",
+    "use_when": [
+      "You need to test classes that depend on external services or complex dependencies.",
+      "You want to verify interactions, arguments, and call orders on mocked objects."
+    ],
+    "avoid_when": [
+      "You can easily construct real instances or tested fake implementations for your tests.",
+      "You prefer runtime-only mocking libraries that do not require build_runner."
+    ],
+    "strengths": [
+      "Robust behavior verification and stubbing features.",
+      "Supports null safety and generates nice mocks to avoid runtime type exceptions."
+    ],
+    "weaknesses": [
+      "Requires running build_runner for code generation.",
+      "Has an awkward syntax requirement for naming arguments within argument matchers."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add build_runner to dev_dependencies and run `dart run build_runner build` to generate mock classes.",
+    "alternatives": [
+      {
+        "name": "mocktail",
+        "why_pick_it": "If you want a mock framework with similar features to Mockito but without the need for code generation."
+      }
+    ],
+    "minimal_example": "import 'package:mockito/annotations.dart';\nimport 'package:mockito/mockito.dart';\n\n@GenerateNiceMocks([MockSpec<Cat>()])\nimport 'cat_test.mocks.dart';\n\nclass Cat {\n  String sound() => \"Meow\";\n}\n\nvoid main() {\n  var cat = MockCat();\n  when(cat.sound()).thenReturn(\"Purr\");\n  expect(cat.sound(), \"Purr\");\n}",
+    "confidence": 1
+  }
+}

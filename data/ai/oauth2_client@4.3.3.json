@@ -1,0 +1,50 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.3.3",
+  "generatedAt": "2026-11-08T15:49:45.724Z",
+  "data": {
+    "primary_category": "auth",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter library for interacting with OAuth2 servers and handling token flows.",
+    "what_it_does": "It provides classes for interacting with various OAuth2 providers (like Google, Facebook, GitHub, etc.) or custom servers. It supports Authorization Code, Client Credentials, and Implicit Grant flows, along with secure token storage and automatic token refreshing.",
+    "use_when": [
+      "You need to authenticate users via third-party OAuth2 providers like Google, Facebook, or GitHub.",
+      "You are integrating with a custom OAuth2 authorization server in your Flutter app.",
+      "You want automatic token refreshing and secure token persistence for HTTP requests."
+    ],
+    "avoid_when": [
+      "You only want to use Firebase Authentication or Supabase Auth which handle their own flows.",
+      "You want a zero-setup out-of-the-box solution without managing custom URL schemes or redirect URIs."
+    ],
+    "strengths": [
+      "Supports multiple popular predefined providers (Google, GitHub, Facebook, etc.).",
+      "Helper class handles secure storage and automatic token refreshing out of the box.",
+      "Supports custom OAuth2 servers and multiple grant types."
+    ],
+    "weaknesses": [
+      "Requires platform-specific configuration for custom URL schemes and intent filters.",
+      "Web support requires custom JavaScript snippet for the postMessage authorization flow."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding a custom URL scheme in AndroidManifest.xml and configuring build.gradle (minSdkVersion 23) and iOS Podfile (platform >= 11.0).",
+    "alternatives": [
+      {
+        "name": "flutter_appauth",
+        "why_pick_it": "If you prefer using native AppAuth wrapper libraries for authentication flows."
+      },
+      {
+        "name": "google_sign_in",
+        "why_pick_it": "If you specifically and exclusively need Google Sign-In with an official Google-maintained package."
+      }
+    ],
+    "minimal_example": "import 'package:oauth2_client/oauth2_helper.dart';\nimport 'package:oauth2_client/google_oauth2_client.dart';\n\nGoogleOAuth2Client client = GoogleOAuth2Client(\n  customUriScheme: 'my.test.app',\n  redirectUri: 'my.test.app:/oauth2redirect',\n);\n\nOAuth2Helper oauth2Helper = OAuth2Helper(client,\n  grantType: OAuth2Helper.authorizationCode,\n  clientId: 'your_client_id',\n  clientSecret: 'your_client_secret',\n  scopes: ['https://www.googleapis.com/auth/drive.readonly']);",
+    "confidence": 0.95
+  }
+}

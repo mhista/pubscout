@@ -1,0 +1,36 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.0.1",
+  "generatedAt": "2026-11-08T15:46:02.793Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Dart STOMP client for messaging interoperability in Flutter and Dart applications.",
+    "what_it_does": "Provides a full STOMP client implementation that connects to remote servers via WebSockets or SockJS. It allows applications to send messages, subscribe to destinations, and handle acks/nacks.",
+    "use_when": [
+      "You need to connect a Flutter or Dart application to a STOMP-compatible messaging broker.",
+      "You require SockJS support over standard WebSockets."
+    ],
+    "avoid_when": [
+      "You are communicating with standard REST or GraphQL APIs rather than a STOMP message broker."
+    ],
+    "strengths": [
+      "Supports both pure Dart and Flutter across multiple platforms.",
+      "Includes configuration options for heartbeats, reconnection delays, and SockJS compatibility."
+    ],
+    "weaknesses": [
+      "Browser-based clients cannot provide custom WebSocket headers due to platform constraints."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "StompClient client = StompClient(\n    config: StompConfig(\n        url: 'wss://yourserver',\n        onConnect: (StompFrame connectFrame) {\n            client.subscribe(destination: '/foo/bar', headers: {}, callback: (frame) {\n                print(frame.body);\n            });\n        }\n    )\n);\nclient.activate();",
+    "confidence": 1
+  }
+}

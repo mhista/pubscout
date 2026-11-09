@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.5",
+  "generatedAt": "2026-11-08T15:19:42.806Z",
+  "data": {
+    "primary_category": "backend",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "A shelf handler for proxying HTTP requests to another server.",
+    "what_it_does": "Provides a Shelf handler that proxies incoming HTTP requests to an external server. It can be served directly as a standalone proxy server or mounted within a larger Shelf application to proxy specific URLs.",
+    "use_when": [
+      "You are building a backend server using Shelf and need to proxy requests to an external server.",
+      "You want to mount a proxy handler for specific URLs within a larger Shelf application."
+    ],
+    "avoid_when": [
+      "You are not using Shelf for your backend routing.",
+      "You need a full-featured API gateway with complex routing rules and transformation capabilities beyond simple proxying."
+    ],
+    "strengths": [
+      "Integrates seamlessly with the Shelf ecosystem.",
+      "Can be used standalone or mounted within larger applications.",
+      "Correctly handles multiple Cookie and Set-Cookie headers."
+    ],
+    "weaknesses": [
+      "Limited to Shelf-based applications.",
+      "Basic proxying capabilities without advanced middleware features built-in."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [],
+    "minimal_example": "import 'package:shelf/shelf_io.dart' as shelf_io;\nimport 'package:shelf_proxy/shelf_proxy.dart';\n\nvoid main() async {\n  var server = await shelf_io.serve(\n    proxyHandler(\"https://dart.dev\"),\n    'localhost',\n    8080,\n  );\n\n  print('Proxying at http://${server.address.host}:${server.port}');\n}",
+    "confidence": 1
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.4.0",
+  "generatedAt": "2026-11-07T11:25:13.102Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "devtools"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Automatic hot code reloader for Dart projects that applies file changes to the running process.",
+    "what_it_does": "Monitors the source files of a Dart project on the local file system for changes. Automatically applies code changes to the running Dart process using the Dart VM's hot reload capabilities.",
+    "use_when": [
+      "You want to enable hot reload for non-Flutter Dart projects (such as command-line tools or servers).",
+      "You want faster iteration cycles during backend or CLI Dart development."
+    ],
+    "avoid_when": [
+      "You are building standard Flutter apps, which already have built-in hot reload support.",
+      "Running in production environments."
+    ],
+    "strengths": [
+      "Automates hot reloading for plain Dart processes.",
+      "Supports watching dependencies based on package graph and monorepos.",
+      "Configurable debounce intervals and hooks for before and after reload."
+    ],
+    "weaknesses": [
+      "Requires the Dart VM service to be enabled via command-line flags.",
+      "Development-only utility not intended for production usage."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add hotreloader as a dev dependency and start your Dart program with the --enable-vm-service flag.",
+    "alternatives": [],
+    "minimal_example": "import 'package:hotreloader/hotreloader.dart';\n\nFuture<void> main(List<String> args) async {\n  final reloader = await HotReloader.create();\n  // your code\n  reloader.stop();\n}",
+    "confidence": 0.95
+  }
+}

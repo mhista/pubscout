@@ -1,0 +1,50 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "1.1.0",
+  "generatedAt": "2026-11-07T11:10:02.864Z",
+  "data": {
+    "primary_category": "files",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter plugin for opening, saving, and selecting directories with native file dialogs",
+    "what_it_does": "Provides APIs to open single or multiple files, get save locations, and pick directories across Android, iOS, macOS, Linux, Windows, and Web. It uses platform-specific implementations to show native file pickers.",
+    "use_when": [
+      "Need to let users pick files or directories in a Flutter app",
+      "Require cross-platform file selection without custom UI",
+      "Need to save files to user-selected locations"
+    ],
+    "avoid_when": [
+      "You only need to read/write files programmatically without user interaction",
+      "You need advanced file system monitoring or watching"
+    ],
+    "strengths": [
+      "Cross-platform native dialogs",
+      "Supports filtering by extensions, MIME types, and UTIs",
+      "Offers directory selection and save location APIs",
+      "Regularly updated with SDK support changes"
+    ],
+    "weaknesses": [
+      "No support for iOS <12 or Android <SDK21",
+      "Requires platform-specific entitlements on macOS",
+      "No built-in file watching or monitoring"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add platform-specific entitlements on macOS for read/write access; include plugin in pubspec; no build_runner needed",
+    "alternatives": [
+      {
+        "name": "file_picker",
+        "why_pick_it": "Provides similar file selection but with different API surface and may support more platforms"
+      },
+      {
+        "name": "path_provider",
+        "why_pick_it": "Useful for getting platform directories but does not provide file dialogs"
+      }
+    ],
+    "minimal_example": "final XFile? file = await openFile(acceptedTypeGroups: [XTypeGroup(label: 'images', extensions: ['jpg','png'])]);",
+    "confidence": 0.92
+  }
+}

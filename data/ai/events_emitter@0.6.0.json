@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.6.0",
+  "generatedAt": "2026-11-08T15:44:28.589Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "An intuitive event-based system inspired by NodeJS's Event Emitter with type safety.",
+    "what_it_does": "Provides an event-based system with type safety, allowing multiple data types for events. It supports both callbacks and streams through EventEmitter and StreamEventEmitter, and can be extended to create custom event emitters.",
+    "use_when": [
+      "You want a NodeJS-style event emitter in Dart or Flutter",
+      "You need type-safe event handling where multiple data types share an event type",
+      "You want to use both callbacks and streams for managing events"
+    ],
+    "avoid_when": [
+      "You already use a state management solution that covers your event communication needs",
+      "You prefer built-in StreamControllers without external abstractions"
+    ],
+    "strengths": [
+      "Type-safe events allowing different data types on the same event type",
+      "Supports both callbacks and streams",
+      "Extensible classes to create custom event emitters and events"
+    ],
+    "weaknesses": [
+      "Can introduce event-driven architectural complexity if overused in a UI codebase"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "final events = EventEmitter();\n\nevents.on('message', (String data) => print('String: $data'));\nevents.on('message', (int data) => print('Integer: $data'));\n\nevents.emit('message', 'Hello World');\nevents.emit('message', 42);",
+    "confidence": 1
+  }
+}

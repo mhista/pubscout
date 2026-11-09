@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.0",
+  "generatedAt": "2026-11-08T15:25:27.353Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "Pass a reactive data model down the widget tree and rebuild descendants when it updates.",
+    "what_it_does": "Provides a Model class and ScopedModel widgets that allow developers to pass state down the widget tree. Descendant widgets automatically rebuild when the model notifies listeners of changes.",
+    "use_when": [
+      "You want simple state management without complex boilerplate",
+      "You need to pass models down to specific descendants and rebuild them on changes"
+    ],
+    "avoid_when": [
+      "You are building a massive application that requires a robust scalable architecture",
+      "You prefer modern state management solutions with built-in dependency injection"
+    ],
+    "strengths": [
+      "Very simple and lightweight",
+      "Easy to learn and understand for basic state management",
+      "Built on standard Flutter InheritedWidgets"
+    ],
+    "weaknesses": [
+      "Lacks advanced state management patterns",
+      "Can lead to deeply nested ScopedModel widgets in large apps"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [],
+    "minimal_example": "class CounterModel extends Model {\n  int _counter = 0;\n  int get counter => _counter;\n  void increment() {\n    _counter++;\n    notifyListeners();\n  }\n}\n\nclass CounterApp extends StatelessWidget {\n  @override\n  Widget build(BuildContext context) {\n    return ScopedModel<CounterModel>(\n      model: CounterModel(),\n      child: ScopedModelDescendant<CounterModel>(\n        builder: (context, child, model) => Text('${model.counter}'),\n      ),\n    );\n  }\n}",
+    "confidence": 1
+  }
+}

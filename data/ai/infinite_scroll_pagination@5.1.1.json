@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "5.1.1",
+  "generatedAt": "2026-11-07T11:26:29.155Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Lazily load and display pages of items as the user scrolls down your screen.",
+    "what_it_does": "Provides out-of-the-box Sliver and standard List and Grid widgets that automatically fetch and display new pages of data as the user scrolls. It manages pagination state and supports custom error, progress, and empty indicators.",
+    "use_when": [
+      "You need to implement infinite scrolling or lazy loading pagination for lists and grids.",
+      "You want an architecture-agnostic pagination controller that works with any state management solution."
+    ],
+    "avoid_when": [
+      "Your entire dataset easily fits in memory and does not need to be loaded in pages.",
+      "You are not using Flutter widgets or scrolling views."
+    ],
+    "strengths": [
+      "Architecture-agnostic and API-agnostic, works with any backend and state management approach.",
+      "Includes layout widgets for lists, grids, and masonry layouts out of the box.",
+      "Highly customizable indicators and extensible design."
+    ],
+    "weaknesses": [
+      "Requires manual configuration of page keys and fetching logic.",
+      "Major version updates can introduce breaking changes to controller and state APIs."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "class ListViewScreen extends StatefulWidget {\n  const ListViewScreen({super.key});\n\n  @override\n  State<ListViewScreen> createState() => _ListViewScreenState();\n}\n\nclass _ListViewScreenState extends State<ListViewScreen> {\n  late final _pagingController = PagingController<int, Photo>(\n    getNextPageKey: (state) => state.lastPageIsEmpty ? null : state.nextIntPageKey,\n    fetchPage: (pageKey) => RemoteApi.getPhotos(pageKey),\n  );\n\n  @override\n  void dispose() {\n    _pagingController.dispose();\n    super.dispose();\n  }\n\n  @override\n  Widget build(BuildContext context) => PagingListener(\n    controller: _pagingController,\n    builder: (context, state, fetchNextPage) => PagedListView<int, Photo>(\n      state: state,\n      fetchNextPage: fetchNextPage,\n      builderDelegate: PagedChildBuilderDelegate(\n        itemBuilder: (context, item, index) => ImageListTile(item: item),\n      ),\n    ),\n  );\n}",
+    "confidence": 1
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.3.0",
+  "generatedAt": "2026-11-08T15:19:39.020Z",
+  "data": {
+    "primary_category": "files",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Windows implementation of the path_provider plugin",
+    "what_it_does": "Provides a Windows platform implementation for retrieving commonly used locations on the filesystem, such as temporary and documents directories. It is an endorsed federated plugin that works transparently through the main path_provider package.",
+    "use_when": [
+      "You are developing a Flutter application for Windows and need access to standard filesystem directories",
+      "You are using the path_provider package in a multiplatform app that targets Windows"
+    ],
+    "avoid_when": [
+      "Your application does not target the Windows platform",
+      "You need custom file picking or saving dialogs instead of standard application directories"
+    ],
+    "strengths": [
+      "Automatically included when using the main path_provider package due to endorsement",
+      "Uses direct FFI usage for Windows integration"
+    ],
+    "weaknesses": [
+      "Limited specifically to the Windows platform implementation"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "This package is endorsed, meaning it will be automatically included when using path_provider normally. You only need to add it to pubspec.yaml if you import it directly.",
+    "alternatives": [
+      {
+        "name": "path_provider",
+        "why_pick_it": "The main federated package that automatically delegates to this platform-specific implementation."
+      }
+    ],
+    "minimal_example": "import 'package:path_provider/path_provider.dart';\n\nFuture<void> _testPath() async {\n  final directory = await getApplicationDocumentsPath();\n}",
+    "confidence": 0.95
+  }
+}

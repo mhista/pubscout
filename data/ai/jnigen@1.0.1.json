@@ -1,0 +1,37 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.1",
+  "generatedAt": "2026-11-08T15:43:52.556Z",
+  "data": {
+    "primary_category": "codegen",
+    "secondary_categories": [],
+    "approach": [
+      "code generation"
+    ],
+    "one_liner": "A Dart bindings generator for Java and Kotlin APIs using JNI and dart:ffi.",
+    "what_it_does": "JNIgen scans compiled JAR files or Java source files to generate Dart bindings. The generated Dart code communicates with C bindings that call Java functions via the Java Native Interface (JNI).",
+    "use_when": [
+      "You need to call custom Java or Kotlin APIs from a Flutter or Dart application on Android or desktop platforms.",
+      "You want automated generation of type-safe Dart wrappers around Java classes and methods."
+    ],
+    "avoid_when": [
+      "You are writing a pure Dart app without JVM dependencies.",
+      "You do not have a JDK installed or configured for your build environment."
+    ],
+    "strengths": [
+      "Automates tedious FFI boilerplate for Java/Kotlin interop.",
+      "Supports Gradle and Android SDK dependencies out of the box."
+    ],
+    "weaknesses": [
+      "Requires manual configuration and a working JDK environment.",
+      "Class and symbol resolution can fail at runtime if ProGuard prunes classes on Android."
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Requires a JDK (Java 17 to 21), CMake, and a C toolchain. For non-Android targets, manual JVM spawning via Jni.spawn is required.",
+    "alternatives": [],
+    "minimal_example": "import 'package:jnigen/jnigen.dart';\n\nvoid main(List<String> args) async {\n  final generator = JniGenerator(\n    input: Input(\n      classes: ['com.example.MyClass'],\n    ),\n    output: Output(\n      dart: DartOutput(\n        path: Uri.parse('lib/src/generated_bindings.dart'),\n      ),\n    ),\n  );\n  await generator.generate();\n}",
+    "confidence": 1
+  }
+}

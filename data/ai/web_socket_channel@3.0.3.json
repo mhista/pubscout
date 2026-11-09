@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "3.0.3",
+  "generatedAt": "2026-11-07T16:25:18.161Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [],
+    "approach": [
+      "stream-based"
+    ],
+    "one_liner": "Cross‑platform WebSocket channel wrapper for Dart",
+    "what_it_does": "Provides a unified WebSocketChannel API that works on Android, iOS, web, and desktop. It wraps platform‑specific WebSocket implementations and exposes a StreamChannel interface with ready, protocol, and close details.",
+    "use_when": [
+      "You need a WebSocket connection that works on both mobile and web",
+      "You prefer a Stream‑based API over callbacks",
+      "You want to customize the underlying HttpClient or set a connect timeout"
+    ],
+    "avoid_when": [
+      "You only need simple HTTP requests",
+      "You need advanced features like automatic reconnection or message framing",
+      "You are building a server‑side WebSocket handler"
+    ],
+    "strengths": [
+      "Cross‑platform support (mobile, web, desktop)",
+      "Stream‑based API with ready and close details",
+      "Customizable HttpClient and connect timeout",
+      "Supports WebSocket status codes via status.dart"
+    ],
+    "weaknesses": [
+      "No built‑in reconnection logic",
+      "Limited to WebSocket only, no higher‑level protocols",
+      "Requires Dart 3.3+"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:web_socket_channel/web_socket_channel.dart';\nimport 'package:web_socket_channel/status.dart' as status;\n\nvoid main() async {\n  final wsUrl = Uri.parse('ws://example.com');\n  final channel = WebSocketChannel.connect(wsUrl);\n  await channel.ready;\n  channel.stream.listen((message) {\n    channel.sink.add('received!');\n    channel.sink.close(status.goingAway);\n  });\n}",
+    "confidence": 0.9
+  }
+}

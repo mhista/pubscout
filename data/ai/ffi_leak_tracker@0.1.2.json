@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.1.2",
+  "generatedAt": "2026-11-08T15:20:08.346Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "devtools"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Tracks and detects native memory leaks in Dart FFI allocations.",
+    "what_it_does": "It records every allocation made through its custom allocators, storing size, type, call stack, and timestamp. You can then assert that all memory has been freed or inspect live allocations programmatically.",
+    "use_when": [
+      "Debugging FFI memory usage",
+      "Testing for leaks in unit or integration tests",
+      "Diagnosing production memory leaks in debug builds"
+    ],
+    "avoid_when": [
+      "When you need zero runtime overhead in release builds, although adaptive allocators compile away"
+    ],
+    "strengths": [
+      "Zero overhead in release builds via adaptive allocators",
+      "Zone‑scoped tracking for isolated tests",
+      "Simple API with global or zone enable/disable"
+    ],
+    "weaknesses": [
+      "Only tracks FFI allocations, not Dart heap allocations",
+      "Requires Dart SDK 3.10 or newer"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'dart:ffi';\nimport 'package:ffi_leak_tracker/ffi_leak_tracker.dart';\n\nvoid main() {\n  LeakTracker.enableInDebug();\n  final ptr = adaptiveCalloc<Int32>();\n  LeakTracker.verifyNoLeaksInDebug();\n}",
+    "confidence": 0.9
+  }
+}

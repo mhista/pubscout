@@ -1,0 +1,37 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "2.0.6",
+  "generatedAt": "2026-11-08T15:19:23.463Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "A Dart library that parses and renders Mustache templates.",
+    "what_it_does": "It parses Mustache template strings into Template objects and can render them with provided data maps. Supports strict and lenient modes, partials, lambdas, and HTML escaping control.",
+    "use_when": [
+      "You need server‑side or client‑side text generation using the Mustache syntax.",
+      "You want a pure‑Dart solution without external dependencies."
+    ],
+    "avoid_when": [
+      "You require a full UI widget library or state‑management solution.",
+      "You need a template engine with built‑in HTML sanitization beyond simple escaping."
+    ],
+    "strengths": [
+      "Zero external dependencies and pure Dart implementation.",
+      "Supports Mustache spec, partials, lambdas, and both strict and lenient modes."
+    ],
+    "weaknesses": [
+      "Only handles text templating; no integration with UI frameworks.",
+      "Limited to Mustache features; no advanced templating extensions."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "const source = '''\n{{# names }}\n  <div>{{ lastname }}, {{ firstname }}</div>\n{{/ names }}\n{{^ names }}\n  <div>No names.</div>\n{{/ names }}\n{{! I am a comment. }}\n''';\nfinal template = Template(source, name: 'example');\nfinal output = template.renderString({\n  'names': [\n    {'firstname': 'Greg', 'lastname': 'Lowe'},\n    {'firstname': 'Bob', 'lastname': 'Johnson'},\n  ],\n});",
+    "confidence": 0.9
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.11.0",
+  "generatedAt": "2026-11-07T11:15:14.416Z",
+  "data": {
+    "primary_category": "maps",
+    "secondary_categories": [
+      "animation"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Animation utilities for markers and controls of the flutter_map package.",
+    "what_it_does": "Provides animated controllers and marker layers for flutter_map, allowing smooth zoom, rotation, and center transitions as well as animated markers.",
+    "use_when": [
+      "You are using flutter_map and need smooth animated transitions for map controllers and markers.",
+      "You want to animate map movements like rotation, zooming, and centering on points."
+    ],
+    "avoid_when": [
+      "You are using Google Maps instead of flutter_map.",
+      "You do not need any animations or custom animated markers on your maps."
+    ],
+    "strengths": [
+      "Simplifies animated movements for flutter_map.",
+      "Provides AnimatedMarkerLayer for animating individual markers easily."
+    ],
+    "weaknesses": [
+      "Strictly tied to the flutter_map ecosystem."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "requires flutter_map and latlong2 dependencies as part of your flutter_map setup",
+    "alternatives": [],
+    "minimal_example": "class _MyWidgetState extends State<MyWidget> with TickerProviderStateMixin {\n    late final _animatedMapController = AnimatedMapController(vsync: this);\n\n    @override\n    Widget build(BuildContext context) {\n        return FlutterMap(\n            mapController: _animatedMapController.mapController,\n            children: [\n                TileLayer(\n                    urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',\n                    userAgentPackageName: 'com.example.app',\n                ),\n            ],\n        );\n    }\n}",
+    "confidence": 1
+  }
+}

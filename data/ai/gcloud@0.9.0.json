@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.9.0",
+  "generatedAt": "2026-11-08T15:25:08.304Z",
+  "data": {
+    "primary_category": "backend",
+    "secondary_categories": [
+      "storage"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "High-level Dart API for Google Cloud Storage, Pub/Sub, and Datastore.",
+    "what_it_does": "Provides an idiomatic Dart interface to interact with Google Cloud Platform services such as Cloud Datastore, Cloud Storage, and Cloud Pub/Sub. It simplifies tasks like managing NoSQL entities, uploading and reading files in buckets, and handling asynchronous messaging.",
+    "use_when": [
+      "You are building a Dart server-side or command-line application that communicates with Google Cloud Platform.",
+      "You need to interact with Google Cloud Storage, Cloud Datastore, or Cloud Pub/Sub using Dart."
+    ],
+    "avoid_when": [
+      "You are writing client-side code running in the browser or in a Flutter application.",
+      "You need a production-ready package without the risk of experimental API changes."
+    ],
+    "strengths": [
+      "Provides high-level idiomatic bindings for major GCP services in Dart.",
+      "Integrates with the `appengine` package and service scopes for server applications."
+    ],
+    "weaknesses": [
+      "Currently marked as experimental with a high expected rate of breaking changes.",
+      "Not supported on the web or in Flutter applications."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires service account credentials from a Google Cloud Project and appropriate environment variables or configuration files.",
+    "alternatives": [],
+    "minimal_example": "var jsonCredentials = new File('my-project.json').readAsStringSync();\nvar credentials = new auth.ServiceAccountCredentials.fromJson(jsonCredentials);\nvar scopes = []\n    ..addAll(datastore.Datastore.Scopes)\n    ..addAll(Storage.SCOPES)\n    ..addAll(PubSub.SCOPES);\nvar client = await auth.clientViaServiceAccount(credentials, scopes);\nvar storage = new Storage(client, 'my-project');\nvar bucket = await storage.createBucket('my-bucket');",
+    "confidence": 0.95
+  }
+}

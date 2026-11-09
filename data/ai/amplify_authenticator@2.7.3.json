@@ -1,0 +1,57 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "2.7.3",
+  "generatedAt": "2026-11-07T10:55:03.948Z",
+  "data": {
+    "primary_category": "auth",
+    "secondary_categories": [
+      "ui-kits",
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Prebuilt, customizable sign‑in/sign‑up UI for Amplify Auth in Flutter.",
+    "what_it_does": "Provides an Authenticator widget that handles the full authentication flow, including sign‑in, sign‑up, password reset, and social sign‑in. It manages session state and offers built‑in autofill support.",
+    "use_when": [
+      "You need a ready‑made authentication UI for Amplify Cognito",
+      "You want to reduce boilerplate for auth flows in a Flutter app",
+      "You require cross‑platform support (mobile, web, desktop)"
+    ],
+    "avoid_when": [
+      "You need a completely custom UI design beyond the provided customization options",
+      "You are not using Amplify as your backend"
+    ],
+    "strengths": [
+      "Zero‑code auth flow integration",
+      "Cross‑platform out of the box",
+      "Built‑in autofill and accessibility support",
+      "Handles session management automatically"
+    ],
+    "weaknesses": [
+      "Tied to Amplify backend only",
+      "Limited to the styling/customization offered by the package",
+      "May add bundle size overhead"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add amplify_auth_cognito, amplify_flutter and amplify_authenticator to pubspec, call Amplify.addPlugin(AmplifyAuthCognito()) and Amplify.configure() before using Authenticator widget.",
+    "alternatives": [
+      {
+        "name": "amplify_auth_cognito",
+        "why_pick_it": "If you prefer building your own UI on top of the low‑level Cognito plugin"
+      },
+      {
+        "name": "firebase_auth",
+        "why_pick_it": "When using Firebase as the backend instead of Amplify"
+      },
+      {
+        "name": "google_sign_in",
+        "why_pick_it": "For simple Google sign‑in without the full Amplify stack"
+      }
+    ],
+    "minimal_example": "import 'package:amplify_authenticator/amplify_authenticator.dart';\nimport 'package:flutter/material.dart';\n\nvoid main() => runApp(const MyApp());\n\nclass MyApp extends StatelessWidget {\n  const MyApp({Key? key}) : super(key: key);\n  @override\n  Widget build(BuildContext context) {\n    return Authenticator(\n      child: MaterialApp(\n        builder: Authenticator.builder(),\n        home: const Scaffold(body: Center(child: Text('Logged In'))),\n      ),\n    );\n  }\n}",
+    "confidence": 0.97
+  }
+}

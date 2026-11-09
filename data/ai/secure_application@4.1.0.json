@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.1.0",
+  "generatedAt": "2026-11-08T16:01:26.738Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [
+      "utils",
+      "device"
+    ],
+    "approach": [
+      "declarative",
+      "stream-based"
+    ],
+    "one_liner": "Hides app content in the app switcher and displays a frost barrier when returning to the app.",
+    "what_it_does": "Protects application content visibility when the user leaves the app or switches apps. It hides content in the task switcher and displays a customizable blur or frost barrier above locked content until unlocked.",
+    "use_when": [
+      "You are building apps with sensitive data (like banking or personal records) that need to be hidden in the app switcher.",
+      "You want to trigger biometric or custom authentication flows when the user returns to the app."
+    ],
+    "avoid_when": [
+      "You only need local storage encryption without UI visibility handling.",
+      "You do not target mobile platforms or web/windows where app visibility states apply."
+    ],
+    "strengths": [
+      "Supports multiple platforms including Android, iOS, web, and Windows.",
+      "Provides streams for authentication and lock events to easily hook into app lifecycle security."
+    ],
+    "weaknesses": [
+      "Requires manual implementation of authentication UI and logic (does not bundle biometrics out of the box).",
+      "Platform-specific behaviors like FLAG_SECURE on Android automatically block screenshots."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "No special permissions documented beyond standard plugin integration.",
+    "alternatives": [],
+    "minimal_example": "SecureApplication(\n  onNeedUnlock: (secure) => secure.unlock(),\n  child: SecureGate(\n    blurr: 5,\n    lockedBuilder: (context, secureNotifier) => Center(\n      child: RaisedButton(\n        child: Text('Unlock'),\n        onPressed: () => secureNotifier.unlock(),\n      ),\n    ),\n    child: YouProtectedWidget(),\n  ),\n)",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.5.0",
+  "generatedAt": "2026-11-07T11:12:03.715Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [
+      "images",
+      "files"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Generic cache manager for saving web files and cache info on device storage.",
+    "what_it_does": "Downloads and caches web files in the device's storage directory, utilizing HTTP Cache-Control headers for efficient retrieval. It tracks cache info using sqflite on supported platforms and JSON elsewhere, and supports automatic cleanup based on age and count.",
+    "use_when": [
+      "You need to download files or images from the web and cache them locally.",
+      "You want automatic cache eviction based on file age and maximum item counts."
+    ],
+    "avoid_when": [
+      "You only need local key-value persistence without downloading web files.",
+      "You require a complex relational database management system for local data."
+    ],
+    "strengths": [
+      "Efficient handling of Cache-Control headers and ETags.",
+      "Built-in support for image resizing via ImageCacheManager.",
+      "Customizable cache keys, file services, and storage systems."
+    ],
+    "weaknesses": [
+      "Creating multiple cache managers with the same key can cause conflicts.",
+      "Stale cache cleanups depend on background processes and OS-level storage clearing."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "var file = await DefaultCacheManager().getSingleFile(url);",
+    "confidence": 0.95
+  }
+}

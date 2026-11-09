@@ -1,0 +1,53 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.1",
+  "generatedAt": "2026-11-07T11:23:09.207Z",
+  "data": {
+    "primary_category": "ai-ml",
+    "secondary_categories": [
+      "camera",
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Umbrella Flutter plugin for Google's standalone ML Kit APIs.",
+    "what_it_does": "Groups multiple Vision, Natural Language, and GenAI standalone ML Kit plugins under a single package. It allows Flutter applications to use Google's on-device machine learning capabilities via platform channels. Note that the documentation advises depending on individual packages rather than this umbrella package in production.",
+    "use_when": [
+      "You want to quickly prototype multiple ML Kit features during early development.",
+      "You need on-device machine learning features like barcode scanning, face detection, or text recognition."
+    ],
+    "avoid_when": [
+      "You are building a production app (the README explicitly states: DO NOT USE google_ml_kit in a production app; instead, depend directly on individual plugin packages).",
+      "You want to avoid increasing your app size with unused ML dependencies.",
+      "You need web or non-mobile platforms support."
+    ],
+    "strengths": [
+      "Provides a single convenient package to access a wide array of ML Kit features during prototyping.",
+      "Covers multiple domains including Vision, Natural Language, and GenAI APIs.",
+      "Supports both Android and iOS platforms for most features."
+    ],
+    "weaknesses": [
+      "Significantly increases app size because it includes all exported plugins and dependencies.",
+      "Not recommended for production use, requiring manual migration to individual packages later.",
+      "GenAI features have limited Android device compatibility and lack iOS support."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires mobile configuration for Android and iOS. GenAI APIs require devices with AICore support. iOS minimum deployment target is 15.0.",
+    "alternatives": [
+      {
+        "name": "google_mlkit_text_recognition",
+        "why_pick_it": "Pick individual standalone plugins instead of the umbrella package to avoid bloated app sizes in production."
+      },
+      {
+        "name": "google_mlkit_selfie_segmentation",
+        "why_pick_it": "Allows targeting a specific standalone ML Kit feature rather than pulling in all vision, natural language, and GenAI packages."
+      }
+    ],
+    "minimal_example": "not documented",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "7.4.5",
+  "generatedAt": "2026-11-08T15:52:13.533Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "codegen"
+    ],
+    "approach": [
+      "code generation",
+      "stream-based"
+    ],
+    "one_liner": "Multithreading and worker thread pools for Dart and Flutter using Isolates and Web Workers.",
+    "what_it_does": "Squadron provides persistent worker pools and an abstraction layer to offload CPU-bound and heavy I/O tasks to background threads across platforms (Native Isolates and Web Workers). It handles type safety, task cancellation, streaming return types, and exception marshalling via code generation.",
+    "use_when": [
+      "You need to offload CPU-intensive tasks from the main thread without blocking UI performance.",
+      "You need persistent worker pools that stay alive across multiple tasks rather than spawning new isolates repeatedly.",
+      "You target both native (Dart VM) and browser platforms with a uniform multithreading API."
+    ],
+    "avoid_when": [
+      "Your app only requires simple one-off background tasks where `Isolate.run()` is sufficient and lightweight.",
+      "You want to avoid using code generation steps during development."
+    ],
+    "strengths": [
+      "Cross-platform support for native Isolates and Web Workers (JS & WASM).",
+      "Persistent worker pools for handling frequent tasks efficiently.",
+      "Type-safe proxy generation and native Stream support from workers."
+    ],
+    "weaknesses": [
+      "Requires code generation (`build_runner` and `squadron_builder`).",
+      "Requires manual worker lifecycle management (must call `stop()` to clean up background threads)."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add squadron to dependencies and squadron_builder / build_runner to dev_dependencies. Run build_runner to generate workers, and compile workers to JS/WASM for web targets.",
+    "alternatives": [],
+    "minimal_example": "import 'hello_world.dart';\n\nvoid main() async {\n  final worker = HelloWorldWorker();\n  try {\n    final message = await worker.hello('Squadron');\n    print(message);\n  } finally {\n    worker.stop();\n  }\n}",
+    "confidence": 1
+  }
+}

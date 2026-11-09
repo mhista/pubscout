@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.3.8",
+  "generatedAt": "2026-11-08T15:25:02.379Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "layout"
+    ],
+    "approach": [
+      "declarative",
+      "imperative"
+    ],
+    "one_liner": "A Flutter list with helper methods to programmatically scroll to an item.",
+    "what_it_does": "Provides a list widget that works similarly to ListView.builder but allows programmatic scrolling or jumping to specific items by index. It also helps determine which items are currently visible on the screen.",
+    "use_when": [
+      "You need to programmatically scroll or jump to a specific item index in a long list.",
+      "You need to track and monitor which items are currently visible in the viewport."
+    ],
+    "avoid_when": [
+      "You only need a standard ListView without programmatic scrolling to arbitrary indices."
+    ],
+    "strengths": [
+      "Allows smooth scrolling or direct jumping to specific item indices.",
+      "Provides listeners to track visible items on screen."
+    ],
+    "weaknesses": [
+      "Some newer features like offset listening are currently experimental and subject to bugs."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "final ItemScrollController itemScrollController = ItemScrollController();\nfinal ItemPositionsListener itemPositionsListener = ItemPositionsListener.create();\n\nScrollablePositionedList.builder(\n  itemCount: 500,\n  itemBuilder: (context, index) => Text('Item $index'),\n  itemScrollController: itemScrollController,\n  itemPositionsListener: itemPositionsListener,\n);",
+    "confidence": 0.95
+  }
+}

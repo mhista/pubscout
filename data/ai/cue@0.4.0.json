@@ -1,0 +1,48 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.4.0",
+  "generatedAt": "2026-11-07T11:03:57.345Z",
+  "data": {
+    "primary_category": "animation",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Physics-first Flutter animations with a composable, timeline-driven API",
+    "what_it_does": "Provides a composable, timeline-driven API for physics-based and keyframed animations in Flutter without wiring imperative controllers through the widget tree. It separates triggers, actors, effects, and motions to create smooth transitions, state animations, and scroll-driven effects.",
+    "use_when": [
+      "You want physics-based or spring animations without boilerplate animation controllers.",
+      "You need timeline-driven or scroll-driven UI motion in your Flutter app.",
+      "You want to organize complex UI animations into declarative actors, acts, and cues."
+    ],
+    "avoid_when": [
+      "You are loading and rendering pre-compiled complex vector animations from external files (like Lottie).",
+      "You only need basic built-in implicit widgets and do not require timeline or physics configuration."
+    ],
+    "strengths": [
+      "Clean separation between triggers, targets, effects, and motion curves.",
+      "Supports diverse trigger patterns including mounting, scrolling, hovering, and focusing.",
+      "Reduces controller boilerplate compared to standard AnimationController setups."
+    ],
+    "weaknesses": [
+      "Requires learning a custom API and set of building blocks (Cues, Actors, Acts).",
+      "Actors throw an error if used without an ancestor Cue."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "flutter_animate",
+        "why_pick_it": "If you prefer a simpler fluent extension-based API for quick chaining of widget animations."
+      },
+      {
+        "name": "lottie",
+        "why_pick_it": "If you need to render complex designer-created vector animations exported from After Effects."
+      }
+    ],
+    "minimal_example": "Cue.onMount(\n  motion: .smooth(),\n  child: Actor(\n    acts: [\n      .fadeIn(),\n      .slideY(from: 0.2),\n      .scale(from: 0.96),\n    ],\n    child: const Text('Hello Cue'),\n  ),\n)",
+    "confidence": 0.95
+  }
+}

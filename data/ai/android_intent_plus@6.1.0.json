@@ -1,0 +1,37 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "6.1.0",
+  "generatedAt": "2026-11-07T10:55:38.261Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter plugin for launching arbitrary Android intents.",
+    "what_it_does": "Allows Flutter apps to launch Android intents by specifying actions, categories, data, and extra arguments. It also provides methods to query whether an activity can handle a given intent.",
+    "use_when": [
+      "You need to launch custom Android intents or set extra parameters not supported by generic URL launchers.",
+      "You need to query whether an Android activity can handle a specific intent."
+    ],
+    "avoid_when": [
+      "You are targeting iOS (the plugin crashes on iOS).",
+      "Simple URL launching or deep linking is all you need and url_launcher suffices."
+    ],
+    "strengths": [
+      "Enables full power of Android intents including actions, categories, and custom extras bundles.",
+      "Supports checking and resolving activities that handle specific intents."
+    ],
+    "weaknesses": [
+      "Android-only; not supported on iOS and will crash if invoked there.",
+      "Does not support returning the result of the launched activity."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires ensuring platform is Android before invocation and configuring package visibility queries in AndroidManifest.xml if using query methods.",
+    "alternatives": [],
+    "minimal_example": "if (platform.isAndroid) {\n  AndroidIntent intent = AndroidIntent(\n      action: 'action_view',\n      data: 'https://play.google.com/store/apps/details?id=com.google.android.apps.myapp',\n  );\n  await intent.launch();\n}",
+    "confidence": 1
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.9.1",
+  "generatedAt": "2026-11-07T11:06:13.927Z",
+  "data": {
+    "primary_category": "localization",
+    "secondary_categories": [
+      "device"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Extract locales currently defined on the device independently of app settings.",
+    "what_it_does": "Extracts the preferred languages and current device locale data directly from the underlying operating system. It allows reading language lists as strings or Flutter Locale objects and supports per-app language preferences on Android.",
+    "use_when": [
+      "You need to detect the device's system-level preferred languages and current locale.",
+      "You are implementing an in-app language picker that interacts with Android per-app language preferences."
+    ],
+    "avoid_when": [
+      "You are looking for translation management, plural rules, or locale-aware formatting utilities.",
+      "Targeting Linux where standard preferred language APIs are absent and it falls back to current locale."
+    ],
+    "strengths": [
+      "Supports multiple platforms including Android, iOS, web, macOS, and Linux.",
+      "Provides both string-based and Flutter Locale object return types.",
+      "Supports Android per-app language preferences."
+    ],
+    "weaknesses": [
+      "Linux and POSIX environments lack a standard API for preferred languages, returning only the current locale.",
+      "Requires platform-specific considerations for SwiftPM on older local Xcode setups."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "No complex configuration required beyond standard Flutter plugin installation. Android per-app language setting requires device support checks.",
+    "alternatives": [],
+    "minimal_example": "import 'package:devicelocale/devicelocale.dart';\n\nList languages = await Devicelocale.preferredLanguages;\nString locale = await Devicelocale.currentLocale;",
+    "confidence": 0.95
+  }
+}

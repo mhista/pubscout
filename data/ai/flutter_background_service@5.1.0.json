@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "5.1.0",
+  "generatedAt": "2026-11-08T15:36:43.809Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "A Flutter plugin for executing continuous Dart code even when the application is closed.",
+    "what_it_does": "Executes background tasks in a separate isolate on Android and iOS. Allows persistent execution through foreground services on Android and background fetch on iOS. Facilitates communication between the UI and background service via message invocation and streams.",
+    "use_when": [
+      "You need to continuously sync data with a server or run a socket connection in the background.",
+      "You need to run timed background tasks even after the app is closed."
+    ],
+    "avoid_when": [
+      "You only need local or push notification delivery.",
+      "You expect instant and continuous high-frequency execution on iOS without restrictions."
+    ],
+    "strengths": [
+      "Enables continuous background Dart execution on Android and iOS.",
+      "Provides a simple event/stream communication bridge between UI and background isolates."
+    ],
+    "weaknesses": [
+      "iOS background execution is heavily restricted by the OS (periodic background fetch only, lasting 15-30 seconds).",
+      "Requires platform-specific setup, permissions, and handling of OS battery optimizations."
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Requires modifying AndroidManifest.xml, gradle configurations, and iOS Info.plist or AppDelegate.swift. Must handle foreground service permissions and battery optimization settings.",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter_background_service/flutter_background_service.dart';\n\nFuture<void> initializeService() async {\n  final service = FlutterBackgroundService();\n  await service.configure(\n    androidConfiguration: AndroidConfiguration(\n      onStart: onStart,\n      autoStart: true,\n      isForegroundMode: true,\n    ),\n    iosConfiguration: IosConfiguration(\n      autoStart: true,\n      onForeground: onStart,\n    ),\n  );\n}",
+    "confidence": 1
+  }
+}

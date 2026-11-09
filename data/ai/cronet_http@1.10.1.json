@@ -1,0 +1,47 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.10.1",
+  "generatedAt": "2026-11-07T11:03:04.499Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "An Android Flutter plugin providing access to the Cronet HTTP client.",
+    "what_it_does": "Provides an Android Flutter plugin that accesses the Cronet HTTP client, supporting features like HTTP/3, configurable caching, and Android HTTP proxies.",
+    "use_when": [
+      "You need advanced Android HTTP features like HTTP/3 or configurable caching.",
+      "You want to use the package:http Client interface with Cronet on Android."
+    ],
+    "avoid_when": [
+      "You are targeting platforms other than Android.",
+      "You prefer the default socket-based dart:io HttpClient."
+    ],
+    "strengths": [
+      "Automatically supports Android platform features such as HTTP proxies.",
+      "Supports configurable caching.",
+      "Supports more HTTP features such as HTTP/3."
+    ],
+    "weaknesses": [
+      "Android-only plugin.",
+      "Depends on Google Play Services by default unless configured for embedded Cronet."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Can optionally use embedded Cronet without Google Play Services by setting the dart-define `cronetHttpNoPlay=true`.",
+    "alternatives": [
+      {
+        "name": "http",
+        "why_pick_it": "For a standard cross-platform HTTP client without Android-specific Cronet engine configuration."
+      },
+      {
+        "name": "dio",
+        "why_pick_it": "For a powerful HTTP client with interceptors, global configuration, and form data support."
+      }
+    ],
+    "minimal_example": "import 'package:cronet_http/cronet_http.dart';\nimport 'package:http/http.dart';\nimport 'package:http/io_client.dart';\n\nvoid main() async {\n  final Client httpClient;\n  if (Platform.isAndroid) {\n    final engine = CronetEngine.build(\n        cacheMode: CacheMode.memory,\n        cacheMaxSize: 2 * 1024 * 1024,\n        userAgent: 'Package Client');\n    httpClient = CronetClient.fromCronetEngine(engine, closeEngine: true);\n  } else {\n    httpClient = IOClient(HttpClient()..userAgent = 'Package Client');\n  }\n\n  final response = await httpClient.get(\n    Uri.https('pub.dev', '/api/packages/cronet_http/score'),\n  );\n  httpClient.close();\n}",
+    "confidence": 1
+  }
+}

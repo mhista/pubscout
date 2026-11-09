@@ -2,6 +2,7 @@ import Link from "next/link";
 import { SITE } from "@/lib/site";
 import { getCatalog } from "@/lib/catalog";
 import { ago } from "@/lib/format";
+import { SupportBlurb } from "./SupportButton";
 
 export function Footer() {
   const c = getCatalog();
@@ -22,12 +23,14 @@ export function Footer() {
           <li><Link href="/categories" className="hover:text-ink">Categories</Link></li>
           <li><Link href="/compare" className="hover:text-ink">Compare</Link></li>
           <li><Link href="/about" className="hover:text-ink">How scoring works</Link></li>
+          <li><Link href="/request" className="hover:text-ink">Request a package</Link></li>
         </ul>
         <ul className="space-y-2">
+          {SITE.support.href && <li><a href={SITE.support.href} target="_blank" rel="noopener" className="hover:text-ink">{SITE.support.label}</a></li>}
           <li><a href={SITE.repo} className="hover:text-ink">Source on GitHub</a></li>
           <li><a href="https://pub.dev" className="hover:text-ink">pub.dev</a></li>
           <li>
-            Built and managed by <a href={SITE.credit.href} className="text-ink hover:text-cobalt">{SITE.credit.label}</a>
+            Built by <a href={SITE.credit.href} className="text-ink hover:text-cobalt">{SITE.credit.label}</a>
           </li>
         </ul>
       </div>

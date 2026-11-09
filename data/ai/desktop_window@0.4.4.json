@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.4.4",
+  "generatedAt": "2026-11-08T15:41:12.978Z",
+  "data": {
+    "primary_category": "web-desktop",
+    "secondary_categories": [
+      "device"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter desktop plugin to get and change window size.",
+    "what_it_does": "Allows Flutter apps running on macOS, Linux, and Windows to retrieve and modify the current window size, set min/max constraints, toggle full screen, control window borders, and focus the window.",
+    "use_when": [
+      "You need to manage window dimensions and states in a desktop Flutter application.",
+      "You need to programmatically toggle full screen or borders on desktop platforms."
+    ],
+    "avoid_when": [
+      "You are building exclusively for mobile or web platforms where window sizing APIs are unsupported or irrelevant.",
+      "You need deep system tray management or multiple window creation rather than simple size adjustment."
+    ],
+    "strengths": [
+      "Supports all three major desktop platforms (macOS, Linux, Windows).",
+      "Simple and straightforward API for window size, borders, and full-screen state."
+    ],
+    "weaknesses": [
+      "Limited to window size and basic states; does not provide advanced window management features like tray icons or multi-window orchestration.",
+      "Platform-specific behaviors depend heavily on underlying native implementation."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires configuring appropriate environment constraints like Flutter >=3.41.0 and Dart >=3.11.0.",
+    "alternatives": [],
+    "minimal_example": "import 'package:desktop_window/desktop_window.dart';\n\nFuture testWindowFunctions() async {\n    Size size = await DesktopWindow.getWindowSize();\n    print(size);\n    await DesktopWindow.setWindowSize(Size(500,500));\n}",
+    "confidence": 0.95
+  }
+}

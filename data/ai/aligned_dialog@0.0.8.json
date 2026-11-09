@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.0.8",
+  "generatedAt": "2026-11-07T10:54:42.697Z",
+  "data": {
+    "primary_category": "navigation",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Show dialogs and drawers aligned with specific target widgets or the screen.",
+    "what_it_does": "Allows developers to open dialogs and drawers aligned relative to an associated widget using anchor points, rather than forcing them to the center of the screen. It supports overflow prevention, custom transitions, and global screen alignment.",
+    "use_when": [
+      "You need to show a contextual popup menu or dialog directly next to a button or widget on large screens.",
+      "You want to display a global drawer or globally aligned dialog within safe areas."
+    ],
+    "avoid_when": [
+      "You only need standard centered Material dialogs.",
+      "You want a fully declarative navigation or widget-based routing approach."
+    ],
+    "strengths": [
+      "Provides precise control over dialog placement using follower and target anchors.",
+      "Supports overflow prevention to keep dialogs inside the screen bounds.",
+      "Includes global drawer and global alignment options."
+    ],
+    "weaknesses": [
+      "Relies on imperative function calls rather than a widget-based approach.",
+      "Limited to dialog and drawer positioning use cases."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "Builder(\n  builder: (BuildContext context) {\n    return ElevatedButton(\n      onPressed: () async {\n        final String? result = await showAlignedDialog<String>(\n          context: context,\n          builder: (BuildContext context) => TextButton(\n            onPressed: () => Navigator.of(context).pop('Hello'),\n            child: const Text('Close'),\n          ),\n          followerAnchor: Alignment.topLeft,\n          targetAnchor: Alignment.bottomLeft,\n          avoidOverflow: true,\n        );\n      },\n      child: const Text('Show dialog'),\n    );\n  },\n)",
+    "confidence": 1
+  }
+}

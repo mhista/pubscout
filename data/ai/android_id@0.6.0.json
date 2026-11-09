@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.6.0",
+  "generatedAt": "2026-11-07T10:55:23.633Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "A Flutter plugin to retrieve the Android device ID on Android devices.",
+    "what_it_does": "Provides a method to obtain the Android ID, returning it as a nullable string. On non‑Android platforms it returns null, and on Android it may throw MissingPluginException if not registered correctly.",
+    "use_when": [
+      "You need a unique identifier per device/app signing key on Android",
+      "You want a simple, no‑dependency way to access Android ID"
+    ],
+    "avoid_when": [
+      "You require a cross‑platform identifier",
+      "You need an identifier that persists across app reinstallations or factory resets"
+    ],
+    "strengths": [
+      "Lightweight single‑purpose plugin",
+      "Handles Android‑specific ID nuances and provides defensive usage examples",
+      "No extra native setup beyond standard Flutter Android configuration"
+    ],
+    "weaknesses": [
+      "Works only on Android",
+      "Android ID may change after factory reset or signing key change",
+      "Requires Flutter 3.47+ and Android API 24+"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "const _androidIdPlugin = AndroidId();\nfinal String? androidId = await _androidIdPlugin.getId();",
+    "confidence": 0.97
+  }
+}

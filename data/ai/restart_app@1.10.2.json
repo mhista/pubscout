@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.10.2",
+  "generatedAt": "2026-11-08T15:32:20.969Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Restart Flutter apps programmatically on Android, iOS, web, macOS, Linux, and Windows.",
+    "what_it_does": "Provides a single API to restart Flutter applications across mobile, web, and desktop platforms. It handles platform-specific restart implementations such as relaunching activities on Android, starting a new engine on iOS, or reloading the page on the web, and returns a result indicating success or failure.",
+    "use_when": [
+      "You need to programmatically restart the app after a configuration change, language switch, or user logout.",
+      "You want a unified cross-platform API for app reboots on mobile, web, and desktop."
+    ],
+    "avoid_when": [
+      "You only need to rebuild the widget tree internally without restarting the entire native application process or engine.",
+      "You require saving or clearing persistent preferences automatically during the restart process."
+    ],
+    "strengths": [
+      "Supports all six major Flutter platforms: Android, iOS, web, macOS, Linux, and Windows.",
+      "Provides structured error handling through a `RestartResult` object.",
+      "Offers configurable options like custom web origins and Android restart modes."
+    ],
+    "weaknesses": [
+      "Requires manual native setup in iOS (`AppDelegate.swift`).",
+      "Code after the restart call may not execute if the platform successfully initiates the restart."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires adding an import and a callback method in iOS Runner's AppDelegate.swift.",
+    "alternatives": [],
+    "minimal_example": "import 'package:restart_app/restart_app.dart';\n\nawait Restart.restartApp();",
+    "confidence": 0.95
+  }
+}

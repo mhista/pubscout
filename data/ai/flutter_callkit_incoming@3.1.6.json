@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.1.6",
+  "generatedAt": "2026-11-07T11:12:04.275Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [
+      "notifications",
+      "device"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Show native incoming and outgoing call screens with Callkit on iOS and custom UI on Android.",
+    "what_it_does": "Provides a Flutter plugin to display native incoming call interfaces (Callkit on iOS and custom UI on Android), handle VoIP push notifications, start outgoing calls, and manage call states.",
+    "use_when": [
+      "You are building a VoIP or calling application and need native lock-screen call UI.",
+      "You need to handle PushKit notifications for incoming calls on iOS."
+    ],
+    "avoid_when": [
+      "You are testing incoming VoIP calls on an iOS simulator (requires a real device).",
+      "Your app does not involve voice or video calls."
+    ],
+    "strengths": [
+      "Integrates native Callkit on iOS and custom incoming screens on Android.",
+      "Supports Swift Package Manager and CocoaPods.",
+      "Provides stream events for all call actions like accept, decline, and timeout."
+    ],
+    "weaknesses": [
+      "iOS Callkit features do not work fully on simulators and require real devices.",
+      "Requires manual native configuration for PushKit, permissions, and app delegates."
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Requires native configuration in AndroidManifest.xml, Info.plist for VoIP background modes, handling PushKit on iOS, and setting up specific permissions for Android 13/14.",
+    "alternatives": [],
+    "minimal_example": "CallKitParams callKitParams = CallKitParams(\n  id: 'unique-id',\n  nameCaller: 'Hien Nguyen',\n  appName: 'Callkit',\n  handle: '0123456789',\n  type: 0,\n);\nawait FlutterCallkitIncoming.showCallkitIncoming(callKitParams);",
+    "confidence": 1
+  }
+}

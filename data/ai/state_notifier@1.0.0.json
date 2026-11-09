@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.0",
+  "generatedAt": "2026-11-08T15:21:14.679Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [],
+    "approach": [
+      "no codegen"
+    ],
+    "one_liner": "ValueNotifier outside Flutter for managing state in an immutable manner.",
+    "what_it_does": "Provides a StateNotifier class to control application state outside Flutter with immutable objects. It supports change notifications based on object identity and integrates with Provider or Riverpod.",
+    "use_when": [
+      "You want a simple way to manage immutable state with Provider or Riverpod.",
+      "You need to centralize business logic inside notifier classes."
+    ],
+    "avoid_when": [
+      "You want a complex out-of-the-box architecture with events and states like BLoC.",
+      "You prefer mutable state notification classes like ChangeNotifier."
+    ],
+    "strengths": [
+      "Enforces immutable state updates via centralized methods.",
+      "Supports custom notification filtering via updateShouldNotify.",
+      "Provides LocatorMixin for easy integration with dependency injection."
+    ],
+    "weaknesses": [
+      "Relies on object identity (identical) by default, requiring custom updateShouldNotify overrides for deep equality comparisons.",
+      "Updating state outside the notifier is considered an anti-pattern."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "class CityNotifier extends StateNotifier<List<City>> {\n  CityNotifier() : super(const <City>[]);\n\n  void addCity(City newCity) {\n    state = [...state, newCity];\n  }\n}",
+    "confidence": 1
+  }
+}

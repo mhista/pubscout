@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "2.0.1",
+  "generatedAt": "2026-11-07T11:07:59.900Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "stream-based"
+    ],
+    "one_liner": "A lightweight event bus using Dart Streams for publish/subscribe communication",
+    "what_it_does": "It allows any Dart object to be fired as an event and listened to via streams. Listeners can filter by event type or listen to all events. It supports synchronous and asynchronous buses and custom stream controllers.",
+    "use_when": [
+      "You need a simple global event bus for decoupling components",
+      "You want to avoid complex state management libraries for small projects",
+      "You need to broadcast events across different parts of an app without tight coupling"
+    ],
+    "avoid_when": [
+      "You require advanced state management with reactive UI updates",
+      "You need dependency injection or service locator patterns",
+      "You are building a large-scale application that prefers a more structured architecture like BLoC or Redux"
+    ],
+    "strengths": [
+      "Zero dependencies, MIT licensed",
+      "Supports both sync and async buses",
+      "Customizable with any StreamController",
+      "Simple API, easy to integrate"
+    ],
+    "weaknesses": [
+      "No built-in lifecycle or cleanup management",
+      "Not a full state management solution",
+      "Can lead to hard-to-track event flows in large apps"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dependency to pubspec and import package:event_bus/event_bus.dart",
+    "alternatives": [
+      {
+        "name": "bloc",
+        "why_pick_it": "Provides a more structured state management pattern with streams and events, suitable for larger apps"
+      }
+    ],
+    "minimal_example": "import 'package:event_bus/event_bus.dart';\n\nfinal eventBus = EventBus();\n\nclass UserLoggedInEvent{final String user;UserLoggedInEvent(this.user);}\n\neventBus.on<UserLoggedInEvent>().listen((e)=>print(e.user));\n\neventBus.fire(UserLoggedInEvent('Alice'));",
+    "confidence": 0.92
+  }
+}

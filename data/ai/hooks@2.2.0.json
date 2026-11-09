@@ -1,0 +1,36 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.2.0",
+  "generatedAt": "2026-11-07T11:25:07.230Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "hooks",
+      "imperative"
+    ],
+    "one_liner": "Dart API for the JSON-based protocol for package build and link hooks.",
+    "what_it_does": "Provides a Dart library for writing `hook/build.dart` and `hook/link.dart` scripts to automate building or gathering assets and performing whole-application optimization.",
+    "use_when": [
+      "You are building or gathering code assets or native binaries for a Dart package",
+      "You need to run custom build tasks during a Dart build via hook scripts"
+    ],
+    "avoid_when": [
+      "You are developing standard pure-Dart packages that do not require native asset compilation or hooks"
+    ],
+    "strengths": [
+      "Standardized protocol for native assets and hooks in Dart",
+      "Supports user-defines configuration from pubspec.yaml"
+    ],
+    "weaknesses": [
+      "Niche package restricted to native asset and hook workflows"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires setting up build and link scripts within the `hook/` directory of your Dart package.",
+    "alternatives": [],
+    "minimal_example": "import 'package:hooks/hooks.dart';\n\nvoid main(List<String> args) async {\n  await build(args, (input, output) async {\n    if (input.config.buildCodeAssets) {\n      // Build or gather assets\n    }\n  });\n}",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.3.0",
+  "generatedAt": "2026-11-08T16:01:02.856Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "Adds automatic undo and redo support to bloc and cubit states.",
+    "what_it_does": "Extends the bloc state management library to provide automatic undo and redo capabilities for blocs and cubits. It offers classes like ReplayCubit and ReplayBloc, along with mixins for integration with other classes like HydratedBloc.",
+    "use_when": [
+      "You are using the bloc state management library and need undo/redo functionality.",
+      "You want to allow users to revert or reapply state changes in your application."
+    ],
+    "avoid_when": [
+      "You are not using the bloc or cubit state management library.",
+      "Your application does not require undo or redo capabilities."
+    ],
+    "strengths": [
+      "Seamless integration with package:bloc",
+      "Provides both dedicated classes and mixins for use with other bloc variants like HydratedBloc"
+    ],
+    "weaknesses": [
+      "Limited strictly to the bloc ecosystem"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "class CounterCubit extends ReplayCubit<int> {\n  CounterCubit() : super(0);\n\n  void increment() => emit(state + 1);\n}",
+    "confidence": 1
+  }
+}

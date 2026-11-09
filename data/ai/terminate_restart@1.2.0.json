@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.2.0",
+  "generatedAt": "2026-11-08T15:55:14.322Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "utils",
+      "web-desktop"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter plugin for app termination, process restart, and optional data clearing.",
+    "what_it_does": "Allows developers to restart their Flutter application either through a UI-only refresh or a full native process restart. It supports optional user confirmation dialogs and selective data management like clearing local storage or preserving keys.",
+    "use_when": [
+      "You need to programmatically restart the app after an update or language change",
+      "You require a full process restart or a quick UI-only refresh",
+      "You want to prompt users with a confirmation dialog before terminating the app"
+    ],
+    "avoid_when": [
+      "You only need standard deep linking or URL launching without restarting the entire app",
+      "Your architecture heavily relies on maintaining persistent background isolates that cannot be cleanly reset"
+    ],
+    "strengths": [
+      "Offers both UI-only and full process restart modes",
+      "Includes built-in user confirmation dialog options",
+      "Supports Android, iOS, and Web platforms with granular data clearing and preservation settings"
+    ],
+    "weaknesses": [
+      "Requires iOS Info.plist URL scheme configurations for proper restarting",
+      "Terminating processes on mobile platforms can be abrupt if not managed carefully"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires adding URL scheme entries to Info.plist on iOS for restart functionality to work properly, and wrapping the app with TerminateRestart.wrapWithRestart for UI-only resets.",
+    "alternatives": [],
+    "minimal_example": "void main() {\n  WidgetsFlutterBinding.ensureInitialized();\n  TerminateRestart.instance.initialize();\n  runApp(TerminateRestart.wrapWithRestart(child: MyApp()));\n}\n\nawait TerminateRestart.instance.restartApp(\n  options: const TerminateRestartOptions(\n    terminate: true,\n  ),\n);",
+    "confidence": 0.95
+  }
+}

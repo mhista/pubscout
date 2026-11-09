@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.0.3",
+  "generatedAt": "2026-11-07T11:15:08.442Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Share email content via device email client with support for multiple attachments.",
+    "what_it_does": "Allows Flutter apps to open the device's native email client to compose and send emails with recipients, subject, body (including HTML), and multiple file attachments. It also provides utility methods to check if specific mail apps are installed or if the device can send emails.",
+    "use_when": [
+      "You need to trigger the native email app to let users send emails with attachments.",
+      "You need to send emails with HTML body support on Android and iOS."
+    ],
+    "avoid_when": [
+      "You need to send emails silently from the background without opening a mail client UI.",
+      "You require cross-platform support beyond Android and iOS."
+    ],
+    "strengths": [
+      "Supports multiple attachments.",
+      "Supports HTML content in email bodies.",
+      "Provides methods to check app installation status and ability to send mail."
+    ],
+    "weaknesses": [
+      "Limited platform support (only Android and iOS).",
+      "Relies on external email apps installed on the user's device."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add to pubspec.dependencies. Requires proper configuration for Android and iOS native email client interaction if needed.",
+    "alternatives": [
+      {
+        "name": "url_launcher",
+        "why_pick_it": "If you only need a simple mailto URI launch without native attachments or complex compose controller features."
+      }
+    ],
+    "minimal_example": "final MailOptions mailOptions = MailOptions(\n  body: 'a long body for the email',\n  subject: 'the Email Subject',\n  recipients: ['example@example.com'],\n);\nfinal MailerResponse response = await FlutterMailer.send(mailOptions);",
+    "confidence": 1
+  }
+}

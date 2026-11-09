@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.3.3",
+  "generatedAt": "2026-11-08T15:57:02.569Z",
+  "data": {
+    "primary_category": "notifications",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Push notifications in Flutter without firebase_messaging for Android, iOS and macOS.",
+    "what_it_does": "Handles push notifications including background notifications, alert notifications, and notification taps across Android, iOS, and macOS. Allows avoiding Firebase on iOS and macOS by using APNs directly.",
+    "use_when": [
+      "You do not or cannot use Firebase Messaging (FCM) on iOS",
+      "You need push notifications on Android, iOS, and macOS with consistent behavior",
+      "You want to handle push notifications when the app is in the foreground, background, or terminated"
+    ],
+    "avoid_when": [
+      "You are already using firebase_messaging and have no issues with it",
+      "You need advanced FCM-specific features like FCM message IDs or sender fields"
+    ],
+    "strengths": [
+      "Avoids using Firebase on iOS and macOS",
+      "Consistent behavior between iOS and Android",
+      "Handles push notifications in foreground, background, and terminated states"
+    ],
+    "weaknesses": [
+      "Lowest common denominator API due to platform differences",
+      "Setup is more difficult than standard packages due to native configuration requirements",
+      "Does not provide FCM message IDs or sender fields on platforms that do not use FCM"
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Requires native configuration such as adding google-services.json for Android, Apple Developer Program membership for iOS/macOS push keys, and specific delegate forwards in macOS AppDelegate.",
+    "alternatives": [
+      {
+        "name": "firebase_messaging",
+        "why_pick_it": "If you want standard Firebase messaging support across all platforms and do not mind using Firebase on iOS."
+      }
+    ],
+    "minimal_example": "Push.instance.registerForRemoteNotifications();",
+    "confidence": 0.95
+  }
+}

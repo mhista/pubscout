@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "13.3.2",
+  "generatedAt": "2026-11-07T11:09:55.227Z",
+  "data": {
+    "primary_category": "files",
+    "secondary_categories": [
+      "device",
+      "forms"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Use the native file explorer to pick single or multiple files, directories, and save files.",
+    "what_it_does": "A federated Flutter plugin that opens the native OS file explorer to select single or multiple files, pick directories, or trigger save-file dialogs. It supports custom extension filtering, cloud files, and retrieving files as XFiles or reading their bytes directly.",
+    "use_when": [
+      "Your app needs to let users pick single or multiple files using native platform dialogs.",
+      "You need to allow users to select directories or save files to specific paths.",
+      "You require extension filtering for specific file types like images, videos, or custom formats."
+    ],
+    "avoid_when": [
+      "You need an internal custom-designed UI asset browser rather than the OS native file explorer.",
+      "You are handling web-specific features where browser restrictions prevent accessing full filesystem details."
+    ],
+    "strengths": [
+      "Supports all major platforms including mobile, web, desktop, and WebAssembly.",
+      "Provides access to native file explorers and cloud storage integration.",
+      "Offers integration with cross_file for interoperability with other libraries."
+    ],
+    "weaknesses": [
+      "Web and mobile platform limitations apply regarding direct file path exposure and filesystem access.",
+      "Certain advanced options and dialog configurations require platform-specific option objects."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires platform-specific configuration for certain features like macOS entitlements or Android recovery options as documented in the respective platform packages.",
+    "alternatives": [],
+    "minimal_example": "PlatformFile? file = await FilePicker.pickFile();\n\nif (file != null) {\n  print(file.name);\n  print(await file.length());\n} else {\n  // User canceled the picker\n}",
+    "confidence": 1
+  }
+}

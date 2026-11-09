@@ -1,0 +1,37 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.2.3",
+  "generatedAt": "2026-11-08T15:57:20.565Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Detects root on Android and jailbreak on iOS devices.",
+    "what_it_does": "Uses RootBeer and DetectFrida for Android root detection, and IOSSecuritySuite for iOS jailbreak detection. It exposes methods to verify if the app runs on a real device, has root/jailbreak, or experiences security issues.",
+    "use_when": [
+      "You need to prevent your app from running on rooted Android or jailbroken iOS devices",
+      "You need to verify if the app is running on a real physical device rather than an emulator"
+    ],
+    "avoid_when": [
+      "You are testing on emulators or simulators without expecting false positives",
+      "Your app does not require advanced security checks"
+    ],
+    "strengths": [
+      "Combines proven native libraries like RootBeer and IOSSecuritySuite",
+      "Provides simple asynchronous methods to query device security status"
+    ],
+    "weaknesses": [
+      "Emulators or simulators may cause false positives",
+      "Requires platform-specific configuration such as Info.plist entries on iOS"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding platform schema queries to Info.plist on iOS for detection features.",
+    "alternatives": [],
+    "minimal_example": "final isJailBroken = await JailbreakRootDetection.instance.isJailBroken;\nfinal isRealDevice = await JailbreakRootDetection.instance.isRealDevice;",
+    "confidence": 1
+  }
+}

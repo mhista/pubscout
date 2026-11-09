@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.6.0",
+  "generatedAt": "2026-11-08T15:53:18.698Z",
+  "data": {
+    "primary_category": "theming",
+    "secondary_categories": [
+      "device"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Dynamically change app icons and iOS app icon batch numbers at runtime.",
+    "what_it_does": "Allows Flutter applications to programmatically change their launcher icons on both Android and iOS platforms. Additionally supports setting application icon badge numbers on iOS.",
+    "use_when": [
+      "Your app needs to let users choose alternative launcher icons from within the app settings.",
+      "You need to manage dynamic branding or seasonal app icon updates."
+    ],
+    "avoid_when": [
+      "You are unable to perform the necessary native configuration steps in AndroidManifest.xml and iOS Info.plist.",
+      "You only require a standard static app icon."
+    ],
+    "strengths": [
+      "Supports both Android activity-aliases and iOS alternative icons.",
+      "Provides helper methods for checking support, getting current icon, and setting iOS badge numbers."
+    ],
+    "weaknesses": [
+      "Requires manual configuration of Android activity-aliases and iOS plist or asset catalogs.",
+      "Android icon changes typically wait until the app is closed/removed from recents unless blacklists apply."
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Requires configuring AndroidManifest.xml activity-aliases and iOS Info.plist alternate icons dictionary or asset catalogs.",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter_dynamic_icon_plus/flutter_dynamic_icon_plus.dart';\n\nif (await FlutterDynamicIconPlus.supportsAlternateIcons) {\n  await FlutterDynamicIconPlus.setAlternateIconName(iconName: \"icon_1\");\n}",
+    "confidence": 0.95
+  }
+}

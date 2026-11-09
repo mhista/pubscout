@@ -1,0 +1,55 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "8.7.1",
+  "generatedAt": "2026-11-08T15:38:18.173Z",
+  "data": {
+    "primary_category": "codegen",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "code generation"
+    ],
+    "one_liner": "Generates type‑safe Chopper client code from annotated service interfaces.",
+    "what_it_does": "It reads Dart files with @ChopperApi annotations and produces .chopper.dart files containing request methods, serializers, and error handling. The generated code works with the Chopper runtime to perform HTTP calls.",
+    "use_when": [
+      "You want compile‑time generated REST client code with minimal boilerplate",
+      "You already use the Chopper package for networking",
+      "You prefer strongly typed API interfaces over manual request building"
+    ],
+    "avoid_when": [
+      "You need a runtime‑only solution without build_runner",
+      "You prefer a different HTTP client API such as Dio or Retrofit"
+    ],
+    "strengths": [
+      "Reduces boilerplate by generating request code",
+      "Integrates tightly with Chopper’s interceptor and serialization system",
+      "Supports advanced features like query parameters and abortable requests"
+    ],
+    "weaknesses": [
+      "Requires build_runner and source_gen setup",
+      "Only works with Chopper; not a standalone HTTP client",
+      "Generated code can be harder to debug than hand‑written requests"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add dev:chopper_generator and dev:build_runner to dev_dependencies, then run `dart run build_runner build --delete-conflicting-outputs`.",
+    "alternatives": [
+      {
+        "name": "retrofit",
+        "why_pick_it": "Provides similar annotation‑based code generation for HTTP clients without needing Chopper"
+      },
+      {
+        "name": "dio",
+        "why_pick_it": "Offers a powerful, hand‑coded HTTP client with interceptors and FormData support"
+      },
+      {
+        "name": "http",
+        "why_pick_it": "Simple, low‑level HTTP client for cases where code generation is unnecessary"
+      }
+    ],
+    "minimal_example": "import 'package:chopper/chopper.dart';\n\n@ChopperApi()\nabstract class MyService extends ChopperService {\n  @Get(path: '/users')\n  Future<Response> getUsers();\n}\n\nvoid main() async {\n  final chopper = ChopperClient(services: [MyService.create()],);\n  final service = chopper.getService<MyService>();\n  final response = await service.getUsers();\n  print(response.body);\n}",
+    "confidence": 0.97
+  }
+}

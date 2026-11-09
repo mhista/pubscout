@@ -1,0 +1,55 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.18.19",
+  "generatedAt": "2026-11-07T16:27:41.104Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Flutter plugin for background audio playback with media controls.",
+    "what_it_does": "Provides a way to run audio code in the background while the screen is off. It exposes a standard AudioHandler API that forwards media actions to your own player implementation and updates system notifications, lock screen, headset buttons and Android Auto/Apple CarPlay.",
+    "use_when": [
+      "You need background audio that continues when the app is minimized or the screen is locked",
+      "You want system media controls, notifications, lock‑screen or Android Auto integration",
+      "You need a unified API that works on Android, iOS, web and macOS"
+    ],
+    "avoid_when": [
+      "Your app only plays short foreground sounds and doesn’t need background playback",
+      "You prefer a zero‑native‑code solution for simple audio",
+      "You already use a full‑featured media player that handles its own background service"
+    ],
+    "strengths": [
+      "Full platform support (Android, iOS, web, macOS, Linux via MPRIS)",
+      "Works with any audio engine (just_audio, flutter_tts, etc.)",
+      "Rich feature set: queue, shuffle, repeat, custom actions, lock‑screen UI"
+    ],
+    "weaknesses": [
+      "Requires native configuration (Android manifest, iOS background modes)",
+      "Adds complexity compared to plain audio players",
+      "May be overkill for simple use‑cases"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add Android permissions and notification channel in AndroidManifest.xml, enable Background Modes (Audio) in Xcode, configure AudioServiceConfig with channel IDs, and ensure a compatible audio player (e.g., just_audio) is used inside the AudioHandler.",
+    "alternatives": [
+      {
+        "name": "just_audio",
+        "why_pick_it": "Lightweight foreground audio player without background service overhead"
+      },
+      {
+        "name": "audioplayers",
+        "why_pick_it": "Simple API for playing short sounds without native background setup"
+      },
+      {
+        "name": "audio_session",
+        "why_pick_it": "Manages audio focus and session but does not provide background service"
+      }
+    ],
+    "minimal_example": "import 'package:audio_service/audio_service.dart';\nimport 'package:just_audio/just_audio.dart';\n\nclass MyAudioHandler extends BaseAudioHandler with QueueHandler, SeekHandler {\n  final _player = AudioPlayer();\n  @override Future<void> play() => _player.play();\n  @override Future<void> pause() => _player.pause();\n  @override Future<void> stop() => _player.stop();\n  @override Future<void> seek(Duration position) => _player.seek(position);\n}\n\nFuture<void> main() async {\n  final audioHandler = await AudioService.init(\n    builder: () => MyAudioHandler(),\n    config: AudioServiceConfig(\n      androidNotificationChannelId: 'com.example.channel.audio',\n      androidNotificationChannelName: 'Audio Playback',\n    ),\n  );\n  runApp(MyApp());\n}",
+    "confidence": 0.93
+  }
+}

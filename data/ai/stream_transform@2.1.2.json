@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "2.1.2",
+  "generatedAt": "2026-11-08T15:19:47.757Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "stream-based"
+    ],
+    "one_liner": "Extension methods adding common stream transform operators",
+    "what_it_does": "Provides a collection of Stream extension methods such as asyncMapBuffer, debounce, buffer, combineLatest, merge, and others to manipulate stream events. It focuses on asynchronous control flow and rate limiting.",
+    "use_when": [
+      "You need advanced stream manipulation like debouncing or buffering",
+      "You want to avoid writing custom StreamTransformers for common patterns",
+      "You prefer Dart‑native stream extensions over RxDart"
+    ],
+    "avoid_when": [
+      "You are already using RxDart or another reactive library",
+      "You need only basic stream operations that are already in Dart's core library"
+    ],
+    "strengths": [
+      "Pure Dart, no external dependencies",
+      "Wide range of operators covering async mapping, buffering, debouncing, merging, etc.",
+      "Active maintenance with recent Dart 3.4 support"
+    ],
+    "weaknesses": [
+      "No RxDart‑style operators like switchMap with leading/trailing options",
+      "Limited documentation on edge cases",
+      "No built‑in support for backpressure handling"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dependency in pubspec and import 'package:stream_transform/stream_transform.dart';",
+    "alternatives": [],
+    "minimal_example": "```dart\nimport 'package:stream_transform/stream_transform.dart';\n\nfinal stream = Stream.fromIterable([1, 2, 3]);\nfinal debounced = stream.debounce(const Duration(milliseconds: 100));\nawait for (var v in debounced) {\n  print(v);\n}\n```",
+    "confidence": 0.92
+  }
+}

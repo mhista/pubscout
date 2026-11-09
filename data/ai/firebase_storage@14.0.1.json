@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "14.0.1",
+  "generatedAt": "2026-11-08T15:23:31.941Z",
+  "data": {
+    "primary_category": "backend",
+    "secondary_categories": [
+      "storage"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Flutter plugin to read and write files in Firebase Cloud Storage.",
+    "what_it_does": "Provides a Dart API to upload, download, delete, and list files stored in Firebase Cloud Storage. It integrates with Firebase authentication and handles platform‑specific implementations for Android, iOS, Web, Windows, and macOS.",
+    "use_when": [
+      "You need cloud‑hosted file storage that scales automatically",
+      "You already use other Firebase services like Auth or Firestore",
+      "You want cross‑platform support with a single API"
+    ],
+    "avoid_when": [
+      "You need on‑device only storage without network access",
+      "You require a lightweight solution without native SDKs",
+      "Your project cannot include Google services configuration"
+    ],
+    "strengths": [
+      "First‑party Firebase integration",
+      "Supports resumable uploads and download streams",
+      "Works on mobile, web, and desktop platforms"
+    ],
+    "weaknesses": [
+      "Requires native Firebase setup (google‑services files, App ID)",
+      "Adds native dependencies, increasing app size",
+      "Limited to Firebase ecosystem"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add firebase_core and configure Google services files (google-services.json, GoogleService-Info.plist). Initialize Firebase in main() before using firebase_storage. No build_runner needed.",
+    "alternatives": [],
+    "minimal_example": "import 'package:firebase_storage/firebase_storage.dart';\n\nFuture<void> uploadFile() async {\n  final ref = FirebaseStorage.instance.ref('uploads/example.txt');\n  await ref.putString('Hello Firebase Storage');\n  final url = await ref.getDownloadURL();\n  print('Download URL: $url');\n}",
+    "confidence": 0.95
+  }
+}

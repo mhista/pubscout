@@ -1,0 +1,37 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "10.3.0",
+  "generatedAt": "2026-11-08T15:38:29.797Z",
+  "data": {
+    "primary_category": "devtools",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Adds Sentry logging integration for the Dart logging package",
+    "what_it_does": "Integrates the Dart logging package with Sentry, sending log records as events. It registers a LoggingIntegration with the Sentry SDK to capture logs automatically.",
+    "use_when": [
+      "You use the Dart logging package and want logs sent to Sentry",
+      "You need to monitor application logs in Sentry for debugging"
+    ],
+    "avoid_when": [
+      "You are not using the logging package or already have another logging integration"
+    ],
+    "strengths": [
+      "Simple one-line integration",
+      "Captures all log levels",
+      "No build_runner or codegen required"
+    ],
+    "weaknesses": [
+      "Only works with the logging package",
+      "No support for other logging frameworks"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the package to pubspec, import, and call options.addIntegration(LoggingIntegration());",
+    "alternatives": [],
+    "minimal_example": "import 'package:sentry/sentry.dart';\nimport 'package:sentry_logging/sentry_logging.dart';\n\nFuture<void> main() async {\n  await Sentry.init((options) {\n    options.dsn = 'https://example@sentry.io/example';\n    options.addIntegration(LoggingIntegration());\n  }, appRunner: () => runApp(MyApp()));\n}",
+    "confidence": 0.9
+  }
+}

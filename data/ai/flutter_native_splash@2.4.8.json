@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.4.8",
+  "generatedAt": "2026-11-07T11:16:06.276Z",
+  "data": {
+    "primary_category": "ui-kits",
+    "secondary_categories": [
+      "images"
+    ],
+    "approach": [
+      "code generation",
+      "declarative"
+    ],
+    "one_liner": "Automatically generates native iOS, Android, and Web splash screens.",
+    "what_it_does": "Reads a YAML configuration file to generate native launch screen code and assets for iOS, Android, and Web. It customizes the background color, branding images, and splash icons, supporting dark mode and Android 12+ specifications.",
+    "use_when": [
+      "You want to customize the default white native splash screen on iOS and Android.",
+      "You need to support dark mode for the native startup screen.",
+      "You want to keep the splash screen visible while initializing app dependencies."
+    ],
+    "avoid_when": [
+      "You prefer implementing native platform splash screen code manually in Xcode and Android Studio.",
+      "You are building a project that does not target mobile or web platforms requiring a native splash."
+    ],
+    "strengths": [
+      "Automates native asset generation and configuration across multiple platforms via a simple YAML file.",
+      "Supports specialized Android 12+ splash screen specifications and dark mode variants.",
+      "Provides programmatic control to keep the splash screen visible during app startup initialization."
+    ],
+    "weaknesses": [
+      "Requires running a CLI command to apply configuration changes.",
+      "Android 12+ requires separate configuration parameters and handles splash screens differently from older versions."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add configuration to pubspec.yaml or a separate flutter_native_splash.yaml file, then run 'dart run flutter_native_splash:create'.",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter_native_splash/flutter_native_splash.dart';\n\nvoid main() {\n  WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();\n  FlutterNativeSplash.preserve(widgetsBinding: widgetsBinding);\n  runApp(const MyApp());\n}",
+    "confidence": 1
+  }
+}

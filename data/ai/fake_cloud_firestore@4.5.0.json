@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.5.0",
+  "generatedAt": "2026-11-07T11:09:03.021Z",
+  "data": {
+    "primary_category": "testing",
+    "secondary_categories": [
+      "backend"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Fake implementation of Cloud Firestore for unit testing.",
+    "what_it_does": "Provides a mock version of Cloud Firestore that keeps data in memory. Enables testing of apps using Cloud Firestore without needing a live backend connection or emulator.",
+    "use_when": [
+      "You want to write unit or widget tests for apps that use Cloud Firestore.",
+      "You need an in-memory database to quickly test queries, snapshots, and document updates."
+    ],
+    "avoid_when": [
+      "You are running integration tests that require actual backend connectivity or Firebase Emulators.",
+      "You need to test features of Cloud Firestore that are not yet implemented by the fake library."
+    ],
+    "strengths": [
+      "Runs entirely in memory for fast unit testing.",
+      "Supports complex queries, transactions, batch writes, and custom security rules."
+    ],
+    "weaknesses": [
+      "Does not support all Cloud Firestore features (e.g., timestamps and durations in security rules are limited).",
+      "Requires maintaining compatibility versions matching the `cloud_firestore` package."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [],
+    "minimal_example": "import 'package:fake_cloud_firestore/fake_cloud_firestore.dart';\n\nvoid main() async {\n  final instance = FakeFirebaseFirestore();\n  await instance.collection('users').add({\n    'username': 'Bob',\n  });\n  final snapshot = await instance.collection('users').get();\n  print(snapshot.docs.length); // 1\n}",
+    "confidence": 1
+  }
+}

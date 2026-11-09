@@ -1,0 +1,50 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.5.3",
+  "generatedAt": "2026-11-07T11:23:16.089Z",
+  "data": {
+    "primary_category": "navigation",
+    "secondary_categories": [
+      "codegen"
+    ],
+    "approach": [
+      "code generation",
+      "declarative"
+    ],
+    "one_liner": "A code generator for type-safe route helpers and definitions with package:go_router.",
+    "what_it_does": "Generates strongly-typed route classes and navigation helpers for package:go_router. It uses code generation to translate route annotations and classes into type-safe go and push extension methods, replacing string-based path parameters with strongly-typed arguments.",
+    "use_when": [
+      "You are using go_router and want compile-time type safety for route parameters.",
+      "You want to avoid writing manual string-based path and query parameter parsing logic."
+    ],
+    "avoid_when": [
+      "You are not using package:go_router for navigation.",
+      "You prefer runtime configuration without build_runner code generation steps."
+    ],
+    "strengths": [
+      "Compile-time type checking for route arguments and parameters",
+      "Reduces navigation boilerplate like manual int.parse or parameter extraction",
+      "Integrated directly with go_router ecosystem"
+    ],
+    "weaknesses": [
+      "Requires running build_runner for code generation",
+      "Adds build dependency overhead"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires adding build_runner and go_router_builder to dev_dependencies and running dart run build_runner build.",
+    "alternatives": [
+      {
+        "name": "auto_route",
+        "why_pick_it": "Alternative routing solution that provides its own complete router and code generator without requiring go_router."
+      },
+      {
+        "name": "beamer",
+        "why_pick_it": "Alternative router package focused on delegate-based navigation and syncing application state with URIs."
+      }
+    ],
+    "minimal_example": "class HomeRoute extends GoRouteData with $HomeRoute {\n  const HomeRoute();\n\n  @override\n  Widget build(BuildContext context, GoRouterState state) => const HomeScreen();\n}",
+    "confidence": 1
+  }
+}

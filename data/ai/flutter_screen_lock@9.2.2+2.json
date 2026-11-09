@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "9.2.2+2",
+  "generatedAt": "2026-11-07T11:17:18.576Z",
+  "data": {
+    "primary_category": "auth",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Provides screen lock and passcode protection functionality with optional biometrics.",
+    "what_it_does": "Provides a screen lock widget and functions to require a passcode (PIN) or biometric authentication from the user. Supports passcode creation, confirmation workflows, landscape view, physical keyboard input, and full visual customization.",
+    "use_when": [
+      "You need to protect sensitive areas of your mobile or desktop app with a passcode.",
+      "You want to combine passcode entry with biometric authentication."
+    ],
+    "avoid_when": [
+      "You are handling backend user sign-in and session management (which requires an authentication client).",
+      "You only need local biometric prompting without a custom keypad UI."
+    ],
+    "strengths": [
+      "Supports custom themes, custom widget builders, and localized keypad buttons.",
+      "Handles physical keyboard input for desktop and tablet devices.",
+      "Supports passcode creation and confirmation out of the box."
+    ],
+    "weaknesses": [
+      "Requires integrating a separate package like local_auth for biometric functionality."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the package to pubspec.yaml. To use biometrics, integrate the local_auth package.",
+    "alternatives": [
+      {
+        "name": "local_auth",
+        "why_pick_it": "If you only need standard OS-level biometric prompts rather than a full passcode screen lock interface."
+      }
+    ],
+    "minimal_example": "import 'package:flutter_screen_lock/flutter_screen_lock.dart';\n\nscreenLock(\n  context: context,\n  correctString: '1234',\n);",
+    "confidence": 0.95
+  }
+}

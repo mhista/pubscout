@@ -1,0 +1,46 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.1.0",
+  "generatedAt": "2026-11-07T10:59:41.638Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [
+      "storage"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Drop-in wrapper for video_player that caches videos for offline playback.",
+    "what_it_does": "Extends the video_player plugin to seamlessly cache videos on the device for offline playback and zero buffering on repeat views. Provides pre-caching, custom cache keys, and cache management tools.",
+    "use_when": [
+      "You want to cache network videos to reduce bandwidth and eliminate buffering on repeat views.",
+      "You need a drop-in replacement for video_player with offline support."
+    ],
+    "avoid_when": [
+      "You need to stream HLS (.m3u8), DASH, or live streams.",
+      "You are targeting platforms where video playback requires additional workarounds unless you implement them."
+    ],
+    "strengths": [
+      "Zero buffering on repeat views via local caching.",
+      "Pre-caching support to download videos before playback.",
+      "Custom cache keys and easy cache clearing mechanisms."
+    ],
+    "weaknesses": [
+      "Does not support HLS (.m3u8), DASH, or live streams.",
+      "Requires dependency overrides for certain platforms or specific bug fixes in underlying packages like flutter_cache_manager.",
+      "Windows and Linux require additional packages for video playback."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Follow setup instructions for video_player and handle platform-specific dependencies (such as video_player_win or video_player_media_kit for Windows/Linux if required). May need dependency overrides for flutter_cache_manager or get_storage in certain scenarios.",
+    "alternatives": [
+      {
+        "name": "video_player",
+        "why_pick_it": "You want the official video player without third-party caching logic or dependencies."
+      }
+    ],
+    "minimal_example": "class VideoExample extends StatefulWidget {\n  const VideoExample({super.key});\n\n  @override\n  _VideoExampleState createState() => _VideoExampleState();\n}\n\nclass _VideoExampleState extends State<VideoExample> {\n  late final CachedVideoPlayerPlus _player;\n\n  @override\n  void initState() {\n    super.initState();\n    _player = CachedVideoPlayerPlus.networkUrl(\n      Uri.parse('https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4'),\n    );\n    _player.initialize().then((_) {\n      setState(() {});\n      _player.controller.play();\n    });\n  }\n\n  @override\n  void dispose() {\n    _player.dispose();\n    super.dispose();\n  }\n\n  @override\n  Widget build(BuildContext context) {\n    return Scaffold(\n      body: Center(\n        child: _player.isInitialized\n            ? AspectRatio(\n                aspectRatio: _player.controller.value.aspectRatio,\n                child: VideoPlayer(_player.controller),\n              )\n            : const CircularProgressIndicator.adaptive(),\n      ),\n    );\n  }\n}",
+    "confidence": 0.95
+  }
+}

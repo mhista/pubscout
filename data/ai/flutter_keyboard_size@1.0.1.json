@@ -1,0 +1,47 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.1",
+  "generatedAt": "2026-11-07T11:14:27.760Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [
+      "widgets",
+      "layout"
+    ],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "Provider to get virtual keyboard height, open state, and small screen status.",
+    "what_it_does": "Provides a straightforward KeyboardSizeProvider and Consumer pattern to access keyboard height, whether the keyboard is open, and whether the screen is considered small. It avoids issues with MediaQuery.info inside complicated widget trees.",
+    "use_when": [
+      "You need to easily access the virtual keyboard height or open state deep down in a widget tree",
+      "You want to detect if the screen height falls below a custom threshold"
+    ],
+    "avoid_when": [
+      "You already manage app state with another provider setup and prefer standard MediaQuery or native edge-to-edge handling",
+      "You do not need to track virtual keyboard dimensions"
+    ],
+    "strengths": [
+      "Simplifies keyboard state management across deeply nested widget trees",
+      "Includes helpful built-in properties for screen size threshold checks",
+      "Easy setup by wrapping the Scaffold"
+    ],
+    "weaknesses": [
+      "Relies on the older provider package ecosystem",
+      "Limited functionality beyond keyboard metrics and basic screen size checks"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Wrap the Scaffold widget with KeyboardSizeProvider.",
+    "alternatives": [
+      {
+        "name": "provider",
+        "why_pick_it": "Provides general state management which can also be used to pass down MediaQuery details manually without a dedicated package."
+      }
+    ],
+    "minimal_example": "KeyboardSizeProvider(\n      smallSize: 500.0,\n      child: Scaffold(\n        body: Consumer<ScreenHeight>(\n          builder: (context, _res, child) {\n            return Center(\n              child: Text('Keyboard open: ${_res.isOpen}'),\n            );\n          },\n        ),\n      ),\n    )",
+    "confidence": 0.95
+  }
+}

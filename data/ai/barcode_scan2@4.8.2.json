@@ -1,0 +1,48 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.8.2",
+  "generatedAt": "2026-11-07T10:57:53.619Z",
+  "data": {
+    "primary_category": "camera",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "A flutter plugin for scanning 2D barcodes and QRCodes via camera.",
+    "what_it_does": "A Flutter plugin that provides a simple wrapper around iOS and Android libraries to scan 2D barcodes and QR codes. It handles camera permissions and provides options to control flash and restrict barcode formats.",
+    "use_when": [
+      "You need a straightforward, modal-based barcode and QR code scanner.",
+      "You need to quickly capture barcode string data with minimal UI customization."
+    ],
+    "avoid_when": [
+      "You need an embedded widget preview inside your own custom UI rather than a full-screen scanner view.",
+      "You want a pure Dart implementation without native library wrappers."
+    ],
+    "strengths": [
+      "Simple API with a single `BarcodeScanner.scan()` method call.",
+      "Built-in permission handling and flash control options."
+    ],
+    "weaknesses": [
+      "Relies on older underlying native libraries (MTBBarcodeScanner and barcodescanner).",
+      "Limited to full-screen scanning flows rather than embedded widget views."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding CAMERA permission to AndroidManifest.xml and NSCameraUsageDescription to Info.plist on iOS. Android requires Kotlin configuration.",
+    "alternatives": [
+      {
+        "name": "mobile_scanner",
+        "why_pick_it": "Provides a widget-based scanner view that can be embedded anywhere in your widget tree."
+      },
+      {
+        "name": "google_mlkit_barcode_scanning",
+        "why_pick_it": "Uses Google's ML Kit for powerful on-device barcode and QR code detection."
+      }
+    ],
+    "minimal_example": "import 'package:barcode_scan2/barcode_scan2.dart';\n\nvoid main() async {\n  var result = await BarcodeScanner.scan();\n\n  print(result.type);\n  print(result.rawContent);\n  print(result.format);\n}",
+    "confidence": 0.95
+  }
+}

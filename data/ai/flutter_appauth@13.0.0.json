@@ -1,0 +1,50 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "13.0.0",
+  "generatedAt": "2026-11-07T11:11:09.350Z",
+  "data": {
+    "primary_category": "auth",
+    "secondary_categories": [
+      "device"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter plugin for OAuth 2.0 and OpenID Connect authentication using native AppAuth SDKs.",
+    "what_it_does": "Provides an abstraction around the native Android, iOS, and macOS AppAuth SDKs to handle authentication and authorization flows, including PKCE extensions and token exchanges. It launches the system browser for user sign-in and handles redirects back to the application.",
+    "use_when": [
+      "You need to authenticate users via OAuth 2.0 or OpenID Connect providers like Auth0, Azure B2C, or custom identity servers.",
+      "Your identity provider requires PKCE for native mobile application security.",
+      "You want to use native browser-based authentication flows on Android, iOS, and macOS."
+    ],
+    "avoid_when": [
+      "You are looking for built-in backends or user management systems like Firebase or Supabase.",
+      "You want simple pre-built social sign-in buttons without dealing with custom OAuth schemes and discovery endpoints."
+    ],
+    "strengths": [
+      "Supports PKCE extension for secure native app authentication.",
+      "Works with standard OAuth 2.0 and OpenID Connect providers (Auth0, IdentityServer, Okta, etc.).",
+      "Provides built-in token refreshing and user cancellation handling."
+    ],
+    "weaknesses": [
+      "Requires manual native configuration for custom URL schemes on Android, iOS, and macOS.",
+      "Relies on launching external browser tabs, which might not fit all custom UI requirements."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires configuring custom redirect schemes in Android's build.gradle or AndroidManifest.xml and iOS/macOS Info.plist files.",
+    "alternatives": [
+      {
+        "name": "firebase_auth",
+        "why_pick_it": "Choose this if your backend is Firebase and you want a fully managed authentication service."
+      },
+      {
+        "name": "google_sign_in",
+        "why_pick_it": "Choose this if you specifically only need Google Sign-In rather than a generic OAuth/OIDC client."
+      }
+    ],
+    "minimal_example": "FlutterAppAuth appAuth = FlutterAppAuth();\nfinal AuthorizationTokenResponse result = await appAuth.authorizeAndExchangeCode(\n  AuthorizationTokenRequest(\n    '<client_id>',\n    '<redirect_url>',\n    discoveryUrl: '<discovery_url>',\n    scopes: ['openid', 'profile', 'email', 'offline_access', 'api'],\n  ),\n);",
+    "confidence": 0.95
+  }
+}

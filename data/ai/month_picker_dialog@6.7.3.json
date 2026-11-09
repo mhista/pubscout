@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "6.7.3",
+  "generatedAt": "2026-11-08T15:46:08.526Z",
+  "data": {
+    "primary_category": "forms",
+    "secondary_categories": [
+      "localization"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Internationalized dialog for picking a single month or range from an infinite list of years.",
+    "what_it_does": "Provides dialog functions like showMonthPicker, showMonthRangePicker, and showYearPicker to let users select months, month ranges, or years. It supports extensive customization via settings classes and internationalization using the intl package.",
+    "use_when": [
+      "You need users to select a specific month or month range rather than a full calendar day.",
+      "Your application requires localization support for month and year pickers across different languages."
+    ],
+    "avoid_when": [
+      "You only need standard daily calendar date selection.",
+      "You need a form input component embedded inline rather than as a popup dialog."
+    ],
+    "strengths": [
+      "Supports single month, month range, and year selection modes.",
+      "Built-in internationalization leveraging Flutter's i18n and intl package.",
+      "Extensive styling options through MonthPickerDialogSettings."
+    ],
+    "weaknesses": [
+      "Triggered imperatively via functions rather than as a standard form field widget.",
+      "Relies on external dialog display instead of embedded UI components."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "FloatingActionButton(\n    onPressed: () {\n        showMonthPicker(\n        context: context,\n        initialDate: DateTime.now(),\n        ).then((date) {\n        if (date != null) {\n            setState(() {\n            selectedDate = date;\n            });\n        }\n        });\n    },\n    child: Icon(Icons.calendar_today),\n)",
+    "confidence": 0.95
+  }
+}

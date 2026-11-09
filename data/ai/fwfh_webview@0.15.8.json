@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.15.8",
+  "generatedAt": "2026-11-07T11:20:09.775Z",
+  "data": {
+    "primary_category": "web-desktop",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "WidgetFactory extension to render IFRAME elements using the official WebView plugin.",
+    "what_it_does": "Extends flutter_widget_from_html_core to render HTML IFRAME elements as native WebViews using the official webview_flutter plugin. It supports configurable settings such as JavaScript, user agents, debugging, and media playback.",
+    "use_when": [
+      "You are using flutter_widget_from_html_core and need to render IFRAMEs as WebViews.",
+      "You need configurable WebView behaviors like custom user agents or media playback permissions inside HTML content."
+    ],
+    "avoid_when": [
+      "You are not using flutter_widget_from_html_core.",
+      "You need a standalone full-screen webview browser rather than inline HTML rendering."
+    ],
+    "strengths": [
+      "Seamless integration with flutter_widget_from_html_core via mixins.",
+      "Configurable getters for controlling WebView properties like debugging, gestures, and user agents."
+    ],
+    "weaknesses": [
+      "Strictly tied to flutter_widget_from_html_core as a companion add-on.",
+      "Relies on native webview implementations which can add overhead."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add both flutter_widget_from_html_core and fwfh_webview to pubspec.yaml, then create a custom WidgetFactory mixing in WebViewFactory.",
+    "alternatives": [],
+    "minimal_example": "class MyWidgetFactory extends WidgetFactory with WebViewFactory {\n  bool get webViewMediaPlaybackAlwaysAllow => true;\n  String? get webViewUserAgent => 'My app';\n}",
+    "confidence": 0.95
+  }
+}

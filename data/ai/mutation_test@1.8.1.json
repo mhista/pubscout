@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.8.1",
+  "generatedAt": "2026-11-08T15:44:10.353Z",
+  "data": {
+    "primary_category": "testing",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Command line tool to measure test quality using mutation testing.",
+    "what_it_does": "It mutates your source code and checks whether your test suite detects the changes. By modifying code and verifying test failures, it helps you identify poorly asserted or missing tests.",
+    "use_when": [
+      "You want to measure the true effectiveness of your test suite beyond simple code coverage",
+      "You want to run mutation testing locally or in a CI pipeline using configurable XML rules"
+    ],
+    "avoid_when": [
+      "Your project has a very large codebase and you cannot afford the time required to run extensive mutation passes",
+      "You are looking for a standard assertion or mocking framework rather than test quality metrics"
+    ],
+    "strengths": [
+      "Fully configurable mutation rules and exclusions via XML documents and regular expressions",
+      "Supports incremental analysis in CI and optional lcov coverage integration to speed up runs",
+      "Generates multiple output report formats including HTML and xunit/junit"
+    ],
+    "weaknesses": [
+      "Running a full project analysis can take a long time (hours depending on code size)",
+      "Mutation testing inherently requires executing test suites repeatedly, which is computationally expensive"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add as a dev dependency via 'dart pub add --dev mutation_test' and run with 'dart run mutation_test'.",
+    "minimal_example": "dart pub add --dev mutation_test\ndart run mutation_test",
+    "confidence": 1,
+    "alternatives": []
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "2.16.0",
+  "generatedAt": "2026-11-07T10:55:06.472Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "AWS S3 storage plugin for Flutter via Amplify",
+    "what_it_does": "Provides upload, download, list, remove, and getUrl operations for Amazon S3. It returns operation objects for advanced control and integrates with Amplify's Storage category.",
+    "use_when": [
+      "You need to store files in Amazon S3 from a Flutter app",
+      "You already use Amplify for other services and want a unified SDK",
+      "You require multi‑bucket support or wasm support for web"
+    ],
+    "avoid_when": [
+      "You need local or device‑only storage",
+      "You prefer a lightweight HTTP client for simple uploads",
+      "You are building a non‑AWS backend"
+    ],
+    "strengths": [
+      "Integrated with Amplify ecosystem",
+      "Supports multi‑bucket and wasm",
+      "Operation objects allow cancellation and pause",
+      "Cross‑platform support (Android, iOS, Web, Windows, macOS, Linux)"
+    ],
+    "weaknesses": [
+      "Requires Amplify configuration and backend setup",
+      "Not suitable for local storage needs",
+      "Adds dependency on Amplify core"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add amplify_core and amplify_storage_s3 to pubspec, run Amplify.addPlugin, configure Amplify in main, ensure AWS credentials and S3 bucket are set up in Amplify console.",
+    "alternatives": [],
+    "minimal_example": "final result = await Amplify.Storage.uploadFile(\n  localFile: exampleFile,\n  key: 'ExampleKey',\n).result;\nprint('Uploaded file key: ${result.uploadedItem.key}');",
+    "confidence": 0.9
+  }
+}

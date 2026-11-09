@@ -1,0 +1,36 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.12.20",
+  "generatedAt": "2026-11-08T15:16:51.727Z",
+  "data": {
+    "primary_category": "testing",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Support for specifying test expectations via an extensible Matcher class.",
+    "what_it_does": "Provides a third-generation assertion mechanism for Dart unit and widget tests, drawing inspiration from Hamcrest. Includes a large number of built-in matchers for values, exceptions, futures, and streams, as well as support for creating custom matchers.",
+    "use_when": [
+      "You need expressive, composable assertions for unit or asynchronous tests.",
+      "You want to validate complex data structures, exceptions, or stream events."
+    ],
+    "avoid_when": [
+      "You are not writing tests."
+    ],
+    "strengths": [
+      "Extensible Matcher class allows defining custom validation logic.",
+      "Rich set of built-in matchers for futures, streams, collections, and types.",
+      "Detailed failure messages providing clear context on what went wrong."
+    ],
+    "weaknesses": [
+      "Does not replace the underlying test runner framework (requires package:test or similar)."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [],
+    "minimal_example": "import 'package:test/test.dart';\n\nvoid main() {\n  test('.split() splits the string on the delimiter', () {\n    expect('foo,bar,baz', allOf([\n      contains('foo'),\n      isNot(startsWith('bar')),\n      endsWith('baz')\n    ]));\n  });\n}",
+    "confidence": 1
+  }
+}

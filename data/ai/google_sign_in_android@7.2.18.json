@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "7.2.18",
+  "generatedAt": "2026-11-07T11:23:09.215Z",
+  "data": {
+    "primary_category": "auth",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Android implementation of the google_sign_in plugin",
+    "what_it_does": "Provides the Android-specific implementation for the google_sign_in plugin, utilizing the underlying Android CredentialManager SDK and Google Identity APIs for authentication.",
+    "use_when": [
+      "You are implementing Google Sign-In in a Flutter application targeting Android",
+      "You need to interact directly with the Android-specific APIs of the google_sign_in package"
+    ],
+    "avoid_when": [
+      "You are developing for platforms other than Android without needing platform-specific dependency management",
+      "You prefer using higher-level authentication providers like Firebase Auth exclusively without direct Google sign-in flows"
+    ],
+    "strengths": [
+      "Automatically included when using the endorsed google_sign_in package",
+      "Updated to use modern Android CredentialManager SDK and Kotlin implementation"
+    ],
+    "weaknesses": [
+      "Requires precise platform-side configuration (SHA signing keys, package names, web OAuth client IDs)",
+      "Certain underlying CredentialManager errors can manifest as generic cancellation errors"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Register your application using Firebase or Google Cloud Platform, enable OAuth APIs like Google People, and ensure a web OAuth client entry is configured.",
+    "alternatives": [
+      {
+        "name": "google_sign_in",
+        "why_pick_it": "The main endorsed federated plugin package that includes this Android implementation automatically."
+      }
+    ],
+    "minimal_example": "// This package is an endorsed federated plugin.\n// Usually, you simply use the `google_sign_in` package normally without adding this to pubspec.yaml unless calling its APIs directly.",
+    "confidence": 0.95
+  }
+}

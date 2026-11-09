@@ -1,0 +1,52 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.37.1",
+  "generatedAt": "2026-11-08T15:58:04.752Z",
+  "data": {
+    "primary_category": "localization",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "I18n made easy for Flutter using JSON, XML, YAML or TOML files.",
+    "what_it_does": "Simplifies the internationalization process in Flutter apps by allowing translations to be loaded from local files or network sources in formats like JSON, YAML, TOML, and XML. Supports runtime locale changes, plurals, and missing translation handlers.",
+    "use_when": [
+      "You want to manage translations using simple JSON, YAML, TOML or XML files",
+      "You need runtime language switching and pluralization support",
+      "You want support for loading translation files from the network or device storage"
+    ],
+    "avoid_when": [
+      "You prefer type-safe generated translation keys (codegen approach)",
+      "You need a different localization format not supported by the loaders"
+    ],
+    "strengths": [
+      "Supports multiple file formats (JSON, YAML, TOML, XML)",
+      "Offers various loaders including local, network, and namespace-based loaders",
+      "Provides built-in widgets like I18nText and I18nPlural for convenience"
+    ],
+    "weaknesses": [
+      "No code generation for compile-time key safety",
+      "Requires manual setup of assets in pubspec.yaml"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Configure assets folder in pubspec.yaml and add FlutterI18nDelegate to localizationsDelegates.",
+    "alternatives": [
+      {
+        "name": "intl",
+        "why_pick_it": "Standard localization approach provided by the Flutter team using arb files."
+      },
+      {
+        "name": "easy_localization",
+        "why_pick_it": "Another popular easy localization package supporting JSON, CSV, and YAML."
+      },
+      {
+        "name": "slang",
+        "why_pick_it": "Provides type-safe translations through code generation."
+      }
+    ],
+    "minimal_example": "MaterialApp(\n  localizationsDelegates: [\n    FlutterI18nDelegate(\n      translationLoader: FileTranslationLoader(\n        basePath: 'assets/i18n',\n        useCountryCode: false,\n      ),\n    ),\n    GlobalMaterialLocalizations.delegate,\n    GlobalWidgetsLocalizations.delegate\n  ],\n)",
+    "confidence": 1
+  }
+}

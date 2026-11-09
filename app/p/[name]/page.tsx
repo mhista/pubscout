@@ -118,7 +118,9 @@ export default async function PackagePage({ params }: Props) {
                   <a className="link" href={`${SITE.repo}/issues/new?title=${encodeURIComponent(`Inaccurate summary: ${p.name}`)}`}>Report an inaccuracy</a>
                 </>
               ) : (
-                "This is the author's description from pub.dev. We haven't written a summary with use cases and trade-offs for this package yet."
+                p.summaryPending
+                  ? "This is the author's description from pub.dev. A fuller summary with use cases and trade-offs is in the queue and usually appears within a day or two."
+                  : "This is the author's description from pub.dev. We haven't written a summary with use cases and trade-offs for this package yet."
               )}
             </p>
           </section>

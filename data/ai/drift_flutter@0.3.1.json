@@ -1,0 +1,52 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.3.1",
+  "generatedAt": "2026-11-07T11:06:52.454Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Provides a simple Flutter‑specific helper to open drift databases on all platforms.",
+    "what_it_does": "The package supplies a driftDatabase() function that returns a DatabaseConnection appropriate for the current platform. It handles file locations, web wasm loading, and optional isolate sharing for native platforms.",
+    "use_when": [
+      "You are already using drift and need a Flutter‑friendly way to open databases.",
+      "You want automatic handling of platform‑specific storage paths and optional isolate sharing.",
+      "You target multiple platforms (mobile, desktop, web) with a single API."
+    ],
+    "avoid_when": [
+      "You do not use drift and need a generic SQLite wrapper.",
+      "You require a pure‑Dart solution without native plugins.",
+      "You prefer a different storage model (key‑value, NoSQL)."
+    ],
+    "strengths": [
+      "Cross‑platform (mobile, desktop, web) support out of the box.",
+      "Built‑in isolate sharing for background work.",
+      "Simple API – just call driftDatabase(name)."
+    ],
+    "weaknesses": [
+      "Web requires manually adding sqlite3.wasm and drift_worker.js files.",
+      "Tied to drift; not useful without it.",
+      "Adds extra dependencies (path_provider, sqlite3_flutter_libs)."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add the compiled sqlite3.wasm and drift_worker.js to the web folder for web support. Ensure path_provider is available for native platforms. No build_runner needed.",
+    "alternatives": [
+      {
+        "name": "drift",
+        "why_pick_it": "Core drift package works but requires manual Flutter‑specific setup."
+      },
+      {
+        "name": "sqflite_common",
+        "why_pick_it": "Provides a generic SQLite API without drift integration, useful if you don't need drift's query builder."
+      }
+    ],
+    "minimal_example": "import 'package:drift/drift.dart';\nimport 'package:drift_flutter/drift_flutter.dart';\n\n@DriftDatabase(...)\nclass MyAppDatabase extends _$MyAppDatabase {\n  MyAppDatabase(super.e);\n  MyAppDatabase.defaults() : super(driftDatabase(name: 'app_db'));\n}",
+    "confidence": 0.97
+  }
+}

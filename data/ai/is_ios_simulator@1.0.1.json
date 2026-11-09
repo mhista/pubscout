@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.1",
+  "generatedAt": "2026-11-08T15:32:13.736Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Checks whether the app is running in the iOS Simulator or on a physical device",
+    "what_it_does": "Checks whether the current application is running inside the iOS Simulator or on a physical device. Returns false on non-iOS platforms and uses conditional imports to avoid breaking web builds.",
+    "use_when": [
+      "You need to detect if your app is running in the iOS simulator",
+      "You want to avoid heavy transitive dependencies introduced by larger device info packages"
+    ],
+    "avoid_when": [
+      "You need comprehensive device information beyond just iOS simulator detection"
+    ],
+    "strengths": [
+      "Lightweight with minimal transitive dependencies",
+      "Safe for web builds via conditional imports",
+      "Simple and straightforward API"
+    ],
+    "weaknesses": [
+      "Limited to a single specific check (iOS simulator vs physical device)"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "No special native configuration or setup required.",
+    "alternatives": [
+      {
+        "name": "device_info_plus",
+        "why_pick_it": "If you need broader device info and system details across multiple platforms rather than just iOS simulator detection."
+      }
+    ],
+    "minimal_example": "import 'package:is_ios_simulator/is_ios_simulator.dart';\n\nfinal result = await isIosSimulator();\nprint(result);",
+    "confidence": 1
+  }
+}

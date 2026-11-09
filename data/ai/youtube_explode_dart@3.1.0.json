@@ -1,0 +1,48 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.1.0",
+  "generatedAt": "2026-11-08T15:42:43.898Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [
+      "utils",
+      "networking"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Query YouTube metadata, streams, playlists, captions, and comments without an API key.",
+    "what_it_does": "Provides a Dart interface to query metadata of YouTube videos, playlists, and channels. It resolves and downloads video streams, extracts closed captions, and fetches comments by parsing raw page content and reverse-engineered AJAX requests.",
+    "use_when": [
+      "You want to fetch YouTube video metadata, captions, or comments without using the official YouTube Data API.",
+      "You need to resolve and download YouTube video and audio streams directly.",
+      "You are building a custom YouTube downloader or media application in Dart."
+    ],
+    "avoid_when": [
+      "You require guaranteed long-term stability against YouTube's frequent internal web page and API changes.",
+      "You need an official, supported Google API with explicit quotas and SLAs."
+    ],
+    "strengths": [
+      "No YouTube API key or usage quotas required.",
+      "Supports metadata, playlists, comments, captions, and various stream qualities (muxed, audio-only, video-only, HLS).",
+      "Allows choosing different YouTube clients and custom signature solvers."
+    ],
+    "weaknesses": [
+      "Relies on reverse-engineering and parsing raw page content, making it prone to breaking when YouTube updates its site.",
+      "Requires manual cleanup by closing the HTTP client to avoid halting the Dart process."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Not documented",
+    "alternatives": [
+      {
+        "name": "video_player",
+        "why_pick_it": "If you want an official widget to play standard video files or network video URLs inside your Flutter application rather than extracting raw streams and metadata."
+      }
+    ],
+    "minimal_example": "var yt = YoutubeExplode();\nvar video = await yt.videos.get('https://youtube.com/watch?v=Dpp1sIL1m5Q');\nvar title = video.title;\nvar author = video.author;\nyt.close();",
+    "confidence": 0.95
+  }
+}

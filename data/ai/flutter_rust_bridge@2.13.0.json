@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.13.0",
+  "generatedAt": "2026-11-07T11:17:14.463Z",
+  "data": {
+    "primary_category": "codegen",
+    "secondary_categories": [],
+    "approach": [
+      "code generation"
+    ],
+    "one_liner": "Flutter/Dart and Rust binding generator",
+    "what_it_does": "Generates glue code between Flutter/Dart and Rust, allowing you to seamlessly call Rust code from Dart and vice versa. It supports arbitrary types, async Rust, traits, and complex data structures without manual boilerplate.",
+    "use_when": [
+      "You need high-performance Rust code for CPU-heavy computations or data-intensive operations in Flutter.",
+      "You want to reuse existing Rust libraries or codebases within a cross-platform mobile, desktop, or web Flutter app."
+    ],
+    "avoid_when": [
+      "Your application does not require performance-critical native code or systems programming capabilities.",
+      "You want to avoid external toolchains such as Cargo and Rust compilation steps in your project workflow."
+    ],
+    "strengths": [
+      "Supports arbitrary Rust and Dart types, asynchronous Rust, and two-way communication (Rust calling Dart).",
+      "Officially recognized as a Flutter Favorite package with strong reliability and CI coverage."
+    ],
+    "weaknesses": [
+      "Requires setting up and managing a Rust toolchain alongside your Flutter development environment.",
+      "Build times and project complexity can increase due to cross-compilation requirements for multiple platforms."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires installing cargo install flutter_rust_bridge_codegen, setting up a Rust directory in your project, and running code generation commands.",
+    "alternatives": [
+      {
+        "name": "ffi",
+        "why_pick_it": "If you prefer writing manual Dart FFI bindings without an external code generator."
+      }
+    ],
+    "minimal_example": "final dict = await WordDict.open((situation) => true);\nprint(dict.size);\nawait for (final value in dict.search('something')) { print(value); }",
+    "confidence": 1
+  }
+}

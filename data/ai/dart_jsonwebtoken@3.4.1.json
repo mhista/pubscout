@@ -1,0 +1,52 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "3.4.1",
+  "generatedAt": "2026-11-07T11:04:33.748Z",
+  "data": {
+    "primary_category": "auth",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "A Dart library for creating, signing, decoding and verifying JSON Web Tokens (JWT).",
+    "what_it_does": "It provides a simple API to generate JWTs with any supported algorithm, sign them with secret or key, decode tokens without verification, and verify signatures and claims. It also supports JWK conversion and defensive claim handling.",
+    "use_when": [
+      "You need to issue or validate JWTs in a Dart/Flutter app",
+      "You require support for multiple algorithms (HS, RS, ES, EdDSA)",
+      "You want a pure Dart implementation without external native dependencies"
+    ],
+    "avoid_when": [
+      "You only need to parse JWTs without verification",
+      "You are building a minimal app that prefers a lighter dependency"
+    ],
+    "strengths": [
+      "All standard JWT algorithms supported",
+      "Defensive type checks and timing-attack resistant HMAC",
+      "JWK conversion helpers",
+      "Pure Dart, works on all platforms"
+    ],
+    "weaknesses": [
+      "No built‑in token storage or refresh flow",
+      "No integration with auth backends out of the box",
+      "Requires manual key management"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dependency to pubspec, import package, no build_runner needed",
+    "alternatives": [
+      {
+        "name": "built_value",
+        "why_pick_it": "not a JWT library, but can be used for value objects"
+      },
+      {
+        "name": "json_annotation",
+        "why_pick_it": "not a JWT library"
+      }
+    ],
+    "minimal_example": "import 'package:dart_jsonwebtoken/dart_jsonwebtoken.dart';\nfinal jwt = JWT({'id':123});\nfinal token = jwt.sign(SecretKey('secret'));\nfinal verified = JWT.verify(token, SecretKey('secret'));\nprint(verified.payload);",
+    "confidence": 0.92
+  }
+}

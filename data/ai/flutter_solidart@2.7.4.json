@@ -1,0 +1,53 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.7.4",
+  "generatedAt": "2026-11-07T11:17:33.097Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "A simple state management solution for Flutter inspired by SolidJS.",
+    "what_it_does": "Provides fine-grained reactivity using signals, effects, computed values, and async resources. It updates only the specific widgets that depend on changed signals without requiring code generation.",
+    "use_when": [
+      "You want fine-grained reactivity without boilerplate code generation.",
+      "You prefer an approach inspired by SolidJS signals rather than streams or BLoC.",
+      "You need to handle asynchronous loading via Resources tied to reactive sources."
+    ],
+    "avoid_when": [
+      "Your project standardizes heavily around a different state management library like Riverpod or Bloc.",
+      "You require a strictly centralized global state tree."
+    ],
+    "strengths": [
+      "Simple and easy to learn with minimal concepts.",
+      "No code generation needed.",
+      "Fine-grained reactivity prevents unnecessary widget rebuilds."
+    ],
+    "weaknesses": [
+      "Smaller ecosystem and community compared to Riverpod or Provider.",
+      "Requires careful adherence to tracking rules to avoid unmonitored signals."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "riverpod",
+        "why_pick_it": "If you prefer a compile-safe, provider-based dependency injection and state management solution with a massive ecosystem."
+      },
+      {
+        "name": "flutter_bloc",
+        "why_pick_it": "If you prefer a strict, event-driven architecture with predictable state transitions."
+      },
+      {
+        "name": "provider",
+        "why_pick_it": "If you want a traditional, built-in Flutter inheritance-based state management approach."
+      }
+    ],
+    "minimal_example": "final counter = Signal(0);\n\nfinal disposeFn = Effect(() {\n    print(\"The count is now \\${counter.value}\");\n});\n\ncounter.value = 2;",
+    "confidence": 0.95
+  }
+}

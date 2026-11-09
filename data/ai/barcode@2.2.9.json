@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.2.9",
+  "generatedAt": "2026-11-07T10:57:50.644Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "code generation"
+    ],
+    "one_liner": "Barcode generation library for Dart that can generate generic drawing operations for any backend.",
+    "what_it_does": "Generates generic drawing operations and formats (like SVG) for 1D and 2D barcodes including QR codes, Data Matrix, PDF417, and various product codes. It relies purely on Dart with no platform-dependent implementation, acting as a base library for generating barcodes across different outputs.",
+    "use_when": [
+      "You need to generate barcodes in pure Dart or backend environments.",
+      "You want to produce SVG, PDF, or custom drawn barcodes."
+    ],
+    "avoid_when": [
+      "You need to scan or read barcodes from a camera rather than generate them.",
+      "You are looking for a pre-built Flutter widget directly out of the box (use barcode_widget instead)."
+    ],
+    "strengths": [
+      "Supports a wide variety of 1D, 2D, and height-modulated barcodes.",
+      "Platform-agnostic with no platform-dependent implementation.",
+      "Can output generic drawing operations and SVGs."
+    ],
+    "weaknesses": [
+      "Does not include camera scanning capabilities.",
+      "Requires helper libraries or packages like barcode_widget or pdf for high-level rendering in Flutter or PDF apps."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "qr",
+        "why_pick_it": "If you exclusively need to generate QR codes without other barcode types."
+      }
+    ],
+    "minimal_example": "final dm = Barcode.dataMatrix();\nfinal svg = dm.toSvg('Hello World!', width: 200, height: 200);\nawait File('barcode.svg').writeAsString(svg);",
+    "confidence": 1
+  }
+}

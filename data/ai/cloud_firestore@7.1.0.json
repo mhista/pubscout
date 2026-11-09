@@ -1,0 +1,51 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "7.1.0",
+  "generatedAt": "2026-11-07T11:01:35.775Z",
+  "data": {
+    "primary_category": "backend",
+    "secondary_categories": [
+      "storage"
+    ],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "Flutter plugin for Cloud Firestore noSQL database with live synchronization.",
+    "what_it_does": "Provides a client for Cloud Firestore, allowing apps to store, query, and synchronize data in real time with offline support on Android, iOS, web, Windows, and macOS.",
+    "use_when": [
+      "You need a cloud-hosted NoSQL database for your Flutter app.",
+      "Your application requires real-time data synchronization across clients.",
+      "You need offline data persistence and access."
+    ],
+    "avoid_when": [
+      "You require a relational database with complex SQL joins.",
+      "You are using a non-Firebase backend provider."
+    ],
+    "strengths": [
+      "Live synchronization out of the box",
+      "Built-in offline support for mobile platforms",
+      "Deep integration with the Firebase ecosystem"
+    ],
+    "weaknesses": [
+      "Complex querying limitations typical of NoSQL document databases",
+      "Vendor lock-in to Firebase"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires initializing Firebase via firebase_core and configuring Android/iOS native Firebase project settings.",
+    "alternatives": [
+      {
+        "name": "supabase",
+        "why_pick_it": "Choose if you prefer an open-source Postgres relational database and backend-as-a-service alternative to Firebase."
+      },
+      {
+        "name": "supabase_flutter",
+        "why_pick_it": "Choose for Flutter-specific integration with Supabase backend and Postgres database."
+      }
+    ],
+    "minimal_example": "import 'package:cloud_firestore/cloud_firestore.dart';\n\nFuture<void> addUser() async {\n  CollectionReference users = FirebaseFirestore.instance.collection('users');\n  return users\n    .add({\n      'full_name': 'John Doe',\n      'company': 'Google',\n      'age': 35\n    })\n    .then((value) => print(\"User Added\"))\n    .catchError((error) => print(\"Failed to add user: $error\"));\n}",
+    "confidence": 0.95
+  }
+}

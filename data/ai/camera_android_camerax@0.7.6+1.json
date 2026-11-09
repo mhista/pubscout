@@ -1,0 +1,46 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.7.6+1",
+  "generatedAt": "2026-11-07T10:59:39.685Z",
+  "data": {
+    "primary_category": "camera",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Android camera implementation using CameraX library",
+    "what_it_does": "Provides camera preview, image capture, video recording, and advanced features like zero‑shutter‑lag for Android apps. It is an implementation of the core camera plugin that uses CameraX under the hood.",
+    "use_when": [
+      "Building an Android app that requires camera preview and image/video capture",
+      "Need zero‑shutter‑lag still image capture",
+      "Want custom video output path or persistent recording"
+    ],
+    "avoid_when": [
+      "Targeting iOS, web, or desktop platforms",
+      "Using the generic camera plugin without Android‑specific features"
+    ],
+    "strengths": [
+      "Uses CameraX for modern Android camera APIs",
+      "Supports zero‑shutter‑lag and persistent recording",
+      "Allows custom video output paths",
+      "Endorsed by Flutter, automatically included when using camera"
+    ],
+    "weaknesses": [
+      "Android‑only implementation",
+      "Some limitations: 240p video fallback, streamOptions ignored",
+      "Requires WRITE_EXTERNAL_STORAGE permission for older Android versions"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "No additional setup beyond adding the dependency; permissions are handled automatically, but you may need to add READ_EXTERNAL_STORAGE removal if desired.",
+    "alternatives": [
+      {
+        "name": "camera",
+        "why_pick_it": "Provides the same functionality across all platforms and is the endorsed implementation"
+      }
+    ],
+    "minimal_example": "```dart\nimport 'package:camera_android_camerax/camera_android_camerax.dart';\n\nfinal controller = CameraController(\n  cameraDescription,\n  ResolutionPreset.high,\n);\nawait controller.initialize();\n```",
+    "confidence": 0.9
+  }
+}

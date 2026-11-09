@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "1.2.0",
+  "generatedAt": "2026-11-07T10:57:12.792Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Parallel task executor using isolates or async, like thread pools",
+    "what_it_does": "Executes async tasks concurrently across isolates or async, supporting shared data and error handling.",
+    "use_when": [
+      "Need parallelism on CPU‑bound tasks",
+      "Want an isolate abstraction without manual Isolate code",
+      "Need shared data between tasks"
+    ],
+    "avoid_when": [
+      "Only single‑threaded async needed"
+    ],
+    "strengths": [
+      "Transparent across all Dart platforms",
+      "Supports shared data to reduce message overhead",
+      "Improved error handling and task lifecycle"
+    ],
+    "weaknesses": [
+      "Requires ffi, may add binary size",
+      "Overhead of isolates for small tasks"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:async_task/async_task.dart';\n\nvoid main() async {\n  var tasks = [PrimeChecker(8779), PrimeChecker(1046527)];\n  var executor = AsyncExecutor(sequential:false, parallelism:2, taskTypeRegister:()=>[PrimeChecker(0)]);\n  var executions = executor.executeAll(tasks);\n  await Future.wait(executions);\n  for (var t in tasks) print('${t.n} -> ${t.result}');\n}\n\nclass PrimeChecker extends AsyncTask<int,bool>{\n  final int n; PrimeChecker(this.n);\n  @override AsyncTask<int,bool> instantiate(int p)=>PrimeChecker(p);\n  @override int parameters()=>n;\n  @override FutureOr<bool> run()=>isPrime(n);\n  bool isPrime(int n){ if(n<2)return false; var l=n~/2; for(var p=2;p<=l;++p)if(n%p==0)return false; return true; }\n}",
+    "confidence": 0.9
+  }
+}

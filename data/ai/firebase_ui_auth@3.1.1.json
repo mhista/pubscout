@@ -1,0 +1,46 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.1.1",
+  "generatedAt": "2026-11-07T11:10:21.017Z",
+  "data": {
+    "primary_category": "auth",
+    "secondary_categories": [
+      "ui-kits",
+      "backend"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Pre-built Flutter widgets for Firebase Authentication workflows.",
+    "what_it_does": "Provides ready-to-use widgets and screens like SignInScreen and ProfileScreen integrated with Firebase Auth providers such as Email, Phone, Google, Apple, and Facebook. It simplifies the implementation of login flows, email verification, and profile management without writing custom auth UI from scratch.",
+    "use_when": [
+      "You are building a Flutter app using Firebase Authentication and want pre-built login and profile screens.",
+      "You need standard OAuth providers (Google, Apple, Facebook, Twitter) integrated quickly."
+    ],
+    "avoid_when": [
+      "Your app does not use Firebase Authentication.",
+      "You require a heavily customized design system that does not fit the default pre-built UI widgets."
+    ],
+    "strengths": [
+      "Saves significant development time by providing ready-made auth screens.",
+      "Out-of-the-box support for multiple authentication providers and platforms.",
+      "Official Firebase UI library maintained for Flutter."
+    ],
+    "weaknesses": [
+      "Tied directly to Firebase Authentication.",
+      "Customizing the deep UI layout beyond provided parameters can be restrictive."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires configuring Firebase in your project, adding the package to pubspec.yaml, and optionally configuring custom assets like SocialIcons font if using the profile screen.",
+    "alternatives": [
+      {
+        "name": "firebase_auth",
+        "why_pick_it": "If you need raw backend authentication methods without pre-built UI components."
+      }
+    ],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:firebase_auth/firebase_auth.dart' hide EmailAuthProvider;\nimport 'package:firebase_ui_auth/firebase_ui_auth.dart';\n\nclass MyApp extends StatelessWidget {\n  const MyApp({super.key});\n\n  @override\n  Widget build(BuildContext context) {\n    final providers = [EmailAuthProvider()];\n    return MaterialApp(\n      home: SignInScreen(providers: providers),\n    );\n  }\n}",
+    "confidence": 0.95
+  }
+}

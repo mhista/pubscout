@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.7.0",
+  "generatedAt": "2026-11-07T11:16:06.282Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "NFC functionality plugin for Android, iOS and Web, supporting NDEF records and APDU transceive.",
+    "what_it_does": "Provides NFC tag and card reading/writing capabilities across multiple platforms. Supports metadata inspection, reading and writing NDEF records, block-level operations, and low-level transceive commands.",
+    "use_when": [
+      "Your app needs to read or write NDEF records on NFC tags or smart cards.",
+      "You need to exchange raw commands or APDUs with ISO 7816 / ISO 14443 cards."
+    ],
+    "avoid_when": [
+      "You are targeting web browsers that actually require true native NFC (the web version uses WebUSB instead).",
+      "You only need standard QR code or barcode scanning."
+    ],
+    "strengths": [
+      "Supports multiple standards including ISO 14443, ISO 18092, ISO 15693, and ISO 7816.",
+      "Provides both polling and event streaming operation modes.",
+      "Cross-platform support for Android, iOS, and Web (via WebUSB)."
+    ],
+    "weaknesses": [
+      "Certain low-level features and operations are limited or platform-specific due to native API restrictions.",
+      "Requires manual native setup and permissions configuration on both Android and iOS."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Android requires NFC permissions and specific minimum SDK/Java versions. iOS requires enabling Near Field Communication Tag Reading capabilities, configuring Info.plist and entitlements.",
+    "alternatives": [],
+    "minimal_example": "final tag = await FlutterNfcKit.poll();\nprint(tag.type);\nawait FlutterNfcKit.finish();",
+    "confidence": 1
+  }
+}

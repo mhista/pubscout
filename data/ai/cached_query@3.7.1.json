@@ -1,0 +1,54 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.7.1",
+  "generatedAt": "2026-11-07T10:59:33.996Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Library for caching, background fetching, and managing server state in Dart and Flutter.",
+    "what_it_does": "It caches asynchronous function responses (such as API calls) against keys to provide fast UI loading and supports infinite lists, mutations, optimistic updates, and persistent storage. It can be used alongside existing state management options like Bloc or Provider.",
+    "use_when": [
+      "You need robust caching and background re-fetching for asynchronous server requests.",
+      "You want support for infinite lists and optimistic updates during mutations."
+    ],
+    "avoid_when": [
+      "You are managing complex local client-only UI state rather than server state.",
+      "You do not need asynchronous response caching or network request deduplication."
+    ],
+    "strengths": [
+      "Automatic stale-while-revalidate caching mechanism",
+      "Infinite query handling and built-in mutation support with optimistic updates",
+      "Works alongside other state management options like Bloc or Provider"
+    ],
+    "weaknesses": [
+      "Requires proper key management and configuration for cache invalidation",
+      "Persistent storage requires an additional package like cached_storage"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Initialize global query configuration and optional storage at the start of your application.",
+    "alternatives": [
+      {
+        "name": "riverpod",
+        "why_pick_it": "If you want a more comprehensive reactive caching and dependency injection solution built into your state management."
+      },
+      {
+        "name": "bloc",
+        "why_pick_it": "If you prefer a strict event-driven state management pattern without built-in network caching abstractions."
+      },
+      {
+        "name": "provider",
+        "why_pick_it": "If you need simple dependency injection and inherited widget-based state propagation."
+      }
+    ],
+    "minimal_example": "Future<SomeData?> getCachedData() async {\n  final query = Query(key: \"My key\", queryFn: fetchData);\n  final queryState = await query.result;\n  return queryState.data;\n}",
+    "confidence": 0.95
+  }
+}

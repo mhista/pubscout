@@ -1,0 +1,46 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.17.4",
+  "generatedAt": "2026-11-07T11:19:08.655Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "audio-video",
+      "images"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Render HTML content as native Flutter widgets with support for common tags, CSS, and media.",
+    "what_it_does": "Parses HTML strings into a tree of Flutter widgets. It supports 70+ HTML tags, inline CSS styling, hyperlinks, images, audio, video, and iframes.",
+    "use_when": [
+      "You need to display blog posts, article text, or rich HTML content directly inside a Flutter app.",
+      "You want to render custom HTML fragments that include formatting, lists, tables, and media elements."
+    ],
+    "avoid_when": [
+      "You are building a full-featured web browser application where complex JavaScript and DOM interaction are required.",
+      "You want to keep app size minimal and do not need full HTML/CSS rendering capabilities."
+    ],
+    "strengths": [
+      "Extensive support for common HTML tags, CSS styles, and counter-styles.",
+      "Modular architecture allowing core usage or optional extensions for caching images, audio, video, and webviews.",
+      "Provides callbacks for handling user interactions like link and image taps."
+    ],
+    "weaknesses": [
+      "Some native media dependencies (like audio) require platform-specific permissions or podfile configurations.",
+      "Complex CSS and extensive HTML parsing can introduce performance overhead on very large documents."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "iOS microphone permissions may be required if audio tag support via just_audio is included.",
+    "alternatives": [
+      {
+        "name": "flutter_widget_from_html_core",
+        "why_pick_it": "Choose this core package instead if you want a lighter build and want to manually select a subset of feature mixins."
+      }
+    ],
+    "minimal_example": "HtmlWidget(\n  '''\n  <h3>Heading</h3>\n  <p>\n    A paragraph with <strong>strong</strong> and <span style=\"color: red\">colored</span> text.\n  </p>\n  ''',\n  onTapUrl: (url) {\n    debugPrint('tapped $url');\n    return true;\n  },\n)",
+    "confidence": 0.95
+  }
+}

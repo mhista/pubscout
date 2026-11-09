@@ -4,9 +4,26 @@ import { getUrl } from "./util.mjs";
 const PUB = "https://pub.dev/api";
 
 /** pub.dev's documented "top package names" list, in pub.dev's ranking order. */
-export async function topPackageNames() {
+/**
+ * Package names in pub.dev's popularity order, at least `want` long if pub.dev has that many.
+ * Starts with the IDE completion list (the most popular few thousand); if that's too short,
+ * continues with the search API sorted by downloads (`onPage` reports progress).
+ */
+export async function topPackageNames(want = 0, { onPage } = {}) {
   const data = await getUrl(`${PUB}/package-name-completion-data`, { headers: { "accept-encoding": "gzip" } });
-  return data?.packages ?? [];
+  const names = [...(data?.packages ?? [])];
+  if (names.length >= want) return names;
+  const seen = new Set(names);
+  let url = `${PUB}/search?q=&sort=downloads&page=1`;
+  for (let page = 1; url && names.length < want && page <= 2000; page++) {
+    const res = await getUrl(url);
+    const batch = (res?.packages ?? []).map((p) => p.package).filter(Boolean);
+    if (!batch.length) break;
+    for (const n of batch) if (!seen.has(n)) { seen.add(n); names.push(n); }
+    onPage?.(page, names.length);
+    url = res?.next ?? null;
+  }
+  return names;
 }
 
 export async function pubPackage(name) {
@@ -78,12 +95,22 @@ export function githubSlug(...urls) {
   return null;
 }
 
+/** Last seen GitHub rate limit, from response headers. */
+export const githubLimit = { remaining: null, limit: null, reset: null };
+const trackLimit = (res) => {
+  const r = res.headers.get("x-ratelimit-remaining");
+  if (r == null) return;
+  githubLimit.remaining = Number(r);
+  githubLimit.limit = Number(res.headers.get("x-ratelimit-limit"));
+  githubLimit.reset = Number(res.headers.get("x-ratelimit-reset")) * 1000;
+};
+
 export async function githubStats(slug, token) {
   const headers = { accept: "application/vnd.github+json", ...(token ? { authorization: `Bearer ${token}` } : {}) };
-  const repo = await getUrl(`https://api.github.com/repos/${slug}`, { headers });
+  const repo = await getUrl(`https://api.github.com/repos/${slug}`, { headers, onResponse: trackLimit });
   if (!repo) return null;
   // Contributors: count of the first page (cap 100) is enough to tell 1 from many.
-  const contributors = await getUrl(`https://api.github.com/repos/${slug}/contributors?per_page=100&anon=0`, { headers }).catch(() => null);
+  const contributors = await getUrl(`https://api.github.com/repos/${slug}/contributors?per_page=100&anon=0`, { headers, onResponse: trackLimit }).catch(() => null);
   return {
     slug,
     stars: repo.stargazers_count ?? 0,

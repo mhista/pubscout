@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "8.2.0",
+  "generatedAt": "2026-11-08T15:23:09.649Z",
+  "data": {
+    "primary_category": "auth",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter bridge to initiate Sign in with Apple on iOS, macOS, Android, and Web.",
+    "what_it_does": "Provides methods and widgets to sign users in using their Apple ID across iOS, macOS, Android, and Web. Also includes support for retrieving and managing keychain entries.",
+    "use_when": [
+      "You need to implement Sign in with Apple authentication in your Flutter application.",
+      "Your app targets iOS, macOS, Android, and Web platforms."
+    ],
+    "avoid_when": [
+      "You do not have a paid membership to the Apple Developer Program (required for Sign in with Apple).",
+      "You only need standard email/password or other social providers and do not require Apple authentication."
+    ],
+    "strengths": [
+      "Supports multiple platforms including iOS, macOS, Android, and Web.",
+      "Includes ready-to-use widgets like SignInWithAppleButton.",
+      "Supports keychain credential retrieval."
+    ],
+    "weaknesses": [
+      "Requires a paid Apple Developer Program membership and extensive server-side integration for verification.",
+      "Android and Web setups require additional configuration (Service IDs, custom schemes, script tags)."
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Requires Apple Developer account setup (App ID, Service ID, cryptographic keys), configuring native capabilities in Xcode for iOS/macOS, adding a custom activity intent filter in AndroidManifest.xml for Android, and adding the Apple JS script tag for Web.",
+    "alternatives": [
+      {
+        "name": "firebase_auth",
+        "why_pick_it": "Choose firebase_auth if you want a complete hosted backend solution that also supports Apple sign-in alongside other authentication providers."
+      }
+    ],
+    "minimal_example": "SignInWithAppleButton(\n  onPressed: () async {\n    final credential = await SignInWithApple.getAppleIDCredential(\n      scopes: [\n        AppleIDAuthorizationScopes.email,\n        AppleIDAuthorizationScopes.fullName,\n      ],\n    );\n    print(credential);\n  },\n)",
+    "confidence": 1
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "5.2.0",
+  "generatedAt": "2026-11-08T15:31:58.349Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "A lightweight, customizable logger for Dio HTTP client built on Talker.",
+    "what_it_does": "It intercepts Dio requests and responses, printing formatted logs with optional colors, filters, and custom settings. Logs can be routed to a Talker instance for unified tracking.",
+    "use_when": [
+      "You need detailed, customizable logging for Dio network calls",
+      "You already use Talker for logging and want integration",
+      "You want easy toggling of request/response data and headers"
+    ],
+    "avoid_when": [
+      "You are not using Dio (e.g., using http package)",
+      "You need a logger that works without Talker",
+      "Performance-critical apps where logging overhead must be zero"
+    ],
+    "strengths": [
+      "Highly customizable (colors, filters, selective data)",
+      "Seamless integration with Talker",
+      "Simple setup via interceptor"
+    ],
+    "weaknesses": [
+      "Works only with Dio, not other HTTP clients",
+      "Adds dependency on Talker for full features",
+      "Logging overhead may affect very high‑frequency requests"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "dio",
+        "why_pick_it": "Provides built‑in logging via interceptors without extra packages"
+      }
+    ],
+    "minimal_example": "final dio = Dio();\n dio.interceptors.add(TalkerDioLogger(settings: const TalkerDioLoggerSettings(printRequestHeaders:true, printResponseHeaders:true, printResponseMessage:true)));\n",
+    "confidence": 0.97
+  }
+}

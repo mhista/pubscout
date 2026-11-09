@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "7.1.2",
+  "generatedAt": "2026-11-07T10:58:03.615Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Access device battery level, state, and battery save mode across platforms.",
+    "what_it_does": "Provides a Flutter plugin to read the current battery level and listen to changes in battery state (full, charging, discharging). It also allows checking whether the device is currently in battery save mode.",
+    "use_when": [
+      "You need to display the device's current battery level to users.",
+      "Your app needs to react to changes in charging state.",
+      "You want to check or handle device battery save mode."
+    ],
+    "avoid_when": [
+      "You need deep hardware diagnostics beyond basic battery metrics."
+    ],
+    "strengths": [
+      "Supports multiple platforms including Android, iOS, web, Windows, macOS, and Linux.",
+      "Part of the well-maintained Flutter Community Plus plugins.",
+      "Provides both a future-based property for current state and a stream for state changes."
+    ],
+    "weaknesses": [
+      "Battery save mode check is only available on Android, iOS, macOS, and Windows.",
+      "Requires specific minimum native versions and build tool configurations."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires minimum platform versions such as Flutter >=3.22.0, iOS >=13.0, macOS >=10.15, Java 17, and Kotlin 2.2.0 as specified in the requirements.",
+    "alternatives": [],
+    "minimal_example": "import 'package:battery_plus/battery_plus.dart';\n\nvar battery = Battery();\n\nprint(await battery.batteryLevel);\n\nbattery.onBatteryStateChanged.listen((BatteryState state) {\n  // Do something with new state\n});",
+    "confidence": 0.95
+  }
+}

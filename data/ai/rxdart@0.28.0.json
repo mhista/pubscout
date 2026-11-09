@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.28.0",
+  "generatedAt": "2026-11-08T15:19:56.671Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "state-management"
+    ],
+    "approach": [
+      "stream-based",
+      "declarative"
+    ],
+    "one_liner": "Implementation of the ReactiveX API for asynchronous programming leveraging native Dart Streams.",
+    "what_it_does": "RxDart extends the capabilities of Dart Streams and StreamControllers by adding additional Stream classes, extension methods, and Subjects from the reactive extensions specification. It enables complex stream transformations like throttling, buffering, merging, and combining without replacing the core Dart Streams API.",
+    "use_when": [
+      "You need advanced asynchronous event stream manipulation like debouncing, throttling, or flattening.",
+      "You want to use Subject patterns or combine multiple streams using operators like zip, combineLatest, or merge."
+    ],
+    "avoid_when": [
+      "Native Dart Streams and async/await already cleanly solve your asynchronous logic without extra complexity.",
+      "You are looking for a complete architectural state management framework rather than just stream extensions."
+    ],
+    "strengths": [
+      "Extensively rich set of stream extension methods and subjects.",
+      "Leverages native Dart Streams rather than inventing a parallel stream hierarchy.",
+      "Widely adopted and supported across all platforms."
+    ],
+    "weaknesses": [
+      "Can add unnecessary complexity for simple asynchronous tasks.",
+      "Steeper learning curve for developers unfamiliar with ReactiveX concepts."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:rxdart/rxdart.dart';\n\nvoid main() {\n  Stream.fromIterable([1, 2, 3])\n    .throttleTime(Duration(seconds: 1))\n    .listen(print);\n}",
+    "confidence": 1
+  }
+}

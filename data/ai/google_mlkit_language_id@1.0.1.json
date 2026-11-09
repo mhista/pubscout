@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.1",
+  "generatedAt": "2026-11-08T15:51:55.158Z",
+  "data": {
+    "primary_category": "ai-ml",
+    "secondary_categories": [
+      "localization"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Determine the language of a text string using Google's ML Kit.",
+    "what_it_does": "A Flutter plugin that uses Google's native ML Kit Language Identification APIs via platform channels. It lets you identify the single most likely language for a string of text or get a list of possible languages with confidence scores.",
+    "use_when": [
+      "You need to detect the language of user input on mobile devices.",
+      "You want on-device language identification without sending text to a cloud server."
+    ],
+    "avoid_when": [
+      "You are targeting web or desktop platforms, which are not supported.",
+      "You require a solution written purely in Dart without native mobile dependencies."
+    ],
+    "strengths": [
+      "Leverages Google's proven on-device native ML Kit library.",
+      "Supports confidence thresholds and multiple possible language identifications."
+    ],
+    "weaknesses": [
+      "Mobile only (Android and iOS); web and desktop are not supported.",
+      "Requires platform-specific setup (such as setting iOS deployment target to 15.0 and adding linker flags)."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "For iOS, set minimum deployment target to 15.0 and add `-ObjC` and `-all_load` to Other Linker Flags. For Android, ensure `minSdkVersion` is at least 21.",
+    "alternatives": [],
+    "minimal_example": "final languageIdentifier = LanguageIdentifier(confidenceThreshold: 0.5);\nfinal String response = await languageIdentifier.identifyLanguage(text);\nlanguageIdentifier.close();",
+    "confidence": 0.95
+  }
+}

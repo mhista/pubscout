@@ -1,0 +1,50 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.6.0",
+  "generatedAt": "2026-11-07T11:01:36.111Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "devtools"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Utilities to help build Dart command-line apps, find the SDK, and display progress.",
+    "what_it_does": "Provides helper functions to locate the Dart SDK and executable directories, manage application configuration directories, and output rich text and progress spinners to the CLI.",
+    "use_when": [
+      "You are building a command-line application in Dart",
+      "You need to locate the Dart SDK or application settings path from code",
+      "You want to display standard or verbose logging and progress indicators in the terminal"
+    ],
+    "avoid_when": [
+      "You are building a Flutter GUI or mobile application",
+      "You do not need command-line specific utilities or logging"
+    ],
+    "strengths": [
+      "Simplifies locating the Dart SDK across various execution contexts",
+      "Built-in logging mechanisms supporting standard and verbose modes",
+      "Includes progress indicators and spinners for long-running tasks"
+    ],
+    "weaknesses": [
+      "Limited applicability outside of command-line tools"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "args",
+        "why_pick_it": "If you specifically need command-line argument and option parsing."
+      },
+      {
+        "name": "io",
+        "why_pick_it": "If you need core Dart I/O utilities rather than CLI-specific helpers."
+      }
+    ],
+    "minimal_example": "import 'package:cli_util/cli_logging.dart';\n\nvoid main(List<String> args) async {\n  var logger = Logger.standard();\n  var progress = logger.progress('doing some work');\n  await Future.delayed(Duration(seconds: 2));\n  progress.finish(showTiming: true);\n  logger.stdout('All done.');\n}",
+    "confidence": 1
+  }
+}

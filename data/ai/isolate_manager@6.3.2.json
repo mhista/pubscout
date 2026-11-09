@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "6.3.2",
+  "generatedAt": "2026-11-08T16:01:03.411Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "stream-based",
+      "code generation"
+    ],
+    "one_liner": "Manage long-lived isolates across native, Web, and WASM platforms with built-in queuing and workers.",
+    "what_it_does": "Simplify concurrent programming in Flutter and Dart by providing long-lived single or multi-function isolates, automatic task queuing, and web worker generation. It allows running heavy calculations seamlessly on native threads, JavaScript Workers, and WebAssembly.",
+    "use_when": [
+      "You need to run heavy background computations without freezing the UI thread.",
+      "Your Flutter app targets web and WASM alongside mobile and desktop.",
+      "You want advanced queue management like priority tasks or custom overflow strategies."
+    ],
+    "avoid_when": [
+      "Your app requires simple, one-off asynchronous functions where `compute` from `flutter/foundation.dart` is sufficient.",
+      "You cannot annotate your isolate functions as static or top-level entries."
+    ],
+    "strengths": [
+      "True cross-platform support including Web Workers and WebAssembly (WASM).",
+      "Intelligent queue system with custom strategies and priority handling.",
+      "Versatile isolate types (one-off, single-function, and multi-function)."
+    ],
+    "weaknesses": [
+      "Web targets require a separate generator command to compile JS workers.",
+      "Functions targeting web workers have strict data transfer limitations."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "No setup required for Mobile & Desktop. Web targets require running the isolate generator and ensuring proper headers if using WASM.",
+    "alternatives": [],
+    "minimal_example": "import 'package:isolate_manager/isolate_manager.dart';\n\n@pragma('vm:entry-point')\nint sum(List<int> numbers) {\n  return numbers.reduce((a, b) => a + b);\n}\n\nvoid main() async {\n  final result = await IsolateManager.runFunction(sum, [1, 2, 3]);\n  print('Result: $result');\n}",
+    "confidence": 0.95
+  }
+}

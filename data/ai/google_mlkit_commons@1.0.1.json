@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.1",
+  "generatedAt": "2026-11-07T11:22:25.486Z",
+  "data": {
+    "primary_category": "ai-ml",
+    "secondary_categories": [
+      "camera"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Common classes and utility methods for Google's ML Kit plugins",
+    "what_it_does": "Provides shared classes like InputImage and ModelManager that are used across Google's standalone ML Kit plugins. It handles image conversion from files, paths, bytes, and bitmaps, as well as remote model management.",
+    "use_when": [
+      "You are building a Flutter app using Google ML Kit plugins that require an InputImage",
+      "You need to manage downloadable remote ML models"
+    ],
+    "avoid_when": [
+      "You are targeting web or platforms other than Android and iOS",
+      "You are not using any Google ML Kit plugins"
+    ],
+    "strengths": [
+      "Provides a unified InputImage abstraction for multiple ML Kit plugins",
+      "Simplifies camera stream integration and image format handling for Android and iOS"
+    ],
+    "weaknesses": [
+      "Limited to mobile platforms (Android and iOS)",
+      "Relies on native platform channels with no processing done in Dart"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires iOS deployment target 15.0 or newer, Swift Package Manager setup with specific linker flags, and Android SDK configurations.",
+    "alternatives": [
+      {
+        "name": "google_ml_kit",
+        "why_pick_it": "It is an all-in-one package containing multiple ML Kit features instead of separate standalone plugins."
+      }
+    ],
+    "minimal_example": "import 'package:google_mlkit_commons/google_mlkit_commons.dart';\n\nfinal inputImage = InputImage.fromFilePath(filePath);",
+    "confidence": 1
+  }
+}

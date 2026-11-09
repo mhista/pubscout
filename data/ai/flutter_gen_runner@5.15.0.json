@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "5.15.0",
+  "generatedAt": "2026-11-07T11:14:18.120Z",
+  "data": {
+    "primary_category": "codegen",
+    "secondary_categories": [
+      "utils",
+      "theming"
+    ],
+    "approach": [
+      "code generation"
+    ],
+    "one_liner": "Generates strongly-typed Dart classes for Flutter assets, fonts, and colors to avoid string-based APIs.",
+    "what_it_does": "It reads your pubspec.yaml configuration and asset folders to generate safe, static reference classes. This eliminates string typos when loading images, fonts, or colors in your widgets.",
+    "use_when": [
+      "You want type safety for asset paths, fonts, and colors in your Flutter app.",
+      "You want to avoid runtime errors from typos in string-based asset paths."
+    ],
+    "avoid_when": [
+      "Your project does not use local assets, custom fonts, or generated color files.",
+      "You prefer completely manual string references for resources."
+    ],
+    "strengths": [
+      "Eliminates string-based asset paths and potential typos.",
+      "Integrates seamlessly with build_runner and pubspec.yaml configurations.",
+      "Supports specialized integrations like flutter_svg, rive, and lottie."
+    ],
+    "weaknesses": [
+      "Requires running a code generator whenever assets are added or modified.",
+      "Adds build-time overhead to your project development workflow."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add flutter_gen_runner to your dev_dependencies and build_runner to your pubspec.yaml, then configure flutter_gen and run build_runner.",
+    "alternatives": [],
+    "minimal_example": "Widget build(BuildContext context) {\n  return Assets.images.profile.image();\n}",
+    "confidence": 1
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.0.0",
+  "generatedAt": "2026-11-07T11:15:04.687Z",
+  "data": {
+    "primary_category": "auth",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter plugin to access native LINE SDKs for LINE Login integration.",
+    "what_it_does": "Allows Flutter apps to integrate LINE Login features, letting users authenticate using their LINE credentials or a web page. Provides methods for login, logout, fetching user profiles, access token management, and verification.",
+    "use_when": [
+      "You need to allow users to sign in with their LINE account in your Flutter app.",
+      "Your app requires LINE login capabilities on iOS 15+ and Android API 24+."
+    ],
+    "avoid_when": [
+      "Your project targets an older Flutter version below 3.44.0.",
+      "You do not use LINE Login services."
+    ],
+    "strengths": [
+      "Official LINE SDK wrapper for Flutter.",
+      "Supports automatic token refreshing and profile retrieval."
+    ],
+    "weaknesses": [
+      "Requires manual native configuration for iOS and Android (Info.plist, build.gradle).",
+      "Stict platform requirements (iOS 15.0+, Android minSdk 24, Flutter 3.44+)."
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Requires configuring LINE Login channel settings in the LINE Developers console, adding URL schemes/queries in ios/Runner/Info.plist, raising minimum iOS deployment target to 15.0, and updating Android minSdk to 24.",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter_line_sdk/flutter_line_sdk.dart';\n\nvoid login() async {\n    try {\n        final result = await LineSDK.instance.login();\n        print(result.userProfile?.displayName);\n    } on PlatformException catch (e) {\n        print(e);\n    }\n}",
+    "confidence": 1
+  }
+}

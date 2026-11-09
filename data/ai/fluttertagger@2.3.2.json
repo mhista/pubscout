@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.3.2",
+  "generatedAt": "2026-11-07T11:11:02.503Z",
+  "data": {
+    "primary_category": "forms",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Extend Flutter TextFields to support tagging capabilities like user mentions and hashtags.",
+    "what_it_does": "FlutterTagger extends standard Flutter TextFields to enable tagging triggers such as '@' and '#'. It provides callbacks for search queries, custom styling for tagged results, and controllers to retrieve formatted text and tags.",
+    "use_when": [
+      "You are building a social media or messaging app requiring user mentions.",
+      "You need hashtag highlighting and extraction inside text fields."
+    ],
+    "avoid_when": [
+      "You only need standard text input without custom trigger characters or inline tagging overlays."
+    ],
+    "strengths": [
+      "Supports multiple trigger characters and styles simultaneously.",
+      "Includes customizable overlay views for search results.",
+      "Provides clean access to formatted text and applied tags."
+    ],
+    "weaknesses": [
+      "Relies on a specific controller and builder pattern which might require restructuring existing text input code."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [],
+    "minimal_example": "FlutterTagger(\n  controller: flutterTaggerController,\n  onSearch: (query, triggerCharacter) {},\n  triggerCharacterAndStyles: const {\n    '@': TextStyle(color: Colors.pinkAccent),\n    '#': TextStyle(color: Colors.blueAccent),\n  },\n  overlay: SearchResultView(),\n  builder: (context, textFieldKey) {\n    return TextField(\n      key: textFieldKey,\n      controller: flutterTaggerController,\n    );\n  },\n)",
+    "confidence": 1
+  }
+}

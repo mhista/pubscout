@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.24.1",
+  "generatedAt": "2026-11-08T15:31:09.740Z",
+  "data": {
+    "primary_category": "auth",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter plugin enabling passkey authentication based on WebAuthn and FIDO2.",
+    "what_it_does": "Enables user registration and login through native device biometrics (such as Face ID, Touch ID, or fingerprint readers) using passkeys. Abstracts platform-specific passkey APIs on Android, iOS, macOS, Windows, and Web. Supports advanced features like the PRF extension and conditional UI creation.",
+    "use_when": [
+      "You want to implement passkey-based signup and login in your Flutter application",
+      "You are using a custom relying party server or a provider like Corbado that implements WebAuthn",
+      "You need to derive secrets from a passkey using the WebAuthn PRF extension"
+    ],
+    "avoid_when": [
+      "You only require traditional password or standard OAuth/social login flows without passkeys",
+      "You are targeting platforms that do not support passkeys like Linux"
+    ],
+    "strengths": [
+      "Cross-platform support across Android, iOS, macOS, Windows, and Web",
+      "Supports WebAuthn PRF extension for client-side encryption key derivation",
+      "Handles platform-specific complexities of WebAuthn and conditional UI"
+    ],
+    "weaknesses": [
+      "Requires a compatible relying party backend to store and validate public keys",
+      "Platform support varies for certain features (e.g., conditional create or PRF require specific OS versions)",
+      "Linux is not supported"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires proper association configuration with your relying party server and native app identifiers for passkey functionality to work.",
+    "alternatives": [
+      {
+        "name": "local_auth",
+        "why_pick_it": "If you only need basic device biometric prompting (fingerprint/face) rather than standard WebAuthn passkey authentication."
+      }
+    ],
+    "minimal_example": "final passkeyAuthenticator = PasskeyAuthenticator();\nfinal webAuthnChallenge = await relyingPartyServer.startSignUpWithPasskey('user@example.com', 'Username');\nfinal platformRes = await passkeyAuthenticator.register(webAuthnChallenge);\nfinal relyingPartyServerRes = await relyingPartyServer.finishSignUpWithPasskey(platformRes);",
+    "confidence": 0.95
+  }
+}

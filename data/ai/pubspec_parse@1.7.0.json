@@ -1,0 +1,47 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "1.7.0",
+  "generatedAt": "2026-11-08T15:16:37.176Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Parse pubspec.yaml files with a type‑safe API and detailed error reporting.",
+    "what_it_does": "Provides classes to read and write pubspec.yaml content, exposing hosted, git, and path dependencies as typed objects. Supports lenient parsing, preserves map spans, and can serialize back to a Map.",
+    "use_when": [
+      "You need to validate or transform a pubspec.yaml in a tool or CI step",
+      "You are building a CLI that inspects package metadata",
+      "You want a robust, typed representation of pubspec fields for analysis"
+    ],
+    "avoid_when": [
+      "Parsing arbitrary YAML where a generic parser is sufficient",
+      "Runtime pubspec parsing in a production Flutter app where size matters"
+    ],
+    "strengths": [
+      "Typed API for all pubspec fields",
+      "Rich, precise error messages via checked_yaml",
+      "Supports latest Dart pubspec features (git tag_pattern, falseSecrets, hooks, platforms)",
+      "Lenient mode to ignore unknown keys"
+    ],
+    "weaknesses": [
+      "Specialized to pubspec files only, not a general YAML library",
+      "No code‑generation support",
+      "Adds another dependency if you already use a generic YAML parser"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "yaml",
+        "why_pick_it": "A generic YAML parser that can read any YAML file, including pubspec.yaml, without extra package overhead"
+      }
+    ],
+    "minimal_example": "import 'package:pubspec_parse/pubspec_parse.dart';\n\nvoid main() {\n  const yaml = '''name: my_pkg\\nversion: 1.0.0\\ndependencies:\\n  http: ^0.13.0''';\n  final pubspec = Pubspec.parse(yaml);\n  print(pubspec.name); // my_pkg\n}",
+    "confidence": 0.97
+  }
+}

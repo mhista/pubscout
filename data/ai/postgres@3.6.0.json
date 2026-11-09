@@ -1,0 +1,46 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "3.6.0",
+  "generatedAt": "2026-11-08T15:25:42.917Z",
+  "data": {
+    "primary_category": "backend",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "PostgreSQL driver for Dart supporting binary protocol, pooling and statement reuse.",
+    "what_it_does": "Provides a Dart API to connect to PostgreSQL servers, execute queries, and manage transactions. Includes connection‑pool support and custom type codecs.",
+    "use_when": [
+      "You need direct SQL access to a PostgreSQL database from a Flutter or Dart app",
+      "You require connection pooling or custom type handling",
+      "You prefer a pure‑Dart driver without native plugins"
+    ],
+    "avoid_when": [
+      "You need a higher‑level ORM or query builder",
+      "You target only NoSQL or local storage solutions",
+      "You require automatic schema migrations"
+    ],
+    "strengths": [
+      "Binary protocol for efficiency",
+      "Built‑in connection pooling with configurable parameters",
+      "Supports custom type codecs and streaming replication"
+    ],
+    "weaknesses": [
+      "Low‑level API may require manual query construction",
+      "No built‑in ORM or query abstraction",
+      "Only works with PostgreSQL, not other databases"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "postgrest",
+        "why_pick_it": "If you expose a PostgREST API and prefer a REST client over raw SQL"
+      }
+    ],
+    "minimal_example": "final conn = await Connection.open(Endpoint(host:'localhost',database:'postgres',username:'user',password:'pass'));\nfinal result = await conn.execute('SELECT \\\"foo\\\"');\nprint(result[0][0]);",
+    "confidence": 0.97
+  }
+}

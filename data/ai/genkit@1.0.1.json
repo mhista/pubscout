@@ -1,0 +1,51 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.1",
+  "generatedAt": "2026-11-07T11:20:23.454Z",
+  "data": {
+    "primary_category": "ai-ml",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based",
+      "hooks"
+    ],
+    "one_liner": "Generative AI library for Dart and Flutter supporting text generation, tools, and flows.",
+    "what_it_does": "Genkit provides a unified interface for building production-ready AI applications in Dart. It supports text generation, streaming, embeddings, tool calling, flows, and middleware for client and server apps.",
+    "use_when": [
+      "You need a unified framework for interacting with LLMs like Gemini in Dart.",
+      "You want to build agentic workflows, define custom tools, and handle streaming responses."
+    ],
+    "avoid_when": [
+      "You only need a simple, single-purpose wrapper for a specific vendor like OpenAI without a framework.",
+      "You do not plan to use generative AI features in your application."
+    ],
+    "strengths": [
+      "Unified API across models and providers.",
+      "Built-in support for streaming, interrupts, and middleware.",
+      "Comes with a local developer UI and tracing tools."
+    ],
+    "weaknesses": [
+      "Requires learning Genkit's specific framework and abstractions.",
+      "Depends on plugins for specific AI backends like Google GenAI."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding the genkit package, registering plugins like genkit_google_genai, and setting up necessary API keys (e.g., GEMINI_API_KEY).",
+    "alternatives": [
+      {
+        "name": "openai_dart",
+        "why_pick_it": "If you are specifically targeting OpenAI models and prefer a direct client library instead of Genkit's larger framework."
+      },
+      {
+        "name": "ollama_dart",
+        "why_pick_it": "If you want to integrate specifically with local Ollama instances."
+      }
+    ],
+    "minimal_example": "import 'package:genkit/genkit.dart';\nimport 'package:genkit_google_genai/genkit_google_genai.dart';\n\nvoid main() async {\n  final ai = Genkit(plugins: [googleAI()]);\n  final response = await ai.generate(\n    model: googleAI.gemini('gemini-flash-latest'),\n    prompt: 'Why is Dart a great language for AI applications?',\n  );\n  print(response.text);\n}",
+    "confidence": 0.95
+  }
+}

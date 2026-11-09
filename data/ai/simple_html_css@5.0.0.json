@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "5.0.0",
+  "generatedAt": "2026-11-08T15:49:51.887Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "theming"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Convert simple HTML and inline CSS styles into RichText or TextSpan widgets.",
+    "what_it_does": "Parses HTML strings with inline CSS and transforms them into Flutter RichText or TextSpan widgets. Supports common text formatting tags like headings, bold, italic, links, and text-related CSS properties such as color, font-size, and font-weight.",
+    "use_when": [
+      "You need to render basic HTML-formatted text with inline styles inside a Flutter app.",
+      "You want to handle link clicks embedded inside rich text content."
+    ],
+    "avoid_when": [
+      "You need a full web browser view to render complex HTML layouts, JavaScript, or external stylesheets.",
+      "You require full support for ordered and unordered lists with custom numbering or symbols."
+    ],
+    "strengths": [
+      "Easy to use with simple static methods like HTML.toRichText() and HTML.toTextSpan().",
+      "Allows custom global text styling and overriding styles per HTML tag.",
+      "Provides a callback mechanism for handling links within the HTML content."
+    ],
+    "weaknesses": [
+      "Lists (<ol>, <ul>, <li>) are only partially supported without numbers or symbols.",
+      "Input HTML content must be unescaped before passing into version 5.0.0+.",
+      "Only handles text-related CSS properties and tags."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires Flutter version >= 3.22. Input strings must be unescaped prior to parsing.",
+    "alternatives": [],
+    "minimal_example": "String htmlContent = \"<p style='font-size:1.5em;'>Hello World</p>\";\n\nRichText(\n  text: HTML.toTextSpan(context, htmlContent),\n  maxLines: 4,\n);",
+    "confidence": 1
+  }
+}

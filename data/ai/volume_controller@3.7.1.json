@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.7.1",
+  "generatedAt": "2026-11-08T15:33:08.879Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [
+      "device"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Control and observe system volume on Android, iOS, macOS, Windows, and Linux.",
+    "what_it_does": "Allows Flutter apps to read and modify the device's system volume level, check and alter mute states, show or hide system volume UI, and listen to external volume changes across multiple platforms.",
+    "use_when": [
+      "You are building a custom media player or audio-centric app that needs direct system volume integration.",
+      "You need to detect hardware volume button changes or external volume modifications in real-time."
+    ],
+    "avoid_when": [
+      "You only need in-app volume control isolated to an audio playback instance rather than the hardware/system volume."
+    ],
+    "strengths": [
+      "Cross-platform support spanning Android, iOS, macOS, Windows, and Linux.",
+      "Provides both programmatic volume setting/getting and event listening for volume changes.",
+      "Allows showing or hiding the native system volume UI HUD on mobile platforms."
+    ],
+    "weaknesses": [
+      "Mute semantics and implementation differ across operating systems.",
+      "iOS simulator does not support system volume control, requiring real device testing."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires Flutter >=3.44.0 and Dart ^3.12.0. iOS testing must be done on a physical device.",
+    "alternatives": [
+      {
+        "name": "audio_session",
+        "why_pick_it": "Configure how your app interacts with the device audio session and routing without directly manipulating master system volume controls."
+      }
+    ],
+    "minimal_example": "VolumeController.instance.addListener((volume) {\n  // Do something with the volume\n}, fetchInitialValue: true);\n\ndouble volume = await VolumeController.instance.getVolume();\nawait VolumeController.instance.setVolume(0.5);",
+    "confidence": 1
+  }
+}

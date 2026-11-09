@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.21.4",
+  "generatedAt": "2026-11-07T11:14:21.503Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "hooks",
+      "declarative"
+    ],
+    "one_liner": "A Flutter implementation of React hooks for managing widget life-cycle and code reuse.",
+    "what_it_does": "It introduces a new kind of object (hooks) that manage the life-cycle of a widget, allowing you to extract and share stateful logic like AnimationControllers across widgets without using complex mixins.",
+    "use_when": [
+      "You want to share stateful logic across multiple widgets without boilerplate.",
+      "You prefer a hooks-based architecture similar to React inside Flutter's build methods."
+    ],
+    "avoid_when": [
+      "You rely heavily on standard StatefulWidget structures and do not want to adopt a hooks paradigm.",
+      "You are working with complex conditional hook calls (hooks must be called unconditionally)."
+    ],
+    "strengths": [
+      "Increases code-sharing between widgets by removing duplicate lifecycle boilerplate.",
+      "Extracted logic can be easily packaged and published independently."
+    ],
+    "weaknesses": [
+      "Requires strict adherence to rules (calling hooks unconditionally and prefixing with 'use').",
+      "Hot-reload behavior can cause hard-resets of hooks if hooks are removed or reordered incorrectly."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [],
+    "minimal_example": "class Example extends HookWidget {\n  const Example({super.key, required this.duration});\n\n  final Duration duration;\n\n  @override\n  Widget build(BuildContext context) {\n    final controller = useAnimationController(duration: duration);\n    return Container();\n  }\n}",
+    "confidence": 1
+  }
+}

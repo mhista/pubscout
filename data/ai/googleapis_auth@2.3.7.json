@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.3.7",
+  "generatedAt": "2026-11-07T11:22:12.328Z",
+  "data": {
+    "primary_category": "auth",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Obtain Access credentials and authenticated HTTP clients for Google APIs using OAuth 2.0.",
+    "what_it_does": "Provides support for obtaining OAuth 2.0 credentials, service account authentications, and automatically refreshing credentials to access Google APIs. Note that this package explicitly warns against direct use with Flutter applications.",
+    "use_when": [
+      "You are building a Dart command-line tool or server-side application that needs to authenticate with Google APIs.",
+      "You need to use Application Default Credentials (ADC) or Service Accounts in a Dart backend."
+    ],
+    "avoid_when": [
+      "You are developing a Flutter application (use package:extension_google_sign_in_as_googleapis_auth instead)."
+    ],
+    "strengths": [
+      "Supports multiple credential types like Service Accounts, API keys, and Application Default Credentials.",
+      "Automatically refreshes OAuth 2.0 credentials."
+    ],
+    "weaknesses": [
+      "Not recommended for use inside Flutter apps due to dedicated platform packages.",
+      "Requires manual GCP console configuration and credential file setup."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires creating a Google Cloud project, enabling necessary APIs, and creating appropriate credentials (Service Account JSON, OAuth Client ID, or API key) in the Google Cloud Console.",
+    "alternatives": [],
+    "minimal_example": "import 'package:googleapis_auth/auth_io.dart';\n\nFuture<void> main() async {\n  final client = await clientViaApplicationDefaultCredentials(\n    scopes: ['https://www.googleapis.com/auth/cloud-platform'],\n  );\n  client.close();\n}",
+    "confidence": 0.95
+  }
+}

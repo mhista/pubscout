@@ -1,0 +1,51 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "1.11.1",
+  "generatedAt": "2026-11-07T11:10:57.132Z",
+  "data": {
+    "primary_category": "ui-kits",
+    "secondary_categories": [
+      "widgets",
+      "layout",
+      "theming"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Utility‑first Tailwind‑style styling for Flutter using className strings.",
+    "what_it_does": "Parses Tailwind‑like class strings into optimized Flutter widget trees. Provides W‑prefixed widgets and a theming system that supports dark mode, responsive breakpoints, and platform variants.",
+    "use_when": [
+      "You already know Tailwind and want to reuse its syntax in Flutter",
+      "You need rapid UI building with built‑in dark‑mode and responsive support",
+      "You prefer a declarative styling layer over manual widget composition"
+    ],
+    "avoid_when": [
+      "You require fine‑grained custom animations or layout beyond Tailwind tokens",
+      "You need the smallest possible bundle size",
+      "You want strict type‑safe widget APIs without string‑based styling"
+    ],
+    "strengths": [
+      "Familiar Tailwind syntax reduces learning curve",
+      "Cuts boilerplate by turning class strings into widgets",
+      "Built‑in dark mode, responsive breakpoints, and platform variants",
+      "Supports server‑driven UI via WDynmic"
+    ],
+    "weaknesses": [
+      "Adds an abstraction layer that can hide widget details",
+      "Unknown or misspelled tokens are silently ignored in release builds",
+      "Limited to the provided token set; extending requires package changes"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the package, wrap the app with WindTheme, and start using W-prefixed widgets with className strings.",
+    "alternatives": [
+      {
+        "name": "material_ui",
+        "why_pick_it": "Standard Material widgets with full type safety and no string‑based styling"
+      }
+    ],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:fluttersdk_wind/fluttersdk_wind.dart';\n\nvoid main() => runApp(const App());\n\nclass App extends StatelessWidget {\n  const App({super.key});\n  @override\n  Widget build(BuildContext context) {\n    return WindTheme(\n      data: WindThemeData(),\n      builder: (c, ctrl) => MaterialApp(\n        theme: ctrl.toThemeData(),\n        home: const Home(),\n      ),\n    );\n  }\n}\n\nclass Home extends StatelessWidget {\n  const Home({super.key});\n  @override\n  Widget build(BuildContext context) {\n    return WDiv(\n      className: 'p-6 bg-white dark:bg-gray-800 rounded-xl',\n      child: WText('Hello', className: 'text-xl font-bold'),\n    );\n  }\n}",
+    "confidence": 0.92
+  }
+}

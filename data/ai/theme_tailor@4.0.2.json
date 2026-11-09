@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "4.0.2",
+  "generatedAt": "2026-11-08T15:15:23.870Z",
+  "data": {
+    "primary_category": "theming",
+    "secondary_categories": [
+      "codegen"
+    ],
+    "approach": [
+      "code generation"
+    ],
+    "one_liner": "Generates boilerplate for Flutter ThemeExtension classes using annotations.",
+    "what_it_does": "Theme Tailor reads @TailorMixin annotations and creates mixins that implement copyWith, lerp, hashCode, and debugFillProperties for ThemeExtension subclasses. It also supports JSON serialization and custom type encoding.",
+    "use_when": [
+      "You need to create many ThemeExtension classes and want to avoid manual boilerplate.",
+      "You want compile‑time safety and IDE support for theme properties.",
+      "You prefer a generator that works with build_runner."
+    ],
+    "avoid_when": [
+      "You only have a few simple theme extensions and don’t want a code generator.",
+      "You cannot add build_runner or other dev dependencies to the project."
+    ],
+    "strengths": [
+      "Eliminates repetitive ThemeExtension boilerplate",
+      "Integrates with build_runner and supports custom encoders",
+      "Handles JSON serialization and debug diagnostics automatically"
+    ],
+    "weaknesses": [
+      "Requires build_runner setup and dev dependencies",
+      "Generated code may need manual tweaks for complex cases"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add build_runner (dev), theme_tailor (dev), and theme_tailor_annotation (regular) dependencies, create part files, and run flutter pub run build_runner build.",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:theme_tailor_annotation/theme_tailor_annotation.dart';\n\npart 'my_theme.tailor.dart';\n\n@TailorMixin()\nclass MyTheme extends ThemeExtension<MyTheme> with _$MyThemeTailorMixin {\n  const MyTheme({required this.background});\n  final Color background;\n}",
+    "confidence": 0.97
+  }
+}

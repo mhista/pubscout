@@ -1,0 +1,51 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.7.0",
+  "generatedAt": "2026-11-07T11:25:07.607Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "hooks",
+      "declarative",
+      "stream-based"
+    ],
+    "one_liner": "Simplifies Bloc and Cubit usage in Flutter using hooks.",
+    "what_it_does": "It provides a set of hooks like useBloc, useBlocBuilder, and useBlocListener that abstract away boilerplate around BlocProvider, BlocBuilder, and BlocListener. Developers can access blocs and consume states or actions inside HookWidget classes with less code.",
+    "use_when": [
+      "You are already using flutter_hooks in your application.",
+      "You want to reduce the boilerplate of BlocBuilder and BlocListener in your widget trees."
+    ],
+    "avoid_when": [
+      "You do not use flutter_hooks or prefer traditional StatefulWidget and StatelessWidget implementations.",
+      "You are using a different state management library like Riverpod or Provider."
+    ],
+    "strengths": [
+      "Significantly reduces widget tree boilerplate for Bloc and Cubit.",
+      "Provides convenient hooks for builders, comparative builders, listeners, and action streams.",
+      "Integrates well with dependency injection tools like GetIt."
+    ],
+    "weaknesses": [
+      "Requires the use of flutter_hooks and HookWidget across your widgets.",
+      "Tight coupling between view logic and Flutter hooks."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the dependency to pubspec.yaml and optionally wrap your app in HookedBlocConfigProvider for global injection and conditions.",
+    "alternatives": [
+      {
+        "name": "flutter_bloc",
+        "why_pick_it": "If you prefer traditional widgets like BlocBuilder and BlocProvider instead of flutter_hooks."
+      },
+      {
+        "name": "riverpod",
+        "why_pick_it": "If you want a complete alternative state management and dependency injection solution without using BLoC."
+      }
+    ],
+    "minimal_example": "class MyApp extends HookWidget {\n  const MyApp({Key? key}) : super(key: key);\n\n  @override\n  Widget build(BuildContext context) {\n    final cubit = useBloc<CounterCubit>();\n    final state = useBlocBuilder(cubit);\n\n    return MaterialApp(\n      home: Scaffold(\n        floatingActionButton: FloatingActionButton(\n          onPressed: () => cubit.increment(),\n          child: const Icon(Icons.add),\n        ),\n        body: Center(child: Text(\"The button has been pressed $state times\")),\n      ),\n    );\n  }\n}",
+    "confidence": 1
+  }
+}

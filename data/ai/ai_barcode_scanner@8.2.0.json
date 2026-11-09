@@ -1,0 +1,50 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "8.2.0",
+  "generatedAt": "2026-11-07T10:54:35.768Z",
+  "data": {
+    "primary_category": "camera",
+    "secondary_categories": [
+      "widgets",
+      "ui-kits"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Full-screen or embedded barcode and QR code scanner for Flutter built on mobile_scanner",
+    "what_it_does": "Provides a complete barcode and QR code scanner UI for Android, iOS, macOS, and the web. Includes built-in controls like torches, zoom sliders, permissions handling, result rendering sheets, and gallery scanning.",
+    "use_when": [
+      "You need a drop-in barcode or QR code scanner with a fully styled UI out-of-the-box.",
+      "You want to scan barcodes from the camera or from device images with minimal setup."
+    ],
+    "avoid_when": [
+      "You are building a custom low-level computer vision pipeline without any pre-built UI.",
+      "You target platforms like Windows or Linux where camera scanning is unsupported out of the box."
+    ],
+    "strengths": [
+      "Includes ready-made UI components like reticles, result sheets, and permission recovery screens.",
+      "Supports multiple scan modes including single, continuous, and batch scanning.",
+      "Re-exports mobile_scanner and covers multiple platforms including Android, iOS, macOS, and Web."
+    ],
+    "weaknesses": [
+      "Relies on underlying platform capabilities which differ per platform (e.g., no torch or focus controls on web or macOS).",
+      "Requires manual native permission configuration for iOS and macOS."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add NSCameraUsageDescription (and optionally NSPhotoLibraryUsageDescription) to iOS Info.plist, and camera entitlements on macOS. Android and web work out of the box.",
+    "alternatives": [
+      {
+        "name": "mobile_scanner",
+        "why_pick_it": "If you want raw camera widgets and low-level control without the pre-built scanner UI and result sheets provided by this package."
+      },
+      {
+        "name": "google_mlkit_barcode_scanning",
+        "why_pick_it": "If you prefer direct integration with Google ML Kit's barcode scanning APIs for custom image stream processing."
+      }
+    ],
+    "minimal_example": "final capture = await showAiBarcodeScanner(context);\ndebugPrint(capture?.firstRawValue);",
+    "confidence": 0.95
+  }
+}

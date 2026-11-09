@@ -1,0 +1,46 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.14.1",
+  "generatedAt": "2026-11-07T16:24:17.774Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter plugin for displaying inline video on Android, iOS, macOS, and web.",
+    "what_it_does": "Allows developers to embed and control video playback inside Flutter widgets across multiple platforms. It provides controllers to manage playback state, speed, positioning, and tracks.",
+    "use_when": [
+      "You need to play local or network videos inline with other Flutter widgets.",
+      "You require cross-platform video playback supporting Android, iOS, macOS, and web."
+    ],
+    "avoid_when": [
+      "You are building a complex audio/video streaming app that requires advanced background playback or comprehensive custom media controls out of the box (consider chewie or media_kit instead).",
+      "You need to play video using `VideoPlayerController.file` on the web platform."
+    ],
+    "strengths": [
+      "Official Flutter team package with broad platform support.",
+      "Supports adaptive streams, audio/video track selection, and playback speed configuration."
+    ],
+    "weaknesses": [
+      "Web platform capabilities depend heavily on individual browser implementations.",
+      "Requires manual implementation of UI controls (play/pause, progress bars)."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires adding network permissions in AndroidManifest.xml and optionally configuring NSAppTransportSecurity in iOS Info.plist or network client entitlements for macOS.",
+    "alternatives": [
+      {
+        "name": "chewie",
+        "why_pick_it": "Provides a pre-built Material/Cupertino video player UI on top of video_player."
+      },
+      {
+        "name": "media_kit",
+        "why_pick_it": "A heavy-duty general-purpose audio and video player for Flutter based on libmpv."
+      }
+    ],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:video_player/video_player.dart';\n\nvoid main() => runApp(const VideoApp());\n\nclass VideoApp extends StatefulWidget {\n  const VideoApp({super.key});\n\n  @override\n  _VideoAppState createState() => _VideoAppState();\n}\n\nclass _VideoAppState extends State<VideoApp> {\n  late VideoPlayerController _controller;\n\n  @override\n  void initState() {\n    super.initState();\n    _controller = VideoPlayerController.networkUrl(\n        Uri.parse('https://flutter.github.io/assets-for-api-docs/assets/videos/bee.mp4'),\n      )\n      ..initialize().then((_) {\n        setState(() {});\n      });\n  }\n\n  @override\n  Widget build(BuildContext context) {\n    return MaterialApp(\n      home: Scaffold(\n        body: Center(\n          child: _controller.value.isInitialized\n              ? AspectRatio(\n                  aspectRatio: _controller.value.aspectRatio,\n                  child: VideoPlayer(_controller),\n                )\n              : Container(),\n        ),\n      ),\n    );\n  }\n\n  @override\n  void dispose() {\n    _controller.dispose();\n    super.dispose();\n  }\n}",
+    "confidence": 1
+  }
+}

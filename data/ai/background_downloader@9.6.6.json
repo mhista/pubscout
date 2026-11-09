@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "9.6.6",
+  "generatedAt": "2026-11-07T10:57:49.982Z",
+  "data": {
+    "primary_category": "files",
+    "secondary_categories": [
+      "networking",
+      "device"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Multi-platform background file downloading and uploading for Flutter.",
+    "what_it_does": "Enables robust, background file transfers (downloads and uploads) across Android, iOS, macOS, Windows, and Linux. Transfers continue running even when the app is placed in the background or terminated by the operating system, using native URLSession on Apple platforms and WorkManager/JobService on Android.",
+    "use_when": [
+      "Your app needs to download or upload large files in the background.",
+      "Transfers must persist and complete even if the app is suspended, closed, or terminated by the OS.",
+      "You require fine-grained progress tracking, notifications, pausing, and resuming for file tasks."
+    ],
+    "avoid_when": [
+      "You only need simple, short-lived foreground HTTP requests that fail if the app closes.",
+      "You are targeting platforms without proper native background transfer support or constraints."
+    ],
+    "strengths": [
+      "Cross-platform support for Android, iOS, macOS, Windows, and Linux.",
+      "Resilient background operation using native platform APIs (URLSession, WorkManager).",
+      "Provides both a high-level reactive Transfer API and low-level queue/stream methods."
+    ],
+    "weaknesses": [
+      "Requires specific Kotlin configuration on Android and network entitlements on macOS.",
+      "If a user forcefully swipes the app away from the app switcher, background transfers may still be terminated by the OS."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires Kotlin 2.1.0+ for Android settings.gradle, and client network entitlements on macOS for debug and release profiles.",
+    "alternatives": [],
+    "minimal_example": "final task = DownloadTask(\n  url: 'https://example.com/large_video.mp4',\n  filename: 'video.mp4',\n);\nfinal transfer = await FileDownloader().transfers.start(task);\nfinal file = await transfer.file;",
+    "confidence": 0.95
+  }
+}

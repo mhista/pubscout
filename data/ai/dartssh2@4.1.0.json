@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.1.0",
+  "generatedAt": "2026-11-07T11:04:17.366Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "utils",
+      "files"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "SSH and SFTP client written in pure Dart",
+    "what_it_does": "Provides an SSH and SFTP client library implemented in pure Dart that supports running remote commands, interactive shells, port forwarding, authentication methods, and file transfers across multiple platforms including the web.",
+    "use_when": [
+      "You need to connect to remote servers via SSH or execute commands programmatically from a Dart or Flutter application.",
+      "You require an SFTP client to upload, download, and manage remote files.",
+      "You need a pure Dart SSH implementation that works across mobile, desktop, and web platforms."
+    ],
+    "avoid_when": [
+      "You are running in a browser environment where direct TCP sockets are not available and you have not supplied a WebSocket-to-TCP proxy or alternative transport.",
+      "You need an SSH server implementation rather than a client."
+    ],
+    "strengths": [
+      "Written in pure Dart with support for mobile, desktop, and web environments.",
+      "Supports SSH sessions, key authentication, port forwarding, and SFTPv3 operations.",
+      "Offloads heavy key exchange calculations to background isolates on supported VM platforms."
+    ],
+    "weaknesses": [
+      "Requires custom transport configuration (like WebSockets) when used on Flutter Web since direct TCP sockets are unavailable.",
+      "Some platform-specific cipher limitations exist in browser targets (e.g., Poly1305)."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "No special build runner or native SDK dependencies required; for web usage, a WebSocket bridge transport must be implemented.",
+    "alternatives": [],
+    "minimal_example": "void main() async {\n  final client = SSHClient(\n    await SSHSocket.connect('localhost', 22),\n    username: '<username>',\n    onPasswordRequest: () => '<password>',\n  );\n}",
+    "confidence": 1
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.2.0",
+  "generatedAt": "2026-11-08T15:59:44.632Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Connect to Sunmi printers, print text, barcodes, QR codes, images, and control cash drawers.",
+    "what_it_does": "Supports interacting with Sunmi Android devices to print text, custom styles, barcodes, QR codes, and images. It also provides control over the cash drawer, LCD screen functions, and device status checks.",
+    "use_when": [
+      "Building an Android application specifically targeted at Sunmi POS hardware",
+      "You need to print receipts, barcodes, and QR codes using built-in Sunmi printers"
+    ],
+    "avoid_when": [
+      "Targeting iOS, web, or desktop platforms (Android only)",
+      "Using non-Sunmi thermal printers without ESC/POS compatibility wrappers"
+    ],
+    "strengths": [
+      "Comprehensive coverage of Sunmi inner printer features",
+      "Supports LCD display functions and cash drawer management",
+      "Allows combining custom ESC/POS commands"
+    ],
+    "weaknesses": [
+      "Works only on Android devices",
+      "Label printer features still lack extensive testing devices"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Works only on Android. Add the dependency to pubspec.yaml and use on supported Sunmi hardware.",
+    "alternatives": [],
+    "minimal_example": "await SunmiPrinter.printText('Simple raw text');\nawait SunmiPrinter.printText('Bold text centered',\n    style: SunmiTextStyle(\n    bold: true,\n    align: SunmiPrintAlign.CENTER,\n    ));\nawait SunmiPrinter.lineWrap(2);",
+    "confidence": 1
+  }
+}

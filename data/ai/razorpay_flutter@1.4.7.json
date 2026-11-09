@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.4.7",
+  "generatedAt": "2026-11-08T15:36:49.392Z",
+  "data": {
+    "primary_category": "payments",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "event-driven"
+    ],
+    "one_liner": "Flutter plugin for the Razorpay payment gateway SDK.",
+    "what_it_does": "Wraps native Android and iOS Razorpay SDKs to handle checkout, payment success, payment errors, and external wallets in Flutter applications.",
+    "use_when": [
+      "You need to integrate Razorpay payments into your Flutter app.",
+      "You want to process standard checkout and order flows using native platform SDKs."
+    ],
+    "avoid_when": [
+      "You are targeting platforms other than Android and iOS.",
+      "You need a backend-only payment processing client."
+    ],
+    "strengths": [
+      "Official plugin maintained by Razorpay.",
+      "Supports both Swift Package Manager and CocoaPods on iOS.",
+      "Provides clear error handling and event-based callbacks."
+    ],
+    "weaknesses": [
+      "Requires manual native configuration (minSdkVersioning for Android, deployment target and bitcode for iOS).",
+      "Limited platform support (only Android and iOS)."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires setting minimum Android SDK to 19 or higher, adding Proguard rules if needed, and setting iOS minimum deployment target to 10.0.",
+    "alternatives": [],
+    "minimal_example": "import 'package:razorpay_flutter/razorpay_flutter.dart';\n\n_razorpay = Razorpay();\n_razorpay.on(Razorpay.EVENT_PAYMENT_SUCCESS, _handlePaymentSuccess);\n_razorpay.on(Razorpay.EVENT_PAYMENT_ERROR, _handlePaymentError);\n_razorpay.on(Razorpay.EVENT_EXTERNAL_WALLET, _handleExternalWallet);\n\nvar options = {\n  'key': '<YOUR_KEY_HERE>',\n  'amount': 100,\n  'name': 'Acme Corp.',\n  'description': 'Fine T-Shirt',\n  'prefill': {\n    'contact': '8888888888',\n    'email': 'test@razorpay.com'\n  }\n};\n\n_razorpay.open(options);",
+    "confidence": 1
+  }
+}

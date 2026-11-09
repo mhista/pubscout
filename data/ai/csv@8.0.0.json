@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "8.0.0",
+  "generatedAt": "2026-11-07T11:03:54.181Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "Parse and generate CSV strings with stream support and Excel compatibility.",
+    "what_it_does": "Provides functions and stream transformers to encode Dart lists to CSV and decode CSV strings back to Dart structures. Supports custom delimiters, Excel‑compatible output, auto‑detection, and optional dynamic typing.",
+    "use_when": [
+      "Reading or writing CSV files, especially large ones via streams",
+      "Need Excel‑compatible CSV output (BOM, ';' separator)",
+      "Want automatic delimiter detection or dynamic typing"
+    ],
+    "avoid_when": [
+      "Working with binary or non‑textual data formats",
+      "Require strict schema validation or relational features",
+      "Need a full‑featured data storage solution"
+    ],
+    "strengths": [
+      "Stream‑friendly API for low‑memory processing",
+      "Excel compatibility and auto‑delimiter detection",
+      "Configurable delimiters, quoting, and dynamic typing",
+      "High performance and low memory usage"
+    ],
+    "weaknesses": [
+      "Only handles CSV, no other data formats",
+      "No built‑in validation or schema enforcement",
+      "Limited to text processing; not a full data storage solution"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:csv/csv.dart';\n\nvoid main() {\n  final data = [\n    ['Name', 'Age', 'City'],\n    ['Alice', 30, 'New York'],\n    ['Bob', 25, 'London'],\n  ];\n  final csvString = csv.encode(data);\n  print(csvString);\n  final decoded = csv.decode(csvString);\n  print(decoded);\n}",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "4.1.0",
+  "generatedAt": "2026-11-08T15:19:58.008Z",
+  "data": {
+    "primary_category": "backend",
+    "secondary_categories": [
+      "web-desktop"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Web implementation of firebase_core for Flutter apps.",
+    "what_it_does": "Provides the platform-specific code to initialize and use Firebase on Flutter web. It registers the web implementation of the core Firebase plugin and keeps the Firebase JS SDK up‑to‑date.",
+    "use_when": [
+      "Building a Flutter app that runs on the web and needs Firebase initialization",
+      "You want the official Firebase support for web without writing platform code"
+    ],
+    "avoid_when": [
+      "Targeting only mobile or desktop platforms",
+      "You need Firebase services beyond core (e.g., Auth, Firestore) without adding their web plugins"
+    ],
+    "strengths": [
+      "Official FlutterFire plugin with timely updates",
+      "Handles web‑specific setup like script loading and dart2wasm flags",
+      "Simple drop‑in for web projects"
+    ],
+    "weaknesses": [
+      "Only works on web; no effect on other platforms",
+      "Requires firebase_core as a companion package"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add firebase_core and firebase_core_web to pubspec, run flutter pub get, and configure Firebase via the web config snippet in index.html as described in the FlutterFire docs.",
+    "alternatives": [
+      {
+        "name": "firebase_core",
+        "why_pick_it": "Provides a cross‑platform Firebase core plugin that includes the web implementation internally"
+      }
+    ],
+    "minimal_example": "import 'package:firebase_core/firebase_core.dart';\n\nFuture<void> main() async {\n  WidgetsFlutterBinding.ensureInitialized();\n  await Firebase.initializeApp();\n  runApp(MyApp());\n}",
+    "confidence": 0.97
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.6.0",
+  "generatedAt": "2026-11-08T15:21:47.996Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "devtools"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Checks if a pub package is up to date and can trigger updates",
+    "what_it_does": "PubUpdater queries pub.dev for the latest version of a package and compares it to a supplied current version. It can also run the update command to bring a package to its latest release.",
+    "use_when": [
+      "You need a CLI tool to verify package versions during development or CI",
+      "You want to prompt users to upgrade dependencies automatically"
+    ],
+    "avoid_when": [
+      "You need a full dependency management solution beyond simple version checks",
+      "You require integration with other package managers"
+    ],
+    "strengths": [
+      "Simple API, no code generation",
+      "Supports Dart 3.12 and newer",
+      "Handles pre-release and stable releases correctly",
+      "No build_runner or codegen required"
+    ],
+    "weaknesses": [
+      "Only works with pub.dev or self-hosted pub servers",
+      "Limited to Dart packages, not Flutter plugins with platform code"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dependency to pubspec and import 'package:pub_updater/pub_updater.dart'; no special permissions or build steps",
+    "alternatives": [],
+    "minimal_example": "import 'package:pub_updater/pub_updater.dart';\n\nvoid main() async {\n  final updater = PubUpdater();\n  final upToDate = await updater.isUpToDate(packageName: 'my_package', currentVersion: '0.1.0');\n  if (!upToDate) await updater.update(packageName: 'my_package');\n}",
+    "confidence": 0.95
+  }
+}

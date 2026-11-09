@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.18.0",
+  "generatedAt": "2026-11-08T15:27:48.267Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Parse and encode TOML configuration files in Dart.",
+    "what_it_does": "Provides a TOML v1.1.0 parser that converts TOML documents to Dart maps and an encoder that converts maps back to TOML strings. Supports loading files from assets, HTTP, or local file system.",
+    "use_when": [
+      "You need to read or write TOML configuration files in a Dart or Flutter app.",
+      "You require a pure‑Dart solution without native dependencies."
+    ],
+    "avoid_when": [
+      "You need a JSON‑or‑YAML‑only format or require schema validation.",
+      "Performance‑critical parsing of extremely large files is needed."
+    ],
+    "strengths": [
+      "Full TOML 1.1 support including inline tables and new escape sequences",
+      "Works on all Dart platforms (mobile, web, desktop)",
+      "No native code, easy to add as a dependency"
+    ],
+    "weaknesses": [
+      "Only supports TOML; no other config formats",
+      "Encoder does not produce inline tables or dotted keys"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "yaml",
+        "why_pick_it": "If your configuration is in YAML instead of TOML, the yaml package provides similar parsing capabilities."
+      }
+    ],
+    "minimal_example": "import 'package:toml/toml.dart';\n\nvoid main() async {\n  var doc = await TomlDocument.load('config.toml');\n  var map = doc.toMap();\n  print(map);\n\n  var encoded = TomlDocument.fromMap(map).toString();\n  print(encoded);\n}",
+    "confidence": 0.96
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.6.2",
+  "generatedAt": "2026-11-08T15:23:20.460Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Communication channels for isolates based on Flutter's platform channels.",
+    "what_it_does": "Provides helper functions to spawn, setup, and connect to isolates. It offers method channels and event channels for passing messages and streaming events between isolates.",
+    "use_when": [
+      "You need to run heavy computations in a separate isolate and communicate via method and event channels.",
+      "You want a familiar platform-channel-like API for isolate communication."
+    ],
+    "avoid_when": [
+      "You only need simple single-message `SendPort`/`ReceivePort` communication.",
+      "You are not using isolates."
+    ],
+    "strengths": [
+      "Familiar method and event channel patterns",
+      "Simplifies spawning and connecting to isolates"
+    ],
+    "weaknesses": [
+      "Limited documentation outside of the basic README examples"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "final connection = await spawnIsolate(isolateEntryPoint);\nfinal methodChannel = IsolateMethodChannel('method_channel', connection);\nfinal result = await methodChannel.invokeMethod('example_method', 'Hello');",
+    "confidence": 0.95
+  }
+}

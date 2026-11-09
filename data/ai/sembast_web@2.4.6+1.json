@@ -1,0 +1,46 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.4.6+1",
+  "generatedAt": "2026-11-08T15:42:37.976Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "NoSQL persistent embedded database for the Web on top of IndexedDB.",
+    "what_it_does": "Provides a NoSQL embedded database implementation for web applications using IndexedDB as the underlying storage. It supports cross-tab synchronization and transactions.",
+    "use_when": [
+      "You need a NoSQL embedded database specifically for Flutter Web or browser applications.",
+      "You want data to synchronize across multiple open browser tabs."
+    ],
+    "avoid_when": [
+      "You are looking for a relational SQL database solution.",
+      "You require built-in data encryption via codecs (which are not supported)."
+    ],
+    "strengths": [
+      "Content and transactions are synchronized across all open browser tabs.",
+      "Supports both JS and WASM targets."
+    ],
+    "weaknesses": [
+      "Codecs are not supported on the web.",
+      "Transactions must be idempotent because they may run again in case of concurrent access."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add sembast_web to your pubspec.yaml dependencies.",
+    "alternatives": [
+      {
+        "name": "hive_ce",
+        "why_pick_it": "Alternative NoSQL database for Flutter and Dart."
+      },
+      {
+        "name": "shared_preferences",
+        "why_pick_it": "Simpler key-value storage alternative if a full NoSQL database is overkill."
+      }
+    ],
+    "minimal_example": "import 'package:sembast/sembast.dart';\nimport 'package:sembast_web/sembast_web.dart';\n\nFuture main() async {\n  var store = intMapStoreFactory.store();\n  var factory = databaseFactoryWeb;\n  var db = await factory.openDatabase('test');\n  var key = await store.add(db, <String, Object?>{'name': 'Table', 'price': 15});\n  var value = await store.record(key).get(db);\n  print(value);\n  await db.close();\n}",
+    "confidence": 1
+  }
+}

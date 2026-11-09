@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.5.1",
+  "generatedAt": "2026-11-08T15:59:02.925Z",
+  "data": {
+    "primary_category": "localization",
+    "secondary_categories": [
+      "utils",
+      "device"
+    ],
+    "approach": [
+      "imperative",
+      "declarative"
+    ],
+    "one_liner": "Get date and time format patterns from device system settings.",
+    "what_it_does": "A Flutter plugin that retrieves date and time format patterns from the user's device system settings. It helps provide consistent, localized date and time formats that respect user preferences, and includes a widget scope to automatically sync patterns if the user changes settings while the app is running.",
+    "use_when": [
+      "You need your app's date and time formatting to match the user's device system preferences",
+      "You want to react dynamically when a user changes their date and time system settings while the app is running"
+    ],
+    "avoid_when": [
+      "You prefer to enforce a single hardcoded date and time format across all users and regions",
+      "You are running on platforms or configurations where system pattern retrieval is unsupported or unnecessary"
+    ],
+    "strengths": [
+      "Supports multiple platforms including Android, iOS, web, Windows, macOS, and Linux",
+      "Includes SDTFScope for automatic syncing of patterns when device settings change",
+      "Provides WASM compatibility and Swift Package Manager support"
+    ],
+    "weaknesses": [
+      "Certain pattern getters like medium and full date patterns are not supported on Windows and Linux",
+      "Requires adding a manual script tag to index.html for web support"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "For web applications, you must include the system_date_time_format.js script in your index.html file.",
+    "alternatives": [],
+    "minimal_example": "import 'package:system_date_time_format/system_date_time_format.dart';\n\nFuture<void> main() async {\n  WidgetsFlutterBinding.ensureInitialized();\n  final format = SystemDateTimeFormat();\n  final datePattern = await format.getDatePattern();\n  print(datePattern);\n}",
+    "confidence": 0.95
+  }
+}

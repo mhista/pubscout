@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "4.6.8",
+  "generatedAt": "2026-11-07T11:09:54.477Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Run FFmpeg and FFprobe commands from Dart on Android, iOS, macOS, Windows and Linux.",
+    "what_it_does": "Provides a Dart API to execute FFmpeg/FFprobe commands across all major desktop and mobile platforms. Includes pre‑built native libraries with full codec support, including GPL codecs, and offers hardware‑accelerated encoding/decoding where available.",
+    "use_when": [
+      "You need to transcode, filter or analyze media files within a Flutter app.",
+      "You require GPL‑licensed codecs (e.g., x264, x265) or hardware acceleration on iOS/macOS."
+    ],
+    "avoid_when": [
+      "App size must be minimal and you can’t afford the large native binaries.",
+      "Your project cannot use GPL‑licensed code due to licensing constraints."
+    ],
+    "strengths": [
+      "Full codec set including GPL codecs",
+      "Pre‑built native libraries – no manual compilation",
+      "Cross‑platform support (Android, iOS, macOS, Windows, Linux)",
+      "Hardware‑accelerated video processing on Apple platforms"
+    ],
+    "weaknesses": [
+      "Large binary size due to bundled libraries",
+      "GPL license may be incompatible with some commercial projects"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:ffmpeg_kit_flutter_new/ffmpeg_kit.dart';\n\nfinal session = await FFmpegKit.execute('-i input.mp4 -c:v mpeg4 output.mp4');\nfinal returnCode = await session.getReturnCode();\nif (ReturnCode.isSuccess(returnCode)) {\n  // Success\n} else if (ReturnCode.isCancel(returnCode)) {\n  // Cancelled\n} else {\n  // Failed: inspect await session.getLogs()\n}",
+    "confidence": 0.97
+  }
+}

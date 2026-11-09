@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.2.1",
+  "generatedAt": "2026-11-08T16:03:20.565Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "List installed apps on Android, get app details, launch, uninstall, and open settings.",
+    "what_it_does": "Allows querying installed applications on Android devices with various filters like system apps or platform type. Provides methods to retrieve app icons, version info, launch apps, open system settings, and trigger uninstallation.",
+    "use_when": [
+      "Building an app launcher or custom app drawer on Android",
+      "Auditing installed packages for security, parental control, or inventory",
+      "Checking for a companion app before executing deep links"
+    ],
+    "avoid_when": [
+      "Targeting platforms other than Android (returns fallback values on non-Android)",
+      "Needing to list apps on iOS (restricted by platform security)"
+    ],
+    "strengths": [
+      "Comprehensive filtering options (system apps, package prefixes, platform type)",
+      "Methods never throw, returning safe fallbacks on failure",
+      "Supports launching, uninstalling, and checking app status directly"
+    ],
+    "weaknesses": [
+      "Android only; non-Android platforms return empty lists or null",
+      "May require justifying the QUERY_ALL_PACKAGES permission for Google Play submission",
+      "Platform detection relies on heuristics and can occasionally misclassify apps"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires Android configuration for QUERY_ALL_PACKAGES and REQUEST_DELETE_PACKAGES permissions depending on your usage and Play Store guidelines.",
+    "alternatives": [],
+    "minimal_example": "final apps = await InstalledApps.getInstalledApps(withIcon: true);\nfor (final app in apps) {\n  print(\"${app.name} (${app.packageName}) ${app.getVersionInfo()}\");\n}\nawait InstalledApps.startApp(apps.first.packageName);",
+    "confidence": 1
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.4.0",
+  "generatedAt": "2026-11-08T15:57:02.945Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "forms"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A powerful data grid widget for Flutter that supports keyboard navigation, editing, and sticky columns.",
+    "what_it_does": "TrinaGrid provides a comprehensive data grid widget for displaying, editing, and managing tabular data across all platforms including mobile, web, and desktop. It includes features like sorting, filtering, freezing, pagination, and keyboard navigation.",
+    "use_when": [
+      "You need to display and edit tabular data in a spreadsheet-like grid format.",
+      "Your application requires robust desktop keyboard navigation and shortcuts for data manipulation.",
+      "You need advanced grid features such as column freezing, grouping, and client/server-side pagination."
+    ],
+    "avoid_when": [
+      "You only need to display a simple, non-interactive list or small table of static data.",
+      "You require a custom layout that doesn't fit a standard row-and-column grid structure."
+    ],
+    "strengths": [
+      "Supports multi-platform use including mobile, web, and desktop.",
+      "Extensive feature set covering cell editing, column/row freezing, sorting, and filtering.",
+      "Includes a built-in migration tool from PlutoGrid."
+    ],
+    "weaknesses": [
+      "Large and complex API surface due to the extensive feature list.",
+      "May require significant configuration for heavily customized use cases."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:trina_grid/trina_grid.dart';\n\nvoid main() {\n  runApp(const MyApp());\n}\n\nclass MyApp extends StatelessWidget {\n  const MyApp({Key? key}) : super(key: key);\n\n  @override\n  Widget build(BuildContext context) {\n    return MaterialApp(\n      home: Scaffold(\n        body: TrinaGrid(\n          columns: [\n            TrinaColumn(title: 'ID', field: 'id', type: TrinaColumnType.text()),\n            TrinaColumn(title: 'Name', field: 'name', type: TrinaColumnType.text()),\n          ],\n          rows: [\n            TrinaRow(cells: {'id': TrinaCell(value: '1'), 'name': TrinaCell(value: 'John')}),\n          ],\n        ),\n      ),\n    );\n  }\n}",
+    "confidence": 1
+  }
+}

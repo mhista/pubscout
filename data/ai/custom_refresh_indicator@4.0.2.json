@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.0.2",
+  "generatedAt": "2026-11-07T11:04:09.640Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "animation"
+    ],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "Widget that makes it easy to implement a custom pull to refresh gesture.",
+    "what_it_does": "Provides a CustomRefreshIndicator and CustomMaterialIndicator widget to build completely custom pull-to-refresh gestures and animations for scrollable widgets. It manages states like idle, dragging, armed, and loading, letting developers design unique pull-to-refresh experiences.",
+    "use_when": [
+      "You want to build a custom pull-to-refresh animation or UI design.",
+      "You need a pull-to-refresh gesture on horizontal lists or from both edges."
+    ],
+    "avoid_when": [
+      "You only need the standard Material or Cupertino refresh indicator without modifications."
+    ],
+    "strengths": [
+      "Extremely flexible custom indicator builder with full state tracking.",
+      "Supports both leading and trailing edges, plus horizontal lists."
+    ],
+    "weaknesses": [
+      "Requires manual implementation for custom animations and transforms.",
+      "Custom indicators must be built from scratch."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "CustomMaterialIndicator(\n  onRefresh: onRefresh,\n  backgroundColor: Colors.white,\n  indicatorBuilder: (context, controller) {\n    return Padding(\n      padding: const EdgeInsets.all(6.0),\n      child: CircularProgressIndicator(\n        color: Colors.redAccent,\n        value: controller.state.isLoading ? null : math.min(controller.value, 1.0),\n      ),\n    );\n  },\n  child: child,\n)",
+    "confidence": 1
+  }
+}

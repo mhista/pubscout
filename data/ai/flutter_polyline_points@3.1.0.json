@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.1.0",
+  "generatedAt": "2026-11-07T11:17:09.104Z",
+  "data": {
+    "primary_category": "maps",
+    "secondary_categories": [
+      "networking",
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Decode polyline points from Google Maps Directions API and Google Routes API.",
+    "what_it_does": "A Flutter package that retrieves and decodes geographic routes and polylines from Google's Directions and Routes APIs. It converts coordinate data and encoded strings into usable map points with support for different travel modes, waypoints, and route modifiers.",
+    "use_when": [
+      "You need to draw routes on Google Maps using data from the Google Directions or Routes API.",
+      "You want to process encoded polyline strings into geographical points."
+    ],
+    "avoid_when": [
+      "You are using a mapping provider other than Google Maps or need offline routing capabilities."
+    ],
+    "strengths": [
+      "Supports both legacy Directions API and enhanced Google Routes API.",
+      "Provides built-in route modifiers, alternative routes, and multiple travel modes.",
+      "Includes convenience properties for distance and duration conversions."
+    ],
+    "weaknesses": [
+      "Depends on external Google APIs which require active billing and API keys.",
+      "Does not handle offline routing."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires a valid Google Cloud API key with Directions API and/or Routes API enabled.",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter_polyline_points/flutter_polyline_points.dart';\n\nPolylinePoints polylinePoints = PolylinePoints(apiKey: \"YOUR_API_KEY\");\n\nPolylineResult result = await polylinePoints.getRouteBetweenCoordinates(\n  request: PolylineRequest(\n    origin: PointLatLng(37.7749, -122.4194),\n    destination: PointLatLng(37.3382, -121.8863),\n    mode: TravelMode.driving,\n  ),\n);",
+    "confidence": 0.95
+  }
+}

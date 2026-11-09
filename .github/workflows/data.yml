@@ -1,11 +1,20 @@
-# Nightly package refresh: sync pub.dev + GitHub, write AI summaries for packages
-# that need one, rebuild data/catalog.json and commit it. Vercel sees the commit
-# and redeploys, so the live site updates itself. No manual indexing.
+# Keeps the catalog fresh with no manual indexing. Two kinds of run:
 #
-# Setup (once): GitHub repo → Settings → Secrets and variables → Actions → New
-# repository secret: GEMINI_API_KEY, GROQ_API_KEY, and GH_PAT (your fine-grained
-# GitHub token; the built-in Actions token only allows 1,000 API calls an hour).
-# Run it now: Actions tab → "Refresh package data" → Run workflow.
+#  • Nightly (and the "Run workflow" button): refresh pub.dev's top SYNC_LIMIT packages,
+#    add the next SYNC_BATCH packages from the ranking (the catalog grows every night until
+#    SYNC_MAX), refresh lower-ranked packages on a weekly rotation, plus the pinned ones
+#    (essentials, requests, overrides). Write AI summaries for packages that need one
+#    (pending ones first), rebuild data/catalog.json, commit. Vercel redeploys.
+#  • Package request: someone uses "Request a package" on the site, which opens an issue
+#    labelled `package-request`. This run syncs just the requested packages, rebuilds,
+#    commits, and closes the issue with a link. Usually live within ~10 minutes.
+#
+# If AI quota runs out, the build still finishes: those packages show their pub.dev
+# description, are marked "summary pending", and the next run summarises them first.
+#
+# Setup (once): repo → Settings → Secrets and variables → Actions:
+#   Secrets:   GEMINI_API_KEY, GROQ_API_KEY, GH_PAT (fine-grained token for GitHub stats)
+#   Variables: SITE_URL (e.g. https://pubscout.dev), used in the "Added" comment
 name: Refresh package data
 
 on:
@@ -13,9 +22,12 @@ on:
     # Cron is UTC. "17 3 * * *" = 03:17 UTC = 04:17 in Lagos (WAT), every day.
     - cron: "17 3 * * *"
   workflow_dispatch: # the "Run workflow" button
+  issues:
+    types: [opened, reopened, labeled]
 
 permissions:
   contents: write
+  issues: write
 
 concurrency:
   group: refresh-data
@@ -23,8 +35,12 @@ concurrency:
 
 jobs:
   refresh:
+    # Ignore issues that aren't package requests.
+    if: github.event_name != 'issues' || contains(github.event.issue.labels.*.name, 'package-request')
     runs-on: ubuntu-latest
-    timeout-minutes: 120
+    timeout-minutes: 300
+    env:
+      REQUEST_RUN: ${{ github.event_name == 'issues' }}
     steps:
       - uses: actions/checkout@v4
 
@@ -39,11 +55,21 @@ jobs:
           key: raw-${{ github.run_id }}
           restore-keys: raw-
 
+      - name: Collect package requests
+        run: node scripts/requests.mjs pull
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
       - name: Sync pub.dev and GitHub
-        run: node scripts/sync.mjs
+        run: |
+          if [ "$REQUEST_RUN" = "true" ]; then node scripts/sync.mjs --requested; else node scripts/sync.mjs; fi
         env:
           GITHUB_TOKEN: ${{ secrets.GH_PAT || secrets.GITHUB_TOKEN }}
-          SYNC_LIMIT: 2000
+          SYNC_LIMIT: 2000   # refreshed every night
+          SYNC_GROW: 1       # add a new batch from the ranking each night...
+          SYNC_BATCH: 2000   # ...this many...
+          SYNC_MAX: 6000     # ...until the catalog covers the top 6,000 (see README before raising)
+          SYNC_GH_WAIT: 1    # if GitHub's hourly quota runs out, wait for the reset
 
       - name: Tag, summarise and score
         run: node scripts/build-catalog.mjs
@@ -52,12 +78,22 @@ jobs:
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
           AI_PROVIDERS: gemini,groq
           AI_REFRESH: major
+          SYNC_LIMIT: 2000
 
       - name: Commit if anything changed
         run: |
           git config user.name "pubscout-bot"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/catalog.json data/history.json data/ai data/embeddings.json
+          git add data/catalog.json data/history.json data/ai data/embeddings.json data/requests.json data/sync-state.json
           if git diff --cached --quiet; then echo "No changes"; exit 0; fi
-          git commit -m "data: nightly refresh"
+          if [ "$REQUEST_RUN" = "true" ]; then MSG="data: add requested packages"; else MSG="data: nightly refresh"; fi
+          git commit -m "$MSG"
+          git pull --rebase --autostash
           git push
+
+      - name: Close fulfilled requests
+        if: always()
+        run: node scripts/requests.mjs close
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          SITE_URL: ${{ vars.SITE_URL }}

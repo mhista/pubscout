@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.1.0",
+  "generatedAt": "2026-11-07T11:10:33.065Z",
+  "data": {
+    "primary_category": "navigation",
+    "secondary_categories": [
+      "state-management"
+    ],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "Simplifies navigation flows with a declarative API driven by state changes.",
+    "what_it_does": "FlowBuilder is a Flutter widget that dynamically builds a navigation stack in response to changes in a flow state. It provides context extensions to easily update or complete the flow from any descendant widget.",
+    "use_when": [
+      "You need to build multi-step flows like onboarding, wizards, or checkout processes.",
+      "You want to derive navigation pages declaratively from a model state."
+    ],
+    "avoid_when": [
+      "You are building a complex app-wide router that requires URL-based deep linking and path templates.",
+      "You prefer an imperative Navigator API for screen transitions."
+    ],
+    "strengths": [
+      "Makes multi-step flows clean and easy to manage.",
+      "Decouples flow logic from UI widgets via FlowController and state updates."
+    ],
+    "weaknesses": [
+      "Not intended to replace a complete application router (like go_router or auto_route) for URL-based routing.",
+      "Limited to single-flow state management paradigms."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "go_router",
+        "why_pick_it": "Pick it if you need robust declarative routing with URL path parameters, redirection, and web support."
+      },
+      {
+        "name": "auto_route",
+        "why_pick_it": "Pick it if you prefer code generation for strongly typed routes and complex nested navigation."
+      }
+    ],
+    "minimal_example": "FlowBuilder<Profile>(\n  state: const Profile(),\n  onGeneratePages: (profile, pages) {\n    return [\n      MaterialPage(child: NameForm()),\n      if (profile.name != null) MaterialPage(child: AgeForm()),\n    ];\n  },\n);",
+    "confidence": 0.95
+  }
+}

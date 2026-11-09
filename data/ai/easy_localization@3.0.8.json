@@ -1,0 +1,59 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "3.0.8",
+  "generatedAt": "2026-11-07T16:27:30.265Z",
+  "data": {
+    "primary_category": "localization",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "declarative",
+      "code generation"
+    ],
+    "one_liner": "Easy and fast Flutter internationalization with JSON/CSV/… loaders",
+    "what_it_does": "Provides a simple API to load translation files from assets or custom loaders, supports plural, gender, nesting, RTL and fallback locales, and offers extension methods on Text and BuildContext.",
+    "use_when": [
+      "You need a quick, zero‑boilerplate solution for localizing a Flutter app",
+      "You want to load translations from JSON, CSV, Yaml, or XML files",
+      "You need runtime locale switching with persistence",
+      "You want code generation for translation keys"
+    ],
+    "avoid_when": [
+      "You already use a full‑featured i18n framework like intl or slang",
+      "You need advanced features like message formatting with ICU or custom plural rules beyond what intl offers",
+      "You want to avoid adding an assets folder to your project"
+    ],
+    "strengths": [
+      "Simple API with minimal boilerplate",
+      "Supports multiple file formats via custom loaders",
+      "Built‑in fallback and error handling",
+      "Code generation for keys"
+    ],
+    "weaknesses": [
+      "Requires assets folder and iOS plist configuration",
+      "Limited to Flutter (no pure Dart support)",
+      "Not as feature‑rich as intl for complex formatting"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add easy_localization to pubspec, declare assets folder, call EasyLocalization.ensureInitialized(), wrap app with EasyLocalization widget",
+    "alternatives": [
+      {
+        "name": "intl",
+        "why_pick_it": "Standard Dart i18n library with full ICU support"
+      },
+      {
+        "name": "slang",
+        "why_pick_it": "Code‑generated localization with strong type safety"
+      },
+      {
+        "name": "flutter_localization",
+        "why_pick_it": "Official Flutter package for basic localization"
+      }
+    ],
+    "minimal_example": "```dart\nimport 'package:easy_localization/easy_localization.dart';\n\nvoid main() async {\n  WidgetsFlutterBinding.ensureInitialized();\n  await EasyLocalization.ensureInitialized();\n  runApp(\n    EasyLocalization(\n      supportedLocales: [Locale('en'), Locale('de')],\n      path: 'assets/translations',\n      fallbackLocale: Locale('en'),\n      child: MyApp(),\n    ),\n  );\n}\n```",
+    "confidence": 0.9
+  }
+}

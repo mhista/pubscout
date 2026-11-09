@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.1.0",
+  "generatedAt": "2026-11-08T15:55:26.426Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Create lightweight custom Dart Events and notify subscribers across modules.",
+    "what_it_does": "It provides a notification mechanism across independent packages, layers, or modules. Developers can declare custom Events, subscribe handler functions to them, and broadcast notifications with optional arguments.",
+    "use_when": [
+      "You need a simple event-driven notification pattern between independent layers or modules.",
+      "You want lightweight custom events inspired by C# events and delegates without heavy state management overhead."
+    ],
+    "avoid_when": [
+      "You are already using a state management solution that natively handles cross-module communication and reactive updates.",
+      "You require complex event stream filtering and transformation natively without manually piping events to a StreamController."
+    ],
+    "strengths": [
+      "Zero non-development dependencies.",
+      "Lightweight with subscribers instantiated lazily only on first subscription.",
+      "Supports custom event arguments and includes helper classes like Value and Values."
+    ],
+    "weaknesses": [
+      "Lacks built-in advanced stream operators unless explicitly piped into a StreamController.",
+      "Requires manual unsubscription and memory management considerations."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:event/event.dart';\n\nvoid main() {\n  var e = Event();\n  e.subscribe((args) => print(\"event occurred\"));\n  e.broadcast();\n}",
+    "confidence": 0.95
+  }
+}

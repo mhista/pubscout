@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.4.1",
+  "generatedAt": "2026-11-07T11:26:27.876Z",
+  "data": {
+    "primary_category": "images",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Get image width and height by reading metadata without fully decoding the file.",
+    "what_it_does": "Reads dimensions and orientation metadata from JPEG, GIF, PNG, WebP, and BMP images without completely decoding the file. Supports custom inputs and custom decoders.",
+    "use_when": [
+      "You need to quickly check image dimensions before uploading or displaying.",
+      "You want to optimize performance by avoiding full image decoding just to read its size."
+    ],
+    "avoid_when": [
+      "You need to manipulate, crop, or transform the image pixels.",
+      "You are working with formats other than JPEG, GIF, PNG, WebP, and BMP unless you write a custom decoder."
+    ],
+    "strengths": [
+      "High performance because it only reads metadata/headers.",
+      "Supports multiple input sources like files, memory, and http.",
+      "Extensible through custom decoders and inputs."
+    ],
+    "weaknesses": [
+      "Limited to a specific set of image formats out of the box.",
+      "Requires converting Flutter asset images to Uint8List before processing."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'dart:io';\nimport 'package:image_size_getter/image_size_getter.dart';\nimport 'package:image_size_getter/file_input.dart';\n\nvoid main() async {\n  final file = File('asset/IMG_20180908_080245.jpg');\n  final result = ImageSizeGetter.getSizeResult(FileInput(file));\n  print('Size: ${result.size}');\n}",
+    "confidence": 1
+  }
+}

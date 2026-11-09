@@ -1,0 +1,59 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "5.3.2",
+  "generatedAt": "2026-11-07T16:28:40.672Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [
+      "codegen",
+      "utils"
+    ],
+    "approach": [
+      "code generation",
+      "imperative"
+    ],
+    "one_liner": "Fast on‑device NoSQL object database for Flutter and Dart native apps.",
+    "what_it_does": "ObjectBox stores Dart objects directly without tables, offering ACID‑compliant CRUD, queries, relations and vector search. It also provides optional Sync for cross‑device data consistency.",
+    "use_when": [
+      "You need high‑performance local persistence with millions of objects",
+      "You want built‑in relations and query API without writing SQL",
+      "You plan to use on‑device vector search for AI features"
+    ],
+    "avoid_when": [
+      "You prefer a pure‑Dart solution without native binaries",
+      "You need a lightweight key‑value store only",
+      "You cannot add native build steps or code‑generation to your CI"
+    ],
+    "strengths": [
+      "10× faster than SQLite in benchmarks",
+      "ACID compliance and built‑in migrations",
+      "Cross‑platform native binaries (Android, iOS, macOS, Linux, Windows)",
+      "Vector search for on‑device AI"
+    ],
+    "weaknesses": [
+      "Requires native libraries and code‑gen step",
+      "Larger app size due to native binaries",
+      "Not pure Dart – limited to supported platforms"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add objectbox and objectbox_flutter_libs (or sync variant) to pubspec, run build_runner for generated code, install native libs via provided script, and set platform deployment targets (iOS 15+, macOS 11+).",
+    "alternatives": [
+      {
+        "name": "sqflite",
+        "why_pick_it": "Pure SQLite wrapper, pure Dart, no native code‑gen needed"
+      },
+      {
+        "name": "hive_ce",
+        "why_pick_it": "Lightweight pure‑Dart key‑value store, easier setup"
+      },
+      {
+        "name": "drift",
+        "why_pick_it": "SQL‑based with code‑gen, supports complex queries and migrations"
+      }
+    ],
+    "minimal_example": "import 'package:objectbox/objectbox.dart';\n\n@Entity()\nclass Person {\n  @Id()\n  int id = 0;\n  String firstName;\n  String lastName;\n  Person({required this.firstName, required this.lastName});\n}\n\nFuture<void> main() async {\n  final store = await openStore();\n  final box = store.box<Person>();\n  final person = Person(firstName: 'Joe', lastName: 'Green');\n  final id = box.put(person);\n  print('Saved person with id $id');\n}",
+    "confidence": 0.97
+  }
+}

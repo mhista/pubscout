@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "5.9.3",
+  "generatedAt": "2026-11-07T11:17:20.488Z",
+  "data": {
+    "primary_category": "layout",
+    "secondary_categories": [],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "A Flutter plugin for adapting screen and font size across different device models.",
+    "what_it_does": "Adapts UI layouts and font sizes based on a provided design draft size. Offers extension methods to easily scale widths, heights, radii, and font sizes.",
+    "use_when": [
+      "You need to precisely match UI dimensions from design drafts across varying screen sizes",
+      "You want a straightforward way to scale fonts and spacing using extension methods like .w, .h, and .sp"
+    ],
+    "avoid_when": [
+      "You prefer responsive layouts built using standard Flutter layout widgets and flexible constraints rather than fixed scaling",
+      "Your app utilizes completely fluid designs that do not rely on fixed design-draft dimensions"
+    ],
+    "strengths": [
+      "Simple extension methods for sizing (.w, .h, .sp, .r)",
+      "Supports split screen mode and minimum text adaptation",
+      "Allows enabling or disabling scaling programmatically"
+    ],
+    "weaknesses": [
+      "Relies on a fixed design draft size which may not suit all adaptive/responsive design paradigms",
+      "Can require careful configuration during widget tests (e.g. pumpAndSettle)"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Initialize ScreenUtilInit once in your app's widget tree.",
+    "alternatives": [],
+    "minimal_example": "ScreenUtilInit(\n  designSize: const Size(360, 690),\n  minTextAdapt: true,\n  splitScreenMode: true,\n  builder: (_ , child) {\n    return MaterialApp(\n      home: HomePage(),\n    );\n  },\n);",
+    "confidence": 1
+  }
+}

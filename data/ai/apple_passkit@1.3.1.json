@@ -1,0 +1,46 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.3.1",
+  "generatedAt": "2026-11-08T16:03:09.175Z",
+  "data": {
+    "primary_category": "payments",
+    "secondary_categories": [
+      "device"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter plugin to check availability, read, and add Apple Wallet PKPass files on iOS.",
+    "what_it_does": "This package provides a Flutter binding for Apple's PassKit. It allows applications to check if PassKit and pass adding are available on the device, add PkPass files to the user's Apple Wallet, and read available PkPass files already installed in the wallet.",
+    "use_when": [
+      "You need to integrate Apple Wallet and PassKit functionality specifically into an iOS Flutter application.",
+      "You want to allow users to add PKPass files (such as boarding passes or loyalty cards) to their wallet.",
+      "You need to read existing PKPass files available in the user's wallet."
+    ],
+    "avoid_when": [
+      "You need cross-platform support for handling PassKit files on platforms other than iOS or macOS.",
+      "You are dealing with crypto web3 wallets instead of Apple Wallet."
+    ],
+    "strengths": [
+      "Direct binding to Apple's native PassKit framework.",
+      "Enables checking pass library availability and permissions prior to adding passes.",
+      "Supports reading installed passes directly from the wallet."
+    ],
+    "weaknesses": [
+      "Limited to iOS/macOS and not cross-platform.",
+      "Fails to give specific error messages in some failure scenarios (suggests falling back to 'passkit' package for more details)."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires setting up your Xcode project according to Apple's PassKit documentation to properly manage wallet passes.",
+    "alternatives": [
+      {
+        "name": "wallet",
+        "why_pick_it": "Pick it if you need alternative wallet functionalities or different integration."
+      }
+    ],
+    "minimal_example": "final passKit = ApplePassKit();\nbool isAvailable = await passKit.isPassLibraryAvailable();\nbool canAddPasses = await passKit.canAddPasses();\n\nif(isAvailable && canAddPasses) {\n    await passKit.addPass(pass);\n}",
+    "confidence": 0.95
+  }
+}

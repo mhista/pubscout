@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.1.0",
+  "generatedAt": "2026-11-07T11:20:05.818Z",
+  "data": {
+    "primary_category": "codegen",
+    "secondary_categories": [],
+    "approach": [
+      "code generation"
+    ],
+    "one_liner": "Annotations for the freezed code-generator.",
+    "what_it_does": "Provides annotations used by the freezed code-generator package to create immutable data classes and union types. This package does nothing without freezed.",
+    "use_when": [
+      "You are using the freezed code-generator for immutable models",
+      "You need annotations like @freezed, @unfreezed, @With, or @Implements"
+    ],
+    "avoid_when": [
+      "You are not using code generation or freezed",
+      "You need the full freezed generator functionality rather than just annotations"
+    ],
+    "strengths": [
+      "Lightweight package providing only the necessary annotations for freezed",
+      "Clear separation between annotations and the code generation logic"
+    ],
+    "weaknesses": [
+      "Does nothing without the freezed package"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add to dependencies alongside freezed and build_runner in dev_dependencies.",
+    "alternatives": [
+      {
+        "name": "built_value",
+        "why_pick_it": "Alternative approach to creating immutable value classes in Dart via code generation."
+      },
+      {
+        "name": "json_serializable",
+        "why_pick_it": "Alternative code generator focused specifically on JSON serialization rather than full union types and immutability patterns."
+      }
+    ],
+    "minimal_example": "import 'package:freezed_annotation/freezed_annotation.dart';\n\npart 'example.freezed.dart';\n\n@freezed\nclass Example with _$Example {\n  const factory Example({required String name}) = _Example;\n}",
+    "confidence": 1
+  }
+}

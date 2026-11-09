@@ -1,0 +1,46 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "8.13.0",
+  "generatedAt": "2026-11-07T10:59:33.061Z",
+  "data": {
+    "primary_category": "codegen",
+    "secondary_categories": [],
+    "approach": [
+      "code generation"
+    ],
+    "one_liner": "Generates immutable value types, enum classes, and JSON serializers for Dart.",
+    "what_it_does": "It uses build_runner to generate boilerplate code for immutable value objects, enum classes, and serializers. This allows you to work with robust data models with value equality, builders, and custom hooks without writing the repetitive code yourself.",
+    "use_when": [
+      "You need immutable models with builder patterns and value equality.",
+      "You require robust JSON serialization with support for generics and complex object graphs."
+    ],
+    "avoid_when": [
+      "You prefer mutable state or simple data classes without code generation.",
+      "You want a simpler serialization solution without the boilerplate of builders."
+    ],
+    "strengths": [
+      "Full support for object-oriented design, interfaces, and generics in serialization.",
+      "Immutable collections and validation hooks out of the box."
+    ],
+    "weaknesses": [
+      "Requires code generation and the build_runner tool.",
+      "Steeper learning curve and more boilerplate than some newer alternatives."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding built_value as a dependency and built_value_generator and build_runner as dev dependencies, then running build_runner.",
+    "alternatives": [
+      {
+        "name": "freezed",
+        "why_pick_it": "Offers union types and pattern matching with a more concise syntax for immutable classes."
+      },
+      {
+        "name": "json_serializable",
+        "why_pick_it": "Generates JSON serialization for standard classes without requiring immutable builders."
+      }
+    ],
+    "minimal_example": "abstract class Person implements Built<Person, PersonBuilder> {\n  static Serializer<Person> get serializer => _$personSerializer;\n  int get id;\n  String? get firstName;\n  Person._();\n  factory Person([void Function(PersonBuilder) updates]) = _$Person;\n}",
+    "confidence": 0.95
+  }
+}

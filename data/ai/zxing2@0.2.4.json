@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.2.4",
+  "generatedAt": "2026-11-08T15:28:26.978Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Pure Dart library for encoding and decoding QR codes.",
+    "what_it_does": "Provides QR‑code encoding and decoding using only Dart code. Works with image byte data and returns text results. Currently limited to QR format only.",
+    "use_when": [
+      "You need QR‑code generation or reading in a pure‑Dart/Flutter project without native plugins.",
+      "You target multiple platforms (mobile, web, desktop) and want a single dependency."
+    ],
+    "avoid_when": [
+      "You require other barcode formats (EAN, Code128, etc.).",
+      "You need high‑performance real‑time scanning from a camera stream."
+    ],
+    "strengths": [
+      "Pure Dart – no native setup or permissions required.",
+      "Supports both encoding and decoding of QR codes.",
+      "Works on all Dart‑supported platforms."
+    ],
+    "weaknesses": [
+      "Only QR‑code format is supported.",
+      "Performance may be lower than native scanner libraries.",
+      "No built‑in camera UI – you must integrate a camera plugin yourself."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "qr",
+        "why_pick_it": "Simple QR‑code generation with no decoding, pure Dart."
+      },
+      {
+        "name": "flutter_zxing",
+        "why_pick_it": "Similar barcode processing with broader format support."
+      }
+    ],
+    "minimal_example": "import 'dart:io';\nimport 'package:image/image.dart' as img;\nimport 'package:zxing2/qrcode.dart';\n\nvoid main() {\n  var image = img.decodePng(File('example.png').readAsBytesSync())!;\n  var source = RGBLuminanceSource(image.width, image.height,\n      image.convert(numChannels: 4).getBytes(order: img.ChannelOrder.abgr).buffer.asInt32List());\n  var bitmap = BinaryBitmap(GlobalHistogramBinarizer(source));\n  var result = QRCodeReader().decode(bitmap);\n  print(result.text);\n}",
+    "confidence": 0.93
+  }
+}

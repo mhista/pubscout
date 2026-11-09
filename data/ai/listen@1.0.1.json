@@ -1,0 +1,51 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.1",
+  "generatedAt": "2026-11-08T15:22:02.165Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "A package to notify state changes to interested listeners in pure Dart.",
+    "what_it_does": "Provides ValueNotifier and ChangeNotifier in pure Dart to manage and notify state changes to listeners. Also allows merging multiple listenables together.",
+    "use_when": [
+      "You need simple state notification in pure Dart without Flutter dependencies",
+      "You want to use familiar patterns like ValueNotifier and ChangeNotifier outside of Flutter"
+    ],
+    "avoid_when": [
+      "You are building a complex Flutter app that benefits from full-featured state management like Riverpod or Bloc",
+      "You require advanced dependency injection or automated state rebuilding widgets"
+    ],
+    "strengths": [
+      "Pure Dart support",
+      "Familiar API mirroring Flutter's ValueNotifier and ChangeNotifier",
+      "Supports merging multiple listenables"
+    ],
+    "weaknesses": [
+      "Lacks advanced state management features like dependency injection or automated widget rebuilding out-of-the-box"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "provider",
+        "why_pick_it": "If you are working specifically in Flutter and want built-in widget tree integration for ChangeNotifier."
+      },
+      {
+        "name": "riverpod",
+        "why_pick_it": "For a robust, compile-safe state management solution in Dart and Flutter."
+      },
+      {
+        "name": "bloc",
+        "why_pick_it": "For predictable state management driven by events and strict state streams."
+      }
+    ],
+    "minimal_example": "void valueNotifierExample() {\n  final counter = ValueNotifier<int>(0);\n\n  counter.addListener(() {\n    print('Value changed: ${counter.value}');\n  });\n\n  counter.value = 5;\n  counter.dispose();\n}",
+    "confidence": 0.95
+  }
+}

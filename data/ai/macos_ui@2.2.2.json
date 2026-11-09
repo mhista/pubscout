@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.8-flash",
+  "version": "2.2.2",
+  "generatedAt": "2026-11-08T15:17:52.969Z",
+  "data": {
+    "primary_category": "ui-kits",
+    "secondary_categories": [
+      "theming",
+      "web-desktop"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Flutter widgets and themes implementing Apple's modern macOS design language.",
+    "what_it_does": "macos_ui provides a comprehensive suite of native-styled macOS widgets, layouts, and controls for Flutter applications. It includes components like MacosWindow, Sidebar, ToolBar, MacosScaffold, and native input elements that adhere to Apple's Human Interface Guidelines. It also integrates native window styling via macos_window_utils to emulate the modern macOS Big Sur and newer appearance.",
+    "use_when": [
+      "Building a desktop Flutter application specifically targeting macOS with a native look and feel.",
+      "You need native macOS layouts including unified toolbars, sidebars, sheets, and dialogs.",
+      "You want system-aligned styling like user accent colors and window main state detection."
+    ],
+    "avoid_when": [
+      "Targeting platforms other than macOS, as native features and colors will not work reliably.",
+      "Building an app designed around Material or a non-platform-specific design language."
+    ],
+    "strengths": [
+      "Extensive collection of macOS-specific widgets ranging from windows and toolbars to pickers and indicators.",
+      "Supports modern macOS design paradigms (macOS 11+) including unified and expanded toolbar styles.",
+      "Integrates native system attributes such as user accent colors and window focus states."
+    ],
+    "weaknesses": [
+      "Requires a minimum macOS deployment target of 10.14.6 and Xcode project configuration.",
+      "Not intended for non-macOS platforms, where features like MacosColorWell and accent colors fail."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires setting the macOS deployment target to 10.14.6 or higher in Xcode/Podfile, initializing MacosWindowUtilsConfig in main(), and running on Flutter 3.35.0+.",
+    "alternatives": [],
+    "minimal_example": "MacosWindow(\n  sidebar: Sidebar(\n    minWidth: 200,\n    builder: (context, scrollController) {\n      return SidebarItems(\n        currentIndex: 0,\n        scrollController: scrollController,\n        itemSize: SidebarItemSize.large,\n        onChanged: (i) {},\n        items: const [\n          SidebarItem(label: Text('Page One')),\n          SidebarItem(label: Text('Page Two')),\n        ],\n      );\n    },\n  ),\n  child: const MacosScaffold(\n    children: [\n      ContentArea(\n        builder: (context, scrollController) => Center(\n          child: Text('Hello macOS'),\n        ),\n      ),\n    ],\n  ),\n)",
+    "confidence": 1
+  }
+}

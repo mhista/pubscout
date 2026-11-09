@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.0",
+  "generatedAt": "2026-11-08T15:49:51.123Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "storage"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "An auto-completion engine for Dart and Flutter using an optimized Trie implementation.",
+    "what_it_does": "Provides an in-memory auto-completion engine based on a space-efficient Trie data structure. It supports frequency and recency-based sorting, basic file persistence, and Hive box extensions for searching keys and values.",
+    "use_when": [
+      "You need local, fast auto-completion suggestions for strings in Dart or Flutter",
+      "You want suggestions ranked by frequency of entry and recency",
+      "You want basic file persistence or Hive integration for autocomplete data"
+    ],
+    "avoid_when": [
+      "You need advanced sorting options directly integrated with Hive box search",
+      "You require complex remote search indexing rather than a local Trie"
+    ],
+    "strengths": [
+      "Space-efficient Trie implementation using variable-length lists",
+      "Flexible sorting options including frequency and recency-based logistic curves",
+      "Built-in file persistence and Hive integration extensions"
+    ],
+    "weaknesses": [
+      "Hive integration does not support advanced custom sorting options (only entry-level sorting)",
+      "Limited to string-based auto-completion"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:autotrie/autotrie.dart';\n\nvoid main() {\n  var engine = AutoComplete(engine: SortEngine.entriesOnly());\n  engine.enter('more');\n  print(engine.suggest('mo'));\n}",
+    "confidence": 1
+  }
+}

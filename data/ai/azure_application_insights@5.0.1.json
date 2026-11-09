@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "5.0.1",
+  "generatedAt": "2026-11-07T10:57:40.095Z",
+  "data": {
+    "primary_category": "devtools",
+    "secondary_categories": [
+      "backend"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "A Dart client to integrate with Azure's Application Insights service.",
+    "what_it_does": "Allows you to push telemetry items, traces, errors, and dependency calls into your Azure Application Insights instance. It includes support for buffering processors, tracking crashes, and an HTTP client middleware to capture network requests automatically.",
+    "use_when": [
+      "You need to monitor Flutter or Dart application performance and usage using Azure Application Insights",
+      "You want to capture crashes and unhandled exceptions and send them to Azure",
+      "You want to track HTTP dependency calls automatically"
+    ],
+    "avoid_when": [
+      "You are using a different analytics or error-reporting backend like Firebase or Sentry",
+      "You do not use Azure services for backend telemetry"
+    ],
+    "strengths": [
+      "Deep integration with Azure Application Insights telemetry items",
+      "Includes a TelemetryHttpClient for automatic dependency tracking",
+      "Supports configurable buffering and context properties"
+    ],
+    "weaknesses": [
+      "Requires manual configuration of connection strings and setup",
+      "Limited to Azure Application Insights backend"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Obtain a connection string from your Application Insights resource overview in the Azure portal and construct a TelemetryClient with a processor.",
+    "alternatives": [],
+    "minimal_example": "final processor = BufferedProcessor(\n  next: TransmissionProcessor(\n    connectionString: connectionString,\n    httpClient: client,\n    timeout: const Duration(seconds: 10),\n  ),\n);\n\nfinal telemetryClient = TelemetryClient(\n  processor: processor,\n);\n\ntelemetryClient.trackTrace(\n  severity: Severity.information,\n  message: 'Hello from Dart!',\n);",
+    "confidence": 1
+  }
+}

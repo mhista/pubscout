@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.2.9",
+  "generatedAt": "2026-11-07T11:24:08.753Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [
+      "web-desktop"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Client to access GSettings database for storing user preferences on Linux.",
+    "what_it_does": "Provides a Dart client to access GSettings, the settings database used for storing user preferences on Linux. Allows reading, writing, and listening to changes on GSettings keys via D-Bus.",
+    "use_when": [
+      "You are developing a Flutter or Dart desktop application targeting Linux.",
+      "You need to integrate with native GNOME or desktop user preferences using GSettings."
+    ],
+    "avoid_when": [
+      "You need cross-platform storage (Android, iOS, Windows, macOS).",
+      "You are looking for a general-purpose key-value store independent of Linux desktop environments."
+    ],
+    "strengths": [
+      "Native integration with Linux GSettings and D-Bus.",
+      "Supports memory and keyfile backends and schema directories."
+    ],
+    "weaknesses": [
+      "Limited exclusively to the Linux platform.",
+      "Requires proper D-Bus and GSettings schema setup on the host system."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires Linux environment with D-Bus and GSettings support.",
+    "alternatives": [],
+    "minimal_example": "import 'package:gsettings/gsettings.dart';\n\nvoid main() async {\n  var settings = GSettings('org.gnome.desktop.interface');\n  var value = await settings.get('font-name');\n  var font = value.asString();\n  print('Current font set to: $font');\n  await settings.close();\n}",
+    "confidence": 0.95
+  }
+}

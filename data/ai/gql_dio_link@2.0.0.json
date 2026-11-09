@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.0",
+  "generatedAt": "2026-11-08T15:57:26.823Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "A GraphQL terminating link to execute requests via Dio using JSON.",
+    "what_it_does": "Acts as a GraphQL Link for the gql ecosystem that delegates network requests to the Dio HTTP client. It allows executing GraphQL queries and mutations over Dio with support for features like file uploads.",
+    "use_when": [
+      "You are using the gql client ecosystem and want to use Dio as your underlying HTTP client",
+      "You need features provided by Dio such as custom interceptors for your GraphQL requests"
+    ],
+    "avoid_when": [
+      "Not documented",
+      "You are not using the gql/GraphQL link architecture"
+    ],
+    "strengths": [
+      "Integrates GraphQL links with the popular Dio HTTP client",
+      "Supports multipart file uploads and query configuration options"
+    ],
+    "weaknesses": [
+      "Dependent on the broader gql and dio package ecosystems breaking changes"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Initialize a Dio instance and pass it to the DioLink constructor within your Link chain.",
+    "alternatives": [
+      {
+        "name": "http",
+        "why_pick_it": "If you prefer a simpler HTTP client stack instead of Dio for GraphQL links"
+      }
+    ],
+    "minimal_example": "import \"package:dio/dio.dart\";\nimport \"package:gql_link/gql_link.dart\";\nimport \"package:gql_dio_link/gql_dio_link.dart\";\n\nvoid main () {\n  final dio = Dio();\n  final link = Link.from([\n    DioLink(\"/graphql\", client: dio),\n  ]);\n}",
+    "confidence": 0.95
+  }
+}

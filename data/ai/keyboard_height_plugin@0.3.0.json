@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.3.0",
+  "generatedAt": "2026-11-08T15:48:02.814Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Emits keyboard height before it shows on iOS and Android to prevent layout lag",
+    "what_it_does": "A Flutter plugin for iOS and Android that provides the keyboard size before the keyboard animation occurs. This allows developers to position widgets like TextFields precisely without lag.",
+    "use_when": [
+      "You need to know the exact keyboard height before it animates onto the screen",
+      "You want to eliminate lag when positioning widgets around the software keyboard"
+    ],
+    "avoid_when": [
+      "Your project cannot upgrade to modern build tools required by version 0.3.0 without staying on legacy version 0.1.5",
+      "Standard Flutter padding/MediaQuery insets are sufficient for your layout"
+    ],
+    "strengths": [
+      "Provides keyboard height before the animation occurs",
+      "Supports both iOS and Android",
+      "Includes privacy manifest for iOS App Store compliance"
+    ],
+    "weaknesses": [
+      "Requires modern Android build tooling (AGP 8.6.0+, Gradle 8.7+, Kotlin 2.1.0+, Java 17+) for version 0.3.0",
+      "Limited to keyboard height emission rather than a full suite of device tools"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires ensuring compatible Android build tools (AGP 8.6+, Java 17+, Kotlin 2.1+) for version 0.3.0.",
+    "alternatives": [],
+    "minimal_example": "import 'package:keyboard_height_plugin/keyboard_height_plugin.dart';\n\ndouble _keyboardHeight = 0;\nfinal KeyboardHeightPlugin _keyboardHeightPlugin = KeyboardHeightPlugin();\n\n@override\nvoid initState() {\n  super.initState();\n  _keyboardHeightPlugin.onKeyboardHeightChanged((double height) {\n    setState(() {\n      _keyboardHeight = height;\n    });\n  });\n}",
+    "confidence": 0.95
+  }
+}

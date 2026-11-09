@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "6.3.3",
+  "generatedAt": "2026-11-07T16:24:12.322Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "navigation"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter plugin for launching URLs across mobile, desktop, and web platforms.",
+    "what_it_does": "A Flutter plugin that launches URLs for web browsers, phone calls, SMS messages, and emails. It supports multiple platforms including Android, iOS, Web, Windows, macOS, and Linux.",
+    "use_when": [
+      "You need to open external web links in a browser or in-app view.",
+      "You want to trigger phone calls, SMS messages, or emails using native apps.",
+      "You need to open local files on desktop platforms using standard file associations."
+    ],
+    "avoid_when": [
+      "You need an embedded web view widget displayed natively inside your widget tree instead of launching an external browser or overlay.",
+      "You need complex in-app web browsing capabilities beyond basic custom tabs or browser launching."
+    ],
+    "strengths": [
+      "Supports a wide range of platforms (Android, iOS, Web, Windows, macOS, Linux).",
+      "Handles common URI schemes like http, https, mailto, tel, sms, and file.",
+      "Provides flexibility for launch modes and browser configurations."
+    ],
+    "weaknesses": [
+      "Requires platform-specific configuration such as query schemes on iOS and intent queries on Android for checking link support.",
+      "Platform support depends on installed applications on the host device."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires adding URL schemes to Info.plist on iOS and intent queries to AndroidManifest.xml for proper canLaunchUrl and launch behavior.",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:url_launcher/url_launcher.dart';\n\nfinal Uri _url = Uri.parse('https://flutter.dev');\n\nvoid main() => runApp(\n  const MaterialApp(\n    home: Material(\n      child: Center(\n        child: ElevatedButton(onPressed: _launchUrl, child: Text('Show Flutter homepage')),\n      ),\n    ),\n  ),\n);\n\nFuture<void> _launchUrl() async {\n  if (!await launchUrl(_url)) {\n    throw Exception('Could not launch $_url');\n  }\n}",
+    "confidence": 1
+  }
+}

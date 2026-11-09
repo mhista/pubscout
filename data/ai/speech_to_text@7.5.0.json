@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "7.5.0",
+  "generatedAt": "2026-11-08T15:23:33.178Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [
+      "device"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter plugin to expose device-specific speech-to-text recognition capabilities.",
+    "what_it_does": "Exposes device-specific speech recognition capabilities in Flutter. It allows capturing spoken words from the microphone and converting them to text via platform APIs.",
+    "use_when": [
+      "You want to implement voice commands or short phrase recognition in your app.",
+      "You need cross-platform speech-to-text support across Android, iOS, macOS, Windows, and Web."
+    ],
+    "avoid_when": [
+      "You need continuous spoken conversion or always-on listening.",
+      "You are targeting Linux (not supported)."
+    ],
+    "strengths": [
+      "Supports multiple platforms including Android, iOS, macOS, Web, and Windows.",
+      "Provides callback handlers for results, status changes, and errors."
+    ],
+    "weaknesses": [
+      "Android has a very short built-in pause timeout that cannot be customized.",
+      "Windows support is currently in beta and not yet fully production-ready."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires platform-specific permissions like microphone access and speech recognition descriptions in Info.plist (iOS/macOS) and AndroidManifest.xml (Android).",
+    "alternatives": [],
+    "minimal_example": "import 'package:speech_to_text/speech_to_text.dart' as stt;\n\nstt.SpeechToText speech = stt.SpeechToText();\nbool available = await speech.initialize(onStatus: statusListener, onError: errorListener);\nif (available) {\n    speech.listen(onResult: resultListener);\n} else {\n    print(\"The user has denied the use of speech recognition.\");\n}",
+    "confidence": 1
+  }
+}

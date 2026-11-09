@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.1.0",
+  "generatedAt": "2026-11-08T15:53:12.056Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Get device RAM and disk storage information on Android and iOS.",
+    "what_it_does": "A Flutter plugin to query device memory and disk space metrics, along with streaming system memory pressure events. It retrieves values like total, free, and used RAM/ROM in megabytes for both Android and iOS platforms.",
+    "use_when": [
+      "You need to monitor available RAM or disk space in your Flutter app.",
+      "You want to listen to system memory pressure events to clear caches before the app is killed."
+    ],
+    "avoid_when": [
+      "You need detailed hardware information beyond RAM and ROM.",
+      "Your target platform is neither Android nor iOS."
+    ],
+    "strengths": [
+      "Provides both memory and disk space usage metrics.",
+      "Includes a memory pressure event stream for handling low-memory warnings.",
+      "Values are collected off the main thread."
+    ],
+    "weaknesses": [
+      "Some memory and disk fields return null depending on the OS or if run on a simulator.",
+      "Android 14+ restricts some trim memory levels, making certain warning events rare."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Shipped with an iOS privacy manifest; no special manual setup steps are documented.",
+    "alternatives": [],
+    "minimal_example": "import 'package:memory_info/memory_info.dart';\n\nfinal Memory memory = await MemoryInfoPlugin().memoryInfo;\nprint('Total: ${memory.totalMem} MB');\nprint('Free: ${memory.freeMem} MB');",
+    "confidence": 0.95
+  }
+}

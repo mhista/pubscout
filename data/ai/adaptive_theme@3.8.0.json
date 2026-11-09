@@ -1,0 +1,48 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.8.0",
+  "generatedAt": "2026-11-07T10:54:29.242Z",
+  "data": {
+    "primary_category": "theming",
+    "secondary_categories": [
+      "storage",
+      "layout"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Dynamic light and dark theme switching with persistence for Flutter.",
+    "what_it_does": "Allows apps to dynamically switch between light, dark, and system-default themes. Persists theme choices across app restarts using shared_preferences and provides listeners for theme changes.",
+    "use_when": [
+      "You need to support manual light and dark theme switching in your app.",
+      "You want theme mode changes to persist automatically across app restarts.",
+      "You want to support system-adaptive theme changes easily."
+    ],
+    "avoid_when": [
+      "You only need a static theme defined once without any runtime switching or persistence.",
+      "You are using a complex custom state management setup where you prefer handling theme state manually."
+    ],
+    "strengths": [
+      "Persists theme mode automatically across app restarts.",
+      "Supports both Material (MaterialApp) and Cupertino (CupertinoApp) apps.",
+      "Includes a debug floating theme button for quick testing.",
+      "Provides ValueNotifier to easily listen to theme changes."
+    ],
+    "weaknesses": [
+      "Does not persist full custom theme data changes, only the theme mode (light/dark/system).",
+      "Requires wrapping the app root widget."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Wrap your MaterialApp or CupertinoApp with AdaptiveTheme or CupertinoAdaptiveTheme.",
+    "alternatives": [
+      {
+        "name": "flex_color_scheme",
+        "why_pick_it": "Choose this if you need advanced custom Material color schemes and extensive pre-built themes rather than just light/dark toggling."
+      }
+    ],
+    "minimal_example": "AdaptiveTheme(\n  light: ThemeData.light(useMaterial3: true),\n  dark: ThemeData.dark(useMaterial3: true),\n  initial: AdaptiveThemeMode.light,\n  builder: (theme, darkTheme) => MaterialApp(\n    title: 'Adaptive Theme Demo',\n    theme: theme,\n    darkTheme: darkTheme,\n    home: MyHomePage(),\n  ),\n)",
+    "confidence": 1
+  }
+}

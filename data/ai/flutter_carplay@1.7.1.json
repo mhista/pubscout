@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.7.1",
+  "generatedAt": "2026-11-07T11:12:08.467Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "ui-kits"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Build native Apple CarPlay and Android Auto interfaces from Flutter.",
+    "what_it_does": "Allows Flutter applications to render native Apple CarPlay and Android Auto UI templates using platform-specific models while sharing core app logic. It provides controllers, callbacks, and connection listeners for in-car displays.",
+    "use_when": [
+      "You need to extend an existing Flutter application to support Apple CarPlay or Android Auto.",
+      "You want to render native car platform templates from Dart instead of scaling the mobile UI."
+    ],
+    "avoid_when": [
+      "You are building a standalone Android Automotive OS application rather than an Android Auto projection app.",
+      "You expect to render arbitrary custom Flutter widgets inside the car display instead of native platform templates."
+    ],
+    "strengths": [
+      "Supports both Apple CarPlay and Android Auto from a single Flutter application.",
+      "Binds to native car platform templates and callbacks.",
+      "Includes support for navigation, images, incremental updates, and voice states."
+    ],
+    "weaknesses": [
+      "Car hosts restrict template appearance and available controls based on app category and entitlements.",
+      "Requires complex native setup including shared engine configurations on iOS."
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Requires iOS 14.0+ deployment target, custom shared-engine AppDelegate and SceneDelegate setup on iOS, and appropriate entitlements for CarPlay and Android Auto.",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter_carplay/flutter_carplay.dart';\n\nfinal carplay = FlutterCarplay();\n\nFuture<void> prepareCarPlayHome() => FlutterCarplay.setRootTemplate(\n  rootTemplate: CPListTemplate(\n    title: 'My app',\n    sections: [\n      CPListSection(items: [\n        CPListItem(\n          text: 'Saved places',\n          detailText: 'Pick up where you left off',\n          onPress: (complete, item) async => complete(),\n        ),\n      ]),\n    ],\n  ),\n);",
+    "confidence": 0.95
+  }
+}

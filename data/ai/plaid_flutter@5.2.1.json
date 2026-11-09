@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "5.2.1",
+  "generatedAt": "2026-11-08T15:33:02.676Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "auth"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter plugin that embeds Plaid Link native SDKs for iOS, Android and Web.",
+    "what_it_does": "Provides a Dart API to create a Plaid Link handler with a link token and open the Plaid Link flow. It wraps the native Plaid SDKs and forwards events back to Flutter.",
+    "use_when": [
+      "You need to integrate Plaid Link for bank account linking in a Flutter app",
+      "You require native iOS/Android/Web Plaid experiences with token‑based flow"
+    ],
+    "avoid_when": [
+      "You don't need Plaid functionality or prefer a pure Dart solution",
+      "You cannot modify native project files (e.g., permissions, Gradle, Xcode settings)"
+    ],
+    "strengths": [
+      "Full native SDK integration on all platforms",
+      "Supports latest Plaid Link features like Identity Verification and FinanceKit",
+      "Simple Dart API (create then open)"
+    ],
+    "weaknesses": [
+      "Requires native configuration (Info.plist, AndroidManifest, Gradle)",
+      "Only works with Plaid; not a generic banking SDK",
+      "No code‑generation or declarative UI helpers"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add NSCameraUsageDescription for iOS Identity Verification; add CAMERA, WRITE_EXTERNAL_STORAGE, RECORD_AUDIO, MODIFY_AUDIO_SETTINGS permissions to AndroidManifest; ensure minSdk >=21; include Plaid JS script on web; initialize with a server‑generated link_token",
+    "alternatives": [],
+    "minimal_example": "await PlaidLink.create(configuration: LinkTokenConfiguration(token: \"<GENERATED_LINK_TOKEN>\"));\nPlaidLink.open();",
+    "confidence": 0.9
+  }
+}

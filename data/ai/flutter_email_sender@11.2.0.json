@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "11.2.0",
+  "generatedAt": "2026-11-07T11:13:12.014Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "files"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Allows sending emails from Flutter using native platform functionality.",
+    "what_it_does": "Allows sending emails from Flutter using native platform functionality across Android, iOS, macOS, Windows, Linux, and web. Exposes platform capabilities to check what features like attachments, HTML bodies, cc, and bcc are supported before sending.",
+    "use_when": [
+      "You need to trigger the native email composer from your Flutter app.",
+      "You need to attach files or in-memory data to outgoing emails.",
+      "You need to check platform capabilities and feature support before sending emails."
+    ],
+    "avoid_when": [
+      "You need to send emails directly from the app backend without opening a native email client.",
+      "The target platform lacks a mail client or native composer support for advanced features like HTML and attachments."
+    ],
+    "strengths": [
+      "Supports multiple platforms including Android, iOS, macOS, Windows, Linux, and Web.",
+      "Exposes platform capabilities so apps can adapt their UI before sending.",
+      "Supports both file-path attachments and in-memory data attachments."
+    ],
+    "weaknesses": [
+      "Fallback mailto: links on some platforms and clients do not support HTML bodies or attachments.",
+      "Outcome reporting of the email send action varies by platform (e.g. unknown on non-iOS platforms)."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "No setup required on most platforms; optional LSApplicationQueriesSchemes for mailto on iOS.",
+    "alternatives": [],
+    "minimal_example": "final Email email = Email(\n  body: 'Email body',\n  subject: 'Email subject',\n  recipients: ['example@example.com'],\n);\n\nawait FlutterEmailSender.send(email);",
+    "confidence": 1
+  }
+}

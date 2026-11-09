@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.5.2",
+  "generatedAt": "2026-11-08T16:05:15.018Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "Flutter plugin to interact with USB serial devices connected to Android.",
+    "what_it_does": "Allows Flutter code to communicate with USB serial hardware using FTDI, CDC, and other protocols on Android. It offers asynchronous APIs for opening ports, setting port parameters, writing data, and listening to input streams, plus transaction helpers with stream transformers.",
+    "use_when": [
+      "You need to communicate with hardware like Arduino, FTDI, or CP210x devices via USB from an Android Flutter app.",
+      "You require stream transformers or transactions to handle binary protocols or terminators over serial connections."
+    ],
+    "avoid_when": [
+      "You are building for iOS or desktop platforms where USB host serial access is not supported by this plugin.",
+      "You only need standard networking protocols like HTTP, WebSockets, or gRPC."
+    ],
+    "strengths": [
+      "Supports multiple USB serial hardware protocols (FTDI, CDC, CP210x, Prolific, etc.).",
+      "Provides built-in transaction and stream transformer helpers for easier data parsing."
+    ],
+    "weaknesses": [
+      "Android-only support.",
+      "Requires manual native setup with intent filters and device filter XML configurations."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding intent filters and a device_filter.xml file to your AndroidManifest.xml and res/xml directory.",
+    "alternatives": [],
+    "minimal_example": "List<UsbDevice> devices = await UsbSerial.listDevices();\nUsbPort port = await devices[0].create();\nbool openResult = await port.open();\nport.inputStream.listen((Uint8List event) {\n  print(event);\n});\nawait port.write(Uint8List.fromList([0x10, 0x00]));",
+    "confidence": 0.95
+  }
+}

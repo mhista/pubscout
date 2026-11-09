@@ -1,0 +1,51 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.1.0",
+  "generatedAt": "2026-11-07T11:25:13.589Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "An HTTP/2 implementation in Dart for low-level transport and pooled HTTP/2 requests.",
+    "what_it_does": "Provides an HTTP/2 interface on top of a bidirectional stream of bytes, allowing raw HTTP/2 communication as well as a pooled `http.Client` implementation that multiplexes requests over shared connections.",
+    "use_when": [
+      "You need to make concurrent requests multiplexed over a shared HTTP/2 connection",
+      "You are implementing low-level HTTP/2 clients or servers in Dart",
+      "You need a `package:http` Client backed exclusively by HTTP/2"
+    ],
+    "avoid_when": [
+      "You need automatic fallback to HTTP/1.1 for servers that do not support HTTP/2",
+      "You just want a simple high-level REST client without dealing with transport streams"
+    ],
+    "strengths": [
+      "Supports multiplexing multiple requests over a single connection",
+      "Includes `Http2Client` for pooled `package:http` compatibility",
+      "Provides fine-grained control over frames, streams, and transport connections"
+    ],
+    "weaknesses": [
+      "Does not fall back to HTTP/1.1 if a server fails to negotiate HTTP/2",
+      "Requires handling low-level byte streams and header framing for custom requests"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "http",
+        "why_pick_it": "If you need a standard high-level HTTP client supporting HTTP/1.1 and standard workflows."
+      },
+      {
+        "name": "dio",
+        "why_pick_it": "If you want a feature-rich HTTP client with interceptors, global configuration, and form data support."
+      }
+    ],
+    "minimal_example": "import 'package:http2/client.dart';\n\nFuture<void> main() async {\n  final client = Http2Client();\n  final response = await client.get(Uri.parse('https://example.com/'));\n  print(response.body);\n  client.close();\n}",
+    "confidence": 0.95
+  }
+}

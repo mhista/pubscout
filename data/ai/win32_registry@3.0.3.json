@@ -1,0 +1,48 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "3.0.3",
+  "generatedAt": "2026-11-08T15:20:44.913Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Type‑safe Dart API for accessing and managing the Windows Registry",
+    "what_it_does": "Provides high‑level, strongly typed methods to read, write, delete, and monitor registry keys and values, with support for transactions and change notifications.",
+    "use_when": [
+      "Windows desktop applications that need to read or modify registry settings",
+      "Installers or setup utilities that configure system or application settings",
+      "Tools that monitor registry changes for dynamic configuration"
+    ],
+    "avoid_when": [
+      "Non‑Windows platforms",
+      "Applications that prefer cross‑platform configuration storage (e.g., JSON, SQLite)"
+    ],
+    "strengths": [
+      "Type‑safe, high‑level API built on win32",
+      "Supports transactions and change monitoring",
+      "No need to write raw FFI code",
+      "Active CI and code coverage"
+    ],
+    "weaknesses": [
+      "Windows‑only, requires native FFI",
+      "Adds a dependency on win32 and ffi_leak_tracker",
+      "Limited to registry operations"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add win32_registry to pubspec, import package:win32_registry/win32_registry.dart",
+    "alternatives": [
+      {
+        "name": "win32",
+        "why_pick_it": "Provides lower‑level Win32 API access, useful if you need more control than win32_registry offers"
+      }
+    ],
+    "minimal_example": "void main(){\n  final key = LOCAL_MACHINE.open(r'Software\\\\Microsoft\\\\Windows NT\\\\CurrentVersion');\n  final buildNumber = key.getString('CurrentBuild');\n  if (buildNumber != null) {\n    print('Windows build number: $buildNumber');\n  }\n  key.close();\n}",
+    "confidence": 0.9
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.6.0",
+  "generatedAt": "2026-11-08T15:41:43.818Z",
+  "data": {
+    "primary_category": "notifications",
+    "secondary_categories": [
+      "device"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Support iOS Live Activities, Android RemoteViews and Dynamic Island.",
+    "what_it_does": "Enables Flutter apps to display and update iOS Live Activities, the Dynamic Island, and Android RemoteViews. It bridges Dart data with native Swift (ActivityKit) and Kotlin UI implementations.",
+    "use_when": [
+      "You need to show live status updates on the iOS lock screen or Dynamic Island.",
+      "You want to display ongoing persistent notifications on Android using RemoteViews."
+    ],
+    "avoid_when": [
+      "You only need standard push or local notifications without live updating widgets.",
+      "You cannot write native Swift and Kotlin code for the UI extensions."
+    ],
+    "strengths": [
+      "Brings native iOS Live Activities and Android RemoteViews to Flutter.",
+      "Supports iPhone Dynamic Island features.",
+      "Allows custom activity tagging and state management."
+    ],
+    "weaknesses": [
+      "Requires significant native configuration and UI development in Swift and Kotlin.",
+      "Only works on iOS 16.1+ and Android API level 24+."
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Requires creating a Widget Extension in Xcode, configuring App Groups and Push Notifications capabilities in iOS, and implementing custom Java/Kotlin classes and XML layouts for Android RemoteViews.",
+    "alternatives": [],
+    "minimal_example": "live_activities().createActivity(\n  'activity_id',\n  {\n    'matchName': 'Match',\n    'matchStartDate': DateTime.now().millisecondsSinceEpoch,\n    'teamAName': 'Team A',\n    'teamAScore': 0,\n    'teamBName': 'Team B',\n    'teamBScore': 0,\n  },\n);",
+    "confidence": 0.95
+  }
+}

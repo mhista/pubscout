@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.0.0",
+  "generatedAt": "2026-11-07T10:54:28.959Z",
+  "data": {
+    "primary_category": "testing",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "Checkers and tools to verify accessibility and test app behavior during development.",
+    "what_it_does": "Checks your user interface as you build it for accessibility issues like missing semantic labels, small tap areas, and image labels. It also provides a testing tools panel with toggles for text scale, localization, text direction, and color mode simulations.",
+    "use_when": [
+      "You want to ensure your Flutter app is accessible from day one during development.",
+      "You need to test your app under various text scales, localizations, and platform settings."
+    ],
+    "avoid_when": [
+      "You are deploying to production builds (the tools only run in debug mode).",
+      "You cannot meet the package's minimum Dart and Flutter version requirements."
+    ],
+    "strengths": [
+      "Runs automatically in debug mode as you build your interface.",
+      "Includes a comprehensive testing tools panel for simulations like color blindness and screen reader modes."
+    ],
+    "weaknesses": [
+      "Requires migration and specific compatibility setup if using standalone material_ui packages.",
+      "Font overflow checks are experimental and disabled by default."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add AccessibilityTools to your app's builder property in debug mode.",
+    "alternatives": [],
+    "minimal_example": "class MyApp extends StatelessWidget {\n  @override\n  Widget build(BuildContext context) {\n    return MaterialApp(\n      builder: (context, child) => AccessibilityTools(child: child),\n      home: HomePage(),\n    );\n  }\n}",
+    "confidence": 1
+  }
+}

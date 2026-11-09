@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.2.0",
+  "generatedAt": "2026-11-08T15:16:45.263Z",
+  "data": {
+    "primary_category": "codegen",
+    "secondary_categories": [],
+    "approach": [
+      "hooks",
+      "imperative"
+    ],
+    "one_liner": "Provides the hook protocol specification for bundling native code with Dart packages.",
+    "what_it_does": "This package provides the API for code assets to be used with package:hooks. It is used in build and link hooks to inform the Dart and Flutter SDKs about code assets that need to be bundled with an application.",
+    "use_when": [
+      "You need to bundle native code (C, C++, Objective-C, Rust, Go) with your Dart or Flutter package.",
+      "You are writing a build or link hook for native asset compilation."
+    ],
+    "avoid_when": [
+      "You are building a pure Dart application without native C/C++ or other compiled binary dependencies.",
+      "You do not use package:hooks for native asset building."
+    ],
+    "strengths": [
+      "Standardized protocol for native code bundling in Dart and Flutter.",
+      "Supports custom operating systems, architectures, and sanitizers."
+    ],
+    "weaknesses": [
+      "Breaking changes can occur with custom target representations in maps and sets (e.g., v2.0.0 update).",
+      "Requires understanding native build hooks and toolchains."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires setting up build and link hooks in the hook/ directory of your package.",
+    "alternatives": [],
+    "minimal_example": "import 'package:code_assets/code_assets.dart';\nimport 'package:hooks/hooks.dart';\n\nvoid main(List<String> args) async {\n  await build(args, (input, output) async {\n    if (input.config.buildCodeAssets) {\n      output.assets.code.add(\n        CodeAsset(\n          package: input.packageName,\n          name: 'src/third_party/unix.dart',\n          linkMode: LookupInProcess(),\n        ),\n      );\n    }\n  });\n}",
+    "confidence": 1
+  }
+}

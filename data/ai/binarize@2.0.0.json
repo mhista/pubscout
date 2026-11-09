@@ -1,0 +1,37 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.0",
+  "generatedAt": "2026-11-07T10:59:04.652Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Streamlined and extendable binary data creation and reading.",
+    "what_it_does": "Binarize wraps ByteData functionality into a streamlined payload system for reading and writing binary data. It prevents manual byte offset calculations and supports custom payload types and strongly typed binary contracts for Dart classes.",
+    "use_when": [
+      "You are implementing a binary file format specification.",
+      "You need to serialize and deserialize custom Dart objects into binary buffers efficiently."
+    ],
+    "avoid_when": [
+      "You only need high-level text serialization like JSON.",
+      "You require complex state management or database storage."
+    ],
+    "strengths": [
+      "Simplifies reading and writing with ByteData without manual offset tracking.",
+      "Supports custom payload types and strongly typed binary contracts."
+    ],
+    "weaknesses": [
+      "Requires manual ordering of reads and writes to match the binary structure.",
+      "Niche use case limited to binary file formats and custom binary serialization."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:binarize/binarize.dart';\n\nvoid main() {\n  final writer = Payload.write()\n    ..set(uint8, 16)\n    ..set(string.utf8(), 'Hello World');\n\n  final bytes = binarize(writer);\n\n  final reader = Payload.read(bytes);\n  final aUint8 = reader.get(uint8);\n  final aString = reader.get(string.utf8());\n}",
+    "confidence": 1
+  }
+}

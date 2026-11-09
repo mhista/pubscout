@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.8.1",
+  "generatedAt": "2026-11-07T11:19:21.133Z",
+  "data": {
+    "primary_category": "forms",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "A unified form representation and validation library for Dart.",
+    "what_it_does": "Formz simplifies form handling and validation in a generic way by providing `FormzInput` classes to model individual fields and `FormzMixin` to aggregate them. It allows tracking purity, validity, and error states of form inputs explicitly.",
+    "use_when": [
+      "You want a robust, type-safe approach to form validation in Dart or Flutter.",
+      "You are using BLoC or another state management library and need structured form inputs.",
+      "You need to validate multiple inputs together and track submission status."
+    ],
+    "avoid_when": [
+      "You want automatic UI form building via JSON or standard Flutter Form widgets without custom classes.",
+      "You prefer built-in TextEditingController logic without abstracting inputs."
+    ],
+    "strengths": [
+      "Type-safe representation of form fields and errors.",
+      "Supports pure and dirty states for validation feedback control.",
+      "Supports caching validation results for expensive checks."
+    ],
+    "weaknesses": [
+      "Requires writing boilerplate classes for each form input type.",
+      "Does not provide out-of-the-box UI widgets for rendering forms."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Not documented",
+    "alternatives": [],
+    "minimal_example": "import 'package:formz/formz.dart';\n\nenum NameInputError { empty }\n\nclass NameInput extends FormzInput<String, NameInputError> {\n  const NameInput.pure() : super.pure('');\n  const NameInput.dirty({String value = ''}) : super.dirty(value);\n\n  @override\n  NameInputError? validator(String value) {\n    return value.isEmpty ? NameInputError.empty : null;\n  }\n}",
+    "confidence": 0.95
+  }
+}

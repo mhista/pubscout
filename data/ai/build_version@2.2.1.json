@@ -1,0 +1,48 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "2.2.1",
+  "generatedAt": "2026-11-08T15:36:27.640Z",
+  "data": {
+    "primary_category": "codegen",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "code generation"
+    ],
+    "one_liner": "Generate a Dart file with the package version at build time.",
+    "what_it_does": "`build_version` extracts the `version` field from a pubspec and writes it to a Dart file. It can run as a standalone CLI or as a build_runner builder, supporting custom output paths and CI verification.",
+    "use_when": [
+      "You need a compile‑time constant for the package version",
+      "You already use build_runner for other generators",
+      "You want CI to verify the generated file matches pubspec"
+    ],
+    "avoid_when": [
+      "You only need the version at runtime and can read pubspec directly",
+      "You prefer a pure Dart solution without code generation"
+    ],
+    "strengths": [
+      "Zero runtime overhead",
+      "Supports both CLI and build_runner workflows",
+      "Customizable output path",
+      "CI friendly `--check` flag"
+    ],
+    "weaknesses": [
+      "Requires Dart 3.12+",
+      "Adds a build step to the project",
+      "Only handles the version field, not other metadata"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add `build_version` to dev_dependencies and run `dart run build_runner build` or use the CLI directly. No special permissions needed.",
+    "alternatives": [
+      {
+        "name": "build_runner",
+        "why_pick_it": "If you already use build_runner for other generators, you can integrate this builder without adding a separate CLI."
+      }
+    ],
+    "minimal_example": "```dart\n// lib/src/version.dart (generated)\nconst packageVersion = '1.2.3';\n```",
+    "confidence": 0.92
+  }
+}

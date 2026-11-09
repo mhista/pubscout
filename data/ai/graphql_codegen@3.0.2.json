@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.0.2",
+  "generatedAt": "2026-11-07T11:23:22.175Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "codegen"
+    ],
+    "approach": [
+      "code generation"
+    ],
+    "one_liner": "Generate Dart serializers and client helpers from GraphQL queries and schemas.",
+    "what_it_does": "It reads GraphQL schema and document files to generate strongly typed Dart classes, serializers, and query/mutation helper methods. It supports optional integration with graphql and graphql_flutter clients.",
+    "use_when": [
+      "You are using GraphQL in a Dart or Flutter project and want strongly typed models",
+      "You want helper extensions and methods for graphql or graphql_flutter clients",
+      "You use fragments and inline fragments extensively in your GraphQL queries"
+    ],
+    "avoid_when": [
+      "You prefer manual parsing and plain JSON maps over code generation",
+      "You are working with REST, gRPC, or WebSockets instead of GraphQL"
+    ],
+    "strengths": [
+      "Generates strong-typed classes for queries, mutations, and fragments",
+      "Supports custom scalars and custom enum transformations",
+      "Provides optional generated client extensions and cache manipulation helpers"
+    ],
+    "weaknesses": [
+      "Requires build_runner and code generation setup",
+      "Does not fetch your schema automatically"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add graphql_codegen and build_runner to dev dependencies, configure build.yaml options if needed, and run `dart run build_runner build`.",
+    "alternatives": [],
+    "minimal_example": "import 'person.graphql.dart';\n\nmain () {\n    final data = fetchDataFromSomewhereMaybeOuterSpace();\n    final parsedData = Query$FetchPerson.fromJson(data);\n    final name = parsedData.fetchPerson?.name;\n    print(name);\n}",
+    "confidence": 1
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.8.13+25",
+  "generatedAt": "2026-11-08T15:38:46.231Z",
+  "data": {
+    "primary_category": "images",
+    "secondary_categories": [
+      "camera",
+      "files"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Android implementation of the image_picker plugin for selecting photos and videos.",
+    "what_it_does": "Provides the Android side of the image_picker federated plugin. It uses the Android Photo Picker when possible and can resize images during decoding. It exposes APIs to enable the new photo‑picker features on older Android versions.",
+    "use_when": [
+      "You need to pick images or videos on Android devices",
+      "You want native resizing to avoid large memory usage",
+      "You rely on the Android Photo Picker for a consistent UI"
+    ],
+    "avoid_when": [
+      "Your app runs only on iOS or web",
+      "You prefer a single cross‑platform package without platform‑specific code",
+      "You need advanced editing or cropping features"
+    ],
+    "strengths": [
+      "Uses the system Photo Picker for a native experience",
+      "Efficient subsampling of large images",
+      "Endorsed federated plugin, auto‑included with image_picker"
+    ],
+    "weaknesses": [
+      "Android‑only, no iOS/web implementation",
+      "Advanced features require manual import and setup",
+      "Limited to the capabilities of the Android Photo Picker"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add image_picker to pubspec (this plugin is auto‑included). Ensure Android manifest has CAMERA and READ/WRITE_EXTERNAL_STORAGE permissions if needed. To enable the optional Photo Picker on API <=15, import the package and set ImagePickerAndroid.useAndroidPhotoPicker = true before calling image_picker APIs.",
+    "alternatives": [
+      {
+        "name": "image_picker",
+        "why_pick_it": "Single package that works on Android, iOS, and web without needing platform‑specific imports"
+      }
+    ],
+    "minimal_example": "import 'package:image_picker_android/image_picker_android.dart';\nimport 'package:image_picker_platform_interface/image_picker_platform_interface.dart';\n\nfinal impl = ImagePickerPlatform.instance;\nif (impl is ImagePickerAndroid) {\n  impl.useAndroidPhotoPicker = true;\n}\n// then use image_picker as usual",
+    "confidence": 0.97
+  }
+}

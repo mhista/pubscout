@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.7.0",
+  "generatedAt": "2026-11-07T11:18:02.932Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "layout"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Provides a collection of custom grid layouts like staggered, masonry, quilted, and woven.",
+    "what_it_does": "Provides various non-standard grid layouts such as staggered, masonry, quilted, woven, staired, and aligned. It includes dedicated widgets and grid delegates that work with standard Flutter scroll views and custom pattern builders.",
+    "use_when": [
+      "You need a masonry layout where item heights vary and depend on their contents.",
+      "You want to display complex grid patterns like quilted, woven, or staggered designs."
+    ],
+    "avoid_when": [
+      "You only need a simple, uniform, single-column or multi-column grid that standard GridView handles natively.",
+      "You require a performant staggered layout algorithm inside a Sliver context for a large number of items."
+    ],
+    "strengths": [
+      "Supports multiple distinct layout patterns out of the box (masonry, quilted, woven, etc.).",
+      "Integrates smoothly with standard Flutter GridView and custom delegates."
+    ],
+    "weaknesses": [
+      "Some layouts like staggered are not performant in a Sliver context for large item lists.",
+      "Specific constraints and properties apply differently depending on the chosen layout type."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternates": [],
+    "minimal_example": "MasonryGridView.count(\n  crossAxisCount: 4,\n  mainAxisSpacing: 4,\n  crossAxisSpacing: 4,\n  itemBuilder: (context, index) {\n    return Tile(\n      index: index,\n      extent: (index % 5 + 1) * 100,\n    );\n  },\n);",
+    "confidence": 0.95,
+    "alternatives": []
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "1.0.0",
+  "generatedAt": "2026-11-08T15:20:15.004Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "layout"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Widget that flattens deeply nested widget trees into a list of children.",
+    "what_it_does": "Nested provides a `Nested` widget that accepts a list of `SingleChildWidget`s, allowing developers to write long widget trees in a flat, readable form. It also introduces `SingleChildStatelessWidget` and `SingleChildStatefulWidget` to enable widgets to be used both normally and within `Nested`.",
+    "use_when": [
+      "You have deeply nested widget trees that hurt readability.",
+      "You want to reuse custom widgets that can be placed inside a flat list without refactoring the entire tree.",
+      "You need a concise syntax for building complex UI hierarchies."
+    ],
+    "avoid_when": [
+      "You prefer the traditional nested syntax for simplicity.",
+      "Your widgets do not support the SingleChildWidget interface and you cannot modify them."
+    ],
+    "strengths": [
+      "Improves readability of complex widget trees",
+      "Supports null safety and modern Flutter patterns",
+      "Allows custom widgets to be used both normally and inside Nested"
+    ],
+    "weaknesses": [
+      "Requires widgets to implement SingleChildWidget or use mixins",
+      "Limited to single-child widgets",
+      "Adds an extra layer of abstraction that may be unnecessary for simple UIs"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "```dart\nNested(\n  children: [\n    MyWidget(),\n    AnotherWidget(),\n    Again(),\n    AndAgain(),\n  ],\n  child: Leaf(),\n),\n```",
+    "confidence": 0.9
+  }
+}

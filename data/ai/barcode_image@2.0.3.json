@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "2.0.3",
+  "generatedAt": "2026-11-07T10:57:51.710Z",
+  "data": {
+    "primary_category": "images",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Generates barcodes as image files using the Dart image library.",
+    "what_it_does": "Provides functions to draw various barcode formats onto an Image object and export it as PNG. Includes a command‑line tool for quick barcode generation.",
+    "use_when": [
+      "You need to create barcode images on the server or in a CLI tool.",
+      "You want a pure‑Dart solution without native platform code."
+    ],
+    "avoid_when": [
+      "You need real‑time barcode scanning or camera integration.",
+      "You require advanced UI widgets for displaying barcodes in Flutter."
+    ],
+    "strengths": [
+      "No native dependencies; works on all Dart platforms.",
+      "Simple API that works with the popular image package."
+    ],
+    "weaknesses": [
+      "Only generates static images; no widget for Flutter UI.",
+      "Limited to barcode formats supported by the underlying barcode package."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "image",
+        "why_pick_it": "If you only need image manipulation without barcode generation, the image package alone suffices."
+      }
+    ],
+    "minimal_example": "import 'dart:io';\nimport 'package:image/image.dart';\nimport 'package:barcode_image/barcode_image.dart';\n\nvoid main() {\n  final img = Image(width: 300, height: 120);\n  fill(img, color: ColorRgb8(255, 255, 255));\n  drawBarcode(img, Barcode.code128(), 'Test');\n  File('test.png').writeAsBytesSync(encodePng(img));\n}",
+    "confidence": 0.97
+  }
+}

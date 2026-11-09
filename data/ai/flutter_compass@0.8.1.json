@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.8.1",
+  "generatedAt": "2026-11-07T11:12:15.695Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "maps"
+    ],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "A Flutter compass plugin providing a heading stream from 0 to 360 degrees.",
+    "what_it_does": "Provides a compass heading stream ranging from 0 to 360 degrees where 0 represents north. It uses native sensors on Android and iOS to calculate orientation and heading. It also accounts for device orientation and handles sensor fallback mechanisms.",
+    "use_when": [
+      "You need to build a compass feature in your app",
+      "You need real-time device heading updates via a stream"
+    ],
+    "avoid_when": [
+      "Targeting platforms where sensors are completely unavailable or unsupported (like standard web which returns an empty stream)"
+    ],
+    "strengths": [
+      "Simple and straightforward API",
+      "Accounts for device orientation matrix on both iOS and Android for stable readings",
+      "Provides accuracy and camera heading data through CompassEvent"
+    ],
+    "weaknesses": [
+      "Requires manual native configuration and permissions on Android and iOS",
+      "Web platform support is minimal and always returns an empty stream"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding location permissions and usage descriptions to AndroidManifest.xml and Info.plist.",
+    "alternatives": [
+      {
+        "name": "sensors_plus",
+        "why_pick_it": "If you need broader device motion and orientation sensors like accelerometer, gyroscope, and magnetometer instead of a pre-calculated compass heading."
+      }
+    ],
+    "minimal_example": "StreamBuilder<CompassEvent>(\n  stream: FlutterCompass.events,\n  builder: (context, snapshot) {\n    if (snapshot.hasError) {\n      return Text('Error reading heading: ${snapshot.error}');\n    }\n\n    if (snapshot.connectionState == ConnectionState.waiting) {\n      return const Center(child: CircularProgressIndicator());\n    }\n\n    double? direction = snapshot.data?.heading;\n\n    if (direction == null) {\n      return const Text('Device does not have sensors');\n    }\n\n    return Text('Heading: $direction');\n  },\n)",
+    "confidence": 1
+  }
+}

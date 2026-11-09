@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "11.3.0",
+  "generatedAt": "2026-11-07T11:19:21.120Z",
+  "data": {
+    "primary_category": "forms",
+    "secondary_categories": [
+      "utils",
+      "localization"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A comprehensive collection of ready-made FormField validators for Flutter.",
+    "what_it_does": "Provides standard validation rules (like required, email, numeric, credit card, etc.) for any FormField widget. It allows combining multiple validation rules, transforming values, and localizing error messages into numerous languages.",
+    "use_when": [
+      "You need pre-built validators for common input types like email, URLs, numbers, and custom regex.",
+      "You need to internationalize form error messages into multiple languages.",
+      "You want to compose or chain multiple validation rules together declaratively."
+    ],
+    "avoid_when": [
+      "You are using a state-management form library that already has its own robust validation mechanism like formz and prefer keeping validation tied directly to that model."
+    ],
+    "strengths": [
+      "Extensive library of pre-built validators covering core, network, numeric, finance, string, and identity use cases.",
+      "Built-in localization support for dozens of languages.",
+      "Supports composing, conditional validation, and chaining validators."
+    ],
+    "weaknesses": [
+      "Requires maintaining additional dependencies if used for very basic forms where standard Flutter validator callbacks suffice."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires adding flutter_localizations to your app configuration for localized error messages.",
+    "alternatives": [
+      {
+        "name": "formz",
+        "why_pick_it": "Choose formz if you prefer a standalone, immutable input validation approach for BLoC or other state management solutions without relying on Flutter's FormField widgets."
+      },
+      {
+        "name": "string_validator",
+        "why_pick_it": "Choose string_validator if you only need lightweight string checking functions rather than a full FormField validation suite."
+      }
+    ],
+    "minimal_example": "TextFormField(\n  decoration: const InputDecoration(labelText: 'Email'),\n  validator: FormBuilderValidators.compose([\n    FormBuilderValidators.required(),\n    FormBuilderValidators.email(),\n  ]),\n)",
+    "confidence": 0.95
+  }
+}

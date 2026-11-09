@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "5.1.0",
+  "generatedAt": "2026-11-08T15:41:49.854Z",
+  "data": {
+    "primary_category": "images",
+    "secondary_categories": [
+      "audio-video",
+      "files"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Save images, videos, and other media files to the Android, iOS, and HarmonyOS gallery.",
+    "what_it_does": "The saver_gallery plugin enables you to save images and video files directly to the device gallery on Android, iOS, and HarmonyOS. It supports saving into named albums, batch saving multiple files, and checking if media already exists.",
+    "use_when": [
+      "You need to save downloaded images or videos back into the device gallery.",
+      "You require batch saving multiple media files at once.",
+      "You need to organize saved files into specific folders or albums on Android, iOS, and HarmonyOS."
+    ],
+    "avoid_when": [
+      "You only need to pick images from the gallery rather than save them.",
+      "Your target platform is not supported by the plugin."
+    ],
+    "strengths": [
+      "Supports saving both images and videos across Android, iOS, and HarmonyOS.",
+      "Supports batch saving operations for multiple files or images.",
+      "Allows creating and utilizing named albums and folder hierarchies."
+    ],
+    "weaknesses": [
+      "Requires manual configuration of platform-specific permissions in Info.plist and AndroidManifest.xml.",
+      "Depends on external packages like permission_handler for handling storage permissions."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding NSPhotoLibraryUsageDescription and NSPhotoLibraryAddUsageDescription in iOS Info.plist, and appropriate storage/media permissions in AndroidManifest.xml.",
+    "alternatives": [],
+    "minimal_example": "import 'dart:typed_data';\nimport 'package:saver_gallery/saver_gallery.dart';\n\n_saveImage(Uint8List imageBytes) async {\n  final result = await SaverGallery.saveImage(\n    imageBytes,\n    quality: 60,\n    fileName: \"test_image.jpg\",\n    albumPath: \"appName/images\",\n    skipIfExists: false,\n  );\n  print(result.toString());\n}",
+    "confidence": 0.95
+  }
+}

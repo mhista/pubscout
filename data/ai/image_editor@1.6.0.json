@@ -1,0 +1,47 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.6.0",
+  "generatedAt": "2026-11-07T11:26:19.090Z",
+  "data": {
+    "primary_category": "images",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Edit image data with native Android, iOS, and macOS code and output to file or memory.",
+    "what_it_does": "Processes images using native platform code to perform actions like cropping, rotating, scaling, flipping, color adjustments, text overlay, drawing, and merging multiple images.",
+    "use_when": [
+      "You need to perform high-performance image manipulation (crop, rotate, scale) using native code.",
+      "You want to draw shapes, text, or merge multiple images programmatically into memory or a file."
+    ],
+    "avoid_when": [
+      "You only need simple image loading and network caching.",
+      "You need pure Dart image manipulation without native platform dependencies."
+    ],
+    "strengths": [
+      "Uses native code (objc, kotlin, arkts) for fast image processing.",
+      "Supports a wide range of editing options including flip, crop, rotate, scale, color matrix, text addition, and drawing.",
+      "Supports multi-image merging and blending modes."
+    ],
+    "weaknesses": [
+      "Gaussian blur is not supported on Android and iOS according to the feature support table.",
+      "Matrix operations are not supported on OpenHarmony."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the dependency to pubspec.yaml. No extra setup notes documented.",
+    "alternatives": [
+      {
+        "name": "image",
+        "why_pick_it": "Choose image if you need a pure Dart image processing library without native platform plugins."
+      },
+      {
+        "name": "flutter_image_compress",
+        "why_pick_it": "Choose flutter_image_compress if your primary goal is high-performance image compression."
+      }
+    ],
+    "minimal_example": "final editorOption = ImageEditorOption();\neditorOption.addOption(FlipOption());\neditorOption.addOption(RotateOption(degree: 180));\neditorOption.outputFormat = OutputFormat.png(88);\nfinal result = await ImageEditor.editImage(image: imageBytes, imageEditorOption: editorOption);",
+    "confidence": 1
+  }
+}

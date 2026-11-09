@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.9.0",
+  "generatedAt": "2026-11-08T15:49:45.068Z",
+  "data": {
+    "primary_category": "ai-ml",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "A native wrapper plugin for running ONNX Runtime models across multiple platforms.",
+    "what_it_does": "It provides a lightweight wrapper to run ONNX machine learning models and inference sessions directly on Android, iOS, web, Windows, macOS, and Linux. Libraries are dynamically fetched during installation, and memory safety is handled in native code.",
+    "use_when": [
+      "You need to execute ONNX-format machine learning models locally on device.",
+      "You require multi-platform ML inference support including mobile, desktop, and web."
+    ],
+    "avoid_when": [
+      "You need features not yet supported by the plugin like model metadata or input/output info on Swift/JS APIs.",
+      "Your target iOS/macOS version is below the required 16.0 / 14.0 minimum deployments."
+    ],
+    "strengths": [
+      "Supports multiple platforms (Android, iOS, web, Windows, macOS, Linux).",
+      "Fetches binaries directly from official repositories so libraries are up-to-date.",
+      "Handles memory management in native code to reduce leaks."
+    ],
+    "weaknesses": [
+      "Retrieving model metadata and input/output info is unavailable on Swift and Javascript APIs.",
+      "Requires specific manual configuration for Android ProGuard and OS minimum versions on iOS/macOS."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding ProGuard rules for Android, and minimum OS version configuration (iOS 16, macOS 14) for Apple platforms.",
+    "alternatives": [
+      {
+        "name": "tflite_flutter",
+        "why_pick_it": "Pick tflite_flutter if your machine learning models are in TensorFlow Lite format instead of ONNX."
+      }
+    ],
+    "minimal_example": "import 'package:flutter_onnxruntime/flutter_onnxruntime.dart';\n\nfinal ort = OnnxRuntime();\nfinal session = await ort.createSessionFromAsset('assets/models/addition_model.onnx');\nfinal inputs = {\n   'A': await OrtValue.fromList([1, 1, 1], [3]),\n   'B': await OrtValue.fromList([2, 2, 2], [3])\n};\nfinal outputs = await session.run(inputs);\nprint(await outputs['C']!.asList());",
+    "confidence": 1
+  }
+}

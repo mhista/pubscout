@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.0.0",
+  "generatedAt": "2026-11-07T11:25:02.479Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Flutter wrapper for Apple Health through HealthKit and Swift Package Manager.",
+    "what_it_does": "Reads, writes, and observes Apple Health data on iOS by wrapping the Swift library HealthKitReporter. Parses all payloads from JSON into typed Dart models.",
+    "use_when": [
+      "You need to read or write Apple Health data in a Flutter iOS application.",
+      "You want to observe data changes or handle clinical records and workouts."
+    ],
+    "avoid_when": [
+      "Your app targets Android or platforms other than iOS where Apple Health is unavailable.",
+      "You want to use CocoaPods instead of Swift Package Manager."
+    ],
+    "strengths": [
+      "Comprehensive coverage of HealthKit features including clinical records, workouts, and queries.",
+      "Maintains up-to-date parity with the HealthKitReporter Swift library."
+    ],
+    "weaknesses": [
+      "iOS only, requiring manual configuration of capabilities, entitlements, and usage descriptions.",
+      "Requires Swift Package Manager and iOS 15 or newer."
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Requires enabling Swift Package Manager in Flutter, setting iOS deployment target to 15.0 or newer, configuring HealthKit capabilities and entitlements in Xcode, and adding usage descriptions to Info.plist.",
+    "alternatives": [],
+    "minimal_example": "Future<bool> requestAuthorization() async {\n  final readTypes = QuantityType.values.map((e) => e.identifier).toList();\n  final writeTypes = <String>[];\n  for (final identifier in readTypes) {\n    if (await HealthKitReporter.isWritable(identifier)) {\n      writeTypes.add(identifier);\n    }\n  }\n  return HealthKitReporter.requestAuthorization(readTypes, writeTypes);\n}",
+    "confidence": 1
+  }
+}

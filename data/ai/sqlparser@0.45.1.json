@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.45.1",
+  "generatedAt": "2026-11-08T15:22:40.936Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "SQL parser and static analyzer for SQLite written in Dart.",
+    "what_it_does": "Parses SQLite statements into an abstract syntax tree and performs static analysis such as type inference and error detection. It can resolve column types, infer variable types, and warn about semantic issues before execution.",
+    "use_when": [
+      "You need to validate or analyze SQLite queries at compile‑time or runtime in a Dart/Flutter app.",
+      "You are building a custom ORM, query builder, or tooling that requires understanding SQL structure without executing it."
+    ],
+    "avoid_when": [
+      "You need to actually execute SQL against a database; use sqflite, sqlite3, or drift instead.",
+      "You only need a lightweight query builder without full parsing capabilities."
+    ],
+    "strengths": [
+      "Full support for SQLite syntax including DDL, DML, and management statements.",
+      "Static analysis provides type inference and early error detection.",
+      "Integrates well with drift for type‑safe code generation."
+    ],
+    "weaknesses": [
+      "Limited to SQLite dialect; cannot parse other SQL dialects.",
+      "Provides parsing only, no database execution layer.",
+      "May be overkill for simple query string handling."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "drift",
+        "why_pick_it": "Higher‑level ORM that includes its own SQL parsing and generates type‑safe Dart code, reducing the need to use sqlparser directly."
+      }
+    ],
+    "minimal_example": "import 'package:sqlparser/sqlparser.dart';\n\nfinal engine = SqlEngine();\nfinal result = engine.parse(ParserEntrypoint.statement, '''\nSELECT f.* FROM frameworks f\n  INNER JOIN uses_language ul ON ul.framework = f.id\n  INNER JOIN languages l ON l.id = ul.language\nWHERE l.name = 'Dart'\nORDER BY f.name ASC, f.popularity DESC\nLIMIT 5 OFFSET 5 * 3\n''');\n// result.rootNode contains the AST",
+    "confidence": 0.97
+  }
+}

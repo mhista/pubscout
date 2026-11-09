@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.3.10",
+  "generatedAt": "2026-11-07T11:08:05.098Z",
+  "data": {
+    "primary_category": "codegen",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "code generation"
+    ],
+    "one_liner": "Explicitly reads environment variables into a dart file from a .env file.",
+    "what_it_does": "Reads environment variables from a .env file or system environment variables at build time and generates a part file with typed constants. It supports obfuscation, optional fields, inheritance, and multiple environments.",
+    "use_when": [
+      "You want compile-time safety and type checking for your environment variables.",
+      "You need to obfuscate sensitive keys or support multiple environments via .env files."
+    ],
+    "avoid_when": [
+      "You need to read or change environment variables dynamically at runtime.",
+      "You cannot use code generation or build_runner in your workflow."
+    ],
+    "strengths": [
+      "Type-safe access to environment variables",
+      "Supports obfuscation and encryption options",
+      "Flexible configuration via build.yaml, annotations, and CLI overrides"
+    ],
+    "weaknesses": [
+      "Requires build_runner and code generation steps",
+      "Changes to hidden env files may not automatically trigger incremental rebuilds without build.yaml configuration"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add envied and dev:envied_generator and dev:build_runner, then run build_runner build.",
+    "alternatives": [],
+    "minimal_example": "import 'package:envied/envied.dart';\n\npart 'env.g.dart';\n\n@envied\nabstract class Env {\n    @EnviedField(varName: 'KEY')\n    static const String key = _Env.key;\n}",
+    "confidence": 1
+  }
+}

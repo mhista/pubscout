@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.2.0",
+  "generatedAt": "2026-11-08T15:44:16.313Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Plugin to read managed app configurations provided by mobile device management (MDM).",
+    "what_it_does": "Allows Flutter apps to read managed app configurations supplied by a Mobile Device Management (MDM) provider. It provides methods to fetch the configuration and a stream to listen for configuration changes, as well as reporting app states on Android.",
+    "use_when": [
+      "You need to read MDM-managed app configurations on Android, iOS, or macOS.",
+      "Your app needs to react to changes in managed configurations via a stream."
+    ],
+    "avoid_when": [
+      "You do not use an MDM provider for enterprise configuration.",
+      "You only need standard local key-value storage without MDM integration."
+    ],
+    "strengths": [
+      "Supports Android, iOS, and macOS platforms.",
+      "Provides both a one-time fetch method and a reactive stream for configuration changes.",
+      "Supports reporting state via KeyedAppStatesReporter on Android."
+    ],
+    "weaknesses": [
+      "Testing on iOS and macOS requires an actual MDM provider since Apple does not provide a local development environment.",
+      "Limited to reading managed app configurations and reporting states."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires testing setup using an MDM provider (such as Relution for iOS/macOS) or TestDPC for Android.",
+    "alternatives": [],
+    "minimal_example": "final managedConfig = ManagedConfigurations();\nfinal managedAppConfig = await managedConfig.getManagedConfigurations;\n\nmanagedConfig.mangedConfigurationsStream.listen((managedAppConfig){\n    print(managedAppConfig);\n});",
+    "confidence": 0.95
+  }
+}

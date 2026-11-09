@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.2.0",
+  "generatedAt": "2026-11-07T11:21:19.123Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "files"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "A file and directory globbing library that supports Bash-style path matching and listing.",
+    "what_it_does": "Performs Bash-style file and directory globbing in Dart. It allows developers to check whether a path matches a specific pattern, or recursively list filesystem entities matching a glob pattern using POSIX path syntax.",
+    "use_when": [
+      "You need to filter files or paths using wildcards like `*` or `**`",
+      "You want to recursively list files in a directory matching specific extensions or patterns"
+    ],
+    "avoid_when": [
+      "You only need basic path manipulation provided natively by `package:path`",
+      "You need complex recursive directory traversal without glob pattern matching"
+    ],
+    "strengths": [
+      "Supports familiar Bash-style glob syntax including wildcards, character ranges, and option expansion",
+      "Works consistently across cross-platform environments using POSIX path syntax",
+      "Integrates seamlessly with `package:file` for filesystem operations"
+    ],
+    "weaknesses": [
+      "Combinatorial option expansions exceeding 10,000 branches will throw a FormatException",
+      "Requires using specific imports or a FileSystem object for filesystem listing APIs since version 2.0.0"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "none",
+    "alternatives": [],
+    "minimal_example": "import 'package:glob/glob.dart';\n\nfinal dartFile = Glob(\"**.dart\");\n\nvoid main(List<String> arguments) {\n  for (var argument in arguments) {\n    if (dartFile.matches(argument)) print(argument);\n  }\n}",
+    "confidence": 0.95
+  }
+}

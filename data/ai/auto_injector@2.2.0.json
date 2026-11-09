@@ -1,0 +1,53 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.2.0",
+  "generatedAt": "2026-11-07T10:57:28.742Z",
+  "data": {
+    "primary_category": "dependency-injection",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Automatic dependency injection system for Dart and Flutter without build_runner.",
+    "what_it_does": "Allows registering factories, singletons, lazy singletons, and instances without requiring code generation. It automatically analyzes and injects constructor parameters and supports modularization.",
+    "use_when": [
+      "You want automatic dependency injection without build_runner overhead",
+      "You are building a modular Flutter or Dart application",
+      "You need automatic parameter injection for constructors"
+    ],
+    "avoid_when": [
+      "You prefer compile-time dependency injection safety via code generation",
+      "Your architecture strictly requires a different DI container like get_it or injectable"
+    ],
+    "strengths": [
+      "No build_runner required",
+      "Supports modularization and hierarchical injectors",
+      "Handles automatic parameter injection and bind configuration"
+    ],
+    "weaknesses": [
+      "Relies on runtime reflection/analysis instead of compile-time code generation",
+      "Fewer community packages or extensions compared to older established alternatives like get_it"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "get_it",
+        "why_pick_it": "If you prefer a manual service locator approach without reflection overhead."
+      },
+      {
+        "name": "injectable",
+        "why_pick_it": "If you prefer build_runner and compile-time annotations for dependency injection."
+      },
+      {
+        "name": "flutter_modular",
+        "why_pick_it": "If you want full app routing combined with integrated modular dependency injection."
+      }
+    ],
+    "minimal_example": "final autoInjector = AutoInjector();\n\nvoid main() {\n  autoInjector.add(Controller.new);\n  autoInjector.addSingleton(Datasource.new);\n  autoInjector.commit();\n\n  final controller = autoInjector.get<Controller>();\n}",
+    "confidence": 1
+  }
+}

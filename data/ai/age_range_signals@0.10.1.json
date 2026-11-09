@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.10.1",
+  "generatedAt": "2026-11-08T15:49:41.154Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "auth"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter plugin for age verification using Google Play Age Signals and Apple DeclaredAgeRange APIs.",
+    "what_it_does": "It provides a cross-platform API for age verification and age range checking. It interfaces with Google Play Age Signals on Android and Apple's DeclaredAgeRange API on iOS.",
+    "use_when": [
+      "You need to verify user age for compliance with regional age restriction laws.",
+      "Your app requires age gating for adult content on Android and iOS."
+    ],
+    "avoid_when": [
+      "You are targeting older iOS versions below 26.0 or Android versions below API 23.",
+      "You want self-reported ages without relying on platform-level verification APIs."
+    ],
+    "strengths": [
+      "Unified status model across both Android and iOS platforms.",
+      "Supports regional eligibility checks and regulatory feature detection on iOS.",
+      "Typed exceptions for all failure modes."
+    ],
+    "weaknesses": [
+      "Requires platform-specific capabilities (Declared Age Range entitlement on iOS, specific Google Play versions on Android).",
+      "Availability depends heavily on regional rollouts and store-level support."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires enabling the Declared Age Range capability on your Apple ID and adding the entitlement to Runner.entitlements on iOS. Android requires minSdk 23+ and a Google Play Store environment.",
+    "alternatives": [],
+    "minimal_example": "import 'package:age_range_signals/age_range_signals.dart';\n\nawait AgeRangeSignals.instance.initialize(ageGates: [18]);\n\nfinal access = await AgeRangeSignals.instance.requestAgeSignalsAccess();\nif (access == AgeSignalsAccessStatus.shared) {\n  final result = await AgeRangeSignals.instance.checkAgeSignals();\n  if (result.status == AgeSignalsStatus.verified) {\n    // Grant access\n  }\n}",
+    "confidence": 1
+  }
+}

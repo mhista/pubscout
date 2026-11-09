@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "4.0.0",
+  "generatedAt": "2026-11-07T11:09:08.100Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Generate video thumbnails using native platform APIs",
+    "what_it_does": "Creates a thumbnail image from a video file. It supports saving to a file or returning raw bytes, with optional seeking to a specific time.",
+    "use_when": [
+      "Need a quick thumbnail for a video preview",
+      "Want to cache thumbnails locally",
+      "Require high‑performance native extraction"
+    ],
+    "avoid_when": [
+      "Running on Linux without FFmpeg installed",
+      "Using very old iOS or macOS targets below 16/13"
+    ],
+    "strengths": [
+      "Native API usage gives fast, high‑quality thumbnails",
+      "Supports multiple platforms (iOS, Android, macOS, Windows, Linux)",
+      "Asynchronous API with error handling",
+      "Optional seeking to arbitrary time positions"
+    ],
+    "weaknesses": [
+      "Linux requires external FFmpeg and libjpeg libraries",
+      "Higher minimum deployment targets (iOS 16, macOS 13)",
+      "No built‑in caching or image manipulation beyond size/quality"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "On Linux install libavformat, libavcodec, libavutil, libswscale and libjpeg. No build_runner or codegen needed.",
+    "alternatives": [],
+    "minimal_example": "final plugin = FcNativeVideoThumbnail();\ntry {\n  final success = await plugin.saveThumbnailToFile(\n    srcFile: srcFile,\n    destFile: destFile,\n    width: 300,\n    height: 300,\n    quality: 90,\n  );\n  final bytes = await plugin.saveThumbnailToBytes(\n    srcFile: srcFile,\n    width: 300,\n    height: 300,\n    quality: 90,\n  );\n} catch (e) {\n  // handle error\n}",
+    "confidence": 0.9
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.1",
+  "generatedAt": "2026-11-07T11:13:16.457Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "device"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Generate ESC/POS commands to print via Bluetooth, Network, or USB thermal printers.",
+    "what_it_does": "Generates ESC/POS byte commands for thermal printers. It provides helper classes for text styling, tables, images, barcodes, QR codes, and paper control operations.",
+    "use_when": [
+      "You need to build receipt tickets for thermal POS printers.",
+      "You want to format text, tables, and images into raw printer bytes."
+    ],
+    "avoid_when": [
+      "You are printing standard documents to non-thermal office printers."
+    ],
+    "strengths": [
+      "Supports multiple paper sizes and various code tables.",
+      "Handles complex ticket elements like tables, barcodes, and images."
+    ],
+    "weaknesses": [
+      "Printer feature support varies heavily by hardware model.",
+      "Does not handle the physical connection transport layer directly."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Not documented",
+    "alternatives": [],
+    "minimal_example": "final profile = await CapabilityProfile.load();\nfinal generator = Generator(PaperSize.mm80, profile);\nList<int> bytes = [];\nbytes += generator.text('Hello World', styles: PosStyles(bold: true));\nbytes += generator.cut();",
+    "confidence": 0.95
+  }
+}

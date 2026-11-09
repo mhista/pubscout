@@ -49,22 +49,32 @@ export async function pool(items, limit, fn) {
   return out;
 }
 
-const UA = "pubscout-sync/0.1 (+https://github.com/kymaa/pubscout)";
+const UA = "pubscout-sync/0.1 (+https://github.com/mhista/pubscout)";
 
-/** fetch with retries + backoff; returns parsed JSON, raw text/buffer, or null on 404. */
-export async function getUrl(url, { as = "json", headers = {}, tries = 4 } = {}) {
+/** Optional hook so callers (sync -v) can log retries. */
+let onRetry = null;
+export const setRetryLogger = (fn) => { onRetry = fn; };
+
+/**
+ * fetch with retries + backoff; returns parsed JSON, raw text/buffer, or null on 404.
+ * `onResponse(res)` sees every response (e.g. to read rate-limit headers).
+ */
+export async function getUrl(url, { as = "json", headers = {}, tries = 4, onResponse } = {}) {
   for (let attempt = 1; attempt <= tries; attempt++) {
     try {
       const res = await fetch(url, { headers: { "user-agent": UA, ...headers } });
+      onResponse?.(res);
       if (res.status === 404) return null;
       if (res.status === 429 || res.status >= 500) throw new Error(`HTTP ${res.status}`);
-      if (!res.ok) throw Object.assign(new Error(`HTTP ${res.status} for ${url}`), { fatal: true });
+      if (!res.ok) throw Object.assign(new Error(`HTTP ${res.status} for ${url}`), { fatal: true, status: res.status });
       if (as === "json") return await res.json();
       if (as === "text") return await res.text();
       return Buffer.from(await res.arrayBuffer());
     } catch (err) {
       if (err.fatal || attempt === tries) throw err;
-      await sleep(500 * 2 ** attempt);
+      const wait = 500 * 2 ** attempt;
+      onRetry?.(url, err, attempt, wait);
+      await sleep(wait);
     }
   }
 }

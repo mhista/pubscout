@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "1.4.2",
+  "generatedAt": "2026-11-07T11:01:09.042Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "stream-based"
+    ],
+    "one_liner": "Utilities for working with chunked streams such as Stream<List<int>>",
+    "what_it_does": "Provides helpers to read byte streams into a single Uint8List and to iterate over chunked streams element‑by‑element. It also offers a utility to wrap any Stream<T> as a chunked Stream<List<T>>.",
+    "use_when": [
+      "Reading a file or network response as a byte stream and converting it to a single buffer",
+      "Iterating over a byte stream one byte or a fixed number of bytes at a time",
+      "Wrapping a non‑chunked stream into a chunked form for batch processing"
+    ],
+    "avoid_when": [
+      "When you need advanced stream manipulation beyond simple chunking, consider using the async package’s ChunkedStreamReader directly"
+    ],
+    "strengths": [
+      "Simple API with readByteStream and readBytes",
+      "Supports both reading entire streams and incremental iteration",
+      "No external dependencies beyond meta",
+      "Cross‑platform support (android, ios, web, windows, macos, linux)"
+    ],
+    "weaknesses": [
+      "ChunkedStreamIterator is deprecated in favor of async’s ChunkedStreamReader",
+      "Very small feature set – only basic chunk handling"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'dart:io';\nimport 'dart:convert';\nimport 'package:chunked_stream/chunked_stream.dart';\n\nFuture<void> main() async {\n  Stream<List<int>> fileStream = File('README.md').openRead();\n  final Uint8List bytes = await readByteStream(fileStream);\n  print(utf8.decode(bytes));\n}",
+    "confidence": 0.9
+  }
+}

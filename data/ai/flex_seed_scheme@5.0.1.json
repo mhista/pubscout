@@ -1,0 +1,46 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "5.0.1",
+  "generatedAt": "2026-11-07T11:10:28.144Z",
+  "data": {
+    "primary_category": "theming",
+    "secondary_categories": [
+      "ui-kits"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A flexible version of Flutter's ColorScheme.fromSeed supporting multiple seed colors and custom tones.",
+    "what_it_does": "FlexSeedScheme extends ColorScheme.fromSeed by allowing separate seed key colors for primary, secondary, tertiary, error, and neutral palettes. It also supports custom chroma limits, tone mappings, and Material 3 dynamic scheme variants.",
+    "use_when": [
+      "You need separate seed colors for primary, secondary, and tertiary palettes instead of a single seed color.",
+      "You want to customize chroma and tone mapping behavior in generated ColorSchemes.",
+      "You need monochrome seed colors to produce correct greyscale palettes."
+    ],
+    "avoid_when": [
+      "You are satisfied with the default single-seed behavior of Flutter's built-in ColorScheme.fromSeed.",
+      "You do not use Material 3 color systems."
+    ],
+    "strengths": [
+      "Supports up to six separate seed key colors for fine-grained color generation.",
+      "Provides multiple predefined FlexTones configurations like vivid, highContrast, and material.",
+      "Allows custom chroma and tone mappings in the HCT color space."
+    ],
+    "weaknesses": [
+      "Requires learning additional custom configuration classes like FlexTones.",
+      "Relies heavily on Material 3 design paradigms."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the package to pubspec.yaml and import it where you configure your MaterialApp themes.",
+    "alternatives": [
+      {
+        "name": "flex_color_scheme",
+        "why_pick_it": "If you want a complete color scheme and theme builder package with dozens of ready-made themes and extensive surface customization rather than just an extended fromSeed function."
+      }
+    ],
+    "minimal_example": "import 'package:flex_seed_scheme/flex_seed_scheme.dart';\n\nfinal ColorScheme schemeLight = SeedColorScheme.fromSeeds(\n  brightness: Brightness.light,\n  primaryKey: Color(0xFF6750A4),\n  secondaryKey: Color(0xFF3871BB),\n  tertiaryKey: Color(0xFF6CA450),\n  tones: FlexTones.vivid(Brightness.light),\n);",
+    "confidence": 1
+  }
+}

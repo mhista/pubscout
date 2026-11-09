@@ -1,0 +1,54 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.40.0",
+  "generatedAt": "2026-11-08T15:49:57.471Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [
+      "web-desktop"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Video player plugin and backend APIs supporting desktop and mobile with hardware decoders and FFmpeg.",
+    "what_it_does": "Acts as a backend plugin for the official video_player package and provides a low-level backend player API. Supports hardware-accelerated decoding, optimal rendering APIs across platforms, and most media formats via FFmpeg.",
+    "use_when": [
+      "You need video_player support on desktop platforms like Windows, Linux, and macOS.",
+      "You want hardware-accelerated video decoding and optimal rendering performance on mobile and desktop.",
+      "You need custom backend player APIs or advanced playback features like snapshots, recording, and custom decoders."
+    ],
+    "avoid_when": [
+      "You strictly want a pure Dart audio and video solution without native binary dependencies.",
+      "You are using Flutter-snap which sets environment variables that break the C++ compiler build."
+    ],
+    "strengths": [
+      "Supports all desktop and mobile platforms with hardware acceleration.",
+      "Includes Dolby Vision, custom subtitle, and FFmpeg demuxer support.",
+      "Low CPU, GPU, and memory load compared to alternative players."
+    ],
+    "weaknesses": [
+      "Requires managing binary SDK dependencies and platform-specific native setups.",
+      "Flutter-snap environment variables can break C++ compilation on Linux."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add the package as a direct dependency. For macOS/iOS, clean pod caches if upgrading binary dependencies. For embedded Linux, remove libffmpeg.so.* if using system libraries.",
+    "alternatives": [
+      {
+        "name": "media_kit",
+        "why_pick_it": "If you prefer a feature-rich media player library built on libmpv instead of libmdk."
+      },
+      {
+        "name": "just_audio",
+        "why_pick_it": "If your primary requirement is advanced audio playback and streaming rather than full video capabilities."
+      },
+      {
+        "name": "video_player",
+        "why_pick_it": "If you only need the official baseline video playback without cross-desktop hardware acceleration extensions."
+      }
+    ],
+    "minimal_example": "import 'package:fvp/fvp.dart' as fvp;\n\nfvp.registerWith();",
+    "confidence": 0.95
+  }
+}

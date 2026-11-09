@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.1",
+  "generatedAt": "2026-11-07T11:22:36.264Z",
+  "data": {
+    "primary_category": "ai-ml",
+    "secondary_categories": [
+      "camera"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter plugin to use Google's ML Kit Face Detection on iOS and Android.",
+    "what_it_does": "A Flutter plugin that uses Google's ML Kit Face Detection to detect faces in an image, identify key facial features, and get the contours of detected faces. Processing is handled natively via platform channels using Google's native APIs.",
+    "use_when": [
+      "You need to detect faces and facial landmarks in images on Android and iOS.",
+      "You want on-device face detection and classification without relying on external cloud APIs."
+    ],
+    "avoid_when": [
+      "You need support for web or desktop platforms.",
+      "You are looking for a package maintained or sponsored directly by Google."
+    ],
+    "strengths": [
+      "Provides access to Google's native ML Kit face detection capabilities.",
+      "Supports face contours, facial landmarks, classification, and tracking."
+    ],
+    "weaknesses": [
+      "Does not support web or other non-mobile platforms.",
+      "Requires manual native setup for iOS (deployment targets, linker flags, resource bundles)."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires minimum iOS deployment target 15.0, Xcode 15.3.0+, Swift 5.9, adding linker flags (-ObjC, -all_load), and downloading GoogleMVFaceDetectorResources.bundle for iOS. Android requires minSdkVersion 21 and compileSdkVersion 36.",
+    "alternatives": [],
+    "minimal_example": "final options = FaceDetectorOptions(\n  enableContours: true,\n  enableLandmarks: true,\n  enableClassification: true,\n);\nfinal faceDetector = FaceDetector(options: options);\nfinal List<Face> faces = await faceDetector.processImage(inputImage);\nfaceDetector.close();",
+    "confidence": 0.95
+  }
+}

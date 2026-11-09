@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.10.1",
+  "generatedAt": "2026-11-07T11:10:10.565Z",
+  "data": {
+    "primary_category": "notifications",
+    "secondary_categories": [
+      "backend"
+    ],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "Flutter plugin for Firebase In-App Messaging campaigns.",
+    "what_it_does": "Allows apps to display targeted contextual messages to active users using Firebase In-App Messaging. Provides message lifecycle streams and supports custom Flutter UI rendering for campaigns.",
+    "use_when": [
+      "You need to display in-app promotional or informational messages via Firebase",
+      "You want to listen to message lifecycle events like clicks, impressions, and dismissals",
+      "You want to render custom Flutter UI for in-app messaging campaigns"
+    ],
+    "avoid_when": [
+      "You only need push notifications or background remote messages",
+      "You are not using Firebase as your backend service"
+    ],
+    "strengths": [
+      "Native integration with Firebase In-App Messaging API",
+      "Exposes lifecycle event streams such as clicks, impressions, and dismissals",
+      "Supports custom Flutter display mode for custom campaign rendering"
+    ],
+    "weaknesses": [
+      "Requires proper Firebase setup and configuration",
+      "Does not automatically open action URLs in custom display mode"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding firebase_core, initializing Firebase, and setting up Android/iOS project configurations according to Firebase guidelines.",
+    "alternatives": [],
+    "minimal_example": "FirebaseInAppMessaging.instance.onMessageClicked.listen((event) {\n  print('${event.campaignMetadata.campaignName} -> ${event.action.actionUrl}');\n});",
+    "confidence": 0.95
+  }
+}

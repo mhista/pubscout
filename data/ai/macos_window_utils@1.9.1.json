@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "1.9.1",
+  "generatedAt": "2026-11-08T15:39:14.246Z",
+  "data": {
+    "primary_category": "web-desktop",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Provides Dart APIs to control macOS NSWindow properties and behavior.",
+    "what_it_does": "The plugin lets Flutter apps modify the macOS window—size, title bar, transparency, toolbar, and button visibility. It also offers delegate callbacks for window events.",
+    "use_when": [
+      "You need fine‑grained control over a macOS app window",
+      "You want to hide the title bar or make the window transparent",
+      "You need to react to window events like resize or fullscreen"
+    ],
+    "avoid_when": [
+      "Your app targets platforms other than macOS",
+      "You only need cross‑platform window handling"
+    ],
+    "strengths": [
+      "Comprehensive macOS window API coverage",
+      "Simple Dart‑only calls for native features",
+      "Includes example project and widgets for safe area handling"
+    ],
+    "weaknesses": [
+      "macOS‑only, no iOS/Android support",
+      "Requires native Xcode configuration and deployment‑target changes"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add the plugin, then open macOS Runner.xcworkspace, set Deployment Target ≥10.14.6, and adjust Podfile platform line. Call WindowManipulator.initialize() before runApp().",
+    "alternatives": [],
+    "minimal_example": "Future<void> main() async {\n  WidgetsFlutterBinding.ensureInitialized();\n  await WindowManipulator.initialize();\n  runApp(MyApp());\n}\n\n// later in UI\nWindowManipulator.makeTitlebarTransparent();\nWindowManipulator.enableFullSizeContentView();",
+    "confidence": 0.92
+  }
+}

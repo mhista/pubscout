@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "2.2.0",
+  "generatedAt": "2026-11-08T15:21:43.899Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "GTK utilities for Flutter Linux applications, providing settings and application lifecycle helpers.",
+    "what_it_does": "The package offers a GtkSettings wrapper to access GSettings and a GtkApplication widget/notifier to listen to remote command‑line arguments and file‑open requests. It also includes a GtkIcon wrapper for GTK icons.",
+    "use_when": [
+      "You are building a Flutter app for Linux and need to integrate with native GTK settings or handle remote command‑line/file‑open events.",
+      "You want a mockable GSettings API for testing on Linux."
+    ],
+    "avoid_when": [
+      "Your app targets non‑Linux platforms (Android, iOS, web, Windows, macOS).",
+      "You need visual GTK widgets rather than non‑visual utilities."
+    ],
+    "strengths": [
+      "Direct integration with native GTK APIs.",
+      "Simple Dart API for settings and application events.",
+      "Mockable GSettings for unit tests."
+    ],
+    "weaknesses": [
+      "Linux‑only; no support for other platforms.",
+      "Requires manual changes to linux/my_application.cc, increasing setup complexity.",
+      "Limited to non‑visual utilities; no UI components."
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Edit linux/my_application.cc as described: modify activate, local_command_line, and my_application_new functions to use G_APPLICATION_HANDLES_COMMAND_LINE | G_APPLICATION_HANDLES_OPEN and present existing windows.",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:gtk_application/gtk_application.dart';\n\nvoid main() {\n  runApp(MaterialApp(\n    home: GtkApplication(\n      onCommandLine: (args) => print('command-line: $args'),\n      onOpen: (files, hint) => print('open ($hint): $files'),\n      child: const Scaffold(body: Center(child: Text('Hello'))),\n    ),\n  ));\n}",
+    "confidence": 0.9
+  }
+}

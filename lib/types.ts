@@ -70,6 +70,12 @@ export type Pkg = {
   } & Record<SubScore, number | null>;
   flags: Flag[];
   badges: Badge[];
+  /** Has docs but no AI summary yet; the next data run will try again. */
+  summaryPending?: boolean;
+  /** Hand-picked in data/essentials.json. */
+  essential?: boolean;
+  /** Position in pub.dev's ranking at the last sync, if known. */
+  rank?: number | null;
   /** Packages that could replace this one. */
   alternatives: string[];
   /** Packages that work with this one, and how. */

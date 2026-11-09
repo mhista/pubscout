@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.2.0",
+  "generatedAt": "2026-11-08T15:38:02.719Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Parse and evaluate mathematical expressions in real, vector, and interval contexts.",
+    "what_it_does": "A library for parsing strings into mathematical expressions, evaluating them with context models, simplifying them, and computing derivatives. It supports real numbers, vectors, and basic interval arithmetic.",
+    "use_when": [
+      "You need to evaluate mathematical formulas entered as strings at runtime.",
+      "You need expression simplification or symbolic differentiation.",
+      "You need interval arithmetic support."
+    ],
+    "avoid_when": [
+      "You need to parse complex numbers.",
+      "You need to work with N-dimensional vectors where N is greater than four."
+    ],
+    "strengths": [
+      "Supports real numbers, vectors, and interval arithmetic.",
+      "Provides expression parsing, simplification, and differentiation.",
+      "Extensible through custom function definitions in code."
+    ],
+    "weaknesses": [
+      "Parser only works for real numbers out of the box.",
+      "Does not support complex numbers.",
+      "Some evaluations in vector and interval space (especially functions) are not working yet."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "ExpressionParser p = GrammarParser();\nExpression exp = p.parse(\"(x^2 + cos(y)) / 3\");\nvar context = ContextModel()\n  ..bindVariableName('x', Number(2.0))\n  ..bindVariableName('y', Number(math.pi));\nvar evaluator = RealEvaluator(context);\nnum eval = evaluator.evaluate(exp);",
+    "confidence": 1
+  }
+}

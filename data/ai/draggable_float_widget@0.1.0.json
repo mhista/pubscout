@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.1.0",
+  "generatedAt": "2026-11-07T11:06:40.779Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "A draggable floating widget that can hide/show based on ScrollView events.",
+    "what_it_does": "Provides a widget that can be dragged around the screen and positioned freely. It can automatically hide or show in response to scroll notifications via a StreamController.",
+    "use_when": [
+      "You need a movable overlay element that follows user interaction",
+      "You want the widget to appear/disappear with scrolling",
+      "You prefer a lightweight solution without extra dependencies"
+    ],
+    "avoid_when": [
+      "You need complex animations or physics beyond basic dragging",
+      "You require a fully featured UI kit or theming system"
+    ],
+    "strengths": [
+      "Simple API with configurable base config",
+      "Works on all Flutter platforms",
+      "No external dependencies besides Flutter"
+    ],
+    "weaknesses": [
+      "Limited to basic drag behavior, no advanced gestures",
+      "Visibility control relies on manual StreamController handling"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "NotificationListener(\n  onNotification: (notification) {\n    if (notification is ScrollStartNotification) {\n      eventStreamController.add(OperateEvent.OPERATE_HIDE);\n    } else if (notification is ScrollEndNotification) {\n      eventStreamController.add(OperateEvent.OPERATE_SHOW);\n    }\n    return true;\n  },\n  child: Stack(\n    children: [\n      ListView(...),\n      DraggableFloatWidget(\n        child: YourChildWidget(),\n        eventStreamController: eventStreamController,\n        config: DraggableFloatWidgetBaseConfig(isFullScreen: false),\n        onTap: () => print('Tapped'),\n      ),\n    ],\n  ),\n);",
+    "confidence": 0.78
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.1.1",
+  "generatedAt": "2026-11-07T11:03:05.215Z",
+  "data": {
+    "primary_category": "images",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "An image cropper package made in Flutter to crop and rotate images.",
+    "what_it_does": "CropperX provides a Flutter widget that allows users to crop and rotate images directly inside the app. It supports multiple overlay types including circles, rectangles, and grids. The cropped image can be retrieved as bytes using a global key reference.",
+    "use_when": [
+      "You need an in-app UI for users to crop and rotate images",
+      "You want support for custom overlay guides like circles or grid lines"
+    ],
+    "avoid_when": [
+      "You need a full-featured image picker instead of a cropping widget",
+      "You need non-widget-based server-side or background image processing without UI"
+    ],
+    "strengths": [
+      "Pure Flutter implementation",
+      "Supports multiple overlay shapes and grid types",
+      "Supports image rotation with custom turns"
+    ],
+    "weaknesses": [
+      "Limited to what is provided by the custom widget and GlobalKey mechanism",
+      "Not documented for advanced image manipulation beyond cropping and rotating"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [],
+    "minimal_example": "final _cropperKey = GlobalKey(debugLabel: 'cropperKey');\n\nCropper(\n    cropperKey: _cropperKey,\n    image: Image.network(\n        'https://i.pinimg.com/originals/6b/4d/18/6b4d18c0b756ab20c3591490dfc10090.jpg',\n    ),\n);\n\nfinal imageBytes = await Cropper.crop(\n    cropperKey: _cropperKey,\n);",
+    "confidence": 0.95
+  }
+}

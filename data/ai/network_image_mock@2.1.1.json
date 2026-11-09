@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.1.1",
+  "generatedAt": "2026-11-08T15:30:16.447Z",
+  "data": {
+    "primary_category": "testing",
+    "secondary_categories": [
+      "images"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Utility for mocking Image.network responses in Flutter widget tests.",
+    "what_it_does": "Provides a mock response wrapper for Image.network calls in Flutter widget tests to prevent 400 errors. Wraps widget testing functions inside a mockNetworkImagesFor helper.",
+    "use_when": [
+      "You are writing Flutter widget tests that load network images.",
+      "You want to avoid 400 responses from Image.network during testing."
+    ],
+    "avoid_when": [
+      "You are writing production code (this is strictly for tests)."
+    ],
+    "strengths": [
+      "Simple and straightforward API.",
+      "Prevents Image.network from crashing tests.",
+      "Supports null safety."
+    ],
+    "weaknesses": [
+      "Limited to mocking network image responses in a testing context."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Install under dev_dependencies in pubspec.yaml.",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:flutter_test/flutter_test.dart';\nimport 'package:network_image_mock/network_image_mock.dart';\n\nWidget makeTestableWidget() => MaterialApp(home: Image.network(''));\n\nvoid main() {\n  testWidgets(\n    'should properly mock Image.network and not crash',\n    (WidgetTester tester) async {\n      mockNetworkImagesFor(() => tester.pumpWidget(makeTestableWidget()));\n    },\n  );\n}",
+    "confidence": 1
+  }
+}

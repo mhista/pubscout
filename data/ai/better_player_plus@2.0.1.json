@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "2.0.1",
+  "generatedAt": "2026-11-07T10:58:25.883Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [
+      "ui-kits",
+      "widgets",
+      "layout"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "A Flutter video player built on video_player with advanced features like playlists, subtitles, and PiP.",
+    "what_it_does": "Provides a customizable video player widget with support for HLS, DASH, multiple audio/subtitle tracks, caching, and picture‑in‑picture. It adds higher‑level controls and configuration on top of the base video_player plugin.",
+    "use_when": [
+      "You need out‑of‑the‑box features such as playlists, subtitles, or PiP without building them yourself",
+      "You want a drop‑in replacement for video_player with richer UI controls"
+    ],
+    "avoid_when": [
+      "You only need simple playback and want the smallest possible dependency",
+      "You require a fully custom UI that diverges heavily from the provided controls"
+    ],
+    "strengths": [
+      "Rich feature set (subtitles, multiple tracks, caching, PiP)",
+      "Customizable Material & Cupertino controls via separate UI packages",
+      "Active maintenance with recent SDK updates"
+    ],
+    "weaknesses": [
+      "Adds several transitive dependencies (material_ui, cupertino_ui, wakelock_plus) increasing app size",
+      "Breaking changes between major versions may require code migration",
+      "Relies on video_player, so underlying platform bugs still propagate"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add better_player_plus to pubspec, ensure Android minSdk >=21 and iOS deployment target >=15. No additional native code beyond video_player's requirements, but may need permissions for storage if caching is used.",
+    "alternatives": [
+      {
+        "name": "video_player",
+        "why_pick_it": "Lightweight core player without extra UI or feature overhead"
+      }
+    ],
+    "minimal_example": "final dataSource=BetterPlayerDataSource(BetterPlayerDataSourceType.network,'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4');\nfinal controller=BetterPlayerController(const BetterPlayerConfiguration(),betterPlayerDataSource:dataSource);\nBetterPlayer(controller:controller);",
+    "confidence": 0.93
+  }
+}

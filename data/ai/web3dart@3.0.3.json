@@ -1,0 +1,47 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.0.3",
+  "generatedAt": "2026-11-08T15:46:20.795Z",
+  "data": {
+    "primary_category": "web3",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "code generation"
+    ],
+    "one_liner": "A Dart library to connect to Ethereum clients and interact with smart contracts.",
+    "what_it_does": "Allows Flutter and Dart apps to connect to Ethereum and Celo nodes, send signed transactions, manage credentials, and interact with smart contracts. It also includes code generation based on smart contract ABIs.",
+    "use_when": [
+      "You need to build a decentralized application (dApp) in Dart or Flutter.",
+      "You want to sign transactions and interact with smart contract ABIs.",
+      "You need Celo or Ethereum network integration."
+    ],
+    "avoid_when": [
+      "You are building a traditional centralized backend application without blockchain integration.",
+      "You only require a simple wallet UI without direct node interactions."
+    ],
+    "strengths": [
+      "Supports Celo fee currencies and Ethereum transactions.",
+      "Provides smart contract ABI code generation using build_runner.",
+      "Supports raw private keys, version 3 wallet files, and browser providers."
+    ],
+    "weaknesses": [
+      "Relies on an external RPC client or node to send transactions.",
+      "Not all advanced or rare Solidity types may be fully encoded."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Connects to an RPC endpoint (like Infura or Geth). For smart contract code generation, add web3dart_builders and build_runner to dev_dependencies.",
+    "alternatives": [
+      {
+        "name": "wallet",
+        "why_pick_it": "Alternative package listed in catalog related to wallets."
+      }
+    ],
+    "minimal_example": "import 'package:http/http.dart';\nimport 'package:web3dart/web3dart.dart';\n\nvar apiUrl = \"http://localhost:7545\";\nvar httpClient = Client();\nvar ethClient = Web3Client(apiUrl, httpClient);\n\nvar credentials = EthPrivateKey.fromHex(\"0x...\");\nvar address = credentials.address;\n\nEtherAmount balance = await ethClient.getBalance(address);\nprint(balance.getValueInUnit(EtherUnit.ether));",
+    "confidence": 0.95
+  }
+}

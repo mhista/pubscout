@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "1.0.7",
+  "generatedAt": "2026-11-08T15:40:43.848Z",
+  "data": {
+    "primary_category": "devtools",
+    "secondary_categories": [],
+    "approach": [
+      "hooks"
+    ],
+    "one_liner": "Build and bundle Rust code into a Dart/Flutter project via build hooks.",
+    "what_it_does": "It automates compiling Rust libraries for all supported platforms and packages the binaries as assets that Dart can load. The only required input is the asset name; the rest is inferred from Cargo.toml and rust-toolchain.toml.",
+    "use_when": [
+      "You need native performance or system libraries written in Rust.",
+      "You want reproducible builds across Android, iOS, Windows, macOS, and Linux.",
+      "You prefer a declarative build setup over manual Cargo commands."
+    ],
+    "avoid_when": [
+      "You only target a single platform and prefer manual Cargo integration.",
+      "You need fine‑grained control over the Rust build process beyond what the hook offers."
+    ],
+    "strengths": [
+      "Zero‑config Rust integration after initial Cargo setup.",
+      "Cross‑platform builds with a single command.",
+      "Automatic dependency discovery and rebuild triggers.",
+      "Supports both staticlib and cdylib targets."
+    ],
+    "weaknesses": [
+      "Requires rustup and a Rust toolchain on the developer machine.",
+      "Limited to the platforms listed; adding new targets needs code changes."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add rustup, create Cargo.toml and rust-toolchain.toml, run flutter pub add native_toolchain_rust hooks, then add a build.dart hook that calls RustBuilder.",
+    "alternatives": [],
+    "minimal_example": "```dart\nimport 'package:hooks/hooks.dart';\nimport 'package:native_toolchain_rust/native_toolchain_rust.dart';\n\nvoid main(List<String> args) async {\n  await build(args, (input, output) async {\n    await RustBuilder(assetName: 'src/my_ffi_bindings.g.dart').run(input: input, output: output);\n  });\n}\n```",
+    "confidence": 0.85
+  }
+}

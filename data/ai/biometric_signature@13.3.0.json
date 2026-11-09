@@ -1,0 +1,58 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "13.3.0",
+  "generatedAt": "2026-11-07T10:58:56.761Z",
+  "data": {
+    "primary_category": "auth",
+    "secondary_categories": [
+      "utils",
+      "device"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Hardware‑backed biometric signatures and encryption for Flutter apps.",
+    "what_it_does": "Provides cryptographic signing and decryption using keys stored in Secure Enclave, StrongBox or Windows Hello. Supports key attestation, multiple key aliases, and hybrid modes for platforms without native EC support.",
+    "use_when": [
+      "You need verifiable, replay‑protected biometric authentication",
+      "Your backend must verify a cryptographic proof of identity",
+      "You want hardware‑backed key storage with attestation on Android or Secure Enclave on iOS/macOS"
+    ],
+    "avoid_when": [
+      "Only a simple boolean biometric unlock is required",
+      "Targeting platforms without hardware key support (e.g., older Android versions)",
+      "You prefer a lightweight solution without native setup"
+    ],
+    "strengths": [
+      "True hardware‑backed keys with attestation",
+      "Cross‑platform support (Android, iOS, macOS, Windows)",
+      "Hybrid modes allow encryption on platforms lacking native EC keys",
+      "Fine‑grained key policies and alias management"
+    ],
+    "weaknesses": [
+      "Complex native configuration and permissions",
+      "Large API surface; steep learning curve",
+      "Windows implementation limited (no security level reporting)"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add platform‑specific permissions (USE_BIOMETRIC, USE_FINGERPRINT) and Android keystore/StrongBox config; iOS entitlements for Secure Enclave; Windows Hello capability flag. No code‑gen required.",
+    "alternatives": [
+      {
+        "name": "local_auth",
+        "why_pick_it": "Provides simple biometric unlock without cryptographic keys"
+      },
+      {
+        "name": "passkeys",
+        "why_pick_it": "WebAuthn‑style passwordless auth, but lacks custom encryption APIs"
+      },
+      {
+        "name": "firebase_auth",
+        "why_pick_it": "Full auth backend with biometric optional, but not hardware‑backed signatures"
+      }
+    ],
+    "minimal_example": "import 'package:biometric_signature/biometric_signature.dart';\n\nFuture<void> sign() async {\n  final result = await BiometricSignature.createSignature(\n    data: Uint8List.fromList('hello'.codeUnits),\n    signatureType: SignatureType.ecdsa,\n    keyAlias: 'login_key',\n  );\n  print('Signature: ${result.signatureBase64}');\n}",
+    "confidence": 0.86
+  }
+}

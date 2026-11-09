@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.4.21",
+  "generatedAt": "2026-11-08T15:53:30.097Z",
+  "data": {
+    "primary_category": "web-desktop",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Extension of webview_flutter to load local HTML, CSS, and JS from assets or strings via a local server.",
+    "what_it_does": "Extends webview_flutter to facilitate loading local HTML, CSS, and JavaScript content from assets or strings through a local server. It also provides a way to get the WebViewWidget height for rendering inside lists.",
+    "use_when": [
+      "You need to load local HTML, CSS, or JavaScript files from assets.",
+      "You want to render HTML strings inside a Flutter application via a web view.",
+      "You need features built on top of webview_flutter with local server support."
+    ],
+    "avoid_when": [
+      "You only need standard remote URL web views and can use the base webview_flutter directly.",
+      "You do not want to configure platform-specific cleartext traffic or arbitrary loads settings."
+    ],
+    "strengths": [
+      "Loads local assets including HTML, CSS, and JavaScript easily.",
+      "Inherits features from the stable webview_flutter package.",
+      "Provides helper to retrieve web view height for list views."
+    ],
+    "weaknesses": [
+      "Requires manual Android and iOS manifest/plist configuration for cleartext traffic and arbitrary loads.",
+      "Depends on an internal local server implementation which might introduce edge cases."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding android:usesCleartextTraffic='true' and INTERNET permission in AndroidManifest.xml, and NSAppTransportSecurity with NSAllowsArbitraryLoads in iOS Info.plist.",
+    "alternatives": [
+      {
+        "name": "webview_flutter",
+        "why_pick_it": "If you only need official remote web views without the local asset server extension and extra platform configurations."
+      }
+    ],
+    "minimal_example": "import 'package:webview_flutter_plus/webview_flutter_plus.dart';\n\n// Use WebViewPlus widget in your layout\n",
+    "confidence": 0.95
+  }
+}

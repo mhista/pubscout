@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.1.1",
+  "generatedAt": "2026-11-07T11:04:00.792Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "macOS/iOS Flutter plugin providing access to the Foundation URL Loading System.",
+    "what_it_does": "Provides an implementation of package:http and package:web_socket using the native Apple Foundation URL Loading System. This allows Dart HTTP code on iOS and macOS to leverage native features like VPNs, proxies, HTTP/3, and custom configuration options.",
+    "use_when": [
+      "You need native iOS/macOS features like VPN or proxy support for your HTTP requests.",
+      "You want to use package:http with platform-specific Foundation URL Loading System configurations on Apple platforms."
+    ],
+    "avoid_when": [
+      "You are building for non-Apple platforms where this specific plugin does not apply.",
+      "You need a cross-platform HTTP client that doesn't require platform-specific conditional branches."
+    ],
+    "strengths": [
+      "Automatically supports iOS/macOS platform features such as VPNs and HTTP proxies.",
+      "Supports advanced configuration options like blocking cookies and custom redirect handling.",
+      "Supports modern HTTP features such as HTTP/3."
+    ],
+    "weaknesses": [
+      "Limited primarily to macOS and iOS platforms.",
+      "Requires platform-specific conditional setup in your Dart code."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Not documented",
+    "alternatives": [],
+    "minimal_example": "import 'dart:io';\nimport 'package:cupertino_http/cupertino_http.dart';\nimport 'package:http/http.dart';\n\nvoid main() async {\n  final Client httpClient = CupertinoClient.defaultSessionConfiguration();\n  final response = await httpClient.get(Uri.https('pub.dev', '/api/packages/cupertino_http/score'));\n  httpClient.close();\n}",
+    "confidence": 0.95
+  }
+}

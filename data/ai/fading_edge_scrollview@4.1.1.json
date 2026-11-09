@@ -1,0 +1,37 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.1.1",
+  "generatedAt": "2026-11-07T11:08:58.108Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Build scrollable views with fading edges.",
+    "what_it_does": "Provides FadingEdgeScrollView to easily add fading edges to different scrollable views like ScrollView, SingleChildScrollView, PageView, AnimatedList, and ListWheelScrollView. It automatically hides the fade if the content is too small to be scrollable.",
+    "use_when": [
+      "You need a visual indicator that scrollable content extends beyond the current viewport.",
+      "You are using standard scrollable widgets and want fading edges applied easily."
+    ],
+    "avoid_when": [
+      "The child scrollable view does not have a controller set.",
+      "You need custom scroll effects outside of the supported constructors."
+    ],
+    "strengths": [
+      "Supports multiple scrollable view types via dedicated constructors.",
+      "Automatically hides fades when content is too small to scroll."
+    ],
+    "weaknesses": [
+      "Requires the child view to explicitly have a controller set.",
+      "Scroll controller creation and disposal must be handled manually by a StatefulWidget after version 4.0.0."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "FadingEdgeScrollView.fromScrollView(\n  gradientFraction: 0.1,\n  child: ListView.builder(\n    controller: _scrollController,\n    itemBuilder: (context, index) => ListTile(title: Text('Item $index')),\n  ),\n)",
+    "confidence": 0.95
+  }
+}

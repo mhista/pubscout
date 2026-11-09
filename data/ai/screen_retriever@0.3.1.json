@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.3.1",
+  "generatedAt": "2026-11-08T15:23:15.301Z",
+  "data": {
+    "primary_category": "web-desktop",
+    "secondary_categories": [
+      "device"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Retrieve information about screen size, displays, and cursor position for Flutter desktop apps",
+    "what_it_does": "Allows Flutter desktop applications to read display information including size, work area, and scale factor. It also tracks cursor positions and listens to display change events like additions and removals.",
+    "use_when": [
+      "You are building a Flutter desktop application for macOS, Windows, or Linux.",
+      "Your application needs to get information about multi-monitor setups, screen resolution, or work area bounds.",
+      "You need to listen for display connection changes at runtime."
+    ],
+    "avoid_when": [
+      "You are building a mobile or web-only application.",
+      "You only need general device information unrelated to screens."
+    ],
+    "strengths": [
+      "Supports multiple desktop platforms (macOS, Windows, Linux).",
+      "Provides live reading of display properties and native display IDs.",
+      "Includes event handling for display add, remove, and change events."
+    ],
+    "weaknesses": [
+      "Requires specific development libraries on Linux build machines (GTK 3, X11, Xi).",
+      "Older 0.2.x API versions are deprecated and being phased out."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Linux build machines need GTK 3, X11 and Xi development files installed via apt.",
+    "alternatives": [],
+    "minimal_example": "import 'package:screen_retriever/screen_retriever.dart';\n\nfinal displayManager = DisplayManager.instance;\nfinal primary = displayManager.getPrimary()!;\nprint('${primary.name}: ${primary.size.toSize()} at ${primary.scaleFactor}x');",
+    "confidence": 1
+  }
+}

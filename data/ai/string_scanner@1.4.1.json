@@ -1,0 +1,48 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.4.1",
+  "generatedAt": "2026-11-08T15:16:59.904Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "A class for parsing strings using a sequence of patterns.",
+    "what_it_does": "Exposes a StringScanner type that makes it easy to parse a string using a series of Patterns. It allows you to move scan pointers, match expected patterns, and handle errors during string parsing.",
+    "use_when": [
+      "You need to build a custom string parser using patterns or regular expressions.",
+      "You need detailed position tracking and error formatting while parsing text inputs."
+    ],
+    "avoid_when": [
+      "You are parsing heavily structured formats like XML or YAML where dedicated parsers already exist."
+    ],
+    "strengths": [
+      "Simplifies sequential string parsing with patterns.",
+      "Provides helpful methods for expectations and matching errors."
+    ],
+    "weaknesses": [
+      "Requires manual imperative parsing logic for complex grammars."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "petitparser",
+        "why_pick_it": "If you prefer a combinator-based parsing library over imperative scanning."
+      },
+      {
+        "name": "xml",
+        "why_pick_it": "If you specifically need to parse XML documents."
+      },
+      {
+        "name": "yaml",
+        "why_pick_it": "If you specifically need to parse YAML documents."
+      }
+    ],
+    "minimal_example": "import 'dart:math' as math;\nimport 'package:string_scanner/string_scanner.dart';\n\nnum parseNumber(String source) {\n  final scanner = StringScanner(source);\n  final negative = scanner.scan('-');\n  scanner.expect(RegExp(r'\\d+'));\n  var number = num.parse(scanner.lastMatch![0]!);\n  scanner.expectDone();\n  return (negative ? -1 : 1) * number;\n}",
+    "confidence": 1
+  }
+}

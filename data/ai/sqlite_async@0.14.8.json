@@ -1,0 +1,56 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.14.8",
+  "generatedAt": "2026-11-08T15:29:52.886Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based",
+      "no codegen"
+    ],
+    "one_liner": "High-performance asynchronous SQLite interface for Dart and Flutter.",
+    "what_it_does": "Wraps SQLite bindings to provide asynchronous database operations, concurrent read/write transactions, WAL mode configuration, and query watching without blocking the main isolate.",
+    "use_when": [
+      "You need direct SQL query access without code generation overhead.",
+      "Your app requires high-performance concurrent read and write transactions.",
+      "You want to automatically watch and re-run queries on data changes."
+    ],
+    "avoid_when": [
+      "You prefer a heavily typed ORM or object-relational mapping tool with code generation.",
+      "You only need simple key-value storage rather than a relational database."
+    ],
+    "strengths": [
+      "Asynchronous operations by default to prevent UI jank.",
+      "Supports concurrent transactions with WAL mode enabled.",
+      "Built-in query watching capabilities."
+    ],
+    "weaknesses": [
+      "Web support requires additional configuration of WASM and web worker assets.",
+      "Does not use code generation or model classes by default, requiring manual mapping from raw SQL results."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Dart pub add sqlite_async. Web support requires access to sqlite3.wasm and db_worker.js files.",
+    "alternatives": [
+      {
+        "name": "drift",
+        "why_pick_it": "Choose drift if you prefer type-safe queries, relational mapping, and reactive streams via code generation."
+      },
+      {
+        "name": "sqflite",
+        "why_pick_it": "Choose sqflite if you need the traditional SQLite plugin for Flutter with broad legacy usage."
+      },
+      {
+        "name": "hive_ce",
+        "why_pick_it": "Choose hive_ce if you want a fast NoSQL key-value database instead of relational SQL."
+      }
+    ],
+    "minimal_example": "import 'package:sqlite_async/sqlite_async.dart';\n\nvoid main() async {\n  final db = SqliteDatabase(path: 'test.db');\n  await db.execute('CREATE TABLE IF NOT EXISTS test_data(id INTEGER PRIMARY KEY AUTOINCREMENT, data TEXT)');\n  await db.execute('INSERT INTO test_data(data) values(?)', ['Test1']);\n  var results = await db.getAll('SELECT * FROM test_data');\n  print('Results: $results');\n  await db.close();\n}",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.8-flash",
+  "version": "4.19.2",
+  "generatedAt": "2026-11-08T15:15:20.109Z",
+  "data": {
+    "primary_category": "localization",
+    "secondary_categories": [
+      "codegen"
+    ],
+    "approach": [
+      "code generation"
+    ],
+    "one_liner": "Type-safe i18n solution generating Dart translation classes from JSON, YAML, CSV, or ARB files",
+    "what_it_does": "Generates compile-time type-safe Dart classes from localization source files (JSON, YAML, CSV, ARB). Eliminates string typos and missing parameter bugs by exposing translations as native method calls and getters. Includes a dedicated CLI for managing, analyzing, normalizing, and migrating translations.",
+    "use_when": [
+      "You want compile-time type safety for translation keys and parameterized strings",
+      "You prefer structured translation formats like JSON, YAML, or CSV over standard ARB files",
+      "You need rich features like pluralization, dynamic keys, linked translations, and regional fallbacks"
+    ],
+    "avoid_when": [
+      "You want to avoid code generation entirely and load raw translation strings at runtime",
+      "You strictly want standard Flutter ARB workflows without external tool dependencies"
+    ],
+    "strengths": [
+      "Fast execution via direct Dart method calls without runtime string parsing",
+      "Rich feature set including plurals, context enums, interfaces, linked translations, and RichText support",
+      "Comprehensive CLI tooling for migration, analyzing unused/missing keys, and normalizing files"
+    ],
+    "weaknesses": [
+      "Requires code generation steps whenever translation files change",
+      "Typically requires a companion package (slang_flutter) for idiomatic Flutter integration"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires creating translation files (e.g., in lib/i18n), running `dart run slang` to generate code, and configuring iOS CFBundleLocalizations in Info.plist.",
+    "alternatives": [
+      {
+        "name": "easy_localization",
+        "why_pick_it": "Provides JSON/YAML/CSV localization without mandatory code generation steps"
+      },
+      {
+        "name": "intl",
+        "why_pick_it": "Standard official Dart/Flutter localization framework using ARB files"
+      }
+    ],
+    "minimal_example": "import 'package:my_app/i18n/strings.g.dart';\n\nvoid main() {\n  // Accessing generated type-safe translations\n  final title = t.mainScreen.title;\n  final greeting = t.greet(name: 'Tom');\n}",
+    "confidence": 1
+  }
+}

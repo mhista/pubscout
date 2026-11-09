@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "2.3.15",
+  "generatedAt": "2026-11-08T15:29:19.161Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "stream-based"
+    ],
+    "one_liner": "Flutter plugin for connecting to Bluetooth Low Energy devices.",
+    "what_it_does": "Provides a BLE central‑role API for scanning, connecting, and communicating with BLE peripherals on Android, iOS, macOS, Linux, and Web. It wraps native platform APIs and exposes streams for device discovery and data exchange.",
+    "use_when": [
+      "You need cross‑platform BLE communication in a Flutter app",
+      "You want a zero‑dependency plugin that works on mobile, desktop, and web"
+    ],
+    "avoid_when": [
+      "You require Bluetooth Classic or peripheral role support",
+      "Your project is a for‑profit commercial product without purchasing a commercial license"
+    ],
+    "strengths": [
+      "Supports Android, iOS, macOS, Linux, and Web",
+      "Zero third‑party dependencies beyond Flutter itself",
+      "Stream‑based API simplifies reactive handling",
+      "Active maintenance with recent bug fixes"
+    ],
+    "weaknesses": [
+      "Commercial license required for for‑profit use",
+      "Windows support is provided by a separate package",
+      "Only central role; no peripheral capabilities"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add Bluetooth permissions to AndroidManifest (BLUETOOTH, BLUETOOTH_CONNECT, etc.) and iOS Info.plist (NSBluetoothAlwaysUsageDescription). On Web, ensure HTTPS and user gesture for scanning. Windows requires flutter_blue_plus_winrt package.",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter_blue_plus/flutter_blue_plus.dart';\n\nvoid startScan() {\n  FlutterBluePlus.onScanResults.listen((results) {\n    for (var r in results) {\n      print('${r.device.remoteId}: ${r.advertisementData.advName}');\n    }\n  }, onError: (e) => print(e));\n  FlutterBluePlus.startScan();\n}\n",
+    "confidence": 0.93
+  }
+}

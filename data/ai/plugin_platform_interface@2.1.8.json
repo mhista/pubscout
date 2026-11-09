@@ -1,0 +1,34 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.1.8",
+  "generatedAt": "2026-11-08T15:19:35.204Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [],
+    "one_liner": "Reusable base class for platform interfaces of Flutter federated plugins.",
+    "what_it_does": "Provides a base class and verification mechanism for platform interfaces of federated Flutter plugins. It enforces that platform implementations extend rather than implement the interface, ensuring safety when new methods are added.",
+    "use_when": [
+      "You are developing a federated Flutter plugin",
+      "You want to enforce that platform implementations extend the platform interface class rather than implement it"
+    ],
+    "avoid_when": [
+      "You are building a standard non-federated app or package",
+      "You prefer using Dart 3 base classes exclusively for enforcement without runtime checks"
+    ],
+    "strengths": [
+      "Enforces best practices for federated plugin architecture",
+      "Provides MockPlatformInterfaceMixin for easy mocking and faking in tests"
+    ],
+    "weaknesses": [
+      "May be considered redundant in Dart 3 projects that can utilize the `base` class modifier directly"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Not documented",
+    "alternatives": [],
+    "minimal_example": "abstract class SamplePluginPlatform extends PlatformInterface {\n  SamplePluginPlatform() : super(token: _token);\n  static final Object _token = Object();\n  static SamplePluginPlatform _instance = SamplePluginDefault();\n  static SamplePluginPlatform get instance => _instance;\n  static set instance(SamplePluginPlatform instance) {\n    PlatformInterface.verify(instance, _token);\n    _instance = instance;\n  }\n}",
+    "confidence": 1
+  }
+}

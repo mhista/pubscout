@@ -1,0 +1,55 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "8.0.0",
+  "generatedAt": "2026-11-07T11:05:07.619Z",
+  "data": {
+    "primary_category": "ai-ml",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "Unofficial Dart and Flutter SDK for the OpenAI API and compatible providers.",
+    "what_it_does": "Provides typed clients for OpenAI and compatible APIs like DeepSeek, Ollama, and LM Studio. It supports chat completions, streaming, vector stores, fine-tuning, images, audio, and more across all platforms including web.",
+    "use_when": [
+      "You need to integrate OpenAI or compatible LLM APIs into your Dart or Flutter app.",
+      "You require multi-platform support including Flutter Web.",
+      "You need robust streaming, automatic retries, and rate-limit tracking."
+    ],
+    "avoid_when": [
+      "You are building exclusively with official first-party SDKs that have guaranteed OpenAI synchronization.",
+      "You require only on-device models without any remote API connectivity."
+    ],
+    "strengths": [
+      "Comprehensive API coverage including Responses, Chat, Realtime, Batch, and Vector Stores.",
+      "Per-client configuration allows multiple accounts or local models to run side-by-side.",
+      "Platform-neutral file handling supports web and native disk access."
+    ],
+    "weaknesses": [
+      "It is an unofficial SDK, meaning it might lag behind official OpenAI API updates.",
+      "Relies on community maintenance."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dependency to pubspec.yaml and configure your OpenAI API key or compatible endpoint URL.",
+    "alternatives": [
+      {
+        "name": "ollama_dart",
+        "why_pick_it": "Pick it if you are specifically targeting Ollama local models and want an Ollama-focused client."
+      },
+      {
+        "name": "openai_dart",
+        "why_pick_it": "Alternative Dart client for the OpenAI API."
+      },
+      {
+        "name": "llamadart",
+        "why_pick_it": "Pick it if you want to run Llama models directly on-device rather than calling a remote API."
+      }
+    ],
+    "minimal_example": "import 'package:dart_openai/dart_openai.dart';\n\nFuture<void> main() async {\n  final client = OpenAIClient(apiKey: 'sk-...');\n  final completion = await client.chat.create(\n    model: 'gpt-4o',\n    messages: [\n      const OpenAIChatCompletionChoiceMessageModel(\n        role: OpenAIChatMessageRole.user,\n        content: 'Say hello in five words.',\n      ),\n    ],\n  );\n  print(completion.choices.first.message.content);\n}",
+    "confidence": 0.95
+  }
+}

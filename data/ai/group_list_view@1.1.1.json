@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.1.1",
+  "generatedAt": "2026-11-07T11:24:08.322Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "layout"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A Flutter ListView that allows you to group list items and support headers.",
+    "what_it_does": "Provides a GroupListView widget that helps organize list items into distinct sections with headers, similar to iOS UITableView sections. It supports custom item builders, group header builders, and optional separators.",
+    "use_when": [
+      "You need to display a list of items categorized into groups or sections.",
+      "You want custom section headers for your list items similar to iOS UITableView."
+    ],
+    "avoid_when": [
+      "You only need a simple, flat list without groupings or section headers.",
+      "You need complex sliver-based grouping (use standard Flutter slivers instead)."
+    ],
+    "strengths": [
+      "Supports group headers and list items grouping out of the box.",
+      "Exposes all fields from the standard ListView.builder constructor.",
+      "Supports both item and section separators."
+    ],
+    "weaknesses": [
+      "Limited to basic grouped list scenarios.",
+      "No specific mention of advanced performance optimization for massive virtualized trees beyond standard ListView builder capabilities."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "GroupListView(\n  sectionsCount: _elements.keys.toList().length,\n  countOfItemInSection: (int section) {\n    return _elements.values.toList()[section].length;\n  },\n  itemBuilder: (BuildContext context, IndexPath index) {\n    return Text(_elements.values.toList()[index.section][index.index]);\n  },\n  groupHeaderBuilder: (BuildContext context, int section) {\n    return Text(_elements.keys.toList()[section]);\n  },\n)",
+    "confidence": 1
+  }
+}

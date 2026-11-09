@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.4.2",
+  "generatedAt": "2026-11-08T15:49:51.299Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Ask users to rate your app if custom conditions like install time or launches are met.",
+    "what_it_does": "Allows you to kindly ask users to rate your mobile or desktop app based on custom conditions such as minimum elapsed days, minimum app launches, or custom criteria. It supports showing native rating dialogs or customizable dialogs with star ratings.",
+    "use_when": [
+      "You want to prompt users to leave a store review after they have used your app for a certain period or number of launches.",
+      "You need custom conditions to decide when the rating dialog should appear."
+    ],
+    "avoid_when": [
+      "You only need simple persistent key-value storage without app rating features.",
+      "You do not want to prompt users for ratings within your application."
+    ],
+    "strengths": [
+      "Highly configurable conditions like install time and launch counts.",
+      "Supports native rating dialogs on Android and iOS.",
+      "Allows custom dialog builders and star rating bars."
+    ],
+    "weaknesses": [
+      "Requires proper matching of bundle/package identifiers with store IDs.",
+      "Relying too frequently on in-app rating prompts can frustrate users if not handled carefully."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Make sure your bundle identifier in Info.plist matches App Store Connect and build.gradle matches Google Play, or pass custom identifiers during initialization.",
+    "alternatives": [],
+    "minimal_example": "RateMyApp rateMyApp = RateMyApp(\n  preferencesPrefix: 'rateMyApp_',\n  minDays: 0,\n  minLaunches: 5,\n);\n\n@override\nvoid initState() {\n  super.initState();\n  WidgetsBinding.instance.addPostFrameCallback((_) async {\n    await rateMyApp.init();\n    if (mounted && rateMyApp.shouldOpenDialog) {  \n      rateMyApp.showRateDialog(context);\n    }\n  });\n}",
+    "confidence": 1
+  }
+}

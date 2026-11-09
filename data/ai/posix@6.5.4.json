@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "6.5.4",
+  "generatedAt": "2026-11-08T15:19:43.185Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "code generation",
+      "imperative"
+    ],
+    "one_liner": "Exposes the POSIX api on OSx and Linux via an idiomatic Dart API.",
+    "what_it_does": "Provides Dart access to the POSIX API for macOS and Linux systems using FFI. It translates C types to Dart types and throws PosixException on errors instead of returning error codes.",
+    "use_when": [
+      "You need to access POSIX system APIs on macOS or Linux from Dart",
+      "You want idiomatic Dart functions and exceptions instead of raw FFI bindings"
+    ],
+    "avoid_when": [
+      "You are targeting platforms other than macOS and Linux",
+      "You do not want native dependencies or FFI setup"
+    ],
+    "strengths": [
+      "Translates C types to idiomatic Dart types",
+      "Modern error handling using exceptions rather than error codes"
+    ],
+    "weaknesses": [
+      "Limited to macOS and Linux platforms",
+      "Requires platform-specific native libraries and ffigen for development"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires libclang-dev and running ffigen to generate or update bindings.",
+    "alternatives": [],
+    "minimal_example": "import 'package:posix/posix.dart';\n\nint uid = getuid();",
+    "confidence": 0.95
+  }
+}

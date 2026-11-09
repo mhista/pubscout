@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "10.3.3",
+  "generatedAt": "2026-11-07T16:26:18.671Z",
+  "data": {
+    "primary_category": "codegen",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "code generation"
+    ],
+    "one_liner": "Generates Dio client code from Retrofit‑style annotations.",
+    "what_it_does": "It reads abstract classes annotated with @RestApi and produces concrete implementations that use Dio for HTTP calls. Supports built_collection, lean_builder and custom builder options.",
+    "use_when": [
+      "You want type‑safe, compile‑time generated REST clients in Dart/Flutter",
+      "You prefer Retrofit‑style declarative API definitions over manual Dio requests"
+    ],
+    "avoid_when": [
+      "You need runtime‑only solutions without build_runner",
+      "You require advanced features not covered by Retrofit annotations"
+    ],
+    "strengths": [
+      "Reduces boilerplate for Dio calls",
+      "Integrates with build_runner and supports custom options",
+      "Keeps API definitions clean and type‑safe"
+    ],
+    "weaknesses": [
+      "Requires code generation step (build_runner)",
+      "Limited to features exposed by the package’s annotations"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add retrofit_generator and retrofit to pubspec, run flutter pub get, then execute flutter pub run build_runner build to generate code.",
+    "alternatives": [
+      {
+        "name": "retrofit",
+        "why_pick_it": "Provides the runtime API without code generation, useful if you prefer manual client implementation"
+      },
+      {
+        "name": "dio",
+        "why_pick_it": "Low‑level HTTP client; works without codegen if you want full control"
+      }
+    ],
+    "minimal_example": "import 'package:retrofit/retrofit.dart';\nimport 'package:dio/dio.dart';\n\npart 'example.g.dart';\n\n@RestApi(baseUrl: \"https://api.example.com\")\nabstract class ApiClient {\n  factory ApiClient(Dio dio, {String baseUrl}) = _ApiClient;\n\n  @GET(\"/users/{id}\")\n  Future<User> getUser(@Path(\"id\") String id);\n}\n\nvoid main() async {\n  final dio = Dio();\n  final client = ApiClient(dio);\n  final user = await client.getUser('123');\n  print(user);\n}",
+    "confidence": 0.95
+  }
+}

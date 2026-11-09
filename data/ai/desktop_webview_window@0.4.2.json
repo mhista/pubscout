@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.4.2",
+  "generatedAt": "2026-11-07T11:06:13.705Z",
+  "data": {
+    "primary_category": "web-desktop",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Show a native webview window on your Flutter desktop application.",
+    "what_it_does": "Opens web pages in native browser windows on macOS, Windows, and Linux. Provides JavaScript bridge communication, navigation controls, cookies management, and window customization.",
+    "use_when": [
+      "You need to display external web pages in native windows from a Flutter desktop app.",
+      "You need a cross-platform desktop webview supporting Windows, macOS, and Linux."
+    ],
+    "avoid_when": [
+      "You need to embed a webview widget inline within your normal Flutter widget tree.",
+      "You are targeting mobile or web platforms."
+    ],
+    "strengths": [
+      "Native window performance and native title bars across Windows, macOS, and Linux.",
+      "Built-in JavaScript bridge for bi-directional communication with web pages.",
+      "Fine-grained navigation control and callbacks."
+    ],
+    "weaknesses": [
+      "Requires platform-specific runtime dependencies (such as WebView2 on Windows and WebKitGTK on Linux).",
+      "Does not support embedding the webview inline as a standard Flutter widget."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires installing WebKitGTK and libsoup on Linux, and ensuring the WebView2 Runtime is available on Windows. macOS requires appropriate sandboxing entitlements.",
+    "alternatives": [],
+    "minimal_example": "import 'package:desktop_webview_window/desktop_webview_window.dart';\n\nfinal webview = await WebviewWindow.create();\nawait webview.launch('https://example.com');",
+    "confidence": 1
+  }
+}

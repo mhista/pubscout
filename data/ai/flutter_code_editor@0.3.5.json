@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.3.5",
+  "generatedAt": "2026-11-08T15:55:27.090Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "forms",
+      "ui-kits"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A customizable code field widget supporting syntax highlighting and code folding.",
+    "what_it_does": "Flutter Code Editor provides a multi-platform code editing widget with support for syntax highlighting across over 100 languages, code folding, autocompletion, named sections, and read-only code blocks. It also includes pluggable analyzers for error highlighting.",
+    "use_when": [
+      "You need an in-app code editor or text area with syntax highlighting.",
+      "You want to support code block folding and read-only sections for educational apps.",
+      "You need autocompletion and basic code analysis capabilities inside Flutter."
+    ],
+    "avoid_when": [
+      "You only need a simple, single-line text input field.",
+      "You require a full-fledged IDE-level code editor with deep semantic analysis and multi-file project management."
+    ],
+    "strengths": [
+      "Supports syntax highlighting for over 100 languages via the highlight package.",
+      "Includes advanced features like code folding, named sections, and read-only blocks.",
+      "Pluggable analyzers support local checks and DartPad integration."
+    ],
+    "weaknesses": [
+      "Autocompletion uses an unstructured dictionary without deep syntax analysis.",
+      "Code analysis features are considered experimental and may introduce breaking changes."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:flutter_code_editor/flutter_code_editor.dart';\nimport 'package:flutter_highlight/themes/monokai-sublime.dart';\nimport 'package:highlight/languages/java.dart';\n\nfinal controller = CodeController(\n  text: '...',\n  language: java,\n);\n\nclass CodeEditor extends StatelessWidget {\n  const CodeEditor();\n\n  @override\n  Widget build(BuildContext context) {\n    return MaterialApp(\n      home: Scaffold(\n        body: CodeTheme(\n          data: CodeThemeData(styles: monokaiSublimeTheme),\n          child: SingleChildScrollView(\n            child: CodeField(\n              controller: controller,\n            ),\n          ),\n        ),\n      ),\n    );\n  }\n}",
+    "confidence": 0.95
+  }
+}

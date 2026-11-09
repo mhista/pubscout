@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.2.1",
+  "generatedAt": "2026-11-07T11:11:02.840Z",
+  "data": {
+    "primary_category": "layout",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "Builds a vertical column where text wraps around floated widgets, similar to CSS float.",
+    "what_it_does": "Provides a FloatColumn widget and Floatable elements that allow text, RichText, and WrappableText to flow around left- or right-aligned widgets. It supports clearing floats, padding, margins, first-line indents, and text selection.",
+    "use_when": [
+      "You need CSS-style float and clear layouts in Flutter apps.",
+      "You want text to wrap around embedded images, logos, or drop caps."
+    ],
+    "avoid_when": [
+      "You only need standard linear vertical and horizontal stacking (standard Column and Row suffice)."
+    ],
+    "strengths": [
+      "Supports right-to-left text direction automatically.",
+      "Works with Flutter text selection and screen reader accessibility.",
+      "Supports nested FloatColumn widgets."
+    ],
+    "weaknesses": [
+      "Does not replace complex grid layouts (use staggered grid instead)."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "flutter_staggered_grid_view",
+        "why_pick_it": "Pick if you need complex multi-column grid layouts rather than CSS-like inline text floating."
+      }
+    ],
+    "minimal_example": "FloatColumn(\n  children: [\n    const Floatable(float: FCFloat.start, child: FlutterLogo(size: 80)),\n    const Text('Text children wrap around floated siblings too.'),\n  ],\n)",
+    "confidence": 1
+  }
+}

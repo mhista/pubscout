@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.2.1",
+  "generatedAt": "2026-11-08T15:16:39.428Z",
+  "data": {
+    "primary_category": "files",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "Monitors file system changes and notifies when files are added, removed, or modified.",
+    "what_it_does": "A file system watcher that monitors the contents of directories. It sends notifications when files have been added, removed, or modified across multiple platforms.",
+    "use_when": [
+      "You need to monitor directory contents for additions, deletions, or modifications.",
+      "Building developer tools or local file-processing utilities that react to file changes."
+    ],
+    "avoid_when": [
+      "You only need a one-time file picker interface instead of background observation."
+    ],
+    "strengths": [
+      "Cross-platform support for Android, iOS, Windows, macOS, and Linux.",
+      "Handles OS-specific quirks such as Windows buffer exhaustion and symlink loops."
+    ],
+    "weaknesses": [
+      "May hit system watcher limits on Linux depending on configuration.",
+      "Polling watchers may have limitations with low-resolution timestamps."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "No special setup or permissions documented.",
+    "alternatives": [],
+    "minimal_example": "import 'package:watcher/watcher.dart';\n\nvar watcher = DirectoryWatcher('path/to/directory');\nwatcher.events.listen((event) {\n  print(event);\n});",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.6.3",
+  "generatedAt": "2026-11-07T11:19:03.335Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "WebRTC plugin for real-time audio, video and data communication.",
+    "what_it_does": "Provides WebRTC APIs for Flutter applications across mobile, desktop, and web platforms. Enables peer-to-peer audio/video streaming, data channels, and screen capture using native GoogleWebRTC bindings.",
+    "use_when": [
+      "Building real-time video calling or audio conferencing applications",
+      "Implementing peer-to-peer data channels for multiplayer games or file sharing",
+      "Sharing screen contents across mobile and desktop platforms"
+    ],
+    "avoid_when": [
+      "You only need simple media playback from URLs without peer-to-peer streaming",
+      "You want a fully managed video backend without setting up signaling servers"
+    ],
+    "strengths": [
+      "Cross-platform support including iOS, Android, Web, macOS, Windows, and Linux",
+      "Comprehensive WebRTC feature set including Unified-Plan, Simulcast, and Data Channels",
+      "Actively maintained with regular updates to the underlying libwebrtc SDK"
+    ],
+    "weaknesses": [
+      "Requires manual configuration of native permissions and build settings",
+      "Complex API surface inherent to the WebRTC specification"
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Requires adding camera and microphone permissions in iOS Info.plist and Android Manifest, setting up Java 8 / minimum SDK version for Android, and configuring CocoaPods or Swift Package Manager.",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter_webrtc/flutter_webrtc.dart';\n\nfinal _localRenderer = RTCVideoRenderer();\nawait _localRenderer.initialize();\n\nfinal MediaStream stream = await navigator.mediaDevices.getUserMedia({\n  'audio': true,\n  'video': true\n});\n_localRenderer.srcObject = stream;",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.8.0",
+  "generatedAt": "2026-11-07T11:05:59.996Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "code generation"
+    ],
+    "one_liner": "Native Dart D-Bus client for Linux and Windows.",
+    "what_it_does": "Provides a pure Dart implementation of the D-Bus message bus client, allowing Dart applications to access services on the Linux desktop or Windows via FFI. It supports code generation from XML interface definitions and direct API usage.",
+    "use_when": [
+      "Accessing Linux desktop services via D-Bus",
+      "Building D-Bus clients in Dart",
+      "Generating Dart bindings from D-Bus XML interfaces"
+    ],
+    "avoid_when": [
+      "Running on macOS or other non-Linux/Windows platforms",
+      "When you only need a simple HTTP or WebSocket client"
+    ],
+    "strengths": [
+      "Native performance through FFI",
+      "Supports code generation for clean APIs",
+      "Cross-platform support for Linux and Windows"
+    ],
+    "weaknesses": [
+      "Only works on Linux and Windows",
+      "Requires native FFI setup",
+      "No support for macOS or other platforms"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add dependency, ensure libdbus (Linux) or equivalent on Windows is available, no build_runner needed.",
+    "alternatives": [],
+    "minimal_example": "import 'package:dbus/dbus.dart';\n\nFuture<void> main() async {\n  var client = DBusClient.session();\n  var object = DBusRemoteObject(client, name: 'com.example.Test', path: DBusObjectPath('/com/example/Test/Object'));\n  var version = await object.getProperty('com.example.Test', 'Version', signature: DBusSignature('s')).then((v)=>v.asString());\n  print('version: $version');\n  await client.close();\n}",
+    "confidence": 0.8
+  }
+}

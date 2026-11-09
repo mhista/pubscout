@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.4.2",
+  "generatedAt": "2026-11-07T11:24:16.391Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Secure hash functions, checksums, MACs, KDFs, and RNG optimized for Dart.",
+    "what_it_does": "Provides a pure-Dart library for cryptographic hash functions, checksum generators, message authentication codes, key derivation functions, and random/UUID generation. It supports one-shot operations and streaming inputs across multiple platforms.",
+    "use_when": [
+      "You need secure hashes, checksums, or key derivation algorithms in pure Dart.",
+      "You want cross-platform support including Flutter, VM, and Web."
+    ],
+    "avoid_when": [
+      "You are handling passwords without using a proper KDF like Argon2, scrypt, or bcrypt.",
+      "You require constant-time execution guarantees that pure Dart environments cannot provide."
+    ],
+    "strengths": [
+      "Runs on every platform with no native code or FFI dependencies.",
+      "Comprehensive collection of algorithms including block hashes, MACs, password KDFs, and OTP generators.",
+      "Supports both one-shot and streaming computation."
+    ],
+    "weaknesses": [
+      "Certain algorithms like XXHash64, XXH3, and XXH128 are not supported on the web platform.",
+      "Pure-Dart execution cannot guarantee constant-time operation against advanced timing side-channels."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "crypto",
+        "why_pick_it": "If you prefer the standard package maintained by the Dart team for basic hashing like SHA and MD5."
+      }
+    ],
+    "minimal_example": "import 'package:hashlib/hashlib.dart';\n\nvoid main() {\n  final text = 'Happy Hashing!';\n  print(sha256.string(text));\n}",
+    "confidence": 1
+  }
+}

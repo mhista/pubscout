@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "3.1.3",
+  "generatedAt": "2026-11-07T16:26:39.769Z",
+  "data": {
+    "primary_category": "dependency-injection",
+    "secondary_categories": [
+      "codegen"
+    ],
+    "approach": [
+      "code generation"
+    ],
+    "one_liner": "Code generator that creates GetIt registrations for the injectable library",
+    "what_it_does": "It scans Dart files for @Injectable annotations and generates boilerplate code that registers services with GetIt. The generated code is type‑safe and supports advanced features like private named parameters and multiple registrations.",
+    "use_when": [
+      "You need a large or complex dependency graph and want to avoid manual registration boilerplate.",
+      "You are already using injectable and want to keep the registration logic in a single place.",
+      "You want compile‑time safety for your service registrations."
+    ],
+    "avoid_when": [
+      "You prefer manual, declarative registration or have a very small project where the extra build step is unnecessary.",
+      "You are not using GetIt or injectable at all."
+    ],
+    "strengths": [
+      "Reduces boilerplate and manual errors in service registration.",
+      "Supports advanced features such as private named parameters and multiple registrations.",
+      "Integrates with build_runner for fast incremental builds.",
+      "Provides type safety and compile‑time checks."
+    ],
+    "weaknesses": [
+      "Requires build_runner and a code‑generation step.",
+      "Only works with the injectable package; not a general DI solution.",
+      "Adds a dependency on the code‑generation tooling and can increase build times for very large projects."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add injectable_generator to dev_dependencies, run `flutter pub run build_runner build` or `flutter pub run build_runner watch` to generate code.",
+    "alternatives": [],
+    "minimal_example": "```dart\nimport 'package:injectable/injectable.dart';\n\n@injectable\nclass ApiService {\n  ApiService();\n}\n\n@injectableInit\nvoid configureDependencies() => $initGetIt(getIt);\n```",
+    "confidence": 0.9
+  }
+}

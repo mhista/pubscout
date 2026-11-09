@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.6.0",
+  "generatedAt": "2026-11-07T11:13:06.664Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Fast native contacts management for Android, iOS, and macOS.",
+    "what_it_does": "Provides CRUD operations for contacts, accounts, groups, vCard import/export, and change listeners. It supports native dialogs and platform-specific capabilities such as SIM contacts and ringtones.",
+    "use_when": [
+      "You need to read, write, or manage device contacts across Android, iOS, and macOS.",
+      "You require fast bulk operations for large contact lists."
+    ],
+    "avoid_when": [
+      "You only need cross-platform storage that does not integrate with native system contacts.",
+      "You are targeting web or platforms other than Android, iOS, and macOS."
+    ],
+    "strengths": [
+      "High performance and scalable for large contact lists.",
+      "Comprehensive property support and native dialog integration."
+    ],
+    "weaknesses": [
+      "Requires platform-specific permissions setup.",
+      "Certain features (like SIM contacts or blocked numbers) are restricted to Android."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding READ_CONTACTS and WRITE_CONTACTS permissions in AndroidManifest.xml and NSContactsUsageDescription in iOS Info.plist.",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter_contacts/flutter_contacts.dart';\n\nfinal status = await FlutterContacts.permissions.request(PermissionType.readWrite);\nif (status == PermissionStatus.granted) {\n  List<Contact> contacts = await FlutterContacts.getAll();\n}",
+    "confidence": 0.95
+  }
+}

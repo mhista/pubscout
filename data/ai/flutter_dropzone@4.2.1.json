@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.2.1",
+  "generatedAt": "2026-11-08T15:31:15.845Z",
+  "data": {
+    "primary_category": "files",
+    "secondary_categories": [
+      "web-desktop"
+    ],
+    "approach": [
+      "declarative",
+      "imperative"
+    ],
+    "one_liner": "A drag-and-drop file plugin for Flutter Web applications.",
+    "what_it_does": "It exposes a DropzoneView platform view to handle dragging and dropping files into a Flutter Web app. It provides a controller with methods to retrieve file metadata, byte data, streams, or temporary URLs, and also supports picking files via a browser dialog.",
+    "use_when": [
+      "You are building a Flutter Web application that needs to accept dragged and dropped files.",
+      "You need to extract file metadata like name, size, MIME type, or read file contents on the web."
+    ],
+    "avoid_when": [
+      "You are targeting non-web platforms where drag-and-drop file handling is required, as it only functions on the web.",
+      "You only need drag-and-drop *inside* a Flutter app rather than dropping files *into* it from the OS."
+    ],
+    "strengths": [
+      "Seamless integration as a federated plugin that compiles cleanly on cross-platform apps without web-only errors.",
+      "Provides a rich controller API to read file data, streams, and manage temporary file URLs."
+    ],
+    "weaknesses": [
+      "Web only; it will not function on mobile platforms (returns error text on non-web platforms).",
+      "Underlying file references are HTML File API references with inherent browser limitations."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Use kIsWeb check when embedding DropzoneView to ensure cross-platform compilation.",
+    "alternatives": [],
+    "minimal_example": "Stack(\n  children: [\n    DropzoneView(\n      operation: DragOperation.copy,\n      cursor: CursorType.grab,\n      onCreated: (DropzoneViewController ctrl) => controller = ctrl,\n      onDropFile: (DropzoneFileInterface file) => print('Drop: ${file.webFile}'),\n    ),\n    Center(child: Text('Drop files here')),\n  ],\n)",
+    "confidence": 1
+  }
+}

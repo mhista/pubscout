@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "10.0.1",
+  "generatedAt": "2026-11-07T11:05:04.596Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "device",
+      "utils"
+    ],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "Multi-platform ICMP ping utility for Dart and Flutter with live statistics.",
+    "what_it_does": "Performs ICMP network pings across Windows, macOS, Linux, Android, and iOS. Exposes live round-trip statistics and packet-loss summaries through a reactive stream.",
+    "use_when": [
+      "You need to check network connectivity or host reachability in a Dart or Flutter application.",
+      "You want live latency statistics and packet-loss summaries during network diagnostics."
+    ],
+    "avoid_when": [
+      "You only need standard HTTP health checks rather than low-level ICMP ping packets."
+    ],
+    "strengths": [
+      "Supports all major platforms including native iOS via Swift and FFI",
+      "Provides real-time round-trip statistics and packet-loss summaries",
+      "Allows selecting specific network interfaces or IP versions (IPv4/IPv6)"
+    ],
+    "weaknesses": [
+      "Requires platform-specific configurations like iOS build hooks or macOS App Sandbox network entitlements",
+      "ICMP operations may be restricted by device firewalls or OS network permissions"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "iOS uses a bundled Swift ICMP engine compiled via build hooks requiring the 10.x SDK floor. macOS release builds with app sandbox require network client and server entitlements.",
+    "alternatives": [],
+    "minimal_example": "final ping = Ping('google.com', count: 5);\nping.stream.listen((event) {\n  print(event);\n});",
+    "confidence": 1
+  }
+}

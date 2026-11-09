@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.3.1",
+  "generatedAt": "2026-11-07T11:03:29.973Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Library for signing, verifying, encrypting and decrypting using pointycastle.",
+    "what_it_does": "Provides a convenient API for cryptographic operations such as HMAC, RSA, AES/GCM, and key pair generation. It wraps pointycastle to expose a simpler interface for Dart developers.",
+    "use_when": [
+      "Implementing JWT or JWS signing and verification",
+      "Encrypting/decrypting data with AES/GCM or RSA-OAEP",
+      "Generating symmetric or asymmetric key pairs for local use"
+    ],
+    "avoid_when": [
+      "Need highly optimized native crypto libraries",
+      "Working in environments that require WebAssembly or platform-specific native bindings"
+    ],
+    "strengths": [
+      "Simple, null‑safe API",
+      "Supports RSA‑PSS, RSA‑OAEP, AES/GCM, and HMAC",
+      "Cross‑platform (Android, iOS, Web, desktop)",
+      "Up-to-date pointycastle dependency"
+    ],
+    "weaknesses": [
+      "Relies on pointycastle, which may be slower than native libs",
+      "No async streaming API for large data",
+      "Limited to algorithms exposed by pointycastle"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:crypto_keys/crypto_keys.dart';\nimport 'dart:typed_data';\n\nvoid main() {\n  var keyPair = KeyPair.generateSymmetric(128);\n  var encrypter = keyPair.publicKey.createEncrypter(algorithms.encryption.aes.gcm);\n  var content = Uint8List.fromList('Secret'.codeUnits);\n  var encrypted = encrypter.encrypt(content);\n  var decrypter = keyPair.privateKey.createEncrypter(algorithms.encryption.aes.gcm);\n  var decrypted = decrypter.decrypt(encrypted);\n  print(String.fromCharCodes(decrypted));\n}",
+    "confidence": 0.9
+  }
+}

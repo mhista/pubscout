@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.33.1",
+  "generatedAt": "2026-11-08T16:01:08.677Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A customizable calendar widget with day, multi-day, month, and schedule views.",
+    "what_it_does": "Provides a customizable calendar widget supporting day, multi-day, month, and schedule views. It features drag-and-drop rescheduling, event resizing, timezones, and controllers for navigation and callbacks.",
+    "use_when": [
+      "You need a feature-rich calendar view with day, multi-day, month, and schedule layouts.",
+      "Your application requires event dragging, resizing, and timezone support."
+    ],
+    "avoid_when": [
+      "You only need a basic date picker rather than a full scheduling interface."
+    ],
+    "strengths": [
+      "Supports multiple calendar views (day, multi-day, month, schedule) in one widget.",
+      "Timezone aware with event data stored as UTC.",
+      "Includes drag-and-drop rescheduling and event resizing."
+    ],
+    "weaknesses": [
+      "Package is still in development prior to 1.0.0, so breaking changes can occur in minor releases."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dependencies to pubspec.yaml. Optionally add timezone and intl packages for timezones and localization.",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:kalender/kalender.dart';\n\nvoid main() {\n  runApp(const MyApp());\n}\n\nclass MyApp extends StatelessWidget {\n  const MyApp({super.key});\n\n  @override\n  Widget build(BuildContext context) {\n    return MaterialApp(\n      home: Scaffold(body: MyCalendar()),\n    );\n  }\n}\n\nclass MyCalendar extends StatefulWidget {\n  const MyCalendar({super.key});\n\n  @override\n  State<MyCalendar> createState() => _MyCalendarState();\n}\n\nclass _MyCalendarState extends State<MyCalendar> {\n  final eventsController = DefaultEventsController();\n  final kalenderController = KalenderController(\n    viewConfiguration: MultiDayViewConfiguration.week(\n      initialTimeOfDay: const KalenderTime(hour: 7, minute: 0),\n    ),\n  );\n\n  @override\n  void dispose() {\n    kalenderController.dispose();\n    eventsController.dispose();\n    super.dispose();\n  }\n\n  @override\n  Widget build(BuildContext context) {\n    return KalenderView(\n      eventsController: eventsController,\n      kalenderController: kalenderController,\n      callbacks: KalenderCallbacks(\n        onEventCreated: (event) => eventsController.addEvent(event),\n      ),\n    );\n  }\n}",
+    "confidence": 0.95
+  }
+}

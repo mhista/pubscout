@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.1.0",
+  "generatedAt": "2026-11-08T16:05:03.082Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "stream-based",
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Detect system and third-party VPN connections with native iOS and Android support.",
+    "what_it_does": "Detects active VPN connections using native iOS and Android APIs, including both system-configured VPN profiles and third-party applications like NordVPN or ExpressVPN. It provides one-time checks as well as real-time status streams and protocol details.",
+    "use_when": [
+      "You need to detect if a user is connected to a VPN on iOS, Android, or desktop platforms.",
+      "You require real-time updates when a user connects or disconnects from a VPN.",
+      "You need detailed information such as the active network interface and VPN protocol."
+    ],
+    "avoid_when": [
+      "You need to run VPN detection inside a web browser.",
+      "You require 100% precision on desktop operating systems where fallback heuristics are used."
+    ],
+    "strengths": [
+      "Detects both system-configured VPNs and third-party apps with high accuracy on mobile.",
+      "Provides a real-time status stream alongside one-time check methods.",
+      "App Store safe without requiring restricted entitlements."
+    ],
+    "weaknesses": [
+      "Desktop platforms rely on fallback interface name matching with lower accuracy.",
+      "Not supported on the web platform."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the ACCESS_NETWORK_STATE permission to your AndroidManifest.xml for Android support. No additional setup is required for iOS.",
+    "alternatives": [],
+    "minimal_example": "import 'package:vpn_connection_detector/vpn_connection_detector.dart';\n\nvoid checkVpn() async {\n  bool isVpnConnected = await VpnConnectionDetector.isVpnActive();\n  if (isVpnConnected) {\n    print('VPN is connected');\n  } else {\n    print('VPN is not connected');\n  }\n}",
+    "confidence": 1
+  }
+}

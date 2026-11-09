@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.1",
+  "generatedAt": "2026-11-07T11:22:32.220Z",
+  "data": {
+    "primary_category": "ai-ml",
+    "secondary_categories": [
+      "camera"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Detect and track objects in images or live camera feeds using Google's ML Kit.",
+    "what_it_does": "A Flutter plugin providing access to Google's ML Kit Object Detection and Tracking APIs. It enables detecting and tracking objects in static images or live camera streams using a base model, local custom TFLite models, or Firebase-hosted models.",
+    "use_when": [
+      "You need to detect and track bounding boxes of objects in camera feeds or static images.",
+      "You want to use custom TFLite models for object detection on mobile devices."
+    ],
+    "avoid_when": [
+      "You are building for Web or desktop platforms, which are not supported.",
+      "You do not want to manage platform-specific native setup for Android and iOS."
+    ],
+    "strengths": [
+      "Supports base model, local custom models, and Firebase models.",
+      "Handles both single images and live camera streams via DetectionMode."
+    ],
+    "weaknesses": [
+      "Mobile-only (Android and iOS); web and other platforms are not supported.",
+      "Requires manual platform configuration including specific iOS deployment targets and Xcode build settings."
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Requires iOS deployment target 15.0+, Xcode 15.3.0+, Swift Package Manager setup with specific linker flags, downloading ML Kit resource bundles, and setting Android minSdkVersion to 21+ with compile/target SDK 36.",
+    "alternatives": [],
+    "minimal_example": "final options = ObjectDetectorOptions(\n  mode: DetectionMode.stream,\n  classifyObjects: true,\n  multipleObjects: true,\n);\nfinal objectDetector = ObjectDetector(options: options);\nfinal List<DetectedObject> objects = await objectDetector.processImage(inputImage);",
+    "confidence": 1
+  }
+}

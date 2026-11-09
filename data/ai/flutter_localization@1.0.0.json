@@ -1,0 +1,48 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.0",
+  "generatedAt": "2026-11-07T11:15:04.222Z",
+  "data": {
+    "primary_category": "localization",
+    "secondary_categories": [],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "In-app localization package supporting map data or JSON assets with runtime language switching.",
+    "what_it_does": "Allows developers to add in-app localization using either in-memory Map data or JSON asset files. It provides methods to initialize languages, translate keys, format strings with arguments, and change locales at runtime.",
+    "use_when": [
+      "You want to manage app translations using in-memory Dart maps or flat JSON assets.",
+      "You need dynamic runtime language switching backed by a ChangeNotifier."
+    ],
+    "avoid_when": [
+      "You require code generation for type-safe translation keys.",
+      "Your translation JSON files require nested objects, arrays, or non-string values."
+    ],
+    "strengths": [
+      "Supports both Map data and JSON asset files as sources.",
+      "Persists selected locales automatically using shared_preferences.",
+      "Provides built-in text formatting and native language name lookups."
+    ],
+    "weaknesses": [
+      "JSON translation files must be strictly flat objects containing only string values.",
+      "No compile-time key checking or code generation."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Call WidgetsFlutterBinding.ensureInitialized() and FlutterLocalization.instance.ensureInitialized() in main, then initialize the localization instance in initState.",
+    "alternatives": [
+      {
+        "name": "intl",
+        "why_pick_it": "Standard internationalization library backed by the Flutter team with rich formatting and plurals."
+      },
+      {
+        "name": "slang",
+        "why_pick_it": "Provides type-safe translations and compile-time verification using code generation."
+      }
+    ],
+    "minimal_example": "Future<void> main() async {\n  WidgetsFlutterBinding.ensureInitialized();\n  await FlutterLocalization.instance.ensureInitialized();\n  runApp(const MyApp());\n}",
+    "confidence": 0.95
+  }
+}

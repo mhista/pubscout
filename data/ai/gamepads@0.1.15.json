@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.1.15",
+  "generatedAt": "2026-11-08T15:57:32.786Z",
+  "data": {
+    "primary_category": "games",
+    "secondary_categories": [
+      "device"
+    ],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "A Flutter plugin to handle gamepad and joystick input across multiple platforms.",
+    "what_it_does": "Handles connected gamepads, tracking connection events, raw button/axis presses, and normalized input streams across Android, iOS, macOS, Linux, Windows, and Web. It also supports controller vibration and rumble effects.",
+    "use_when": [
+      "You are building a game in Flutter that needs multi-platform controller support.",
+      "You want consistent normalized gamepad buttons and axes layout across different operating systems."
+    ],
+    "avoid_when": [
+      "You only need basic touch and mouse pointer events.",
+      "You require complex force feedback features beyond standard dual-motor rumble."
+    ],
+    "strengths": [
+      "Supports multiple simultaneous gamepads with auto-connection listening.",
+      "Normalized event stream abstracts platform-specific quirks and controller layouts.",
+      "Cross-platform controller rumble/vibration support."
+    ],
+    "weaknesses": [
+      "Android requires custom MainActivity boilerplate to forward input events.",
+      "Vendor and product IDs are null on macOS and iOS.",
+      "Linux requires SDL GameController DB mappings for unknown controllers."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding platform-specific handling such as MainActivity boilerplate input dispatching on Android, and C++ desktop support / Windows SDK for Windows targets.",
+    "alternatives": [],
+    "minimal_example": "Gamepads.normalizedEvents.listen((event) {\n  if (event.button == GamepadButton.a && event.value != 0) {\n    print('A button pressed!');\n  }\n});",
+    "confidence": 0.95
+  }
+}

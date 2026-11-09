@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.15.3",
+  "generatedAt": "2026-11-07T11:19:14.622Z",
+  "data": {
+    "primary_category": "games",
+    "secondary_categories": [
+      "animation"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "A 2D physics engine for Dart, binding to the native Box2D v3 library.",
+    "what_it_does": "Provides an idiomatic Dart API for the native Box2D v3 physics engine. Supports simulations running at native speed via FFI across multiple platforms, and also works with the Flame game engine.",
+    "use_when": [
+      "You are building a 2D game in Dart or Flutter requiring rigid body physics.",
+      "You are using the Flame game engine and need advanced 2D collision detection and gravity."
+    ],
+    "avoid_when": [
+      "You are building standard business apps or UIs that do not require physics simulations.",
+      "You cannot include a native C toolchain for compilation on target desktop/mobile platforms."
+    ],
+    "strengths": [
+      "High performance via native Box2D v3 bindings and WebAssembly on the web.",
+      "Integrates seamlessly with the Flame game engine."
+    ],
+    "weaknesses": [
+      "Requires a C toolchain on native platforms (Xcode, Visual Studio, gcc/clang, NDK).",
+      "Breaking changes from older versions require manual migration."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires a C toolchain on native platforms (Xcode, Visual Studio, clang/gcc, NDK) and calling await initializeForge2D() at startup.",
+    "alternatives": [
+      {
+        "name": "flame",
+        "why_pick_it": "If you want a complete game engine ecosystem rather than a standalone physics library."
+      }
+    ],
+    "minimal_example": "import 'package:forge2d/forge2d.dart';\n\nFuture<void> main() async {\n  await initializeForge2D();\n  final world = World();\n  world.createBody(BodyDef(position: Vector2(0, -1))).createShape(Polygon.box(50, 1));\n  world.destroy();\n}",
+    "confidence": 1
+  }
+}

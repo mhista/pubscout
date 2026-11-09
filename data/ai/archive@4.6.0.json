@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.6.0",
+  "generatedAt": "2026-11-07T10:57:10.231Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "files"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Encodes and decodes archive and compression formats such as zip, tar, gzip, and zlib.",
+    "what_it_does": "Provides encoders and decoders for various archive and compression formats. It handles reading and writing zip, tar, bzip2, gzip, zlib, xz, and zstd formats both in memory and via streaming.",
+    "use_when": [
+      "You need to read or write zip and tar archives within a Dart or Flutter app.",
+      "You need to decompress or compress data using formats like GZip, ZLib, BZip2, XZ, or Zstandard."
+    ],
+    "avoid_when": [
+      "You are running on the web platform and need to use InputFileStream for local file system access."
+    ],
+    "strengths": [
+      "Supports a wide variety of compression and archive formats.",
+      "Provides stream-based APIs and memory-efficient file streaming to minimize memory usage."
+    ],
+    "weaknesses": [
+      "File system operations like InputFileStream are not supported on the web platform."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:archive/archive.dart';\nimport 'dart:io';\nvoid main() {\n  final bytes = File('test.zip').readAsBytesSync();\n  final archive = ZipDecoder().decodeBytes(bytes);\n  for (final entry in archive) {\n    if (entry.isFile) {\n      final fileBytes = entry.content;\n      File('out/${entry.name}')\n        ..createSync(recursive: true)\n        ..writeAsBytesSync(fileBytes);\n    }\n  }\n}",
+    "confidence": 1
+  }
+}

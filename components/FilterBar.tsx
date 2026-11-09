@@ -38,7 +38,7 @@ export function FilterBar({ categories, platforms, worksWith, lockedCategory, so
     with: getList("with").length,
     health: Number(!!sp.get("min")),
     activity: Number(!!sp.get("active")) + Number(!!sp.get("dl")) + Number(flag("stable")),
-    trust: Number(flag("verified")) + Number(flag("permissive")) + Number(flag("disc")),
+    trust: Number(flag("verified")) + Number(flag("permissive")) + Number(flag("disc")) + Number(flag("essential")),
     setup: Number(flag("pure")) + Number(flag("nonative")) + Number(flag("nocodegen")),
   };
   const any = Object.values(counts).some(Boolean);
@@ -80,6 +80,8 @@ export function FilterBar({ categories, platforms, worksWith, lockedCategory, so
         <Check label="Verified publisher" checked={flag("verified")} onChange={() => toggleFlag("verified")} />
         <Check label="Permissive license only" hint="MIT, BSD, Apache" checked={flag("permissive")} onChange={() => toggleFlag("permissive")} />
         <Check label="Include discontinued" checked={flag("disc")} onChange={() => toggleFlag("disc")} />
+        <Sep />
+        <Check label="Essentials only" hint="Hand-picked, worth knowing" checked={flag("essential")} onChange={() => toggleFlag("essential")} />
       </Menu>
       <Menu label="Setup" count={counts.setup}>
         <Check label="Pure Dart only" checked={flag("pure")} onChange={() => toggleFlag("pure")} />

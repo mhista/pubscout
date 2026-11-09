@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.0.15",
+  "generatedAt": "2026-11-08T15:36:58.709Z",
+  "data": {
+    "primary_category": "backend",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "A lightweight Dart client for communicating with a Redis server.",
+    "what_it_does": "Provides a Dart API to connect to a Redis server, execute commands like set, get, delete, and close the connection. Supports TLS, authentication, and several Redis data types including strings, JSON, and time series.",
+    "use_when": [
+      "You need fast, in‑memory caching or pub/sub via Redis from a Flutter/Dart app",
+      "Your backend already uses Redis and you want a direct client without an HTTP layer"
+    ],
+    "avoid_when": [
+      "You require offline‑first storage on the device",
+      "You need a relational or NoSQL database on the device"
+    ],
+    "strengths": [
+      "TLS and credential support for secure connections",
+      "Supports multiple Redis data types (strings, JSON, TimeSeries)",
+      "Pure Dart, no native plugins required"
+    ],
+    "weaknesses": [
+      "Only works with a reachable Redis server; no offline fallback",
+      "Limited to Redis functionality; not a full‑featured database"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:shorebird_redis_client/shorebird_redis_client.dart';\n\nFuture<void> main() async {\n  final client = RedisClient();\n  await client.connect();\n  await client.set(key: 'HELLO', value: 'WORLD');\n  final value = await client.get(key: 'HELLO'); // WORLD\n  await client.delete(key: 'HELLO');\n  await client.close();\n}",
+    "confidence": 0.9
+  }
+}

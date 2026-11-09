@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.5.0",
+  "generatedAt": "2026-11-07T11:23:15.442Z",
+  "data": {
+    "primary_category": "maps",
+    "secondary_categories": [
+      "utils",
+      "files"
+    ],
+    "approach": [
+      "no codegen"
+    ],
+    "one_liner": "Load, manipulate, and save GPS data in GPX format.",
+    "what_it_does": "A Dart library for parsing and generating GPX files containing waypoints, routes, and tracks. It also supports exporting GPX data to KML format and includes typed models for Garmin extensions.",
+    "use_when": [
+      "You need to parse or generate GPX files in a Dart or Flutter application",
+      "You need to export GPS data to KML format for Google Earth",
+      "You need typed access to Garmin GpxExtensions"
+    ],
+    "avoid_when": [
+      "You need GPX 1.0 support",
+      "You need to read or write directly from files instead of strings",
+      "You require schema validation"
+    ],
+    "strengths": [
+      "Easy to use reader and writer for GPX data",
+      "Supports KML export",
+      "Includes typed Garmin extension support",
+      "Compatibility modes for strict GPX parsers"
+    ],
+    "weaknesses": [
+      "No support for GPX 1.0",
+      "Reads and writes exclusively from/to strings rather than streams or files directly",
+      "Does not validate schema declarations"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:gpx/gpx.dart';\n\nvoid main() {\n  final xmlGpx = GpxReader().fromString('<?xml version=\"1.0\" encoding=\"UTF-8\"?>' \\\n      '<gpx version=\"1.1\" creator=\"dart-gpx library\">' \\\n      '<wpt lat=\"-25.7996\" lon=\"-62.8666\"><ele>10.0</ele><name>Monte Quemado</name><desc>Argentina</desc></wpt>' \\\n      '</gpx>');\n\n  print(xmlGpx);\n  print(xmlGpx.wpts);\n}",
+    "confidence": 0.95
+  }
+}

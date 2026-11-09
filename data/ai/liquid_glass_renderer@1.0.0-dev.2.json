@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.0-dev.2",
+  "generatedAt": "2026-11-08T15:51:55.881Z",
+  "data": {
+    "primary_category": "ui-kits",
+    "secondary_categories": [
+      "widgets",
+      "animation",
+      "theming"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "iOS 27-style liquid glass renderer for Flutter with refraction, frost, and tint.",
+    "what_it_does": "Renders Apple iOS 27-style liquid glass effects in Flutter, featuring refraction through a rounded bevel, frost, tint, directional glint, and shapes that melt into each other. It uses Flutter's own rendering via Flutter GPU and shaders, with an automatic fallback to FakeGlass.",
+    "use_when": [
+      "You want to replicate iOS 27-style liquid glass, toolbars, or tab bars in your Flutter app.",
+      "You are targeting platforms supporting Impeller and Flutter GPU for full glass refraction effects."
+    ],
+    "avoid_when": [
+      "You need a simple non-refractive translucent container without GPU requirements.",
+      "You are building for environments where Flutter GPU or Impeller is unavailable and you require full refraction."
+    ],
+    "strengths": [
+      "Authentic replication of iOS 27 glass aesthetics including bevel refraction, glint, and border styling.",
+      "Supports shape blending ('melting' together like water drops).",
+      "Automatic fallback to FakeGlass where full glass is unavailable."
+    ],
+    "weaknesses": [
+      "Full glass requires Impeller and the Flutter GPU API, which is still in preview.",
+      "A layer renders at most 16 shapes and independent layers sample the backdrop separately, impacting performance."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires Flutter 3.47+. Full glass needs Impeller and Flutter GPU enabled via command line (--enable-flutter-gpu) or native configuration (FLTEnableFlutterGPU in Info.plist / AndroidManifest.xml metadata).",
+    "alternatives": [],
+    "minimal_example": "Stack(\n  children: [\n    const Positioned.fill(child: MyContent()),\n    Center(\n      child: LiquidGlassLayer(\n        settings: LiquidGlassSettings.ios27Regular(brightness: Brightness.light),\n        child: const LiquidGlass(\n          shape: LiquidRoundedSuperellipse(borderRadius: 28),\n          child: SizedBox(width: 220, height: 56),\n        ),\n      ),\n    ),\n  ],\n)",
+    "confidence": 0.95
+  }
+}

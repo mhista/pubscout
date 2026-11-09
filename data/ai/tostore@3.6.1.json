@@ -1,0 +1,56 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.6.1",
+  "generatedAt": "2026-11-08T15:23:22.067Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [
+      "ai-ml"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based",
+      "declarative"
+    ],
+    "one_liner": "Local data engine providing key-value, SQL/NoSQL tables, vector embeddings, and hybrid text search.",
+    "what_it_does": "ToStore is a local data engine supporting structured tables, key-value storage, vector embeddings, and full-text search. It offers cross-platform offline storage, ACID transactions, automatic schema evolution, encryption, and reactive queries.",
+    "use_when": [
+      "Building local-first apps requiring complex queries, relations, and full-text or vector search.",
+      "Implementing on-device RAG or AI agent memory requiring hybrid retrieval and embeddings.",
+      "Needing an offline-capable database with encryption and multi-space data isolation."
+    ],
+    "avoid_when": [
+      "You only need a simple, lightweight key-value store and prefer a smaller dependency footprint.",
+      "Your project relies purely on a cloud backend and does not require local persistence or vector searching."
+    ],
+    "strengths": [
+      "Unified API combining structured tables, key-value, vector search, and full-text search.",
+      "Cross-platform support across mobile, desktop, and web.",
+      "Built-in data encryption and reactive query streams for local UI updates."
+    ],
+    "weaknesses": [
+      "Relatively new package with a massive scope that may increase binary size or complexity.",
+      "Requires managing specific schema definitions and query configurations."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add to pubspec.yaml and initialize via ToStore.open().",
+    "alternatives": [
+      {
+        "name": "drift",
+        "why_pick_it": "If you want a robust, type-safe SQLite database builder for Flutter without the specialized vector and hybrid search engines."
+      },
+      {
+        "name": "hive_ce",
+        "why_pick_it": "If you are looking for a fast, lightweight pure-Dart key-value and box database."
+      },
+      {
+        "name": "sqflite",
+        "why_pick_it": "If you prefer traditional, raw SQLite access on mobile platforms."
+      }
+    ],
+    "minimal_example": "final db = await ToStore.open();\nawait db.setValue('user_profile', {'name': 'John', 'age': 25});\nfinal profile = await db.getValue('user_profile');",
+    "confidence": 0.95
+  }
+}

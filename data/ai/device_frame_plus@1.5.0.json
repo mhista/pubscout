@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.5.0",
+  "generatedAt": "2026-11-08T15:26:38.286Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "ui-kits",
+      "testing"
+    ],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "Mockups and frames for common devices to preview and test Flutter apps.",
+    "what_it_does": "Provides simulated device frames (phones, tablets, laptops, desktop monitors) to wrap widgets inside. Includes support for custom device creation, simulated virtual keyboards, and matching device media queries.",
+    "use_when": [
+      "You want to preview your app UI within simulated device frames.",
+      "You need to test how your layout behaves on different screen sizes and platforms.",
+      "You want to render a simulated virtual keyboard inside your test frames."
+    ],
+    "avoid_when": [
+      "You need a full interactive device preview environment with state inspection tools like DevicePreview.",
+      "You are building a production user interface that requires real hardware controls."
+    ],
+    "strengths": [
+      "Supports a wide variety of preset devices across iOS, Android, Windows, macOS, and Linux.",
+      "Allows custom generic device creation using factories like DeviceInfo.genericPhone.",
+      "Includes a simulated virtual keyboard widget."
+    ],
+    "weaknesses": [
+      "Limited to visual device frames and basic simulated UI wrappers rather than complete system emulation.",
+      "Does not include advanced built-in localization or multi-device scale controls compared to larger preview tools."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Simply wrap any widget in a DeviceFrame and pass a device model.",
+    "alternatives": [],
+    "minimal_example": "DeviceFrame(\n    device: Devices.ios.iPhone11,\n    isFrameVisible: true,\n    orientation: Orientation.portrait,\n    screen: Container(\n        color: Colors.blue,\n        child: Text('Hello'),\n    ),\n)",
+    "confidence": 0.95
+  }
+}

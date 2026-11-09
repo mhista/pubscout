@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.1.5",
+  "generatedAt": "2026-11-08T15:26:20.395Z",
+  "data": {
+    "primary_category": "backend",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "A request router for the shelf web-framework with support for URL parameters and nested routers.",
+    "what_it_does": "It matches incoming HTTP requests to handlers using route patterns. It supports URL parameters, nested routers, and can be used with source annotations via shelf_router_generator.",
+    "use_when": [
+      "You are building a web application or API in Dart using the shelf framework",
+      "You need URL parameters and nested routing capabilities for your server"
+    ],
+    "avoid_when": [
+      "You are building a client-side Flutter application UI and need screen navigation",
+      "You are not using the shelf package for your backend"
+    ],
+    "strengths": [
+      "Convenient routing matching for shelf web applications",
+      "Supports nested routers and URL parameters",
+      "Prefix Trie filter optimization for static path segments"
+    ],
+    "weaknesses": [
+      "Limited to the shelf ecosystem",
+      "Requires manual handler mapping unless using the separate generator package"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add shelf and shelf_router to your pubspec.yaml dependencies.",
+    "alternatives": [],
+    "minimal_example": "import 'package:shelf_router/shelf_router.dart';\nimport 'package:shelf/shelf.dart';\nimport 'package:shelf/shelf_io.dart' as io;\n\nvar router = Router();\n\nrouter.get('/hello', (Request request) {\n  return Response.ok('hello-world');\n});\n\nrouter.get('/user/<user>', (Request request, String user) {\n  return Response.ok('hello $user');\n});",
+    "confidence": 1
+  }
+}

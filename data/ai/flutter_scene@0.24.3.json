@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.24.3",
+  "generatedAt": "2026-11-07T11:17:15.311Z",
+  "data": {
+    "primary_category": "games",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "declarative"
+    ],
+    "one_liner": "A 3D game engine for Flutter built on Flutter GPU with PBR lighting and glTF support.",
+    "what_it_does": "Renders 3D scenes, glTF models, and geometries with PBR lighting, shadows, physics, and animation using Flutter GPU. It runs on mobile, desktop, and the web, and includes a desktop scene editor and asset pipeline.",
+    "use_when": [
+      "You want to build 3D games or interactive graphics experiences within Flutter.",
+      "You need glTF model rendering with PBR lighting and shadows across all Flutter platforms."
+    ],
+    "avoid_when": [
+      "You only need standard 2D UI layouts and standard Flutter widgets.",
+      "You are running on Flutter versions that do not support Flutter GPU or you cannot enable it."
+    ],
+    "strengths": [
+      "Built on Flutter GPU for native-tier performance across mobile, desktop, and web.",
+      "Supports PBR materials, physics, positional audio, and skeletal animation.",
+      "Includes a build-time asset pipeline for optimization and a scene editor."
+    ],
+    "weaknesses": [
+      "Requires enabling Flutter GPU flags and specific platform setup.",
+      "Asset pipeline and shader compilation require build hooks."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires running `dart run flutter_scene:init`, enabling Flutter GPU in platform configuration files or command-line flags, and Flutter 3.47.1+ for some native targets.",
+    "alternatives": [
+      {
+        "name": "flame",
+        "why_pick_it": "If you want a mature 2D game engine with extensive component and ecosystem support."
+      }
+    ],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:flutter_scene/scene.dart';\nimport 'package:vector_math/vector_math.dart' as vm;\n\nvoid main() => runApp(const MaterialApp(home: CubeView()));\n\nclass CubeView extends StatefulWidget {\n  const CubeView({super.key});\n\n  @override\n  State<CubeView> createState() => _CubeViewState();\n}\n\nclass _CubeViewState extends State<CubeView> {\n  final Scene scene = Scene();\n  bool ready = false;\n\n  @override\n  void initState() {\n    super.initState();\n    Scene.initializeStaticResources().then((_) {\n      scene.add(\n        Node(\n          mesh: Mesh(\n            CuboidGeometry(vm.Vector3(1, 1, 1)),\n            PhysicallyBasedMaterial(),\n          ),\n        ),\n      );\n      if (mounted) setState(() => ready = true);\n    });\n  }\n\n  @override\n  Widget build(BuildContext context) {\n    if (!ready) return const SizedBox.expand();\n    return SceneView(\n      scene,\n      camera: PerspectiveCamera(position: vm.Vector3(2, 2, -4)),\n    );\n  }\n}",
+    "confidence": 0.95
+  }
+}

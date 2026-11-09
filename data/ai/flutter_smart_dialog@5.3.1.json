@@ -1,0 +1,52 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "5.3.1",
+  "generatedAt": "2026-11-07T11:18:02.992Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "ui-kits",
+      "notifications"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "An elegant Flutter dialog, toast, and loading solution without needing BuildContext.",
+    "what_it_does": "Provides an easy-to-use API for displaying custom dialogs, toasts, loading indicators, and notifications from anywhere in the app without requiring a BuildContext. It supports dialog stacking, masking, positioning relative to widgets, and global configurations.",
+    "use_when": [
+      "You need to show toasts, loading indicators, or custom dialogs globally without passing BuildContext down the tree.",
+      "You require advanced dialog features like masking, penetration, and stacking management."
+    ],
+    "avoid_when": [
+      "You prefer purely declarative routing and widget-based dialog management."
+    ],
+    "strengths": [
+      "Does not require BuildContext for invocation",
+      "Easily customizable loading, toast, and dialog widgets",
+      "Supports dialog stacks and closing specific dialogs"
+    ],
+    "weaknesses": [
+      "Imperative API pattern might not fit cleanly into strict declarative state-management architectures."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires adding navigatorObservers and builder initialization in MaterialApp.",
+    "alternatives": [
+      {
+        "name": "bot_toast",
+        "why_pick_it": "A mature alternative for managing toasts and loading states globally without BuildContext."
+      },
+      {
+        "name": "toastification",
+        "why_pick_it": "A modern, highly customizable toast notification system for Flutter."
+      },
+      {
+        "name": "flutter_easyloading",
+        "why_pick_it": "Focused specifically on easy-to-use global loading and toast indicators."
+      }
+    ],
+    "minimal_example": "void main() => runApp(MyApp());\n\nclass MyApp extends StatelessWidget {\n  @override\n  Widget build(BuildContext context) {\n    return MaterialApp(\n      home: HomePage(),\n      navigatorObservers: [FlutterSmartDialog.observer],\n      builder: FlutterSmartDialog.init(),\n    );\n  }\n}",
+    "confidence": 1
+  }
+}

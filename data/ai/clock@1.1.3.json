@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.1.3",
+  "generatedAt": "2026-11-08T15:16:26.524Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "testing"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "A fakeable wrapper for dart:core clock APIs.",
+    "what_it_does": "Encapsulates the notion of the current time using a Clock class. Allows swapping out the default top-level clock to reliably test timing-dependent code.",
+    "use_when": [
+      "You need to test timing-dependent code reliably",
+      "You want to mock time or use fake_async for tests"
+    ],
+    "avoid_when": [
+      "You only need standard DateTime functionality without mocking or testing requirements"
+    ],
+    "strengths": [
+      "Integrates seamlessly with the fake_async package",
+      "Provides a top-level clock field for default usage"
+    ],
+    "weaknesses": [
+      "Requires using the wrapper instead of direct dart:core DateTime calls"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:clock/clock.dart';\n\nT runWithTiming<T>(T Function() callback) {\n  var stopwatch = clock.stopwatch()..start();\n  var result = callback();\n  print('It took ${stopwatch.elapsed}!');\n  return result;\n}",
+    "confidence": 1
+  }
+}

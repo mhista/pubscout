@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.6.0",
+  "generatedAt": "2026-11-07T11:14:33.162Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "web-desktop"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "A simple wrapper around libserialport for Flutter build and deployment.",
+    "what_it_does": "It wraps the libserialport package and utilizes Flutter's build system to build and deploy the C-library under the hood for target platforms. It works out of the box without the need for manually building and deploying the underlying C-library.",
+    "use_when": [
+      "You need to communicate with serial devices in your Flutter application.",
+      "You want to avoid manually building and deploying the native libserialport C-library."
+    ],
+    "avoid_when": [
+      "You do not need serial port functionality.",
+      "You are targeting platforms outside of Linux, macOS, Windows, and Android."
+    ],
+    "strengths": [
+      "Works out of the box without manual C-library building.",
+      "Supports multiple platforms including Linux, macOS, Windows, and Android."
+    ],
+    "weaknesses": [
+      "Does not provide any additional API beyond the base libserialport package."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add flutter_libserialport as a dependency in your pubspec.yaml file. Platform-specific entitlements (such as serial device entitlement for macOS) may be required depending on your use case.",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter_libserialport/flutter_libserialport.dart';\n\nvoid main() {\n  var availablePorts = SerialPort.availablePorts;\n  for (var address in availablePorts) {\n    print(address);\n  }\n}",
+    "confidence": 1
+  }
+}

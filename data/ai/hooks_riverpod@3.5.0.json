@@ -1,0 +1,55 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.5.0",
+  "generatedAt": "2026-11-07T11:25:07.813Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [
+      "dependency-injection"
+    ],
+    "approach": [
+      "declarative",
+      "hooks"
+    ],
+    "one_liner": "A reactive caching, data-binding, and state management framework with flutter_hooks integration.",
+    "what_it_does": "Hooks Riverpod combines Riverpod state management and dependency injection with flutter_hooks. It handles asynchronous data loading, error states, and caching automatically while making your code testable and modular.",
+    "use_when": [
+      "You are using flutter_hooks in your application and want to use Riverpod for state management.",
+      "You need robust caching and automated handling of loading and error states for asynchronous operations.",
+      "You want compile-safe dependency injection and testable state."
+    ],
+    "avoid_when": [
+      "You prefer the standard Flutter InheritedWidget or Provider without additional state libraries.",
+      "You do not use flutter_hooks in your project (use flutter_riverpod instead)."
+    ],
+    "strengths": [
+      "Native integration with flutter_hooks.",
+      "Builds on Riverpod's powerful caching, auto-dispose, and async state handling.",
+      "Compile-safe provider definitions and easy testability."
+    ],
+    "weaknesses": [
+      "Tied to the flutter_hooks library ecosystem.",
+      "Steeper learning curve compared to simple ValueNotifiers or standard setState."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Not documented",
+    "alternatives": [
+      {
+        "name": "flutter_riverpod",
+        "why_pick_it": "If you want the core Riverpod experience without depending on flutter_hooks."
+      },
+      {
+        "name": "provider",
+        "why_pick_it": "If you prefer the classic InheritedWidget-based Provider library."
+      },
+      {
+        "name": "flutter_bloc",
+        "why_pick_it": "If you prefer a strict BLoC and event-driven state management pattern."
+      }
+    ],
+    "minimal_example": "class Home extends ConsumerWidget {\n  @override\n  Widget build(BuildContext context, WidgetRef ref) {\n    final breweryName = ref.watch(breweryNameProvider);\n    return switch (breweryName) {\n      AsyncData(:final value) => Text('data: $value'),\n      AsyncError(:final error) => Text('error: $error'),\n      _ => const Text('loading'),\n    };\n  }\n}",
+    "confidence": 1
+  }
+}

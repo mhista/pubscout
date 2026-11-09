@@ -1,0 +1,55 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.1.0",
+  "generatedAt": "2026-11-07T11:19:14.491Z",
+  "data": {
+    "primary_category": "camera",
+    "secondary_categories": [
+      "images"
+    ],
+    "approach": [
+      "imperative",
+      "declarative"
+    ],
+    "one_liner": "Barcode and QR code scanner and generator using Dart FFI and ZXing C++.",
+    "what_it_does": "Scans single or multiple 1D and 2D barcodes from camera streams, local files, URLs, or raw pixel bytes, and generates custom QR codes and barcodes. Built with native Dart FFI bindings to the ZXing C++ library.",
+    "use_when": [
+      "You need high-performance barcode and QR code scanning in a Flutter application.",
+      "You need to generate custom QR codes or barcodes and export them as images.",
+      "You require support for multiple barcode formats on mobile and desktop platforms."
+    ],
+    "avoid_when": [
+      "You are targeting the web platform, which is not supported due to Dart FFI limitations.",
+      "You do not want to manage native dependencies or C++ integration setups."
+    ],
+    "strengths": [
+      "High performance powered by the ZXing C++ library via Dart FFI.",
+      "Supports a wide range of linear and matrix barcode formats for reading and writing.",
+      "Provides convenient built-in UI widgets like ReaderWidget and WriterWidget."
+    ],
+    "weaknesses": [
+      "Not supported on the web platform.",
+      "Desktop camera support requires additional setup like camera_desktop."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires platform-specific camera permissions (e.g., NSCameraUsageDescription on macOS/iOS) and extra configuration for desktop camera streams.",
+    "alternatives": [
+      {
+        "name": "mobile_scanner",
+        "why_pick_it": "Alternative barcode scanner plugin leveraging platform-native scanning APIs."
+      },
+      {
+        "name": "google_mlkit_barcode_scanning",
+        "why_pick_it": "Uses Google's ML Kit for on-device barcode scanning without relying on FFI."
+      },
+      {
+        "name": "qr_flutter",
+        "why_pick_it": "Dedicated pure-Dart QR code generation widget without native dependencies."
+      }
+    ],
+    "minimal_example": "ReaderWidget(\n  onScan: (result) async {\n    // Do something with the result\n  },\n)",
+    "confidence": 0.95
+  }
+}

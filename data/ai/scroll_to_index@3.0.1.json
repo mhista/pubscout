@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.0.1",
+  "generatedAt": "2026-11-08T15:26:25.730Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "layout"
+    ],
+    "approach": [
+      "declarative",
+      "imperative"
+    ],
+    "one_liner": "Scroll to a specific child of any scrollable widget in Flutter.",
+    "what_it_does": "Provides a mechanism to scroll to a specific index inside any Flutter scrollable widget using an AutoScrollController and AutoScrollTag. Supports both fixed and variable row heights.",
+    "use_when": [
+      "You need to programmatically scroll a ListView or other scrollable widget to a specific item index.",
+      "You want to highlight children when they are scrolled into view."
+    ],
+    "avoid_when": [
+      "You do not need to target specific child indices programmatically in your scroll views."
+    ],
+    "strengths": [
+      "Works with any Flutter scrollable widget.",
+      "Supports both fixed and variable row heights.",
+      "Provides optional highlighting capabilities for targeted items."
+    ],
+    "weaknesses": [
+      "Requires wrapping children in AutoScrollTag widgets and using a custom controller.",
+      "Variable row height scrolling relies on estimation and search mechanisms."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "final controller = AutoScrollController();\n\nListView(\n  controller: controller,\n  children: List.generate(100, (index) => AutoScrollTag(\n    key: ValueKey(index),\n    controller: controller,\n    index: index,\n    child: Text('Item $index'),\n  )),\n);",
+    "confidence": 1
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.8.0",
+  "generatedAt": "2026-11-07T11:24:10.055Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "A Flutter plugin for haptic feedback with consistent patterns across iOS and Android.",
+    "what_it_does": "Provides standard haptic feedback effects like success, warning, error, light, medium, heavy, and selection. It utilizes iOS haptics natively and emulates similar patterns on Android.",
+    "use_when": [
+      "You want consistent haptic feedback patterns across both iOS and Android platforms.",
+      "You need standard UI feedback types like button taps, selections, and success or error alerts."
+    ],
+    "avoid_when": [
+      "You are targeting platforms other than Android and iOS.",
+      "You require complex custom continuous vibration waveforms outside the predefined haptic types."
+    ],
+    "strengths": [
+      "Cross-platform consistency emulating iOS haptic patterns on Android.",
+      "Supports iOS preparation APIs to reduce initial latency.",
+      "Catches native platform exceptions to prevent app crashes."
+    ],
+    "weaknesses": [
+      "Only supports iOS and Android.",
+      "Advanced Android haptic primitives and features require newer Android API levels."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Automatically includes the VIBRATE permission in the merged AndroidManifest.xml. No manual configuration required for basic use.",
+    "alternatives": [
+      {
+        "name": "vibration",
+        "why_pick_it": "Choose vibration if you need low-level timing and custom vibration patterns rather than high-level standardized haptic feedback types."
+      }
+    ],
+    "minimal_example": "final canVibrate = await Haptics.canVibrate();\nawait Haptics.vibrate(HapticsType.success);",
+    "confidence": 1
+  }
+}

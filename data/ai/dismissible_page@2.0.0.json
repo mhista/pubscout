@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "2.0.0",
+  "generatedAt": "2026-11-07T11:06:29.216Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "navigation"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Widget that lets you dismiss a page in any direction with custom gestures",
+    "what_it_does": "DismissiblePage wraps a child and allows the user to swipe the page away in any direction. It handles nested scrollables, custom thresholds, haptics, and provides a handle to control dismissal programmatically.",
+    "use_when": [
+      "You want a custom page dismissal gesture instead of the default back button",
+      "You need to dismiss a page from code or confirm dismissal before popping",
+      "You need to coordinate dismissal with inner scrollables like ListView or PageView"
+    ],
+    "avoid_when": [
+      "You only need the standard Navigator.pop behavior",
+      "Your app targets Flutter versions older than 3.27"
+    ],
+    "strengths": [
+      "Easy to integrate with a single widget",
+      "Supports all major platforms and nested scrollables",
+      "Highly customizable thresholds, directions, and visual effects"
+    ],
+    "weaknesses": [
+      "Requires Flutter >=3.27, not usable on older SDKs",
+      "No built‑in support for deep link navigation or complex route stacks",
+      "Limited to page dismissal, not general navigation"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dependency, import package, wrap target page with DismissiblePage or use builder for scrollables",
+    "alternatives": [],
+    "minimal_example": "import 'package:dismissible_page/dismissible_page.dart';\n\nclass SecondPage extends StatelessWidget {\n  @override\n  Widget build(BuildContext context) {\n    return DismissiblePage(\n      onDismissed: () => Navigator.of(context).pop(),\n      child: Center(child: Text('Swipe to dismiss')),\n    );\n  }\n}",
+    "confidence": 0.95
+  }
+}

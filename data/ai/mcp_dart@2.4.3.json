@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.4.3",
+  "generatedAt": "2026-11-08T15:28:21.650Z",
+  "data": {
+    "primary_category": "ai-ml",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Dart and Flutter SDK for building Model Context Protocol clients, servers, and AI tools.",
+    "what_it_does": "Implements the Model Context Protocol (MCP) specification to build servers, clients, and hosts that connect AI models to tools, resources, and prompts. It supports multiple transports including stdio, Streamable HTTP, and IO streams, alongside OAuth authentication hooks.",
+    "use_when": [
+      "You need to build a custom Model Context Protocol server or client in Dart or Flutter.",
+      "You want to expose Dart tools, resources, and prompts to AI agents via MCP."
+    ],
+    "avoid_when": [
+      "You prefer the official Dart team ai package (dart_mcp) over this implementation.",
+      "You are not using the Model Context Protocol."
+    ],
+    "strengths": [
+      "Implements complete core client/server wire requirements for MCP specifications.",
+      "Supports multiple transports including stdio, Streamable HTTP, and custom streams across various platforms."
+    ],
+    "weaknesses": [
+      "Optional extensions like Tasks are not part of official core conformance claims.",
+      "Requires careful configuration for large messages or specific HTTP transport limits."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the package using `dart pub add mcp_dart` or configure it via version constraints in pubspec.yaml.",
+    "alternatives": [],
+    "minimal_example": "final strict2026Server = McpServer(\n  const Implementation(name: 'my-server', version: '1.0.0'),\n  options: const McpServerOptions(protocol: McpProtocol.require2026),\n);",
+    "confidence": 0.95
+  }
+}

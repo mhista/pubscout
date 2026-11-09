@@ -1,0 +1,47 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.8-flash",
+  "version": "18.2.2",
+  "generatedAt": "2026-11-08T15:16:03.797Z",
+  "data": {
+    "primary_category": "forms",
+    "secondary_categories": [
+      "state-management"
+    ],
+    "approach": [
+      "declarative",
+      "imperative"
+    ],
+    "one_liner": "Model-driven form handling and validation inspired by Angular Reactive Forms",
+    "what_it_does": "Separates form data models and validation logic from UI widgets using FormGroups, FormArrays, and FormControls. It provides built-in sync and async validators, custom validation hooks, and specialized widgets that bind directly to reactive controls. It tracks validity, touched status, and enabled states across nested form structures.",
+    "use_when": [
+      "Building complex forms with inter-dependent field validations like password matching",
+      "Managing dynamic form structures like arrays or groups of inputs that grow at runtime",
+      "Needing fine-grained control over validation timing, asynchronous checks, or error message display"
+    ],
+    "avoid_when": [
+      "The application only requires a few basic text inputs where standard Flutter Form and TextFormField suffice",
+      "You prefer pure immutable functional form modeling without Angular-style control objects"
+    ],
+    "strengths": [
+      "Rich set of pre-built validators, cross-field validation, and async validator support with debounce",
+      "Comprehensive suite of dedicated reactive widgets (text fields, checkboxes, pickers)",
+      "Clean separation of form state and business logic from the widget tree"
+    ],
+    "weaknesses": [
+      "Steep learning curve if not already familiar with Angular's reactive form concepts",
+      "Requires high minimum Flutter SDK version (>=3.29.0) for the latest release"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "May require intl dependency override if version conflicts occur.",
+    "alternatives": [
+      {
+        "name": "formz",
+        "why_pick_it": "Choose formz for a lightweight, immutable, functional approach often paired with Bloc instead of model-driven control trees."
+      }
+    ],
+    "minimal_example": "final form = FormGroup({\n  'name': FormControl<String>(value: 'John Doe', validators: [Validators.required]),\n  'email': FormControl<String>(validators: [Validators.required, Validators.email]),\n});\n\n// Access form data\nprint(form.value);",
+    "confidence": 1
+  }
+}

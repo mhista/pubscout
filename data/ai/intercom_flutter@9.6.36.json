@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "9.6.36",
+  "generatedAt": "2026-11-08T15:31:03.048Z",
+  "data": {
+    "primary_category": "notifications",
+    "secondary_categories": [
+      "backend"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter plugin for Intercom in-app messaging and help-center integration.",
+    "what_it_does": "Integrates the Intercom SDK for Android, iOS, and Web into a Flutter application. It allows users to view in-app messages, open the help center, and handle customer support conversations.",
+    "use_when": [
+      "You need in-app customer support and chat functionality from Intercom in your app.",
+      "You want to display the Intercom help center and articles natively."
+    ],
+    "avoid_when": [
+      "You only need local notifications or standard push notifications without Intercom services.",
+      "You use a customer support platform other than Intercom."
+    ],
+    "strengths": [
+      "Supports Android, iOS, and Web platforms.",
+      "Wraps the latest native Intercom SDKs for Android and iOS."
+    ],
+    "weaknesses": [
+      "Requires platform-specific configuration like custom Android Application class setup and iOS permissions.",
+      "Some functions are not yet supported on Web."
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Requires native configuration including extending FlutterFragmentActivity on Android, custom Application class for native SDK initialization, NSPhotoLibraryUsageDescription on iOS, and integration with firebase_messaging for push notifications.",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:intercom_flutter/intercom_flutter.dart';\n\nvoid main() async {\n    WidgetsFlutterBinding.ensureInitialized();\n    await Intercom.instance.initialize('appIdHere', iosApiKey: 'iosKeyHere', androidApiKey: 'androidKeyHere');\n    runApp(App());\n}\n\nclass App extends StatelessWidget {\n    @override\n    Widget build(BuildContext context) {\n        return FlatButton(\n            child: Text('Open Intercom'),\n            onPressed: () async {\n                await Intercom.instance.displayMessenger();\n            },\n        );\n    }\n}",
+    "confidence": 0.95
+  }
+}

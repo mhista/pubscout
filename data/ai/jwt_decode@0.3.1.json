@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.3.1",
+  "generatedAt": "2026-11-08T15:25:08.616Z",
+  "data": {
+    "primary_category": "auth",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "A Dart package to decode JSON Web Tokens, check expiry dates, and verify expiration status.",
+    "what_it_does": "It decodes JSON Web Tokens (JWT) into a Map of their payload data, retrieves the token's expiry date, and checks if the token has expired. It is implemented as a pure Dart package with no external dependencies.",
+    "use_when": [
+      "You need to decode JWT payloads on the client side in a Dart or Flutter application.",
+      "You need to quickly check if a JWT is expired without implementing custom base64 and JSON parsing logic."
+    ],
+    "avoid_when": [
+      "You need to cryptographically verify or sign JWT tokens (this package only decodes and checks claims).",
+      "You are looking for a comprehensive authentication and session management provider."
+    ],
+    "strengths": [
+      "Simple top-level functions for parsing, getting expiry dates, and checking expiration.",
+      "Zero external dependencies.",
+      "Supports all platforms including Android, iOS, Web, Windows, macOS, and Linux."
+    ],
+    "weaknesses": [
+      "Does not perform cryptographic signature verification of the tokens.",
+      "Limited feature set beyond simple decoding and expiration checks."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:jwt_decode/jwt_decode.dart';\n\nString token = 'your_jwt_token_here';\nMap<String, dynamic> payload = Jwt.parseJwt(token);\nDateTime? expiryDate = Jwt.getExpiryDate(token);",
+    "confidence": 0.95
+  }
+}

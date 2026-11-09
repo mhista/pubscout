@@ -1,0 +1,47 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.9.1",
+  "generatedAt": "2026-11-07T10:55:55.037Z",
+  "data": {
+    "primary_category": "animation",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "Animates its child widget to a new position automatically when its position changes requiring no calculation.",
+    "what_it_does": "AnimatedTo tracks its child widget using a GlobalKey and automatically animates the child to its new position whenever a rebuild or layout update shifts it. It supports both curve-based animations and spring physics simulations, alongside features like delayed start and coordinate boundaries for gesture handling.",
+    "use_when": [
+      "You want to animate a widget smoothly to a new position when reordered or repositioned via state changes.",
+      "You need spring physics or curve-based positional animations without manually calculating delta offsets.",
+      "You want to create staggered wave-like layout animations easily using the delay parameter."
+    ],
+    "avoid_when": [
+      "You need animations across Sliver-related widgets like ListView where the animation happens across slivers.",
+      "You need general non-positional implicit animations or Lottie/Rive animations."
+    ],
+    "strengths": [
+      "Requires zero position calculation from the developer.",
+      "Supports both curve durations and natural physical spring simulations.",
+      "Provides AnimatedToBoundary to correctly handle hit testing and coordinate systems during movement."
+    ],
+    "weaknesses": [
+      "Does not work across Sliver-related widgets when the animation happens across slivers.",
+      "Requires a GlobalKey to keep the RenderObject alive across depth or position changes."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "flutter_animate",
+        "why_pick_it": "Choose flutter_animate if you prefer a comprehensive chained animation extension library for fading, scaling, and moving widgets."
+      }
+    ],
+    "minimal_example": "AnimatedTo.curve(\n  globalKey: _globalKey,\n  child: Container(\n    width: 60,\n    height: 60,\n    color: Colors.blue,\n  ),\n)",
+    "confidence": 0.95
+  }
+}

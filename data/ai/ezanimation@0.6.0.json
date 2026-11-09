@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.6.0",
+  "generatedAt": "2026-11-07T11:08:58.346Z",
+  "data": {
+    "primary_category": "animation",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Simplify Flutter animations without dealing with AnimationControllers, Tweens, or explicit Tickers.",
+    "what_it_does": "Provides a wrapper class EzAnimation that simplifies defining and controlling animations, sequences, and special tweens without boilerplate. It manages lifecycle details like navigation events and ticker setup through straightforward helper constructors.",
+    "use_when": [
+      "You want to create custom animations quickly without managing AnimationControllers or Tickers manually.",
+      "You need to build sequential animations or use specialized tweens like ColorTween with minimal boilerplate."
+    ],
+    "avoid_when": [
+      "You prefer completely declarative or physics-based animation paradigms.",
+      "You need complex choreography across multiple distinct controllers that require fine-grained low-level control."
+    ],
+    "strengths": [
+      "Removes boilerplate associated with AnimationControllers and TickerProvidermixins.",
+      "Supports animation sequences and custom tweens like ColorTween out of the box.",
+      "Includes navigation handling to pause or reset animations when navigating away."
+    ],
+    "weaknesses": [
+      "Using EzAnimation without context or vsync can be less performant.",
+      "Paused animations sometimes need to be manually restarted upon returning to the screen depending on the setup method."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "EzAnimation ezAnimation = EzAnimation(50.0, 200.0, Duration(seconds: 2));\nezAnimation.start();",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "1.2.0",
+  "generatedAt": "2026-11-08T15:24:21.099Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Pure‑Dart implementation of the XXH3 64‑bit non‑cryptographic hash algorithm.",
+    "what_it_does": "Provides functions to compute a 64‑bit XXH3 hash from byte arrays, a hexadecimal string representation, and a streaming API for incremental hashing. The implementation runs entirely in Dart without native code.",
+    "use_when": [
+      "You need a fast, deterministic hash for in‑memory data structures or caching.",
+      "You prefer a pure‑Dart solution that works on all Flutter platforms without ffi.",
+      "You want to hash large data in chunks using a stream API."
+    ],
+    "avoid_when": [
+      "Cryptographic security is required (XXH3 is not a crypto hash).",
+      "You need a 128‑bit hash or other hash variants not supported.",
+      "Running on web where Dart ints exceed 53‑bit precision may give incorrect results."
+    ],
+    "strengths": [
+      "No native dependencies – works everywhere Dart runs.",
+      "High throughput for a pure‑Dart implementation.",
+      "Streaming API allows hashing of large or incremental data."
+    ],
+    "weaknesses": [
+      "Not suitable for security‑critical hashing.",
+      "Only 64‑bit output; no XXH3‑128 support yet.",
+      "Potential integer precision issues on JavaScript/web platforms."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "crypto",
+        "why_pick_it": "Provides a wide range of cryptographic hash functions (e.g., SHA‑256) and works without native code, useful when security is required."
+      }
+    ],
+    "minimal_example": "import 'dart:convert' show utf8;\nimport 'package:xxh3/xxh3.dart';\n\nvoid main() {\n  final bytes = utf8.encode('Hello, world!');\n  final int hash = xxh3(bytes);\n  final String hex = xxh3String(bytes);\n  print(hash); // -881777603154417559\n  print(hex); // f3c34bf11915e869\n}",
+    "confidence": 0.97
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.0.4",
+  "generatedAt": "2026-11-07T11:03:56.554Z",
+  "data": {
+    "primary_category": "camera",
+    "secondary_categories": [
+      "images",
+      "files"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Scan paper documents and convert them to images or PDFs with auto-cropping.",
+    "what_it_does": "A Flutter plugin that opens the device camera or gallery to scan physical documents. It automatically handles edge detection, cropping, and can export results directly to PDF or image files on both Android and iOS.",
+    "use_when": [
+      "You need to allow users to scan physical documents using their device camera.",
+      "You require automatic edge detection and document cropping on Android and iOS.",
+      "You need direct PDF export from scanned images."
+    ],
+    "avoid_when": [
+      "You need a custom inline camera viewfinder widget embedded directly inside your widget tree.",
+      "You require advanced on-device OCR text extraction and processing beyond basic scanning."
+    ],
+    "strengths": [
+      "Supports automatic edge detection and cropping via native ML Kit and Vision.",
+      "Can export directly to a single PDF document.",
+      "Works on both Android and iOS with minimal setup."
+    ],
+    "weaknesses": [
+      "Requires platform-specific configuration for permissions (camera access).",
+      "Native UI screens are handled by the platform or system libraries and have limited customizability."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires setting minimum Android SDK to 24, adding camera permission to AndroidManifest.xml, and adding NSCameraUsageDescription to iOS Info.plist.",
+    "alternatives": [
+      {
+        "name": "google_mlkit_document_scanner",
+        "why_pick_it": "If you want to use Google ML Kit's official document scanner directly without extra wrappers."
+      },
+      {
+        "name": "camera",
+        "why_pick_it": "If you need a fully customizable custom camera preview and UI embedded inside your widget tree."
+      }
+    ],
+    "minimal_example": "final imagesPath = await CunningDocumentScanner.getPictures();",
+    "confidence": 1
+  }
+}

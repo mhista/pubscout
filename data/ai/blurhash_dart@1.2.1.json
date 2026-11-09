@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.2.1",
+  "generatedAt": "2026-11-07T10:59:07.647Z",
+  "data": {
+    "primary_category": "images",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "A pure Dart implementation of the BlurHash algorithm for encoding and decoding images.",
+    "what_it_does": "It encodes raw images into compact BlurHash string representations and decodes BlurHash strings back into placeholder images. It also provides utility extensions for computations like color averages.",
+    "use_when": [
+      "You need to display low-resolution placeholder gradients while full images load.",
+      "You want to generate BlurHash strings from images on any Dart platform without platform-specific code."
+    ],
+    "avoid_when": [
+      "You are looking for a complete image loading and caching library.",
+      "You need native UI widgets specifically designed for displaying blurhashes."
+    ],
+    "strengths": [
+      "Pure Dart implementation supporting all Dart platforms.",
+      "Provides both encoder and decoder out of the box."
+    ],
+    "weaknesses": [
+      "Decoding returns raw pixels via the 'image' package, requiring manual conversion to displayable formats in Flutter.",
+      "Computationally intensive tasks like encoding should be cached to avoid running on every build."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:blurhash_dart/blurhash_dart.dart';\nimport 'package:image/image.dart' as img;\n\nconst hash = 'LEHV6nWB2yk8pyo0adR*.7kCMdnj';\nBlurHash blurHash = BlurHash.decode(hash);\nimg.Image image = blurHash.toImage(35, 20);",
+    "confidence": 0.95
+  }
+}

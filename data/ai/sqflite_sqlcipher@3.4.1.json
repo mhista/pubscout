@@ -1,0 +1,52 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.4.1",
+  "generatedAt": "2026-11-08T15:38:20.561Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Flutter plugin for SQLite databases with SQLCipher encryption support.",
+    "what_it_does": "Provides an encrypted SQLite database interface for Android, iOS, and macOS using SQLCipher. It shares the same API as the standard sqflite plugin with an added password option in the openDatabase method.",
+    "use_when": [
+      "You need encrypted local SQL storage in your Flutter app.",
+      "You are migrating from standard sqflite and need row-level or full database encryption."
+    ],
+    "avoid_when": [
+      "You do not need database encryption (use standard sqflite or drift instead).",
+      "You prefer an ORM or reactive stream-based database approach."
+    ],
+    "strengths": [
+      "Drop-in replacement for sqflite with password support",
+      "Uses up-to-date SQLCipher native libraries on Android, iOS, and macOS",
+      "Automatic database migration support for older SQLCipher versions on Android"
+    ],
+    "weaknesses": [
+      "Requires platform-specific configuration like ProGuard rules on Android",
+      "Can conflict with standard sqflite native dependencies on iOS under certain setups"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding ProGuard rules on Android (`-keep class net.sqlcipher.** { *; }`) and potential dependency overrides on iOS if transitive dependencies use standard sqflite.",
+    "alternatives": [
+      {
+        "name": "sqflite",
+        "why_pick_it": "If you do not require database encryption and want standard SQLite support."
+      },
+      {
+        "name": "drift",
+        "why_pick_it": "If you want a type-safe reactive SQL database builder with compile-time SQL checks."
+      },
+      {
+        "name": "flutter_secure_storage",
+        "why_pick_it": "If you only need to store small key-value pairs securely rather than a full SQL database."
+      }
+    ],
+    "minimal_example": "import 'package:sqflite_sqlcipher/sqflite.dart';\n\nDatabase db = await openDatabase(\n  path,\n  password: \"my password\",\n  // onCreate, onUpgrade...\n);",
+    "confidence": 0.95
+  }
+}

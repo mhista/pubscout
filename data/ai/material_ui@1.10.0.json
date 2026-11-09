@@ -1,0 +1,58 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "1.10.0",
+  "generatedAt": "2026-11-07T16:26:31.389Z",
+  "data": {
+    "primary_category": "ui-kits",
+    "secondary_categories": [
+      "widgets",
+      "theming",
+      "layout"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Official Flutter Material UI library implementing Google’s Material Design system.",
+    "what_it_does": "Provides a complete set of Material widgets, theming tools, and localization support for Flutter apps. Includes migration helpers to replace the built‑in material library.",
+    "use_when": [
+      "You need the full suite of Material Design widgets and theming in a separate package",
+      "You are migrating an existing app from the built‑in material library to a decoupled package",
+      "You want official, up‑to‑date Material 3 components and APIs"
+    ],
+    "avoid_when": [
+      "Your app only uses Cupertino or custom design systems",
+      "You need a minimal footprint and can work with the core flutter/material library",
+      "You require non‑Material UI components such as charts or maps"
+    ],
+    "strengths": [
+      "Comprehensive, official Material widget set",
+      "Built‑in migration tools and compatibility bridge",
+      "Up‑to‑date Material 3 support and theming"
+    ],
+    "weaknesses": [
+      "Adds package size on top of the core Flutter SDK",
+      "Duplicates functionality already available in flutter/material",
+      "Limited to Material design only"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "cupertino_ui",
+        "why_pick_it": "Provides the official iOS‑style widget set if you prefer Cupertino design instead of Material"
+      },
+      {
+        "name": "animations",
+        "why_pick_it": "Offers focused animation utilities without pulling in the full Material widget library"
+      },
+      {
+        "name": "widgetbook",
+        "why_pick_it": "Helps catalog and preview UI components, useful if you need a design system explorer rather than the widgets themselves"
+      }
+    ],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:material_ui/material_ui.dart';\n\nvoid main() => runApp(const MyApp());\n\nclass MyApp extends StatelessWidget {\n  const MyApp({super.key});\n  @override\n  Widget build(BuildContext context) {\n    return MaterialApp(\n      builder: (context, child) => MaterialUiCompatibilityBridge(child: child!),\n      home: const Scaffold(appBar: AppBar(title: Text('Home'))),\n    );\n  }\n}",
+    "confidence": 0.93
+  }
+}

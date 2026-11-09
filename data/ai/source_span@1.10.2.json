@@ -1,0 +1,36 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.10.2",
+  "generatedAt": "2026-11-08T15:16:26.932Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "no codegen"
+    ],
+    "one_liner": "Standard representation for source code locations, spans, and human-friendly error messages.",
+    "what_it_does": "Provides classes like SourceSpan and SourceFile to track positions in source code files. It allows packages to easily pass code locations around and generate clear, human-friendly error messages with line and column highlights.",
+    "use_when": [
+      "You are writing a parser, compiler, linter, or code generator that needs to report source code errors.",
+      "You want to standardize source location tracking across multiple custom packages."
+    ],
+    "avoid_when": [
+      "You are building a standard mobile application UI without any code parsing requirements."
+    ],
+    "strengths": [
+      "Generates clean, human-friendly error messages with file context and line numbers.",
+      "Efficient means of computing line and column numbers using SourceFile.",
+      "Supports multi-span highlights and Unicode box-drawing characters."
+    ],
+    "weaknesses": [
+      "Very niche utility package with no application outside of parsing and tooling."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:source_span/source_span.dart';\n\nvoid main() {\n  var file = SourceFile.fromString('some code here', url: 'main.dart');\n  var span = file.span(0, 4);\n  print(span.message('Here is an error'));\n}",
+    "confidence": 1
+  }
+}

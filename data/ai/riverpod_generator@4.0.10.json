@@ -1,0 +1,52 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "4.0.10",
+  "generatedAt": "2026-11-07T16:25:28.064Z",
+  "data": {
+    "primary_category": "codegen",
+    "secondary_categories": [
+      "state-management"
+    ],
+    "approach": [
+      "code generation"
+    ],
+    "one_liner": "Generates Riverpod providers from annotated functions using build_runner.",
+    "what_it_does": "It reads functions annotated with @riverpod and creates matching provider classes automatically. The generated providers support hot‑reload and full Riverpod features without manual boilerplate.",
+    "use_when": [
+      "You want type‑safe Riverpod providers without writing boilerplate code",
+      "You need multiple parameters or named arguments for providers",
+      "You want stateful hot‑reload of providers during development"
+    ],
+    "avoid_when": [
+      "You cannot add a build step or prefer pure runtime definitions",
+      "Your project is tiny and the generator overhead isn’t justified",
+      "You need providers that must be defined dynamically at runtime"
+    ],
+    "strengths": [
+      "Eliminates manual provider boilerplate",
+      "Supports multiple and named parameters for families",
+      "Enables stateful hot‑reload of individual providers"
+    ],
+    "weaknesses": [
+      "Adds a build_runner step and generated code to the project",
+      "Debugging generated code can be less straightforward",
+      "Only works for Dart/Flutter projects that can run code generation"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add riverpod_generator as a dev_dependency, ensure riverpod_annotation is in dependencies, run `dart run build_runner watch` or `build_runner build`. Optional build.yaml can customize provider name suffixes.",
+    "alternatives": [
+      {
+        "name": "riverpod",
+        "why_pick_it": "Provides the same state‑management capabilities without code generation, suitable for simple or dynamic provider setups"
+      },
+      {
+        "name": "flutter_riverpod",
+        "why_pick_it": "Core Riverpod package for Flutter with manual provider definitions, no extra build step"
+      }
+    ],
+    "minimal_example": "@riverpod\nString label(Ref ref) => 'Hello world';\n// generated: final labelProvider = Provider<String>((ref) => 'Hello world');",
+    "confidence": 0.97
+  }
+}

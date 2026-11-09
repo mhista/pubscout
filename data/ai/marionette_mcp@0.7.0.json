@@ -1,0 +1,47 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.7.0",
+  "generatedAt": "2026-11-08T15:42:32.448Z",
+  "data": {
+    "primary_category": "ai-ml",
+    "secondary_categories": [
+      "devtools",
+      "testing"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "MCP server allowing AI agents to inspect and interact with running Flutter applications.",
+    "what_it_does": "Bridges AI agents like Claude, Copilot, and Cursor directly to running Flutter apps via the Model Context Protocol (MCP). Enables agents to view widget trees, tap elements, input text, scroll, and capture screenshots for automated testing and interaction.",
+    "use_when": [
+      "You want AI agents to interact with and smoke test running Flutter apps.",
+      "You need to automate UI inspection, tapping, text entry, and screenshots via LLMs."
+    ],
+    "avoid_when": [
+      "You are looking for a development-time tool to search pub.dev or analyze static code.",
+      "You cannot make minor modifications to initialize MarionetteBinding in your app's main function."
+    ],
+    "strengths": [
+      "Connects AI agents directly to running applications through MCP.",
+      "Provides a small, focused toolset optimized for token-efficient agent context.",
+      "Supports custom extensions to expose app-specific actions as agent tools."
+    ],
+    "weaknesses": [
+      "Requires manual initialization and binding setup in the target Flutter application.",
+      "Custom design systems require explicit configuration so agents can recognize custom widgets."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add marionette_flutter dependency, initialize MarionetteBinding in main.dart, activate marionette_mcp globally, and configure your AI tool.",
+    "alternatives": [
+      {
+        "name": "patrol_mcp",
+        "why_pick_it": "Alternative MCP integration for Flutter automation and testing."
+      }
+    ],
+    "minimal_example": "void main() {\n  if (kDebugMode) {\n    MarionetteBinding.ensureInitialized();\n  } else {\n    WidgetsFlutterBinding.ensureInitialized();\n  }\n  runApp(const MyApp());\n}",
+    "confidence": 0.95
+  }
+}

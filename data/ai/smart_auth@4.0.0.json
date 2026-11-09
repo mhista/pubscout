@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.0.0",
+  "generatedAt": "2026-11-08T15:33:24.997Z",
+  "data": {
+    "primary_category": "auth",
+    "secondary_categories": [
+      "forms",
+      "device"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter wrapper for Android SMS autofill, phone number hints, and Credential Manager.",
+    "what_it_does": "Allows Flutter apps on Android to read one-time SMS verification codes via the SMS Retriever or User Consent APIs, request SIM-based phone number hints, and manage passwords and passkeys using Android's Credential Manager.",
+    "use_when": [
+      "You need to implement automated or user-confirmed SMS OTP autofill on Android.",
+      "You need to provide phone number hints or integrate Android Credential Manager for passkeys and passwords."
+    ],
+    "avoid_when": [
+      "Your app targets iOS or web platforms since this package is Android only.",
+      "You are looking for a complete cross-platform authentication UI kit."
+    ],
+    "strengths": [
+      "Supports multiple modern Android authentication and autofill APIs including SMS Retriever, User Consent, and Credential Manager.",
+      "Provides a simple singleton interface with clear success, cancellation, and error handling results."
+    ],
+    "weaknesses": [
+      "Restricted to Android platform only.",
+      "Requires specific Android SDK and Gradle version configurations."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires compileSdk 35 or above, Java 11+, and specific AGP/Gradle/Kotlin configurations depending on your Flutter version.",
+    "alternatives": [
+      {
+        "name": "pinput",
+        "why_pick_it": "If you specifically need a customizable PIN / OTP input field widget."
+      }
+    ],
+    "minimal_example": "import 'package:smart_auth/smart_auth.dart';\n\nfinal smartAuth = SmartAuth.instance;\nfinal res = await smartAuth.requestPhoneNumberHint();\nif (res.hasData) {\n  // Use the phone number\n}",
+    "confidence": 0.95
+  }
+}

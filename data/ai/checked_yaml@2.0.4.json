@@ -1,0 +1,46 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "2.0.4",
+  "generatedAt": "2026-11-07T11:00:12.907Z",
+  "data": {
+    "primary_category": "codegen",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "code generation"
+    ],
+    "one_liner": "Provides checkedYamlDecode to give detailed errors when decoding YAML with json_serializable.",
+    "what_it_does": "Wraps json_serializable's generated fromJson to catch CheckedFromJsonException and rethrow as ParsedYamlException with source location. Works with yaml's YamlMap when anyMap:true is set.",
+    "use_when": [
+      "You need precise error locations while parsing YAML into json_serializable models",
+      "You already use json_serializable and yaml for config files"
+    ],
+    "avoid_when": [
+      "You are not using json_serializable or yaml",
+      "Performance‑critical parsing where extra exception handling is unwanted"
+    ],
+    "strengths": [
+      "Maps decoding errors to exact YAML line/column",
+      "Seamlessly integrates with json_serializable's checked mode",
+      "Supports latest Dart and yaml versions"
+    ],
+    "weaknesses": [
+      "Only works with json_serializable‑generated models",
+      "Adds extra dependency and exception layer",
+      "No benefit if you don't need detailed error reports"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add checked_yaml to pubspec; ensure json_serializable and build_runner are set up for code generation",
+    "alternatives": [
+      {
+        "name": "json_serializable",
+        "why_pick_it": "Provides code generation without the extra YAML error mapping layer"
+      }
+    ],
+    "minimal_example": "void main(){\n  const yaml = '{\"name\": \"\", \"count\": 1}';\n  final config = checkedYamlDecode(\n    yaml,\n    (m) => Configuration.fromJson(m!),\n  );\n  print(config);\n}",
+    "confidence": 0.95
+  }
+}

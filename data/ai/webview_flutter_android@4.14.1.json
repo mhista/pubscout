@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.14.1",
+  "generatedAt": "2026-11-08T15:21:08.283Z",
+  "data": {
+    "primary_category": "web-desktop",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Android implementation of the webview_flutter plugin providing a WebView widget.",
+    "what_it_does": "A Flutter plugin that provides a WebView widget specifically for Android. It supports features like Payment Request API, Web Authentication, geolocation prompts, and custom fullscreen video widgets.",
+    "use_when": [
+      "You need to embed web content inside your Flutter application on Android.",
+      "You need access to Android-specific webview configurations like WebAuthn or Payment Request API."
+    ],
+    "avoid_when": [
+      "You are building a cross-platform application where platform-specific Android API calls are unnecessary and you should use webview_flutter instead.",
+      "You want a pure web app without native mobile wrappers."
+    ],
+    "strengths": [
+      "Endorsed federated plugin which automatically integrates when using webview_flutter.",
+      "Provides fine-grained Android-specific APIs such as Web Authentication and custom widget callbacks."
+    ],
+    "weaknesses": [
+      "Platform-specific to Android, requiring other implementations for iOS or desktop.",
+      "Performance trade-offs between Hybrid Composition and Texture Layer display modes."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Automatically included when using webview_flutter. Add intent filters in AndroidManifest.xml if using Payment Request features.",
+    "alternatives": [
+      {
+        "name": "webview_flutter",
+        "why_pick_it": "The main federated package that includes this Android implementation along with other platforms."
+      }
+    ],
+    "minimal_example": "final bool paymentRequestEnabled = await androidController.isWebViewFeatureSupported(\n  WebViewFeatureType.paymentRequest,\n);\n\nif (paymentRequestEnabled) {\n  await androidController.setPaymentRequestEnabled(true);\n}",
+    "confidence": 1
+  }
+}

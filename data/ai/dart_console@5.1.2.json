@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "5.1.2",
+  "generatedAt": "2026-11-07T11:04:14.153Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "web-desktop"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "A helper library for command-line applications requiring advanced control over input/output.",
+    "what_it_does": "Provides control over console window dimensions, cursor location, colors, raw input mode, and tabular data display. It includes features for reading control sequences, handling East Asian character widths, and streaming key input asynchronously.",
+    "use_when": [
+      "Building command-line applications or REPLs in Dart",
+      "Needing raw keyboard input processing or cursor manipulation",
+      "Displaying formatted tabular data or calendars in the terminal"
+    ],
+    "avoid_when": [
+      "Developing graphical user interface (GUI) or mobile applications",
+      "Building web-only applications"
+    ],
+    "strengths": [
+      "Supports raw terminal mode and advanced keyboard input processing",
+      "Cross-platform support for Windows, macOS, and Linux",
+      "Includes built-in support for table rendering and calendar display"
+    ],
+    "weaknesses": [
+      "Requires a terminal that recognizes and implements common ANSI escape sequences",
+      "Platform-specific bindings rely on FFI and the win32 package on Windows"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Not documented",
+    "alternatives": [],
+    "minimal_example": "import 'package:dart_console/dart_console.dart';\n\nmain() {\n  final console = Console();\n\n  console.clearScreen();\n  console.resetCursorPosition();\n\n  console.writeLine(\n    'Console size is \\${console.windowWidth} cols and \\${console.windowHeight} rows.',\n    TextAlignment.center,\n  );\n\n  console.writeLine();\n\n  return 0;\n}",
+    "confidence": 1
+  }
+}

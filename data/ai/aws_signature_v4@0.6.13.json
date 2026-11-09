@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.6.13",
+  "generatedAt": "2026-11-08T15:32:29.639Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "auth"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Dart implementation of AWS Signature Version 4 for signing HTTP requests.",
+    "what_it_does": "Provides a signer that creates AWS Signature V4 signed HTTP requests using supplied credentials. Works across web, VM, and Flutter platforms and supports wasm. The signed request can then be sent with any HTTP client.",
+    "use_when": [
+      "You need to call AWS services directly from Dart/Flutter without using a higher‑level SDK",
+      "You require custom request signing for AWS services on web, mobile, or desktop"
+    ],
+    "avoid_when": [
+      "You already use a full AWS SDK that handles signing internally",
+      "You need a complete client library for a specific AWS service"
+    ],
+    "strengths": [
+      "Cross‑platform support including wasm",
+      "No external native dependencies",
+      "Integrates with aws_common credential providers"
+    ],
+    "weaknesses": [
+      "Only handles signing, you must manage HTTP transport yourself",
+      "Limited to AWS services; not a general purpose HTTP client"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:aws_signature_v4/aws_signature_v4.dart';\n\nconst signer = AWSSigV4Signer(\n  credentialsProvider: AWSCredentialsProvider.environment(),\n);\n\nfinal request = AWSHttpRequest(\n  method: AWSHttpMethod.post,\n  uri: Uri.https('cognito-idp.us-east-1.amazonaws.com', '/'),\n  headers: const {\n    AWSHeaders.target: 'AWSCognitoIdentityProviderService.DescribeUserPool',\n    AWSHeaders.contentType: 'application/x-amz-json-1.1',\n  },\n  body: const [],\n);\n\nfinal signed = await signer.sign(request, credentialScope: AWSCredentialScope(region: 'us-east-1', service: AWSService.cognitoIdentityProvider));\n// send `signed` with any HTTP client\n",
+    "confidence": 0.87
+  }
+}

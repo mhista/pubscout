@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "2.1.0",
+  "generatedAt": "2026-11-08T15:24:06.470Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Utility to group and automatically dispose/cancel/close resources in Dart.",
+    "what_it_does": "Provides a DisposeScope that tracks objects with dispose, close, or cancel methods and invokes them when the scope is disposed. Includes extension methods for common Dart types like StreamSubscription, Timer, and Process.",
+    "use_when": [
+      "You need to clean up multiple resources (streams, timers, processes) together.",
+      "You want a simple, dependency‑free way to ensure resources are released when a widget or component is disposed."
+    ],
+    "avoid_when": [
+      "You are using a framework that already provides its own disposal management (e.g., Flutter's State.dispose).",
+      "You need compile‑time code generation for disposal."
+    ],
+    "strengths": [
+      "Zero external dependencies besides meta.",
+      "Works with pure Dart, no Flutter required.",
+      "Provides safety checks and a run‑once dispose guard."
+    ],
+    "weaknesses": [
+      "Limited to objects with a dispose/close/cancel method; no automatic detection for custom resources.",
+      "No code‑gen support; manual registration required."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:dispose_scope/dispose_scope.dart';\n\nfinal scope = DisposeScope();\n\nStream.empty().listen((_) {}).disposedBy(scope);\nTimer(Duration.zero, () {}).disposedBy(scope);\n\nscope.dispose();",
+    "confidence": 0.85
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.2.2",
+  "generatedAt": "2026-11-07T11:01:26.509Z",
+  "data": {
+    "primary_category": "devtools",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "An HTTP inspection and debugging tool for Flutter apps.",
+    "what_it_does": "Chuck catches and stores HTTP requests and responses, providing a simple built-in UI to view headers, payloads, errors, and statistics. It supports Dio, dart:io HttpClient, and any other HTTP client via a client-agnostic logging API.",
+    "use_when": [
+      "You need to inspect and debug HTTP traffic directly inside your Flutter app.",
+      "You want a floating inspector button or shake gesture to view network calls during development."
+    ],
+    "avoid_when": [
+      "You are in a strict production-only environment where network payload storage overhead must be completely avoided (unless disabled).",
+      "You need an external desktop proxy tool like Charles Proxy or Fiddler instead of an in-app viewer."
+    ],
+    "strengths": [
+      "Supports Dio, HttpClient, and custom/client-agnostic HTTP logging.",
+      "Comes with a floating call counter button and shake-to-open capabilities.",
+      "Provides curl command generation and call search/filtering."
+    ],
+    "weaknesses": [
+      "Requires passing a navigator key or using app builder to display the UI.",
+      "Stores HTTP request and response history in memory, which needs sizing limits for heavy traffic."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Initialize Chuck, pass the navigator key to MaterialApp, and add the Dio interceptor or use the client-agnostic API.",
+    "alternatives": [
+      {
+        "name": "dio",
+        "why_pick_it": "Dio is an HTTP client with its own robust interceptor ecosystem if you only need network handling and basic logging without a standalone UI overlay."
+      }
+    ],
+    "minimal_example": "Chuck chuck = Chuck();\nDio dio = Dio();\ndio.interceptors.add(chuck.dioInterceptor);",
+    "confidence": 0.95
+  }
+}

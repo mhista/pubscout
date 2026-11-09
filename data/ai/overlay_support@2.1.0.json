@@ -1,0 +1,55 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.1.0",
+  "generatedAt": "2026-11-08T15:36:32.561Z",
+  "data": {
+    "primary_category": "notifications",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative",
+      "imperative"
+    ],
+    "one_liner": "Provider support for overlays, making it easy to build toasts and internal notifications.",
+    "what_it_does": "Allows developers to display toasts and in-app notifications without passing a build context. It wraps the app with an OverlaySupport widget and provides simple global functions like toast() and showSimpleNotification().",
+    "use_when": [
+      "You need to display simple text toasts anywhere in your app without a context.",
+      "You want in-app banner notifications at the top or bottom of the screen.",
+      "You need overlays to support multi-platform use out of the box."
+    ],
+    "avoid_when": [
+      "You need system-level push notifications or local device tray notifications.",
+      "You require complex notification routing and background isolate message handling."
+    ],
+    "strengths": [
+      "Does not require a context to popup overlays.",
+      "Supports all platforms (Android, iOS, Web, Windows, macOS, Linux).",
+      "Easy setup by wrapping the root app widget."
+    ],
+    "weaknesses": [
+      "Limited to in-app overlays and notifications, cannot handle true system push notifications.",
+      "Not documented for advanced persistent background notifications."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Wrap your AppWidget with OverlaySupport.global(child: MaterialApp()).",
+    "alternatives": [
+      {
+        "name": "fluttertoast",
+        "why_pick_it": "If you specifically need native toast styling and lightweight popup messages."
+      },
+      {
+        "name": "toastification",
+        "why_pick_it": "For modern, highly customizable toast notifications with rich UI options."
+      },
+      {
+        "name": "bot_toast",
+        "why_pick_it": "If you need a robust, highly flexible solution for toasts, loading indicators, and custom overlays."
+      }
+    ],
+    "minimal_example": "import 'package:overlay_support/overlay_support.dart';\n\nvoid onClick() {\n    toast('Hello world!');\n    showSimpleNotification(\n        Text(\"this is a message from simple notification\"),\n        background: Colors.green);\n}",
+    "confidence": 0.95
+  }
+}

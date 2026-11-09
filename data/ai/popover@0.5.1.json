@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.5.1",
+  "generatedAt": "2026-11-08T15:51:03.007Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "ui-kits"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Displays a transient iOS-style popover view above other content pointing at a control.",
+    "what_it_does": "A Flutter popover package that provides transient views appearing above, below, or beside controls with an arrow pointing at them. It measures the calling widget context and places the popover body while supporting iOS, Android, macOS, Windows, Linux, and the web. It handles custom positioning, animations, dark mode, and native platform styles.",
+    "use_when": [
+      "You need to display context menus or dropdown options in an iOS or macOS popover style.",
+      "You want a transient pop-up view that automatically positions itself based on screen boundaries and safe areas."
+    ],
+    "avoid_when": [
+      "You are building full-screen dialogs or simple bottom sheets that do not require an arrow pointer.",
+      "You need complex form wizards that span multiple screens."
+    ],
+    "strengths": [
+      "Supports multiple platforms including iOS, Android, macOS, Windows, Linux, and web.",
+      "Matches native platform arrow styles, shadows, and transitions (like iOS Liquid Glass and macOS NSPopover).",
+      "Depends only on package:flutter/widgets.dart and works across Material and Cupertino apps."
+    ],
+    "weaknesses": [
+      "Requires manual wrapping of non-transparent Material components like ListTile or InkWell to prevent text/theme rendering issues.",
+      "Strict minimum version dependencies (Flutter 3.47.0+ and Dart 3.13.0+)."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "No special native permissions or build runner steps required.",
+    "alternatives": [],
+    "minimal_example": "final choice = await showPopover<String>(\n  context: context,\n  width: 160,\n  height: 112,\n  bodyBuilder: (context) => Material(\n    type: MaterialType.transparency,\n    child: Column(\n      children: [\n        for (final item in ['Copy', 'Share'])\n          ListTile(\n            title: Text(item),\n            onTap: () => Navigator.pop(context, item),\n          ),\n      ],\n    ),\n  ),\n);",
+    "confidence": 1
+  }
+}

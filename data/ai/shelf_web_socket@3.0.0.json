@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "3.0.0",
+  "generatedAt": "2026-11-08T15:16:56.048Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [],
+    "approach": [
+      "stream-based"
+    ],
+    "one_liner": "Shelf handler that upgrades HTTP to WebSocket and provides a WebSocketChannel per connection.",
+    "what_it_does": "It exposes a single function, webSocketHandler, which takes a callback that receives a WebSocketChannel for each new connection. The channel’s stream and sink are used to receive and send messages over the WebSocket.",
+    "use_when": [
+      "Adding WebSocket support to a Shelf-based server",
+      "Implementing simple echo or chat services",
+      "Prototyping WebSocket APIs during development"
+    ],
+    "avoid_when": [
+      "Building a production-grade WebSocket server that requires advanced routing or subprotocol handling",
+      "Using it in a non-Shelf Dart server"
+    ],
+    "strengths": [
+      "Easy integration with existing Shelf middleware",
+      "Type-safe callback signature",
+      "Supports pingInterval and protocol negotiation",
+      "No additional dependencies beyond shelf and web_socket_channel"
+    ],
+    "weaknesses": [
+      "Breaking change in 3.0.0 requires callback signature update",
+      "Limited to Shelf; not a full-featured WebSocket server framework",
+      "No built-in authentication or routing for WebSocket paths"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:shelf/shelf_io.dart' as shelf_io;\nimport 'package:shelf_web_socket/shelf_web_socket.dart';\n\nvoid main() {\n  var handler = webSocketHandler((webSocket, _) {\n    webSocket.stream.listen((message) {\n      webSocket.sink.add('echo $message');\n    });\n  });\n\n  shelf_io.serve(handler, 'localhost', 8080).then((server) {\n    print('Serving at ws://${server.address.host}:${server.port}');\n  });\n}",
+    "confidence": 0.9
+  }
+}

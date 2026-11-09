@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.28.0",
+  "generatedAt": "2026-11-08T15:31:04.285Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "imperative",
+      "code generation"
+    ],
+    "one_liner": "A Dart port of Puppeteer to automate and control Chrome over the DevTools Protocol.",
+    "what_it_does": "Allows developers to automate browser tasks like generating screenshots and PDFs, crawling SPAs, automating form submissions, and running UI tests directly in Chrome. It also includes a fully typed API of the Chrome DevTools protocol generated from JSON Schema.",
+    "use_when": [
+      "You need to automate browser interactions or scrape single-page applications.",
+      "You want to generate screenshots or PDFs of web pages programmatically.",
+      "You need to run automated browser and extension tests."
+    ],
+    "avoid_when": [
+      "You are running on web/WASM where browser launching (`puppeteer.launch()`) is unsupported.",
+      "You only need to make simple HTTP requests without running a browser engine."
+    ],
+    "strengths": [
+      "High-level API very similar to the original Node.js Puppeteer library.",
+      "Full access to the low-level Chrome DevTools protocol.",
+      "Supports browser extensions and advanced features like locators and screencasts."
+    ],
+    "weaknesses": [
+      "Launching a local browser instance is not supported on web/WASM platforms.",
+      "Requires managing browser binaries and processes."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Can automatically download and launch Chrome binaries on native platforms.",
+    "alternatives": [],
+    "minimal_example": "import 'package:puppeteer/puppeteer.dart';\n\nvoid main() async {\n  var browser = await puppeteer.launch();\n  var page = await browser.newPage();\n  await page.goto('https://pub.dev');\n  await page.screenshot(output: File('screenshot.png').openWrite());\n  await browser.close();\n}",
+    "confidence": 1
+  }
+}

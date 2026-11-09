@@ -1,0 +1,52 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.0",
+  "generatedAt": "2026-11-08T16:05:14.928Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [
+      "state-management",
+      "utils"
+    ],
+    "approach": [
+      "stream-based",
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "A stream-based reactive wrapper over shared_preferences for key-value storage.",
+    "what_it_does": "Wraps regular shared_preferences to provide Streams for every stored key, allowing reactive listening of value changes. It also supplies a PreferenceBuilder widget to sync UI components seamlessly with persisted preferences.",
+    "use_when": [
+      "You want to reactively listen to changes in shared_preferences across your Flutter app.",
+      "You prefer simple key-value local storage without heavy SQL setup."
+    ],
+    "avoid_when": [
+      "You need complex relational querying, indexing, or encryption.",
+      "You are already using an all-in-one state management and persistence solution that doesn't use shared_preferences."
+    ],
+    "strengths": [
+      "Easy migration from regular shared_preferences.",
+      "Comes with a convenient PreferenceBuilder widget to reduce boilerplate.",
+      "Supports custom objects and serialization via JsonAdapter."
+    ],
+    "weaknesses": [
+      "Change detection only works on the Dart side through this package's API.",
+      "Limited to key-value storage use cases."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Call WidgetsFlutterBinding.ensureInitialized() before obtaining the StreamingSharedPreferences instance.",
+    "alternatives": [
+      {
+        "name": "shared_preferences",
+        "why_pick_it": "If you do not need reactive streams and prefer the traditional non-streaming key-value API."
+      },
+      {
+        "name": "hive_ce",
+        "why_pick_it": "If you need a faster, pure Dart NoSQL key-value database with built-in reactive boxes."
+      }
+    ],
+    "minimal_example": "Future<void> main() async {\n  WidgetsFlutterBinding.ensureInitialized();\n  final preferences = await StreamingSharedPreferences.instance;\n  Preference<int> counter = preferences.getInt('counter', defaultValue: 0);\n  counter.listen((value) => print(value));\n  counter.setValue(1);\n}",
+    "confidence": 1
+  }
+}

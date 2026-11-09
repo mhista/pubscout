@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "11.0.3",
+  "generatedAt": "2026-11-07T11:14:19.923Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "notifications"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Implement and manage foreground services on Android and iOS platforms.",
+    "what_it_does": "This plugin allows you to run long-running repetitive tasks in a foreground service with continuous notification support. It provides two-way communication between the background task handler and the main UI isolate, along with automatic restart capabilities.",
+    "use_when": [
+      "You need to execute repetitive background tasks that shouldn't be killed immediately when the app is minimized",
+      "You want to display an ongoing notification for a persistent service on Android and iOS"
+    ],
+    "avoid_when": [
+      "You only need simple short-lived asynchronous background tasks",
+      "You want a fully cross-platform solution without platform-specific manifest or Info.plist configuration"
+    ],
+    "strengths": [
+      "Supports two-way communication between the background task and the main UI",
+      "Provides options to automatically resume the foreground service on boot or package update",
+      "Includes utilities for handling battery optimizations and notifications"
+    ],
+    "weaknesses": [
+      "Requires manual configuration of platform-specific permissions, Gradle files, and Android Manifest services",
+      "iOS background execution is heavily limited by the operating system"
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Requires modifying AndroidManifest.xml with specific foreground service types and permissions, setting up Gradle and Kotlin versions, configuring Info.plist on iOS, and setting the plugin registrant callback in AppDelegate.",
+    "alternatives": [],
+    "minimal_example": "void main() {\n  FlutterForegroundTask.initCommunicationPort();\n  runApp(const ExampleApp());\n}",
+    "confidence": 0.95
+  }
+}

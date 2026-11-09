@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.20.0",
+  "generatedAt": "2026-11-07T11:05:15.677Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "files"
+    ],
+    "approach": [
+      "hooks"
+    ],
+    "one_liner": "Protocol specification for bundling data assets with Dart and Flutter packages using build hooks.",
+    "what_it_does": "Provides a hook protocol specification to bundle data assets (as strings or bytes) with Dart and Flutter packages. It is designed to be used inside build hooks (`hook/build.dart`).",
+    "use_when": [
+      "You are writing a build hook for a Dart or Flutter package that needs to bundle data assets.",
+      "You want to programmatically add data assets during the build process."
+    ],
+    "avoid_when": [
+      "You need a stable production-ready package, as this is currently experimental with a high rate of breaking changes.",
+      "You are just bundling standard static assets via pubspec.yaml."
+    ],
+    "strengths": [
+      "Enables programmatic bundling of data assets via build hooks.",
+      "Tracks generated data asset files for cache invalidation."
+    ],
+    "weaknesses": [
+      "Experimental package under labs.dart.dev with a high expected rate of breaking changes and API evolution.",
+      "Limited documentation; requires familiarity with package:hooks."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires setting up build hooks (`hook/build.dart`) and depending on `package:hooks`.",
+    "alternatives": [],
+    "minimal_example": "import 'package:data_assets/data_assets.dart';\nimport 'package:hooks/hooks.dart';\n\nvoid main(List<String> args) async {\n  await build(args, (input, output) async {\n    if (input.config.buildDataAssets) {\n      output.assets.data.add(\n        DataAsset(\n          package: input.packageName,\n          name: 'my_asset',\n          file: input.packageRoot.resolve('assets/data.txt'),\n        ),\n      );\n    }\n  });\n}",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "5.0.0",
+  "generatedAt": "2026-11-07T11:06:19.795Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "animation"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Calculate the difference between two lists as a list of edit operations.",
+    "what_it_does": "Calculates the difference (edit script) between two lists using the Myers diff algorithm. It returns operations like insert, remove, change, and move to transform one list into another.",
+    "use_when": [
+      "You need to animate the insertion, removal, or reordering of items in a list without managing a StatefulWidget",
+      "You receive a whole new list of data from an endpoint and need to compute the delta updates"
+    ],
+    "avoid_when": [
+      "You are using a state management framework that already handles list diffing internally",
+      "You only need simple list comparison without granular edit operations"
+    ],
+    "strengths": [
+      "Efficient Myers algorithm implementation with O(N) space and O(N + D^2) time performance",
+      "Supports custom equality checks, move detection, and batching of insert/remove operations",
+      "Provides updates with concrete data items via getUpdatesWithData()"
+    ],
+    "weaknesses": [
+      "Move detection increases time complexity to O(N^2)",
+      "Requires manual application of the returned edit operations to your UI or data structures"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "final diffResult = calculateListDiff<int>([1, 2, 3], [1, 3, 4]);\nfor (final update in diffResult.getUpdates()) {\n  update.when(\n    insert: (pos, count) => print(\"inserted $count on $pos\"),\n    remove: (pos, count) => print(\"removed $count on $pos\"),\n    change: (pos, payload) => print(\"changed on $pos with payload $payload\"),\n    move: (from, to) => print(\"move $from to $to\"),\n  );\n}",
+    "confidence": 1
+  }
+}

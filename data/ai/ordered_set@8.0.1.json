@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "8.0.1",
+  "generatedAt": "2026-11-08T15:33:37.682Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Ordered Set that keeps elements sorted and allows duplicates by priority.",
+    "what_it_does": "It stores items in order according to a comparator or a mapper function, permitting multiple items with the same priority. The set implements Iterable, so you can iterate in order with O(n) complexity.",
+    "use_when": [
+      "You need a sorted collection that accepts duplicate priorities",
+      "You want fast iteration over ordered elements",
+      "You need to query subsets by type or cache query results"
+    ],
+    "avoid_when": [
+      "You only need a unique sorted set—use Dart's SplayTreeSet instead",
+      "You require persistence or async operations"
+    ],
+    "strengths": [
+      "Allows duplicate priorities",
+      "Simple API with static constructors",
+      "Iterable implementation for easy traversal",
+      "Supports query registration and caching"
+    ],
+    "weaknesses": [
+      "No built‑in persistence or async support",
+      "Not a full data‑structure library (no tree traversal APIs)"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:ordered_set/ordered_set.dart';\n\nvoid main() {\n  final items = OrderedSet.simple<num, int>();\n  items.add(2);\n  items.add(1);\n  print(items.toList()); // [1, 2]\n}",
+    "confidence": 0.95
+  }
+}

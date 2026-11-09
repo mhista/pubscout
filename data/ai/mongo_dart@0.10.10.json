@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.10.10",
+  "generatedAt": "2026-11-08T15:38:26.598Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [
+      "backend"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "MongoDB driver implemented in pure Dart for server-side applications.",
+    "what_it_does": "Provides a server-side MongoDB driver written in pure Dart. It supports all CRUD operations, aggregation pipelines, authentication methods, and secure TLS/SSL connections.",
+    "use_when": [
+      "You are building a Dart or Flutter server-side application that needs to connect to MongoDB.",
+      "You require full CRUD operations, aggregation pipelines, and change streams in pure Dart."
+    ],
+    "avoid_when": [
+      "You need client-side database storage inside a mobile app (use local NoSQL/SQL solutions instead).",
+      "You are relying on deprecated legacy commands for very old MongoDB versions without migration."
+    ],
+    "strengths": [
+      "Implemented in pure Dart with no external native dependencies.",
+      "Supports modern MongoDB protocol operations (OP_MSG), bulk writes, and aggregation pipelines.",
+      "Compatible with cloud services like MongoDB Atlas and Azure DocumentDB."
+    ],
+    "weaknesses": [
+      "Not suitable for client-side mobile storage directly due to server-side architectural design.",
+      "Porting of all modern MongoDB commands is still a work in progress."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add mongo_dart to your dependencies and initialize a Db connection string.",
+    "alternatives": [],
+    "minimal_example": "var db = Db(\"mongodb://localhost:27017/mongo_dart-blog\");\nawait db.open();\nvar coll = db.collection('find');\nawait collection.find(where.eq('name', 'Tom').gt('rating', 10)).toList();",
+    "confidence": 0.95
+  }
+}

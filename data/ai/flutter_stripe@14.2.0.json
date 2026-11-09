@@ -1,0 +1,47 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "14.2.0",
+  "generatedAt": "2026-11-07T11:18:07.946Z",
+  "data": {
+    "primary_category": "payments",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter library for Stripe supporting PaymentSheets, Apple Pay, and Google Pay.",
+    "what_it_does": "Allows you to build payment experiences in native Android and iOS apps using Flutter. Provides customizable UI screens and elements to securely collect payment details and handle payment flows.",
+    "use_when": [
+      "You need to accept credit card payments, Apple Pay, or Google Pay via Stripe in your Flutter app.",
+      "You want to use pre-built payment sheets or native payment elements for Android and iOS."
+    ],
+    "avoid_when": [
+      "You are selling digital products or services within your app that require using the app store's in-app purchase APIs (unless you are excluded by exceptions like the US court ruling).",
+      "You are looking for a non-Stripe payment gateway alternative."
+    ],
+    "strengths": [
+      "Supports Payment Sheets, Apple Pay, and Google Pay out of the box.",
+      "Handles SCA and 3D Secure authentication automatically.",
+      "Provides both pre-built UI screens and modular card fields."
+    ],
+    "weaknesses": [
+      "Requires specific and sometimes strict native configuration on Android (e.g., AppCompat theme, FlutterFragmentActivity) and iOS (deployment target 13.0).",
+      "Web support is experimental and only implements a subset of features."
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Requires Android API 21+, Kotlin 1.8.0+, AGP 8+, AppCompat theme, FlutterFragmentActivity, and ProGuard rules. Requires iOS 13+ deployment target and camera usage descriptions in Info.plist if using card scanning.",
+    "alternatives": [
+      {
+        "name": "in_app_purchase",
+        "why_pick_it": "Use this instead if you are selling digital goods, subscriptions, or in-game items through official App Store and Google Play billing systems."
+      },
+      {
+        "name": "pay",
+        "why_pick_it": "Use this if you want to integrate Google Pay and Apple Pay without tying your implementation exclusively to Stripe as the processor."
+      }
+    ],
+    "minimal_example": "Future<void> main() async {\n  WidgetsFlutterBinding.ensureInitialized();\n  Stripe.publishableKey = publishableKey;\n  await Stripe.instance.applySettings();\n}",
+    "confidence": 1
+  }
+}

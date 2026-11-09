@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "6.2.1",
+  "generatedAt": "2026-11-08T15:46:26.240Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "layout"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Extended nested scroll view to fix pinned header and inner scrollables sync issues.",
+    "what_it_does": "Provides an extended NestedScrollView to fix common synchronization issues with pinned sliver headers and inner scrollables inside tab views. It also allows building nested scroll views without needing a ScrollController in the body.",
+    "use_when": [
+      "You need to fix pinned sliver header synchronization issues in Flutter's NestedScrollView",
+      "You have inner scrollables inside a TabView and need proper scroll position syncing",
+      "You want to manage scroll views inside a NestedScrollView body without custom ScrollControllers"
+    ],
+    "avoid_when": [
+      "Standard Flutter NestedScrollView meets all your layout requirements without header or sync bugs"
+    ],
+    "strengths": [
+      "Fixes known framework issues with pinned headers and inner scrollables",
+      "Provides ExtendedVisibilityDetector to track visible lists",
+      "Supports multiple platforms including Android, iOS, Web, Windows, macOS, and Linux"
+    ],
+    "weaknesses": [
+      "Depends on overriding or extending core framework scrolling behavior which may require updates with new Flutter releases"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "ExtendedNestedScrollView(\n  pinnedHeaderSliverHeightBuilder: () {\n    return pinnedHeaderHeight;\n  },\n  body: TabBarView(\n    children: [\n      ExtendedVisibilityDetector(\n        uniqueKey: const Key('Tab1'),\n        child: ListView(),\n      ),\n    ],\n  ),\n)",
+    "confidence": 1
+  }
+}

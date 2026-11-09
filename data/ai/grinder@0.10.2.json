@@ -1,0 +1,36 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.10.2",
+  "generatedAt": "2026-11-07T11:24:04.689Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "code-defined"
+    ],
+    "one_liner": "A task runner for Dart to define and automate project workflows.",
+    "what_it_does": "Grinder helps developers define project tasks like building, testing, and deploying entirely in Dart code. It provides a command-line tool to run these tasks with support for dependencies, default tasks, and command-line arguments.",
+    "use_when": [
+      "You want to write build and automation scripts in Dart instead of shell scripts or Makefiles.",
+      "Your project requires ordered task dependencies like running tests only after a successful build."
+    ],
+    "avoid_when": [
+      "You prefer external build tools or standard shell scripts for workflow automation."
+    ],
+    "strengths": [
+      "Allows leveraging the full Dart ecosystem to write and debug task definitions.",
+      "Supports task dependencies and passing command-line flags and options."
+    ],
+    "weaknesses": [
+      "Requires maintaining task scripts inside a `tool/grind.dart` file."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add grinder to dev_dependencies and run `dart run grinder:init` to create a grinder script.",
+    "alternatives": [],
+    "minimal_example": "import 'package:grinder/grinder.dart';\n\nmain(args) => grind(args);\n\n@DefaultTask('Build the project.')\nbuild() {\n  log(\"Building...\");\n}\n\n@Task('Test stuff.')\n@Depends(build)\ntest() {\n  new PubApp.local('test').run([]);\n}",
+    "confidence": 1
+  }
+}

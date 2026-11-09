@@ -1,0 +1,53 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.7.1",
+  "generatedAt": "2026-11-08T15:39:37.640Z",
+  "data": {
+    "primary_category": "layout",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Widgets for responsive UI across device types and orientations",
+    "what_it_does": "Provides builders that expose device screen type and orientation, allowing developers to return different widgets or values per breakpoint. Includes helpers for custom breakpoints and global sizing config.",
+    "use_when": [
+      "Need separate layouts for mobile, tablet, desktop, watch",
+      "Want readable responsive code without manual MediaQuery checks",
+      "Need to enforce orientation or custom breakpoints",
+      "Want to use shorthand extensions for screen size percentages"
+    ],
+    "avoid_when": [
+      "You only need a single layout for all devices",
+      "You prefer manual MediaQuery logic over builder widgets"
+    ],
+    "strengths": [
+      "Easy to read and maintain responsive code",
+      "Supports custom breakpoints and global config",
+      "Includes helper functions like getValueForScreenType",
+      "No code generation required"
+    ],
+    "weaknesses": [
+      "Limited to layout; no state management or networking features",
+      "Requires adding provider dependency",
+      "No built-in theming or advanced animations"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add responsive_builder: to pubspec, import package, wrap widgets with ResponsiveBuilder/ScreenTypeLayout/OrientationLayoutBuilder",
+    "alternatives": [
+      {
+        "name": "responsive_framework",
+        "why_pick_it": "Similar responsive layout widgets with more features like breakpoints and orientation handling"
+      },
+      {
+        "name": "device_preview",
+        "why_pick_it": "Provides device preview and responsive testing but not layout widgets"
+      }
+    ],
+    "minimal_example": "ResponsiveBuilder(\n  builder: (context, sizing) {\n    if (sizing.deviceScreenType == DeviceScreenType.desktop) {\n      return Container(color: Colors.blue);\n    }\n    return Container(color: Colors.red);\n  },\n);",
+    "confidence": 0.92
+  }
+}

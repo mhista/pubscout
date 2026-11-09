@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.4.5",
+  "generatedAt": "2026-11-07T11:16:16.078Z",
+  "data": {
+    "primary_category": "files",
+    "secondary_categories": [
+      "ui-kits"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A Flutter plugin providing native PDFView widgets on Android and iOS.",
+    "what_it_does": "It renders PDF files natively on Android and iOS devices using a dedicated PDFView widget. It offers controller options for pagination, zooming, page sizing, and screenshots, as well as various callbacks for rendering and page changes.",
+    "use_when": [
+      "You need to display local or data-driven PDF files inside your Flutter app on Android and iOS.",
+      "You require native rendering performance for documents using platform-specific viewers."
+    ],
+    "avoid_when": [
+      "You need web, macOS, Windows, or Linux support (currently not supported by this package).",
+      "You need to implement advanced PDF text searching within the view."
+    ],
+    "strengths": [
+      "Uses native platform PDF renderers (AndroidPdfViewer and PDFKit).",
+      "Provides a robust controller for programmatic navigation, zooming, and screenshots.",
+      "Supports customizable options like night mode, swipe directions, and fit policies."
+    ],
+    "weaknesses": [
+      "Only supports Android and iOS platforms currently.",
+      "Platform views on Android can occasionally introduce layout constraints or require hybrid composition considerations."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires minimum Flutter 3.32.0 / Dart 3.8.0. iOS requires support > 12.0.",
+    "alternatives": [],
+    "minimal_example": "PDFView(\n  filePath: path,\n  enableSwipe: true,\n  swipeHorizontal: true,\n  autoSpacing: false,\n  pageFling: false,\n  showScrollIndicators: true,\n  backgroundColor: Colors.grey,\n  onRender: (_pages) {\n    setState(() {\n      pages = _pages;\n      isReady = true;\n    });\n  },\n  onError: (error) {\n    print(error.toString());\n  },\n  onPageError: (page, error) {\n    print('$page: ${error.toString()}');\n  },\n  onViewCreated: (PDFViewController pdfViewController) {\n    _controller.complete(pdfViewController);\n  },\n  onPageChanged: (int page, int total) {\n    print('page change: $page/$total');\n  },\n  onLoadComplete: (int? pages) {\n    print('# of pages: $pages');\n  },\n)",
+    "confidence": 0.95
+  }
+}

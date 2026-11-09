@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.6.0",
+  "generatedAt": "2026-11-08T15:28:40.394Z",
+  "data": {
+    "primary_category": "backend",
+    "secondary_categories": [
+      "devtools",
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Wrapper to easily enable hot-reload for shelf applications.",
+    "what_it_does": "Provides a wrapper function to enable hot-reload for Dart shelf web applications. It hooks into the VM service to automatically restart the server when code changes occur.",
+    "use_when": [
+      "You are developing a shelf backend application in Dart",
+      "You want to speed up your backend development workflow with hot-reload"
+    ],
+    "avoid_when": [
+      "You are building a Flutter frontend application",
+      "You are running in a production environment where VM service is disabled"
+    ],
+    "strengths": [
+      "Easy to set up with a single function call",
+      "Supports custom logging and lifecycle callbacks"
+    ],
+    "weaknesses": [
+      "Requires running the Dart application with the --enable-vm-service flag",
+      "Limited to shelf-based Dart backend applications"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Run the application with the --enable-vm-service flag or use debug run in your IDE.",
+    "alternatives": [],
+    "minimal_example": "void main() async {\n  withHotreload(() => createServer());\n}\n\nFuture<HttpServer> createServer() {\n  handler(shelf.Request request) => shelf.Response.ok('hot!');\n  return io.serve(handler, 'localhost', 8080);\n}",
+    "confidence": 1
+  }
+}

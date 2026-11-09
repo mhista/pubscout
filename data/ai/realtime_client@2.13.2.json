@@ -1,0 +1,48 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "2.13.2",
+  "generatedAt": "2026-11-08T15:23:10.407Z",
+  "data": {
+    "primary_category": "backend",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "stream-based"
+    ],
+    "one_liner": "Dart client for Supabase Realtime, listening to PostgreSQL changes via WebSocket",
+    "what_it_does": "It connects to a Supabase Realtime server over WebSocket and streams database change events. It supports both protocol versions 1.0.0 and 2.0.0 and handles reconnection logic.",
+    "use_when": [
+      "You need real-time updates from a Supabase PostgreSQL database",
+      "You want a lightweight client without extra dependencies",
+      "You prefer a pure Dart implementation over JavaScript"
+    ],
+    "avoid_when": [
+      "You already use supabase_flutter which bundles realtime",
+      "You need advanced authentication or storage features beyond realtime"
+    ],
+    "strengths": [
+      "Supports both protocol versions",
+      "Handles reconnection and null cell values gracefully",
+      "Pure Dart, no native code",
+      "MIT license"
+    ],
+    "weaknesses": [
+      "No UI helpers, only data layer",
+      "Requires manual WebSocket handling",
+      "Limited to Supabase Realtime only"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dependency, import package, call RealtimeClient.connect(url, token) and subscribe to channels",
+    "alternatives": [
+      {
+        "name": "supabase_flutter",
+        "why_pick_it": "Provides a higher-level client with auth, storage, and realtime bundled together"
+      }
+    ],
+    "minimal_example": "import 'package:realtime_client/realtime_client.dart';\nfinal client = RealtimeClient.connect('wss://your-project.supabase.co/realtime/v1', 'anon-key');\nclient.subscribe('public:messages').listen((event) => print(event));",
+    "confidence": 0.85
+  }
+}

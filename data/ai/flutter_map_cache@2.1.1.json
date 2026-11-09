@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.1.1",
+  "generatedAt": "2026-11-08T15:59:14.900Z",
+  "data": {
+    "primary_category": "maps",
+    "secondary_categories": [
+      "storage",
+      "networking"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A slim caching plugin for flutter_map tile layers supporting multiple storage backends.",
+    "what_it_does": "It intercepts tile requests in flutter_map using Dio and caches map tiles to reduce network usage, lower server load, and improve map loading performance. It supports backends like File System, Drift, Hive CE, ObjectBox, Isar, and Sembast.",
+    "use_when": [
+      "You are using flutter_map and need to cache map tiles to comply with tile usage policies.",
+      "You want to reduce mobile data usage and load previously visited map regions instantly offline.",
+      "You need advanced caching backends like Drift, Hive, or Isar instead of the default flutter_map caching."
+    ],
+    "avoid_when": [
+      "You want a fully automated offline map downloader since this package only caches tiles as they are visited.",
+      "You are using only sqflite and prefer not to use Drift or other supported storage stores."
+    ],
+    "strengths": [
+      "Supports multiple storage backends including File System, Drift, and Hive CE.",
+      "Includes tile request cancellation out of the box.",
+      "Reduces mobile data consumption and speeds up repeat visits to map regions."
+    ],
+    "weaknesses": [
+      "Does not provide automated bulk tile downloading for complete offline maps.",
+      "Requires choosing and configuring an additional storage backend package."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding flutter_map_cache along with a chosen storage store package (such as http_cache_file_store or http_cache_hive_store) and setting up paths via path_provider.",
+    "alternatives": [],
+    "minimal_example": "FlutterMap(\n  options: MapOptions(),\n  children: [\n    TileLayer(\n      urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',\n      tileProvider: CachedTileProvider(\n        maxStale: const Duration(days: 30),\n        store: HiveCacheStore(path, hiveBoxName: 'HiveCacheStore'),\n      ),\n    ),\n  ],\n)",
+    "confidence": 0.95
+  }
+}

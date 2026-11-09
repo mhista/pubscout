@@ -1,0 +1,50 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "3.1.6",
+  "generatedAt": "2026-11-08T15:19:40.546Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "web-desktop"
+    ],
+    "approach": [
+      "code generation",
+      "imperative"
+    ],
+    "one_liner": "Launch URLs, files and app schemes on Windows from Flutter apps.",
+    "what_it_does": "Provides the Windows implementation of the url_launcher plugin. It opens web links, mailto links, and file URLs using the default system handlers. It integrates with the federated url_launcher API so you can call launchUrl without platform checks.",
+    "use_when": [
+      "You need to open external links or files on Windows desktops",
+      "You are building a Flutter app that runs on multiple platforms and want Windows support for url_launcher"
+    ],
+    "avoid_when": [
+      "You only target non‑Windows platforms",
+      "You need advanced browser control beyond just launching a URL"
+    ],
+    "strengths": [
+      "Seamless integration with the federated url_launcher API",
+      "Automatically included when using url_launcher on Windows",
+      "Handles file URLs with UTF‑8 paths and provides proper error logging"
+    ],
+    "weaknesses": [
+      "Only works on Windows; other platforms need their own implementations",
+      "Relies on system default handlers, so behavior can vary across Windows versions"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "url_launcher",
+        "why_pick_it": "A single package that pulls in the appropriate platform implementations automatically, including Windows."
+      },
+      {
+        "name": "url_launcher_android",
+        "why_pick_it": "If you only need Android support, this platform‑specific package is smaller."
+      }
+    ],
+    "minimal_example": "import 'package:url_launcher/url_launcher.dart';\n\nFuture<void> open() async {\n  final Uri url = Uri.parse('https://flutter.dev');\n  if (!await launchUrl(url)) {\n    throw 'Could not launch $url';\n  }\n}",
+    "confidence": 0.97
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.3.0",
+  "generatedAt": "2026-11-08T15:49:51.892Z",
+  "data": {
+    "primary_category": "images",
+    "secondary_categories": [
+      "animation",
+      "widgets"
+    ],
+    "approach": [
+      "declarative",
+      "imperative"
+    ],
+    "one_liner": "Control GIF playback, speed, frames, and loops using a Flutter animation controller.",
+    "what_it_does": "Allows developers to control GIF playback speed, jump to specific frames, and loop within a frame range using a Flutter animation controller. It also provides GIF caching to avoid reloading frames on every iteration.",
+    "use_when": [
+      "You need to manipulate GIF playback speed or play/pause GIFs programmatically.",
+      "You want to control GIF frames or play within a specific frame range.",
+      "You need GIF caching to optimize loading performance."
+    ],
+    "avoid_when": [
+      "You only need to display a static or automatically looping GIF without programmatic control.",
+      "You are using complex vector animations like Rive or Lottie."
+    ],
+    "strengths": [
+      "Provides frame-level control over GIFs via an animation controller.",
+      "Includes built-in GIF caching to prevent reloading frames.",
+      "Supports custom frame rates and durations."
+    ],
+    "weaknesses": [
+      "Not documented for complex non-GIF animation formats.",
+      "Relies on external package limitations for GIF decoding."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "none",
+    "alternatives": [
+      {
+        "name": "lottie",
+        "why_pick_it": "If you want to use scalable vector animations instead of raster GIFs."
+      },
+      {
+        "name": "flutter_animate",
+        "why_pick_it": "If you need a general-purpose animation library for widgets rather than specific GIF frame control."
+      },
+      {
+        "name": "rive",
+        "why_pick_it": "If you need interactive, state-driven vector animations."
+      }
+    ],
+    "minimal_example": "GifController _controller = GifController(vsync: this);\n\nGif(\n     image: AssetImage(\"images/animate.gif\"),\n     controller: _controller,\n     autostart: Autostart.no,\n     placeholder: (context) => const Text('Loading...'),\n     onFetchCompleted: () {\n          _controller.reset();\n          _controller.forward();\n     },\n)",
+    "confidence": 0.95
+  }
+}

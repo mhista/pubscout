@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "4.8.12",
+  "generatedAt": "2026-11-08T15:30:29.352Z",
+  "data": {
+    "primary_category": "devtools",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Build_runner builder that compiles Dart to JavaScript or WebAssembly for web applications",
+    "what_it_does": "It wraps dart2js, dartdevc, and dart2wasm compilers, emitting entrypoint scripts and optional loaders. Configuration is done via build.yaml, allowing fine‑grained control over compiler options and output names.",
+    "use_when": [
+      "Building a Flutter web or Dart web app that needs incremental dev builds",
+      "Requiring WebAssembly output alongside JavaScript",
+      "Using build_runner for automated build pipelines"
+    ],
+    "avoid_when": [
+      "Non‑web projects that don't use build_runner",
+      "Projects that prefer a single pre‑compiled JavaScript bundle without incremental rebuilds"
+    ],
+    "strengths": [
+      "Supports incremental rebuilds with dartdevc",
+      "Provides WebAssembly output and loader logic",
+      "Highly configurable via build.yaml",
+      "Integrates seamlessly with build_runner ecosystem"
+    ],
+    "weaknesses": [
+      "Only works with build_runner",
+      "Configuration can be verbose",
+      "Requires Dart 3.13+ and specific analyzer versions"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add as dev_dependency, run `dart pub add --dev build_web_compilers`, create a build.yaml with entrypoint builder configuration, and run `dart run build_runner build`",
+    "alternatives": [],
+    "minimal_example": "```yaml\n# build.yaml\ntargets:\n  $default:\n    builders:\n      build_web_compilers:entrypoint:\n        generate_for:\n          - web/**.dart\n        options:\n          compilers:\n            dart2js:\n              args:\n                - O2\n            dart2wasm:\n              args:\n                - O3\n```",
+    "confidence": 0.9
+  }
+}

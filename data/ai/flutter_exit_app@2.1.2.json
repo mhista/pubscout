@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.1.2",
+  "generatedAt": "2026-11-07T11:13:17.099Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Platform-specific way to exit a Flutter app cleanly without calling exit(0).",
+    "what_it_does": "Provides a plugin method to exit the application properly on Android and iOS. On Android, it finishes the activity and removes it from the task list. On iOS, it gracefully suspends the app or optionally force-kills it.",
+    "use_when": [
+      "You need to provide a clean app exit mechanism from within the UI",
+      "You want to avoid using Dart's exit(0) for a more graceful shutdown"
+    ],
+    "avoid_when": [
+      "You want to rely on the standard operating system behavior where users manage app closure",
+      "You are targeting iOS App Store compliance and plan to use force-exit mode without an enterprise or specific requirement"
+    ],
+    "strengths": [
+      "Apple guideline compliant default behavior for iOS",
+      "Cleanly removes the app from the Android recent tasks list",
+      "Written in modern Kotlin and Swift with full null-safety"
+    ],
+    "weaknesses": [
+      "Force-exit mode on iOS may cause the app to appear to crash and can lead to App Store review rejection",
+      "Programmatically exiting apps is generally discouraged by mobile platforms"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires minimum iOS 13.0 and Android API 21.",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter_exit_app/flutter_exit_app.dart';\n\nawait FlutterExitApp.exitApp();",
+    "confidence": 0.95
+  }
+}

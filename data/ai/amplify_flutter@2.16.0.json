@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "2.16.0",
+  "generatedAt": "2026-11-07T10:55:03.740Z",
+  "data": {
+    "primary_category": "backend",
+    "secondary_categories": [
+      "auth",
+      "storage",
+      "networking"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter SDK for AWS Amplify services like Auth, API, Storage, and Analytics.",
+    "what_it_does": "Provides a unified interface to interact with AWS Amplify backend services from Flutter apps. Supports authentication, data APIs (REST/GraphQL), file storage, analytics, and push notifications across mobile, web, and desktop platforms.",
+    "use_when": [
+      "You need to integrate multiple AWS services (Auth, API, Storage, Analytics) in a Flutter app",
+      "Cross‑platform support (iOS, Android, Web, Windows, macOS, Linux) is required",
+      "You prefer a single package that abstracts AWS Amplify functionality"
+    ],
+    "avoid_when": [
+      "You only need a lightweight, single‑service client (e.g., only Auth) and want a smaller dependency footprint",
+      "Your project targets platforms not listed as supported (e.g., embedded devices)"
+    ],
+    "strengths": [
+      "Comprehensive coverage of AWS Amplify features",
+      "Consistent API across all supported platforms",
+      "Active maintenance and frequent updates"
+    ],
+    "weaknesses": [
+      "Large package size due to many bundled services",
+      "Requires native setup for each platform (e.g., AWS credentials, platform‑specific config)"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add Amplify plugins (e.g., Auth, Storage) in native code, configure AWS resources, and call Amplify.configure() before use. May need platform‑specific permissions (e.g., internet, push notifications).",
+    "alternatives": [],
+    "minimal_example": "import 'package:amplify_flutter/amplify.dart';\nimport 'package:amplify_auth_cognito/amplify_auth_cognito.dart';\n\nFuture<void> main() async {\n  await Amplify.addPlugin(AmplifyAuthCognito());\n  await Amplify.configure('''{...your amplifyconfiguration JSON...}''');\n  // Sign in example\n  final result = await Amplify.Auth.signIn(username: 'user', password: 'pass');\n}\n",
+    "confidence": 0.87
+  }
+}

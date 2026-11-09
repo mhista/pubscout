@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "3.0.0",
+  "generatedAt": "2026-11-07T11:08:32.799Z",
+  "data": {
+    "primary_category": "auth",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Creates googleapis_auth AuthClient from GoogleSignIn credentials.",
+    "what_it_does": "Provides an extension method that converts a GoogleSignIn authorization into a googleapis_auth AuthClient. The client can be used with googleapis package APIs to make authenticated calls.",
+    "use_when": [
+      "You need to call Google APIs (e.g., People API) after a user signs in with Google Sign‑In.",
+      "You want to avoid manually handling OAuth token exchange and refresh logic."
+    ],
+    "avoid_when": [
+      "You only need basic Google Sign‑In without accessing other Google APIs.",
+      "You prefer a custom OAuth flow or another authentication provider."
+    ],
+    "strengths": [
+      "Bridges two official Flutter packages seamlessly.",
+      "Handles token refresh automatically via googleapis_auth.",
+      "Works on all supported platforms (android, ios, web, macos)."
+    ],
+    "weaknesses": [
+      "Requires the newer GoogleSignInClientAuthorization flow (breaking change in 3.0.0).",
+      "Limited to Google APIs; not a general OAuth solution."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:extension_google_sign_in_as_googleapis_auth/extension_google_sign_in_as_googleapis_auth.dart';\nimport 'package:googleapis_auth/googleapis_auth.dart' as auth show AuthClient;\n\nfinal authClient = await GoogleSignIn().signIn();\nfinal client = await authClient.authClient(scopes: ['https://www.googleapis.com/auth/contacts.readonly']);\n// Use client with googleapis, e.g., PeopleServiceApi(client);",
+    "confidence": 0.97
+  }
+}

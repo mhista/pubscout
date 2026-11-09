@@ -1,0 +1,52 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.1.0",
+  "generatedAt": "2026-11-08T15:38:14.693Z",
+  "data": {
+    "primary_category": "animation",
+    "secondary_categories": [],
+    "approach": [
+      "declarative",
+      "physics-based"
+    ],
+    "one_liner": "Unified motion system combining physics-based springs and duration-based curves.",
+    "what_it_does": "Provides a consistent Motion API to handle both physics-based spring animations and duration-based curved animations. It supports multi-dimensional animations, sequence animations, and includes Apple Cupertino and Material Design 3 motion presets.",
+    "use_when": [
+      "You want a mix of physics-based spring animations and curve-based animations under a single API.",
+      "You need multi-dimensional animations like Offset or Rect with independent physics per dimension.",
+      "You want to use preset Material 3 or Cupertino motion tokens."
+    ],
+    "avoid_when": [
+      "You are looking for timeline-based vector animations like Rive or Lottie.",
+      "You only need basic, built-in implicit Flutter animations without custom motion configs."
+    ],
+    "strengths": [
+      "Unified API for springs and curves",
+      "Independent physics simulation per dimension for complex types",
+      "Built-in Cupertino and Material Design 3 motion tokens"
+    ],
+    "weaknesses": [
+      "Requires learning a new motion abstraction over standard Flutter animations"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the package to pubspec.yaml dependencies.",
+    "alternatives": [
+      {
+        "name": "flutter_animate",
+        "why_pick_it": "If you prefer a fluent extension-method based animation API rather than a unified motion system."
+      },
+      {
+        "name": "rive",
+        "why_pick_it": "If you need rich vector animations created in the Rive editor."
+      },
+      {
+        "name": "lottie",
+        "why_pick_it": "If you need to render After Effects animations exported as JSON."
+      }
+    ],
+    "minimal_example": "SingleMotionBuilder(\n  motion: CupertinoMotion.bouncy(),\n  value: targetValue,\n  builder: (context, value, child) {\n    return Container(\n      width: value,\n      height: value,\n      color: Colors.blue,\n    );\n  },\n)",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.6.2",
+  "generatedAt": "2026-11-07T11:02:48.350Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "A Dart scheduler that runs tasks at cron‑style times or intervals.",
+    "what_it_does": "Provides a Cron class to schedule callbacks based on cron expressions or fixed intervals. Parses standard 5‑part or 6‑part cron strings and supports mocking time via the clock package.",
+    "use_when": [
+      "You need periodic background work in a pure Dart or Flutter app",
+      "You want cron‑like scheduling without native platform code",
+      "You need to test time‑dependent code with mockable clocks"
+    ],
+    "avoid_when": [
+      "Precise sub‑second timing is required",
+      "You need distributed job coordination across multiple devices"
+    ],
+    "strengths": [
+      "Simple API with string‑based schedules",
+      "Supports intervals, seconds, and mockable time",
+      "Null‑safe and pure Dart, works on all platforms"
+    ],
+    "weaknesses": [
+      "No built‑in persistence; tasks disappear on app restart",
+      "Limited to single‑process scheduling",
+      "No advanced features like job queues or retries"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:cron/cron.dart';\n\nvoid main() {\n  final cron = Cron();\n  cron.schedule(Schedule.parse('*/5 * * * *'), () async {\n    print('runs every 5 minutes');\n  });\n}",
+    "confidence": 0.92
+  }
+}

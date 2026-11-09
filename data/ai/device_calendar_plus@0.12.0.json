@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.12.0",
+  "generatedAt": "2026-11-08T15:52:07.280Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Plugin for reading and writing device calendar events on Android and iOS.",
+    "what_it_does": "A Flutter plugin for reading and writing device calendar events on Android and iOS. It provides an API for permissions, calendars, events, recurring events with RRULE support, reminders, and native UI integration.",
+    "use_when": [
+      "You need to read and write device calendar events on Android and iOS.",
+      "You require robust support for recurring events and timezones.",
+      "You want a maintained replacement for the deprecated device_calendar package."
+    ],
+    "avoid_when": [
+      "You only need local notification scheduling rather than calendar integration.",
+      "Your application targets platforms other than Android and iOS."
+    ],
+    "strengths": [
+      "Full RRULE support for recurring events with typed models.",
+      "Clean Dart API with native timezones behavior without the timezone package.",
+      "Handles both Android Calendar Provider and iOS EventKit discrepancies."
+    ],
+    "weaknesses": [
+      "Platform parity is limited by what underlying OS APIs allow (e.g., iOS cannot write attendees).",
+      "Pull requests are closed by the maintainer so contributions must be done via issue reports."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding Info.plist usage descriptions for iOS and READ/WRITE_CALENDAR permissions in AndroidManifest.xml for Android.",
+    "alternatives": [],
+    "minimal_example": "import 'package:device_calendar_plus/device_calendar_plus.dart';\n\nfinal plugin = DeviceCalendar.instance;\nfinal status = await plugin.requestPermissions();\nif (status != CalendarPermissionStatus.granted) return;\n\nfinal eventId = await plugin.createEvent(\n  title: 'Team Meeting',\n  startDate: DateTime.now().add(const Duration(hours: 1)),\n  endDate: DateTime.now().add(const Duration(hours: 2)),\n);",
+    "confidence": 0.95
+  }
+}

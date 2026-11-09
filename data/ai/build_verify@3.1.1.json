@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "3.1.1",
+  "generatedAt": "2026-11-07T10:59:23.518Z",
+  "data": {
+    "primary_category": "testing",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Utility to verify generated Dart code is up-to-date during build",
+    "what_it_does": "It runs build_runner and checks for uncommitted changes in generated files. If any differences are found, the test fails.",
+    "use_when": [
+      "You use build_runner to generate code and want to ensure it stays in sync",
+      "You want to add a CI check that fails when generated code is stale",
+      "You need a quick way to assert clean builds in unit tests"
+    ],
+    "avoid_when": [
+      "You are not using build_runner or code generation",
+      "Your project is not under Git version control",
+      "You need a more sophisticated diff or linting tool"
+    ],
+    "strengths": [
+      "Simple API, just a single test function",
+      "Async and works with flutter test",
+      "Prints executed commands for debugging",
+      "Supports custom git diff arguments"
+    ],
+    "weaknesses": [
+      "Requires Git repository to run",
+      "Depends on build_runner being configured",
+      "Requires Dart >=3.4.0 for latest version"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add a test file with `test('ensure_build', expectBuildClean);` and ensure build_runner is set up in pubspec",
+    "alternatives": [],
+    "minimal_example": "import 'package:build_verify/build_verify.dart';\nimport 'package:test/test.dart';\n\nvoid main() {\n  test('ensure_build', expectBuildClean);\n}",
+    "confidence": 0.9
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.1.1",
+  "generatedAt": "2026-11-08T15:52:13.594Z",
+  "data": {
+    "primary_category": "navigation",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "A Flutter NavigatorObserver that tracks pushed and popped navigation route history.",
+    "what_it_does": "It records the navigation stack both forwards and backwards by acting as a NavigatorObserver. It exposes history lists as immutable collections and provides a stream to listen for navigation changes.",
+    "use_when": [
+      "You need to track or inspect the user's navigation history throughout the app.",
+      "You want to react to navigation stack changes via a stream."
+    ],
+    "avoid_when": [
+      "You are looking for advanced declarative routing features.",
+      "You intend to rely on popped routes for forward navigation."
+    ],
+    "strengths": [
+      "Singleton pattern allows access to history from anywhere in code.",
+      "Provides an easy-to-use history change stream.",
+      "Returns immutable BuiltLists to prevent unauthorized state manipulation."
+    ],
+    "weaknesses": [
+      "Popped routes are already disposed, meaning you cannot simply navigate back to them directly.",
+      "Singleton usage may complicate dependency injection or testing."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the NavigationHistoryObserver to your MaterialApp's navigatorObservers list.",
+    "alternatives": [
+      {
+        "name": "go_router",
+        "why_pick_it": "A declarative routing package built for Flutter that handles deep linking and complex navigation flows."
+      },
+      {
+        "name": "auto_route",
+        "why_pick_it": "A declarative routing package that generates strongly-typed navigation code."
+      }
+    ],
+    "minimal_example": "void main() {\n  runApp(MaterialApp(\n    home: Container(),\n    navigatorObservers: [NavigationHistoryObserver()],\n  ));\n}",
+    "confidence": 1
+  }
+}

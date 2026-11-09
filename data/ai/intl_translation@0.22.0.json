@@ -1,0 +1,57 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.22.0",
+  "generatedAt": "2026-11-08T15:38:42.156Z",
+  "data": {
+    "primary_category": "localization",
+    "secondary_categories": [
+      "codegen",
+      "utils"
+    ],
+    "approach": [
+      "code generation"
+    ],
+    "one_liner": "Generates Dart code for intl messages from ARB files for localization.",
+    "what_it_does": "Extracts translatable messages from Dart source into ARB files, then generates locale‑specific Dart libraries from those ARB files. It works with the intl package to provide runtime message lookup.",
+    "use_when": [
+      "You need compile‑time generation of localized message libraries",
+      "You want to keep translation files in ARB format and integrate with intl",
+      "You prefer a CLI‑driven workflow for extracting and generating messages"
+    ],
+    "avoid_when": [
+      "You need hot‑reload translation updates without rebuilding",
+      "You prefer runtime‑only solutions like JSON‑based localization",
+      "You are using Flutter packages that already handle extraction (e.g., easy_localization)"
+    ],
+    "strengths": [
+      "Integrates tightly with the intl package",
+      "Supports code generation for null‑safe Dart",
+      "CLI tools for extraction and generation"
+    ],
+    "weaknesses": [
+      "Requires a build step and regeneration after each translation change",
+      "No support for hot‑reload of translations",
+      "Limited to ARB format, not JSON or other formats"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "intl",
+        "why_pick_it": "Provides formatting and runtime message lookup without the extra generation step"
+      },
+      {
+        "name": "easy_localization",
+        "why_pick_it": "Handles ARB/JSON translations at runtime with hot‑reload, no codegen needed"
+      },
+      {
+        "name": "slang",
+        "why_pick_it": "Offers code generation for type‑safe localization with a more modern workflow"
+      }
+    ],
+    "minimal_example": "dart run intl_translation:extract_to_arb --output-dir=lib/l10n lib/main.dart\ndart run intl_translation:generate_from_arb --generated-file-prefix=messages lib/main.dart lib/l10n/intl_*.arb",
+    "confidence": 0.95
+  }
+}

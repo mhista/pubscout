@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.1.6",
+  "generatedAt": "2026-11-07T11:18:19.383Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Retrieve a persistent unique device identifier across app reinstalls on mobile and desktop.",
+    "what_it_does": "Retrieves a persistent unique device identifier (UDID) across app reinstalls on iOS, Android, Mac, Windows, and Linux. It utilizes platform-specific APIs and keychain persistence where applicable. It also provides a consistent hashing option to normalize formats across platforms.",
+    "use_when": [
+      "You need a persistent device identifier across app reinstalls for analytics or tracking.",
+      "You need a unique hardware or system ID across Android, iOS, Windows, macOS, and Linux."
+    ],
+    "avoid_when": [
+      "You require an identifier that survives a factory reset.",
+      "You cannot tolerate privacy implications or store device-level IDs."
+    ],
+    "strengths": [
+      "Supports multiple platforms including mobile and desktop.",
+      "Persists across app reinstalls using platform keychain/storage features.",
+      "Provides a consistent format option across all platforms."
+    ],
+    "weaknesses": [
+      "UDID can change after a factory reset.",
+      "May change on rooted/jailbroken devices or if app signing signature changes.",
+      "On iOS, requesting UDID before first unlock after reboot throws a PlatformException."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Not documented",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter_udid/flutter_udid.dart';\n\nString udid = await FlutterUdid.udid;",
+    "confidence": 0.95
+  }
+}

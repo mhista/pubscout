@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "5.10.0",
+  "generatedAt": "2026-11-07T11:17:13.981Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "animation"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Animated GridViews and Wraps with drag-and-drop reordering and item animations.",
+    "what_it_does": "Enables animated drag-and-drop reordering for various GridView types and Wrap widgets. Also provides smooth entrance, exit, and update animations for child items.",
+    "use_when": [
+      "You need a reorderable GridView with smooth drag-and-drop animations.",
+      "You want animations when items are added, removed, or updated inside a grid or wrap."
+    ],
+    "avoid_when": [
+      "You only need a standard single-list reorderable view (use Flutter's built-in ReorderableListView instead).",
+      "You are not using GridView or Wrap widgets."
+    ],
+    "strengths": [
+      "Supports GridView, GridView.builder, and Wrap widgets.",
+      "Provides built-in automatic scrolling while dragging near edges.",
+      "Customizable animation configurations for insertions, removals, and feedback."
+    ],
+    "weaknesses": [
+      "Requires unique keys for every child widget.",
+      "Careful setup of ScrollControllers is required depending on nesting."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "flutter_staggered_grid_view",
+        "why_pick_it": "If you need complex staggered layouts rather than standard grid or wrap reordering."
+      }
+    ],
+    "minimal_example": "ReorderableBuilder(\n  children: generatedChildren,\n  scrollController: _scrollController,\n  onReorder: (ReorderedListFunction reorderedListFunction) {\n    setState(() {\n      _fruits = reorderedListFunction(_fruits) as List<String>;\n    });\n  },\n  builder: (children) {\n    return GridView(\n      controller: _scrollController,\n      children: children,\n      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(\n        crossAxisCount: 4,\n      ),\n    );\n  },\n)",
+    "confidence": 1
+  }
+}

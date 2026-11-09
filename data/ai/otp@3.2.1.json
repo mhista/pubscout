@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "3.2.1",
+  "generatedAt": "2026-11-08T15:39:25.983Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "auth"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Generate TOTP/HOTP codes per RFC6238/4226 with Base32 secrets and optional Google Auth mode.",
+    "what_it_does": "This library provides functions to generate time‑based and counter‑based one‑time passwords. It supports SHA‑256/512 algorithms, Google Authenticator compatibility, and exposes utilities like remainingSeconds and constant‑time verification.",
+    "use_when": [
+      "Implementing 2FA or OTP verification in a Flutter app",
+      "Generating codes for Google Authenticator or similar apps",
+      "Testing OTP logic in unit tests"
+    ],
+    "avoid_when": [
+      "You need a full authentication flow with user management",
+      "Your secrets are not Base32 and you prefer not to convert them"
+    ],
+    "strengths": [
+      "RFC‑compliant implementation",
+      "Supports SHA‑256/512 and Google Auth mode",
+      "Provides remainingSeconds helper",
+      "Simple API, no UI dependencies"
+    ],
+    "weaknesses": [
+      "Only accepts Base32 secrets",
+      "constantTimeVerification may not be fully reliable",
+      "No built‑in UI components"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add `otp: 3.2.1` to pubspec and import `package:otp/otp.dart`",
+    "alternatives": [],
+    "minimal_example": "import 'package:otp/otp.dart';\n\nfinal code = OTP.generateTOTPCodeString('JBSWY3DPEHPK3PXP', DateTime.now().millisecondsSinceEpoch);\nprint(code);",
+    "confidence": 0.9
+  }
+}

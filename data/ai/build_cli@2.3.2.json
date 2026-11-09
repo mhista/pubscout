@@ -1,0 +1,36 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.3.2",
+  "generatedAt": "2026-11-08T15:48:02.608Z",
+  "data": {
+    "primary_category": "codegen",
+    "secondary_categories": [],
+    "approach": [
+      "code generation"
+    ],
+    "one_liner": "Parse command line arguments directly into an annotation class using build_runner or a standalone CLI.",
+    "what_it_does": "Parse command line arguments by annotating classes with @CliOptions() and fields with @CliOption(). It generates helper code to populate your options class from command line arguments.",
+    "use_when": [
+      "You need to parse command-line arguments in Dart CLI applications or packages.",
+      "You prefer an annotation-driven approach to configuring options and flags."
+    ],
+    "avoid_when": [
+      "You prefer parsing command line arguments manually using the args package directly without code generation."
+    ],
+    "strengths": [
+      "Supports running as a standalone CLI or with build_runner.",
+      "Uses package:args under the hood.",
+      "Handles custom types like enums and generated helpers automatically."
+    ],
+    "weaknesses": [
+      "Requires code generation steps in your workflow."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add build_cli_annotations to dependencies and either run the standalone CLI (`dart run build_cli@`) or add build_cli and build_runner to dev_dependencies.",
+    "alternatives": [],
+    "minimal_example": "import 'package:build_cli_annotations/build_cli_annotations.dart';\n\npart 'example.g.dart';\n\n@CliOptions()\nclass Options {\n  @CliOption(abbr: 'n', help: 'Required. The name to use in the greeting.')\n  final String name;\n\n  final bool nameWasParsed;\n\n  Options(this.name, {this.nameWasParsed = false});\n}",
+    "confidence": 1
+  }
+}

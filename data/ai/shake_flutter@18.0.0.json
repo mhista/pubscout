@@ -1,0 +1,37 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "18.0.0",
+  "generatedAt": "2026-11-08T15:57:20.792Z",
+  "data": {
+    "primary_category": "devtools",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter plugin for automated bug reporting and session tracking.",
+    "what_it_does": "Allows users to submit bug reports automatically with useful data by shaking their device or calling the API. Includes session tracking and user management features.",
+    "use_when": [
+      "You want to automatically collect bug reports and user data from your app.",
+      "You need in-app user feedback or chat capabilities for bug fixing."
+    ],
+    "avoid_when": [
+      "You need crash reporting functionality, which is listed as not available.",
+      "You want a fully open-source, self-hosted bug reporting tool without third-party services."
+    ],
+    "strengths": [
+      "Provides quick integration for automated bug reports.",
+      "Supports custom forms, tags, and session tracking."
+    ],
+    "weaknesses": [
+      "Crash reporting is currently not available.",
+      "Requires platform-specific API keys and relies on the Shake backend."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires obtaining an API key for Android and iOS, adding the dependency to pubspec.yaml, and calling Shake.start() in main.dart.",
+    "alternatives": [],
+    "minimal_example": "import 'dart:io';\nimport 'package:flutter/material.dart';\nimport 'package:shake_flutter/shake_flutter.dart';\n\nvoid main() {\n  WidgetsFlutterBinding.ensureInitialized();\n\n  String apiKey = Platform.isIOS ? 'ios-app-api-key' : 'android-app-api-key';\n  Shake.start(apiKey);\n\n  runApp(MyApp());\n}",
+    "confidence": 0.9
+  }
+}

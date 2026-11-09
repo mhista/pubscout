@@ -1,0 +1,35 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.1.0",
+  "generatedAt": "2026-11-07T11:14:33.063Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "An IndexedStack widget that loads children lazily only when needed.",
+    "what_it_does": "Exposes an IndexedStack alternative that lazily loads its children instead of rendering all of them at once. It uses the same API as IndexedStack requiring a list of children and an active index.",
+    "use_when": [
+      "You have a lot of children in an IndexedStack and want to avoid loading them all at once.",
+      "You have children that load content asynchronously and need to be deferred until selected."
+    ],
+    "avoid_when": [
+      "You need standard IndexedStack behavior where all child states must remain active simultaneously from initial render."
+    ],
+    "strengths": [
+      "Improves performance by lazy-loading children in an IndexedStack.",
+      "Drop-in API compatibility with the standard IndexedStack widget."
+    ],
+    "weaknesses": [
+      "State of non-selected children might not be initialized until they are activated for the first time."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "LazyIndexedStack(\n  index: index,\n  children: List.generate(3, (i) => Text('$i')),\n)",
+    "confidence": 1
+  }
+}

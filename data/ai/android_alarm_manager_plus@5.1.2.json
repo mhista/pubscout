@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "5.1.2",
+  "generatedAt": "2026-11-07T10:55:38.250Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Access Android AlarmManager service and run Dart code in the background.",
+    "what_it_does": "Allows Flutter applications to access the Android AlarmManager service. Enables running custom Dart code in background background isolates when alarms fire, even if the main app has ended.",
+    "use_when": [
+      "You need to trigger recurring tasks or one-off alarms on Android at precise times.",
+      "You need background tasks to execute when the app is closed or not in the foreground."
+    ],
+    "avoid_when": [
+      "You need cross-platform background task handling that includes iOS.",
+      "Your app targets Android 14+ and you cannot handle SCHEDULE_EXACT_ALARM permissions via additional plugins."
+    ],
+    "strengths": [
+      "Integrates directly with native Android AlarmManager service.",
+      "Supports periodic and one-shot background alarms with custom callbacks."
+    ],
+    "weaknesses": [
+      "Android only (no iOS or web support documented).",
+      "Alarms are cleared if the device is rebooted unless properly configured, and will not fire if the app is force-stopped."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding permissions and receiver/service components to AndroidManifest.xml, plus handling SCHEDULE_EXACT_ALARM permissions for Android 14+ via an additional plugin like permission_handler.",
+    "alternatives": [],
+    "minimal_example": "import 'package:android_alarm_manager_plus/android_alarm_manager_plus.dart';\n\n@pragma('vm:entry-point')\nstatic void printHello() {\n  print(\"Hello, world!\");\n}\n\nmain() async {\n  WidgetsFlutterBinding.ensureInitialized();\n  await AndroidAlarmManager.initialize();\n  runApp(...);\n  await AndroidAlarmManager.periodic(const Duration(minutes: 1), 0, printHello);\n}",
+    "confidence": 0.95
+  }
+}

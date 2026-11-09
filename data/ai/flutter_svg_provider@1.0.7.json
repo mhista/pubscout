@@ -1,0 +1,48 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.7",
+  "generatedAt": "2026-11-07T11:18:07.462Z",
+  "data": {
+    "primary_category": "images",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Generate image provider from svg path for Flutter Image widgets.",
+    "what_it_does": "Generates a custom ImageProvider from SVG paths, allowing SVGs to be used directly inside standard Flutter Image widgets. It uses flutter_svg and http dependencies under the hood to parse and render SVG assets or network paths.",
+    "use_when": [
+      "You need to pass an SVG as an image provider to widgets that expect ImageProvider.",
+      "You want to render SVGs using standard Flutter Image widgets."
+    ],
+    "avoid_when": [
+      "You can use flutter_svg directly with SvgPicture widgets instead of an ImageProvider.",
+      "You require advanced caching or transformation features provided by other image packages."
+    ],
+    "strengths": [
+      "Allows using SVGs anywhere an ImageProvider is accepted.",
+      "Supports assets, file system, and network SVG paths."
+    ],
+    "weaknesses": [
+      "Relies on external packages like flutter_svg and http.",
+      "Limited to what a custom ImageProvider can do compared to dedicated picture widgets."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [
+      {
+        "name": "flutter_svg",
+        "why_pick_it": "Provides native SvgPicture widgets for rendering SVGs directly without needing a custom image provider."
+      },
+      {
+        "name": "vector_graphics",
+        "why_pick_it": "Alternative graphics library for rendering vector assets efficiently."
+      }
+    ],
+    "minimal_example": "import 'package:flutter_svg_provider/flutter_svg_provider.dart';\n\nImage(\n  width: 32,\n  height: 32,\n  image: Svg('assets/my_icon.svg'),\n)",
+    "confidence": 0.95
+  }
+}

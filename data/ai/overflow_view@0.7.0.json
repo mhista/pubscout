@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.7.0",
+  "generatedAt": "2026-11-08T15:53:30.016Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "layout"
+    ],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "Displays children in a line with an overflow indicator at the end if space is insufficient.",
+    "what_it_does": "A Flutter widget that lays out children horizontally or vertically, showing an overflow indicator when they don't all fit. It supports both fixed sizes (based on the first child) and flexible sizes for each child, as well as multiple runs like a Wrap.",
+    "use_when": [
+      "You need to display a horizontal list of avatars and show a '+N' badge for the rest",
+      "You want to build a menu bar that automatically hides items that do not fit",
+      "You need items to wrap across multiple lines with an overflow indicator at the end"
+    ],
+    "avoid_when": [
+      "You need standard scrolling list views where all items should be accessible via scroll rather than hidden"
+    ],
+    "strengths": [
+      "Supports both fixed-size constraints and flexible child sizing",
+      "Can display children in multiple runs (rows or columns) like a Wrap",
+      "Supports right-to-left layouts and negative spacing for overlapping children"
+    ],
+    "weaknesses": [
+      "Flexible constructor is less performant than the default constructor",
+      "Limited to displaying an overflow count indicator rather than full scrollable overflow"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "OverflowView(\n  direction: Axis.horizontal,\n  spacing: 4,\n  children: <Widget>[\n    for (int i = 0; i < 5;\n      AvatarWidget(text: '$i'),\n  ],\n  builder: (context, remaining) {\n    return AvatarWidget(\n      text: '+$remaining',\n      color: Colors.red,\n    );\n  },\n)",
+    "confidence": 0.95
+  }
+}

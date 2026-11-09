@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "2.0.0",
+  "generatedAt": "2026-11-08T15:32:40.094Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Fetch accurate current time from an NTP server as a DateTime object.",
+    "what_it_does": "The package implements the NTP protocol in pure Dart and provides functions to obtain the clock offset or a corrected DateTime. It works on all major platforms without native code.",
+    "use_when": [
+      "Device clock may be tampered or inaccurate",
+      "You need a reliable timestamp for time‑based events",
+      "Simple NTP sync without adding heavy networking libraries"
+    ],
+    "avoid_when": [
+      "High‑frequency or sub‑second synchronization is required",
+      "You need full NTP client features like multiple servers or authentication",
+      "Timezone or locale‑aware date handling is needed"
+    ],
+    "strengths": [
+      "Pure Dart implementation works everywhere",
+      "Null‑safe and lightweight",
+      "Easy to use API"
+    ],
+    "weaknesses": [
+      "Only a single default NTP server (time.google.com)",
+      "No built‑in caching or advanced NTP features",
+      "No automatic retry or fallback logic"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:ntp/ntp.dart';\n\nvoid main() async {\n  DateTime now = await NTP.now();\n  print('NTP time: $now');\n}",
+    "confidence": 0.95
+  }
+}

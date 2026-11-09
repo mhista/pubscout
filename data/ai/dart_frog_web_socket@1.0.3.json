@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.3",
+  "generatedAt": "2026-11-07T11:04:20.013Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "backend"
+    ],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "WebSocket support for the Dart Frog backend framework.",
+    "what_it_does": "Provides a webSocketHandler to manage WebSocket connections within Dart Frog route handlers. It allows streaming messages from clients and sending outgoing messages back via a channel sink.",
+    "use_when": [
+      "You are building a backend using Dart Frog and need WebSocket support",
+      "You need to handle real-time, bi-directional communication between clients and a Dart Frog server"
+    ],
+    "avoid_when": [
+      "You are not using the Dart Frog backend framework",
+      "You only need standard HTTP REST endpoints without persistent connections"
+    ],
+    "strengths": [
+      "Seamlessly integrates with Dart Frog routing and handlers",
+      "Straightforward API using standard channel stream and sink patterns"
+    ],
+    "weaknesses": [
+      "Tightly coupled to the Dart Frog framework",
+      "Limited documentation outside of basic examples"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dart_frog_web_socket to dependencies and use webSocketHandler in route handlers.",
+    "alternatives": [
+      {
+        "name": "shelf_web_socket",
+        "why_pick_it": "If you are using Shelf directly rather than the Dart Frog framework wrapper."
+      }
+    ],
+    "minimal_example": "import 'package:dart_frog/dart_frog.dart';\nimport 'package:dart_frog_web_socket/dart_frog_web_socket.dart';\n\nHandler get onRequest {\n  return webSocketHandler(\n    (channel, protocol) {\n      channel.stream.listen(\n        (message) {\n          channel.sink.add('pong');\n        },\n      );\n    },\n  );\n}",
+    "confidence": 1
+  }
+}

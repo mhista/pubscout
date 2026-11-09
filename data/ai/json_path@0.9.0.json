@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.9.0",
+  "generatedAt": "2026-11-08T15:27:44.321Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Dart implementation of RFC 9535 JSONPath for querying and manipulating JSON",
+    "what_it_does": "It parses JSONPath expressions and returns matches with paths and values. Matches include JSON Pointer for updates. It also supports user‑defined functions and a set of built‑in helpers.",
+    "use_when": [
+      "Need to extract values from complex JSON structures",
+      "Want to modify JSON data via paths",
+      "Require compliance with RFC 9535 and a test suite"
+    ],
+    "avoid_when": [
+      "You only need simple key access or a lightweight JSON parser",
+      "Performance critical code where a custom parser is preferable"
+    ],
+    "strengths": [
+      "Full RFC 9535 compliance",
+      "Built‑in helper functions (count, key, index, type checks)",
+      "Supports JSON Pointer for updates",
+      "Extensible with user‑defined functions"
+    ],
+    "weaknesses": [
+      "No code generation, just runtime parsing",
+      "Adds dependency weight (petitparser, iregexp, etc.)",
+      "Not a general JSON library, only for querying"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dependency to pubspec, import package: import 'package:json_path/json_path.dart';",
+    "alternatives": [],
+    "minimal_example": "final json = jsonDecode('{\"store\":{\"book\":[{\"price\":8.95},{\"price\":12.99}]}}');\nfinal prices = JsonPath(r'$..price');\nprices.read(json).forEach((m)=>print('${m.path}: ${m.value}'));",
+    "confidence": 0.85
+  }
+}

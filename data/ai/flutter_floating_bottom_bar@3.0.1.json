@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.0.1",
+  "generatedAt": "2026-11-07T11:13:30.558Z",
+  "data": {
+    "primary_category": "navigation",
+    "secondary_categories": [
+      "widgets",
+      "layout"
+    ],
+    "approach": [
+      "declarative",
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "An adaptable floating bottom bar that reacts to scrolling and stays accessible.",
+    "what_it_does": "It floats any widget above your content and automatically manages its visibility based on scroll notifications or imperative controllers. It provides adaptive sizing, custom motion, safe area handling, and keyboard avoidance.",
+    "use_when": [
+      "You want a navigation or search bar that floats above scrollable content.",
+      "You need scroll-aware show and hide behavior without manual ScrollController plumbing.",
+      "You need an adaptable width layout that caps at a maximum width on tablets and desktop."
+    ],
+    "avoid_when": [
+      "You require a traditional fixed-position bottom navigation bar integrated directly into the Scaffold.",
+      "Your scroll source does not bubble up ScrollNotification and cannot use reportScroll."
+    ],
+    "strengths": [
+      "Notification-based scroll detection requires no complex controller plumbing.",
+      "Includes accessibility features such as non-interactive hidden states and proper touch targets.",
+      "Supports adaptive width configurations for wide screens and tablets."
+    ],
+    "weaknesses": [
+      "Scrollables that do not emit ScrollNotification require manual reporting via controller methods.",
+      "Custom transition builders are strictly restricted to paint-only wrappers to maintain stable footprints."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires Dart >=3.12.0 and Flutter >=3.44.0.",
+    "alternatives": [],
+    "minimal_example": "BottomBar(\n  layout: const BottomBarLayout.adaptive(maxWidth: 420),\n  body: BottomBarBodyPadding(\n    padding: const EdgeInsets.only(top: 24),\n    child: ListView.builder(\n      padding: const EdgeInsets.symmetric(horizontal: 16),\n      itemCount: 50,\n      itemBuilder: (_, index) => ListTile(title: Text('Item $index')),\n    ),\n  ),\n  child: const Padding(\n    padding: EdgeInsets.symmetric(horizontal: 16, vertical: 14),\n    child: Row(\n      mainAxisAlignment: MainAxisAlignment.spaceBetween,\n      children: [\n        Icon(Icons.home_rounded),\n        Text('Floating bar'),\n        Icon(Icons.search_rounded),\n      ],\n    ),\n  ),\n)",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.2.18",
+  "generatedAt": "2026-11-08T15:39:03.149Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Recurrence rule parsing, calculation, and formatting as defined in the iCalendar RFC.",
+    "what_it_does": "Parses, calculates, and converts recurrence rules (RRULE) defined by the iCalendar RFC. Supports generating concrete date instances from rules, serializing to and from strings and JSON, and converting rules into human-readable text.",
+    "use_when": [
+      "You need to handle calendar events with recurring schedules.",
+      "You need to parse or generate iCalendar RFC 5545 RRULE strings."
+    ],
+    "avoid_when": [
+      "You need built-in handling for complex local time zones and daylight saving transitions within the recurrence calculation itself."
+    ],
+    "strengths": [
+      "Compliant with the iCalendar RFC specification for RRULEs.",
+      "Supports serialization to/from strings and jCal JSON.",
+      "Provides human-readable text generation for rules in multiple languages."
+    ],
+    "weaknesses": [
+      "Does not handle time zones natively; all input DateTimes must be in UTC.",
+      "Custom week starts (WKST) are not supported (Monday is hardcoded)."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "final rrule = RecurrenceRule(\n  frequency: Frequency.weekly,\n  interval: 2,\n  byWeekDays: {\n    ByWeekDayEntry(DateTime.tuesday),\n    ByWeekDayEntry(DateTime.thursday),\n  },\n  byMonths: {12},\n);\n\nfinal Iterable<DateTime> instances = rrule.getInstances(\n  start: DateTime.now().copyWith(isUtc: true),\n);",
+    "confidence": 1
+  }
+}

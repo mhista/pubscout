@@ -1,0 +1,37 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "13.3.2",
+  "generatedAt": "2026-11-07T11:24:16.406Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Wrapper for Apple's HealthKit and Google's Health Connect.",
+    "what_it_does": "Enables reading and writing health and fitness data from and to Apple Health on iOS and Google Health Connect on Android. Handles permissions, data types, workouts, and routes.",
+    "use_when": [
+      "You need to read or write fitness and health data in a Flutter app",
+      "You need integration with Apple HealthKit or Google Health Connect"
+    ],
+    "avoid_when": [
+      "You need support for the deprecated Google Fit API",
+      "Targeting iOS versions older than 15.0"
+    ],
+    "strengths": [
+      "Supports both Apple Health and Google Health Connect",
+      "Provides extensive methods for handling health data, workouts, and routes"
+    ],
+    "weaknesses": [
+      "Requires manual native setup and specific permissions in Info.plist and AndroidManifest.xml",
+      "Android target phone needs the Health Connect app installed"
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Requires adding permissions and HealthKit capabilities in Xcode for iOS, and specific queries, permissions, and extending FlutterFragmentActivity for Android.",
+    "alternatives": [],
+    "minimal_example": "final health = Health();\nawait health.configure();\nvar types = [HealthDataType.STEPS, HealthDataType.BLOOD_GLUCOSE];\nbool requested = await health.requestAuthorization(types);\nvar now = DateTime.now();\nList<HealthDataPoint> healthData = await health.getHealthDataFromTypes(now.subtract(Duration(days: 1)), now, types);",
+    "confidence": 1
+  }
+}

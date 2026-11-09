@@ -1,0 +1,47 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "1.3.1",
+  "generatedAt": "2026-11-07T11:05:08.113Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "stream-based"
+    ],
+    "one_liner": "Pure‑Dart client for the Pusher Channels real‑time protocol.",
+    "what_it_does": "Provides a WebSocket‑based client that connects to Pusher Channels, handling authentication, subscription to public, private, presence and encrypted channels, and event binding/triggering. It abstracts the protocol details and offers reconnection and activity‑ping handling.",
+    "use_when": [
+      "You need real‑time messaging via Pusher Channels across mobile, web and desktop.",
+      "You want a cross‑platform Dart/Flutter solution without native plugins.",
+      "You require support for presence and encrypted private channels."
+    ],
+    "avoid_when": [
+      "You are using a different real‑time backend (e.g., Firebase, Supabase).",
+      "You need fallback transports like long‑polling or SSE."
+    ],
+    "strengths": [
+      "Cross‑platform (Android, iOS, web, Windows, macOS, Linux).",
+      "Supports all Pusher channel types (public, private, presence, encrypted).",
+      "Stream‑based API integrates well with RxDart and Flutter streams."
+    ],
+    "weaknesses": [
+      "Limited to Pusher Channels only; not a generic WebSocket client.",
+      "No built‑in UI widgets; you must handle UI updates yourself.",
+      "Relies on web_socket_channel; advanced reconnection strategies may require custom code."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "web_socket_channel",
+        "why_pick_it": "Provides a lower‑level WebSocket API; you can implement the Pusher protocol yourself if you need full control or a lighter dependency."
+      }
+    ],
+    "minimal_example": "```dart\nimport 'package:dart_pusher_channels/dart_pusher_channels.dart';\n\nfinal options = PusherChannelsOptions.fromCluster(\n  scheme: 'wss',\n  cluster: 'mt1',\n  key: 'YOUR_KEY',\n  host: 'pusher.com',\n  shouldSupplyMetadataQueries: true,\n  metadata: PusherChannelsOptionsMetadata.byDefault(),\n  port: 443,\n);\n\nfinal client = PusherChannelsClient.websocket(\n  options: options,\n  connectionErrorHandler: (e, t, refresh) => refresh(),\n);\n\nawait client.connect();\nawait client.subscribe('my-channel');\nclient.bind('my-event', (event) => print('Received: ${event.data}'));\n```",
+    "confidence": 0.93
+  }
+}

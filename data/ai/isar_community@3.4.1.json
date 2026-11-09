@@ -1,0 +1,56 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.4.1",
+  "generatedAt": "2026-11-08T15:36:43.652Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [
+      "codegen"
+    ],
+    "approach": [
+      "code generation",
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Extremely fast NoSQL database for Flutter with static typing and asynchronous queries.",
+    "what_it_does": "Provides a NoSQL database for Flutter and Dart applications with support for composite indexes, full-text search, and real-time database watchers. It uses code generation via build_runner to define typed collections and queries.",
+    "use_when": [
+      "You need a high-performance local NoSQL database for your Flutter or desktop application",
+      "You want compile-time checked queries and static typing for database operations",
+      "You require real-time updates through collection and query watchers"
+    ],
+    "avoid_when": [
+      "You prefer an SQL database solution like SQLite or Drift",
+      "You want a database that works entirely without code generation"
+    ],
+    "strengths": [
+      "Very fast query and insert performance",
+      "Full-text search and embedded object support",
+      "Real-time database watchers for collections and queries"
+    ],
+    "weaknesses": [
+      "Requires code generation using build_runner",
+      "Community fork requiring manual setup of multiple packages like isar_community_flutter_libs and isar_community_generator"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding isar_community, isar_community_flutter_libs, isar_community_generator, and build_runner to pubspec, and running build_runner for code generation.",
+    "alternatives": [
+      {
+        "name": "hive_ce",
+        "why_pick_it": "If you want a lightweight NoSQL key-value database alternative."
+      },
+      {
+        "name": "drift",
+        "why_pick_it": "If you prefer a robust, type-safe SQLite database over a NoSQL solution."
+      },
+      {
+        "name": "sqflite",
+        "why_pick_it": "If you need a standard, lightweight SQLite database for Flutter."
+      }
+    ],
+    "minimal_example": "final dir = await getApplicationDocumentsDirectory();\nfinal isar = await Isar.open(\n  [EmailSchema],\n  directory: dir.path,\n);\n\nfinal emails = await isar.emails.filter()\n  .titleContains('awesome', caseSensitive: false)\n  .sortByStatusDesc()\n  .limit(10)\n  .findAll();",
+    "confidence": 0.95
+  }
+}

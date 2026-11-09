@@ -1,0 +1,54 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "7.0.3",
+  "generatedAt": "2026-11-08T16:05:08.689Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "Observe value changes within the build method using extensions.",
+    "what_it_does": "Provides extension methods like watch(), watchOnly(), and watchEffect() on observable types such as Listenable, ValueListenable, Stream, and Future. It allows widgets to automatically rebuild or execute side effects when observables notify of changes without using builders or custom base classes.",
+    "use_when": [
+      "You want to observe ValueListenables, Streams, or Futures directly inside the build method.",
+      "You want to avoid boilerplate code like ValueListenableBuilder or StreamBuilder."
+    ],
+    "avoid_when": [
+      "You prefer an explicit architecture pattern like BLoC or Riverpod for large state management.",
+      "You cannot wrap your app in the required ContextWatch.root widget."
+    ],
+    "strengths": [
+      "No builders or custom base classes required.",
+      "Supports conditional watching automatically.",
+      "Provides synchronous initial values for async types without skipped frames."
+    ],
+    "weaknesses": [
+      "Requires wrapping the app in a root widget.",
+      "Relies heavily on extensions on BuildContext."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Wrap your app in a ContextWatch.root widget.",
+    "alternatives": [
+      {
+        "name": "provider",
+        "why_pick_it": "Provides a traditional InheritedWidget-based dependency and state management approach."
+      },
+      {
+        "name": "flutter_riverpod",
+        "why_pick_it": "Offers compile-time safe, robust global state management without needing a BuildContext for reading."
+      },
+      {
+        "name": "flutter_bloc",
+        "why_pick_it": "Uses streams and explicit events/states for structured, predictable state management."
+      }
+    ],
+    "minimal_example": "ContextWatch.root(\n  child: MaterialApp(\n    home: Scaffold(\n      body: Builder(\n        builder: (context) {\n          final counter = counterNotifier.watch(context);\n          return Text('Counter: $counter');\n        },\n      ),\n    ),\n  ),\n);",
+    "confidence": 0.95
+  }
+}

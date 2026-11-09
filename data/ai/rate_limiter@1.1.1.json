@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.1.1",
+  "generatedAt": "2026-11-08T15:33:30.829Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Apply rate limiting strategies like debounce, throttle, and backoff to regular Dart functions.",
+    "what_it_does": "A pure Dart package that provides rate limiting strategies such as debounce, throttle, and backoff for regular functions. It allows you to convert existing functions or build new ones with built-in checks for pending execution, flushing, and cancellation.",
+    "use_when": [
+      "You need to debounce user input in a search box or text field.",
+      "You want to throttle rapid button clicks for game actions or API triggers.",
+      "You need to implement exponential backoff retry logic for network requests."
+    ],
+    "avoid_when": [
+      "You need complex stream-based reactive rate limiting rather than wrapping regular functions."
+    ],
+    "strengths": [
+      "Simple extension methods for converting existing regular functions into debounced or throttled versions.",
+      "Deterministic testing support via package:clock and fakeAsync.",
+      "Supports flush, cancellation, and pending status checks."
+    ],
+    "weaknesses": [
+      "Limited to pure Dart functions rather than fully reactive stream transformations."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "final debouncedAutocompleteSearch = debounce(\n  (String searchQuery) async {\n    final results = await searchApi.get(searchQuery);\n    updateSearchSuggestions(results);\n  },\n  const Duration(seconds: 1),\n);",
+    "confidence": 1
+  }
+}

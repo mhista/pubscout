@@ -1,0 +1,50 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "10.3.0",
+  "generatedAt": "2026-11-08T15:30:03.802Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "devtools"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Adds Sentry performance tracing and error capture to Dio HTTP requests.",
+    "what_it_does": "The package extends Dio with Sentry integration, automatically creating performance spans and breadcrumbs for each request. It also captures exceptions from failed HTTP status codes or parsing errors.",
+    "use_when": [
+      "You already use Dio for networking and want automatic Sentry tracing and error reporting.",
+      "You need performance monitoring of HTTP calls across all supported platforms."
+    ],
+    "avoid_when": [
+      "You are not using Dio (e.g., using http or graphql packages).",
+      "You do not use Sentry or prefer a different crash‑reporting solution."
+    ],
+    "strengths": [
+      "Zero‑boilerplate integration via dio.addSentry()",
+      "Works on Android, iOS, Web, Windows, macOS, Linux",
+      "Captures both performance spans and breadcrumbs automatically"
+    ],
+    "weaknesses": [
+      "Only works with Dio, not other HTTP clients",
+      "Adds a small runtime overhead to each request",
+      "Limited configuration compared to full Sentry SDK"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Initialize Sentry SDK with a DSN before calling dio.addSentry(). No native permissions required.",
+    "alternatives": [
+      {
+        "name": "sentry",
+        "why_pick_it": "Core Sentry SDK without Dio‑specific integration, useful if you handle HTTP manually."
+      },
+      {
+        "name": "sentry_flutter",
+        "why_pick_it": "Full Flutter Sentry integration; you can add manual spans around Dio calls if you prefer not to use the package."
+      }
+    ],
+    "minimal_example": "import 'package:sentry/sentry.dart';\nimport 'package:sentry_dio/sentry_dio.dart';\nimport 'package:dio/dio.dart';\n\nFuture<void> main() async {\n  await Sentry.init((options) => options.dsn = 'https://example@sentry.io/example');\n  final dio = Dio();\n  dio.addSentry(); // must be last Dio setup step\n}\n",
+    "confidence": 0.97
+  }
+}

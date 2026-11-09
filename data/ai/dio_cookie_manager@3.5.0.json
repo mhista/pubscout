@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.5.0",
+  "generatedAt": "2026-11-07T11:06:19.740Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "storage"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "A cookie manager for Dio combining cookie_jar and Dio based on the interceptor algorithm.",
+    "what_it_does": "It automatically manages and persists cookies for network requests made using the Dio HTTP client. It acts as an interceptor to load stored cookies into requests and save new cookies from responses.",
+    "use_when": [
+      "You are using Dio for networking and need automatic cookie management",
+      "You need to persist cookies across app restarts using file storage"
+    ],
+    "avoid_when": [
+      "You are not using the Dio HTTP client",
+      "Your API is entirely stateless and does not use cookies"
+    ],
+    "strengths": [
+      "Seamless integration with Dio via interceptors",
+      "Supports persistent cookie storage using cookie_jar",
+      "Handles redirect requests and invalid cookies with specific options"
+    ],
+    "weaknesses": [
+      "Tied strictly to Dio and cookie_jar packages",
+      "Upgrading major versions of cookie_jar can lead to losing previously stored cookies"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires adding the package and attaching a CookieManager interceptor to your Dio instance.",
+    "alternatives": [
+      {
+        "name": "http",
+        "why_pick_it": "If you are using Dart's core HTTP client instead of Dio and managing headers manually."
+      }
+    ],
+    "minimal_example": "import 'package:cookie_jar/cookie_jar.dart';\nimport 'package:dio/dio.dart';\nimport 'package:dio_cookie_manager/dio_cookie_manager.dart';\n\nvoid main() async {\n  final dio = Dio();\n  final cookieJar = CookieJar();\n  dio.interceptors.add(CookieManager(cookieJar));\n  await dio.get(\"https://dart.dev\");\n}",
+    "confidence": 1
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.10.10",
+  "generatedAt": "2026-11-08T15:28:17.349Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Schedule background work and execute Dart code on Android, iOS, macOS, Web, and Linux.",
+    "what_it_does": "Allows scheduling and executing one-off or periodic background tasks in Flutter apps, even when the application is closed. It wraps native scheduling APIs across supported platforms like Android WorkManager and iOS Background Tasks.",
+    "use_when": [
+      "You need to perform periodic data sync or cleanup tasks in the background",
+      "You need reliable file uploads or database maintenance while the app is closed"
+    ],
+    "avoid_when": [
+      "You need precise execution timing, which background schedulers cannot guarantee",
+      "You only need simple concurrent processing while the application is actively running"
+    ],
+    "strengths": [
+      "Supports multiple platforms including Android, iOS, macOS, web, and Linux",
+      "Handles app closures and system reboots for scheduled tasks",
+      "Provides support for long-running tasks, progress updates, and work status observation"
+    ],
+    "weaknesses": [
+      "Background execution is subject to strict OS limitations and power management constraints",
+      "Experimental support for web and Linux has platform-specific limitations"
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Requires native platform setup for Android and iOS background execution as specified in the quick start guide.",
+    "alternatives": [],
+    "minimal_example": "@pragma('vm:entry-point')\nvoid callbackDispatcher() {\n  Workmanager().executeTask((task, inputData) async {\n    print(\"Background task: $task\");\n    return Future.value(true);\n  });\n}\n\nvoid main() {\n  Workmanager().initialize(callbackDispatcher);\n  Workmanager().registerOneOffTask(\"task-id\", \"simpleTask\");\n  runApp(MyApp());\n}",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.10.0",
+  "generatedAt": "2026-11-07T11:17:09.360Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "Utility widgets that connect Flutter applications to a Redux store.",
+    "what_it_does": "Provides StoreProvider, StoreBuilder, and StoreConnector widgets to easily supply a Redux store down the widget tree, build UI from state, and automatically rebuild when state changes.",
+    "use_when": [
+      "You are building an app with complex state logic and want to use Redux for state management.",
+      "You want your widgets to automatically rebuild when relevant parts of the Redux store change without manually managing subscriptions."
+    ],
+    "avoid_when": [
+      "You are building a simple app where a StatefulWidget is sufficient.",
+      "You prefer modern Flutter state management alternatives like Riverpod or Bloc."
+    ],
+    "strengths": [
+      "Separates business logic cleanly from UI code.",
+      "Automatic subscription handling and widget rebuilding via StoreConnector.",
+      "Well-tested and structured around the Redux.dart ecosystem."
+    ],
+    "weaknesses": [
+      "Requires boilerplate code typical of Redux patterns.",
+      "Older architecture compared to newer state management options."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dependencies to pubspec.yaml and wrap your application in a StoreProvider.",
+    "alternatives": [
+      {
+        "name": "flutter_bloc",
+        "why_pick_it": "Provides a predictable state management solution using the BLoC pattern, which is more commonly used in modern Flutter apps."
+      },
+      {
+        "name": "riverpod",
+        "why_pick_it": "Offers a compile-safe, robust, and modern dependency injection and state management solution."
+      }
+    ],
+    "minimal_example": "final store = Store<int>(counterReducer, initialState: 0);\n\nStoreProvider<int>(\n  store: store,\n  child: MaterialApp(\n    home: Scaffold(\n      body: StoreConnector<int, String>(\n        converter: (store) => store.state.toString(),\n        builder: (context, count) {\n          return Text('Count: $count');\n        },\n      ),\n    ),\n  ),\n);",
+    "confidence": 1
+  }
+}

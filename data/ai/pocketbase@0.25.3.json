@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.25.3",
+  "generatedAt": "2026-11-08T15:15:49.462Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "backend",
+      "auth"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Multi‑platform Dart SDK for PocketBase REST API",
+    "what_it_does": "PocketBase Dart SDK lets you interact with the PocketBase backend via REST, including authentication, CRUD, file uploads and realtime subscriptions. It provides a simple, type‑safe API and an AuthStore for token management.",
+    "use_when": [
+      "You need a lightweight backend for CRUD and realtime data in a Flutter or Dart app",
+      "You want to use PocketBase as your backend instead of Firebase or Supabase",
+      "You need file upload support and realtime subscriptions in a single package"
+    ],
+    "avoid_when": [
+      "You already use a different backend SDK such as Firebase or Supabase",
+      "You require a persistent AuthStore out of the box without custom implementation"
+    ],
+    "strengths": [
+      "Simple, single‑file SDK with no build_runner dependencies",
+      "Built‑in realtime subscription support",
+      "Easy file upload via http.MultipartFile",
+      "AuthStore with event stream for auth changes"
+    ],
+    "weaknesses": [
+      "AuthStore is not persistent by default",
+      "No code generation for models (requires manual DTOs)",
+      "Limited to PocketBase API only"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:pocketbase/pocketbase.dart';\n\nfinal pb = PocketBase('http://127.0.0.1:8090');\n\n// authenticate\nfinal user = await pb.collection('users').authWithPassword('test@example.com', '123456');\n\n// get list\nfinal list = await pb.collection('example').getList(page:1, perPage:20);\n\n// realtime\npb.collection('example').subscribe('*', (e){print(e.action);});",
+    "confidence": 0.9
+  }
+}

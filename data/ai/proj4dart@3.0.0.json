@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.0.0",
+  "generatedAt": "2026-11-08T15:23:15.683Z",
+  "data": {
+    "primary_category": "maps",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Transform point coordinates between different coordinate systems and datums.",
+    "what_it_does": "Proj4dart transforms geographic point coordinates from one coordinate system to another. It supports predefined projections, Proj4 definition strings, OGC and ESRI WKT definitions, and datum transformations.",
+    "use_when": [
+      "You need to convert GPS coordinates between different EPSG codes or coordinate reference systems.",
+      "You are working with custom map projections or datum shifts in Dart and Flutter."
+    ],
+    "avoid_when": [
+      "You only need simple distance calculations on a flat plane without coordinate system conversions."
+    ],
+    "strengths": [
+      "Extensive support for Proj4, OGC WKT, and ESRI WKT definitions.",
+      "Includes grid-based datum adjustments (NTv2 .gsb files).",
+      "Thoroughly tested against thousands of standard projection definitions."
+    ],
+    "weaknesses": [
+      "Limited to point coordinate transformations rather than full vector geometry rendering.",
+      "Grid files for datum shifts must be loaded manually into memory."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:proj4dart/proj4dart.dart';\n\nvoid main() {\n  var pointSrc = Point(x: 17.888058560281515, y: 46.89226406700879);\n  var projSrc = Projection.get('EPSG:4326')!;\n  var projDst = Projection.get('EPSG:23700') ??\n      Projection.add(\n        'EPSG:23700',\n        '+proj=somerc +lat_0=47.14439372222222 +lon_0=19.04857177777778 +k_0=0.99993 +x_0=650000 +y_0=200000 +ellps=GRS67 +towgs84=52.17,-71.82,-14.9,0,0,0,0 +units=m +no_defs',\n      );\n  var pointForward = projSrc.transform(projDst, pointSrc);\n}",
+    "confidence": 1
+  }
+}

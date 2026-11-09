@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.5.0",
+  "generatedAt": "2026-11-08T15:57:32.514Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "theming"
+    ],
+    "approach": [
+      "imperative",
+      "declarative"
+    ],
+    "one_liner": "VSCode-style syntax highlighting and code editing widgets for Flutter.",
+    "what_it_does": "The package uses TextMate rules to provide syntax highlighting for multiple programming languages, returning a formatted TextSpan. It also includes a simplistic CodeEditor widget supporting rich text copying.",
+    "use_when": [
+      "You need to display syntax-highlighted code blocks in your Flutter application.",
+      "You require a basic code editor widget with rich text copy capabilities."
+    ],
+    "avoid_when": [
+      "You need advanced code editing features like line numbers, complex autocompletion, or deep IDE integrations."
+    ],
+    "strengths": [
+      "Supports many popular programming languages out of the box using TextMate grammar rules.",
+      "Provides a ready-to-use CodeEditor widget.",
+      "Easy to extend with new grammar files."
+    ],
+    "weaknesses": [
+      "Requires manual asynchronous initialization of languages and themes before use.",
+      "The bundled CodeEditor is simplistic."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires initializing the highlighter and loading themes and grammar files asynchronously before use.",
+    "alternatives": [],
+    "minimal_example": "await Highlighter.initialize(['dart', 'yaml']);\nvar theme = await HighlighterTheme.loadLightTheme();\nvar highlighter = Highlighter(language: 'dart', theme: theme);\nWidget build(BuildContext context) {\n  var highlightedCode = highlighter.highlight(myCodeString);\n  return Text.rich(highlightedCode);\n}",
+    "confidence": 1
+  }
+}

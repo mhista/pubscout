@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.1",
+  "generatedAt": "2026-11-07T11:03:10.401Z",
+  "data": {
+    "primary_category": "images",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Flutter widget to embed customizable image cropping UI anywhere in your widget tree.",
+    "what_it_does": "Provides a flexible Crop widget that can be placed anywhere on screen, allowing users to pan, zoom, crop with rectangles or circles, and fix aspect ratios. Controlled programmatically via a CropController with support for undo and redo operations.",
+    "use_when": [
+      "You need a custom inline image cropping UI inside a screen, dialog, or bottom sheet.",
+      "You want full control over the surrounding layout and buttons for the cropping interface.",
+      "You need interactive panning, zooming, and aspect ratio fixing for images."
+    ],
+    "avoid_when": [
+      "You are looking for a complete out-of-the-box picker and cropper screen with pre-built control buttons.",
+      "You need to read or download image files directly from local storage or remote sources."
+    ],
+    "strengths": [
+      "Flexible placement anywhere in the widget tree with minimal UI restrictions.",
+      "Includes a CropController for external control, undo, and redo features.",
+      "Supports customizable backend logic for format detection, parsing, and cropping."
+    ],
+    "weaknesses": [
+      "Does not provide out-of-the-box UI control buttons; you must build your own buttons.",
+      "Does not handle image loading or file reading from storage or internet sources."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "No special native permissions or build runner configuration required.",
+    "alternatives": [],
+    "minimal_example": "final _controller = CropController();\n\n@override\nWidget build(BuildContext context) {\n  return Crop(\n    image: _imageData, \n    controller: _controller,\n    onCropped: (result) {\n      switch(result) {\n        case CropResult.success(:final croppedImage):\n          // do something with cropped image data \n        case CropResult.error(:final error):\n          // do something with error\n      }\n    }\n  );\n}",
+    "confidence": 1
+  }
+}

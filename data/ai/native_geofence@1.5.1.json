@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.5.1",
+  "generatedAt": "2026-11-08T16:01:38.750Z",
+  "data": {
+    "primary_category": "maps",
+    "secondary_categories": [
+      "device"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Battery-efficient native geofencing plugin for iOS and Android.",
+    "what_it_does": "Allows your Flutter application to be alerted when the user enters, exits, or dwells in a geographical region. Handles events even when the app is in the background or terminated, and re-registers geofences after device reboot.",
+    "use_when": [
+      "You need location-based triggers like entering or leaving an area",
+      "Geofencing must work when the app is terminated or in the background",
+      "You want battery-efficient native geofencing APIs on iOS and Android"
+    ],
+    "avoid_when": [
+      "You only need continuous real-time GPS tracking rather than boundary alerts",
+      "You are not willing to configure native permissions and iOS AppDelegate or Android Manifest settings"
+    ],
+    "strengths": [
+      "Works when application is in foreground, background, or terminated",
+      "Re-registers geofences automatically after device reboot on Android",
+      "Uses native iOS CLLocationManager and Android GeofencingClient APIs"
+    ],
+    "weaknesses": [
+      "Requires manual native configuration in AndroidManifest.xml and iOS AppDelegate/Info.plist",
+      "Does not handle requesting user permissions directly; requires a separate permission plugin"
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Requires adding location permissions, broadcast receivers, and foreground service definitions in AndroidManifest.xml, updating iOS Info.plist with location usage descriptions, and configuring the AppDelegate plugin registrant callback.",
+    "alternatives": [],
+    "minimal_example": "await NativeGeofenceManager.instance.initialize();\nfinal zone1 = Geofence(\n  id: 'zone1',\n  location: Location(latitude: 40.75798, longitude: -73.98554),\n  radiusMeters: 500,\n  triggers: {GeofenceEvent.enter, GeofenceEvent.exit},\n);\n@pragma('vm:entry-point')\nFuture<void> geofenceTriggered(GeofenceCallbackParams params) async {\n  debugPrint('Geofence triggered: $params');\n}\nawait NativeGeofenceManager.instance.createGeofence(zone1, geofenceTriggered);",
+    "confidence": 0.95
+  }
+}

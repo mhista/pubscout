@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "5.0.0",
+  "generatedAt": "2026-11-08T15:41:09.249Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "ui-kits"
+    ],
+    "approach": [
+      "declarative",
+      "imperative"
+    ],
+    "one_liner": "Show a loading overlay to prevent user interaction during async operations.",
+    "what_it_does": "Provides widgets like LoaderOverlay and GlobalLoaderOverlay to block screen interaction while background tasks run. Allows showing progress messages and custom loader widgets via context extensions.",
+    "use_when": [
+      "You need to block screen interactions during async tasks",
+      "You want to display global or local loading spinners easily"
+    ],
+    "avoid_when": [
+      "You are building a package or layer that should not depend on Flutter widgets for state management",
+      "You prefer completely custom state-driven overlay implementations"
+    ],
+    "strengths": [
+      "Simple extension methods on BuildContext for show, hide, and progress",
+      "Supports custom loading widgets and global route overlays",
+      "Configurable overlay background color and animations"
+    ],
+    "weaknesses": [
+      "Depends on BuildContext to show or hide the overlay",
+      "Tests are not documented as implemented in the package"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Wrap your MaterialApp or specific widgets with LoaderOverlay or GlobalLoaderOverlay.",
+    "alternatives": [],
+    "minimal_example": "LoaderOverlay(\n  child: MyHomePage(),\n);\n\ncontext.loaderOverlay.show();\n// ... async task ...\ncontext.loaderOverlay.hide();",
+    "confidence": 0.95
+  }
+}

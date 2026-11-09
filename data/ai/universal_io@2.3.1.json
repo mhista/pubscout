@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.3.1",
+  "generatedAt": "2026-11-08T15:21:21.746Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Cross-platform dart:io implementation with browser support for HttpClient and other APIs",
+    "what_it_does": "Provides a drop-in replacement for 'dart:io' that works across all platforms including web browsers. It implements a WASM-compatible BrowserHttpClient using XMLHttpRequest on the web, and adds cross-platform support for Platform, InternetAddress, and BytesBuilder.",
+    "use_when": [
+      "You need a shared codebase using 'dart:io' APIs that must compile and run on both native platforms and the web",
+      "You need to make HTTP requests using HttpClient inside a web browser environment"
+    ],
+    "avoid_when": [
+      "You are writing a native-only application where standard 'dart:io' is fully sufficient",
+      "You prefer dedicated HTTP abstraction libraries like 'http' or 'dio'"
+    ],
+    "strengths": [
+      "Enables seamless sharing of code depending on 'dart:io' with web targets",
+      "Provides helpful error messages and troubleshooting hints for browser XHR errors and CORS issues",
+      "WASM-compatible using dart:js_interop"
+    ],
+    "weaknesses": [
+      "Subject to browser limitations such as same-origin policy and CORS restrictions",
+      "Behavior of underlying network requests differs slightly on the web due to XMLHttpRequest limitations"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Simply replace 'dart:io' imports with 'package:universal_io/universal_io.dart'.",
+    "alternatives": [],
+    "minimal_example": "import 'package:universal_io/universal_io.dart';\n\nFuture<void> main() async {\n  final httpClient = newUniversalHttpClient();\n  final request = await httpClient.getUrl(Uri.parse(\"https://dart.dev/\"));\n  final response = await request.close();\n}",
+    "confidence": 1
+  }
+}

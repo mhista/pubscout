@@ -1,0 +1,47 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.7.0",
+  "generatedAt": "2026-11-08T15:42:20.364Z",
+  "data": {
+    "primary_category": "navigation",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A routing package built on top of Router and Navigator's pages API, supporting arbitrary nested navigation.",
+    "what_it_does": "Beamer splits navigation responsibilities into multiple BeamLocation classes that manage stacks of pages. It integrates with Flutter's Router API to handle deep linking, nested navigation, guards, and browser history synchronization.",
+    "use_when": [
+      "You need complex, nested routing structures in a Flutter application",
+      "You want declarative navigation based on page stacks and URL paths"
+    ],
+    "avoid_when": [
+      "You prefer simple imperative navigation like standard Navigator push and pop",
+      "You want a zero-configuration routing setup without defining location builders or route maps"
+    ],
+    "strengths": [
+      "Supports arbitrary nested navigation and multiple beamers",
+      "Handles deep linking and browser history out of the box",
+      "Allows modular organization of page stacks via BeamLocation"
+    ],
+    "weaknesses": [
+      "Steeper learning curve compared to imperative navigation or simpler routers",
+      "Requires understanding of Router and Navigator 2.0 concepts"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires setting up MaterialApp.router with BeamerDelegate, RouteInformationParser, and BeamerBackButtonDispatcher.",
+    "alternatives": [
+      {
+        "name": "go_router",
+        "why_pick_it": "Provides a more declarative URL-based routing API officially recommended by the Flutter team."
+      },
+      {
+        "name": "auto_route",
+        "why_pick_it": "Offers code-generation-based strongly-typed routing and deep-linking support."
+      }
+    ],
+    "minimal_example": "class MyApp extends StatelessWidget {\n  final routerDelegate = BeamerDelegate(\n    locationBuilder: RoutesLocationBuilder(\n      routes: {\n        '/': (context, state, data) => HomeScreen(),\n        '/books': (context, state, data) => BooksScreen(),\n      },\n    ),\n  );\n\n  @override\n  Widget build(BuildContext context) {\n    return MaterialApp.router(\n      routeInformationParser: BeamerParser(),\n      routerDelegate: routerDelegate,\n    );\n  }\n}",
+    "confidence": 1
+  }
+}

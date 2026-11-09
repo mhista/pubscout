@@ -1,0 +1,47 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "8.0.0",
+  "generatedAt": "2026-11-08T15:44:22.538Z",
+  "data": {
+    "primary_category": "maps",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A flutter_map plugin that enables the use of vector tiles.",
+    "what_it_does": "Loads vector tiles from sources like Mapbox or Stadia Maps and renders them as a layer on top of a flutter_map instance. It supports themes, sprites, custom tile providers, and alternate file formats through community packages.",
+    "use_when": [
+      "You are using flutter_map and need to render vector tiles instead of raster tiles",
+      "You want custom styling or dynamic themes for your maps from providers like Mapbox or Stadia Maps"
+    ],
+    "avoid_when": [
+      "You are not using flutter_map",
+      "You prefer standard raster tile layers without vector styling features"
+    ],
+    "strengths": [
+      "Integrates seamlessly with flutter_map",
+      "Supports multiple popular map styles and providers",
+      "Improves performance by rendering vector tiles to raster images or maintaining layer modes"
+    ],
+    "weaknesses": [
+      "Requires careful matching of themes and tile providers",
+      "May require attribution depending on the tile data provider used"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires adding the dependency and configuring a StyleReader with your API key along with a VectorTileLayer in your FlutterMap children.",
+    "alternatives": [
+      {
+        "name": "flutter_map",
+        "why_pick_it": "If you only need standard raster tile mapping rather than vector tiles."
+      },
+      {
+        "name": "google_maps_flutter",
+        "why_pick_it": "If you prefer native Google Maps instead of flutter_map and vector tiles."
+      }
+    ],
+    "minimal_example": "Future<Style> _readStyle() => StyleReader(uri: 'https://tiles.stadiamaps.com/styles/osm_bright.json?api_key={key}', apiKey: stadiaMapsApiKey).read();\n\nFlutterMap(\n  options: MapOptions(center: LatLng(49.246292, -123.116226), zoom: 10),\n  children: [\n    VectorTileLayer(theme: style.theme, sprites: style.sprites, tileProviders: style.providers),\n  ],\n)",
+    "confidence": 0.95
+  }
+}

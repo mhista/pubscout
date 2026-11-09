@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.1.2",
+  "generatedAt": "2026-11-07T11:26:04.056Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "no codegen"
+    ],
+    "one_liner": "A platform-independent package for parsing and serializing HTTP formats.",
+    "what_it_does": "It provides tools to parse and format HTTP dates, media types (like Accept and Content-Type headers), and other HTTP-related formats. It avoids referencing dart:io or dart:html so it can run on both browser and server.",
+    "use_when": [
+      "You need to parse or serialize HTTP header values like Content-Type or media types.",
+      "You are writing a cross-platform web and server application that needs to handle HTTP formats without depending on dart:io."
+    ],
+    "avoid_when": [
+      "You are looking for a full HTTP client library to make network requests.",
+      "You need WebSocket channel implementations (which have been moved to web_socket_channel)."
+    ],
+    "strengths": [
+      "Platform-independent, works on both browser and server.",
+      "Reliable parsing and formatting for standard HTTP formats and media types."
+    ],
+    "weaknesses": [
+      "Limited in scope, strictly handles HTTP parsing and serialization formats rather than networking requests."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:http_parser/http_parser.dart';\n\nvoid main() {\n  var mediaType = MediaType.parse('text/plain; charset=utf-8');\n  print(mediaType.type); // text\n  print(mediaType.subtype); // plain\n  print(mediaType.parameters['charset']); // utf-8\n}",
+    "confidence": 1
+  }
+}

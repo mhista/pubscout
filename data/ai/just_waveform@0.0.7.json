@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.0.7",
+  "generatedAt": "2026-11-08T15:57:14.600Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [
+      "files"
+    ],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "Extracts waveform data from audio files for visual rendering.",
+    "what_it_does": "Extracts waveform data from an audio file and provides it through a progress stream suitable for visually rendering waveform visualisations. It supports extracting multiple files simultaneously and running on Android, iOS, and macOS.",
+    "use_when": [
+      "You need to visually render audio waveforms in your Flutter application.",
+      "You want to process audio file data into a custom .wave format for visualization."
+    ],
+    "avoid_when": [
+      "You only need to play or record audio without extracting visual waveform data."
+    ],
+    "strengths": [
+      "Supports extracting multiple files simultaneously.",
+      "Provides a progress stream during extraction.",
+      "Cross-platform support for Android, iOS, and macOS."
+    ],
+    "weaknesses": [
+      "Limited platform support strictly to Android, iOS, and macOS.",
+      "Minimal documentation provided outside of basic usage."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires setting min Flutter version to 3.27.0 or higher.",
+    "alternatives": [],
+    "minimal_example": "final progressStream = JustWaveform.extract(\n  audioInFile: '/path/to/audio.mp3',\n  waveOutFile: '/path/to/waveform.wave',\n  zoom: const WaveformZoom.pixelsPerSecond(100),\n);\nprogressStream.listen((waveformProgress) {\n  print('Progress: %${(100 * waveformProgress.progress).toInt()}');\n  if (waveformProgress.waveform != null) {\n    // Use the waveform.\n  }\n});",
+    "confidence": 0.9
+  }
+}

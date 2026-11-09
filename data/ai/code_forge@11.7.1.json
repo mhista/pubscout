@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "11.7.1",
+  "generatedAt": "2026-11-07T11:01:42.056Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "ai-ml",
+      "web-desktop"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A powerful text editor widget for Flutter handling 1M+ lines with LSP and AI completion.",
+    "what_it_does": "Provides a high-performance, VS Code-level text and code editor widget built using rope data structures and low-level rendering. It features 180+ syntax highlighting languages, code folding, multi-cursor support, Language Server Protocol (LSP) integration, and AI-powered ghost text code completion.",
+    "use_when": [
+      "You need to embed a code editor or IDE-like interface inside a Flutter application.",
+      "You require handling large text files with 1M+ lines smoothly.",
+      "You need built-in LSP integration or AI code completion inside an editor widget."
+    ],
+    "avoid_when": [
+      "You only need a simple, single-line text input field.",
+      "You are building a standard form and just need basic text wrapping or formatting."
+    ],
+    "strengths": [
+      "Optimized rope data structure handles massive files efficiently without dropping frames.",
+      "Built-in Language Server Protocol (LSP) client support over WebSockets and stdio.",
+      "Extensive feature set including multi-cursor, syntax highlighting, and AI completion."
+    ],
+    "weaknesses": [
+      "Complex setup required if configuring custom LSP servers or WebSocket proxies.",
+      "Heavy package size due to numerous advanced dependencies and feature sets."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires importing language and theme definitions from re_highlight. LSP servers require external binaries or WebSocket proxies (like lsp-ws-proxy) configured.",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:code_forge/code_forge.dart';\nimport 'package:re_highlight/languages/python.dart';\nimport 'package:re_highlight/styles/atom-one-dark.dart';\n\nvoid main() => runApp(const MyApp());\n\nclass MyApp extends StatelessWidget {\n  const MyApp({super.key});\n\n  @override\n  Widget build(BuildContext context) {\n    return MaterialApp(\n      home: Scaffold(\n        body: CodeForge(\n          language: langPython,\n          editorTheme: atomOneDarkTheme,\n        ),\n      ),\n    );\n  }\n}",
+    "confidence": 1
+  }
+}

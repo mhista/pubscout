@@ -22,6 +22,8 @@ npm run dev
 ```
 
 1. **`npm run data:sync`** pulls pub.dev's top packages (its own ranking, `SYNC_LIMIT`, default 2,000) into `data/raw/`: metadata, score, publisher, README/CHANGELOG from the package archive, and GitHub stats when `GITHUB_TOKEN` is set. Later runs only re-download docs for packages that published a new version. Try `npm run data:sync -- --limit 100` first.
+
+   **Progress and resuming.** The sync shows a live progress bar (count, speed, ETA, failures, GitHub quota left). For a line per package (version change, docs downloaded, stars, retries) run `npm run data:sync:v` or `npm run data:sync -- -v`. If a run stops (Ctrl+C, crash, lost connection), run the same command again: packages synced in the last 12 hours (`SYNC_FRESH_HOURS`) are skipped, so it carries on from where it stopped. Add `--force` to redo everything. Press Ctrl+C once to stop cleanly after the packages in flight.
 2. **`npm run data:build`** tags, scores and writes `data/catalog.json`. With an AI key it also writes categories and a summary per package, once per version (cached in `data/ai/`). Without one, categories come from keyword rules. `npm run data:build -- --ai-limit 50` caps new AI calls for a quick test.
 
 `npm run data:sample` rebuilds the demo catalog.
@@ -94,13 +96,37 @@ Setup, once: push the repo to GitHub, connect it to Vercel, then in **GitHub →
 
 **Vercel cost.** Package and home pages are prerendered at build time and served as static files, and nothing uses `revalidate`, so the site makes **no ISR reads or writes**. What you do use: one build per day (build minutes), `/explore`, category pages and `/api/ask` run as functions on each request (repeat AI searches are served from the CDN cache), and normal CDN bandwidth. All well inside the Hobby allowance at this size; note Hobby is for non-commercial use.
 
+
+## Which packages are in the catalog
+
+- **Top packages:** pub.dev's top `SYNC_LIMIT` (2,000) by its own ranking, refreshed nightly.
+- **Growing coverage:** every nightly run also adds the next `SYNC_BATCH` (2,000) packages from the ranking, until the catalog covers the top `SYNC_MAX` (6,000 in the workflow). Progress is saved in `data/sync-state.json`. Packages ranked below the top 2,000 are refreshed on a weekly rotation (`TAIL_REFRESH_DAYS`), their GitHub stats every two weeks, and they need at least 100 downloads a month (`TAIL_MIN_DOWNLOADS`) and not be discontinued to be listed. Why stop at 6,000: the whole catalog is one JSON file that the server loads, so past ~6–8k packages pages start slower on a cold start and the free AI quota can't keep summaries current. Going beyond that is the point to move the catalog into a database.
+- **Essentials:** `data/essentials.json`, a hand-picked list (theming, maps, code generation, forms…) that always stays, whatever its rank. Edit it freely; names that don't exist are skipped. On the home page, "Essentials you might have missed" lists the ones outside the top 300, and Explore → Trust → "Essentials only" filters to them.
+- **Requests:** anyone can ask for a missing package (search box, `/request`, footer). That opens a `package-request` issue on GitHub; the data workflow syncs it, rebuilds, commits and closes the issue, usually within 10 minutes. Requested packages stay for good (`data/requests.json`). Locally: `node scripts/requests.mjs add flutter_map`, then `npm run data:sync -- --requested` and `npm run data:build`.
+- **Leaving:** a package that's been out of the top list for 30 days (`STALE_DAYS`) and isn't essential or requested is left out of the catalog, so its numbers never go stale.
+
+**AI summaries never block a build.** When the free quota runs out, the rest of the packages go live with their pub.dev description and are marked "summary pending". Every run summarises essentials and requests first, then by downloads, so pending ones are picked up first next time.
+
+### Turning on package requests (Vercel)
+
+1. GitHub → Settings → Developer settings → Fine-grained tokens → Generate new token. Repository access: only your pubscout repo. Permissions: **Issues: Read and write**. Copy the token.
+2. Vercel → your project → Settings → Environment Variables:
+   - `GH_REQUEST_TOKEN` = that token
+   - `GH_REPO` = `mhista/pubscout`
+3. GitHub repo → Settings → Secrets and variables → Actions → **Variables** tab → `SITE_URL` = your live URL (used in the "Added" comment).
+4. Redeploy. Until these are set, the request box replies "Requests aren't open right now".
+
+### Support button
+
+Set `NEXT_PUBLIC_SUPPORT_URL` on Vercel to your Buy Me a Coffee (or Ko-fi / GitHub Sponsors) link, then redeploy. A "Support" button appears in the header, a link in the footer, and a short note on the About page. With the variable empty, nothing shows.
+
 ## Next steps
 
 - Move `catalog.json` into Supabase (Postgres) once the catalog passes ~5k packages, and put search on Meilisearch/Typesense.
 - "Rising" badges start appearing after ~90 days of `data/history.json` snapshots.
 - Community tag suggestions feeding `overrides.json`.
 
-Built and managed by [Kymaa](https://kymaa.tech).
+Built by [Diwe Innocent](https://diweinnocent.vercel.app).
 
 ## Publishing checklist
 

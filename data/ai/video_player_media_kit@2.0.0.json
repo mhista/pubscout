@@ -1,0 +1,54 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.0",
+  "generatedAt": "2026-11-08T15:50:03.709Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "package:video_player implementation for all platforms powered by package:media_kit.",
+    "what_it_does": "Allows standard package:video_player code to run across Android, iOS, web, Windows, macOS, and Linux by using package:media_kit as the underlying backend. It provides support for more video and audio formats and codecs than the default platform implementations.",
+    "use_when": [
+      "You want to use the familiar package:video_player API but need broader platform support including Windows, macOS, and Linux.",
+      "You need better video and audio codec support across platforms than the default video_player implementations provide."
+    ],
+    "avoid_when": [
+      "You prefer using package:media_kit directly without the video_player abstraction layer.",
+      "You want a dedicated media player package with specialized features not exposed by video_player."
+    ],
+    "strengths": [
+      "Enables package:video_player on desktop platforms (Windows, macOS, Linux) and web.",
+      "Leverages the robust media_kit backend for enhanced codec support.",
+      "Requires only a single-line initialization before normal video_player usage."
+    ],
+    "weaknesses": [
+      "Requires adding platform-specific media_kit dependency libraries for full functionality.",
+      "Inherits limitations of the package:video_player API wrapper."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add video_player_media_kit and corresponding media_kit_libs_* packages to pubspec.yaml, then call VideoPlayerMediaKit.ensureInitialized in main().",
+    "alternatives": [
+      {
+        "name": "video_player",
+        "why_prevents_replacement": "false",
+        "why_pick_it": "The official plugin, though it may lack out-of-the-box desktop support on older versions compared to media_kit."
+      },
+      {
+        "name": "just_audio",
+        "why_prevents_replacement": "false",
+        "why_pick_it": "If you primarily need feature-rich audio playback with precise control."
+      },
+      {
+        "name": "media_kit",
+        "why_prevents_replacement": "false",
+        "why_pick_it": "If you want to use the native media_kit API directly rather than the video_player compatibility wrapper."
+      }
+    ],
+    "minimal_example": "void main() {\n  VideoPlayerMediaKit.ensureInitialized(\n    android: true,\n    iOS: true,\n    macOS: true,\n    windows: true,\n    linux: true,\n  );\n  runApp(MyApp());\n}",
+    "confidence": 0.95
+  }
+}

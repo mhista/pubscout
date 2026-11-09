@@ -1,0 +1,46 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "23.0.0",
+  "generatedAt": "2026-11-07T11:15:08.721Z",
+  "data": {
+    "primary_category": "notifications",
+    "secondary_categories": [
+      "device",
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Cross-platform plugin for displaying and scheduling local notifications.",
+    "what_it_does": "Allows Flutter applications to display, schedule, and manage local notifications across Android, iOS, macOS, Windows, Linux, and web. Provides support for custom icons, sounds, actions, and notification channels. Enables handling user taps on notifications whether the app is in the foreground, background, or terminated.",
+    "use_when": [
+      "You need to schedule local reminders or alarms in your Flutter application.",
+      "You want to display notifications locally without relying on a remote push server."
+    ],
+    "avoid_when": [
+      "You are exclusively looking for remote push notification delivery (use firebase_messaging instead).",
+      "You need to support outdated Android or iOS versions that fall below the minimum requirements."
+    ],
+    "strengths": [
+      "Supports a wide range of platforms including Android, iOS, macOS, Windows, Linux, and Web.",
+      "Provides extensive platform-specific customizations such as notification channels, styles, and actions."
+    ],
+    "weaknesses": [
+      "Platform-specific limitations exist, such as Android OEM restrictions on background execution and iOS limits on pending notifications.",
+      "Requires substantial native configuration on Android and iOS (Gradle setup, permissions, etc.)."
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Requires native setup for Android (Gradle, AndroidManifest.xml, permissions) and iOS (general setup, foreground handling), plus minimum SDK requirement bumps.",
+    "alternatives": [
+      {
+        "name": "local_notifier",
+        "why_pick_it": "If you want a lightweight local notifications solution specifically focused on desktop environments."
+      }
+    ],
+    "minimal_example": "final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin = FlutterLocalNotificationsPlugin();\n\nconst AndroidInitializationSettings initializationSettingsAndroid = AndroidInitializationSettings('app_icon');\nfinal InitializationSettings initializationSettings = InitializationSettings(android: initializationSettingsAndroid);\n\nawait flutterLocalNotificationsPlugin.initialize(initializationSettings);",
+    "confidence": 1
+  }
+}

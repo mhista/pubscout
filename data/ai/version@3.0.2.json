@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.0.2",
+  "generatedAt": "2026-11-08T15:23:15.177Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Parses and compares semantic version numbers in compliance with http://semver.org/",
+    "what_it_does": "Provides a Version object to parse, compare, and increment version numbers that follow the Semantic Versioning specification. It handles features like pre-release tags and comparison operators directly in Dart.",
+    "use_when": [
+      "You need to parse semantic version strings in your Dart or Flutter application",
+      "You need to compare different application or dependency versions",
+      "You want strict adherence to the http://semver.org/ specification"
+    ],
+    "avoid_when": [
+      "You specifically require the pub_semver package behavior which deviates from the standard semver spec in specific ways",
+      "You do not need version parsing or comparison utilities"
+    ],
+    "strengths": [
+      "Compliant with the Semantic Versioning 2.0.0 specification",
+      "Supports pre-release and build validation",
+      "Simple and straightforward API with standard comparison operators"
+    ],
+    "weaknesses": [
+      "Diverts from pub_semver which may be expected in some pub-related tooling"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "none",
+    "alternatives": [],
+    "minimal_example": "import 'package:version/version.dart';\n\nvoid main() {\n  Version currentVersion = new Version(1, 0, 3);\n  Version latestVersion = Version.parse(\"2.1.0\");\n\n  if (latestVersion > currentVersion) {\n    print(\"Update is available\");\n  }\n}",
+    "confidence": 1
+  }
+}

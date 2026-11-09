@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.13.0",
+  "generatedAt": "2026-11-07T11:01:41.534Z",
+  "data": {
+    "primary_category": "codegen",
+    "secondary_categories": [],
+    "approach": [
+      "code generation",
+      "declarative"
+    ],
+    "one_liner": "A fluent, builder-based library for generating valid Dart code programmatically.",
+    "what_it_does": "Provides a fluent, builder-based API to construct Dart syntax structures like classes, methods, and expressions. Uses emitters and allocators to generate formatted, valid Dart code with automatic symbol scoping.",
+    "use_when": [
+      "You are building custom code generators or developer tools that output Dart source files.",
+      "You need programmatic control over AST construction and automatic import prefixing."
+    ],
+    "avoid_when": [
+      "You just need runtime immutability or basic JSON serialization without building custom code generators.",
+      "You prefer writing raw string templates over programmatic AST builders."
+    ],
+    "strengths": [
+      "Fluent builder-based API makes constructing complex Dart structures intuitive.",
+      "Automatic scoping prevents symbol conflicts by handling import prefixes dynamically."
+    ],
+    "weaknesses": [
+      "Requires manual formatting via external packages like dart_style to ensure clean output.",
+      "Steeper learning curve compared to simple string interpolation for basic tasks."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the package to pubspec.yaml dependencies and import it where code generation takes place.",
+    "alternatives": [],
+    "minimal_example": "import 'package:code_builder/code_builder.dart';\n\nvoid main() {\n  final animal = Class((builder) => builder\n      ..name = 'Animal'\n      ..extend = refer('Organism')\n  );\n}",
+    "confidence": 1
+  }
+}

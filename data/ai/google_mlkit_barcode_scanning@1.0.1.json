@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.1",
+  "generatedAt": "2026-11-07T11:22:25.949Z",
+  "data": {
+    "primary_category": "camera",
+    "secondary_categories": [
+      "ai-ml"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "A Flutter plugin to use Google's ML Kit Barcode Scanning on Android and iOS.",
+    "what_it_does": "A Flutter plugin that leverages Google's ML Kit Barcode Scanning native APIs to read data encoded using most standard barcode formats from an input image. It processes images asynchronously via platform channels to keep the user interface responsive.",
+    "use_when": [
+      "You need to scan standard barcode formats or QR codes using Google's ML Kit on mobile.",
+      "You want on-device barcode recognition without sending data to external servers."
+    ],
+    "avoid_when": [
+      "You need web or desktop platform support.",
+      "You want a package maintained directly by Google."
+    ],
+    "strengths": [
+      "Supports a wide range of standard barcode formats and types.",
+      "Executes native on-device processing via Google's ML Kit."
+    ],
+    "weaknesses": [
+      "Only supports mobile platforms (iOS and Android).",
+      "Requires specific platform configurations (e.g., minimum iOS deployment target 15.0 and Android SDK configuration)."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires setting minimum iOS deployment target to 15.0, adding specific linker flags (-ObjC, -all_load) in Xcode for Swift Package Manager, and configuring Android compile and min SDK requirements.",
+    "alternatives": [
+      {
+        "name": "mobile_scanner",
+        "why_pick_it": "If you want a dedicated camera-view widget for continuous barcode scanning instead of processing custom input images."
+      },
+      {
+        "name": "qr_flutter",
+        "why_pick_it": "If your only goal is generating QR codes rather than scanning them."
+      }
+    ],
+    "minimal_example": "final List<BarcodeFormat> formats = [BarcodeFormat.all];\nfinal barcodeScanner = BarcodeScanner(formats: formats);\nfinal List<Barcode> barcodes = await barcodeScanner.processImage(inputImage);\nbarcodeScanner.close();",
+    "confidence": 1
+  }
+}

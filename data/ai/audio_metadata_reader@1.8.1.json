@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.8.1",
+  "generatedAt": "2026-11-07T10:57:16.223Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [
+      "utils",
+      "files"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Pure Dart metadata reader and writer for MP3, MP4, FLAC, OGG, Opus, WAV, AIFF, and APE files.",
+    "what_it_does": "Reads and writes audio metadata such as titles, artists, albums, track numbers, and cover art across various audio formats using a pure Dart implementation.",
+    "use_when": [
+      "You need to read or update ID3, Vorbis comments, or iTunes ILST tags in audio files",
+      "You are building a local music player and need fast batch parsing of tracks",
+      "You want a pure Dart solution without platform-specific audio library requirements for metadata"
+    ],
+    "avoid_when": [
+      "You need to actually play or record audio files",
+      "You are working with audio formats that are not supported by the library"
+    ],
+    "strengths": [
+      "Pure Dart implementation supporting multiple platforms (Android, iOS, Windows, macOS, Linux)",
+      "Extremely fast performance for batch processing large music directories",
+      "Supports both reading and writing metadata for several formats"
+    ],
+    "weaknesses": [
+      "Some formats (like OGG, Opus, AIFF) are read-only for metadata",
+      "Fetching large embedded images can impact reading performance"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'dart:io';\nimport 'package:audio_metadata_reader/audio_metadata_reader.dart';\n\nvoid main() {\n  final track = File(\"Pieces.mp3\");\n  final metadata = readMetadata(track, getImage: false);\n  print(metadata.title);\n  print(metadata.album);\n}",
+    "confidence": 0.95
+  }
+}

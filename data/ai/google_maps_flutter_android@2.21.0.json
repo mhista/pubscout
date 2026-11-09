@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.21.0",
+  "generatedAt": "2026-11-07T11:22:24.855Z",
+  "data": {
+    "primary_category": "maps",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Android implementation of the google_maps_flutter plugin.",
+    "what_it_does": "Provides the Android-specific platform implementation for the google_maps_flutter plugin. It handles rendering Google Maps on Android using either Texture Layer Hybrid Composition or Hybrid Composition.",
+    "use_when": [
+      "You are building a Flutter app for Android using google_maps_flutter and need to configure Android-specific map settings.",
+      "You need to explicitly force Hybrid Composition or texture layer settings for Android map rendering."
+    ],
+    "avoid_when": [
+      "You are writing a cross-platform app and only need to depend on the high-level google_maps_flutter package directly instead of the Android implementation."
+    ],
+    "strengths": [
+      "Federated plugin architecture cleanly separates Android-specific implementation details.",
+      "Supports performance tuning via display mode configurations and SDK warmup APIs."
+    ],
+    "weaknesses": [
+      "Platform-specific to Android; requires corresponding iOS implementations for cross-platform apps."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Specify your Google Maps API key in the application manifest android/app/src/main/AndroidManifest.xml.",
+    "alternatives": [
+      {
+        "name": "google_maps_flutter",
+        "why_pick_it": "The main endorsed federated wrapper package that includes this Android implementation automatically."
+      }
+    ],
+    "minimal_example": "import 'package:google_maps_flutter_android/google_maps_flutter_android.dart';\nimport 'package:google_maps_flutter_platform_interface/google_maps_flutter_platform_interface.dart';\n\nvoid main() {\n  final GoogleMapsFlutterPlatform mapsImplementation = GoogleMapsFlutterPlatform.instance;\n  if (mapsImplementation is GoogleMapsFlutterAndroid) {\n    mapsImplementation.useAndroidViewSurface = true;\n  }\n}",
+    "confidence": 0.95
+  }
+}

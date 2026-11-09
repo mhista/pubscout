@@ -1,0 +1,54 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "4.10.0",
+  "generatedAt": "2026-11-07T16:25:46.761Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "codegen"
+    ],
+    "approach": [
+      "code generation"
+    ],
+    "one_liner": "Dart Dio client generator using source_gen",
+    "what_it_does": "Retrofit.dart generates typed Dio API clients from annotated interfaces. It uses source_gen to produce boilerplate, enabling compile‑time type safety and easy HTTP method mapping.",
+    "use_when": [
+      "Need a typed API client for a REST service",
+      "Want to avoid writing repetitive Dio request code",
+      "Prefer a Retrofit‑style declarative API definition",
+      "Require support for many HTTP methods and custom headers"
+    ],
+    "avoid_when": [
+      "You prefer not to use code generation",
+      "You are already using the plain http package",
+      "You need a lightweight solution without Dio"
+    ],
+    "strengths": [
+      "Automatic code generation reduces boilerplate",
+      "Strong type safety with Dart generics",
+      "Supports custom headers, query params, body extras",
+      "Extensible via CallAdapters and DartMappable parser"
+    ],
+    "weaknesses": [
+      "Requires build_runner and extra dev dependency",
+      "Adds compile‑time overhead",
+      "Tied to Dio, not the standard http client"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add retrofit and retrofit_generator to dependencies/dev_dependencies, run `dart pub run build_runner build` or watch. No special permissions needed.",
+    "alternatives": [
+      {
+        "name": "dio",
+        "why_pick_it": "Direct use of Dio without code generation, simpler for small projects"
+      },
+      {
+        "name": "http",
+        "why_pick_it": "Standard HTTP client with no codegen, lighter weight"
+      }
+    ],
+    "minimal_example": "import 'package:dio/dio.dart';\nimport 'package:retrofit/retrofit.dart';\n\n@RestApi(baseUrl: 'https://api.example.com/')\nabstract class ApiService {\n  factory ApiService(Dio dio, {String? baseUrl}) = _ApiService;\n\n  @GET('/users')\n  Future<List<User>> getUsers();\n}\n\n@JsonSerializable()\nclass User {\n  const User({this.id, this.name});\n  factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);\n  final int? id;\n  final String? name;\n  Map<String, dynamic> toJson() => _$UserToJson(this);\n}\n",
+    "confidence": 0.9
+  }
+}

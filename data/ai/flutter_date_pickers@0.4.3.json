@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.4.3",
+  "generatedAt": "2026-11-07T11:12:36.867Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "forms"
+    ],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "Inline day, week, range and month date pickers without dialogs.",
+    "what_it_does": "Provides a set of customizable inline date picker widgets (DayPicker, WeekPicker, RangePicker, MonthPicker, YearPicker). Allows styling of dates, disabled dates, and special decorations, and returns DateTime values at selection.",
+    "use_when": [
+      "You need an inline date picker that fits into your UI without opening a dialog",
+      "You want customizable styles for selected, current, and disabled dates",
+      "You need range or week selection support"
+    ],
+    "avoid_when": [
+      "You require a native platform date picker UI",
+      "You need a full-featured calendar with events and complex scheduling"
+    ],
+    "strengths": [
+      "No dialog, fits directly in layout",
+      "Highly customizable styles and decorations",
+      "Supports day, week, range, month, and year selections",
+      "Null‑safe and works on all Flutter platforms"
+    ],
+    "weaknesses": [
+      "Limited to inline UI, no built‑in dialog variant",
+      "Customization limited to provided style objects",
+      "No built‑in support for event calendars or recurring dates"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "Widget buildWeekDatePicker(DateTime selectedDate, DateTime firstAllowedDate, DateTime lastAllowedDate, ValueChanged<DatePeriod> onNewSelected){\n  final styles = DatePickerRangeStyles(\n    selectedPeriodLastDecoration: BoxDecoration(color: Colors.red),\n    selectedPeriodStartDecoration: BoxDecoration(color: Colors.green),\n    selectedPeriodMiddleDecoration: BoxDecoration(color: Colors.yellow),\n  );\n  return WeekPicker(\n    selectedDate: selectedDate,\n    onChanged: onNewSelected,\n    firstDate: firstAllowedDate,\n    lastDate: lastAllowedDate,\n    datePickerStyles: styles,\n  );\n}",
+    "confidence": 0.9
+  }
+}

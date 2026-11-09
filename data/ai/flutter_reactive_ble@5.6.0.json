@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "5.6.0",
+  "generatedAt": "2026-11-08T15:39:06.922Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "Reactive BLE plugin for Android and iOS that supports multiple devices",
+    "what_it_does": "Provides APIs to scan for devices, connect, read/write characteristics, subscribe to notifications, and negotiate MTU size. It exposes streams for device discovery and connection state updates.",
+    "use_when": [
+      "Need to communicate with several BLE devices simultaneously",
+      "Require reactive streams for real‑time updates",
+      "Need to negotiate MTU or clear GATT cache"
+    ],
+    "avoid_when": [
+      "Only a single BLE device is needed and a simple callback style is sufficient",
+      "You prefer a fully declarative UI framework for BLE"
+    ],
+    "strengths": [
+      "Stream‑based API for continuous updates",
+      "Supports multiple devices at once",
+      "Cross‑platform (Android & iOS) with native permission handling",
+      "Built‑in MTU negotiation and GATT cache clearing"
+    ],
+    "weaknesses": [
+      "Requires native permission configuration in AndroidManifest and Info.plist",
+      "Setup involves platform‑specific steps (ProGuard, iOS plist entries)",
+      "No code generation support"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add BLUETOOTH_SCAN, BLUETOOTH_CONNECT, and location permissions to AndroidManifest.xml; add NSBluetoothAlwaysUsageDescription or NSBluetoothPeripheralUsageDescription to Info.plist; optionally add ProGuard rules for Android.",
+    "alternatives": [],
+    "minimal_example": "final ble = FlutterReactiveBle();\nble.scanForDevices(withServices: [], scanMode: ScanMode.lowLatency)\n  .listen((device) => print(device));",
+    "confidence": 0.9
+  }
+}

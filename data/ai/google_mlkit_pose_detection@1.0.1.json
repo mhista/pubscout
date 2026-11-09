@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.1",
+  "generatedAt": "2026-11-07T11:22:32.635Z",
+  "data": {
+    "primary_category": "ai-ml",
+    "secondary_categories": [
+      "camera"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter plugin for Google ML Kit Pose Detection on Android and iOS.",
+    "what_it_does": "A Flutter plugin that uses Google's ML Kit Pose Detection to detect the pose of a subject's body in real time from a continuous video or static image. It acts as a bridge to native platform APIs via platform channels.",
+    "use_when": [
+      "You need real-time body pose detection in a mobile app.",
+      "You want to leverage Google's on-device ML Kit pose detection capabilities."
+    ],
+    "avoid_when": [
+      "You need web or desktop platform support.",
+      "You want a pure Dart implementation without native platform dependencies."
+    ],
+    "strengths": [
+      "Uses Google's native ML Kit for performance.",
+      "Supports both stream and single image detection modes."
+    ],
+    "weaknesses": [
+      "Limited to mobile platforms (Android and iOS).",
+      "Running pose detection inference on iOS simulator requires a physical device due to GPU/Metal requirements."
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Requires minimum iOS deployment target of 15.0, Xcode 15.3.0+, Swift 5.9, adding linker flags (-ObjC, -all_load), downloading and adding ML Kit resource bundles to Xcode Runner target, and setting Android minSdkVersion 21 and compileSdkVersion 36.",
+    "alternatives": [],
+    "minimal_example": "final options = PoseDetectorOptions(\n  mode: PoseDetectionMode.stream,\n  model: PoseDetectionModel.base,\n);\nfinal poseDetector = PoseDetector(options: options);\nfinal List<Pose> poses = await poseDetector.processImage(inputImage);\nposeDetector.close();",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.0",
+  "generatedAt": "2026-11-08T15:55:26.435Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Create mailto URIs with support for multiple to, cc, bcc, subject, and body fields with encoding.",
+    "what_it_does": "The mailto package helps build mailto links by providing a Dart interface for setting to, cc, bcc, subject, and body fields, while correctly encoding values. It is typically combined with a package like url_launcher to open the email client.",
+    "use_when": [
+      "You want to let users open their email client with pre-filled fields to contact support or send feedback",
+      "You need to correctly encode mailto URI parameters according to the RFC 6068 standard"
+    ],
+    "avoid_when": [
+      "You need a bullet-proof, consistent email-sending mechanism across all devices and web clients",
+      "You need to handle extremely long mailto links exceeding 1000 characters"
+    ],
+    "strengths": [
+      "Supports multiple to, cc, and bcc fields",
+      "Handles URL encoding of special characters automatically",
+      "Includes validation parameters function"
+    ],
+    "weaknesses": [
+      "Mailto link behavior is inconsistent across different email clients and web browsers",
+      "May fail if the resulting link is extremely long"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [],
+    "minimal_example": "final mailtoLink = Mailto(\n  to: ['to@example.com'],\n  cc: ['cc1@example.com', 'cc2@example.com'],\n  subject: 'mailto example subject',\n  body: 'mailto example body',\n);\nawait launch('$mailtoLink');",
+    "confidence": 0.95
+  }
+}

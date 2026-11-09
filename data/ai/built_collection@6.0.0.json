@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "6.0.0",
+  "generatedAt": "2026-11-07T10:59:26.521Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "codegen"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Immutable collections based on SDK collections with builder pattern.",
+    "what_it_does": "Provides immutable collection classes (like BuiltList, BuiltMap, BuiltSet) and corresponding mutable builder classes. Uses copy-on-write to avoid unnecessary copying and supports deep comparison and hashing.",
+    "use_when": [
+      "You need safe, immutable collections to share across your app without defensive copying.",
+      "You want deep comparison and hashing support for collections.",
+      "You use built_value and need matching immutable collections."
+    ],
+    "avoid_when": [
+      "You need direct mutability on standard SDK collection interfaces (built collections do not implement standard List/Set interfaces).",
+      "You want a fully codegen-free state model where native collections or other packages suffice."
+    ],
+    "strengths": [
+      "Enforces immutability and prevents accidental state mutations.",
+      "Provides deep equality and caching for efficient comparisons and hashing.",
+      "Uses copy-on-write wrappers to avoid unnecessary data copying."
+    ],
+    "weaknesses": [
+      "Collections do not implement core SDK mutable interfaces (e.g., BuiltList does not implement List).",
+      "Requires converting to/from builders or views when interoperating with standard SDK code."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "BuiltList([1, 2, 3]) == BuiltList([1, 2, 3]);",
+    "confidence": 0.95
+  }
+}

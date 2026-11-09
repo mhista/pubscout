@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "5.1.1",
+  "generatedAt": "2026-11-07T11:26:19.102Z",
+  "data": {
+    "primary_category": "images",
+    "secondary_categories": [
+      "files"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Save images and video files to the device gallery on iOS and Android.",
+    "what_it_does": "Provides methods to save raw image bytes or local image and video files directly to the device photo gallery. Supports quality configuration and custom asset creation dates on iOS.",
+    "use_when": [
+      "You need to save generated images, screenshots, or downloaded pictures to the device's photo gallery.",
+      "You need to save downloaded video files to the gallery."
+    ],
+    "avoid_when": [
+      "You are only picking images from the gallery (use image_picker instead).",
+      "You only need to cache and load images in UI widgets."
+    ],
+    "strengths": [
+      "Supports saving both raw image bytes and local files.",
+      "Supports iOS custom creation dates for saved assets."
+    ],
+    "weaknesses": [
+      "Requires manual permission handling on Android.",
+      "iOS requires Info.plist usage description keys."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "iOS requires adding NSPhotoLibraryAddUsageDescription and NSPhotoLibraryUsageDescription keys to Info.plist. Android requires storage permissions and requestLegacyExternalStorage on version 10.",
+    "alternatives": [],
+    "minimal_example": "final result = await ImageGallerySaverPlus.saveImage(\n  imageBytes,\n  quality: 80,\n  name: \"my_photo\",\n);",
+    "confidence": 0.95
+  }
+}

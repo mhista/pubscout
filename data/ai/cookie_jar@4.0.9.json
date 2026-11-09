@@ -1,0 +1,50 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "4.0.9",
+  "generatedAt": "2026-11-07T11:02:13.394Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "A Dart cookie manager for HTTP requests with in‑memory and persistent storage.",
+    "what_it_does": "Provides classes to save, load, and delete cookies according to RFC policies. Supports both volatile (CookieJar) and file‑based (PersistCookieJar) storage, and works with HttpClient and dio.",
+    "use_when": [
+      "You need automatic cookie handling for HTTP requests",
+      "You want persistent cookies across app restarts",
+      "You work with dio or HttpClient and need a simple cookie jar"
+    ],
+    "avoid_when": [
+      "You require a full‑featured HTTP client (use dio or http directly)",
+      "You need advanced cookie jar features like encryption not provided"
+    ],
+    "strengths": [
+      "Simple API for saving/loading cookies",
+      "Supports both in‑memory and file persistence",
+      "Works on mobile, desktop, and web"
+    ],
+    "weaknesses": [
+      "Limited to cookie management only, no request/response handling",
+      "No built‑in encryption or secure storage for cookies"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "dio",
+        "why_pick_it": "Provides its own interceptor for cookie handling and a full HTTP client"
+      },
+      {
+        "name": "http",
+        "why_pick_it": "Lightweight HTTP client; you can manage cookies manually or with other packages"
+      }
+    ],
+    "minimal_example": "import 'package:cookie_jar/cookie_jar.dart';\n\nvoid main() async {\n  final jar = CookieJar();\n  await jar.saveFromResponse(Uri.parse('https://example.com'), [Cookie('a','1')]);\n  final cookies = await jar.loadForRequest(Uri.parse('https://example.com'));\n  print(cookies);\n}",
+    "confidence": 0.97
+  }
+}

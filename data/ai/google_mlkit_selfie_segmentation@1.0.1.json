@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.1",
+  "generatedAt": "2026-11-07T11:23:04.941Z",
+  "data": {
+    "primary_category": "ai-ml",
+    "secondary_categories": [
+      "camera",
+      "images"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter plugin to use Google's ML Kit Selfie Segmentation API.",
+    "what_it_does": "A Flutter plugin that uses Google's ML Kit Selfie Segmentation API to separate the background from users within a scene. It passes calls via platform channels to native iOS and Android APIs, returning segmentation masks with confidence scores.",
+    "use_when": [
+      "You need to separate users from backgrounds in selfies or video streams on Android and iOS.",
+      "You want to leverage on-device machine learning for real-time segmentation."
+    ],
+    "avoid_when": [
+      "You are targeting web or desktop platforms.",
+      "You require custom model training or custom architecture beyond Google's pre-built selfie segmentation."
+    ],
+    "strengths": [
+      "Leverages optimized native Google ML Kit APIs.",
+      "Supports both single images and stream modes with configurable options."
+    ],
+    "weaknesses": [
+      "Mobile only (Android and iOS); web or other platforms are not supported.",
+      "Running segmentation inference on Apple Silicon iOS simulators requires physical hardware or specific setup limitations."
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Requires setting minimum iOS deployment target to 15.0, configuring Xcode linker flags (-ObjC and -all_load), downloading ML Kit resource bundles manually via Swift Package Manager setup, and configuring Android minimum SDK to 21 with compileSdk 36.",
+    "alternatives": [
+      {
+        "name": "google_ml_kit",
+        "why_pick_it": "It includes selfie segmentation along with many other ML Kit vision and natural language features under a single package."
+      }
+    ],
+    "minimal_example": "final segmenter = SelfieSegmenter(\n  mode: SegmenterMode.stream,\n  enableRawSizeMask: true,\n);\nfinal SegmentationMask? mask = await segmenter.processImage(inputImage);\nsegmenter.close();",
+    "confidence": 0.95
+  }
+}

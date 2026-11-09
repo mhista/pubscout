@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.6.0",
+  "generatedAt": "2026-11-07T11:20:09.281Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "auth"
+    ],
+    "approach": [
+      "stream-based",
+      "declarative"
+    ],
+    "one_liner": "A dio interceptor for automatic token refresh and authentication management.",
+    "what_it_does": "Fresh is an HTTP interceptor built on top of package:dio that manages authentication tokens transparently. It automatically refreshes expired tokens, attaches auth headers, handles 401 errors by retrying requests, and provides an authentication status stream.",
+    "use_when": [
+      "You are using dio for networking and need automatic token refresh on 401 responses.",
+      "You need single-flight request queuing during token refresh.",
+      "You want to react to authentication status changes via a stream."
+    ],
+    "avoid_when": [
+      "Not documented",
+      "You are not using package:dio for your networking layer."
+    ],
+    "strengths": [
+      "Automatic token refresh and proactive refreshing before requests",
+      "Single-flight refresh prevents duplicate concurrent refresh calls",
+      "Pluggable token storage and custom token formats supported"
+    ],
+    "weaknesses": [
+      "Tied specifically to package:dio"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "final dio = Dio();\ndio.interceptors.add(\n  Fresh.oAuth2(\n    tokenStorage: InMemoryTokenStorage<OAuth2Token>(),\n    refreshToken: (token, client) async {\n      final response = await client.post(\n        'https://api.example.com/auth/refresh',\n        data: {'refresh_token': token?.refreshToken},\n      );\n      final body = response.data as Map<String, dynamic>;\n      return OAuth2Token(\n        accessToken: body['access_token'],\n        refreshToken: body['refresh_token'],\n      );\n    },\n  ),\n);",
+    "confidence": 1
+  }
+}

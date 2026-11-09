@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "6.0.1",
+  "generatedAt": "2026-11-07T10:59:37.953Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "storage"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Access and query call history logs on Android.",
+    "what_it_does": "Allows Flutter apps to read, query, delete, and export device call history logs. Supports Android platforms only.",
+    "use_when": [
+      "You need to display or analyze call history logs within an Android application.",
+      "You need to export or delete call log entries programmatically."
+    ],
+    "avoid_when": [
+      "Your application targets iOS, as iOS does not provide an API for accessing call history.",
+      "You only require basic device info or sharing capabilities without call log access."
+    ],
+    "strengths": [
+      "Provides straightforward methods to query call logs with custom parameters like date ranges and durations.",
+      "Supports deleting specific or all call logs as well as exporting to JSON.",
+      "Handles checking and requesting runtime permissions automatically."
+    ],
+    "weaknesses": [
+      "Android only; completely unsupported on iOS due to platform limitations.",
+      "Requires manual addition of native Android permissions and gradle build configurations."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding Android permissions (READ_CALL_LOG, WRITE_CALL_LOG, READ_PHONE_NUMBERS) and enabling coreLibraryDesugaring in build.gradle.",
+    "alternatives": [],
+    "minimal_example": "Iterable<CallLogEntry> entries = await CallLog.get();",
+    "confidence": 0.95
+  }
+}

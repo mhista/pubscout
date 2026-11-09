@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.0.14",
+  "generatedAt": "2026-11-08T15:33:08.919Z",
+  "data": {
+    "primary_category": "maps",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "A turf.js-like geospatial analysis library working with GeoJSON, written in pure Dart.",
+    "what_it_does": "Provides spatial operations, helper functions for creating GeoJSON data, and data classification and statistics tools for geospatial analysis. It works in Flutter applications on the web, mobile, and desktop, or in pure Dart applications on the server.",
+    "use_when": [
+      "You need to perform spatial analysis or manipulate GeoJSON data in pure Dart or Flutter.",
+      "You want a Dart port of turf.js functions like line slicing, distance calculation, and geometric transformations."
+    ],
+    "avoid_when": [
+      "You need nested GeometryCollections (which are explicitly not supported).",
+      "You are looking for UI map widgets rather than a backend/logic geospatial analysis library."
+    ],
+    "strengths": [
+      "Pure Dart implementation supporting mobile, web, desktop, and server.",
+      "Strong GeoJSON object model with RFC 7946 compliant serializers via geotypes."
+    ],
+    "weaknesses": [
+      "Nested GeometryCollections are not supported.",
+      "Early version (0.0.14) meaning APIs may still evolve."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Install the library with `dart pub add turf` and import the required files.",
+    "alternatives": [],
+    "minimal_example": "import 'package:turf/helpers.dart';\nimport 'package:turf/src/line_segment.dart';\n\nFeature<Polygon> poly = Feature<Polygon>(\n  geometry: Polygon(coordinates: [\n    [\n      Position(0, 0),\n      Position(2, 2),\n      Position(0, 1),\n      Position(0, 0),\n    ],\n  ]),\n);\n\nvoid main() {\n  var total = segmentReduce<int>(\n    poly,\n    (previousValue, currentSegment, initialValue, featureIndex,\n        multiFeatureIndex, geometryIndex, segmentIndex) {\n      if (previousValue != null) {\n        previousValue++;\n      }\n      return previousValue;\n    },\n    0,\n    combineNestedGeometries: false,\n  );\n  print(total);\n}",
+    "confidence": 0.95
+  }
+}

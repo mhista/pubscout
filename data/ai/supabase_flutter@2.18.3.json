@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "2.18.3",
+  "generatedAt": "2026-11-07T16:24:58.597Z",
+  "data": {
+    "primary_category": "backend",
+    "secondary_categories": [
+      "auth",
+      "networking"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Flutter client for Supabase providing auth, database, realtime, storage and edge functions.",
+    "what_it_does": "It wraps Supabase's Dart SDK for Flutter, handling initialization, authentication flows, realtime subscriptions, storage access and edge function calls. It also offers utilities like deep linking and custom local storage.",
+    "use_when": [
+      "You need a full‑stack backend with auth, database and realtime features in a Flutter app",
+      "You prefer Supabase over Firebase or other BaaS solutions",
+      "You want a single package to manage Supabase services across mobile, web and desktop"
+    ],
+    "avoid_when": [
+      "You only need a lightweight HTTP client without backend integration",
+      "You are using a different backend provider such as Firebase or a custom GraphQL server"
+    ],
+    "strengths": [
+      "Comprehensive Supabase integration (auth, db, realtime, storage)",
+      "Cross‑platform support (mobile, web, desktop)",
+      "Stream‑based auth state changes for reactive UI"
+    ],
+    "weaknesses": [
+      "Relies on Supabase ecosystem; not useful for other backends",
+      "Adds a layer of abstraction that may hide low‑level Supabase client details",
+      "Native sign‑in (Apple/Google) requires additional packages and platform setup"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add supabase_flutter to pubspec, call Supabase.initialize in main before runApp, configure platform-specific settings for native Apple/Google sign‑in, and optionally set up deep links and custom local storage.",
+    "alternatives": [
+      {
+        "name": "supabase",
+        "why_pick_it": "Direct Supabase Dart client without Flutter‑specific helpers"
+      }
+    ],
+    "minimal_example": "import 'package:supabase_flutter/supabase_flutter.dart';\n\nvoid main() async {\n  WidgetsFlutterBinding.ensureInitialized();\n  await Supabase.initialize(url: 'YOUR_URL', publishableKey: 'YOUR_KEY');\n  runApp(MyApp());\n}\n\nfinal supabase = Supabase.instance.client;\n\n// Sign up example\nawait supabase.auth.signUp(email: 'test@example.com', password: 'password');",
+    "confidence": 0.97
+  }
+}

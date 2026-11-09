@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.2.1",
+  "generatedAt": "2026-11-07T11:16:10.279Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A widget to parse text and extract parts using predefined types or Regex.",
+    "what_it_does": "It parses text to render matching parts (like URLs, emails, phone numbers, or custom regex patterns) using different styles and tap callbacks.",
+    "use_when": [
+      "You need to highlight and make specific parts of a text clickable (e.g., hashtags, mentions, URLs).",
+      "You want to avoid writing complex manual splitting logic for RichText strings."
+    ],
+    "avoid_when": [
+      "You need full HTML rendering support instead of simple pattern matching."
+    ],
+    "strengths": [
+      "Supports predefined types like URLs, emails, and phone numbers out of the box.",
+      "Allows custom regex patterns and display/value mapping."
+    ],
+    "weaknesses": [
+      "Limited to pattern-based text parsing rather than full document layout."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "flutter_widget_from_html_core",
+        "why_pick_it": "Pick this if you need to render full HTML content rather than just matching regex patterns or specific types in plain text."
+      }
+    ],
+    "minimal_example": "ParsedText(\n  text: \"Contact us at foo@gmail.com or visit http://www.google.com\",\n  parse: <MatchText>[\n    MatchText(\n      type: ParsedType.EMAIL,\n      style: TextStyle(color: Colors.red),\n      onTap: (url) {},\n    ),\n  ],\n)",
+    "confidence": 1
+  }
+}

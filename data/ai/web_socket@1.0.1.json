@@ -1,0 +1,36 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.1",
+  "generatedAt": "2026-11-08T15:19:24.088Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "An easy-to-use library for communicating with WebSockets that has multiple implementations.",
+    "what_it_does": "Provides a simple, well-defined WebSocket interface with consistent behavior across different implementations. It includes conformance-tested implementations for browsers, Cupertino, IO, and OkHttp.",
+    "use_when": [
+      "You need a consistent WebSocket interface across multiple platforms and implementations.",
+      "You want an alternative to complex WebSocket packages."
+    ],
+    "avoid_when": [
+      "You require advanced features exclusive to package:web_socket_channel not present here."
+    ],
+    "strengths": [
+      "Consistent behavior across multiple implementations.",
+      "Passes the same set of conformance tests."
+    ],
+    "weaknesses": [
+      "Some implementations like OkHttpWebSocket are currently experimental."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:web_socket/web_socket.dart';\n\nvoid main() async {\n  final socket =\n      await WebSocket.connect(Uri.parse('wss://ws.postman-echo.com/raw'));\n\n  socket.events.listen((e) async {\n    switch (e) {\n      case TextDataReceived(text: final text):\n        print('Received Text: $text');\n        await socket.close();\n      case BinaryDataReceived(data: final data):\n        print('Received Binary: $data');\n      case CloseReceived(code: final code, reason: final reason):\n        print('Connection to server closed: $code [$reason]');\n    }\n  });\n\n  socket.sendText('Hello Dart WebSockets! 🎉');\n}",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.1.1",
+  "generatedAt": "2026-11-08T15:41:44.323Z",
+  "data": {
+    "primary_category": "codegen",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "code generation"
+    ],
+    "one_liner": "Generates Dart models and Chopper API client code from Swagger and OpenAPI schemas.",
+    "what_it_does": "Parses Swagger or OpenAPI JSON/YAML schema files to automatically generate Dart data models, enums, converter mappings, and Chopper client request methods. It integrates with build_runner and json_serializable for serialization.",
+    "use_when": [
+      "You are working with a backend that provides a Swagger or OpenAPI specification.",
+      "You use Chopper as your HTTP client and want to automate API boilerplate creation."
+    ],
+    "avoid_when": [
+      "You prefer writing your network requests and data models manually.",
+      "Your backend does not provide an OpenAPI or Swagger schema file."
+    ],
+    "strengths": [
+      "Automates creation of extensive models and API requests from schemas.",
+      "Highly configurable through build.yaml (supports custom scalars, default values, paths filtering)."
+    ],
+    "weaknesses": [
+      "Requires maintaining and running build_runner for code generation.",
+      "Tight coupling with Chopper and json_serializable."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add chopper, json_annotation, build_runner, chopper_generator, json_serializable, and swagger_dart_code_generator to pubspec.yaml, then configure build.yaml and run dart run build_runner build.",
+    "alternatives": [],
+    "minimal_example": "targets:\n  $default:\n    builders:\n      swagger_dart_code_generator:\n        options:\n          input_folder: 'lib/swaggers'\n          output_folder: 'lib/generated_code/'",
+    "confidence": 0.95
+  }
+}

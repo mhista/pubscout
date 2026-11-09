@@ -1,0 +1,54 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.0.0",
+  "generatedAt": "2026-11-07T11:25:19.968Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "A Flutter plugin for HTTP requests with cancellation and retry functions.",
+    "what_it_does": "Provides helper functions for performing HTTP requests with built-in support for request cancellation using a CancellationToken, retries, and time limits. It acts as an extension wrapper around the standard http package.",
+    "use_when": [
+      "You need simple HTTP requests with built-in retry mechanisms and cancellation support.",
+      "You want to add timeouts and cancellation tokens to basic http operations."
+    ],
+    "avoid_when": [
+      "You need advanced networking features like interceptors, global transformers, or multipart uploading out of the box (use dio instead).",
+      "You require complex API abstractions (use retrofit).",
+      "You are working with GraphQL or WebSockets."
+    ],
+    "strengths": [
+      "Supports cancellation tokens out of the box.",
+      "Easy to configure retries and timeouts for HTTP requests.",
+      "Compatible across Android, iOS, web, Windows, macOS, and Linux."
+    ],
+    "weaknesses": [
+      "Limited feature set compared to fully-featured HTTP clients like dio.",
+      "Relies on basic wrapper logic around the core http package."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [
+      {
+        "name": "dio",
+        "why_pick_it": "Pick dio if you need interceptors, global configuration, advanced file uploading, and a more feature-rich HTTP client."
+      },
+      {
+        "name": "http",
+        "why_pick_it": "Pick http if you only need the official baseline HTTP requests without added retry or cancellation helper abstractions."
+      },
+      {
+        "name": "retrofit",
+        "why_pick_it": "Pick retrofit if you want type-safe REST API client generation using annotations."
+      }
+    ],
+    "minimal_example": "cancellationToken = new CancellationToken();\ntry {\n  await HttpClientHelper.get(url,\n          cancelToken: cancellationToken,\n          timeRetry: Duration(milliseconds: 100),\n          retries: 3,\n          timeLimit: Duration(seconds: 5))\n      .then((response) {\n    setState(() {\n      msg = response.body;\n    });\n  });\n} on TimeoutException catch (_) {\n  setState(() {\n    msg = \"TimeoutException\";\n  });\n} on OperationCanceledError catch (_) {\n  setState(() {\n    msg = \"cancel\";\n  });\n} catch (e) {\n  setState(() {\n    msg = \"$e\";\n  });\n}",
+    "confidence": 0.95
+  }
+}

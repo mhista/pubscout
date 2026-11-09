@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "2.9.1",
+  "generatedAt": "2026-11-08T15:23:11.188Z",
+  "data": {
+    "primary_category": "backend",
+    "secondary_categories": [
+      "networking",
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Dart client library offering an ORM‑like interface to PostgREST/Supabase databases.",
+    "what_it_does": "Provides methods to query, insert, update, and delete data via PostgREST endpoints. It adds features like auto‑retry, request timeout, and request aborting.",
+    "use_when": [
+      "You need a typed, ORM‑style client for Supabase/Postgrest in a Flutter/Dart app",
+      "You prefer a lightweight wrapper over http without code generation"
+    ],
+    "avoid_when": [
+      "You require full code‑generated models (e.g., freezed)",
+      "You need a different backend service such as Firebase"
+    ],
+    "strengths": [
+      "ORM‑like API simplifies database operations",
+      "Built‑in support for auto‑retry, timeout, and abort",
+      "Integrates tightly with Supabase ecosystem"
+    ],
+    "weaknesses": [
+      "Relies on http package; no built‑in caching",
+      "No code‑generation for models, so manual mapping may be needed",
+      "Limited to Supabase/PostgREST backends"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:postgrest/postgrest.dart';\n\nfinal client = PostgrestClient('https://your-project.supabase.co/rest/v1');\nfinal response = await client.from('users').select().execute();\nprint(response.data);",
+    "confidence": 0.87
+  }
+}

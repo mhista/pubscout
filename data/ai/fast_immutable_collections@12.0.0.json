@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "12.0.0",
+  "generatedAt": "2026-11-07T11:09:49.451Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Fast immutable lists, sets, maps, and multimaps for Dart",
+    "what_it_does": "Provides immutable collections like IList, ISet, IMap, and IMapOfSets that act like native mutable counterparts with high performance. Includes extension methods for native collections and sorting helpers.",
+    "use_when": [
+      "You want immutable data structures in your app without the high performance penalty of copying entire collections.",
+      "You need convenient extension methods on native Dart lists, sets, maps, and iterables."
+    ],
+    "avoid_when": [
+      "You prefer standard mutable collections everywhere without enforcing immutability.",
+      "You require deep identity behaviors that conflict with the package's equality configurations."
+    ],
+    "strengths": [
+      "Significantly faster than many traditional immutable collection packages by saving structural differences.",
+      "No manual mutable/immutable cycles required; easy locking via `.lock` extensions.",
+      "Supports const instances for IList, ISet, and IMap."
+    ],
+    "weaknesses": [
+      "Introduces custom collection types (IList, ISet, IMap) that require learning specific APIs.",
+      "Changes in internal structure flushing can affect identity comparisons if not configured carefully."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "IList<String> ilist = [1, 2].lock;",
+    "confidence": 0.95
+  }
+}

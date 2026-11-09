@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "2.35.2",
+  "generatedAt": "2026-11-07T16:24:38.157Z",
+  "data": {
+    "primary_category": "codegen",
+    "secondary_categories": [],
+    "approach": [
+      "code generation"
+    ],
+    "one_liner": "Generates Dart database code from Drift table definitions as a dev‑dependency.",
+    "what_it_does": "Drift_dev provides the build‑runner generator that reads your Drift table classes and emits type‑safe Dart code for queries, data classes, and schema verification. It also offers utilities for schema validation and migration support.",
+    "use_when": [
+      "You are using the drift package to work with SQLite and want compile‑time generated query helpers.",
+      "You need automatic handling of SQL naming conflicts and schema verification during development."
+    ],
+    "avoid_when": [
+      "You only need runtime database access without code generation.",
+      "You are not using drift or prefer a pure‑SQL approach."
+    ],
+    "strengths": [
+      "Seamless integration with build_runner and the drift ecosystem",
+      "Supports latest analyzer, cli_util, and build versions",
+      "Handles reserved Dart keywords and SQL column name conflicts automatically"
+    ],
+    "weaknesses": [
+      "Requires a build step, adding compile time to the workflow",
+      "Only a dev‑dependency; no runtime functionality on its own"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add drift_dev to dev_dependencies, ensure build_runner is present, then run `flutter pub run build_runner build` or watch mode.",
+    "alternatives": [],
+    "minimal_example": "```dart\nimport 'package:drift/drift.dart';\nimport 'package:drift_dev/moor_generator.dart'; // generated part\n\npart 'app_database.g.dart';\n\n@DriftDatabase(tables: [Users])\nclass AppDatabase extends _$AppDatabase {\n  AppDatabase() : super(_openConnection());\n\n  @override\n  int get schemaVersion => 1;\n}\n\n// Run `flutter pub run build_runner build` to generate app_database.g.dart\n```",
+    "confidence": 0.96
+  }
+}

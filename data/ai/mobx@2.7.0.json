@@ -1,0 +1,53 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.8-flash",
+  "version": "2.7.0",
+  "generatedAt": "2026-11-08T15:15:44.422Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [],
+    "approach": [
+      "declarative",
+      "code generation"
+    ],
+    "one_liner": "Transparent functional reactive state management using observables, actions, and reactions.",
+    "what_it_does": "Provides a Dart implementation of MobX for managing application state reactively. It automatically tracks dependencies when observables are read within reactions or computed properties, and triggers automatic updates when state changes. Mutations are handled via actions that batch notifications and ensure atomic updates.",
+    "use_when": [
+      "You want transparent, automatic dependency tracking without manually wiring listeners or streams",
+      "You prefer an object-oriented store pattern with observables, actions, and computed values",
+      "You want automatic UI rebuilds and side-effect handling with minimal boilerplate"
+    ],
+    "avoid_when": [
+      "You prefer unidirectional, event-driven architectures with strictly immutable state like BLoC",
+      "You want to avoid code generation and class mixins entirely"
+    ],
+    "strengths": [
+      "Automatic dependency tracking eliminates the need to manually subscribe or manage streams",
+      "Computed observables automatically cache and update derived state only when dependencies change",
+      "Actions batch changes and deliver atomic notifications"
+    ],
+    "weaknesses": [
+      "Requires companion packages (mobx_codegen and flutter_mobx) and build_runner for typical Flutter development",
+      "Implicit tracking can make tracing unexpected updates difficult for beginners"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Typically requires mobx_codegen and build_runner in dev_dependencies to generate store mixins via annotations.",
+    "alternatives": [
+      {
+        "name": "bloc",
+        "why_pick_it": "Pick bloc if you prefer explicit, stream-based event handling with immutable states over mutable observables."
+      },
+      {
+        "name": "flutter_riverpod",
+        "why_pick_it": "Pick flutter_riverpod for compile-safe, declarative provider-based state management without code generation requirements."
+      },
+      {
+        "name": "provider",
+        "why_pick_it": "Pick provider for simple, ChangeNotifier-based state management that aligns directly with Flutter's widget tree."
+      }
+    ],
+    "minimal_example": "import 'package:mobx/mobx.dart';\n\nfinal counter = Observable(0);\n\nfinal increment = Action(() {\n  counter.value++;\n});\n\nfinal dispose = autorun((_) {\n  print('Count: ${counter.value}');\n});\n\nincrement();\ndispose();",
+    "confidence": 1
+  }
+}

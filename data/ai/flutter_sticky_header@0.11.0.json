@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.11.0",
+  "generatedAt": "2026-11-07T11:18:08.916Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "layout"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Flutter sliver implementation of sticky headers for CustomScrollView.",
+    "what_it_does": "Provides SliverStickyHeader and SliverStickyHeader.builder widgets that allow you to place sticky headers inside a CustomScrollView. The header can stay pinned to the viewport, overlap its content, or stick to the end of its sliver.",
+    "use_when": [
+      "You need a header that overlaps its content (like sticky side headers).",
+      "You want to build a header based on its current scroll state using a builder.",
+      "You need a sticky footer or a header that sticks to the end in a reversed list."
+    ],
+    "avoid_when": [
+      "You are using Flutter 3.13 or newer and only need simple pinned headers that work natively with SliverMainAxisGroup."
+    ],
+    "strengths": [
+      "Supports header overlap and sticky footers via stickToEnd.",
+      "Provides scroll state notifications and builder pattern for dynamic layout changes.",
+      "Works with both reversed and standard CustomScrollViews."
+    ],
+    "weaknesses": [
+      "Some basic sticky header use cases can now be implemented directly via Flutter's core framework without extra packages."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [],
+    "minimal_example": "CustomScrollView(\n  slivers: [\n    SliverStickyHeader(\n      header: Container(\n        height: 60.0,\n        color: Colors.lightBlue,\n        padding: EdgeInsets.symmetric(horizontal: 16.0),\n        alignment: Alignment.centerLeft,\n        child: Text('Header #0', style: TextStyle(color: Colors.white)),\n      ),\n      sliver: SliverList(\n        delegate: SliverChildBuilderDelegate(\n          (context, i) => ListTile(title: Text('List tile #$i')),\n          childCount: 4,\n        ),\n      ),\n    ),\n  ],\n)",
+    "confidence": 1
+  }
+}

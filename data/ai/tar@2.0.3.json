@@ -1,0 +1,46 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.3",
+  "generatedAt": "2026-11-08T15:32:04.082Z",
+  "data": {
+    "primary_category": "files",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "Memory-efficient, streaming implementation of the tar file format",
+    "what_it_does": "Provides stream-based readers and writers for tar files. It supports various tar formats including v7, ustar, pax, gnu, and star archives, along with handling long file names.",
+    "use_when": [
+      "You need to read or write large tar archives in a memory-efficient way",
+      "You are working with streams of bytes to process archives on the fly"
+    ],
+    "avoid_when": [
+      "You need synchronous tar parsing from standard buffers without streams",
+      "You need automatic security validation against path traversal attacks (like ../) when extracting untrusted archives"
+    ],
+    "strengths": [
+      "Consumes considerably less memory than package:archive when handling large files",
+      "Hardened against denial-of-service attacks with invalid tar file headers",
+      "Supports compilation to JavaScript and runs on Node.js"
+    ],
+    "weaknesses": [
+      "Slightly slower than alternative buffered implementations due to async stream overhead",
+      "Does not automatically validate against malicious path traversal or tar bombs in untrusted archives"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "archive",
+        "why_pick_it": "Choose package:archive if you prefer a simpler non-streaming approach and are working with smaller archives where higher memory usage is acceptable."
+      }
+    ],
+    "minimal_example": "import 'dart:convert';\nimport 'dart:io';\nimport 'package:tar/tar.dart';\n\nFuture<void> main() async {\n  final reader = TarReader(File('file.tar').openRead());\n\n  while (await reader.moveNext()) {\n    final entry = reader.current;\n    print(entry.header.name);\n    print(await entry.contents.transform(utf8.decoder).first);\n  }\n}",
+    "confidence": 0.95
+  }
+}

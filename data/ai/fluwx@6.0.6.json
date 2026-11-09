@@ -1,0 +1,51 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "6.0.6",
+  "generatedAt": "2026-11-07T11:19:15.019Z",
+  "data": {
+    "primary_category": "payments",
+    "secondary_categories": [
+      "auth",
+      "device"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Implements WeChat SDKs in Flutter for sharing, payment, and mini programs.",
+    "what_it_does": "Fluwx allows developers to call native WeChat SDK APIs inside Flutter applications. It supports sharing content, WeChat payments, user authentication, launching mini programs, and opening customer service.",
+    "use_when": [
+      "You need to integrate WeChat payments into your Flutter application.",
+      "Your app requires WeChat social login and authentication.",
+      "You want to share content, texts, or images from your app to WeChat."
+    ],
+    "avoid_when": [
+      "You do not need WeChat integration and are looking for global payment or auth gateways.",
+      "You want a zero-configuration setup, as WeChat SDK requires native configurations (Universal Links on iOS, MD5 signatures on Android)."
+    ],
+    "strengths": [
+      "Provides comprehensive WeChat SDK integration including pay, share, and auth.",
+      "Supports multiple platforms including Android, iOS, and OpenHarmony.",
+      "Maintained with regular updates to support newer SDK versions."
+    ],
+    "weaknesses": [
+      "Requires complex native setup (Universal Links, iOS SceneDelegate, Android signatures).",
+      "Breaking changes between major versions (such as v6 migrating to Swift Package Manager and KTS)."
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Requires manual native configurations: Universal Links, Info.plist URL schemes/Associated domains on iOS, and MD5 signature registration on Android. V6 requires Swift Package Manager configuration on iOS.",
+    "alternatives": [
+      {
+        "name": "pay",
+        "why_pick_it": "If you need standard payment gateways like Apple Pay and Google Pay instead of WeChat Pay."
+      },
+      {
+        "name": "flutter_stripe",
+        "why_pick_it": "If you prefer Stripe for handling payments globally rather than WeChat Pay."
+      }
+    ],
+    "minimal_example": "Fluwx fluwx = Fluwx();\nfinal success = fluwx.registerApi(appId: \"wxd930ea5d5a228f5f\", universalLink: \"https://your.univerallink.com/link/\");\nprint(\"register API success: $success\");",
+    "confidence": 0.95
+  }
+}

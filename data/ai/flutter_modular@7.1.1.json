@@ -1,0 +1,46 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "7.1.1",
+  "generatedAt": "2026-11-07T11:16:06.755Z",
+  "data": {
+    "primary_category": "navigation",
+    "secondary_categories": [
+      "dependency-injection"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Modular route management and dependency injection organized by feature.",
+    "what_it_does": "Flutter Modular organizes Flutter applications into feature-based modules, combining route management and dependency injection. It allows scoping dependencies and routes per feature, supporting named routes, nested routers, and route guards.",
+    "use_when": [
+      "You want to structure a large-scale Flutter application by features or modules.",
+      "You need nested routing with persistent shells using RouterOutlet.",
+      "You want integrated dependency injection tied to route lifecycles."
+    ],
+    "avoid_when": [
+      "You are building a tiny app where a standard MaterialApp navigation setup is sufficient.",
+      "You prefer completely decoupled state management and routing solutions."
+    ],
+    "strengths": [
+      "Combines dependency injection and routing cleanly into modules.",
+      "Automatic disposal of page-scoped state tied to route lifecycles.",
+      "Supports dynamic parameters, submodules, and route guards."
+    ],
+    "weaknesses": [
+      "Opinionated structure that requires adopting its module pattern across the app.",
+      "Ground-up rewrite in v7 may require migration effort from older versions."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Wrap your root widget with ModularApp and configure MaterialApp.router to use the routerConfig.",
+    "alternatives": [
+      {
+        "name": "get_it",
+        "why_pick_it": "If you need standalone dependency injection without coupling to a specific routing architecture."
+      }
+    ],
+    "minimal_example": "import 'package:flutter_modular/flutter_modular.dart';\n\nfinal appModule = createModule(register: (c) {\n  c\n    ..route('/', child: (ctx, state) => const HomePage());\n});\n\nvoid main() => runApp(ModularApp(module: appModule, child: const AppRoot()));",
+    "confidence": 0.95
+  }
+}

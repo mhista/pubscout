@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.1.3",
+  "generatedAt": "2026-11-08T15:33:08.273Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative",
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "A Flutter plugin for reading native device orientation from UI or sensors.",
+    "what_it_does": "Allows Flutter applications to read the native device orientation on Android and iOS. It differentiates between landscape left and landscape right, and can optionally read orientation directly from device sensors.",
+    "use_when": [
+      "You need to differentiate between landscape left and landscape right.",
+      "You need to read orientation directly from device sensors instead of just window size.",
+      "You want built-in widgets to handle orientation layouts automatically."
+    ],
+    "avoid_when": [
+      "Standard Flutter orientation checks based on screen dimensions are sufficient for your app."
+    ],
+    "strengths": [
+      "Differentiates landscape left from landscape right.",
+      "Supports both UI orientation and direct sensor readings.",
+      "Provides convenient built-in reader and oriented widgets."
+    ],
+    "weaknesses": [
+      "Sensor-based orientation has been tested less thoroughly.",
+      "Requires platform-specific configuration adjustments for Swift Package Manager on iOS."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "May require cleaning build files or adjusting iOS folder settings when using Swift Package Manager.",
+    "alternatives": [],
+    "minimal_example": "NativeDeviceOrientationReader(\n  builder: (context) {\n    Orientation orientation = NativeDeviceOrientationReader.orientation(context);\n    return Text(\"Current orientation: $orientation\");\n  },\n)",
+    "confidence": 0.95
+  }
+}

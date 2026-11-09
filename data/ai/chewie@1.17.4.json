@@ -1,0 +1,51 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "1.17.4",
+  "generatedAt": "2026-11-07T16:26:17.291Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Video player widget with Material/Cupertino controls",
+    "what_it_does": "Chewie wraps the low‑level video_player plugin and provides a ready‑made UI with Material or Cupertino controls, subtitles, chapters, and casting support.",
+    "use_when": [
+      "You need a quick, cross‑platform video player with a polished UI",
+      "You want built‑in subtitle support and option panels",
+      "You prefer to avoid writing your own controls from scratch"
+    ],
+    "avoid_when": [
+      "You need fine‑grained control over the video_player internals",
+      "You want to minimize dependencies or avoid an extra package"
+    ],
+    "strengths": [
+      "Easy to integrate with minimal code",
+      "Supports subtitles, chapters, and casting",
+      "Highly customizable options panel and UI"
+    ],
+    "weaknesses": [
+      "Relies on video_player, so any platform issues are inherited",
+      "Limited to the features exposed by video_player",
+      "Adds an extra dependency"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add chewie and video_player to pubspec.yaml and import both packages. No special permissions required.",
+    "alternatives": [
+      {
+        "name": "video_player",
+        "why_pick_it": "Provides low‑level control without an extra UI layer"
+      },
+      {
+        "name": "media_kit_video",
+        "why_pick_it": "Full‑featured media player with advanced streaming support"
+      }
+    ],
+    "minimal_example": "import 'package:chewie/chewie.dart';\nimport 'package:video_player/video_player.dart';\n\nfinal controller = VideoPlayerController.networkUrl(Uri.parse('https://example.com/video.mp4'));\nawait controller.initialize();\nfinal chewieController = ChewieController(videoPlayerController: controller, autoPlay: true, looping: true);\n\nChewie(controller: chewieController);",
+    "confidence": 0.9
+  }
+}

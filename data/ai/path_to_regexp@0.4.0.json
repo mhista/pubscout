@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.4.0",
+  "generatedAt": "2026-11-08T15:41:04.606Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "navigation"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Converts path strings with parameters into regular expressions and generating functions.",
+    "what_it_does": "Converts paths like '/user/:id' into regular expressions to match incoming paths or extract parameters. It can also reverse the process by converting a path specification into a function that generates paths from arguments.",
+    "use_when": [
+      "You are building a custom routing or deep linking solution and need to match URL paths with parameters.",
+      "You need to generate path strings dynamically from parameter maps."
+    ],
+    "avoid_when": [
+      "You are using a standard framework router like GoRouter or Flutter's Navigator that handles path matching automatically."
+    ],
+    "strengths": [
+      "Provides bidirectional conversion between paths and regular expressions or generation functions.",
+      "Supports custom parameter regular expressions, prefix matching, and case insensitivity.",
+      "Token-based parsing allows efficient reuse when matching and generating from the same path specification."
+    ],
+    "weaknesses": [
+      "Optional parameters are not supported (support was removed in version 0.2.0)."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "final regExp = pathToRegExp('/user/:id');\nregExp.hasMatch('/user/12'); // => true\n\nfinal toPath = pathToFunction('/user/:id');\ntoPath({'id': '12'}); // => '/user/12'",
+    "confidence": 1
+  }
+}

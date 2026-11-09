@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.5.3",
+  "generatedAt": "2026-11-08T15:16:20.790Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Manage a finite pool of resources to control concurrent operations.",
+    "what_it_does": "The pool package exposes a Pool class that makes it easy to manage a limited pool of resources. It controls concurrent file system or network requests through withResource or fine-grained PoolResource management.",
+    "use_when": [
+      "You need to limit concurrent file system or network requests.",
+      "You want to process an iterable asynchronously with a maximum concurrency limit."
+    ],
+    "avoid_when": [
+      "You are managing state or UI components.",
+      "You do not need to limit concurrency."
+    ],
+    "strengths": [
+      "Easy to use with withResource callbacks.",
+      "Supports fine-grained control via PoolResource objects.",
+      "Includes deadlock timeout handling."
+    ],
+    "weaknesses": [
+      "Requires manual tracking to ensure physical resources correspond correctly to pool allocations."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "final pool = new Pool(10, timeout: new Duration(seconds: 30));\n\nFuture<String> readFile(String path) {\n  return pool.withResource(() => new File(path).readAsString());\n}",
+    "confidence": 1
+  }
+}

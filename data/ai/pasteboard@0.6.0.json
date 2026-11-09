@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.6.0",
+  "generatedAt": "2026-11-08T15:31:36.430Z",
+  "data": {
+    "primary_category": "files",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Read and write images, files, and text to the system clipboard across platforms.",
+    "what_it_does": "Provides a Flutter plugin to access clipboard contents such as images, files, HTML, and text. It supports reading from and writing to the clipboard on mobile, desktop, and web.",
+    "use_when": [
+      "You need to copy or paste files, images, or text programmatically.",
+      "Cross‑platform clipboard access is required without writing platform‑specific code."
+    ],
+    "avoid_when": [
+      "You only need simple text copy/paste (Clipboard class suffices).",
+      "You require advanced clipboard features not covered by this plugin."
+    ],
+    "strengths": [
+      "Supports all major platforms including web and desktop.",
+      "Handles both read and write for images, files, HTML, and text."
+    ],
+    "weaknesses": [
+      "Android requires manual manifest and provider setup.",
+      "No built‑in UI components; you must implement your own."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "On Android add a FileProvider entry in AndroidManifest.xml and create provider_paths.xml as described in the README.",
+    "alternatives": [],
+    "minimal_example": "import 'package:pasteboard/pasteboard.dart';\n\nFuture<void> demo() async {\n  await Pasteboard.writeFiles(['path/to/file.txt']);\n  final files = await Pasteboard.files();\n  print(files);\n  final imageBytes = await Pasteboard.image;\n  print(imageBytes?.length);\n}",
+    "confidence": 0.92
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.6.0",
+  "generatedAt": "2026-11-07T11:16:16.985Z",
+  "data": {
+    "primary_category": "forms",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative",
+      "imperative"
+    ],
+    "one_liner": "Flexible picker widget for numbers, dates, arrays, and dependent columns in Flutter.",
+    "what_it_does": "Provides customizable picker widgets including NumberPicker, DateTimePicker, ArrayPicker, and hierarchical linkage pickers. Supports modal, dialog, and embedded display modes with extensive localization and styling options.",
+    "use_when": [
+      "You need to present a scroll wheel style picker for numbers, dates, or custom string options.",
+      "You require multi-column dependent or hierarchical selections.",
+      "You need built-in localization across multiple languages including RTL."
+    ],
+    "avoid_when": [
+      "You are using standard Material date or time pickers and prefer platform-native UI dialogs.",
+      "Your application targets Flutter versions below 3.32.0."
+    ],
+    "strengths": [
+      "Supports multiple picker types (Number, DateTime, Array, Linkage).",
+      "Includes internationalization for 20+ languages.",
+      "Highly customizable styling and layout options."
+    ],
+    "weaknesses": [
+      "Some display methods and configuration options require imperative calls.",
+      "Requires a relatively recent minimum Flutter version (3.32.0)."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "calendar_date_picker2",
+        "why_pick_it": "Choose this if you specifically need an advanced calendar grid date picker rather than a scroll wheel picker."
+      },
+      {
+        "name": "flutter_colorpicker",
+        "why_pick_it": "Choose this if you specifically need color selection pickers."
+      }
+    ],
+    "minimal_example": "import 'package:flutter_picker_plus/flutter_picker_plus.dart';\n\nvoid showBasicPicker(BuildContext context) {\n  Picker(\n    adapter: PickerDataAdapter<String>(\n      pickerData: ['Option 1', 'Option 2', 'Option 3']\n    ),\n    title: const Text('Select an Option'),\n    onConfirm: (Picker picker, List<int> value) {\n      print('Selected: ${picker.getSelectedValues()}');\n    },\n  ).showModal(context);\n}",
+    "confidence": 0.95
+  }
+}

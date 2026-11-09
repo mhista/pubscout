@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.3.1",
+  "generatedAt": "2026-11-08T15:33:19.784Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [
+      "web-desktop"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Windows implementation of the video_player plugin using Media Foundation API.",
+    "what_it_does": "Provides a lightweight video player implementation for Windows that leverages the built-in Windows Media Foundation API. It can be used alongside the video_player plugin to support Windows platforms with GPU hardware acceleration.",
+    "use_when": [
+      "You are building a Flutter app for Windows that needs to play videos or audio.",
+      "You want to use the official video_player API while adding Windows desktop support."
+    ],
+    "avoid_when": [
+      "You need to play HLS (.m3u8) streams.",
+      "You are targeting platforms other than Windows with this specific package alone."
+    ],
+    "strengths": [
+      "GPU hardware acceleration with low CPU usage.",
+      "Supports 4K 60fps video playback.",
+      "Small footprint with no third-party libraries inside and a single DLL file."
+    ],
+    "weaknesses": [
+      "Does not support HLS (.m3u8) streams.",
+      "Relies on preloaded Windows codecs or requires external codec packs for certain media formats."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add video_player and video_player_win to pubspec.yaml. May require administrator mode for building if MSB3073 occurs.",
+    "alternatives": [
+      {
+        "name": "media_kit",
+        "why_pick_it": "A comprehensive media player for Flutter supporting more formats and platforms out of the box."
+      },
+      {
+        "name": "just_audio",
+        "why_pick_it": "Focuses heavily on advanced audio playback features and playlist management."
+      }
+    ],
+    "minimal_example": "import 'dart:io';\nimport 'package:flutter/material.dart';\nimport 'package:video_player_win/video_player_win.dart';\n\nvoid main() {\n  runApp(const MyApp());\n}\n\nclass MyApp extends StatefulWidget {\n  const MyApp({Key? key}) : super(key: key);\n\n  @override\n  State<MyApp> createState() => _MyAppState();\n}\n\nclass _MyAppState extends State<MyApp> {\n  late VideoPlayerController controller;\n\n  @override\n  void initState() {\n    super.initState();\n    controller = VideoPlayerController.file(File(\"E:\\\\test.mp4\"));\n    controller.initialize().then((value) {\n      if (controller.value.isInitialized) {\n        controller.play();\n        setState(() {});\n      }\n    });\n  }\n\n  @override\n  void dispose() {\n    controller.dispose();\n    super.dispose();\n  }\n\n  @override\n  Widget build(BuildContext context) {\n    return MaterialApp(\n      home: Scaffold(\n        body: Center(child: VideoPlayer(controller)),\n      ),\n    );\n  }\n}",
+    "confidence": 0.95
+  }
+}

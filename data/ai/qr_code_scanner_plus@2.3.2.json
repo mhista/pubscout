@@ -1,0 +1,47 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.3.2",
+  "generatedAt": "2026-11-08T15:38:21.342Z",
+  "data": {
+    "primary_category": "camera",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Embeddable QR code scanner view for Android, iOS, and Web.",
+    "what_it_does": "Provides a platform view widget that embeds a QR code scanner into Flutter apps using zxing on Android, AVFoundation on iOS, and jsQR on Web. It exposes a controller to handle camera features like flash and flipping, and provides a stream of scanned barcode results.",
+    "use_when": [
+      "You need to maintain an existing project that already relies on this package and want to postpone migration.",
+      "You need an embedded QR scanner view for Android, iOS, or Web."
+    ],
+    "avoid_when": [
+      "You are starting a new project or require new features and long-term stability (the authors recommend mobile_scanner instead).",
+      "You need advanced barcode formats other than QR codes on the web."
+    ],
+    "strengths": [
+      "Supports multiple platforms (Android, iOS, Web).",
+      "Provides a straightforward stream of scanned data and controller actions for flash and camera flipping.",
+      "Zero third-party iOS dependencies using native AVFoundation."
+    ],
+    "weaknesses": [
+      "It is a maintenance-only fork with no new features or API extensions planned.",
+      "Android zxing native library is outdated and unmaintained with known native-level bugs.",
+      "Web support is in an early stage with limitations on preview constraints and features like flash."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding CAMERA permission in AndroidManifest.xml, NSCameraUsageDescription in iOS Info.plist, and a JS script tag in web/index.html.",
+    "alternatives": [
+      {
+        "name": "mobile_scanner",
+        "why_pick_it": "Actively maintained and recommended alternative for QR and barcode scanning with modern feature support and long-term stability."
+      }
+    ],
+    "minimal_example": "class _QRViewExampleState extends State<QRViewExample> {\n  final GlobalKey qrKey = GlobalKey(debugLabel: 'QR');\n  Barcode? result;\n  QRViewController? controller;\n\n  @override\n  Widget build(BuildContext context) {\n    return Scaffold(\n      body: QRView(\n        key: qrKey,\n        onQRViewCreated: _onQRViewCreated,\n      ),\n    );\n  }\n\n  void _onQRViewCreated(QRViewController controller) {\n    this.controller = controller;\n    controller.scannedDataStream.listen((scanData) {\n      setState(() {\n        result = scanData;\n      });\n    });\n  }\n}",
+    "confidence": 0.95
+  }
+}

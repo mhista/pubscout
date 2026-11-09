@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.0.7",
+  "generatedAt": "2026-11-07T11:21:08.164Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Get the IP address of the current device using https://api64.ipify.org.",
+    "what_it_does": "Provides a simple mechanism to fetch the system IP address of the current device. Uses https://api64.ipify.org under the hood and supports json or text response types.",
+    "use_when": [
+      "You need to retrieve the public IP address of the current device.",
+      "You want a straightforward way to fetch IP addresses with minimal configuration."
+    ],
+    "avoid_when": [
+      "You need local network IP addresses rather than the external system IP.",
+      "You require an offline solution for obtaining IP addresses."
+    ],
+    "strengths": [
+      "Simple and easy to use API",
+      "Supports multiple request types (json and text)"
+    ],
+    "weaknesses": [
+      "Depends on an external web service (ipify.org) to resolve the IP",
+      "Not documented for local network IP discovery"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the dependency to pubspec.yaml and import the package. No native platform permissions explicitly documented.",
+    "alternatives": [
+      {
+        "name": "http",
+        "why_pick_it": "You can make direct HTTP requests to IP lookup services without needing a dedicated wrapper package."
+      }
+    ],
+    "minimal_example": "var ipAddress = IpAddress(type: RequestType.json);\ndynamic data = await ipAddress.getIpAddress();",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "1.4.0",
+  "generatedAt": "2026-11-07T10:59:55.928Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Provides named integer constants for ASCII and HTML character codes.",
+    "what_it_does": "The package defines symbolic names for character codes, making code that works with integer character values more readable. It also offers a CLI tool to generate a custom set of constants for a project.",
+    "use_when": [
+      "You need readable constants for ASCII or common HTML entities in Dart code.",
+      "You want to avoid hard‑coding integer literals for characters.",
+      "You prefer a small, dependency‑free helper for character code lookups.",
+      "You plan to generate a custom file and keep the package as a dev dependency."
+    ],
+    "avoid_when": [
+      "You already have a code‑generation tool that produces constants.",
+      "You need runtime access to a large set of Unicode characters beyond ASCII and HTML entities.",
+      "You prefer to use string literals instead of integer codes."
+    ],
+    "strengths": [
+      "Zero runtime dependency, pure Dart constants.",
+      "Supports both ASCII and HTML entities with clear naming conventions.",
+      "CLI generator lets you create a trimmed set of constants for production.",
+      "No build_runner or code‑gen setup required for basic use."
+    ],
+    "weaknesses": [
+      "Limited to ASCII and HTML 4.01 entities; no full Unicode support.",
+      "Requires manual generation for custom sets if you want to drop unused constants.",
+      "No integration with other code‑gen workflows."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add to pubspec, import package/ascii.dart or html_entity.dart, or run CLI to generate a file.",
+    "alternatives": [],
+    "minimal_example": "import \"package:charcode/ascii.dart\";\n\nvoid main() {\n  if (firstChar == $A) {\n    print('Starts with A');\n  }\n}",
+    "confidence": 0.95
+  }
+}

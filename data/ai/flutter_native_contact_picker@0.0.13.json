@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.0.13",
+  "generatedAt": "2026-11-07T11:15:20.881Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "forms"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "A Flutter plugin for picking a single or multiple contacts from the native OS address book.",
+    "what_it_does": "Allows apps to trigger the operating system's native UI for selecting contacts and specific phone numbers. It returns the associated contact information, including full names and phone numbers, back to the app.",
+    "use_when": [
+      "You need to let users select a contact from their device address book.",
+      "You want to pick contacts on Android without requiring READ_CONTACTS permissions."
+    ],
+    "avoid_when": [
+      "You need to programmatically query, search, or edit the device's contact list without user interaction.",
+      "You need to pick multiple contacts on Android (iOS only)."
+    ],
+    "strengths": [
+      "Uses native OS UI for selecting contacts.",
+      "Does not require READ_CONTACTS permissions on Android.",
+      "Supports Swift Package Manager integration on iOS."
+    ],
+    "weaknesses": [
+      "Selecting multiple contacts is supported on iOS only.",
+      "Android returns only the selected phone number rather than all available numbers."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Minimum iOS 13.0 required. Minimum Flutter 3.44.0 and Dart ^3.12.0 required.",
+    "alternatives": [],
+    "minimal_example": "final FlutterNativeContactPicker _contactPicker = FlutterNativeContactPicker();\nContact? contact = await _contactPicker.selectContact();\nprint(contact?.fullName);",
+    "confidence": 0.95
+  }
+}

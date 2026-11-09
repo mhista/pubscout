@@ -1,0 +1,50 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.5.1",
+  "generatedAt": "2026-11-08T15:32:21.234Z",
+  "data": {
+    "primary_category": "layout",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Automatically adapt Flutter app UI to different screen sizes and breakpoints.",
+    "what_it_does": "Provides widgets and utilities to make Flutter apps responsive. It includes breakpoint management, responsive values, grids, row/column switches, and auto-scaling capabilities for mobile, tablet, and desktop layouts.",
+    "use_when": [
+      "You need to build layouts that adapt to multiple screen sizes from mobile to 4K desktop.",
+      "You want to manage breakpoints globally using MaterialApp or CupertinoApp builders.",
+      "You require conditional UI rendering based on screen size or orientation."
+    ],
+    "avoid_when": [
+      "You prefer implementing custom LayoutBuilder and MediaQuery logic manually for every screen.",
+      "You are building a fixed-size application that will never run on varying form factors."
+    ],
+    "strengths": [
+      "Simplifies cross-platform responsive design with predefined breakpoints and helper widgets.",
+      "Offers both resizing and proportional auto-scaling features.",
+      "Includes helpful layout components like ResponsiveRowColumn and ResponsiveGridView."
+    ],
+    "weaknesses": [
+      "Legacy ResponsiveWrapper has been deprecated, requiring migration to ResponsiveBreakpoints.",
+      "Auto-scaling can occasionally make text or UI elements look overly large on extremely wide viewports if not configured properly."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add ResponsiveBreakpoints.builder to your MaterialApp or CupertinoApp builder function.",
+    "alternatives": [
+      {
+        "name": "responsive_builder",
+        "why_pick_it": "Alternative approach to building responsive UIs with dedicated screen type builders."
+      },
+      {
+        "name": "sizer",
+        "why_pick_it": "Alternative utility focused on scaling UI elements based on screen width and height percentages."
+      }
+    ],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:responsive_framework/responsive_framework.dart';\n\nclass MyApp extends StatelessWidget {\n  @override\n  Widget build(BuildContext context) {\n    return MaterialApp(\n      builder: (context, child) => ResponsiveBreakpoints.builder(\n        child: child!,\n        breakpoints: [\n          const Breakpoint(start: 0, end: 450, name: MOBILE),\n          const Breakpoint(start: 451, end: 800, name: TABLET),\n          const Breakpoint(start: 801, end: 1920, name: DESKTOP),\n          const Breakpoint(start: 1921, end: double.infinity, name: '4K'),\n        ],\n      ),\n      initialRoute: \"/\",\n    );\n  }\n}",
+    "confidence": 0.95
+  }
+}

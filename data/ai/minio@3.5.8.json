@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.5.8",
+  "generatedAt": "2026-11-08T15:41:45.201Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [
+      "networking",
+      "backend"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Unofficial MinIO and S3-compatible object storage client SDK for Dart and Flutter.",
+    "what_it_does": "Provides simple APIs to interact with any Amazon S3 compatible object storage server, such as MinIO, AWS S3, or Filebase. Supports bucket operations, object uploads and downloads, presigned URLs, and bucket policies.",
+    "use_when": [
+      "You need to upload, download, or manage files in an S3-compatible object storage server or MinIO.",
+      "You want to generate presigned URLs for direct client uploads or downloads.",
+      "You need to listen to or manage bucket notifications and policies."
+    ],
+    "avoid_when": [
+      "You need local device storage like key-value pairs or SQLite databases.",
+      "You require an official SDK directly maintained by AWS or MinIO."
+    ],
+    "strengths": [
+      "Supports a wide range of S3-compatible backends including AWS S3, MinIO, and Filebase.",
+      "Provides stream-based file upload and download with progress tracking.",
+      "Supports multiple platforms including Android, iOS, Web, Windows, macOS, and Linux."
+    ],
+    "weaknesses": [
+      "It is an unofficial SDK, which may lead to delays in adopting new upstream features.",
+      "Documentation outside of the README relies heavily on pub.dev documentation links."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Initialize the Minio client with your endpoint, access key, and secret key. For file operations, import 'package:minio/io.dart'.",
+    "alternatives": [],
+    "minimal_example": "import 'package:minio/minio.dart';\n\nvoid main() async {\n  final minio = Minio(\n    endPoint: 'play.min.io',\n    accessKey: 'Q3AM3UQ867SPQQA43P2F',\n    secretKey: 'zuf+tfteSlswRu7BJ86wekitnifILbZam1KYY3TG',\n  );\n\n  await minio.putObject(\n    'mybucket',\n    'myobject',\n    Stream<Uint8List>.value(Uint8List(1024)),\n    onProgress: (bytes) => print('$bytes uploaded'),\n  );\n}",
+    "confidence": 0.95
+  }
+}

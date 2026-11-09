@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.3.1",
+  "generatedAt": "2026-11-08T15:53:06.463Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [],
+    "approach": [
+      "stream-based",
+      "declarative"
+    ],
+    "one_liner": "Use Drift with a sqlite_async database in the same application.",
+    "what_it_does": "Allows using Drift and sqlite_async together on the same database. Synchronizes table updates between both APIs and supports transactions, migrations, and concurrent reads.",
+    "use_when": [
+      "You want to use Drift ORM features alongside sqlite_async database capabilities.",
+      "You need concurrent read queries while writes are happening in SQLite."
+    ],
+    "avoid_when": [
+      "You do not need sqlite_async and can use standard Drift database connections directly.",
+      "Your project relies on read-only transactions in Drift, which are not currently supported."
+    ],
+    "strengths": [
+      "Seamless integration between Drift and sqlite_async APIs.",
+      "Automatic propagation of table updates and watching queries across both systems.",
+      "Supports transactions, nested transactions, and Drift migrations."
+    ],
+    "weaknesses": [
+      "Read-only transactions are not currently supported in Drift.",
+      "Web support requires manual placement of sqlite3 WASM and web worker files.",
+      "Potential for duplicated update events."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires setting up SqliteAsyncDriftConnection and configuring web worker/WASM assets if targeting the web platform.",
+    "alternatives": [
+      {
+        "name": "drift",
+        "why_pick_it": "If you want to use Drift directly without sqlite_async integration."
+      },
+      {
+        "name": "sqflite",
+        "why_pick_it": "If you prefer the standard SQLite plugin for Flutter without advanced async connection pooling."
+      }
+    ],
+    "minimal_example": "@DriftDatabase(tables: [TodoItems])\nclass AppDatabase extends _$AppDatabase {\n  AppDatabase(SqliteConnection db) : super(SqliteAsyncDriftConnection(db));\n\n  @override\n  int get schemaVersion => 1;\n}\n\nFuture<void> main() async {\n  final db = SqliteDatabase(path: 'example.db');\n  final appdb = AppDatabase(db);\n}",
+    "confidence": 0.95
+  }
+}

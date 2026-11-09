@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.29.2",
+  "generatedAt": "2026-11-07T11:08:06.182Z",
+  "data": {
+    "primary_category": "files",
+    "secondary_categories": [
+      "utils",
+      "charts"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Fast, low-memory library for reading, creating, editing, and styling Excel files.",
+    "what_it_does": "Reads, creates, edits, and styles Microsoft Excel spreadsheets (.xlsx) and legacy .xls files. Provides features like formulas, charts, pivot tables, CSV import/export, and JSON export in Dart and Flutter.",
+    "use_when": [
+      "You need to read, write, or modify Excel (.xlsx or .xls) spreadsheets in Dart or Flutter",
+      "You are processing large workbooks and require low memory consumption and streaming parsers",
+      "You want a drop-in, faster replacement for the existing excel package"
+    ],
+    "avoid_when": [
+      "You only need simple CSV handling and do not require Excel-specific features or formatting",
+      "You are working entirely within a native environment that already handles spreadsheet binding seamlessly"
+    ],
+    "strengths": [
+      "Significantly faster encode and decode times and lower peak memory usage compared to the legacy excel package",
+      "Supports legacy .xls workbooks alongside modern .xlsx files without extra dependencies",
+      "Rich feature set covering formulas, charts, pivot tables, styling, conditional formatting, and CSV/JSON conversion",
+      "Cross-platform support across Dart VM, Flutter mobile, and Web (JS & WASM)"
+    ],
+    "weaknesses": [
+      "Formulas are written in A1 notation; R1C1 notation is not natively used for writing formulas",
+      "Conflicting dependency majors mean it cannot run alongside the original excel package in the same program"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:excel_plus/excel_plus.dart';\n\nvoid main() {\n  var excel = Excel.createExcel();\n  Sheet sheetObject = excel['Sheet1'];\n  sheetObject.cell(CellIndex.indexByString('A1')).value = 'Hello, World!';\n  excel.save(fileName: 'output.xlsx');\n}",
+    "confidence": 1
+  }
+}

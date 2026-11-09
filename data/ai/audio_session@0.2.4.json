@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.2.4",
+  "generatedAt": "2026-11-07T10:57:19.221Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [
+      "device"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Manages iOS audio session categories, Android audio attributes, and audio focus/ducking.",
+    "what_it_does": "This plugin configures the operating system's audio session settings for your app. It handles audio interruptions like phone calls and manages audio focus, mixing, and ducking behavior across platforms.",
+    "use_when": [
+      "You are building a music, podcast, or voice app that needs to handle audio focus and interruptions correctly.",
+      "You need to configure low-level iOS AVAudioSession or Android AudioManager attributes.",
+      "You are writing a custom audio plugin and need to coordinate audio focus and interruptions."
+    ],
+    "avoid_when": [
+      "Your app does not play or record any audio.",
+      "You only need high-level media playback without worrying about system audio sessions or phone call interruptions."
+    ],
+    "strengths": [
+      "Provides a unified API for managing audio sessions on both iOS and Android.",
+      "Exposes useful streams for audio interruptions, becoming noisy events, and device changes.",
+      "Essential companion for coordinating multiple audio plugins smoothly."
+    ],
+    "weaknesses": [
+      "Requires platform-specific configuration and understanding of native audio session concepts.",
+      "iOS microphone usage requires specific Info.plist settings and build options."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "If using microphone APIs on iOS, add NSMicrophoneUsageDescription to Info.plist and configure AUDIO_SESSION_MICROPHONE=1 in your Podfile or environment.",
+    "alternatives": [],
+    "minimal_example": "final session = await AudioSession.instance;\nawait session.configure(AudioSessionConfiguration.music());\n\nsession.interruptionEventStream.listen((event) {\n  if (event.begin) {\n    // Handle interruption begin\n  } else {\n    // Handle interruption end\n  }\n});",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.10.0",
+  "generatedAt": "2026-11-07T11:05:05.580Z",
+  "data": {
+    "primary_category": "codegen",
+    "secondary_categories": [],
+    "approach": [
+      "code generation"
+    ],
+    "one_liner": "JSON serialization and data classes generator supporting generics, inheritance, and customization.",
+    "what_it_does": "Generates JSON serialization, equality operators, hashCode, toString, and copyWith methods for Dart classes and enums. It excels at handling complex use cases such as polymorphism, type inheritance, and generics.",
+    "use_when": [
+      "You need robust JSON serialization that handles complex class inheritance and generics.",
+      "You want built-in data class features like copyWith, equality, and toString alongside JSON mapping."
+    ],
+    "avoid_when": [
+      "You want zero build-runner or code generation setup in your project.",
+      "You are already heavily invested in json_serializable or freezed and don't require dart_mappable's advanced generic and inheritance features."
+    ],
+    "strengths": [
+      "Full support for generics, polymorphism, and inheritance.",
+      "All-in-one package generating serialization, equality, toString, and copyWith.",
+      "Highly flexible with mapping hooks and custom configuration options."
+    ],
+    "weaknesses": [
+      "Requires running build_runner for code generation.",
+      "toJson() returns a String rather than a Map<String, dynamic>, which requires attention when migrating from other packages."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dart_mappable as a dependency and dart_mappable_builder and build_runner as dev_dependencies, then run dart run build_runner build.",
+    "alternatives": [
+      {
+        "name": "json_serializable",
+        "why_pick_it": "If you prefer standard Map-based toJson returns and standard JSON annotation configurations."
+      },
+      {
+        "name": "freezed",
+        "why_pick_it": "If you want union types and pattern matching features for immutable data models."
+      }
+    ],
+    "minimal_example": "import 'package:dart_mappable/dart_mappable.dart';\n\npart 'model.mapper.dart';\n\n@MappableClass()\nclass MyClass with MyClassMappable {\n  final int myValue;\n  MyClass(this.myValue);\n}",
+    "confidence": 0.95
+  }
+}

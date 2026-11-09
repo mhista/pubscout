@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.5.3",
+  "generatedAt": "2026-11-08T15:55:14.478Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "layout"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Widgets that follow other widgets using Leader and Follower links.",
+    "what_it_does": "Provides Leader and Follower widgets allowing designated widgets to follow the position, movement, and sizing of another widget on screen. Includes support for offsets, aligners, boundaries, and ordering containers.",
+    "use_when": [
+      "You need a widget to track and follow the position of another widget independently of standard layouts.",
+      "You are implementing floating elements like tooltips, popovers, or floating toolbars that need precise positioning relative to a leader."
+    ],
+    "avoid_when": [
+      "Standard layout widgets like Row, Column, or Stack can achieve your desired arrangement.",
+      "You do not have a leader-follower relationship between widgets."
+    ],
+    "strengths": [
+      "Allows follower widgets to bypass ancestor layout rules.",
+      "Supports custom aligners, boundaries, scaling, and keyboard-aware positioning."
+    ],
+    "weaknesses": [
+      "Requires careful ordering where Leader widgets must be built before their Followers.",
+      "Unusual mental model compared to standard Flutter tree-based layouts."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "Leader(\n  link: _leaderLink,\n  child: YourLeaderWidget(),\n);\n\nFollower.withOffset(\n  link: _leaderLink,\n  offset: const Offset(0, -20),\n  leaderAnchor: Alignment.topCenter,\n  followerAnchor: Alignment.bottomCenter,\n  child: YourFollowerWidget(),\n);",
+    "confidence": 0.95
+  }
+}

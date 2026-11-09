@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "1.1.1",
+  "generatedAt": "2026-11-07T11:04:26.926Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Fetch public IP address and geolocation data via the ipify service.",
+    "what_it_does": "The package calls ipify's REST endpoints to return your IPv4/IPv6 address or detailed location info for any IP. It wraps the HTTP calls in simple static methods.",
+    "use_when": [
+      "You need to quickly obtain the device's public IP address.",
+      "You need basic geolocation lookup for an IP without integrating a full mapping SDK."
+    ],
+    "avoid_when": [
+      "You require high‑frequency or bulk IP lookups (rate‑limited by ipify).",
+      "You need offline IP resolution or advanced location analytics."
+    ],
+    "strengths": [
+      "Very small API surface – just a few async methods.",
+      "Works on all major Flutter platforms (mobile, web, desktop).",
+      "Null‑safe and actively maintained."
+    ],
+    "weaknesses": [
+      "Limited to ipify’s free tier and features.",
+      "No built‑in caching or retry logic."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "http",
+        "why_pick_it": "Provides raw HTTP requests; you can call ipify yourself without an extra wrapper."
+      },
+      {
+        "name": "dio",
+        "why_pick_it": "More feature‑rich HTTP client with interceptors and retry support, useful for complex networking needs."
+      }
+    ],
+    "minimal_example": "import 'package:dart_ipify/dart_ipify.dart';\n\nvoid main() async {\n  final ip = await Ipify.ipv4();\n  print('Public IPv4: $ip');\n\n  final geo = await Ipify.geo('YOUR_API_KEY');\n  print('Location: ${geo.location}');\n}",
+    "confidence": 0.93
+  }
+}

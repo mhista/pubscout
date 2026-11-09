@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.0.0",
+  "generatedAt": "2026-11-08T15:33:19.169Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "animation"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Display a beautifully animated, material context menu using pure Flutter",
+    "what_it_does": "Displays an animated material context menu that works on both touch and desktop devices. It handles screen edges and oversize automatically. Developers can use the ContextMenuArea widget or trigger it manually.",
+    "use_when": [
+      "You need to add a context menu to cards, text, or other widgets",
+      "You want a context menu that handles screen edges and touch or desktop devices"
+    ],
+    "avoid_when": [
+      "You are using a non-Material design system",
+      "You require complex platform-specific native context menu integrations"
+    ],
+    "strengths": [
+      "Modern, animation-focused Material Design implementation",
+      "Works on both touch and desktop devices",
+      "Very efficient and lightweight code base"
+    ],
+    "weaknesses": [
+      "Requires manual configuration on web via index.html to disable native right-click menus",
+      "Limited to Material design style"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "For web platforms, you must add `oncontextmenu=\"return false;\"` in the `<body>` tag of your index.html.",
+    "alternatives": [],
+    "minimal_example": "Widget build() {\n  return ContextMenuArea(\n    builder: (context) => [\n      ListTile(\n        title: Text('Option 1'),\n        onTap: () {\n          Navigator.of(context).pop();\n          ScaffoldMessenger.of(context)\n              .showSnackBar(SnackBar(content: Text('Whatever')));\n        },\n      )\n    ],\n    child: Card(\n      child: Center(\n        child: Text('Press somewhere for context menu.'),\n      ),\n    ),\n  );\n}",
+    "confidence": 0.95
+  }
+}

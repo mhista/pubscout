@@ -1,0 +1,52 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.9.1",
+  "generatedAt": "2026-11-08T15:21:21.245Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "hooks"
+    ],
+    "one_liner": "Lightweight and convenient SQLite bindings for Dart using dart:ffi",
+    "what_it_does": "Provides direct and synchronous access to SQLite databases on native platforms and the web. It bundles SQLite using hooks, avoiding external build configurations for most apps, and supports virtual file systems on the web.",
+    "use_when": [
+      "You need direct, low-level SQL database operations in Dart or Flutter.",
+      "You want cross-platform SQLite support including native platforms and the web."
+    ],
+    "avoid_when": [
+      "You prefer an ORM or type-safe query builders.",
+      "You need an asynchronous database driver out-of-the-box without manual isolate management."
+    ],
+    "strengths": [
+      "Bundles SQLite using hooks so no external dependencies are needed.",
+      "Supports web through WebAssembly and virtual file systems.",
+      "Provides both native and web APIs as well as a common shared interface."
+    ],
+    "weaknesses": [
+      "Operates synchronously on the main thread by default, requiring manual background isolates for optimal performance in large apps.",
+      "Web setup requires downloading and hosting a separate WebAssembly module."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Simply add the dependency via pub. For web usage, a sqlite3.wasm file must be provided and loaded manually.",
+    "alternatives": [
+      {
+        "name": "drift",
+        "why_pick_it": "Drift is a reactive, type-safe SQL database builder built on top of sqlite3."
+      },
+      {
+        "name": "sqflite",
+        "why_pick_it": "Sqflite is the classic asynchronous SQLite plugin designed specifically for Flutter."
+      },
+      {
+        "name": "hive_ce",
+        "why_pick_it": "Hive CE is a lightweight key-value database if you do not need the full power of SQL."
+      }
+    ],
+    "minimal_example": "import 'package:sqlite3/sqlite3.dart';\n\nvoid main() {\n  final db = sqlite3.open('test.db');\n  db.execute('CREATE TABLE users (id INTEGER NOT NULL PRIMARY KEY, name TEXT) STRICT');\n  db.execute('INSERT INTO users (name) VALUES (?)', ['SQLite user']);\n  print(db.select('SELECT * FROM users'));\n}",
+    "confidence": 0.95
+  }
+}

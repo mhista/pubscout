@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.1.9",
+  "generatedAt": "2026-11-07T11:18:13.769Z",
+  "data": {
+    "primary_category": "ui-kits",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "iOS style table view cell swipe action effect for Flutter widgets.",
+    "what_it_does": "Provides a widget that allows list cells to be swiped to reveal actions like delete, edit, or custom buttons, mimicking iOS native behavior. It supports leading and trailing actions, full-swipe execution, nested confirmation actions, and an edit mode with selection controllers.",
+    "use_when": [
+      "You need iOS-style swipeable list items with multiple actions.",
+      "You want support for edit modes and selection controllers on list cells."
+    ],
+    "avoid_when": [
+      "You need a non-list-based UI or platform-agnostic swipe components without iOS design patterns."
+    ],
+    "strengths": [
+      "Supports multiple leading and trailing actions.",
+      "Provides built-in support for nested confirmation buttons (like WeChat delete).",
+      "Includes a robust controller to manage open states and edit modes programmatically."
+    ],
+    "weaknesses": [
+      "Requires proper key management (like ObjectKey or ValueKey) on items to function correctly."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "SwipeActionCell(\n  key: ObjectKey(list[index]),\n  trailingActions: <SwipeAction>[\n    SwipeAction(\n        title: \"delete\",\n        onTap: (CompletionHandler handler) async {\n          list.removeAt(index);\n          setState(() {});\n        },\n        color: Colors.red),\n  ],\n  child: Padding(\n    padding: const EdgeInsets.all(8.0),\n    child: Text(\"this is index of ${list[index]}\", style: TextStyle(fontSize: 40)),\n  ),\n);",
+    "confidence": 0.95
+  }
+}

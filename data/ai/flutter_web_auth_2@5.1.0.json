@@ -1,0 +1,52 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "5.1.0",
+  "generatedAt": "2026-11-07T11:19:04.012Z",
+  "data": {
+    "primary_category": "auth",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter plugin for authenticating users with a web service using OAuth or custom redirect schemes.",
+    "what_it_does": "Allows your app to open an authentication web flow (using system browser tabs or web views) and capture the result when it redirects back via a custom URL scheme or universal link. Supports iOS, Android, Web, Windows, macOS, and Linux.",
+    "use_when": [
+      "You need to authenticate users with OAuth2 providers like Google, Facebook, or custom web services.",
+      "You need to capture custom URI schemes or universal links resulting from a web authentication flow."
+    ],
+    "avoid_when": [
+      "You prefer an all-in-one backend SDK that manages state and persistent sessions out-of-the-box.",
+      "Your callback URL scheme does not conform to RFC 3986 requirements."
+    ],
+    "strengths": [
+      "Supports multiple platforms including mobile, desktop, and web.",
+      "Uses native secure APIs like ASWebAuthenticationSession on iOS and Chrome Auth Tab on Android."
+    ],
+    "weaknesses": [
+      "Requires platform-specific configuration such as manifest activity filters and custom schemes.",
+      "Desktop platforms require careful setup of WebView dependencies or handling http://localhost redirects."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding a custom intent-filter Activity in AndroidManifest.xml and optionally configuring Universal Links on iOS and desktop webview window setups.",
+    "alternatives": [
+      {
+        "name": "google_sign_in",
+        "why_pick_it": "If you specifically and exclusively need Google Sign-In rather than general OAuth flows."
+      },
+      {
+        "name": "flutter_appauth",
+        "why_pick_it": "If you want a dedicated wrapper around AppAuth libraries for OAuth2 and OpenID Connect."
+      },
+      {
+        "name": "sign_in_with_apple",
+        "why_pick_it": "If you specifically need native Sign in with Apple integration."
+      }
+    ],
+    "minimal_example": "import 'package:flutter_web_auth_2/flutter_web_auth_2.dart';\n\nfinal result = await FlutterWebAuth2.authenticate(url: \"https://my-custom-app.com/connect\", callbackUrlScheme: \"my-custom-app\");\nfinal token = Uri.parse(result).queryParameters['token'];",
+    "confidence": 1
+  }
+}

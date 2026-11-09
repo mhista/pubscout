@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.2.0",
+  "generatedAt": "2026-11-07T11:19:03.025Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "web-desktop"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "A Dart library to use the Web Bluetooth API in your projects.",
+    "what_it_does": "Allows you to connect and interact with Bluetooth Low Energy devices from the browser. It compiles on native IO projects without conditional exports, though it only works in a browser.",
+    "use_when": [
+      "You are building a Flutter web or Dart project that needs to interact with Bluetooth devices.",
+      "You want to share code across native and web platforms without conditional exports for Bluetooth."
+    ],
+    "avoid_when": [
+      "You need native Bluetooth support directly on IO platforms without a browser.",
+      "The target browser does not support the experimental Web Bluetooth API."
+    ],
+    "strengths": [
+      "Allows compiling on native platforms without throwing errors or requiring conditional exports.",
+      "Supports modern Dart web features like wasm builds via `dart:js_interop`."
+    ],
+    "weaknesses": [
+      "Does not actually function for Bluetooth operations outside of a browser.",
+      "Requires experimental browser flags and secure contexts (HTTPS or localhost)."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires a secure context (HTTPS or localhost) and enabling experimental web platform features in browsers like Chrome on Linux.",
+    "alternatives": [],
+    "minimal_example": "final supported = FlutterWebBluetooth.instance.isBluetoothApiSupported;\nfinal available = FlutterWebBluetooth.instance.isAvailable;\n\nfinal requestOptions = RequestOptionsBuilder.acceptAllDevices(optionalServices: [\n  BluetoothDefaultServiceUUIDS.deviceInformation.uuid\n]);\n\ntry {\n  final device = await FlutterWebBluetooth.instance.requestDevice(requestOptions);\n} on UserCancelledDialogError {\n  // The user cancelled the dialog\n} on DeviceNotFoundError {\n  // There is no device in range\n}",
+    "confidence": 1
+  }
+}

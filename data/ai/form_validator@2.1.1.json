@@ -1,0 +1,47 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.1.1",
+  "generatedAt": "2026-11-07T11:19:21.130Z",
+  "data": {
+    "primary_category": "forms",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Simplest form validation library for Flutter's form field widgets.",
+    "what_it_does": "Provides a fluent ValidationBuilder API to compose common form field validators such as email, phone, length, URL, IP, and custom regular expressions. Supports localization out of the box and custom validation rules via extension methods.",
+    "use_when": [
+      "You want a clean, chainable builder pattern to validate Flutter form fields quickly.",
+      "You need built-in validation rules for emails, URLs, phones, and regular expressions with localization support."
+    ],
+    "avoid_when": [
+      "You are using a state-management form library like formz that handles form state and validation together as value objects.",
+      "You prefer annotation-based or model-driven validation."
+    ],
+    "strengths": [
+      "Zero dependencies",
+      "Built-in localization support for multiple languages",
+      "Easily extensible via Dart extension methods"
+    ],
+    "weaknesses": [
+      "ValidationBuilder instances are mutable, requiring separate instances per field configuration"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "formz",
+        "why_pick_it": "Choose formz if you prefer a model-driven approach treating form inputs as value objects with status and validation states."
+      },
+      {
+        "name": "string_validator",
+        "why_pick_it": "Choose string_validator if you only need a collection of string checking functions without a builder pattern."
+      }
+    ],
+    "minimal_example": "TextFormField(\n  validator: ValidationBuilder().email().maxLength(50).build(),\n  decoration: InputDecoration(labelText: 'Email'),\n)",
+    "confidence": 1
+  }
+}

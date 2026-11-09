@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.1.11",
+  "generatedAt": "2026-11-08T15:31:04.071Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "A Flutter plugin for controlling screen brightness with application lifecycle reset.",
+    "what_it_does": "Allows getting and setting application and system screen brightness levels. Provides streams to listen for brightness changes and automatically handles resetting brightness based on app lifecycle.",
+    "use_when": [
+      "You need to adjust screen brightness from within a Flutter app.",
+      "You want to track system or application brightness changes using streams."
+    ],
+    "avoid_when": [
+      "You only need to prevent the screen from sleeping (use wakelock instead)."
+    ],
+    "strengths": [
+      "Supports multiple platforms including Android, iOS, Windows, macOS, and OHOS.",
+      "Provides application lifecycle reset implementation.",
+      "Includes brightness change streams."
+    ],
+    "weaknesses": [
+      "Adjusting system brightness on Android requires adding the WRITE_SETTINGS permission."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "To adjust system brightness on Android, add the WRITE_SETTINGS permission in your AndroidManifest.xml file.",
+    "alternatives": [],
+    "minimal_example": "Future<void> setApplicationBrightness(double brightness) async {\n  try {\n    await ScreenBrightness.instance\n        .setApplicationScreenBrightness(brightness);\n  } catch (e) {\n    debugPrint(e.toString());\n    throw 'Failed to set application brightness';\n  }\n}",
+    "confidence": 0.95
+  }
+}

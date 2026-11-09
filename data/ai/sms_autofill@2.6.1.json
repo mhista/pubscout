@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.6.1",
+  "generatedAt": "2026-11-08T15:32:09.510Z",
+  "data": {
+    "primary_category": "forms",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Flutter plugin to provide SMS code autofill support.",
+    "what_it_does": "Provides SMS verification code autofill support for Android using the SMSRetriever API. Includes pin input widgets and mixins for custom listening behavior.",
+    "use_when": [
+      "You need SMS code verification autofill on Android.",
+      "You want PIN input fields that automatically fill when an SMS is received."
+    ],
+    "avoid_when": [
+      "You are developing for non-mobile platforms.",
+      "You need full SMS reading permissions (this plugin uses SMSRetriever which does not require read SMS permissions)."
+    ],
+    "strengths": [
+      "No permission to read SMS messages is required.",
+      "Provides pre-built widgets like PinFieldAutoFill and TextFieldPinAutoFill."
+    ],
+    "weaknesses": [
+      "Requires specific SMS formatting rules on the backend (ending with an 11-character hash string).",
+      "Primarily targets Android since iOS handles SMS autofill natively."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires the incoming SMS message to follow the SMSRetriever API format, including the 11-character app signature hash.",
+    "alternatives": [],
+    "minimal_example": "await SmsAutoFill().listenForCode();\n\nPinFieldAutoFill(\n  codeLength: 6,\n  onCodeChanged: (code) {\n    // handle code change\n  },\n);",
+    "confidence": 0.95
+  }
+}

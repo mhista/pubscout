@@ -1,0 +1,51 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.6",
+  "generatedAt": "2026-11-07T11:17:09.425Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [
+      "device"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Low-level cross-platform audio recorder plugin using miniaudio with real-time waveform, FFT and volume.",
+    "what_it_does": "A low-level audio recording plugin built with miniaudio that supports recording to WAV and Ogg Opus formats. It offers real-time volume, audio wave, and FFT data extraction, silence detection, and native hardware presets across multiple platforms.",
+    "use_when": [
+      "You need low-level audio recording with cross-platform support including web WASM.",
+      "You require real-time audio visualization metrics like waveform and FFT data.",
+      "You need silence detection or specific hardware audio input presets."
+    ],
+    "avoid_when": [
+      "You only need basic audio playback without recording functionality.",
+      "You want a high-level audio recording wrapper without handling low-level configuration."
+    ],
+    "strengths": [
+      "Cross-platform support including Linux, Windows, Android, MacOS, iOS, and Web (WASM).",
+      "Real-time audio visualization events (waveform and FFT).",
+      "Built-in silence detection and customizable thresholds."
+    ],
+    "weaknesses": [
+      "Requires manual permission handling for microphone access on mobile and desktop platforms.",
+      "Some advanced features like silence detection are restricted to specific PCM formats."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires microphone permissions in AndroidManifest.xml and Info.plist, plus audio-input entitlements on macOS and optional GStreamer dependencies on Linux.",
+    "alternatives": [
+      {
+        "name": "record",
+        "why_pick_it": "If you need a more straightforward, high-level audio recording solution without low-level miniaudio bindings."
+      },
+      {
+        "name": "audioplayers",
+        "why_pick_it": "If your primary focus is playing audio rather than low-level recording and visualization."
+      }
+    ],
+    "minimal_example": "try {\n    Recorder.instance.init();\n    Recorder.instance.start();\n    Recorder.instance.startRecording(completeFilePath: 'audioCompleteFilenameWithPath.wav');\n} on Exception catch (e) {\n    debugPrint('init() error: $e\\n');\n}",
+    "confidence": 0.95
+  }
+}

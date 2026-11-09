@@ -1,0 +1,35 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.1",
+  "generatedAt": "2026-11-08T16:05:08.820Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A widget that makes itself transparent to hit testing while letting its subtree receive pointer events.",
+    "what_it_does": "TransparentPointer allows you to control hit testing so that a widget is invisible to pointer events for its parent, yet still allows its own subtree to receive them. This enables overlapping widgets to simultaneously capture gestures.",
+    "use_when": [
+      "You need a gesture detector behind another widget to still receive drag or tap events.",
+      "You want a widget to pass hit tests to its parent while its child remains interactive."
+    ],
+    "avoid_when": [
+      "Standard Stack and IgnorePointer or AbsorbPointer behaviors already meet your interaction needs."
+    ],
+    "strengths": [
+      "Solves complex overlapping gesture routing problems easily.",
+      "Lightweight with no extra native dependencies."
+    ],
+    "weaknesses": [
+      "Can make gesture debugging harder due to non-standard hit test behavior."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "Stack(\n  children: [\n    GestureDetector(\n      behavior: HitTestBehavior.opaque,\n      onVerticalDragStart: (_) => print(\"Background drag started\"),\n    ),\n    TransparentPointer(\n      child: TextButton(\n        child: Text(\"Tap me\"),\n        onPressed: () => print(\"You tapped me\"),\n      ),\n    ),\n  ],\n)",
+    "confidence": 1
+  }
+}

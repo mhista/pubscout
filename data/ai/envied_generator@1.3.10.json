@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "1.3.10",
+  "generatedAt": "2026-11-07T11:07:43.781Z",
+  "data": {
+    "primary_category": "codegen",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "code generation"
+    ],
+    "one_liner": "Generates compile‑time Dart constants from .env files for the Envied package.",
+    "what_it_does": "The generator reads .env files at build time and creates a Dart class exposing the variables as typed constants. It also supports obfuscation, hidden files, and inheritance of .env files.",
+    "use_when": [
+      "You need compile‑time access to environment variables",
+      "You want obfuscation of secret values in the compiled app",
+      "You prefer type‑safe constants over runtime string lookups"
+    ],
+    "avoid_when": [
+      "You need to change env values without rebuilding",
+      "You prefer a pure runtime solution like dotenv",
+      "You cannot add a build step to your CI"
+    ],
+    "strengths": [
+      "Compile‑time safety and no runtime parsing",
+      "Built‑in obfuscation of secrets",
+      "Supports hidden files and .env inheritance"
+    ],
+    "weaknesses": [
+      "Requires build_runner and a code‑gen step",
+      "Cannot handle dynamic env changes at runtime"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add envied and envied_generator to dev_dependencies, run `flutter pub run build_runner build` after adding annotations.",
+    "alternatives": [],
+    "minimal_example": "import 'package:envied/envied.dart';\n\npart 'my_env.g.dart';\n\n@Envied(path: '.env')\nabstract class MyEnv {\n  @EnviedField(varName: 'API_KEY')\n  static const apiKey = _MyEnv.apiKey;\n}\n",
+    "confidence": 0.9
+  }
+}

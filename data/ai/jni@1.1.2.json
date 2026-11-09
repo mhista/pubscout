@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "1.1.2",
+  "generatedAt": "2026-11-08T15:19:40.580Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "code generation",
+      "imperative"
+    ],
+    "one_liner": "Provides Dart/Flutter bindings to call native Java code via JNI.",
+    "what_it_does": "Exposes the JNI environment and JavaVM to Dart, allowing creation of Java objects and calling methods. Includes utilities for spawning a JVM on desktop and common Java collection wrappers.",
+    "use_when": [
+      "You need to call existing Java libraries from Flutter on Android or desktop.",
+      "You are generating type‑safe bindings with JNIgen and need runtime support."
+    ],
+    "avoid_when": [
+      "You only need simple platform channels; a full JNI bridge is overkill.",
+      "You target iOS or web where JNI is unavailable."
+    ],
+    "strengths": [
+      "Low‑level access to Java without writing platform channel code",
+      "Works on Android, Windows, and Linux",
+      "Integrates with JNIgen for automated binding generation"
+    ],
+    "weaknesses": [
+      "Requires native build setup and familiarity with JNI",
+      "Limited to platforms that support JVM (no iOS/web)",
+      "Potential for memory‑management bugs if misused"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add the plugin, ensure C/C++ toolchain is installed, configure Android NDK and desktop build scripts; no extra permissions needed beyond normal Android setup.",
+    "alternatives": [],
+    "minimal_example": "import 'package:jni/jni.dart';\n\nvoid main() async {\n  final jni = await Jni.spawn(); // start JVM on desktop\n  final stringClass = JClass.forName('java.lang.String');\n  final ctor = stringClass.getConstructor('([B)');\n  final hello = ctor.newInstance([\n    JArray.fromList([104, 101, 108, 108, 111].map((c) => JByte(c)))\n  ]);\n  print(hello.callMethod('toString', []));\n}",
+    "confidence": 0.9
+  }
+}

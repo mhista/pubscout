@@ -1,0 +1,37 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.1.0",
+  "generatedAt": "2026-11-08T15:28:21.089Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Mutual exclusion locks and read-write locks for asynchronous Dart code",
+    "what_it_does": "Provides normal mutex and read-write mutex implementations to protect critical sections of code and prevent race conditions when using asynchronous operations. Includes convenience methods like protect, protectRead, and protectWrite to safely acquire and release locks.",
+    "use_when": [
+      "You have asynchronous operations inside critical sections that risk race conditions",
+      "You need multiple read locks to exist simultaneously while restricting write locks to a single exclusive instance"
+    ],
+    "avoid_when": [
+      "Your critical section only contains synchronous code, which cannot be interrupted in Dart",
+      "Your critical section does not involve shared data or resources accessible by other asynchronous code"
+    ],
+    "strengths": [
+      "Supports both normal mutexes and read-write mutexes",
+      "Convenience methods ensure locks are always released correctly via try-finally blocks"
+    ],
+    "weaknesses": [
+      "Requires proper management to avoid deadlocks in complex asynchronous flows"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "final m = Mutex();\n\nawait m.protect(() async {\n  // critical section\n});",
+    "confidence": 1
+  }
+}

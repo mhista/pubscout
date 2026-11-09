@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.4.0",
+  "generatedAt": "2026-11-07T11:03:09.184Z",
+  "data": {
+    "primary_category": "files",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "An abstraction to allow working with files across multiple platforms.",
+    "what_it_does": "Provides a unified API for interacting with resources and files across multiple platforms using file systems and scoped storage abstractions. Offers support for Android, iOS, Web, Windows, macOS, and Linux.",
+    "use_when": [
+      "You need to write cross-platform code that interacts with files or directories on different operating systems.",
+      "You are handling platform-specific storage patterns like Android content URIs or iOS security-scoped bookmarks."
+    ],
+    "avoid_when": [
+      "You only target a single platform with native file handling.",
+      "You need high-level file picker UI components (use file_picker instead)."
+    ],
+    "strengths": [
+      "Unified file API across mobile, desktop, and web.",
+      "Supports implementation-specific features via extensions and platform packages.",
+      "Handles both traditional file systems and restricted platform storage."
+    ],
+    "weaknesses": [
+      "Recent major version updates introduced breaking changes to instantiation and helper methods.",
+      "Requires platform-specific packages to access advanced implementation details."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add platform implementation packages such as cross_file_io, cross_file_android, cross_file_darwin, or cross_file_web if platform-specific features are needed.",
+    "alternatives": [
+      {
+        "name": "file_picker",
+        "why_pick_it": "Pick files and directories with a native UI dialog across platforms rather than just abstracting file access."
+      },
+      {
+        "name": "file",
+        "why_pick_it": "A pluggable file system abstraction for Dart that matches dart:io APIs."
+      }
+    ],
+    "minimal_example": "final file = XFile.fileSystem(path: 'assets/hello.txt');\n\ndebugPrint('File information:');\ndebugPrint('- URI: ${file.uri}');\ndebugPrint('- Name: ${await file.name()}');\n\nif (await file.exists()) {\n  final String fileContent = await file.readAsString();\n  debugPrint('Content of the file: $fileContent');\n}",
+    "confidence": 1
+  }
+}

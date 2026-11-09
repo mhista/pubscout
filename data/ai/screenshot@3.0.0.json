@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "3.0.0",
+  "generatedAt": "2026-11-08T15:25:40.359Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Capture any widget as an image, including invisible widgets, at runtime.",
+    "what_it_does": "This package wraps a widget in a RenderRepaintBoundary and provides methods to capture it as a Uint8List. It supports capturing widgets not in the tree, long widgets, and saving or sharing the resulting image.",
+    "use_when": [
+      "Need to take screenshots of widgets for sharing or saving",
+      "Want to capture widgets that are not currently rendered",
+      "Need to generate images from UI components for reports or previews"
+    ],
+    "avoid_when": [
+      "Working on web only, as captureAndSave is not supported",
+      "Using platform views like Google Maps or Camera, which are unsupported"
+    ],
+    "strengths": [
+      "Simple API, works on all platforms except web for saving",
+      "Supports invisible and long widgets",
+      "Allows pixelRatio and delay customization",
+      "No external dependencies beyond Flutter"
+    ],
+    "weaknesses": [
+      "Not supported for web when saving",
+      "Platform views unsupported",
+      "Requires Flutter 3.22+ for latest version"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dependency and import package, create ScreenshotController, wrap widget with Screenshot widget",
+    "alternatives": [],
+    "minimal_example": "ScreenshotController controller = ScreenshotController();\nScreenshot(controller: controller, child: Text('Hello'));\ncontroller.capture().then((image) => /* use Uint8List */);",
+    "confidence": 0.92
+  }
+}

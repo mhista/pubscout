@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.1.7",
+  "generatedAt": "2026-11-07T11:07:13.994Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [
+      "files"
+    ],
+    "approach": [
+      "imperative",
+      "builder pattern"
+    ],
+    "one_liner": "A lightweight Flutter plugin for video editing and manipulation without FFmpeg dependency.",
+    "what_it_does": "Provides native platform capabilities to perform video editing operations like trimming, merging, speed adjustment, compression, cropping, and audio extraction on Android and iOS.",
+    "use_when": [
+      "You need to trim, merge, compress, or transform videos locally on Android or iOS.",
+      "You want a video editing solution without bundling FFmpeg."
+    ],
+    "avoid_when": [
+      "You need deep video editing features requiring a full FFmpeg pipeline.",
+      "You are targeting platforms other than Android and iOS."
+    ],
+    "strengths": [
+      "No FFmpeg dependency, reducing app size and build complexity.",
+      "Chainable builder API for combining operations.",
+      "Supports progress tracking during export."
+    ],
+    "weaknesses": [
+      "Limited to Android and iOS platform support.",
+      "Relies entirely on native platform capabilities which may vary between OS versions."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Android requires storage permissions in AndroidManifest.xml. iOS requires NSPhotoLibraryUsageDescription and NSPhotoLibraryAddUsageDescription keys in Info.plist and targets iOS 13.0+.",
+    "alternatives": [],
+    "minimal_example": "import 'package:easy_video_editor/easy_video_editor.dart';\n\nfinal editor = VideoEditorBuilder(videoPath: '/path/to/video.mp4')\n  .trim(startTimeMs: 0, endTimeMs: 5000)\n  .speed(speed: 1.5)\n  .removeAudio();\n\nfinal outputPath = await editor.export(\n  outputPath: '/path/to/output.mp4',\n  onProgress: (progress) {\n    print('Export progress: ${(progress * 100).toStringAsFixed(1)}%');\n  }\n);",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.14.1",
+  "generatedAt": "2026-11-07T10:54:37.789Z",
+  "data": {
+    "primary_category": "testing",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Flutter golden testing helper with declarative API",
+    "what_it_does": "Alchemist provides a declarative API for writing and running golden tests in Flutter. It supports platform and CI tests, automatic sizing, theme customization, and custom text scaling.",
+    "use_when": [
+      "Writing golden tests for Flutter widgets",
+      "Running platform or CI golden tests that need consistent output across environments",
+      "Customizing golden test appearance with themes or text scale factors"
+    ],
+    "avoid_when": [
+      "You only need basic widget tests without image comparison",
+      "Your project does not use Flutter or does not require golden testing"
+    ],
+    "strengths": [
+      "Declarative API makes tests concise",
+      "Built-in support for platform vs CI tests with Ahem font",
+      "Automatic image sizing and theme customization",
+      "100% test coverage of the package itself"
+    ],
+    "weaknesses": [
+      "Only supports golden testing, not other test types",
+      "Requires Flutter environment",
+      "No code generation involved"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:alchemist/alchemist.dart';\nimport 'package:flutter/material.dart';\nimport 'package:flutter_test/flutter_test.dart';\n\nvoid main() {\n  group('ListTile Golden Tests', () {\n    goldenTest(\n      'renders correctly',\n      fileName: 'list_tile',\n      builder: () => GoldenTestGroup(\n        scenarioConstraints: const BoxConstraints(maxWidth: 600),\n        children: [\n          GoldenTestScenario(\n            name: 'with title',\n            child: ListTile(title: Text('ListTile.title')),\n          ),\n        ],\n      ),\n    );\n  });\n}",
+    "confidence": 0.9
+  }
+}

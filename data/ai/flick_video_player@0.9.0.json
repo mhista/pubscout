@@ -1,0 +1,48 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.9.0",
+  "generatedAt": "2026-11-07T11:10:28.439Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A customizable video player wrapper for Flutter that provides base architecture for custom UI.",
+    "what_it_does": "Flick Video Player wraps the low-level video_player plugin and provides a manager-based architecture and custom UI components. It supports double-tap to seek, auto-hide controls, fullscreen toggling, playback speed changes, and keyboard shortcuts for web.",
+    "use_when": [
+      "You need a customizable video player with specific UI and control requirements.",
+      "You want to build custom video player controls and layouts on top of video_player."
+    ],
+    "avoid_when": [
+      "You only need a basic video player and are completely satisfied with the default video_player UI.",
+      "You need a dedicated YouTube player iframe implementation."
+    ],
+    "strengths": [
+      "Highly customizable UI components and layout architecture.",
+      "Supports web keyboard shortcuts and mobile gestures like double-tap to seek.",
+      "Built-in managers handling state, control, and display logic."
+    ],
+    "weaknesses": [
+      "Relies on video_player under the hood, inheriting its platform limitations."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add flick_video_player and video_player to pubspec.yaml and initialize a FlickManager.",
+    "alternatives": [
+      {
+        "name": "video_player",
+        "why_pick_it": "If you prefer the official, low-level video player implementation without any wrapper architecture."
+      },
+      {
+        "name": "youtube_player_flutter",
+        "why_pick_it": "If your primary goal is specifically embedding and playing YouTube videos."
+      }
+    ],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:flick_video_player/flick_video_player.dart';\nimport 'package:video_player/video_player.dart';\n\nclass SamplePlayer extends StatefulWidget {\n  SamplePlayer({Key? key}) : super(key: key);\n\n  @override\n  _SamplePlayerState createState() => _SamplePlayerState();\n}\n\nclass _SamplePlayerState extends State<SamplePlayer> {\n  late FlickManager flickManager;\n  @override\n  void initState() {\n    super.initState();\n    flickManager = FlickManager(\n      videoPlayerController:\n          VideoPlayerController.networkUrl(Uri.parse(\"url\")),\n    );\n  }\n\n  @override\n  void dispose() {\n    flickManager.dispose();\n    super.dispose();\n  }\n\n  @override\n  Widget build(BuildContext context) {\n    return Container(\n      child: FlickVideoPlayer(\n        flickManager: flickManager\n      ),\n    );\n  }\n}",
+    "confidence": 0.95
+  }
+}

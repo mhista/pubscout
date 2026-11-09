@@ -1,0 +1,51 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "2.3.0",
+  "generatedAt": "2026-11-08T15:25:13.255Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Cross‑platform replacement for dart:html with DOM parsing, XML support, and EventSource.",
+    "what_it_does": "Provides a unified API for manipulating HTML and XML documents on browsers, mobile, desktop, server, and Node.js. It also offers a WindowController for HTTP requests and an EventSource implementation that works outside browsers.",
+    "use_when": [
+      "Need to parse or manipulate HTML/XML in a non‑browser Dart environment",
+      "Building a web scraper or crawler that runs on server or desktop",
+      "Using EventSource streams in Flutter or server apps"
+    ],
+    "avoid_when": [
+      "Building a full Flutter UI that relies on real browser widgets",
+      "Performance‑critical DOM manipulation where native dart:html is required"
+    ],
+    "strengths": [
+      "Cross‑platform API, no need to switch imports",
+      "Built‑in EventSource support with customizable headers",
+      "Comprehensive DOM query and manipulation methods"
+    ],
+    "weaknesses": [
+      "No Flutter widgets, only core DOM helpers",
+      "Not a UI framework, so not useful for building UIs",
+      "Requires manual handling of HTTP client for some features"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dependency in pubspec: universal_html: ^2.3.0",
+    "alternatives": [
+      {
+        "name": "xml",
+        "why_pick_it": "Pure XML parsing without DOM features"
+      },
+      {
+        "name": "universal_io",
+        "why_pick_it": "Cross‑platform IO, but not DOM"
+      }
+    ],
+    "minimal_example": "import \"package:universal_html/universal_html.dart\";\n\nvoid main() {\n  final div = DivElement();\n  div.append(Element.tag(\"h1\")..appendText(\"Hello world!\"));\n  print(div.outerHtml); // <div><h1>Hello world!</h1></div>\n}",
+    "confidence": 0.9
+  }
+}

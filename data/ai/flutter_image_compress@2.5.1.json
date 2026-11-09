@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.5.1",
+  "generatedAt": "2026-11-07T11:14:23.201Z",
+  "data": {
+    "primary_category": "images",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Compress pictures using native code to effectively reduce image size.",
+    "what_it_does": "Compresses images using platform-native encoders on Android, iOS, macOS, Web, and OpenHarmony. Exposes methods for files, assets, and raw bytes, returning compressed bytes or files.",
+    "use_when": [
+      "You need to reduce image file sizes before uploading them to a server.",
+      "Dart-based image compression libraries are too slow for your application workloads."
+    ],
+    "avoid_when": [
+      "You are targeting platforms or formats not supported by the native encoders without fallback handling."
+    ],
+    "strengths": [
+      "Dramatically faster than Dart-only image compression libraries.",
+      "Supports multiple input types including files, asset images, and raw byte lists.",
+      "Provides controls for quality, dimensions, rotation, and EXIF metadata preservation."
+    ],
+    "weaknesses": [
+      "Certain features and formats (like WebP or HEIC) have platform-specific caveats or lack full support.",
+      "Requires proper initialization when called from a background isolate."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the dependency to pubspec.yaml and import the package in your Dart code.",
+    "alternatives": [
+      {
+        "name": "image",
+        "why_pick_it": "If you need a pure Dart image processing library without native dependencies."
+      }
+    ],
+    "minimal_example": "Future<Uint8List?> testCompressFile(File file) async {\n  final result = await FlutterImageCompress.compressWithFile(\n    file.absolute.path,\n    minWidth: 2300,\n    minHeight: 1500,\n    quality: 94,\n    rotate: 90,\n  );\n  return result;\n}",
+    "confidence": 1
+  }
+}

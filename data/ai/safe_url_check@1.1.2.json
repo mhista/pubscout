@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.1.2",
+  "generatedAt": "2026-11-08T15:26:25.830Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Check if an untrusted URL is broken without allowing connections to private IP addresses.",
+    "what_it_does": "Provides a safeUrlCheck function that makes HEAD requests and follows redirects while verifying that the host does not resolve to private IPv4 or locally unique IPv6 addresses. This prevents attackers from exploiting cloud environments by pointing URLs to internal services.",
+    "use_when": [
+      "You need to check if user-submitted or untrusted URLs are broken.",
+      "Your application runs in a cloud environment and needs protection against SSRF attacks targeting private IP spaces."
+    ],
+    "avoid_when": [
+      "You require full HTTP client capabilities beyond checking if a URL is broken.",
+      "You need to allow connections to private IP addresses."
+    ],
+    "strengths": [
+      "Prevents unauthorized access to private IP space via DNS rebinding or malicious URLs.",
+      "Handles redirects safely while verifying intermediate and final hosts."
+    ],
+    "weaknesses": [
+      "Limited to checking if a URL is broken rather than being a full-featured HTTP client.",
+      "IP address blocking rules may need expansion for additional address spaces."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Not documented",
+    "alternatives": [],
+    "minimal_example": "import 'package:safe_url_check/safe_url_check.dart';\n\nFuture<void> main() async {\n  final exists = await safeUrlCheck(\n    Uri.parse('https://google.com'),\n    userAgent: 'myexample/1.0.0 (+https://example.com)',\n  );\n  if (exists) {\n    print('The url: https://google.com is NOT broken');\n  }\n}",
+    "confidence": 0.95
+  }
+}

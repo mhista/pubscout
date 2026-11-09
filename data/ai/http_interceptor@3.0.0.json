@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.0.0",
+  "generatedAt": "2026-11-07T11:25:19.275Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Intercept requests and responses in Dart's http package with support for retries and timeouts.",
+    "what_it_does": "Allows you to intercept, modify, and log HTTP requests and responses from Dart's standard http package. It provides support for custom retry policies, JSON decoding helpers, and query parameters management.",
+    "use_when": [
+      "You want to use Dart's standard http package but need request/response interception for authentication tokens, logging, or headers.",
+      "You need automatic request retries upon specific response codes or network exceptions."
+    ],
+    "avoid_when": [
+      "You are already using a networking library like Dio that has its own built-in interceptors."
+    ],
+    "strengths": [
+      "Seamless integration with Dart's standard http package.",
+      "Flexible retry policies supporting exponential backoff.",
+      "Built-in JSON response parsing helpers."
+    ],
+    "weaknesses": [
+      "Not compatible with Flutter Web when using self-signed certificates via dart:io IOClient.",
+      "Major version upgrades can contain breaking changes requiring migration."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Not documented",
+    "alternatives": [
+      {
+        "name": "dio",
+        "why_pick_it": "A powerful HTTP client for Dart, which handles interceptors, global configuration, and FormData natively without needing an external plugin wrapper."
+      }
+    ],
+    "minimal_example": "class LoggerInterceptor implements HttpInterceptor {\n  @override\n  BaseRequest interceptRequest({required BaseRequest request}) {\n    print('----- Request -----');\n    print(request.toString());\n    return request;\n  }\n\n  @override\n  BaseResponse interceptResponse({required BaseResponse response}) {\n    print('----- Response -----');\n    print('Code: ${response.statusCode}');\n    return response;\n  }\n}",
+    "confidence": 1
+  }
+}

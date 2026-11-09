@@ -1,0 +1,57 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "1.0.12",
+  "generatedAt": "2026-11-08T15:37:23.692Z",
+  "data": {
+    "primary_category": "images",
+    "secondary_categories": [
+      "utils",
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Unified widget to display any image source (asset, network, file, SVG, base64, bytes, icon) across platforms.",
+    "what_it_does": "UniversalImage abstracts over different image types and providers, handling format detection, caching and rendering. It integrates flutter_svg for SVGs and extended_image for caching and advanced features.",
+    "use_when": [
+      "You need a single widget to handle multiple image sources without manual type checks",
+      "Cross‑platform apps (mobile, web, desktop) require consistent image handling",
+      "You want built‑in caching and optional SVG support"
+    ],
+    "avoid_when": [
+      "You only need simple network images and prefer a lightweight solution",
+      "Fine‑grained control over caching policies is required beyond what extended_image offers"
+    ],
+    "strengths": [
+      "Supports many formats (JPEG, PNG, GIF, WebP, SVG, base64, bytes, icons)",
+      "Works on all Flutter platforms including web WASM",
+      "Leverages extended_image caching and flutter_svg rendering",
+      "Simple API – just pass the source"
+    ],
+    "weaknesses": [
+      "Adds extra dependencies (flutter_svg, extended_image) increasing bundle size",
+      "Limited customization compared to using extended_image directly",
+      "Documentation is limited to basic examples"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "cached_network_image",
+        "why_pick_it": "Lightweight network image caching without SVG or other source support"
+      },
+      {
+        "name": "flutter_svg",
+        "why_pick_it": "Only need SVG rendering without the extra universal wrapper"
+      },
+      {
+        "name": "image",
+        "why_pick_it": "Low‑level image manipulation when you don't need a widget wrapper"
+      }
+    ],
+    "minimal_example": "var img = UniversalImage('https://example.com/pic.png', width:100, height:100, fit:BoxFit.cover);",
+    "confidence": 0.92
+  }
+}

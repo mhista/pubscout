@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "11.0.2",
+  "generatedAt": "2026-11-08T15:19:22.820Z",
+  "data": {
+    "primary_category": "devtools",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Framework to detect memory leaks in Dart and Flutter applications",
+    "what_it_does": "LeakTracker hooks into the Dart VM service to record object allocations and report leaks. It provides configuration for ignored objects, custom error messages, and integration with test helpers.",
+    "use_when": [
+      "Debugging memory issues during development",
+      "Running CI tests that need to catch leaks",
+      "Profiling performance of long‑running apps"
+    ],
+    "avoid_when": [
+      "Production releases where runtime overhead matters",
+      "Environments without access to vm_service (e.g., web)"
+    ],
+    "strengths": [
+      "Comprehensive leak detection via VM service",
+      "Configurable ignored objects and error messages",
+      "Supports test helpers and custom baselining"
+    ],
+    "weaknesses": [
+      "Requires vm_service, not usable on web",
+      "Adds dependency on Dart VM service which may increase bundle size",
+      "Setup requires manual initialization"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add leak_tracker to pubspec, import package, call LeakTracking.initialize() in main or test setup. No build_runner needed.",
+    "alternatives": [],
+    "minimal_example": "import 'package:leak_tracker/leak_tracker.dart';\n\nvoid main() {\n  LeakTracking.initialize();\n  // Your app code\n}",
+    "confidence": 0.8
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.8.7",
+  "generatedAt": "2026-11-08T15:43:46.999Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "web-desktop"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "JavaScript engine for Flutter using QuickJS and JavaScriptCore via FFI.",
+    "what_it_does": "Provides a unified JavaScript runtime across Android, iOS, Windows, macOS, and Linux using native engines (QuickJS and JavaScriptCore). Allows evaluating JavaScript code, handling promises, and executing HTTP requests (xhr/fetch) synchronously through Dart FFI.",
+    "use_when": [
+      "You need to run JavaScript libraries natively within your Flutter app without a hidden WebView",
+      "You want to share business logic, validation rules, or scripts between your web app and mobile/desktop apps",
+      "You need to evaluate JavaScript and communicate between Dart and JS via channels"
+    ],
+    "avoid_when": [
+      "You require a full browser DOM environment (consider WebView alternatives instead)",
+      "You want to avoid native engine dependencies or binary size increases"
+    ],
+    "strengths": [
+      "Unified API for QuickJS and JavaScriptCore across multiple platforms",
+      "Supports fetch, xhr, and promises out of the box",
+      "Small APK footprint compared to V8-based alternatives"
+    ],
+    "weaknesses": [
+      "Requires platform-specific configuration for release builds (such as Proguard rules on Android or entitlements on macOS)",
+      "Debugging JavaScript on certain platforms requires specific configuration"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires changing the minimum Android SDK version to 21 and setting up Proguard rules for Android release builds. macOS requires entitlements for network and JIT access if making HTTP calls.",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:flutter_js/flutter_js.dart';\n\nvoid main() => runApp(MyApp());\n\nclass MyApp extends StatefulWidget {\n  @override\n  _MyAppState createState() => _MyAppState();\n}\n\nclass _MyAppState extends State<MyApp> {\n  String _jsResult = '';\n  late JavascriptRuntime flutterJs;\n  @override\n  void initState() {\n    super.initState();\n    flutterJs = getJavascriptRuntime();\n  }\n\n  @override\n  Widget build(BuildContext context) {\n    return MaterialApp(\n      home: Scaffold(\n        appBar: AppBar(\n          title: const Text('FlutterJS Example'),\n        ),\n        body: Center(\n          child: Text('JS Evaluate Result: \\$_jsResult\\n'),\n        ),\n        floatingActionButton: FloatingActionButton(\n          child: Icon(Icons.play_arrow),\n          onPressed: () async {\n            JsEvalResult jsResult = flutterJs.evaluate(\"Math.trunc(Math.random() * 100).toString();\");\n            setState(() {\n              _jsResult = jsResult.stringResult;\n            });\n          },\n        ),\n      ),\n    );\n  }\n}",
+    "confidence": 0.95
+  }
+}

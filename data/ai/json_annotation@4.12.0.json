@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "4.12.0",
+  "generatedAt": "2026-11-08T15:16:37.185Z",
+  "data": {
+    "primary_category": "codegen",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "code generation"
+    ],
+    "one_liner": "Provides annotations for json_serializable to generate JSON (de)serialization code.",
+    "what_it_does": "Defines annotation classes like @JsonSerializable and @JsonKey that json_serializable reads to produce boilerplate for converting Dart objects to and from JSON. It does not contain any runtime logic itself.",
+    "use_when": [
+      "You need compile‑time JSON (de)serialization without writing manual toJson/fromJson code.",
+      "You are already using json_serializable or want a lightweight annotation package."
+    ],
+    "avoid_when": [
+      "You prefer runtime reflection‑based JSON handling (e.g., json_annotation is not needed).",
+      "You target platforms where code generation is not possible."
+    ],
+    "strengths": [
+      "Small, zero‑runtime‑overhead package.",
+      "Works with Dart 3 and newer SDKs.",
+      "Provides fine‑grained control via JsonKey options."
+    ],
+    "weaknesses": [
+      "Requires a separate code‑gen step with build_runner and json_serializable.",
+      "Only useful when paired with a generator; on its own it does nothing."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add json_annotation to pubspec, then run build_runner with json_serializable (e.g., flutter pub run build_runner build).",
+    "alternatives": [
+      {
+        "name": "json_serializable",
+        "why_pick_it": "Combines annotations and code generation in one package, so you can skip adding json_annotation separately."
+      }
+    ],
+    "minimal_example": "import 'package:json_annotation/json_annotation.dart';\n\npart 'user.g.dart';\n\n@JsonSerializable()\nclass User {\n  final String name;\n  final int age;\n\n  User(this.name, this.age);\n\n  factory User.fromJson(Map<String, dynamic> json) => _$UserFromJson(json);\n  Map<String, dynamic> toJson() => _$UserToJson(this);\n}",
+    "confidence": 0.98
+  }
+}

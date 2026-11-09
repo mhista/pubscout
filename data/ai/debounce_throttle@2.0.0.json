@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "2.0.0",
+  "generatedAt": "2026-11-07T11:05:29.616Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "A debouncer and throttle for Futures, Streams, and callbacks.",
+    "what_it_does": "Provides Debouncer and Throttle classes that limit how often values are emitted. Works with plain callbacks, Futures and Stream sources. Emits debounced or throttled values via a broadcast stream.",
+    "use_when": [
+      "You need to limit rapid user input such as search queries",
+      "You want to reduce noise from high‑frequency sensor data"
+    ],
+    "avoid_when": [
+      "You need full‑featured reactive operators beyond debounce/throttle",
+      "You require code‑generation or complex state‑management"
+    ],
+    "strengths": [
+      "Null‑safe and lightweight",
+      "Works with multiple async patterns (Future, Stream, callbacks)",
+      "Simple API with broadcast streams"
+    ],
+    "weaknesses": [
+      "Only provides basic debounce/throttle functionality",
+      "No built‑in cancellation or pause control",
+      "No integration with larger reactive libraries"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "async",
+        "why_pick_it": "Provides similar debounce utilities without extra dependencies"
+      }
+    ],
+    "minimal_example": "final debouncer = Debouncer<String>(Duration(milliseconds:200));\ntextEditingController.addListener(() => debouncer.value = textEditingController.text);\ndebouncer.values.listen((search) => submitSearch(search));",
+    "confidence": 0.93
+  }
+}

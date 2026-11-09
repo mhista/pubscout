@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.3.6",
+  "generatedAt": "2026-11-07T10:59:44.967Z",
+  "data": {
+    "primary_category": "camera",
+    "secondary_categories": [
+      "audio-video",
+      "web-desktop"
+    ],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "Web platform implementation for the Flutter camera plugin.",
+    "what_it_does": "Provides the web-specific implementation for the camera plugin, allowing Flutter apps to control camera devices, take pictures, and record video on web browsers. It uses the Stream, Image Capture, and MediaRecorder Web APIs.",
+    "use_when": [
+      "You are developing a Flutter web application that needs to capture photos or record videos from a device camera.",
+      "You are using the endorsed federated camera package and need web support included automatically."
+    ],
+    "avoid_when": [
+      "Your application requires features missing on the web implementation, such as exposure modes, focus control, or sensor orientation.",
+      "You are running in an insecure context (non-HTTPS) where browser permissions for camera access will be denied."
+    ],
+    "strengths": [
+      "Automatically included when using the main camera package via endorsed federation.",
+      "Supports taking pictures, video recording, and camera image streaming on supported browsers.",
+      "Migrated to package:web to fully support WASM."
+    ],
+    "weaknesses": [
+      "Missing several advanced features available on mobile platforms like exposure and focus mode/point.",
+      "Relies on browser support for Web APIs such as MediaRecorder and Image Capture which may vary.",
+      "Requires a secure browsing context (HTTPS or localhost)."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Serve your web application over HTTPS or localhost for local development to ensure secure context requirements are met for camera access.",
+    "alternatives": [],
+    "minimal_example": "final Image image;\nif (kIsWeb) {\n  image = Image.network(capturedImage.path);\n} else {\n  image = Image.file(File(capturedImage.path));\n}",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.0.0",
+  "generatedAt": "2026-11-07T11:07:30.773Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "IMAP, POP3, and SMTP email library with high and low-level APIs and MIME parsing.",
+    "what_it_does": "Provides high-level and low-level clients for IMAP, POP3, and SMTP email protocols along with MIME message parsing and generation capabilities. It includes email provider auto-discovery and character encoding support.",
+    "use_when": [
+      "You need to connect an app to IMAP, POP3, or SMTP mail servers.",
+      "You need to parse or generate MIME email messages with attachments.",
+      "You want to auto-discover mail server settings based on an email address."
+    ],
+    "avoid_when": [
+      "You are relying on a hosted backend like Firebase or Supabase for messaging.",
+      "You only need to open the device's default email client via mailto links without direct protocol handling."
+    ],
+    "strengths": [
+      "Comprehensive protocol support including many IMAP extensions and security features.",
+      "High-level and low-level APIs give flexibility depending on control needs.",
+      "Includes email provider auto-discovery functionality."
+    ],
+    "weaknesses": [
+      "Requires manual handling of network connections and mail server states.",
+      "Complex email handling can require deep understanding of mail RFC standards."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:enough_mail/enough_mail.dart';\n\nFuture<void> main() async {\n  final config = await Discover.discover('user@domain.com');\n  if (config != null) {\n    final account = MailAccount.fromDiscoveredSettings('account', 'user@domain.com', 'password', config);\n    final mailClient = MailClient(account);\n    await mailClient.connect();\n    await mailClient.selectInbox();\n    final messages = await mailClient.fetchMessages(count: 10);\n    messages.forEach((m) => print(m.decodeSubject()));\n  }\n}",
+    "confidence": 1
+  }
+}

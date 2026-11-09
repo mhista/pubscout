@@ -1,0 +1,37 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "13.3.0",
+  "generatedAt": "2026-11-07T11:06:13.916Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Provides detailed information about the current device, make, model, and OS version.",
+    "what_it_does": "Fetches hardware and operating system details for the device running the app. It supports getting specific info for Android, iOS, Web, macOS, Linux, and Windows platforms.",
+    "use_when": [
+      "You need to log device-specific metadata for crash reporting or analytics.",
+      "Your app needs to check OS versions or device models to conditionally enable features."
+    ],
+    "avoid_when": [
+      "You need device state sensors or hardware controls instead of static details."
+    ],
+    "strengths": [
+      "Supports all major platforms: Android, iOS, Web, macOS, Windows, and Linux.",
+      "Provides both strongly-typed platform getters and a generic data method."
+    ],
+    "weaknesses": [
+      "The generic device info data map is not 100% JSON compatible or serializable.",
+      "Certain platform values (like user-assigned device names on iOS 16+) require special entitlements."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires meeting specific Java, Kotlin, and Gradle wrapper versions on Android, and minimum OS targets on iOS and macOS.",
+    "alternatives": [],
+    "minimal_example": "import 'package:device_info_plus/device_info_plus.dart';\n\nDeviceInfoPlugin deviceInfo = DeviceInfoPlugin();\nAndroidDeviceInfo androidInfo = await deviceInfo.androidInfo;\nprint('Running on ${androidInfo.model}');",
+    "confidence": 1
+  }
+}

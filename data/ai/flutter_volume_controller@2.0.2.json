@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.2",
+  "generatedAt": "2026-11-08T15:42:08.503Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [
+      "device"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Control system volume and listen for volume changes across multiple platforms.",
+    "what_it_does": "Allows Flutter applications to programmatically get, set, raise, lower, and mute system volumes. It also provides listeners to detect volume changes in real-time across Android, iOS, macOS, Windows, Linux, and HarmonyOS.",
+    "use_when": [
+      "You need to build a custom in-app volume slider or control panel.",
+      "Your application needs to respond to physical or system volume modifications.",
+      "You need to configure Android audio streams or iOS audio session categories."
+    ],
+    "avoid_when": [
+      "You are testing volume control on the iOS simulator, which does not support MPVolumeView.",
+      "You are dealing with audio devices like external monitors on desktop that lack volume control support."
+    ],
+    "strengths": [
+      "Cross-platform support including Android, iOS, macOS, Windows, Linux, and HarmonyOS.",
+      "Supports fine-grained features like checking mute status, toggling mute, and setting specific Android audio streams."
+    ],
+    "weaknesses": [
+      "Volume controls do not work on the iOS simulator.",
+      "Desktop platforms may throw a PlatformException if the default audio device does not support volume control."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "No extra configuration required for basic usage, but follow platform-specific notes if modifying audio session categories or streams.",
+    "alternatives": [],
+    "minimal_example": "await FlutterVolumeController.setVolume(0.5);\nfinal volume = await FlutterVolumeController.getVolume();",
+    "confidence": 1
+  }
+}

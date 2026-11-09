@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "4.11.0",
+  "generatedAt": "2026-11-07T16:27:03.022Z",
+  "data": {
+    "primary_category": "testing",
+    "secondary_categories": [
+      "devtools"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Multiplatform E2E UI testing framework for Flutter",
+    "what_it_does": "Patrol extends flutter_test and integration_test to allow native UI automation and custom finders. It works on Android, iOS, web, macOS and requires the patrol_cli tool for native setup.",
+    "use_when": [
+      "Need to test native platform interactions (e.g., pressing home, opening notifications).",
+      "Require cross‑platform E2E tests for Flutter apps.",
+      "Want concise, readable tests with custom finders."
+    ],
+    "avoid_when": [
+      "Only widget tests are needed, no native interaction."
+    ],
+    "strengths": [
+      "Native automation across multiple platforms",
+      "Custom finder system for concise tests",
+      "Bundled agent skills for AI‑assisted test writing",
+      "Open‑source and battle‑tested"
+    ],
+    "weaknesses": [
+      "Requires additional patrol_cli installation and native setup",
+      "Learning curve for native automation APIs",
+      "Not suitable for simple widget tests"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Install patrol_cli, follow native setup docs for each platform (Android, iOS, macOS, web).",
+    "alternatives": [],
+    "minimal_example": "```dart\nimport 'package:patrol/patrol.dart';\n\nvoid main() {\n  patrolTest('counter state is the same after going to home and going back', ($) async {\n    await $.pumpWidgetAndSettle(const MyApp());\n    await $(FloatingActionButton).tap();\n    expect($(#counterText).text, '1');\n    await $.platform.mobile.pressHome();\n    await $.platform.mobile.pressDoubleRecentApps();\n    expect($(#counterText).text, '1');\n    await $(FloatingActionButton).tap();\n    expect($(#counterText).text, '2');\n    await $.platform.mobile.openNotifications();\n    await $.platform.mobile.pressBack();\n  });\n}\n```",
+    "confidence": 0.9
+  }
+}

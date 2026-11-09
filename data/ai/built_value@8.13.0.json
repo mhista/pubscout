@@ -1,0 +1,51 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "8.13.0",
+  "generatedAt": "2026-11-07T10:59:28.249Z",
+  "data": {
+    "primary_category": "codegen",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "code generation"
+    ],
+    "one_liner": "Immutable value types with builders, enum classes and JSON serialization for Dart.",
+    "what_it_does": "Provides a runtime library to define immutable data models using the builder pattern. Supports enum‑like classes and full JSON (de)serialization, working together with built_collection.",
+    "use_when": [
+      "You need strongly typed, immutable models with builders",
+      "You require robust JSON serialization that handles generics and nested built collections",
+      "You want enum‑style classes with additional behavior"
+    ],
+    "avoid_when": [
+      "You prefer a lightweight solution without code generation",
+      "Your project is small and a simple json_serializable approach is sufficient"
+    ],
+    "strengths": [
+      "Zero‑runtime reflection – fast and safe",
+      "Full support for generics, nested built collections, and custom serializers",
+      "Builder pattern enforces immutability and safe updates"
+    ],
+    "weaknesses": [
+      "Requires build_runner and a generator dev dependency",
+      "Steeper learning curve compared to plain json_serializable",
+      "Adds extra build step to the CI pipeline"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add built_value_generator and build_runner as dev_dependencies, then run `dart run build_runner build` (or watch).",
+    "alternatives": [
+      {
+        "name": "freezed",
+        "why_pick_it": "Provides similar immutable data classes with union types and less boilerplate"
+      },
+      {
+        "name": "json_serializable",
+        "why_pick_it": "Simpler code‑gen for JSON (de)serialization without the builder pattern"
+      }
+    ],
+    "minimal_example": "abstract class Person implements Built<Person, PersonBuilder> {\n  String get name;\n  int get age;\n\n  Person._();\n  factory Person([void Function(PersonBuilder) updates]) = _$Person;\n}\n\n// Run `dart run build_runner build` to generate the *.g.dart file.",
+    "confidence": 0.97
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.0.1",
+  "generatedAt": "2026-11-07T11:14:28.375Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [
+      "auth",
+      "device"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Secure storage of strings via iOS Keychain and Android Keystore.",
+    "what_it_does": "Provides a Flutter plugin to securely store, retrieve, remove, and clear string values using native platform security mechanisms like Keychain on iOS and Keystore on Android. It supports optional iOS access groups and item labels.",
+    "use_when": [
+      "You need to store sensitive string data like auth tokens or credentials securely on the device",
+      "You target iOS and Android and want native secure storage integration"
+    ],
+    "avoid_when": [
+      "You need to store complex object types without serializing them to strings first",
+      "You need cross-platform secure storage for platforms beyond Android and iOS (like web or desktop)"
+    ],
+    "strengths": [
+      "Leverages native iOS Keychain and Android Keystore mechanisms",
+      "Supports configuration options for iOS access groups and item labels",
+      "Handles threading issues on Android to prevent ANR errors"
+    ],
+    "weaknesses": [
+      "Only supports storing strings; other types require manual serialization",
+      "Limited platform support (primarily Android and iOS)"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "On Android, set minSdkVersion to >= 18 in build.gradle.",
+    "alternatives": [
+      {
+        "name": "flutter_secure_storage",
+        "why_pick_it": "More widely used feature-rich alternative for secure storage across multiple platforms."
+      }
+    ],
+    "minimal_example": "import 'package:flutter_keychain/flutter_keychain.dart';\n\n// Get value\nvar value = await FlutterKeychain.get(key: \"key\");\n\n// Put value\nawait FlutterKeychain.put(key: \"key\", value: \"value\");",
+    "confidence": 1
+  }
+}

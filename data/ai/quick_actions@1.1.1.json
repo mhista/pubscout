@@ -1,0 +1,37 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.1.1",
+  "generatedAt": "2026-11-08T15:31:16.657Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter plugin for creating shortcuts on home screen, quick actions on iOS and app shortcuts on Android.",
+    "what_it_does": "Allows you to manage and interact with application home screen quick actions. Provides methods to initialize shortcut callbacks and set shortcut items.",
+    "use_when": [
+      "You want to add home screen shortcuts or quick actions on iOS and Android",
+      "You need to handle user interactions when launching the app via a quick action"
+    ],
+    "avoid_when": [
+      "Your app does not target Android SDK 24+ or iOS 13.0+",
+      "You do not need native home screen launcher shortcuts"
+    ],
+    "strengths": [
+      "Native support for both Android App Shortcuts and iOS Quick Actions",
+      "Simple API to initialize and set shortcut items"
+    ],
+    "weaknesses": [
+      "Requires native resource configuration for icons (xcassets on iOS and drawables on Android)",
+      "Behavior on Android is a no-op below SDK 25"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "On Android, icons may need to be explicitly marked to be kept for release builds. Minimum OS requirements: Android SDK 24+ and iOS 13.0+.",
+    "alternatives": [],
+    "minimal_example": "const quickActions = QuickActions();\nquickActions.initialize((String shortcutType) {\n  if (shortcutType == 'action_main') {\n    debugPrint('The user tapped on the \"Main view\" action.');\n  }\n});\n\nawait quickActions.setShortcutItems(<ShortcutItem>[\n  const ShortcutItem(type: 'action_main', localizedTitle: 'Main view', icon: 'icon_main'),\n]);",
+    "confidence": 1
+  }
+}

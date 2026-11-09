@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.2.0",
+  "generatedAt": "2026-11-07T10:54:35.453Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Execute code after the first layout of your widget has been performed.",
+    "what_it_does": "Brings functionality to execute code after the first layout of a widget has been completed, i.e., after the first frame has been displayed. It provides a mixin that allows developers to implement an afterFirstLayout method.",
+    "use_when": [
+      "You need to display a dialog or bottom sheet immediately when a screen appears",
+      "You need to query widget dimensions or layout metrics right after the first frame"
+    ],
+    "avoid_when": [
+      "You can perform the initialization safely inside initState or standard lifecycle hooks",
+      "You are managing complex global application states"
+    ],
+    "strengths": [
+      "Prevents crashes caused by triggering layout-dependent code in initState",
+      "Simple mixin-based usage",
+      "Automatically checks if the widget is mounted before executing the callback"
+    ],
+    "weaknesses": [
+      "Limited to a single specific lifecycle utility scope",
+      "May encourage imperative patterns when declarative approaches could work"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "class HomeScreenState extends State<HomeScreen> with AfterLayoutMixin<HomeScreen> {\n  @override\n  Widget build(BuildContext context) {\n    return Scaffold(body: Container(color: Colors.red));\n  }\n\n  @override\n  void afterFirstLayout(BuildContext context) {\n    showHelloWorld();\n  }\n}",
+    "confidence": 1
+  }
+}

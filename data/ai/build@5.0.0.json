@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "5.0.0",
+  "generatedAt": "2026-11-07T10:59:26.725Z",
+  "data": {
+    "primary_category": "codegen",
+    "secondary_categories": [],
+    "approach": [
+      "code generation",
+      "imperative"
+    ],
+    "one_liner": "Package for authoring build_runner compatible code generators.",
+    "what_it_does": "A package for writing code generators, called builders, that run with build_runner. It defines the core Builder interface and build step APIs for reading, analyzing, and writing files.",
+    "use_when": [
+      "You are developing a custom build_runner compatible code generator package.",
+      "You need to implement the low-level Builder interface to generate code based on inputs."
+    ],
+    "avoid_when": [
+      "You are just writing a standard application or package that uses existing code generators rather than authoring one.",
+      "You want a higher-level helper for annotation-based builders (use source_gen instead)."
+    ],
+    "strengths": [
+      "Provides the core underlying Builder interface used across the Dart build ecosystem.",
+      "Gives easy access to the analyzer for processing and resolving Dart source code."
+    ],
+    "weaknesses": [
+      "Low-level compared to source_gen, requiring more manual handling of build steps.",
+      "Major version updates can introduce breaking changes for packages implementing BuildStep."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires configuration with build_runner to run builders.",
+    "alternatives": [],
+    "minimal_example": "class CopyBuilder implements Builder {\n  @override\n  final buildExtensions = const {\n    '.txt': ['.txt.copy']\n  };\n\n  @override\n  Future<void> build(BuildStep buildStep) async {\n    final inputId = buildStep.inputId;\n    final outputId = inputId.addExtension('.copy');\n    final contents = await buildStep.readAsString(inputId);\n    await buildStep.writeAsString(outputId, contents);\n  }\n}",
+    "confidence": 1
+  }
+}

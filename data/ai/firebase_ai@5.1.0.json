@@ -1,0 +1,47 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "5.1.0",
+  "generatedAt": "2026-11-08T15:36:38.579Z",
+  "data": {
+    "primary_category": "backend",
+    "secondary_categories": [
+      "ai-ml"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter plugin for Firebase AI Logic SDK to access Gemini, Imagen and other generative models.",
+    "what_it_does": "Provides Dart APIs to call Firebase AI services such as text generation and image generation. Handles authentication, App Check and integrates with Firebase core packages.",
+    "use_when": [
+      "You need Firebase‑hosted generative AI models like Gemini or Imagen",
+      "Your app already uses other Firebase services (auth, core, app‑check)",
+      "You prefer a managed backend over self‑hosting LLMs"
+    ],
+    "avoid_when": [
+      "You want a completely offline/on‑device model",
+      "You need a non‑Firebase AI provider or custom model serving"
+    ],
+    "strengths": [
+      "Tight integration with Firebase ecosystem",
+      "Automatic handling of auth and App Check tokens",
+      "Supports latest Google generative models"
+    ],
+    "weaknesses": [
+      "Limited to Firebase AI services only",
+      "Requires Firebase project configuration and internet access",
+      "Plugin adds native setup for each platform"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add firebase_core, firebase_auth, firebase_app_check to your project and configure each platform (Android manifest, iOS plist, web initialization). No build_runner needed.",
+    "alternatives": [
+      {
+        "name": "openai_dart",
+        "why_pick_it": "If you prefer using OpenAI models directly without Firebase dependencies"
+      }
+    ],
+    "minimal_example": "import 'package:firebase_ai/firebase_ai.dart';\n\nFuture<void> generateText() async {\n  final ai = FirebaseAI.instance;\n  final response = await ai.generateText(prompt: 'Hello world');\n  print(response.text);\n}",
+    "confidence": 0.78
+  }
+}

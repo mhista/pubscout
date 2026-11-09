@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.3.0",
+  "generatedAt": "2026-11-08T15:53:25.108Z",
+  "data": {
+    "primary_category": "localization",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Provides country details, ISO codes, and dial codes based on localization.",
+    "what_it_does": "Fetches region and country details such as ISO 3166 codes (alpha-2, alpha-3), dial codes, and country names based on a provided or device locale. It also includes a TextInputFormatter to handle dial codes dynamically in form fields.",
+    "use_when": [
+      "You need to access country dial codes and ISO codes based on the device or custom locale.",
+      "You are building phone number input forms that require automatic dial code formatting."
+    ],
+    "avoid_when": [
+      "You only need language and locale translations without country specific metadata.",
+      "You need an exhaustive country picker widget out of the box (this is primarily a data helper package)."
+    ],
+    "strengths": [
+      "Provides localized country names and dial codes easily.",
+      "Includes a built-in DialCodeFormatter for text form fields.",
+      "Supports both device region detection and custom locales."
+    ],
+    "weaknesses": [
+      "Requires manual initialization via CountryCodes.init() before use.",
+      "Limited to basic country details and a single text input formatter."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Must call await CountryCodes.init() before invoking package methods.",
+    "alternatives": [],
+    "minimal_example": "await CountryCodes.init();\nfinal CountryDetails details = CountryCodes.detailsForLocale();\nprint(details.alpha2Code);\nprint(details.dialCode);\nprint(details.name);",
+    "confidence": 0.95
+  }
+}

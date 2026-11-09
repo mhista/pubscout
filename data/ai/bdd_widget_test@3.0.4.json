@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "3.0.4",
+  "generatedAt": "2026-11-07T10:58:09.710Z",
+  "data": {
+    "primary_category": "testing",
+    "secondary_categories": [],
+    "approach": [
+      "code generation"
+    ],
+    "one_liner": "Generate Flutter widget tests from Gherkin feature files",
+    "what_it_does": "bdd_widget_test parses *.feature files written in Gherkin and uses build_runner to generate plain Dart widget tests. The generated tests import material_ui and can include golden steps, making test writing natural language driven.",
+    "use_when": [
+      "BDD style widget testing",
+      "Team collaboration on test scenarios",
+      "Automated test generation from feature files",
+      "Feature driven development"
+    ],
+    "avoid_when": [
+      "Writing complex widget logic that requires custom test code",
+      "Projects that prefer hand‑written testWidgets without generation"
+    ],
+    "strengths": [
+      "Easy to write tests in natural language",
+      "Integrates with build_runner for automatic code generation",
+      "Supports golden tests without extra packages",
+      "Provides an agent skill for step implementation"
+    ],
+    "weaknesses": [
+      "Requires build_runner and material_ui dependencies",
+      "Only supports widget tests, not unit or integration tests",
+      "Relies on Gherkin syntax which may be unfamiliar to some developers"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add build_runner, bdd_widget_test, and material_ui to dev_dependencies. Run `dart run build_runner watch --delete-conflicting-outputs` to generate tests.",
+    "alternatives": [],
+    "minimal_example": "```dart\n// feature file\nFeature: Counter\n  Scenario: Initial counter value is 0\n    Given the app is running\n    Then I see {'0'} text\n```\n// run build_runner to generate corresponding test file",
+    "confidence": 0.8
+  }
+}

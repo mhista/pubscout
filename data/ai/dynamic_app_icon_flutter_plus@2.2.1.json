@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.2.1",
+  "generatedAt": "2026-11-07T11:07:07.828Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "ui-kits"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Change your Flutter app launcher icon at runtime on Android and iOS.",
+    "what_it_does": "Allows Flutter applications to dynamically change their launcher icon at runtime for branding, themes, or feature switches. It supports auto-discovery of icons and offers options for iOS alert suppression and Android background deferral.",
+    "use_when": [
+      "You want to offer dark/light or seasonal alternate app icons to users.",
+      "Your app requires dynamic branding updates or feature-based icon switching."
+    ],
+    "avoid_when": [
+      "You do not want to configure native activity aliases in AndroidManifest.xml or Info.plist.",
+      "You are targeting platforms other than Android and iOS."
+    ],
+    "strengths": [
+      "Supports both Android and iOS out of the box.",
+      "Provides auto-discovery of available icons from configuration.",
+      "Includes Android background deferral to prevent OEM launcher disruptions."
+    ],
+    "weaknesses": [
+      "Requires manual native configuration in both AndroidManifest.xml and Info.plist.",
+      "iOS icon alert suppression relies on a private API which may break in future iOS versions."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding activity aliases to AndroidManifest.xml along with density-specific icon assets, and configuring CFBundleAlternateIcons and CFBundlePrimaryIcon in iOS Info.plist.",
+    "alternatives": [],
+    "minimal_example": "import 'package:dynamic_app_icon_flutter_plus/dynamic_app_icon_flutter_plus.dart';\n\n// Change to a different icon\nawait DynamicAppIconFlutterPlus.setAlternateIconName('dark');\n\n// Restore default icon\nawait DynamicAppIconFlutterPlus.setAlternateIconName(null);",
+    "confidence": 1
+  }
+}

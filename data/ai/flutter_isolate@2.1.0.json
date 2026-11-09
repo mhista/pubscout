@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.1.0",
+  "generatedAt": "2026-11-07T11:14:28.383Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Run Dart isolates in Flutter that can interact with Flutter plugins.",
+    "what_it_does": "Allows you to spawn and manage Dart isolates in Flutter that have access to platform plugins. It provides APIs similar to standard isolates along with `flutterCompute` to execute expensive tasks off the main thread.",
+    "use_when": [
+      "You need to run long-running or CPU-intensive background tasks that must interact with Flutter plugins",
+      "You want to offload work from the main UI thread on Android and iOS"
+    ],
+    "avoid_when": [
+      "Standard Dart isolates or Flutter's built-in compute function are sufficient and plugin access inside the isolate is not required",
+      "You want automatic event loop termination when work completes (FlutterIsolates require explicit termination)"
+    ],
+    "strengths": [
+      "Enables plugin usage inside spawned background isolates",
+      "Supports custom plugin registrants for both iOS and Android",
+      "Provides a simple `flutterCompute` wrapper for single tasks"
+    ],
+    "weaknesses": [
+      "Event loop will not terminate automatically, requiring explicit `kill()` calls",
+      "Has not been tested with a wide range of plugins",
+      "Entrypoints require specific `@pragma('vm:entry-point')` annotations to prevent release mode crashes"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Entrypoint functions must be top-level or static and decorated with @pragma('vm:entry-point'). Custom plugin registrants may need platform-specific configuration in Swift or Java.",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter_isolate/flutter_isolate.dart';\n\n@pragma('vm:entry-point')\nvoid someFunction(String arg) {\n  print(\"Running in an isolate with argument : $arg\");\n}\n\nvoid runIsolate() {\n  FlutterIsolate.spawn(someFunction, \"hello world\");\n}",
+    "confidence": 0.95
+  }
+}

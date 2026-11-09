@@ -1,0 +1,47 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.1.0",
+  "generatedAt": "2026-11-08T15:26:43.952Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "declarative"
+    ],
+    "one_liner": "Modular AST-based GraphQL request execution interface.",
+    "what_it_does": "Provides a composable link interface to build GraphQL execution pipelines. Allows chaining custom behaviors like deduplication and routing before hitting a terminating transport link.",
+    "use_when": [
+      "You need a modular, chainable pipeline for executing GraphQL operations",
+      "You are building or extending GraphQL client tooling in Dart/Flutter"
+    ],
+    "avoid_when": [
+      "You are looking for a high-level all-in-one GraphQL client framework rather than low-level link primitives",
+      "Your project relies strictly on simple REST APIs"
+    ],
+    "strengths": [
+      "Highly modular and composable link-based architecture",
+      "Supports custom links via classes, functions, or routers"
+    ],
+    "weaknesses": [
+      "Requires combining with other packages like http link to fully function",
+      "Documentation for advanced usage relies heavily on external links"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Not documented",
+    "alternatives": [
+      {
+        "name": "dio",
+        "why_pick_it": "If you prefer a powerful general-purpose HTTP client over a dedicated GraphQL link execution pipeline."
+      },
+      {
+        "name": "http",
+        "why_pick_it": "If you need a lightweight standard HTTP client without GraphQL-specific execution abstractions."
+      }
+    ],
+    "minimal_example": "import \"package:gql_link/gql_link.dart\";\n\nvoid main () {\n  final link = Link.from([\n    MyCustomLink(),\n    DedupeLink(),\n    HttpLink(\"/graphql\"),\n  ]);\n}",
+    "confidence": 0.95
+  }
+}

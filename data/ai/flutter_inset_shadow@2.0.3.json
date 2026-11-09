@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.3",
+  "generatedAt": "2026-11-08T16:03:14.644Z",
+  "data": {
+    "primary_category": "theming",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Extends BoxShadow and BoxDecoration to support the inset property for inner shadows.",
+    "what_it_does": "Extends Flutter's BoxShadow and BoxDecoration to support an inset property, allowing developers to create inner shadows commonly used in Neumorphism and custom container styling. The rendering algorithm follows the same approach as Blink.",
+    "use_when": [
+      "You need to implement neumorphic UI designs requiring inner container shadows.",
+      "You want to add an inset property to standard BoxShadow configurations."
+    ],
+    "avoid_when": [
+      "You only need standard outer shadows which are already supported natively by Flutter.",
+      "You cannot accommodate hiding standard Material BoxDecoration and BoxShadow imports."
+    ],
+    "strengths": [
+      "Supports all properties of standard BoxShadow.",
+      "Uses the same hollow-rectangle blurring algorithm as the Chromium rendering engine (Blink).",
+      "Supports BoxShape.circle and box shadow transitions."
+    ],
+    "weaknesses": [
+      "Requires hiding standard BoxShadow and BoxDecoration imports from flutter/material.dart.",
+      "Replaces core decoration classes instead of operating as a separate standalone widget."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires adding the package and hiding BoxShadow and BoxDecoration from the flutter/material import.",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter/material.dart' hide BoxDecoration, BoxShadow;\nimport 'package:flutter_inset_shadow/flutter_inset_shadow.dart';\n\nWidget build(BuildContext context) {\n  return Container(\n    decoration: BoxDecoration(\n      boxShadow: [\n        BoxShadow(\n          offset: Offset(1, 2),\n          blurRadius: 5,\n          spreadRadius: 2,\n          color: Colors.green,\n          inset: true,\n        ),\n      ],\n    ),\n  );\n}",
+    "confidence": 1
+  }
+}

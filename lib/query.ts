@@ -17,6 +17,7 @@ export type Filters = {
   nonative: boolean;
   nocodegen: boolean;
   wasm: boolean;
+  essential: boolean;
   sort: SortKey;
   page: number;
 };
@@ -59,6 +60,7 @@ export function parseFilters(sp: SP): Filters {
     nonative: flag(sp.nonative),
     nocodegen: flag(sp.nocodegen),
     wasm: flag(sp.wasm),
+    essential: flag(sp.essential),
     sort: SORTS.some((s) => s.key === sort) ? sort : "best",
     page: Math.max(1, Number(one(sp.page)) || 1),
   };
@@ -73,6 +75,7 @@ function predicates(f: Filters, now: number) {
     plat: (p: Pkg) => !f.plat.length || p.kind === "dart" || f.plat.every((x) => p.platforms.includes(x)),
     with: (p: Pkg) => !f.with.length || f.with.every((w) => p.worksWith.includes(w)),
     rest: (p: Pkg) =>
+      (!f.essential || !!p.essential) &&
       (!f.min || p.scores.health >= f.min) &&
       (!f.active || now - Date.parse(p.published) <= f.active * MONTH) &&
       (!f.dl || p.metrics.downloads30d >= f.dl) &&
@@ -166,7 +169,7 @@ export function toQuery(f: Partial<Filters>) {
   if (f.q) sp.set("q", f.q);
   for (const k of ["cat", "plat", "with"] as const) if (f[k]?.length) sp.set(k, f[k]!.join(","));
   for (const k of ["min", "active", "dl"] as const) if (f[k]) sp.set(k, String(f[k]));
-  const flags: [keyof Filters, string][] = [["stable", "stable"], ["verified", "verified"], ["permissive", "permissive"], ["showDisc", "disc"], ["pure", "pure"], ["nonative", "nonative"], ["nocodegen", "nocodegen"], ["wasm", "wasm"]];
+  const flags: [keyof Filters, string][] = [["stable", "stable"], ["verified", "verified"], ["permissive", "permissive"], ["showDisc", "disc"], ["pure", "pure"], ["nonative", "nonative"], ["nocodegen", "nocodegen"], ["wasm", "wasm"], ["essential", "essential"]];
   for (const [k, key] of flags) if (f[k]) sp.set(key, "1");
   if (f.sort && f.sort !== "best") sp.set("sort", f.sort);
   if (f.page && f.page > 1) sp.set("page", String(f.page));

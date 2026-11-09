@@ -1,0 +1,37 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.6",
+  "generatedAt": "2026-11-08T15:36:32.496Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "PEM encoding and decoding of textual keys and certificates following RFC 7468.",
+    "what_it_does": "Encodes and decodes PEM textual key formats and certificate chains. Supports both lax and strict modes, handling extra whitespace and surrounding text during parsing.",
+    "use_when": [
+      "You need to parse PEM-encoded private or public keys in Dart",
+      "You need to generate strict-mode PEM strings from key data bytes",
+      "You are working with concatenated PEM blocks like certificate chains"
+    ],
+    "avoid_when": [
+      "You need strict validation that distinguishes malformed PEM blocks from ignored surrounding text"
+    ],
+    "strengths": [
+      "Supports both lax and strict decoding modes",
+      "Handles certificate chains with concatenated PEM blocks",
+      "Follows RFC 7468 specifications"
+    ],
+    "weaknesses": [
+      "Decoding methods ignore surrounding text, meaning malformed PEM blocks do not throw specific exceptions"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:pem/pem.dart';\n\nList<int> keyData = PemCodec(PemLabel.privateKey).decode(\"\"\"\n  -----BEGIN PRIVATE KEY-----\n  MIGEAgEAMBAGByqGSM49AgEGBSuBBAAKBG0wawIBAQQgVcB/UNPxalR9zDYAjQIf\n  jojUDiQuGnSJrFEEzZPT/92hRANCAASc7UJtgnF/abqWM60T3XNJEzBv5ez9TdwK\n  H0M6xpM2q+53wmsN/eYLdgtjgBd3DBmHtPilCkiFICXyaA8z9LkJ\n  -----END PRIVATE KEY-----\n\"\");\n\nString pemBlock = PemCodec(PemLabel.privateKey).encode(keyData);",
+    "confidence": 1
+  }
+}

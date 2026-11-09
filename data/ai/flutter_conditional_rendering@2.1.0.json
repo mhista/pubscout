@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "2.1.0",
+  "generatedAt": "2026-11-07T11:12:14.236Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Provides conditional rendering widgets for if-else and switch cases",
+    "what_it_does": "The package offers `Conditional` and `ConditionalSwitch` widgets that let you render a single widget or a list of widgets based on a condition or a value. It supports null‑safe builder callbacks and optional fallback widgets.",
+    "use_when": [
+      "You need readable conditional rendering for complex widget trees",
+      "You want to render a list of widgets conditionally",
+      "You prefer a declarative API over inline ternary operators"
+    ],
+    "avoid_when": [
+      "You only need a simple ternary expression",
+      "You are already using a state‑management solution that handles conditional UI"
+    ],
+    "strengths": [
+      "Improves readability of complex conditional UI",
+      "Supports both single widgets and lists",
+      "Null‑safe and fully typed API"
+    ],
+    "weaknesses": [
+      "Only handles rendering, not state management",
+      "No built‑in support for async or streams",
+      "Limited to Flutter UI, no platform features"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "class MyWidget extends StatelessWidget {\n  @override\n  Widget build(BuildContext context) {\n    return Column(\n      children: <Widget>[\n        Conditional.single(\n          context: context,\n          conditionBuilder: (ctx) => someCondition,\n          widgetBuilder: (ctx) => Text('True'),\n          fallbackBuilder: (ctx) => Text('False'),\n        ),\n      ],\n    );\n  }\n}",
+    "confidence": 0.95
+  }
+}

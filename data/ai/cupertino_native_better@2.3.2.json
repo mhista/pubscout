@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.3.2",
+  "generatedAt": "2026-11-07T11:04:02.361Z",
+  "data": {
+    "primary_category": "ui-kits",
+    "secondary_categories": [
+      "widgets",
+      "layout"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Native iOS and macOS Liquid Glass controls and widgets in Flutter with Cupertino fallbacks.",
+    "what_it_does": "Brings native UIKit and SwiftUI views into Flutter—such as tab bars, buttons, menus, sliders, switches, alerts, sheets, and macOS window elements—with Liquid Glass styles on supported OS versions and Cupertino fallbacks elsewhere.",
+    "use_when": [
+      "You want authentic native iOS and macOS controls, animations, and Liquid Glass effects inside a Flutter app.",
+      "You need platform-adaptive UI that uses native views on Apple platforms and standard Cupertino widgets on others."
+    ],
+    "avoid_when": [
+      "You require a completely custom design system that does not rely on native Apple aesthetics.",
+      "You are building exclusively for non-Apple platforms where native controls are not supported."
+    ],
+    "strengths": [
+      "Uses Apple's own native controls for authentic haptics, animations, and accessibility.",
+      "Gracefully falls back to Cupertino widgets on older iOS versions, Android, and the web."
+    ],
+    "weaknesses": [
+      "Requires proper registration of a global NavigatorObserver to prevent z-order and halo bleed issues.",
+      "Platform-specific visual features (like Liquid Glass) require newer versions of iOS and macOS."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires registering CNTabBarRouteObserver in navigatorObservers on your root navigator for proper modal and z-order coordination.",
+    "alternatives": [
+      {
+        "name": "cupertino_icons",
+        "why_pick_it": "If you only need standard Cupertino icons rather than full native control bindings."
+      },
+      {
+        "name": "cupertino_ui",
+        "why_pick_it": "If you prefer standard Flutter-drawn Cupertino widgets instead of native UIKit/SwiftUI views."
+      }
+    ],
+    "minimal_example": "import 'package:cupertino_native_better/cupertino_native_better.dart';\nimport 'package:flutter/cupertino.dart';\n\nvoid main() => runApp(\n  CupertinoApp(\n    navigatorObservers: [CNTabBarRouteObserver()],\n    home: CupertinoPageScaffold(\n      child: Center(\n        child: CNButton(\n          label: 'Get Started',\n          config: const CNButtonConfig(style: CNButtonStyle.prominentGlass),\n          onPressed: () {},\n        ),\n      ),\n    ),\n  ),\n);",
+    "confidence": 0.95
+  }
+}

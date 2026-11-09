@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "18.0.0",
+  "generatedAt": "2026-11-07T11:02:32.478Z",
+  "data": {
+    "primary_category": "codegen",
+    "secondary_categories": [],
+    "approach": [
+      "code generation"
+    ],
+    "one_liner": "Generate type‑safe copyWith extensions for annotated classes and record typedefs.",
+    "what_it_does": "It creates copyWith methods and optional copyWithNull helpers via the build system, allowing immutable objects to be cloned with modified fields. It also supports record typedefs and various customization options.",
+    "use_when": [
+      "You need immutable data classes with convenient copy methods",
+      "You prefer code generation over manual boilerplate",
+      "You want support for Dart records and null‑clearing"
+    ],
+    "avoid_when": [
+      "You already use a full‑featured codegen like freezed or built_value",
+      "You want runtime reflection instead of generated code"
+    ],
+    "strengths": [
+      "Zero runtime cost, compile‑time safety",
+      "Supports Dart records and advanced options like immutable fields",
+      "No extra dependencies beyond build_runner"
+    ],
+    "weaknesses": [
+      "Requires build_runner to regenerate code",
+      "Limited to annotated classes/records, not dynamic objects",
+      "Breaking changes in major releases (e.g., 17.0.0)"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add build_runner and copy_with_extension_gen to dev_dependencies, annotate classes with @CopyWith, run `dart run build_runner build`",
+    "alternatives": [
+      {
+        "name": "freezed_annotation",
+        "why_pick_it": "Provides copyWith, immutability, and many other features in a single package, widely used in Flutter projects"
+      }
+    ],
+    "minimal_example": "```dart\nimport 'package:copy_with_extension/copy_with_extension.dart';\n\npart 'basic_class.g.dart';\n\n@CopyWith()\nclass BasicClass {\n  final String id;\n  final String? text;\n  const BasicClass({required this.id, this.text});\n}\n```\n```dart\nfinal result = BasicClass(id: \"id\");\nfinal copied = result.copyWith.text(\"test\");\n```",
+    "confidence": 0.9
+  }
+}

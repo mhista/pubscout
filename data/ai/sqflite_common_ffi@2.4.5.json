@@ -1,0 +1,52 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.4.5",
+  "generatedAt": "2026-11-08T15:26:16.628Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [
+      "testing"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "FFI-based implementation of sqflite for desktop platforms and unit tests.",
+    "what_it_does": "Provides an sqflite-compatible database interface using the sqlite3 FFI package. Enables running SQLite databases on Windows, macOS, Linux, and during standard Flutter unit tests without device emulators.",
+    "use_when": [
+      "You need sqflite-based SQLite database support on Windows, macOS, or Linux.",
+      "You want to write and execute unit tests involving sqflite without a physical device or emulator."
+    ],
+    "avoid_when": [
+      "You are building exclusively for mobile platforms where standard sqflite or drift is preferred.",
+      "You require advanced reactive query streams out-of-the-box without extra boilerplate."
+    ],
+    "strengths": [
+      "Brings familiar sqflite API to desktop platforms and unit tests.",
+      "Database calls are executed in a separate isolate."
+    ],
+    "weaknesses": [
+      "Requires platform-specific setup on Linux (libsqlite3 packages).",
+      "Database calls in a separate isolate and multi-instance support is simulated."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires initializing with sqfliteFfiInit(). On Linux, requires installing libsqlite3 packages (e.g. libsqlite3-0 and libsqlite3-dev).",
+    "alternatives": [
+      {
+        "name": "drift",
+        "why_pick_it": "If you want a type-safe reactive SQL database library with code generation for Dart and Flutter."
+      },
+      {
+        "name": "sqflite",
+        "why_pick_it": "If you only need standard SQLite access on iOS and Android."
+      },
+      {
+        "name": "hive_ce",
+        "why_pick_it": "If you prefer a fast key-value NoSQL database instead of a relational SQL database."
+      }
+    ],
+    "minimal_example": "import 'package:test/test.dart';\nimport 'package:sqflite_common/sqlite_api.dart';\nimport 'package:sqflite_common_ffi/sqflite_ffi.dart';\n\nvoid main() {\n  sqfliteFfiInit();\n  test('simple sqflite example', () async {\n    var db = await databaseFactoryFfi.openDatabase(inMemoryDatabasePath);\n    expect(await db.getVersion(), 0);\n    await db.close();\n  });\n}",
+    "confidence": 1
+  }
+}

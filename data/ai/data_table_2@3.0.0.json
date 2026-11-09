@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.0.0",
+  "generatedAt": "2026-11-07T11:05:14.834Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "In-place substitute for Flutter's DataTable and PaginatedDataTable with sticky headers.",
+    "what_it_does": "Provides DataTable2, PaginatedDataTable2, and AsyncPaginatedDataTable2 widgets as drop-in substitutes for stock Flutter tables. Adds support for fixed/sticky headers and columns, fixed column widths, scrollbars, and asynchronous data sources.",
+    "use_when": [
+      "You need fixed or sticky header and column support in Flutter tables.",
+      "You want a drop-in replacement for stock DataTable and PaginatedDataTable widgets.",
+      "You need to display large or asynchronous datasets efficiently with paginated or async table variants."
+    ],
+    "avoid_when": [
+      "You need cell content auto-sizing based on contents.",
+      "You require expanding/collapsing rows, cell merging (colspan/rowspan), or manual column/row resizing.",
+      "You are using stock Material imports without the material_ui package dependency for version 3.x."
+    ],
+    "strengths": [
+      "Supports sticky top rows and left columns.",
+      "API mimics stock Flutter DataTable and PaginatedDataTable for easy migration.",
+      "Includes async paginated data source support and flexible column width controls."
+    ],
+    "weaknesses": [
+      "Does not support auto-sizing cells to fit contents or row expanding/collapsing.",
+      "Requires the standalone material_ui package in version 3.x, which can conflict with standard Flutter Material imports.",
+      "Hover effects on rows do not highlight the entire row when left columns are fixed."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add material_ui and data_table_2 to pubspec.yaml and update Material imports to use material_ui.",
+    "alternatives": [],
+    "minimal_example": "Padding(\n  padding: const EdgeInsets.all(16),\n  child: DataTable2(\n      columnSpacing: 12,\n      horizontalMargin: 12,\n      minWidth: 600,\n      columns: [\n        DataColumn2(\n          label: Text('Column A'),\n          size: ColumnSize.L,\n        ),\n        DataColumn(\n          label: Text('Column B'),\n        ),\n      ],\n      rows: List<DataRow>.generate(\n          10,\n          (index) => DataRow(cells: [\n                DataCell(Text('A$index')),\n                DataCell(Text('B$index')),\n              ]))),\n)",
+    "confidence": 1
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "7.0.0",
+  "generatedAt": "2026-11-08T15:32:08.897Z",
+  "data": {
+    "primary_category": "maps",
+    "secondary_categories": [
+      "device"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Find installed maps on a device and launch them with markers or directions.",
+    "what_it_does": "Finds available map applications installed on the user's device and launches them to display specific markers, perform searches, or show directions across 30 supported map providers. It supports iOS, Android, web, and desktop platforms using universal links and native app detection.",
+    "use_when": [
+      "You need to let users open directions or locations in their preferred installed map app.",
+      "Your app needs cross-platform map launching capabilities for mobile, web, and desktop."
+    ],
+    "avoid_when": [
+      "You need an embedded interactive map widget directly inside your Flutter UI.",
+      "You need custom in-app routing or advanced geospatial analysis without leaving your app."
+    ],
+    "strengths": [
+      "Supports over 30 different map applications across all major platforms.",
+      "Handles both universal web links and native app detection seamlessly."
+    ],
+    "weaknesses": [
+      "Requires manual native platform setup (like Info.plist queries or Android package queries) for proper app discovery.",
+      "Does not render an embedded map view inside the application."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding URL schemes to iOS Info.plist and package queries to Android AndroidManifest.xml for installed-app discovery.",
+    "alternatives": [
+      {
+        "name": "google_maps_flutter",
+        "why_pick_it": "Pick this if you need to embed an interactive Google Maps widget directly inside your Flutter app instead of launching external map applications."
+      },
+      {
+        "name": "flutter_map",
+        "why_pick_it": "Pick this if you need a customizable open-source mapping widget rendered directly in your application using OpenStreetMap tiles."
+      }
+    ],
+    "minimal_example": "import 'package:map_launcher/map_launcher.dart';\n\nawait MapLauncher.marker(Coords(59.33, 18.07, title: 'Gamla Stan')).show();",
+    "confidence": 0.95
+  }
+}

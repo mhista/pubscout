@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.6.0",
+  "generatedAt": "2026-11-08T15:53:29.949Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Retrieve App Set ID on Android, IDfV on iOS, MAC address on macOS, and user agent on Web.",
+    "what_it_does": "A tiny Flutter library to retrieve a vendor-specific privacy-friendly device-unique identifier. It provides the App Set ID on Android, Identifier for Vendor on iOS, a MAC address fallback on macOS, and the browser user agent on Web.",
+    "use_when": [
+      "You need a privacy-friendly device-unique identifier scoped to the vendor or developer account.",
+      "You want to retrieve IDfV on iOS or App Set ID on Android easily."
+    ],
+    "avoid_when": [
+      "You need a persistent tracking device ID across different developers on Android.",
+      "You require a reliable, true unique hardware device identifier on the web platform."
+    ],
+    "strengths": [
+      "Simple and straightforward API with a single method call.",
+      "Supports multiple platforms including Android, iOS, macOS, and Web."
+    ],
+    "weaknesses": [
+      "Web implementation returns the browser user agent, which is not a proper identifier.",
+      "macOS fallback relies on the MAC address instead of a real IDfV."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [
+      {
+        "name": "device_info_plus",
+        "why_pick_it": "Provides comprehensive device and operating system information across platforms, which may include identifiers if needed."
+      }
+    ],
+    "minimal_example": "import 'package:app_set_id/app_set_id.dart';\n\nfinal appSetId = await AppSetId().getIdentifier();",
+    "confidence": 0.95
+  }
+}

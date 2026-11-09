@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.5",
+  "generatedAt": "2026-11-07T11:06:13.709Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Lookup device marketing names for Android, iOS and browsers easily.",
+    "what_it_does": "Maps device identifiers like 'iPhone13,4' or 'SM-G980F' to their user-friendly marketing names locally. It does not require an active internet connection or a remote database.",
+    "use_when": [
+      "You need to display user-friendly device names in analytics or settings",
+      "You want offline capability for mapping raw device hardware strings"
+    ],
+    "avoid_when": [
+      "You are targeting desktop platforms (Windows, Linux, macOS) which throw a PlatformException",
+      "You need deep hardware metrics beyond device info and naming"
+    ],
+    "strengths": [
+      "Requires no internet connection or remote database",
+      "Supports Android, iOS, and web browsers with WASM support",
+      "Simple API for current device lookup or model-based lookup"
+    ],
+    "weaknesses": [
+      "Does not support Windows, Linux, or macOS platforms",
+      "Depends on regular package updates to include newly released device models"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the dependency to pubspec.yaml; relies on device_info_plus under the hood.",
+    "alternatives": [],
+    "minimal_example": "final deviceNames = DeviceMarketingNames();\nfinal singleDeviceName = await deviceNames.getSingleName();",
+    "confidence": 0.95
+  }
+}

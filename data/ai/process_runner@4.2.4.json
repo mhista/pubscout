@@ -1,0 +1,37 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.2.4",
+  "generatedAt": "2026-11-08T15:25:21.209Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Dart process invocation abstraction that manages multi-process queues.",
+    "what_it_does": "The package provides a Dart-idiomatic API for spawning external OS processes and managing their standard output and error streams without losing data. It also allows creating a worker pool to run multiple processes concurrently with a set number of active jobs.",
+    "use_when": [
+      "You need to run external OS processes in Dart or Flutter with proper stdout and stderr capture.",
+      "You want to manage a queue or pool of worker processes with limited concurrency."
+    ],
+    "avoid_when": [
+      "You are building web applications since external OS processes are not supported in the browser environment."
+    ],
+    "strengths": [
+      "Properly manages stderr and stdout streams so output is not lost without needing to wait on streams.",
+      "Supports worker process pools with configurable job concurrency and dependency ordering.",
+      "Allows supplying a mocked ProcessManager for easier unit testing."
+    ],
+    "weaknesses": [
+      "Limited to environments that support spawning external processes (not supported on the web)."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "none",
+    "alternatives": [],
+    "minimal_example": "import 'package:process_runner/process_runner.dart';\n\nFuture<void> main() async {\n  ProcessRunner processRunner = ProcessRunner();\n  ProcessRunnerResult result = await processRunner.runProcess(['ls']);\n\n  print('stdout: ${result.stdout}');\n  print('stderr: ${result.stderr}');\n}",
+    "confidence": 1
+  }
+}

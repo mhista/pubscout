@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.0",
+  "generatedAt": "2026-11-08T16:05:08.724Z",
+  "data": {
+    "primary_category": "games",
+    "secondary_categories": [
+      "audio-video"
+    ],
+    "approach": [
+      "imperative",
+      "declarative"
+    ],
+    "one_liner": "Embed Unity 3D games and AR experiences as a Flutter widget on iOS and Android.",
+    "what_it_does": "Allows embedding a Unity 3D project as a widget within a Flutter app for iOS and Android. Enables bi-directional messaging between Flutter and Unity scripts, supporting Unity 2022.3 and Unity 6 LTS.",
+    "use_when": [
+      "You want to embed a Unity game or 3D scene inside a Flutter application",
+      "You need to pass messages back and forth between Flutter and Unity scripts"
+    ],
+    "avoid_when": [
+      "You need multiple simultaneous instances of Unity running on the same screen",
+      "Your app needs to support older Flutter versions or restricted Unity versions"
+    ],
+    "strengths": [
+      "Brings powerful Unity 3D, AR, and gaming capabilities into Flutter",
+      "Supports bi-directional communication between Flutter and Unity",
+      "Federated architecture allows extension for different Unity versions"
+    ],
+    "weaknesses": [
+      "Only supports a single instance of Unity at a time",
+      "High memory usage and Unity remains in memory even after the widget is disposed",
+      "Strict requirements on Unity versions, Flutter versions, and native Android/iOS settings to avoid crashes"
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Requires specific Unity LTS versions, configuring Android activity configChanges, adding UnityFramework.framework in Xcode for iOS, and matching Gradle/NDK/JDK versions.",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:flutter_embed_unity/flutter_embed_unity.dart';\n\nvoid main() {\n  runApp(MaterialApp(\n    home: Scaffold(\n      body: Column(\n        children: [\n          Expanded(\n            child: EmbedUnity(\n              onMessageFromUnity: (String message) {},\n            ),\n          ),\n        ],\n      ),\n    ),\n  ));\n}",
+    "confidence": 0.95
+  }
+}

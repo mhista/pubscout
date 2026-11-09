@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.1.0",
+  "generatedAt": "2026-11-07T11:19:19.909Z",
+  "data": {
+    "primary_category": "localization",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Dart string formatting with Python-style braces and printf mini-languages.",
+    "what_it_does": "Provides Python-style brace formatting and printf-style functions for Dart strings. It supports positional and named values, Unicode-aware alignment, locale-aware numbers, and custom formatters.",
+    "use_when": [
+      "You need Python-style string formatting or printf equivalents in Dart.",
+      "You want advanced numeric padding, alignment, and grouping options without pulling in heavy internationalization packages."
+    ],
+    "avoid_when": [
+      "You only need basic string interpolation (which Dart supports natively).",
+      "You are relying on legacy 1.6.0 patterns like string extensions or ambient global intl state without passing format configurations."
+    ],
+    "strengths": [
+      "High performance with compiled and cached templates.",
+      "Supports both Python-style braces and C-style printf mini-languages.",
+      "Immutable configuration objects allow thread-safe locale and custom formatter handling."
+    ],
+    "weaknesses": [
+      "Error hierarchy is separate from dart:core's FormatException, requiring explicit catch blocks for FormattingException.",
+      "Does not include built-in intl locale support out of the box (requires package:format_intl for advanced intl integration)."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:format/format.dart';\n\nvoid main() {\n  format('{} {}', 'hello', 'world');\n  format('{:08d}', 42);\n}",
+    "confidence": 1
+  }
+}

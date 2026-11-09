@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "5.0.3",
+  "generatedAt": "2026-11-08T15:33:31.159Z",
+  "data": {
+    "primary_category": "forms",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "Add a keyboard toolbar with Done, navigation arrows, and custom panels in Flutter.",
+    "what_it_does": "Provides a floating toolbar in an Overlay for forms and input fields. It automatically handles field discovery, Prev/Next navigation, and scrolling focused fields into view without scroll hacks.",
+    "use_when": [
+      "You need a Done or Submit button above the virtual keyboard in forms or lists.",
+      "You want automatic Previous and Next field navigation without manually managing FocusNodes.",
+      "You are integrating custom keyboards or number pads."
+    ],
+    "avoid_when": [
+      "You are building a desktop-only application where virtual keyboards are not used."
+    ],
+    "strengths": [
+      "Zero FocusNode setup required for basic usage with automatic field discovery.",
+      "Does not hijack scrolling or require setting resizeToAvoidBottomInset to false.",
+      "Supports theming via ThemeExtension and custom keyboards per field."
+    ],
+    "weaknesses": [
+      "Relies on standard text editing and focus mechanics, which might require extra wiring for non-standard text inputs."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "Scaffold(\n  body: KeyboardActions.done(\n    child: ListView(\n      padding: const EdgeInsets.all(20),\n      children: const [\n        TextField(decoration: InputDecoration(labelText: 'Email')),\n        TextField(decoration: InputDecoration(labelText: 'Password'), obscureText: true),\n      ],\n    ),\n  ),\n)",
+    "confidence": 1
+  }
+}

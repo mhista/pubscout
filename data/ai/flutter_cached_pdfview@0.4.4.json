@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.4.4",
+  "generatedAt": "2026-11-08T15:44:22.545Z",
+  "data": {
+    "primary_category": "files",
+    "secondary_categories": [
+      "ui-kits",
+      "storage"
+    ],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "Display native PDF views on Android and iOS from a path, asset, or cached URL.",
+    "what_it_does": "Provides widgets to render native PDF views from various resources like local paths, asset bundles, or network URLs with built-in caching. Supports features such as zooming, swiping horizontally or vertically, jumping to specific pages, and password protection.",
+    "use_when": [
+      "You need to display PDF documents directly inside your Flutter UI on Android and iOS.",
+      "You need to load and cache remote PDFs from URLs automatically."
+    ],
+    "avoid_when": [
+      "You need robust web support (currently listed as 'soon' in the documentation).",
+      "You need advanced custom PDF rendering and manipulation logic in pure Dart rather than native platform views."
+    ],
+    "strengths": [
+      "Supports loading from local paths, assets, and remote URLs with caching.",
+      "Native rendering performance using AndroidPdfViewer and PDFKit.",
+      "Customizable options for page swiping, zooming, night mode, and event callbacks."
+    ],
+    "weaknesses": [
+      "Requires native configuration steps (like modifying Info.plist and Podfile on iOS).",
+      "Web support is not yet fully implemented.",
+      "Some options have platform-specific limitations (e.g., nightMode and pageSnap are Android-only)."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding 'io.flutter.embedded_views_preview' to Info.plist and setting platform to at least iOS 11.0 in the Podfile. For Android with Proguard, you need to keep com.shockwave classes.",
+    "alternatives": [],
+    "minimal_example": "PDF(\n  swipeHorizontal: true,\n).cachedFromUrl('https://ontheline.trincoll.edu/images/bookdown/sample-local-pdf.pdf')",
+    "confidence": 0.95
+  }
+}

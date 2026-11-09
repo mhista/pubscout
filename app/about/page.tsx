@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { SUB_LABELS } from "@/lib/format";
+import { SupportBlurb } from "@/components/SupportButton";
 
 export const metadata: Metadata = { title: "How scoring works" };
 
@@ -50,7 +51,14 @@ export default function About() {
         Alternatives are packages that do the same job and could replace each other, like dio and http. &ldquo;Works with&rdquo; lists packages used together: ones a package depends on, ones built on top of it, and packages from the same family, like firebase_core and firebase_auth. A package never appears in both lists.
       </p>
 
+      <h2 className="mt-10 text-lg">Which packages are included</h2>
+      <p className="mt-3 text-body">
+        pub.dev&apos;s 2,000 most-used packages, plus a hand-picked set of essentials (theming, maps, code generation and more) that stay whatever their rank, plus any package someone{" "}
+        <Link href="/request" className="link">requests</Link>. Everything is refreshed every night. Packages that drop out of the top list for a month are removed so their numbers don&apos;t go stale.
+      </p>
+
       <p className="mt-12"><Link href="/explore" className="btn-cobalt">Explore packages</Link></p>
+      <div className="mt-12"><SupportBlurb /></div>
     </article>
   );
 }

@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.5.0",
+  "generatedAt": "2026-11-08T15:28:21.754Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "files"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Git command line wrapper for inspecting and manipulating local Git repositories.",
+    "what_it_does": "Exposes a Git directory abstraction in Dart that makes it easy to inspect and manipulate a local Git repository. It provides functions to check commit counts, worktrees, branches, and execute git commands programmatically.",
+    "use_when": [
+      "You need to build a Dart or Flutter tool that interacts with local Git repositories.",
+      "You want to programmatically inspect commit history, branches, or check if a working tree is clean."
+    ],
+    "avoid_when": [
+      "You need a full Dart implementation of the Git protocol without depending on the system git executable.",
+      "You are running on a platform that does not have the git command-line tool installed."
+    ],
+    "strengths": [
+      "Provides a clean Dart API over git commands",
+      "Supports features like worktrees, branch tracking, and fetching",
+      "Cross-platform support across Android, iOS, Windows, macOS, and Linux"
+    ],
+    "weaknesses": [
+      "Requires the system git executable to be present on the host device",
+      "Limited to local repository operations"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires the git command-line tool installed and available on the system PATH.",
+    "alternatives": [],
+    "minimal_example": "import 'package:git/git.dart';\nimport 'package:path/path.dart' as p;\n\nFuture<void> main() async {\n  if (await GitDir.isGitDir(p.current)) {\n    final gitDir = await GitDir.fromExisting(p.current);\n    final commitCount = await gitDir.commitCount();\n    print('Git commit count: $commitCount');\n  }\n}",
+    "confidence": 0.95
+  }
+}

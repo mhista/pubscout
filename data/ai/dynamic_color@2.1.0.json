@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.1.0",
+  "generatedAt": "2026-11-07T11:07:07.370Z",
+  "data": {
+    "primary_category": "theming",
+    "secondary_categories": [
+      "layout"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Create Material color schemes based on a platform's implementation of dynamic color.",
+    "what_it_does": "It provides a widget called DynamicColorBuilder that supplies light and dark ColorSchemes based on the host platform's dynamic colors. It also includes extensions for color and color scheme harmonization.",
+    "use_when": [
+      "You want your Flutter app to respect user wallpaper colors on Android S+",
+      "You want to utilize system accent colors on desktop platforms like Windows, macOS, and Linux"
+    ],
+    "avoid_when": [
+      "You require a strict custom brand color palette that must not be influenced by platform settings"
+    ],
+    "strengths": [
+      "Supports multiple platforms including Android, Windows, macOS, and Linux",
+      "Provides built-in color harmonization to keep custom colors cohesive with dynamic colors",
+      "Offers a dedicated DynamicColorBuilder widget for ease of use"
+    ],
+    "weaknesses": [
+      "Dynamic color availability is dependent on OS version and platform features"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the dependency to pubspec.yaml and use DynamicColorBuilder in your app.",
+    "alternatives": [],
+    "minimal_example": "DynamicColorBuilder(\n  builder: (ColorScheme? lightDynamic, ColorScheme? darkDynamic) {\n    return MaterialApp(\n      theme: ThemeData(colorScheme: lightDynamic),\n      darkTheme: ThemeData(colorScheme: darkDynamic),\n    );\n  },\n)",
+    "confidence": 1
+  }
+}

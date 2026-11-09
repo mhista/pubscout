@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.1.4",
+  "generatedAt": "2026-11-07T11:13:29.937Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Configure and define dynamic variables and UI banners for different app flavors.",
+    "what_it_does": "Allows developers to quickly set up environment configurations (such as development, testing, and production) with custom variables and visual banners. It exposes a FlavorConfig for global variables and a FlavorBanner widget to visually indicate the current flavor on screen.",
+    "use_when": [
+      "You need to manage different app environments like dev, test, and production",
+      "You want to display visual flavor banners on your app UI",
+      "You need to store and access flavor-specific variables like base URLs"
+    ],
+    "avoid_when": [
+      "You require deep native-level flavor configurations in Android/iOS build systems without runtime helpers",
+      "You are already using an alternative configuration and state setup that covers your environments"
+    ],
+    "strengths": [
+      "Provides an easy-to-use FlavorBanner widget out of the box",
+      "Allows defining arbitrary environment variables per flavor",
+      "Simple global configuration via FlavorConfig"
+    ],
+    "weaknesses": [
+      "Does not handle native platform-level flavor setup automatically in recent versions",
+      "Limited to runtime configuration approach"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Initialize FlavorConfig in main and wrap your app or MaterialApp in FlavorBanner.",
+    "alternatives": [],
+    "minimal_example": "FlavorConfig(\n    name: \"DEVELOP\",\n    color: Colors.red,\n    location: BannerLocation.bottomStart,\n    variables: {\n        \"counter\": 0,\n        \"baseUrl\": \"https://www.example.com\",\n    }\n);",
+    "confidence": 0.95
+  }
+}

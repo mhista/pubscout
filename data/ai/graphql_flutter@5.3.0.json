@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "5.3.0",
+  "generatedAt": "2026-11-07T11:24:03.201Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [],
+    "approach": [
+      "declarative",
+      "hooks"
+    ],
+    "one_liner": "A GraphQL client for Flutter with widget wrappers and hooks.",
+    "what_it_does": "Provides an idiomatic Flutter API, widgets, and hooks to execute GraphQL queries, mutations, and subscriptions. It supports caching, optimistic UI updates, and pagination out of the box.",
+    "use_when": [
+      "You are building a Flutter app that communicates with a GraphQL backend.",
+      "You want declarative Query and Mutation widgets or hooks in your UI."
+    ],
+    "avoid_when": [
+      "Your backend uses a standard REST API instead of GraphQL.",
+      "You prefer an extremely lightweight HTTP client without schema caching."
+    ],
+    "strengths": [
+      "Comprehensive feature set including caching, pagination, and optimistic mutations.",
+      "Supports both traditional Flutter widgets and flutter_hooks.",
+      "Built-in integration for local persistence stores like Hive."
+    ],
+    "weaknesses": [
+      "Requires specific Android build configurations (Java 17 and Gradle 8.4).",
+      "Can add substantial complexity for simple applications."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires initializing Hive for caching, wrapping your app with GraphQLProvider, and updating Android settings to Java 17 and Gradle 8.4.",
+    "alternatives": [],
+    "minimal_example": "ValueNotifier<GraphQLClient> client = ValueNotifier(GraphQLClient(link: link, cache: GraphQLCache(store: HiveStore())));\n\nGraphQLProvider(\n  client: client,\n  child: MaterialApp(\n    home: Query(\n      options: QueryOptions(document: gql(readRepositories)),\n      builder: (QueryResult result, { VoidCallback? refetch, FetchMore? fetchMore }) {\n        if (result.isLoading) return Text('Loading');\n        return Text('Loaded');\n      },\n    ),\n  ),\n);",
+    "confidence": 1
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.0.0",
+  "generatedAt": "2026-11-08T15:23:39.020Z",
+  "data": {
+    "primary_category": "dependency-injection",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "A simple to use and lightweight dependency injection library for Dart.",
+    "what_it_does": "It stores instances and builders in a Map internally to act as a dependency injection container. You can register dependencies, singletons, or custom factories and retrieve them later using generic types.",
+    "use_when": [
+      "You need a lightweight dependency injection setup without code generation",
+      "You want to register services and look them up anywhere"
+    ],
+    "avoid_when": [
+      "You need a complex dependency injection framework like Dagger"
+    ],
+    "strengths": [
+      "Simple and lightweight",
+      "Supports both dependencies (new instance each time) and singletons",
+      "Lazy loading of instances by default"
+    ],
+    "weaknesses": [
+      "Requires absolute imports for dependencies to avoid issues",
+      "Does not handle complex dependency graphs automatically without manual wiring"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "get_it",
+        "why_pick_it": "A widely used service locator for Dart and Flutter with similar imperative registration."
+      },
+      {
+        "name": "injectable",
+        "why_pick_it": "Provides annotation-based code generation for dependency injection."
+      }
+    ],
+    "minimal_example": "injector.registerSingleton<Car>(() {\n  var engine = injector.get<Engine>();\n  var fuel = injector.get<Fuel>();\n  var driver = injector.get<Driver>();\n  return CarImpl(engine, fuel, driver);\n});",
+    "confidence": 0.95
+  }
+}

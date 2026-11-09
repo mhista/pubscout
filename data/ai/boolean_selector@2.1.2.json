@@ -1,0 +1,37 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.1.2",
+  "generatedAt": "2026-11-07T10:59:16.747Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Parses and evaluates simplified Dart-like boolean expression strings.",
+    "what_it_does": "Defines a flexible syntax for boolean expressions containing identifiers, parentheses, and operators like ||, &&, !, and ? :. It parses these expressions from strings into a BooleanSelector object and evaluates them against a set of variables supplied via a function.",
+    "use_when": [
+      "You need to allow users or configuration files to define boolean expressions and filtering rules.",
+      "You want a syntax closely resembling Dart's expression language for boolean logic."
+    ],
+    "avoid_when": [
+      "You only need standard boolean evaluations natively supported by Dart without parsing strings.",
+      "You need full general-purpose math or string expression evaluation beyond booleans."
+    ],
+    "strengths": [
+      "Provides a simple and flexible syntax based on Dart's expression syntax.",
+      "Supports identifiers with hyphens and standard boolean operators."
+    ],
+    "weaknesses": [
+      "Limited to boolean expressions only.",
+      "Not documented for complex macro or state management systems beyond evaluating string expressions."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:boolean_selector/boolean_selector.dart';\n\nvoid main(List<String> args) {\n  var selector = BooleanSelector.parse(\"(x && y) || z\");\n  print(selector.evaluate((variable) => args.contains(variable)));\n}",
+    "confidence": 0.95
+  }
+}

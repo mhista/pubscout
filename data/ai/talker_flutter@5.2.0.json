@@ -1,0 +1,52 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "5.2.0",
+  "generatedAt": "2026-11-08T15:14:08.876Z",
+  "data": {
+    "primary_category": "devtools",
+    "secondary_categories": [
+      "utils",
+      "device"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Advanced error handler and logger package for Flutter and Dart applications",
+    "what_it_does": "Talker provides a comprehensive error handling and logging ecosystem for Flutter and Dart. It allows developers to log custom messages, catch and handle exceptions, monitor application history, display logs on-screen, and share error reports.",
+    "use_when": [
+      "You need detailed on-device and console logging during development",
+      "You want an in-app UI screen to inspect application logs and history",
+      "You need structured logging for HTTP, BLoC, Riverpod, or gRPC"
+    ],
+    "avoid_when": [
+      "You only need a simple, lightweight print replacement with zero extra features",
+      "You require an off-device production-only crash reporting service without local UI needs"
+    ],
+    "strengths": [
+      "Rich ecosystem of plugins for Dio, BLoC, Riverpod, HTTP, and gRPC",
+      "Built-in UI screen (TalkerScreen) for inspecting logs directly inside the app",
+      "Customizable log formats, colors, and observers"
+    ],
+    "weaknesses": [
+      "Adds multiple package dependencies depending on which integrations are used",
+      "Can increase app bundle size if extensive history tracking is retained in production"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Simply add talker or talker_flutter to pubspec.yaml and instantiate Talker().",
+    "alternatives": [
+      {
+        "name": "logger",
+        "why_pick_it": "Choose logger if you just want a simple, highly customizable pretty printer for console logs without UI screens or advanced error reporting workflows."
+      },
+      {
+        "name": "sentry",
+        "why_pick_it": "Choose sentry if you want dedicated cloud-based error tracking and performance monitoring rather than an on-device log viewer."
+      }
+    ],
+    "minimal_example": "import 'package:talker/talker.dart';\n\nfinal talker = Talker();\ntalker.warning('The pizza is over 5');\ntry {\n  throw Exception('The restaurant is closed');\n} catch (e, st) {\n  talker.handle(e, st);\n}",
+    "confidence": 1
+  }
+}

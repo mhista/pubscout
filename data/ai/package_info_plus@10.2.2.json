@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "10.2.2",
+  "generatedAt": "2026-11-07T16:24:11.423Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Flutter plugin to query app package info like version, build number and installer store.",
+    "what_it_does": "Provides a cross‑platform API to read the application name, package identifier, version, build number and the store that installed the app. Supports Android, iOS, macOS, Linux, Windows and Web.",
+    "use_when": [
+      "You need to display or log the app's version/build information.",
+      "You want to redirect users to the correct app store for ratings or updates."
+    ],
+    "avoid_when": [
+      "You require real‑time device sensors or hardware info unrelated to the app package."
+    ],
+    "strengths": [
+      "Full platform coverage including web and desktop.",
+      "Provides installerStore info for store‑specific flows.",
+      "Zero runtime dependencies beyond Flutter core."
+    ],
+    "weaknesses": [
+      "Requires native configuration for each platform (e.g., Gradle, Xcode).",
+      "Installer store may be null on some Android devices."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add the plugin to pubspec.yaml; on Android ensure Gradle and Kotlin versions meet requirements; on iOS configure minimum iOS version and run pod install; no extra permissions needed.",
+    "alternatives": [
+      {
+        "name": "device_info_plus",
+        "why_pick_it": "Offers broader device hardware details but also includes package info; useful if you need both sets of data."
+      }
+    ],
+    "minimal_example": "import 'package:package_info_plus/package_info_plus.dart';\n\nFuture<void> printInfo() async {\n  WidgetsFlutterBinding.ensureInitialized();\n  final info = await PackageInfo.fromPlatform();\n  print('App: ${info.appName}, Version: ${info.version} (${info.buildNumber})');\n}",
+    "confidence": 0.97
+  }
+}

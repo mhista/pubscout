@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.2.1",
+  "generatedAt": "2026-11-08T15:23:46.970Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Implements RFC 6901 JSON Pointer for reading, writing and removing values in JSON documents.",
+    "what_it_does": "Provides a Dart implementation of the JSON Pointer standard (RFC 6901). You can parse or build pointers, then read, write or remove the referenced value in a decoded JSON structure. All operations are pure and return new copies of the document.",
+    "use_when": [
+      "You need to navigate or modify JSON data by pointer paths without adding dependencies",
+      "You want a small, test‑covered library that follows the RFC exactly"
+    ],
+    "avoid_when": [
+      "You require full JSONPath or query capabilities",
+      "You need schema validation or complex transformation logic"
+    ],
+    "strengths": [
+      "Zero external dependencies",
+      "Complete RFC 6901 support including the '-' token",
+      "100 % test coverage and simple API"
+    ],
+    "weaknesses": [
+      "Only handles pointer operations, no JSONPath or advanced querying",
+      "No code generation or async features"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'dart:convert';\nimport 'package:rfc_6901/rfc_6901.dart';\n\nvoid main() {\n  const json = '{\"foo\": [{\"bar\": 42}]}';\n  final doc = jsonDecode(json);\n  final pointer = JsonPointer('/foo/0/bar');\n  print(pointer.read(doc)); // 42\n  final updated = pointer.write(doc, 'banana');\n  print(updated);\n}",
+    "confidence": 0.97
+  }
+}

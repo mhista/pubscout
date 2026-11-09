@@ -1,0 +1,47 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.0.1",
+  "generatedAt": "2026-11-08T15:38:26.363Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "Verifies active internet connectivity and detects slow connections by checking accessible URIs.",
+    "what_it_does": "Checks for actual internet access by pinging or requesting accessible URIs, overcoming limitations of basic connection state plugins. Provides streams for tracking connectivity changes and supports slow connection detection.",
+    "use_when": [
+      "You need to verify if the device has actual internet access rather than just a local network link.",
+      "Your app needs to react dynamically to internet connection availability changes.",
+      "You want to detect slow internet connections to manage user experience."
+    ],
+    "avoid_when": [
+      "You only need to know basic local network availability without verifying server reachability.",
+      "You fail to dispose of instances or listeners, risking memory leaks."
+    ],
+    "strengths": [
+      "Reliable actual internet check rather than just checking network hardware status.",
+      "Supports status change streams for reactive applications.",
+      "Cross-platform support including Android, iOS, macOS, Web, Linux, and Windows."
+    ],
+    "weaknesses": [
+      "Requires manual disposal of instances and stream subscriptions to prevent memory leaks.",
+      "Network requests to external URIs can consume battery or data if checked too frequently."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "On Android, add INTERNET and ACCESS_NETWORK_STATE permissions to AndroidManifest.xml. On macOS, add network entitlements.",
+    "alternatives": [
+      {
+        "name": "connectivity_plus",
+        "why_pick_it": "Use if you only need the device's basic network state (Wi-Fi/Cellular) and don't require actual server reachability checks."
+      }
+    ],
+    "minimal_example": "import 'package:internet_connection_checker/internet_connection_checker.dart';\n\nvoid main() async {\n  final bool isConnected = await InternetConnectionChecker.instance.hasConnection;\n  if (isConnected) {\n    print('Device is connected to the internet');\n  } else {\n    print('Device is not connected to the internet');\n  }\n}",
+    "confidence": 0.95
+  }
+}

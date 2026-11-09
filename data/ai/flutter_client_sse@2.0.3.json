@@ -1,0 +1,37 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.3",
+  "generatedAt": "2026-11-08T15:46:14.570Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [],
+    "approach": [
+      "stream-based"
+    ],
+    "one_liner": "Consume Server-Sent Events (SSE) APIs with support for GET and POST requests.",
+    "what_it_does": "Allows Flutter and Dart applications to connect to Server-Sent Events endpoints using GET or POST requests with custom headers and body payloads. It streams parsed events providing the event ID, event type, and data payload.",
+    "use_when": [
+      "You need to consume a Server-Sent Events (SSE) stream from a backend",
+      "You need to send custom headers or a request body with your SSE connection"
+    ],
+    "avoid_when": [
+      "You are using WebSockets for bidirectional real-time communication"
+    ],
+    "strengths": [
+      "Supports both GET and POST requests for SSE",
+      "Auto-retry mechanism for connection errors and backend downtime",
+      "Parses event id, event type, and data out of the box"
+    ],
+    "weaknesses": [
+      "Limited documentation outside of basic README examples",
+      "Topics not documented"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Not documented",
+    "alternatives": [],
+    "minimal_example": "SSEClient.subscribeToSSE(\n    method: SSERequestType.GET,\n    url: 'http://192.168.1.2:3000/api/activity-stream',\n    header: {\n        \"Accept\": \"text/event-stream\",\n    }).listen((event) {\n        print('Id: ' + event.id!);\n        print('Event: ' + event.event!);\n        print('Data: ' + event.data!);\n    },\n);",
+    "confidence": 0.95
+  }
+}

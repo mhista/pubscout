@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.5.2",
+  "generatedAt": "2026-11-07T10:55:49.428Z",
+  "data": {
+    "primary_category": "animation",
+    "secondary_categories": [
+      "widgets",
+      "layout"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A Flutter ListView that implicitly animates list changes and supports item reordering.",
+    "what_it_does": "It calculates the differences between two lists using the MyersDiff algorithm and automatically animates insertions, removals, updates, and reorderings. It includes custom widgets like ImplicitlyAnimatedList, ImplicitlyAnimatedReorderableList, and sliver variants.",
+    "use_when": [
+      "You need a ListView that smoothly animates items when list data changes.",
+      "You want reorderable list items with smooth custom animations and handle triggers.",
+      "You want to calculate list differences automatically via the MyersDiff algorithm."
+    ],
+    "avoid_when": [
+      "You are rendering extremely large lists where background diff computation causes performance overhead.",
+      "You only need standard static lists without item insertion or removal animations."
+    ],
+    "strengths": [
+      "Automatically handles item insertions, removals, and updates with animations.",
+      "Built-in reordering support via ImplicitlyAnimatedReorderableList.",
+      "Computes diffs on a background isolate by default to keep the UI thread smooth."
+    ],
+    "weaknesses": [
+      "Package is in an early phase with limited testing for long-term stability.",
+      "Computing diffs on very large lists can take significant time."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "ImplicitlyAnimatedList<MyGenericType>(\n  items: items,\n  areItemsTheSame: (a, b) => a.id == b.id,\n  itemBuilder: (context, animation, item, index) {\n    return SizeFadeTransition(\n      sizeFraction: 0.7,\n      curve: Curves.easeInOut,\n      animation: animation,\n      child: Text(item.name),\n    );\n  },\n);",
+    "confidence": 0.95
+  }
+}

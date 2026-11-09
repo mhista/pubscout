@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.8.0",
+  "generatedAt": "2026-11-08T15:44:10.358Z",
+  "data": {
+    "primary_category": "images",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Read and write EXIF metadata of images using native Android and iOS functions.",
+    "what_it_does": "Allows Flutter developers to read, write, and manage EXIF and GPS metadata attributes of images using native iOS and Android platform capabilities. It provides methods to extract specific tags like original dates, latitudes, and longitudes, as well as update raw EXIF string values.",
+    "use_when": [
+      "You need to read creation dates or location coordinates from device photos.",
+      "You need to inject or modify EXIF metadata attributes in images on iOS or Android."
+    ],
+    "avoid_when": [
+      "You need to manipulate EXIF data on platforms other than iOS and Android (such as Web or Desktop).",
+      "You require robust handling of non-ASCII characters when writing metadata on Android."
+    ],
+    "strengths": [
+      "Uses native Android and iOS functions for reliable EXIF processing.",
+      "Supports both reading and writing of attributes and GPS coordinates."
+    ],
+    "weaknesses": [
+      "Only works on Android and iOS.",
+      "Android implementation can currently only write ASCII characters correctly.",
+      "Requires manual cleanup via the close method to free memory."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires iOS >= 13.0, Dart >= 3.11, and Flutter >= 3.41.",
+    "alternatives": [],
+    "minimal_example": "final exif = await Exif.fromPath(pickedFile!.path);\nfinal originalDate = await exif.getOriginalDate();\nfinal latLong = await exif.getLatLong();\nawait exif.close();",
+    "confidence": 1
+  }
+}

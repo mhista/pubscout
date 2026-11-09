@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.2.0",
+  "generatedAt": "2026-11-08T15:49:38.435Z",
+  "data": {
+    "primary_category": "files",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Converts HTML and Markdown content into high-quality PDF widgets.",
+    "what_it_does": "Parses HTML strings and Markdown text into structured PDF widgets with a layout-first rendering pipeline. It handles CSS box models, tables, math formulas, lists, and images for generating PDF documents.",
+    "use_when": [
+      "You need to generate PDFs from HTML strings or templates.",
+      "You need to convert Markdown documentation into styled PDF pages."
+    ],
+    "avoid_when": [
+      "You require a full headless browser engine for complex JavaScript-heavy web pages."
+    ],
+    "strengths": [
+      "Supports a wide array of HTML elements, CSS box models, and flexbox features.",
+      "Includes MathML support for rendering mathematical notations.",
+      "Direct Markdown to PDF conversion."
+    ],
+    "weaknesses": [
+      "Relies on the provided package implementation rather than a native headless browser, meaning complex CSS layouts might differ from actual browser rendering."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:htmltopdfwidgets/htmltopdfwidgets.dart';\n\nvoid main() async {\n  final widgets = await HTMLToPdf().convert(\n    '<h1>Hello World</h1>',\n    useNewEngine: true,\n  );\n  final pdf = Document();\n  pdf.addPage(MultiPage(build: (context) => widgets));\n}",
+    "confidence": 0.95
+  }
+}

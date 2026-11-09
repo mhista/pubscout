@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "5.0.1",
+  "generatedAt": "2026-11-08T15:41:49.844Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Flutter plugin for network service discovery and registration (mDNS, Bonjour, DNS-SD).",
+    "what_it_does": "A Flutter plugin that allows applications to discover network services and register local services on the local network using mDNS, DNS-SD, and Bonjour protocols.",
+    "use_when": [
+      "You need to discover local network devices or services like printers or media servers.",
+      "You are building local multi-player games or peer-to-peer applications."
+    ],
+    "avoid_when": [
+      "You need to communicate over the public internet via traditional REST/GraphQL APIs."
+    ],
+    "strengths": [
+      "Supports multiple platforms including Android, iOS, macOS, and Windows.",
+      "Provides automatic IP address lookup options for discovered services."
+    ],
+    "weaknesses": [
+      "Requires platform-specific configuration and permissions for Android and iOS.",
+      "Requires minimum OS versions (Android 5.0, iOS 13.0, macOS 10.15, Windows 10)."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding INTERNET and multicast permissions to AndroidManifest.xml and NSLocalNetworkUsageDescription / NSBonjourServices keys to iOS Info.plist.",
+    "alternatives": [],
+    "minimal_example": "import 'package:nsd/nsd.dart';\n\nfinal discovery = await startDiscovery('_http._tcp');\ndiscovery.addListener(() {\n  // discovery.services contains discovered services\n});\n\n// ...\n\nawait stopDiscovery(discovery);",
+    "confidence": 0.95
+  }
+}

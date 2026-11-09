@@ -1,0 +1,54 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.18.0",
+  "generatedAt": "2026-11-08T15:42:32.650Z",
+  "data": {
+    "primary_category": "ai-ml",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Cross-platform on-device LLM inference for Dart and Flutter.",
+    "what_it_does": "Runs GGUF (llama.cpp) and LiteRT-LM models locally on Android, iOS, macOS, Windows, Linux, and web behind a unified Dart API. Supports streaming chat, structured JSON output, tool calling, embeddings, and multimodal inputs.",
+    "use_when": [
+      "You need on-device LLM inference without depending on a cloud backend.",
+      "You want to run GGUF or LiteRT-LM models in a Dart or Flutter application."
+    ],
+    "avoid_when": [
+      "Your application targets low-memory devices that cannot handle local model execution.",
+      "You prefer relying entirely on remote cloud APIs like OpenAI."
+    ],
+    "strengths": [
+      "Supports multiple platforms including mobile, desktop, and web.",
+      "Provides streaming chat, tool calling, and multimodal capabilities.",
+      "Eliminates the need for a local C++ toolchain via build hooks."
+    ],
+    "weaknesses": [
+      "Requires substantial local storage and memory for model files.",
+      "Web support is experimental and requires specific bridge assets setup."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires downloading or parsing model files, setting platform deployment targets (e.g., iOS 16.4+, macOS 14.0+), and adding native companion packages for Apple platforms.",
+    "alternatives": [
+      {
+        "name": "openai_dart",
+        "why_pick_it": "If you want to use cloud-based OpenAI models instead of running models locally on-device."
+      },
+      {
+        "name": "tflite_flutter",
+        "why_pick_it": "If you are specifically targeting TensorFlow Lite models for general machine learning tasks rather than LLMs."
+      },
+      {
+        "name": "firebase_ai",
+        "why_pick_it": "If you want to leverage Firebase-hosted AI capabilities instead of local on-device inference."
+      }
+    ],
+    "minimal_example": "import 'package:llamadart/llamadart.dart';\n\nFuture<void> main() async {\n  final engine = await LlamaEngine.load(\n    LlamaModel(\n      ModelSource.parse(\n        'hf://unsloth/SmolLM2-135M-Instruct-GGUF/'\n        'SmolLM2-135M-Instruct-Q2_K.gguf',\n      ),\n    ),\n  );\n\n  try {\n    final reply = await engine.create(\n      const [\n        LlamaChatMessage.fromText(\n          role: LlamaChatRole.user,\n          text: 'Explain local inference in one sentence.',\n        ),\n      ],\n      params: const GenerationParams(maxTokens: 48),\n    ).text();\n    print(reply);\n  } finally {\n    await engine.dispose();\n  }\n}",
+    "confidence": 0.95
+  }
+}

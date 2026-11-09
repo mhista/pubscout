@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.7.0",
+  "generatedAt": "2026-11-07T10:57:49.871Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Periodic background callbacks and task scheduling for iOS and Android.",
+    "what_it_does": "Attempts to awaken an app in the background approximately every 15 minutes to execute a provided callback function. It includes an Android Headless implementation for handling events post-app-termination and supports scheduling arbitrary one-shot or periodic tasks.",
+    "use_when": [
+      "You need to periodically execute short tasks in the background on iOS and Android",
+      "You need an Android Headless implementation to handle events after app termination",
+      "You want to schedule arbitrary one-shot or periodic background tasks"
+    ],
+    "avoid_when": [
+      "You require exact-timing background execution faster than every 15 minutes",
+      "You need reliable background event termination handling on iOS (iOS does not support stopOnTerminate: false)",
+      "You are relying on immediate background execution on iOS without Apple's machine learning algorithm settling in"
+    ],
+    "strengths": [
+      "Provides background fetch functionality across both iOS and Android platforms",
+      "Includes Android Headless task implementation for handling events after app termination",
+      "Supports scheduling arbitrary one-shot or periodic tasks via scheduleTask"
+    ],
+    "weaknesses": [
+      "Event frequency is throttled by the operating system and cannot be set faster than 15 minutes",
+      "iOS stops firing events when the app is terminated (`stopOnTerminate: false` is not supported on iOS)",
+      "iOS can take days to begin regularly firing events based on Apple's machine-learning algorithm"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires platform-specific setup guides for both iOS and Android as documented on the Transistor Software documentation site.",
+    "alternatives": [],
+    "minimal_example": "BackgroundFetch.configure(BackgroundFetchConfig(\n  minimumFetchInterval: 15,\n  stopOnTerminate: false,\n  enableHeadless: true,\n  requiredNetworkType: BackgroundFetch.NETWORK_TYPE_NONE\n), (String taskId) async {\n  print('[BackgroundFetch] Event received: $taskId');\n  BackgroundFetch.finish(taskId);\n});",
+    "confidence": 0.95
+  }
+}

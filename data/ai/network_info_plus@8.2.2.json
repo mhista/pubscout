@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "8.2.2",
+  "generatedAt": "2026-11-08T15:28:09.259Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Flutter plugin for discovering network and WiFi details.",
+    "what_it_does": "Allows Flutter apps to discover network information such as WiFi name, BSSID, IP address, IPv6, submask, broadcast, and gateway IP. Supports Android, iOS, macOS, Linux, and Windows platforms.",
+    "use_when": [
+      "You need to retrieve the current WiFi SSID or BSSID inside your app",
+      "You need to know the device's local network IP configuration"
+    ],
+    "avoid_when": [
+      "You are targeting the Web platform where network info is not supported",
+      "You cannot meet platform-specific permission requirements for location or WiFi information"
+    ],
+    "strengths": [
+      "Cross-platform support covering Android, iOS, macOS, Linux, and Windows",
+      "Part of the official fluttercommunity plus plugins set"
+    ],
+    "weaknesses": [
+      "Requires specific location and network state permissions on Android and iOS to fetch WiFi details",
+      "iOS restricts WiFi SSID/BSSID retrieval unless specific conditions and entitlements are met"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires platform-specific configuration such as location permissions on Android, and 'Access Wi-Fi information' entitlement and location usage descriptions on iOS.",
+    "alternatives": [],
+    "minimal_example": "import 'package:network_info_plus/network_info_plus.dart';\n\nfinal info = NetworkInfo();\nfinal wifiName = await info.getWifiName();\nfinal wifiIP = await info.getWifiIP();",
+    "confidence": 1
+  }
+}

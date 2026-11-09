@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "7.1.6",
+  "generatedAt": "2026-11-07T10:59:16.968Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "device",
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "A Zeroconf library to discover network services and broadcast your own.",
+    "what_it_does": "Bonsoir is a Zeroconf library based on Apple Bonjour and Android NSD. It allows Flutter apps to broadcast network services and discover other services on the local network.",
+    "use_when": [
+      "You need local network service discovery between devices.",
+      "You want to broadcast a service (like a local server) for other devices to find."
+    ],
+    "avoid_when": [
+      "You need communication over the internet rather than a local network.",
+      "Target platforms do not support mDNS or local networking."
+    ],
+    "strengths": [
+      "Cross-platform support (Android, iOS, Windows, macOS, Linux).",
+      "Stream-based discovery events for monitoring found, resolved, updated, and lost services."
+    ],
+    "weaknesses": [
+      "Platform and service-dependent address families can require careful handling of IPv4/IPv6 addresses.",
+      "Requires platform-specific configuration for local network usage."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires native configuration as detailed on the Bonsoir website and local network permissions.",
+    "alternatives": [],
+    "minimal_example": "BonsoirService service = BonsoirService(name: 'My service', type: '_service._tcp', port: 3030);\nBonsoirBroadcast broadcast = BonsoirBroadcast(service: service);\nawait broadcast.initialize();\nawait broadcast.start();",
+    "confidence": 0.95
+  }
+}

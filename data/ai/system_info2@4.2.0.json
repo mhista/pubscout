@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.2.0",
+  "generatedAt": "2026-11-08T15:23:26.731Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Provides easy access to system information like architecture, kernel, memory, OS, CPU, and user.",
+    "what_it_does": "It retrieves hardware and operating system characteristics such as kernel architecture, bitness, version, operating system name, user details, and memory limits. It allows querying specific host system properties directly in Dart.",
+    "use_when": [
+      "You need to detect the host operating system or architecture at runtime.",
+      "You want to query available physical or virtual memory.",
+      "You need user directory or identification details on desktop or mobile environments."
+    ],
+    "avoid_when": [
+      "You need real-time polling of memory in a latency-sensitive UI loop on Windows (as synchronous PowerShell calls can be slow).",
+      "PowerShell is disabled or restricted by policy on the target Windows environment."
+    ],
+    "strengths": [
+      "Simplifies retrieval of low-level system and hardware details.",
+      "Supports multiple platforms including Android, iOS, Windows, macOS, and Linux."
+    ],
+    "weaknesses": [
+      "Windows memory queries spawn local PowerShell processes which can be slow and are not suited for tight polling loops.",
+      "May throw a StateError if Windows PowerShell/CIM fails or is blocked."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "On Windows, PowerShell (powershell.exe) must be available on the PATH with CimCmdlets and local WMI/CIM providers enabled for memory queries.",
+    "alternatives": [],
+    "minimal_example": "if (SysInfo.operatingSystemName == \"Ubuntu\") {\n  log.info(\"We love Ubuntu users\");\n}",
+    "confidence": 1
+  }
+}

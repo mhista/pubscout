@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.2.0",
+  "generatedAt": "2026-11-08T15:42:44.325Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "declarative"
+    ],
+    "one_liner": "Kotlin and Swift inspired Result class for error handling in Dart and Flutter.",
+    "what_it_does": "Provides a Result and AsyncResult implementation to encapsulate success or failure values, reducing the need for try-catch blocks. Includes operators like map, flatMap, fold, and recover for transforming and handling outcomes.",
+    "use_when": [
+      "You want to return success or failure states cleanly without throwing exceptions.",
+      "You need functional error handling operators like map, flatMap, and fold.",
+      "You are writing asynchronous functions that can fail and want to use AsyncResult."
+    ],
+    "avoid_when": [
+      "Your architecture heavily relies on throwing and catching exceptions across the entire codebase.",
+      "You already use another functional programming package with its own comprehensive Either or Result type like dartz or fpdart."
+    ],
+    "strengths": [
+      "Reduces boilerplate by defaulting failure types to Exception.",
+      "Includes a wide range of transformation and recovery operators.",
+      "Supports asynchronous workflows via AsyncResult typedef."
+    ],
+    "weaknesses": [
+      "Does not provide full functional programming suites like dartz or fpdart.",
+      "Requires adopting a Result return type convention throughout the codebase."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "Result<String> getSomethingPretty() {\n  if (isOk) {\n    return Success('OK!');\n  } else {\n    return Failure(Exception('Not Ok!'));\n  }\n}",
+    "confidence": 1
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "23.0.0",
+  "generatedAt": "2026-11-07T11:09:49.898Z",
+  "data": {
+    "primary_category": "codegen",
+    "secondary_categories": [],
+    "approach": [
+      "code generation"
+    ],
+    "one_liner": "Generator for FFI bindings, using LibClang to parse C, Objective-C, and Swift files.",
+    "what_it_does": "FFIgen parses C, Objective-C, and Swift header files using LibClang to generate Dart FFI binding boilerplate. It automates calling native code from Dart via a programmatic generator API.",
+    "use_when": [
+      "You need to call C or Objective-C native libraries from Dart.",
+      "You want to avoid manually writing Dart FFI bindings for large native headers."
+    ],
+    "avoid_when": [
+      "You are writing a pure Dart app with no native interop requirements.",
+      "You only need simple bindings that are faster to write by hand."
+    ],
+    "strengths": [
+      "Automates generating complex Dart FFI bindings from native headers.",
+      "Supports C, Objective-C, and experimental C++ features."
+    ],
+    "weaknesses": [
+      "Requires LLVM and LibClang installed on the host system to run.",
+      "YAML configuration format is deprecated in favor of the programmatic Dart API."
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Requires LLVM / libclang installed on your operating system (e.g., libclang-dev on Linux, LLVM on Windows via winget/installer, or Xcode command line tools on macOS).",
+    "alternatives": [],
+    "minimal_example": "import 'package:ffigen/ffigen.dart';\nimport 'dart:io';\n\nFuture<void> main() async {\n  final packageRoot = Platform.script.resolve('../');\n  final generator = FfiGenerator(\n    output: Output(dart: DartOutput(path: packageRoot.resolve('lib/add.g.dart'))),\n    input: Input(entryPoints: [packageRoot.resolve('src/add.h')]),\n  );\n  await generator.generate();\n}",
+    "confidence": 1
+  }
+}

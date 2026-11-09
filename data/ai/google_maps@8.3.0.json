@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "8.3.0",
+  "generatedAt": "2026-11-07T11:22:20.086Z",
+  "data": {
+    "primary_category": "maps",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Use the Google Maps JavaScript API directly from Dart scripts.",
+    "what_it_does": "Provides a Dart wrapper for the Google Maps JavaScript API v3, allowing developers to interact with maps, markers, and services entirely through Dart. It covers the full API and its additional libraries using wasm-safe JS-interop via package:web.",
+    "use_when": [
+      "You are building a web application in Dart and want direct access to the Google Maps JavaScript API.",
+      "You need comprehensive coverage of all Google Maps JavaScript libraries."
+    ],
+    "avoid_when": [
+      "You are building a mobile-first app using Flutter (use google_maps_flutter instead).",
+      "You prefer a declarative Flutter widget approach over dealing with raw JavaScript bindings and HTML elements."
+    ],
+    "strengths": [
+      "Covers all Google Maps JavaScript API v3 features and libraries.",
+      "Migrated to wasm-safe JS-interop using package:web.",
+      "Actively updated against official Google Maps documentation."
+    ],
+    "weaknesses": [
+      "Designed specifically for web/Dart scripts, not native Flutter mobile widgets.",
+      "Requires manual inclusion of the Google Maps JavaScript script tag in HTML.",
+      "Does not support alpha or beta elements/libraries."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the package dependency and include the Google Maps JavaScript API script tag with your API key in your HTML file.",
+    "alternatives": [
+      {
+        "name": "google_maps_flutter_web",
+        "why_pick_it": "If you want to use the standard Flutter google_maps_flutter plugin implementation specifically for the web platform rather than raw JavaScript bindings."
+      }
+    ],
+    "minimal_example": "import 'package:google_maps/google_maps.dart';\nimport 'package:web/web.dart';\n\nvoid main() {\n  final mapOptions = MapOptions()\n    ..zoom = 8\n    ..center = LatLng(-34.397, 150.644);\n  GMap(document.getElementById('map-canvas') as HTMLElement, mapOptions);\n}",
+    "confidence": 1
+  }
+}

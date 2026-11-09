@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.9.1",
+  "generatedAt": "2026-11-08T15:26:15.983Z",
+  "data": {
+    "primary_category": "files",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Pure Dart PDF rendering and manipulation API built on top of PDFium.",
+    "what_it_does": "pdfrx_engine provides low-level PDF document APIs for viewing, editing, combining PDF documents, and importing images without any Flutter dependencies. It relies on PDFium bindings to support rendering pages to bitmaps, extracting text, handling links, and creating or modifying PDF files in pure Dart applications, CLI tools, or server-side environments.",
+    "use_when": [
+      "Building CLI tools or server applications that process PDFs in pure Dart",
+      "You need PDF rendering and manipulation capabilities without Flutter UI dependencies",
+      "Creating custom PDF processing pipelines or combining multiple PDF documents"
+    ],
+    "avoid_when": [
+      "You are building a Flutter application and need high-level UI widgets like ready-to-use PDF viewers",
+      "You prefer an all-in-one Flutter plugin with built-in UI, text selection, and zoom controls (use pdfrx instead)"
+    ],
+    "strengths": [
+      "Platform-agnostic and works in pure Dart environments without Flutter dependencies",
+      "Built on top of PDFium for robust PDF rendering and manipulation",
+      "Supports page combining, image-to-PDF conversion, text extraction, and link loading"
+    ],
+    "weaknesses": [
+      "Native builds require a C toolchain to compile a small bundled library for thread safety",
+      "Does not include Flutter UI widgets or high-level viewer controls by itself"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires calling pdfrxInitialize() before using any PDF engine APIs. Native builds also require a C toolchain to compile the bundled library that prevents simultaneous PDFium access.",
+    "alternatives": [],
+    "minimal_example": "import 'dart:io';\nimport 'package:pdfrx_engine/pdfrx_engine.dart';\n\nvoid main() async {\n  await pdfrxInitialize();\n\n  final document = await PdfDocument.openFile('test.pdf');\n  try {\n    if (document.pages.isEmpty) return;\n    final page = document.pages.first;\n    final pageImage = await page.render(\n      width: (page.width * 200 / 72).round(),\n      height: (page.height * 200 / 72).round(),\n    );\n    if (pageImage == null) return;\n    try {\n      final image = pageImage.createImageNF();\n      await File('output.png').writeAsBytes(img.encodePng(image));\n    } finally {\n      pageImage.dispose();\n    }\n  } finally {\n    await document.dispose();\n  }\n}",
+    "confidence": 0.95
+  }
+}

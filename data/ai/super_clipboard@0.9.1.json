@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.9.1",
+  "generatedAt": "2026-11-08T15:33:13.409Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "files",
+      "web-desktop"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Comprehensive clipboard access package supporting rich text, images, and custom data formats.",
+    "what_it_does": "Provides low-level and platform-agnostic clipboard reading and writing capabilities for Flutter applications. Supports standard formats like plain text, HTML, and images across Android, iOS, Web, Windows, macOS, and Linux.",
+    "use_when": [
+      "You need to read or write rich text, HTML, or images to the system clipboard.",
+      "You want cross-platform clipboard support including desktop and web.",
+      "You need to provide alternative representations of data on demand."
+    ],
+    "avoid_when": [
+      "You only need basic string-only clipboard operations already covered by standard Flutter or lighter plugins.",
+      "You want to avoid native Rust dependencies or automated toolchain downloads during build."
+    ],
+    "strengths": [
+      "Supports rich media formats like images and HTML out of the box.",
+      "Works across a wide range of platforms including desktop and web.",
+      "Supports custom data formats and lazy/on-demand data providing."
+    ],
+    "weaknesses": [
+      "Uses Rust internally, which increases build setup complexity and first-build times.",
+      "Requires NDK configuration and custom provider definitions on Android for certain features.",
+      "Plugin is in early stages of development and experimental."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires Rust toolchain (or automatically downloads precompiled binaries/rustup). Android requires setting minSdkVersion to at least 23 and adding a content provider in AndroidManifest.xml for writing images and custom data.",
+    "alternatives": [],
+    "minimal_example": "final clipboard = SystemClipboard.instance;\nif (clipboard != null) {\n  final reader = await clipboard.read();\n  if (reader.canProvide(Formats.plainText)) {\n    final text = await reader.readValue(Formats.plainText);\n  }\n}",
+    "confidence": 0.95
+  }
+}

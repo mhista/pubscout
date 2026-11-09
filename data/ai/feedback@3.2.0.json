@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "3.2.0",
+  "generatedAt": "2026-11-07T11:09:34.997Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Widget to collect annotated screenshots and text feedback from users",
+    "what_it_does": "The package provides a `BetterFeedback` widget that wraps your app and exposes a controller to show a feedback panel. Users can annotate a screenshot of the current screen and add text, then submit the feedback.",
+    "use_when": [
+      "You need a quick way to collect user feedback within the app",
+      "You want to support annotated screenshots and text feedback",
+      "You need a web‑friendly solution that works with CanvasKit"
+    ],
+    "avoid_when": [
+      "You require extensive customization of the feedback UI beyond the provided options",
+      "You need a built‑in backend integration (you’ll need to use plugins or custom code)"
+    ],
+    "strengths": [
+      "Easy to integrate – just wrap the app and call the controller",
+      "Supports multiple languages and dark mode",
+      "Web support with CanvasKit renderer",
+      "Plugins available for GitLab, Sentry, etc."
+    ],
+    "weaknesses": [
+      "Limited customization of the feedback UI",
+      "No built‑in backend upload – requires plugins or custom code"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add `feedback: ^3.2.0` to pubspec, wrap your app in `BetterFeedback`, then call `BetterFeedback.of(context).show(...)`",
+    "alternatives": [],
+    "minimal_example": "```dart\nimport 'package:feedback/feedback.dart';\nimport 'package:flutter/material.dart';\n\nvoid main() {\n  runApp(\n    BetterFeedback(\n      child: const MyApp(),\n    ),\n  );\n}\n\nclass MyApp extends StatelessWidget {\n  const MyApp({super.key});\n  @override\n  Widget build(BuildContext context) {\n    return MaterialApp(\n      home: Scaffold(\n        appBar: AppBar(title: const Text('Feedback Demo')),\n        body: Center(\n          child: ElevatedButton(\n            onPressed: () {\n              BetterFeedback.of(context).show((feedback) {\n                // handle submitted feedback\n              });\n            },\n            child: const Text('Show Feedback'),\n          ),\n        ),\n      ),\n    );\n  }\n}\n```",
+    "confidence": 0.9
+  }
+}

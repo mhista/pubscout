@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "1.12.1",
+  "generatedAt": "2026-11-08T15:37:59.313Z",
+  "data": {
+    "primary_category": "files",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Plugin to create and manage background download tasks on Android and iOS.",
+    "what_it_does": "It schedules downloads using WorkManager on Android and NSURLSessionDownloadTask on iOS, supports concurrent tasks, notifications, and optional HTTP configuration. Files are saved to external storage on Android and the Documents directory on iOS.",
+    "use_when": [
+      "You need reliable background downloads on mobile devices",
+      "You want to limit concurrent downloads and get system notifications"
+    ],
+    "avoid_when": [
+      "You require cross‑platform download support for web or desktop",
+      "You need fine‑grained download control beyond what WorkManager provides"
+    ],
+    "strengths": [
+      "Runs downloads in background even when app is closed",
+      "Handles iOS and Android native download APIs",
+      "Configurable concurrent task limit"
+    ],
+    "weaknesses": [
+      "Requires native setup on both platforms",
+      "Limited to Android and iOS only",
+      "Past versions had SQL injection vulnerabilities"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "iOS: enable background mode, add sqlite library, configure AppDelegate. Android: add provider entry in AndroidManifest, ensure external storage permission. May need to adjust Info.plist for ATS or concurrent task limits.",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter_downloader/flutter_downloader.dart';\n\nvoid main() async {\n  WidgetsFlutterBinding.ensureInitialized();\n  await FlutterDownloader.initialize(debug: true);\n  final taskId = await FlutterDownloader.enqueue(\n    url: 'https://example.com/file.pdf',\n    savedDir: '/sdcard/Download',\n    showNotification: true,\n    openFileFromNotification: true,\n  );\n}",
+    "confidence": 0.85
+  }
+}

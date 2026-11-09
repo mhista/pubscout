@@ -1,0 +1,36 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "5.0.2",
+  "generatedAt": "2026-11-08T15:53:12.353Z",
+  "data": {
+    "primary_category": "auth",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "OpenID Connect RP plugin for Flutter supporting all platforms.",
+    "what_it_does": "Implements an OpenID Connect Relying Party plugin for Flutter that works across Android, iOS, Windows, Linux, Web, and macOS. It handles authorization flows, token refreshing, discovery, session management, and client registration.",
+    "use_when": [
+      "You need OpenID Connect or OAuth authentication in a cross-platform Flutter app",
+      "You require support for platforms like Windows, Linux, and macOS alongside mobile and web"
+    ],
+    "avoid_when": [
+      "You only need a simple proprietary backend client like Firebase Authentication without OIDC standards"
+    ],
+    "strengths": [
+      "Supports all Flutter platforms including desktop",
+      "OpenID Connect Certified Relying Party with conformance testing",
+      "High customizability and automatic token refresh rotation"
+    ],
+    "weaknesses": [
+      "Session management features have platform constraints (web only for check_session_iframe)"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires platform-specific redirect setup and reading the documentation wiki for getting started steps.",
+    "alternatives": [],
+    "minimal_example": "final manager = OidcUserManager.lazy(\n    discoveryDocumentUri: OidcUtils.getOpenIdConfigWellKnownUri(\n        Uri.parse('https://server.example.com'),\n    ),\n);\nawait manager.init();\nfinal newUser = await manager.loginAuthorizationCodeFlow();",
+    "confidence": 0.95
+  }
+}

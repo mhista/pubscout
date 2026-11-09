@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.2.0",
+  "generatedAt": "2026-11-08T15:59:31.384Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "A Pedometer and Step Detection package for Android and iOS.",
+    "what_it_does": "Allows for continuous step counting and pedestrian status using built-in pedometer sensor APIs on iOS and Android devices. Step counts and pedestrian status are streamed as platform updates occur.",
+    "use_when": [
+      "You need to track step counts continuously in your app",
+      "You need to detect pedestrian status (walking or stopped)"
+    ],
+    "avoid_when": [
+      "Targeting older phones or specific Samsung devices that do not support step count or pedestrian status sensors",
+      "You need historical step counts from before application installation on Android"
+    ],
+    "strengths": [
+      "Provides real-time step count streaming",
+      "Supports pedestrian status detection (walking vs stopped)",
+      "Cross-platform support for both Android and iOS"
+    ],
+    "weaknesses": [
+      "Sensor availability varies across device models (some Samsung and older iPhones lack support)",
+      "Requires manual platform configuration and permission handling"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding the ACTIVITY_RECOGNITION permission for Android 10+ and NSMotionUsageDescription along with UIBackgroundModes to iOS Info.plist.",
+    "alternatives": [],
+    "minimal_example": "Stream<StepCount> _stepCountStream;\nStream<PedestrianStatus> _pedestrianStatusStream;\n\nvoid onStepCount(StepCount event) {\n  int steps = event.steps;\n  DateTime timeStamp = event.timeStamp;\n}\n\nvoid onPedestrianStatusChanged(PedestrianStatus event) {\n  String status = event.status;\n  DateTime timeStamp = event.timeStamp;\n}\n\nFuture<void> initPlatformState() async {\n  _pedestrianStatusStream = await Pedometer.pedestrianStatusStream;\n  _stepCountStream = await Pedometer.stepCountStream;\n  _stepCountStream.listen(onStepCount);\n  _pedestrianStatusStream.listen(onPedestrianStatusChanged);\n}",
+    "confidence": 1
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.3.6",
+  "generatedAt": "2026-11-07T11:13:23.512Z",
+  "data": {
+    "primary_category": "files",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Dialogs for picking and saving files and directories on Android and iOS.",
+    "what_it_does": "Provides native dialogs to pick files, images, and directories, as well as save files to specific locations on Android and iOS. It handles interactions with storage providers and system pickers using Kotlin and Swift implementations.",
+    "use_when": [
+      "You need to let users pick documents or images using native OS dialogs.",
+      "You need to save files directly to user-selected locations or directories on Android or iOS."
+    ],
+    "avoid_when": [
+      "You need non-UI file system operations or generic file path utilities without dialogs.",
+      "You are targeting platforms other than Android and iOS."
+    ],
+    "strengths": [
+      "Supports directory picking and saving directly to picked directories on supported platforms.",
+      "Allows setting file extension and MIME type filters.",
+      "Modern Kotlin and Swift implementation with background thread safety for large files."
+    ],
+    "weaknesses": [
+      "Limited to Android and iOS platforms.",
+      "Imperative API pattern rather than reactive streams."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires Android API level 24 or later and iOS 13.0 or later.",
+    "alternatives": [
+      {
+        "name": "file_picker",
+        "why_pick_it": "If you need a more full-featured file picker supporting multiple files, cross-platform targets, and custom storage paths."
+      }
+    ],
+    "minimal_example": "final params = SaveFileDialogParams(sourceFilePath: \"path_of_file_to_save\");\nfinal filePath = await FlutterFileDialog.saveFile(params: params);\nprint(filePath);",
+    "confidence": 1
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.6.1",
+  "generatedAt": "2026-11-08T15:28:08.720Z",
+  "data": {
+    "primary_category": "testing",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "A simple to use mocking package for Dio intended to be used in tests.",
+    "what_it_does": "It provides various types and methods to declaratively mock request-response communication for the Dio HTTP client. It allows simulating server behavior and network requests in test environments.",
+    "use_when": [
+      "You are writing tests for a Dart or Flutter project using the Dio package for networking.",
+      "You need to declaratively mock HTTP requests and responses."
+    ],
+    "avoid_when": [
+      "You are not using Dio for networking (e.g., you use the default http package).",
+      "You require complex production interceptors that aren't related to testing."
+    ],
+    "strengths": [
+      "Simple to use for mocking Dio requests in tests",
+      "Supports declarative request-response mocking",
+      "Includes features like response delays and exact body checks"
+    ],
+    "weaknesses": [
+      "Strictly tied to the Dio package",
+      "Limited to testing use cases"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add as a dev_dependency in pubspec.yaml and import in test files.",
+    "alternatives": [
+      {
+        "name": "mockito",
+        "why_pick_it": "If you prefer general-purpose mocking of classes instead of a specialized HTTP/Dio adapter."
+      },
+      {
+        "name": "mocktail",
+        "why_pick_it": "If you prefer a mocktail-style mocking library without explicit code generation."
+      }
+    ],
+    "minimal_example": "import 'package:dio/dio.dart';\nimport 'package:http_mock_adapter/http_mock_adapter.dart';\n\nvoid main() async {\n  final dio = Dio(BaseOptions());\n  final dioAdapter = DioAdapter(dio: dio);\n\n  const path = 'https://example.com';\n\n  dioAdapter.onGet(\n    path,\n    (server) => server.reply(\n      200,\n      {'message': 'Success!'},\n      delay: const Duration(seconds: 1),\n    ),\n  );\n\n  final response = await dio.get(path);\n  print(response.data);\n}",
+    "confidence": 1
+  }
+}

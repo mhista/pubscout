@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.3.0",
+  "generatedAt": "2026-11-07T10:59:03.322Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [],
+    "approach": [
+      "stream-based",
+      "declarative"
+    ],
+    "one_liner": "Custom event transformers for the bloc state management package.",
+    "what_it_does": "Exposes opinionated event transformers like sequential, concurrent, droppable, and restartable for the bloc state management library. Built to work directly with bloc to control how events are processed over time.",
+    "use_when": [
+      "You need to handle concurrent events sequentially in a bloc",
+      "You want to drop or restart incoming events during an async operation in a bloc"
+    ],
+    "avoid_when": [
+      "You are not using the bloc state management package",
+      "You do not require custom concurrency control for events"
+    ],
+    "strengths": [
+      "Easy integration with the bloc package",
+      "Provides pre-built transformers for common patterns like debouncing or restarting"
+    ],
+    "weaknesses": [
+      "Strictly tied to the bloc ecosystem",
+      "Limited scope"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:bloc/bloc.dart';\nimport 'package:bloc_concurrency/bloc_concurrency.dart';\n\nsealed class CounterEvent {}\nfinal class CounterIncrementPressed extends CounterEvent {}\n\nclass CounterBloc extends Bloc<CounterEvent, int> {\n  CounterBloc() : super(0) {\n    on<CounterIncrementPressed>(\n      (event, emit) async {\n        await Future.delayed(Duration(seconds: 1));\n        emit(state + 1);\n      },\n      transformer: sequential(),\n    );\n  }\n}",
+    "confidence": 1
+  }
+}

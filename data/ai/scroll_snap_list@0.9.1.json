@@ -1,0 +1,47 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.9.1",
+  "generatedAt": "2026-11-08T15:51:55.815Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "animation"
+    ],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "A Flutter wrapper for ListView that snaps to items at the end of user-scroll.",
+    "what_it_does": "It wraps a ListView.builder to provide a snap-to-item behavior at the end of scrolling. It supports both horizontal and vertical scrolling directions, dynamic item sizing, opacity scaling, and custom positioning anchors.",
+    "use_when": [
+      "You need a horizontal or vertical list that snaps to items like a carousel or picker.",
+      "You want unrestricted scrolling combined with snapping without using rigid page views.",
+      "You need to trigger callbacks when specific items gain focus during a scroll."
+    ],
+    "avoid_when": [
+      "You require precise page-by-page snapping like a standard PageView with strict one-item bounds.",
+      "You are building complex custom physics-based scroll engines from scratch."
+    ],
+    "strengths": [
+      "Supports both horizontal and vertical lists with unrestricted scroll behavior.",
+      "Provides dynamic item size and dynamic opacity scaling features.",
+      "Works out of the box with standard ListView builders and no external dependencies."
+    ],
+    "weaknesses": [
+      "Requires providing a correct itemSize for proper calculation and snapping.",
+      "Tap detection on child items may conflict if items implement their own custom tap detectors, requiring manual key invocation."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "carousel_slider",
+        "why_pick_it": "Pick carousel_slider if you specifically need a card carousel with auto-play and pagination indicators rather than a general snap-to-item list wrapper."
+      }
+    ],
+    "minimal_example": "Expanded(\n  child: ScrollSnapList(\n    onItemFocus: _onItemFocus,\n    itemSize: 35,\n    itemBuilder: _buildListItem,\n    itemCount: data.length,\n    reverse: true,\n  ),\n)",
+    "confidence": 1
+  }
+}

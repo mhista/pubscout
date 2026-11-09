@@ -1,0 +1,47 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.8-flash",
+  "version": "4.0.0",
+  "generatedAt": "2026-11-08T15:15:52.838Z",
+  "data": {
+    "primary_category": "payments",
+    "secondary_categories": [],
+    "approach": [
+      "declarative",
+      "imperative"
+    ],
+    "one_liner": "Integrate Apple Pay on iOS and Google Pay on Android with ready-made buttons.",
+    "what_it_does": "Provides unified Flutter support for Apple Pay and Google Pay. It includes prebuilt, guideline-compliant payment buttons as well as lower-level client APIs to verify payment availability and request payment tokens. The resulting payment tokens can then be passed to a backend or payment processor.",
+    "use_when": [
+      "You want to offer Apple Pay on iOS and Google Pay on Android for digital or physical purchases.",
+      "You need standard branded Google Pay and Apple Pay button widgets that handle user payment triggers.",
+      "You want a client-side wrapper to obtain payment tokens without implementing native PassKit or Google Pay SDKs manually."
+    ],
+    "avoid_when": [
+      "Selling digital goods governed by Google Play or App Store In-App Purchase policies (use in_app_purchase instead).",
+      "Targeting platforms other than Android and iOS, such as web or desktop.",
+      "You want an all-in-one payment processing solution that directly charges cards without a separate payment gateway."
+    ],
+    "strengths": [
+      "Official style and guideline compliance for Apple Pay and Google Pay buttons.",
+      "Provides both easy prebuilt widgets (GooglePayButton, ApplePayButton) and low-level imperative client control (Pay).",
+      "Supports loading configuration profiles directly from JSON strings or asset files."
+    ],
+    "weaknesses": [
+      "Requires substantial merchant and certificate configuration outside Flutter with Apple and Google.",
+      "Advanced Android integrations require manual EventChannel setup to handle lifecycle recreation results.",
+      "Does not process the transaction itself; only obtains payment tokens that must be sent to your PSP."
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Requires setting up Apple Developer merchant IDs and payment processing certificates for Apple Pay, and signing up for the Google Pay Business Console with integration approval for Android.",
+    "alternatives": [
+      {
+        "name": "flutter_stripe",
+        "why_pick_it": "Pick if you want a complete Stripe processing pipeline including cards, Apple Pay, and Google Pay in one SDK."
+      }
+    ],
+    "minimal_example": "GooglePayButton(\n  paymentConfiguration: PaymentConfiguration.fromJsonString(defaultGooglePayConfigString),\n  paymentItems: const [\n    PaymentItem(\n      label: 'Total',\n      amount: '99.99',\n      status: PaymentItemStatus.final_price,\n    )\n  ],\n  type: GooglePayButtonType.buy,\n  onPaymentResult: (result) {\n    // Send token to your server or PSP\n  },\n  loadingIndicator: const Center(child: CircularProgressIndicator()),\n)",
+    "confidence": 0.95
+  }
+}

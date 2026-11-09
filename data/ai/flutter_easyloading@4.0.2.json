@@ -1,0 +1,54 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.0.2",
+  "generatedAt": "2026-11-07T11:13:10.882Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "ui-kits"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Lightweight, customizable loading and toast overlay for Flutter without BuildContext.",
+    "what_it_does": "Provides a global loading, progress, result, and toast overlay that can be triggered from anywhere in the application without requiring a BuildContext. Supports built-in indicators, custom widgets, animations, and per-call options.",
+    "use_when": [
+      "You need to display global loading spinners or success/error toasts without passing a BuildContext down the widget tree.",
+      "You want customizable indicator types, toast positions, and animations.",
+      "You require determinate progress indicators or custom widget overlays."
+    ],
+    "avoid_when": [
+      "Your application architecture strictly mandates declarative UI state for overlays.",
+      "You prefer fully localized snackbar or banner widgets embedded directly inside a Scaffold."
+    ],
+    "strengths": [
+      "Can be called globally without a BuildContext.",
+      "Supports loading, determinate progress, result states, toasts, and custom widgets.",
+      "Provides extensive configuration options and immutable per-call overrides."
+    ],
+    "weaknesses": [
+      "Relies on a global imperative API rather than a purely declarative widget-tree approach.",
+      "Requires inserting EasyLoading.init() at the root of the application."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the dependency and attach EasyLoading.init() to the builder of your MaterialApp or CupertinoApp.",
+    "alternatives": [
+      {
+        "name": "bot_toast",
+        "why_pick_it": "Offers a flexible alternative for notifications, toasts, and custom overlays with its own set of global controls."
+      },
+      {
+        "name": "toastification",
+        "why_pick_it": "Provides a modern, customizable toast notification system for Flutter."
+      },
+      {
+        "name": "top_snackbar_flutter",
+        "why_pick_it": "Specializes in sliding snackbars originating from the top of the screen."
+      }
+    ],
+    "minimal_example": "MaterialApp(\n  builder: EasyLoading.init(),\n  home: const HomePage(),\n);\n\nawait EasyLoading.show(status: 'Loading...');\nawait EasyLoading.dismiss();",
+    "confidence": 1
+  }
+}

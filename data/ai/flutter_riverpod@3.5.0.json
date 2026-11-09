@@ -1,0 +1,51 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.5.0",
+  "generatedAt": "2026-11-07T11:17:14.838Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [
+      "dependency-injection"
+    ],
+    "approach": [
+      "declarative",
+      "reactive"
+    ],
+    "one_liner": "A reactive caching and data-binding framework for Flutter.",
+    "what_it_does": "Riverpod manages app state and dependency injection while making asynchronous code easier to handle. It automatically handles error and loading states, separates business logic from the UI, and provides native support for features like pull-to-refresh.",
+    "use_when": [
+      "You need robust state management and reactive caching in a Flutter application.",
+      "You want built-in handling of asynchronous states like loading and error handling.",
+      "You require a scalable, highly testable dependency injection solution."
+    ],
+    "avoid_when": [
+      "You prefer a simple traditional widget state approach without global providers.",
+      "You are already standardized on an alternative state management library like Bloc."
+    ],
+    "strengths": [
+      "Handles errors and loading states out of the box.",
+      "Separates logic cleanly from UI code.",
+      "Ensures code is testable, scalable, and reusable."
+    ],
+    "weaknesses": [
+      "Can have a steep learning curve for developers unfamiliar with provider-based patterns.",
+      "Requires understanding reference concepts (like Ref and ProviderScope)."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Wrap your root widget in a ProviderScope.",
+    "alternatives": [
+      {
+        "name": "bloc",
+        "why_pick_it": "Pick Bloc if you prefer strict event-driven state transitions and structured business logic components."
+      },
+      {
+        "name": "provider",
+        "why_pick_it": "Pick Provider if you want a simpler, direct ancestor-lookup mechanism without advanced reactive caching."
+      }
+    ],
+    "minimal_example": "class Home extends ConsumerWidget {\n  @override\n  Widget build(BuildContext context, WidgetRef ref) {\n    final breweryName = ref.watch(breweryNameProvider);\n    return switch (breweryName) {\n      AsyncData(:final value) => Text('data: $value'),\n      AsyncError(:final error) => Text('error: $error'),\n      _ => const Text('loading'),\n    };\n  }\n}",
+    "confidence": 1
+  }
+}

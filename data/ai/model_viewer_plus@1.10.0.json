@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.10.0",
+  "generatedAt": "2026-11-08T15:46:14.575Z",
+  "data": {
+    "primary_category": "web-desktop",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A Flutter widget for rendering interactive 3D models in glTF and GLB formats.",
+    "what_it_does": "The package provides a Flutter widget that embeds Google's <model-viewer> web component using a WebView on mobile and native web integration on the web platform. It allows rendering interactive 3D models with options for auto-rotation, zooming, and augmented reality (AR) views.",
+    "use_when": [
+      "You need to display interactive 3D models in glTF or GLB format within your Flutter app.",
+      "You require cross-platform 3D model rendering supporting Android, iOS, and Web."
+    ],
+    "avoid_when": [
+      "Target devices have outdated system browser versions that do not support the required model-viewer features.",
+      "You are loading models from remote URLs that do not permit CORS headers."
+    ],
+    "strengths": [
+      "Supports Android, iOS, and Web platforms.",
+      "Enables AR viewing capabilities on supported devices.",
+      "Handles animation, auto-rotation, and custom background colors."
+    ],
+    "weaknesses": [
+      "Requires specific platform configuration steps (AndroidManifest.xml, Info.plist, web/index.html).",
+      "AR View may not be available on iOS 16+.",
+      "Remote models require proper CORS headers to load successfully."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires modifying AndroidManifest.xml for cleartext traffic on Android 9+, setting minSdkVersion to 24, adding io.flutter.embedded_views_preview to Info.plist on iOS, and including the model-viewer script in web/index.html for Web support.",
+    "alternatives": [],
+    "minimal_example": "class MyApp extends StatelessWidget {\n  const MyApp({super.key});\n\n  @override\n  Widget build(BuildContext context) {\n    return MaterialApp(\n      home: Scaffold(\n        appBar: AppBar(title: const Text('Model Viewer')),\n        body: const ModelViewer(\n          backgroundColor: Color.fromARGB(0xFF, 0xEE, 0xEE, 0xEE),\n          src: 'https://modelviewer.dev/shared-assets/models/Astronaut.glb',\n          alt: 'A 3D model of an astronaut',\n          ar: true,\n          autoRotate: true,\n          iosSrc: 'https://modelviewer.dev/shared-assets/models/Astronaut.usdz',\n          disableZoom: true,\n        ),\n      ),\n    );\n  }\n}",
+    "confidence": 0.95
+  }
+}

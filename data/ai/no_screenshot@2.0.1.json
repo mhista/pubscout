@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.1",
+  "generatedAt": "2026-11-08T15:36:44.005Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "stream-based",
+      "declarative"
+    ],
+    "one_liner": "Disable screenshots and screen recording, detect events, and show overlays in the app switcher.",
+    "what_it_does": "Prevents screenshots and screen recording across multiple platforms, listens for screenshot events via streams, and displays custom overlays (blur, color, or image) in the app switcher. It also offers declarative secure widgets and per-route protection policies.",
+    "use_when": [
+      "You need to protect sensitive user data from being captured via screenshots or screen recordings.",
+      "You want to display blur, color, or image overlays when the app enters the app switcher.",
+      "You need to detect when a user takes a screenshot or records the screen."
+    ],
+    "avoid_when": [
+      "You are building for Linux or Web where OS-level screenshot blocking is not supported by the platform.",
+      "You need detailed screenshot file paths on Android or iOS (which are not exposed by those operating systems)."
+    ],
+    "strengths": [
+      "Cross-platform support covering Android, iOS, macOS, Linux, Windows, and Web.",
+      "Provides both imperative methods and stream-based screenshot/recording detection.",
+      "Supports app-switcher overlay modes like blur, color, and images."
+    ],
+    "weaknesses": [
+      "Platform limitations on Linux and Web prevent actual blocking of screenshots or screen recordings.",
+      "Screenshot file paths are only available on macOS and Linux due to platform restrictions."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Supports Swift Package Manager and CocoaPods on iOS and macOS with no extra manual configuration required for standard usage.",
+    "alternatives": [],
+    "minimal_example": "import 'package:no_screenshot/no_screenshot.dart';\n\nfinal noScreenshot = NoScreenshot.instance;\n\n// Disable screenshots & screen recording\nawait noScreenshot.screenshotOff();\n\n// Re-enable screenshots & screen recording\nawait noScreenshot.screenshotOn();",
+    "confidence": 0.95
+  }
+}

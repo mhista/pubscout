@@ -1,0 +1,35 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.0",
+  "generatedAt": "2026-11-08T15:57:14.385Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Check if device has a torch and turn it on or off.",
+    "what_it_does": "A Flutter plugin that checks if the device has an available torch/flashlight, and provides methods to enable and disable it. It includes specific exception handling for scenarios like camera in use or torch not available.",
+    "use_when": [
+      "You need to turn the device flashlight on or off programmatically.",
+      "You need to check if a torch is available on the current device."
+    ],
+    "avoid_when": [
+      "You are building a full camera application that handles video capturing and custom camera controls."
+    ],
+    "strengths": [
+      "Simple and straightforward API for torch management",
+      "Comprehensive error handling with specific exceptions"
+    ],
+    "weaknesses": [
+      "Limited to a single specific device feature (torch control)"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires Android SDK 6.0 (API level 23) or higher. Built-in Kotlin and Swift Package Manager support.",
+    "alternatives": [],
+    "minimal_example": "try {\n  final isTorchAvailable = await TorchLight.isTorchAvailable();\n} on Exception catch (_) {\n  // Handle error\n}\n\ntry {\n  await TorchLight.enableTorch();\n} on Exception catch (_) {\n  // Handle error\n}",
+    "confidence": 1
+  }
+}

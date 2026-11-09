@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.2",
+  "generatedAt": "2026-11-08T15:55:20.200Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "backend"
+    ],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "Parses multipart and form-data requests for shelf handlers.",
+    "what_it_does": "shelf_multipart provides extension types and methods for shelf handlers to easily check for and parse multipart and multipart/form-data requests. It allows iterating over parts, reading part headers, and reading data as streams, bytes, or strings.",
+    "use_when": [
+      "You are building a backend using the shelf package",
+      "You need to handle file uploads or multipart form data in Dart"
+    ],
+    "avoid_when": [
+      "You are not using the shelf package for your server",
+      "You only need to handle standard JSON or URL-encoded bodies"
+    ],
+    "strengths": [
+      "Provides type safety around multipart checks using extension types",
+      "Easy iteration over request parts and form data parameters",
+      "Integrates seamlessly with the shelf ecosystem"
+    ],
+    "weaknesses": [
+      "Limited to the shelf package ecosystem"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [],
+    "minimal_example": "Future<Response> myHandler(Request request) async {\n  if (request.multipart() case var multipart?) {\n    await for (final part in multipart.parts) {\n      final headers = part.headers;\n    }\n  } else {\n    return Response(401);\n  }\n}",
+    "confidence": 1
+  }
+}

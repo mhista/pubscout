@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.3.0",
+  "generatedAt": "2026-11-07T10:55:48.860Z",
+  "data": {
+    "primary_category": "animation",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Flutter reorderable list and grid with drag-and-drop and insertion/removal animations.",
+    "what_it_does": "Provides AnimatedReorderableListView and AnimatedReorderableGridView widgets supporting drag-and-drop alongside item insert and remove transitions. Also includes standard AnimatedListView and AnimatedGridView widgets without drag-and-drop.",
+    "use_when": [
+      "You need a Flutter list or grid that supports both reordering via drag-and-drop and entry/exit animations.",
+      "You want pre-built animations like fade, scale, slide, and flip for list items."
+    ],
+    "avoid_when": [
+      "You only need standard static lists or basic Flutter native ReorderableListView without custom animations."
+    ],
+    "strengths": [
+      "Supports both ListView and GridView with drag-and-drop and animations simultaneously.",
+      "Includes many pre-built enter and exit transitions (fade, scale, flip, slide).",
+      "Allows custom animation builders and locked/non-draggable items."
+    ],
+    "weaknesses": [
+      "Relies on correct key usage (like ValueKey) for items to properly track animations."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "AnimatedReorderableListView(\n  items: list,\n  itemBuilder: (BuildContext context, int index) {\n    final user = list[index];\n    return ItemTile(\n      key: ValueKey(user.id),\n      id: user.id,\n    );\n  },\n  enterTransition: [SlideInDown()],\n  exitTransition: [SlideInUp()],\n  onReorder: (int oldIndex, int newIndex) {\n    setState(() {\n      final User user = list.removeAt(oldIndex);\n      list.insert(newIndex, user);\n    });\n  },\n  isSameItem: (a, b) => a.id == b.id\n)",
+    "confidence": 1
+  }
+}

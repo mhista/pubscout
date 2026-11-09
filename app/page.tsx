@@ -8,6 +8,8 @@ export default function Home() {
   const c = getCatalog();
   const live = c.packages.filter((p) => !p.discontinued);
   const dependable = [...live].filter((p) => p.metrics.downloads30d >= 10_000).sort((a, b) => b.scores.health - a.scores.health).slice(0, 6);
+  // Essentials outside pub.dev's top 300: important, but easy to miss.
+  const gems = [...live].filter((p) => p.essential && (p.rank == null || p.rank > 300)).sort((a, b) => b.scores.health - a.scores.health).slice(0, 6);
   const fresh = [...live].filter((p) => p.scores.health >= 70).sort((a, b) => Date.parse(b.published) - Date.parse(a.published)).slice(0, 6);
 
   return (
@@ -34,9 +36,10 @@ export default function Home() {
         <CategoryIndex />
       </section>
 
-      <div className="wrap mt-20 grid gap-14 md:grid-cols-2">
+      <div className={`wrap mt-20 grid gap-14 md:grid-cols-2 ${gems.length >= 3 ? "xl:grid-cols-3" : ""}`}>
         <MiniList title="Most dependable" note="Highest health scores among packages with 10k+ monthly downloads." items={dependable} href="/explore?sort=health&dl=10000" />
         <MiniList title="Recently released" note="Fresh versions from packages scoring 70 or higher." items={fresh} href="/explore?sort=updated&min=70" />
+        {gems.length >= 3 && <MiniList title="Essentials you might have missed" note="Hand-picked packages worth knowing that aren't in pub.dev's top 300." items={gems} href="/explore?essential=1&sort=health" />}
       </div>
     </>
   );
