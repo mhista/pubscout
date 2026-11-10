@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "4.3.3",
+  "generatedAt": "2026-11-10T12:35:01.156Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter plugin to read, create, update, and delete calendars and events on Android and iOS devices.",
+    "what_it_does": "Provides APIs to request calendar permissions, list calendars, retrieve events, and manage events including attendees, reminders, and recurrence. Supports timezone-aware dates via the timezone package.",
+    "use_when": [
+      "You need to interact with the native calendar on a user's device",
+      "You want to add or edit events programmatically in Android or iOS"
+    ],
+    "avoid_when": [
+      "You require cross‑platform calendar syncing with a backend service",
+      "You need advanced UI calendar widgets (use a UI‑kit instead)"
+    ],
+    "strengths": [
+      "Full read/write access to device calendars",
+      "Timezone support with TZDateTime",
+      "Handles recurring events and attendees"
+    ],
+    "weaknesses": [
+      "Requires native setup (AndroidManifest, iOS Info.plist)",
+      "Limited to device‑local data, no cloud sync",
+      "Potential issues with Swift plugins in Objective‑C projects"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add READ_CALENDAR and WRITE_CALENDAR permissions to AndroidManifest.xml; add NSCalendarsUsageDescription, NSContactsUsageDescription, and NSCalendarsFullAccessUsageDescription keys to iOS Info.plist; optionally add ProGuard rule '-keep class com.builttoroam.devicecalendar.** { *; }'; import 'package:timezone/timezone.dart' if using timezone features.",
+    "alternatives": [],
+    "minimal_example": "import 'package:device_calendar/device_calendar.dart';\n\nfinal DeviceCalendarPlugin _deviceCalendarPlugin = DeviceCalendarPlugin();\n\nFuture<void> addEvent() async {\n  final calendarsResult = await _deviceCalendarPlugin.retrieveCalendars();\n  final calendar = calendarsResult?.data?.firstWhere((c) => c.isDefault ?? false);\n  if (calendar == null) return;\n  final event = Event(calendar.id, title: 'Meeting');\n  await _deviceCalendarPlugin.createOrUpdateEvent(event);\n}",
+    "confidence": 0.92
+  }
+}

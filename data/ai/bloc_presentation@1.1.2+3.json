@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.1.2+3",
+  "generatedAt": "2026-11-10T12:56:31.949Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [],
+    "approach": [
+      "stream-based",
+      "declarative"
+    ],
+    "one_liner": "Dispatch single-time side effects from Bloc or Cubit without polluting state.",
+    "what_it_does": "Provides a mixin for Blocs and Cubits to emit one-shot presentation events alongside widgets to listen to them. Prevents side effects like navigation or snackbars from cluttering the persistent UI state.",
+    "use_when": [
+      "You need to show snackbars, dialogs, or toasts after an action",
+      "You need to trigger navigation routes from a Bloc or Cubit",
+      "You want to fire fire-and-forget side effects without modifying app state"
+    ],
+    "avoid_when": [
+      "You are not using flutter_bloc or bloc in your architecture",
+      "The event needs to persist across configuration changes or rebuilds as part of the app state"
+    ],
+    "strengths": [
+      "Keeps UI side effects separate from the core bloc state",
+      "Includes a listener widget and works well with flutter_hooks",
+      "Supports nullable types for optional blocs in the widget tree"
+    ],
+    "weaknesses": [
+      "Relies on stream subscriptions which require careful lifecycle handling if not using provided widgets",
+      "Requires using a specific mixin on your Blocs/Cubits"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "class CommentCubit extends Cubit<CommentState> with BlocPresentationMixin<CommentState, CommentCubitEvent> {\n  void upvote() {\n    emitPresentation(const FailedToUpvote('bad connection'));\n  }\n}\n\nBlocPresentationListener<CommentCubit, CommentCubitEvent>(\n  listener: (context, event) {\n    // handle event\n  },\n  child: MyWidget(),\n);",
+    "confidence": 1
+  }
+}

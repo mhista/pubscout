@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "2.7.1",
+  "generatedAt": "2026-11-10T12:34:58.783Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "device"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Access the advertising ID on iOS and Android.",
+    "what_it_does": "Provides a simple API to retrieve the advertising ID and check if limit ad tracking is enabled. It wraps the native platform services for iOS and Android.",
+    "use_when": [
+      "You need the advertising ID for analytics or ad targeting.",
+      "You want to respect the user’s limit ad tracking setting."
+    ],
+    "avoid_when": [
+      "You are building a web or desktop app, as the plugin only supports mobile."
+    ],
+    "strengths": [
+      "Simple API, no build_runner or code generation required.",
+      "Keeps native dependencies up to date with recent Android and iOS changes."
+    ],
+    "weaknesses": [
+      "Only works on mobile platforms.",
+      "No support for web or desktop."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dependency to pubspec and run flutter pub get. No additional native configuration is required beyond the plugin’s defaults.",
+    "alternatives": [],
+    "minimal_example": "```dart\nimport 'package:advertising_id/advertising_id.dart';\n\nFuture<void> getAdInfo() async {\n  try {\n    final id = await AdvertisingId.id(true);\n    final limit = await AdvertisingId.isLimitAdTrackingEnabled;\n    print('ID: $id, limit: $limit');\n  } on PlatformException {\n    print('Failed to get advertising info');\n  }\n}\n```",
+    "confidence": 0.9
+  }
+}

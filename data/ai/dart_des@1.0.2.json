@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.2",
+  "generatedAt": "2026-11-10T13:10:43.456Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Pure Dart implementation of the DES and Triple DES algorithms.",
+    "what_it_does": "Provides a pure Dart implementation of DES and Triple DES cryptographic algorithms. Supports ECB and CBC modes with configurable padding like PKCS5 and PKCS7.",
+    "use_when": [
+      "You need to encrypt or decrypt data using DES or Triple DES in pure Dart.",
+      "You need compatibility with existing systems using pyDes or standard DES/3DES."
+    ],
+    "avoid_when": [
+      "You need modern, highly secure encryption standards like AES.",
+      "You require hardware-accelerated cryptography for heavy workloads."
+    ],
+    "strengths": [
+      "Pure Dart implementation with no external dependencies.",
+      "Supports multiple DES modes and padding types like PKCS5 and PKCS7."
+    ],
+    "weaknesses": [
+      "Implements DES/Triple DES, which are considered cryptographically weak and legacy algorithms.",
+      "Not documented for platform-specific performance optimizations."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "crypto",
+        "why_pick_it": "If you need standard cryptographic hashes (like SHA or MD5) maintained by the Dart team."
+      }
+    ],
+    "minimal_example": "import 'package:dart_des/dart_des.dart';\n\nmain() {\n  String key = '12345678';\n  String message = 'Hello DES';\n  DES desECB = DES(key: key.codeUnits, mode: DESMode.ECB);\n  List<int> encrypted = desECB.encrypt(message.codeUnits);\n  List<int> decrypted = desECB.decrypt(encrypted);\n}",
+    "confidence": 0.9
+  }
+}

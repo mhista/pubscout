@@ -1,0 +1,50 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "3.0.1",
+  "generatedAt": "2026-11-10T12:35:33.772Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Converts JSON maps to YAML strings with beautification and pubspec conventions.",
+    "what_it_does": "json2yaml turns a Dart Map into a YAML string. It handles nested structures, automatically beautifies the output, and supports pubspec.yaml and pubspec.lock formatting styles.",
+    "use_when": [
+      "Need to generate YAML from JSON data in a Dart project",
+      "Creating or updating pubspec.yaml or pubspec.lock files programmatically",
+      "Debugging or inspecting JSON structures in YAML format"
+    ],
+    "avoid_when": [
+      "Performance critical code where string conversion overhead matters",
+      "When advanced YAML features (anchors, tags, custom types) are required"
+    ],
+    "strengths": [
+      "Accurate handling of nested JSON structures",
+      "Built‑in beautifier for readable output",
+      "Dedicated pubspec.yaml and pubspec.lock formatting styles",
+      "Simple API: single function call"
+    ],
+    "weaknesses": [
+      "No word wrapping for long strings",
+      "Limited formatting options beyond the three styles",
+      "Not a full YAML parser/serializer"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "yaml",
+        "why_pick_it": "Provides full YAML parsing and serialization capabilities, suitable if you need more control over YAML output or need to read YAML back into Dart"
+      },
+      {
+        "name": "pubspec_parse",
+        "why_pick_it": "Can parse pubspec.yaml files but does not provide JSON to YAML conversion"
+      }
+    ],
+    "minimal_example": "const developerData = {\n  'name': \"Martin D'vloper\",\n  'job': 'Developer',\n  'skill': 'Elite',\n  'employed': true,\n  'foods': ['Apple', 'Orange', 'Strawberry', 'Mango'],\n  'languages': {\n    'perl': 'Elite',\n    'python': 'Elite',\n    'pascal': 'Lame',\n  },\n  'education': '4 GCSEs\\n3 A-Levels\\nBSc in the Internet of Things'\n};\n\nprint(json2yaml(developerData));",
+    "confidence": 0.9
+  }
+}

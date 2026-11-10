@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.2.0",
+  "generatedAt": "2026-11-10T12:59:48.922Z",
+  "data": {
+    "primary_category": "maps",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "A library for parsing Protomaps PMTiles files storing raster or vector map tiles.",
+    "what_it_does": "Parses Protomaps PMTiles archives locally or remotely to read metadata, header info, and individual map tiles. It allows extraction of single tiles or batch streaming of multiple tiles optimized to reduce requests.",
+    "use_when": [
+      "You need to read Protomaps PMTiles archives directly from local files or HTTP URLs.",
+      "You want to extract individual or multiple map tiles from a single-file archive format."
+    ],
+    "avoid_when": [
+      "You are running in Node.js or browser environments and require local file access (not supported on dart2js outside HTTP).",
+      "You need a full high-level map widget rendering engine rather than just an archive parser."
+    ],
+    "strengths": [
+      "Supports reading PMTiles archives locally and remotely via HTTP.",
+      "Stream-based API for batch reading tiles to optimize backing store requests.",
+      "Compatible with native Dart VM and dart2js for web/Chrome."
+    ],
+    "weaknesses": [
+      "Local file access is not supported when compiled to JavaScript via dart2js (Node.js or browsers).",
+      "Does not include visual map rendering widgets out of the box."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Not documented",
+    "alternatives": [],
+    "minimal_example": "Future<int> main() async {\n  final archive = await PmTilesArchive.from(\"/path/to/file.pmtiles\");\n  try {\n    print(\"Type: ${archive.tileType}\");\n    final int tileId = ZXY(4, 3, 2).toTileId();\n    final Tile t = await archive.tile(tileId);\n    t.bytes();\n  } finally {\n    await archive.close();\n  }\n  return 0;\n}",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.1.0",
+  "generatedAt": "2026-11-10T13:10:45.321Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "ai-ml",
+      "utils"
+    ],
+    "approach": [
+      "no codegen",
+      "declarative"
+    ],
+    "one_liner": "Dart model classes for the Model Context Protocol (MCP) with zero dependencies.",
+    "what_it_does": "Provides plain Dart model classes for the Model Context Protocol (MCP) schema, covering tools, resources, prompts, subscriptions, and notifications. Includes serialization and deserialization methods (toMap and named factories) without requiring code generation, along with a McpBuilder helper.",
+    "use_when": [
+      "Building Model Context Protocol (MCP) clients or servers in Dart",
+      "Working with MCP messages, tools, resources, and prompts without code generation"
+    ],
+    "avoid_when": [
+      "You do not need to interact with the Model Context Protocol"
+    ],
+    "strengths": [
+      "Full coverage of the MCP 2026-07-28 schema",
+      "Zero runtime dependencies and pure Dart",
+      "No code generation required",
+      "McpBuilder helper for declarative server capability registration"
+    ],
+    "weaknesses": [
+      "Tied strictly to the evolving Model Context Protocol specification"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:mcp_models/mcp_models.dart';\n\nfinal request = DiscoverRequest(\n  id: '1',\n  params: RequestParams(\n    $meta: RequestMetaObject(\n      protocolVersion: '2026-07-28',\n      clientCapabilities: ClientCapabilities({}),\n      clientInfo: Implementation(name: 'my_client', version: '1.0.0'),\n    ),\n  ),\n);\n\nfinal json = request.toMap();\nfinal restored = DiscoverRequest.toMCP(json);",
+    "confidence": 1
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.33.0",
+  "generatedAt": "2026-11-10T12:30:32.675Z",
+  "data": {
+    "primary_category": "devtools",
+    "secondary_categories": [
+      "auth"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter plugin for Facebook App Events and Meta ad attribution SDK.",
+    "what_it_does": "Provides a Flutter interface for Facebook App Events, enabling measurement of app usage, ad performance, and user engagement. Mirrors the native App Events SDK surface for Android and iOS.",
+    "use_when": [
+      "You need to track app events and user engagement for Facebook ad attribution.",
+      "You want to measure ad performance and build audiences for ad targeting."
+    ],
+    "avoid_when": [
+      "You require analytics solutions other than Meta/Facebook App Events.",
+      "Your iOS target deployment version is below 15.0."
+    ],
+    "strengths": [
+      "Mirrors the native SDK surface 1:1.",
+      "Supports both CocoaPods and Swift Package Manager for iOS integration.",
+      "Supports deferred SDK initialization for consent management."
+    ],
+    "weaknesses": [
+      "Requires manual native configuration in AndroidManifest.xml and Info.plist.",
+      "Strict minimum requirement of iOS 15.0 and Flutter >=3.41.0."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires creating a Facebook app, adding app ID and client token to Android strings.xml and Manifest, and configuring Info.plist on iOS. iOS requires a minimum deployment target of 15.0.",
+    "alternatives": [
+      {
+        "name": "mixpanel_flutter",
+        "why_pick_it": "Choose Mixpanel if you prefer a dedicated product analytics platform over Facebook's ad-attribution-focused SDK."
+      }
+    ],
+    "minimal_example": "final facebookAppEvents = FacebookAppEvents();\n\nawait facebookAppEvents.initializeSdk();\nawait facebookAppEvents.activateApp();",
+    "confidence": 1
+  }
+}

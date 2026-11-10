@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "6.3.0",
+  "generatedAt": "2026-11-10T12:32:41.245Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Fixed decimal numbers with a fixed scale, stored as BigInts, supporting math, formatting and parsing.",
+    "what_it_does": "Provides a Fixed type that stores decimal numbers with a selectable number of decimal places using BigInts for precision. It offers arithmetic operators, comparison, formatting (including locale-aware) and parsing with error handling.",
+    "use_when": [
+      "Need precise decimal arithmetic for currencies or financial data",
+      "Require locale-aware formatting and parsing of decimal numbers",
+      "Want to avoid floating-point inaccuracies in calculations"
+    ],
+    "avoid_when": [
+      "Working with arbitrary-precision decimals beyond a fixed scale",
+      "Needing binary floating-point math for performance-critical code"
+    ],
+    "strengths": [
+      "High precision via BigInt storage",
+      "Built-in formatting and parsing with locale support",
+      "Full set of arithmetic operators and comparison",
+      "Consistent hash codes across different scales"
+    ],
+    "weaknesses": [
+      "Limited to a fixed number of decimal places",
+      "No support for arbitrary-precision beyond the set scale",
+      "Requires Dart SDK 3.9.0 or higher"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:fixed/fixed.dart';\n\nvoid main() {\n  final t1 = Fixed.fromNum(1, decimalDigits: 2); // 1.00\n  final t2 = Fixed.fromNum(1, decimalDigits: 3); // 1.000\n  final add = t1 + Fixed.ten;\n  final multiply = t1 * t2;\n  print(add); // 11.00\n  print(multiply); // 1.00000\n}\n",
+    "confidence": 0.95
+  }
+}

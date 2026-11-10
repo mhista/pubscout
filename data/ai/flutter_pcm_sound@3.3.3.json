@@ -1,0 +1,48 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.3.3",
+  "generatedAt": "2026-11-10T12:49:29.562Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "callback-based"
+    ],
+    "one_liner": "Send real-time 16-bit PCM audio to device speakers from Flutter.",
+    "what_it_does": "It streams real-time PCM audio (16-bit integer) directly to device speakers using a low-frequency, event-based callback mechanism. It is designed for applications that generate audio on the fly, such as software synthesizers or custom audio generators.",
+    "use_when": [
+      "You are building an app that generates audio in real-time (e.g., soundfonts, synthesizers).",
+      "You want a low-dependency solution to stream raw PCM audio frames to device speakers."
+    ],
+    "avoid_when": [
+      "You just want to play pre-recorded audio files like MP3s or WAVs.",
+      "You need a high-level music player or streaming framework."
+    ],
+    "strengths": [
+      "Zero dependencies besides Flutter and the host platform.",
+      "Event-based feeding integrates well with the Flutter event loop.",
+      "Cross-platform support for Android, iOS, and macOS."
+    ],
+    "weaknesses": [
+      "Not designed for playback of standard audio files.",
+      "Requires manual sample generation and buffer management."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Enable required platforms in your Flutter project configuration.",
+    "alternatives": [
+      {
+        "name": "audioplayers",
+        "why_pick_it": "Pick audioplayers if you need to play pre-recorded audio files or URLs rather than streaming raw PCM data."
+      },
+      {
+        "name": "just_audio",
+        "why_pick_it": "Pick just_audio for feature-rich audio playback of files, playlists, and streams."
+      }
+    ],
+    "minimal_example": "void onFeed(int remainingFrames) async {\n    List<int> frame = scale.generate(periods: 20);\n    await FlutterPcmSound.feed(PcmArrayInt16.fromList(frame));\n}\n\nawait FlutterPcmSound.setup(sampleRate: 44100, channelCount: 1);\nawait FlutterPcmSound.setFeedThreshold(8000); \nFlutterPcmSound.setFeedCallback(onFeed);\nFlutterPcmSound.start();",
+    "confidence": 1
+  }
+}

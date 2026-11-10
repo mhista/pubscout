@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.18",
+  "generatedAt": "2026-11-10T13:16:23.663Z",
+  "data": {
+    "primary_category": "web-desktop",
+    "secondary_categories": [
+      "storage"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Manages and manipulates cookies inside WebViews for Android and iOS.",
+    "what_it_does": "Provides methods to get, set, remove, and clear web cookies using native CookieManager on Android and httpCookieStore on iOS. It helps handle cookies efficiently alongside webview_flutter or directly.",
+    "use_when": [
+      "You need to read or write web cookies for a WebView in Flutter",
+      "You need to manage authentication state or session cookies across web views"
+    ],
+    "avoid_when": [
+      "You are looking for general local key-value storage (use SharedPreferences instead)",
+      "You need full browser automation rather than just cookie management"
+    ],
+    "strengths": [
+      "Supports both Android and iOS native cookie stores",
+      "Works well standalone or combined with webview_flutter",
+      "Supports modern integration like Swift Package Manager alongside CocoaPods"
+    ],
+    "weaknesses": [
+      "Requires minimum iOS deployment target configuration",
+      "Not intended for non-Flutter applications"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires minimum iOS deployment target of 11.0. For Swift Package Manager, use Flutter 3.44 or newer; otherwise, CocoaPods remains supported.",
+    "alternatives": [
+      {
+        "name": "webview_flutter",
+        "why_pick_it": "Provides the official WebView widget, though advanced standalone cookie management often pairs with or utilizes packages like webview_cookie_manager_plus."
+      }
+    ],
+    "minimal_example": "final cookieManager = WebviewCookieManager();\nfinal gotCookies = await cookieManager.getCookies('https://youtube.com');",
+    "confidence": 0.95
+  }
+}

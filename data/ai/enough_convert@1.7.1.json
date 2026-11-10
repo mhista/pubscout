@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.7.1",
+  "generatedAt": "2026-11-10T12:42:16.273Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "localization"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Support for character encodings and codecs missing from dart:convert.",
+    "what_it_does": "Provides implementation for character encodings, charsets, and codecs missing from the standard dart:convert library. Supports ISO 8859 (Latin), Windows codepages, DOS codepages, GBK, Big5, and KOI8 R/U. Allows encoding and decoding text in legacy formats.",
+    "use_when": [
+      "You need to parse or generate text using legacy character encodings like ISO 8859 or Windows codepages.",
+      "You are dealing with older web pages, emails, or data streams that do not use UTF-8."
+    ],
+    "avoid_when": [
+      "Your application exclusively uses modern UTF-8 or standard encodings already built into dart:convert."
+    ],
+    "strengths": [
+      "Supports a wide range of legacy character sets including Latin, Windows, DOS, GBK, Big5, and KOI8.",
+      "Fully null-safe and lightweight with no external dependencies.",
+      "Provides custom codec extensibility if you need to implement your own."
+    ],
+    "weaknesses": [
+      "Limited to text encoding conversions only."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:enough_convert/enough_convert.dart';\n\nmain() {\n  final codec = const Windows1252Codec(allowInvalid: false);\n  final input = 'Il faut être bête quand même.';\n  final encoded = codec.encode(input);\n  final decoded = codec.decode([...encoded]);\n  print('${codec.name}: encode \"$input\" to \"$encoded\"');\n  print('${codec.name}: decode $encoded to \"$decoded\"');\n}",
+    "confidence": 1
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "2.1.1",
+  "generatedAt": "2026-11-10T12:36:16.202Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "forms",
+      "maps"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Google Places autocomplete TextField for Android, iOS, web, desktop.",
+    "what_it_does": "Provides a TextField that queries the Google Places API and displays suggestions. It can return place details including latitude and longitude, and supports custom list item builders.",
+    "use_when": [
+      "You need address input with autocomplete",
+      "You need to retrieve coordinates from a place",
+      "You want a customizable list item UI"
+    ],
+    "avoid_when": [
+      "You already have a custom autocomplete implementation",
+      "You don't want to depend on Google Places API"
+    ],
+    "strengths": [
+      "Cross‑platform support (Android, iOS, web, desktop)",
+      "Null safety and modern Dart syntax",
+      "Customizable debounce, country filtering, keyboard type",
+      "Optional lat/lng retrieval"
+    ],
+    "weaknesses": [
+      "Requires a Google API key and network access",
+      "Limited to Google Places API features",
+      "No built‑in error handling beyond basic callbacks"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dependency to pubspec, provide a valid Google API key, no special permissions needed.",
+    "alternatives": [],
+    "minimal_example": "GooglePlaceAutoCompleteTextField(\n  textEditingController: controller,\n  googleAPIKey: \"YOUR_GOOGLE_API_KEY\",\n  itemClick: (Prediction p) {\n    controller.text = p.description ?? \"\";\n  },\n  getPlaceDetailWithLatLng: (Prediction p) {\n    print(\"lat: ${p.lat}, lng: ${p.lng}\");\n  },\n)",
+    "confidence": 0.9
+  }
+}

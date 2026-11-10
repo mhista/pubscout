@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.3.1",
+  "generatedAt": "2026-11-10T12:58:59.617Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "JSON Patch (RFC 6902) implementation for Dart using JSON Pointers.",
+    "what_it_does": "Provides tools to build, encode, parse, and apply JSON Patch operations (Add, Copy, Move, Remove, Replace, Test) to JSON documents.",
+    "use_when": [
+      "You need to modify JSON documents using the standard JSON Patch (RFC 6902) format.",
+      "You need to test, add, remove, replace, move, or copy values inside a JSON structure using JSON Pointers."
+    ],
+    "avoid_when": [
+      "You only need simple JSON serialization without patching capabilities.",
+      "You need a full JSON schema validation library instead of document mutation."
+    ],
+    "strengths": [
+      "Implements the official RFC 6902 standard completely.",
+      "Supports all core patch operations including Test, Remove, Add, Replace, Move, and Copy."
+    ],
+    "weaknesses": [
+      "Limited documentation beyond basic README usage examples.",
+      "No built-in schema validation."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:rfc_6902/rfc_6902.dart';\n\nvoid main() {\n  const document = {'a': {'b': {'c': 'foo'}}};\n  final patch = JsonPatch([{'op': 'remove', 'path': '/a/b/c'}]);\n  final result = patch.applyTo(document);\n  print(result);\n}",
+    "confidence": 0.95
+  }
+}

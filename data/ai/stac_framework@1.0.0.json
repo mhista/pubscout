@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.0",
+  "generatedAt": "2026-11-10T13:15:31.632Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "ui-kits"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Enables easy creation of custom parsers for widgets and actions in server-driven UI implementations.",
+    "what_it_does": "Provides abstract classes like StacParser and StacActionParser to help developers build custom widget and action parsers for server-driven UI. It allows extending Stac functionality to support custom widgets, user inputs, and server actions.",
+    "use_when": [
+      "You are implementing server-driven UI using Stac and need custom widgets.",
+      "You need to parse custom action types such as sending messages to a remote server."
+    ],
+    "avoid_when": [
+      "You are building a standard Flutter application without server-driven UI requirements.",
+      "You do not use the Stac framework in your architecture."
+    ],
+    "strengths": [
+      "Simplifies creating custom parsers for widgets and actions.",
+      "Extends Stac framework functionality seamlessly."
+    ],
+    "weaknesses": [
+      "Strictly tied to the Stac ecosystem and has limited utility outside of it.",
+      "Documentation for advanced edge cases is minimal."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the package to pubspec.yaml and import stac_framework.dart.",
+    "alternatives": [],
+    "minimal_example": "import 'package:stac_framework/stac_framework.dart';\n\nclass StacWidgetParser extends StacParser<MyCustomWidget> {\n  @override\n  MyCustomWidget getModel(Map<String, dynamic> json) => MyCustomWidget.fromJson(json);\n\n  @override\n  Widget parse(BuildContext context, MyCustomWidget model) => Text(model.text);\n\n  @override\n  String get type => 'customWidget';\n}",
+    "confidence": 0.95
+  }
+}

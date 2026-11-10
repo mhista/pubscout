@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.12.0",
+  "generatedAt": "2026-11-10T12:33:35.908Z",
+  "data": {
+    "primary_category": "devtools",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "OpenTelemetry SDK for Dart and Flutter for distributed tracing, metrics, and context propagation.",
+    "what_it_does": "Provides an OpenTelemetry SDK for Dart and Flutter applications. It enables distributed tracing, metrics collection, OTLP exporters (gRPC/HTTP), and context propagation for observability backends.",
+    "use_when": [
+      "You need standard OpenTelemetry distributed tracing and metrics in Dart or Flutter.",
+      "You want to send telemetry data to an OTLP-compatible backend."
+    ],
+    "avoid_when": [
+      "You do not need observability or distributed tracing in your application."
+    ],
+    "strengths": [
+      "Standards-compliant with the OpenTelemetry specification.",
+      "Supports all Dart and Flutter targets including mobile, desktop, web, and wasm.",
+      "Provides context propagation across async gaps and Isolates."
+    ],
+    "weaknesses": [
+      "Requires manual code instrumentation or additional integration packages for automatic monitoring.",
+      "Windows targets need validation."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires initializing the OTel class via code or environment variables.",
+    "alternatives": [],
+    "minimal_example": "import 'package:dartastic_opentelemetry/dartastic_opentelemetry.dart';\n\nFuture<void> main() async {\n  await OTel.initialize(serviceName: 'my-service');\n  final tracer = OTel.tracer();\n  final span = tracer.startSpan('my-operation');\n  try {\n    await tracer.withSpanAsync(span, doWork);\n  } catch (e, stackTrace) {\n    span.recordException(e, stackTrace: stackTrace);\n    span.setStatus(SpanStatusCode.Error, e.toString());\n    rethrow;\n  } finally {\n    span.end();\n  }\n  await OTel.shutdown();\n}\n\nFuture<void> doWork() async {}\n",
+    "confidence": 0.95
+  }
+}

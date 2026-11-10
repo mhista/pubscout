@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "2.4.0",
+  "generatedAt": "2026-11-10T12:36:44.446Z",
+  "data": {
+    "primary_category": "testing",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "A Dart benchmark harness for measuring code performance",
+    "what_it_does": "Provides BenchmarkBase and AsyncBenchmarkBase classes to run microbenchmarks and report average runtimes. It also offers a command-line tool to execute benchmarks across different Dart runtimes.",
+    "use_when": [
+      "building microbenchmarks for Dart code",
+      "measuring performance of small functions or algorithms",
+      "comparing JIT vs AOT or JS/wasm builds"
+    ],
+    "avoid_when": [
+      "production code that needs to run in the app",
+      "performance testing that requires external services or UI interactions"
+    ],
+    "strengths": [
+      "Simple API, no code generation needed",
+      "Supports both sync and async benchmarks",
+      "Command-line tool for multi-runtime execution"
+    ],
+    "weaknesses": [
+      "Only works for Dart, not for Flutter widgets",
+      "Benchmark results can be affected by system load",
+      "Requires Dart 3.10+ for latest version"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:benchmark_harness/benchmark_harness.dart';\n\nclass TemplateBenchmark extends BenchmarkBase {\n  const TemplateBenchmark() : super('Template');\n  static void main() => const TemplateBenchmark().report();\n  @override void run() {}\n}\n\nvoid main() => TemplateBenchmark.main();",
+    "confidence": 0.9
+  }
+}

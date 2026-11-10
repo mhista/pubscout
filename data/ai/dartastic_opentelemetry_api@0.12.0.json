@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.12.0",
+  "generatedAt": "2026-11-10T12:33:24.307Z",
+  "data": {
+    "primary_category": "devtools",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "A Dart OpenTelemetry API that provides a no‑op implementation and strict spec compliance.",
+    "what_it_does": "It defines the OpenTelemetry API for Dart and Flutter, allowing developers to instrument code with traces, spans, and metrics. The API can be used alone for no‑op behavior or with an SDK for full telemetry collection.",
+    "use_when": [
+      "You need a vendor‑neutral, spec‑compliant OpenTelemetry API for Dart/Flutter.",
+      "You want a no‑op implementation for testing or minimal setups.",
+      "You plan to use the accompanying dartastic_opentelemetry SDK for full functionality."
+    ],
+    "avoid_when": [
+      "You only need a lightweight tracing library without full OpenTelemetry support.",
+      "You are already using another OpenTelemetry implementation that includes both API and SDK."
+    ],
+    "strengths": [
+      "Strict adherence to the OpenTelemetry specification.",
+      "Supports all platforms including web.",
+      "Provides a no‑op implementation for safe inclusion without an SDK."
+    ],
+    "weaknesses": [
+      "Requires an additional SDK for real telemetry collection.",
+      "No built‑in exporters or instrumentation helpers."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add to pubspec.yaml: `dartastic_opentelemetry_api: ^0.12.0` and import `package:dartastic_opentelemetry_api/dartastic_opentelemetry_api.dart`.",
+    "alternatives": [],
+    "minimal_example": "```dart\nimport 'package:dartastic_opentelemetry_api/dartastic_opentelemetry_api.dart';\n\nvoid main() {\n  // No‑op API usage\n  final tracer = OTel.tracerProvider.getTracer('example');\n  final span = tracer.spanBuilder('mySpan').startSpan();\n  span.end();\n}\n```",
+    "confidence": 0.8
+  }
+}

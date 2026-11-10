@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.2",
+  "generatedAt": "2026-11-10T13:09:16.894Z",
+  "data": {
+    "primary_category": "auth",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Lightweight implementation of JSON Web Tokens (JWT) for Dart and Flutter.",
+    "what_it_does": "Allows you to create, sign, parse, and validate JSON Web Tokens (JWT) using various algorithms like HS256, RS256, and ES256. It provides builders for claims and tools to verify token signatures and validate standard claims such as expiration and issuer.",
+    "use_when": [
+      "You need to generate and sign JWTs in your Dart backend or client application.",
+      "You need to parse and verify incoming JWT signatures and validate their claims."
+    ],
+    "avoid_when": [
+      "You require complex auth provider integrations (like Firebase or OAuth client flows) rather than raw token handling."
+    ],
+    "strengths": [
+      "Supports multiple signing algorithms (HS256, RS256, ES256).",
+      "Lightweight and straightforward API for building, signing, and validating tokens."
+    ],
+    "weaknesses": [
+      "Relies on manual verification and claim validation logic compared to full authentication SDKs."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:corsac_jwt/corsac_jwt.dart';\n\nvoid main() {\n  var builder = new JWTBuilder();\n  var token = builder\n    ..issuer = 'https://api.foobar.com'\n    ..expiresAt = new DateTime.now().add(new Duration(minutes: 3))\n    ..setClaim('data', {'userId': 836})\n    ..getToken();\n\n  var signer = new JWTHmacSha256Signer('sharedSecret');\n  var signedToken = builder.getSignedToken(signer);\n  var decodedToken = new JWT.parse(signedToken.toString());\n  print(decodedToken.verify(signer));\n}",
+    "confidence": 0.95
+  }
+}

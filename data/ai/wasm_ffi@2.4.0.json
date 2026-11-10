@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.4.0",
+  "generatedAt": "2026-11-10T12:55:35.528Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "web-desktop"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Drop-in replacement for dart:ffi for WebAssembly on the web platform.",
+    "what_it_does": "Provides a dart:ffi-like API for WebAssembly modules on the web supporting both standalone Wasm and Emscripten JavaScript glue. It handles memory mapping, pointers, and function lookups for Dart web applications compiled with dart2js or dart2wasm.",
+    "use_when": [
+      "You need to run native C/C++ Wasm modules within a Flutter or Dart web application.",
+      "You want a cross-platform codebase that uses dart:ffi on native and wasm_ffi on the web."
+    ],
+    "avoid_when": [
+      "You are building exclusively for native platforms where standard dart:ffi is available.",
+      "You require complex unsupported advanced types or shared memory across multiple libraries without custom setup."
+    ],
+    "strengths": [
+      "Enables reuse of existing C/C++ codebases via WebAssembly on the web.",
+      "Mirrors the familiar dart:ffi API pattern closely."
+    ],
+    "weaknesses": [
+      "Separately loaded Wasm modules do not share memory by default.",
+      "Strict return type constraints and special rules apply when looking up and invoking functions."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires building Wasm modules using Emscripten with specific flags (like EXPORTED_RUNTIME_METHODS=HEAPU8 or STANDALONE_WASM=1) and setting up proxy FFI imports.",
+    "alternatives": [],
+    "minimal_example": "import 'package:wasm_ffi/ffi.dart';\n\ntypedef AddNative = Int32 Function(Int32, Int32);\ntypedef AddDart = int Function(int, int);\n\nFuture<void> main() async {\n  final library = await DynamicLibrary.open('assets/example.wasm');\n  final add = library.lookupFunction<AddNative, AddDart>('add');\n  print(add(2, 3));\n  await library.close();\n}",
+    "confidence": 0.95
+  }
+}

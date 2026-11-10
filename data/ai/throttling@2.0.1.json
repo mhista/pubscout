@@ -1,0 +1,36 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.1",
+  "generatedAt": "2026-11-10T13:07:00.349Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "stream-based"
+    ],
+    "one_liner": "Throttling and debouncing async helper classes with listeners in Dart",
+    "what_it_does": "Provides throttling and debouncing utility classes to control the rate at which asynchronous actions or functions are executed. The classes extend Stream<bool> and implement Sink<Function> for integration.",
+    "use_when": [
+      "You need to limit how often a function can be called, such as handling button clicks or window resize events",
+      "You need to debounce user input like search queries"
+    ],
+    "avoid_when": [
+      "You already use reactive streams or libraries like RxDart that handle debouncing and throttling natively"
+    ],
+    "strengths": [
+      "Zero dependencies",
+      "Supports multiple platforms (Dart and Flutter)",
+      "Extends Stream and implements Sink"
+    ],
+    "weaknesses": [
+      "Very narrow scope focused solely on throttling and debouncing"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "final thr = Throttling<void>(duration: const Duration(milliseconds: 200));\nthr.throttle(() {print(' * 1');});\nawait Future<void>.delayed(const Duration(milliseconds: 100));\nthr.close();",
+    "confidence": 1
+  }
+}

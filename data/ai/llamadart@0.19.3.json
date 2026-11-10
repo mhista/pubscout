@@ -1,0 +1,53 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.19.3",
+  "generatedAt": "2026-11-10T12:39:45.925Z",
+  "data": {
+    "primary_category": "ai-ml",
+    "secondary_categories": [
+      "utils",
+      "device"
+    ],
+    "approach": [
+      "stream-based",
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Cross-platform on-device LLM inference for GGUF and LiteRT-LM models.",
+    "what_it_does": "Runs GGUF (llama.cpp) and LiteRT-LM models locally across Android, iOS, macOS, Windows, Linux, and the web. Provides text generation, chat streaming, structured JSON output, tool calling, embeddings, and multimodal capabilities behind a unified API.",
+    "use_when": [
+      "You need on-device, offline LLM inference in Dart or Flutter.",
+      "You want to run GGUF or LiteRT-LM models locally on mobile, desktop, or web.",
+      "You require advanced LLM features like tool calling, structured JSON output, or multimodal inputs."
+    ],
+    "avoid_when": [
+      "Your application relies entirely on cloud-based LLM APIs and requires no local execution.",
+      "Target device resources are too limited to run local models effectively."
+    ],
+    "strengths": [
+      "Cross-platform support including mobile, desktop, and web.",
+      "Supports multiple runtimes like llama.cpp and LiteRT-LM through a shared engine API.",
+      "Includes features like streaming chat, tool calling, LoRA adapters, and multimodal input."
+    ],
+    "weaknesses": [
+      "Requires managing large model files on device storage.",
+      "Web support is experimental and requires specific setup."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires platform-specific deployment target configurations (such as iOS 16.4+ and macOS 14.0+) and adding companion packages or running build hooks/setup scripts depending on the target.",
+    "alternatives": [
+      {
+        "name": "firebase_ai",
+        "why_pick_it": "Choose firebase_ai if you prefer using cloud-hosted Gemini models instead of running local on-device models."
+      },
+      {
+        "name": "tflite_flutter",
+        "why_pick_it": "Choose tflite_flutter if you want generic TensorFlow Lite machine learning inference rather than specialized LLM and GGUF orchestration."
+      }
+    ],
+    "minimal_example": "import 'package:llamadart/llamadart.dart';\n\nFuture<void> main() async {\n  final engine = await LlamaEngine.load(\n    LlamaModel(\n      ModelSource.parse(\n        'hf://unsloth/SmolLM2-135M-Instruct-GGUF/'\n        'SmolLM2-135M-Instruct-Q2_K.gguf',\n      ),\n    ),\n  );\n\n  try {\n    final reply = await engine.create(\n      const [\n        LlamaChatMessage.fromText(\n          role: LlamaChatRole.user,\n          text: 'Explain local inference in one sentence.',\n        ),\n      ],\n      params: const GenerationParams(maxTokens: 48),\n    ).text();\n    print(reply);\n  } finally {\n    await engine.dispose();\n  }\n}",
+    "confidence": 1
+  }
+}

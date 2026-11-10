@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.5.2",
+  "generatedAt": "2026-11-10T12:37:39.801Z",
+  "data": {
+    "primary_category": "devtools",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "hooks",
+      "imperative"
+    ],
+    "one_liner": "Build tool that compiles Flutter GPU shader bundles via a build hook.",
+    "what_it_does": "Provides a build hook to compile vertex/fragment shader files into a bundled asset for Flutter GPU. It tracks engine and file dependencies and can register the bundle with DataAssets when available.",
+    "use_when": [
+      "You need to include custom GPU shaders in a Flutter app",
+      "You want automatic rebuilds of shader bundles on source changes or engine updates"
+    ],
+    "avoid_when": [
+      "Your app does not use Flutter GPU shaders",
+      "You prefer runtime shader compilation instead of build‑time bundling"
+    ],
+    "strengths": [
+      "Integrates with Flutter's build system via hooks",
+      "Tracks engine binary changes to trigger rebuilds",
+      "Supports optional DataAssets registration"
+    ],
+    "weaknesses": [
+      "Only handles shader bundling, not general asset management",
+      "Requires a manifest file and manual hook setup",
+      "Limited to platforms supported by Impeller"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add a hook/build.dart script that calls buildShaderBundleJson, create a .shaderbundle.json manifest, and list the generated bundle in pubspec assets or use DataAssets mode.",
+    "alternatives": [],
+    "minimal_example": "import 'package:hooks/hooks.dart';\nimport 'package:flutter_gpu_shaders/build.dart';\n\nvoid main(List<String> args) async {\n  await build(args, (config, output) async {\n    await buildShaderBundleJson(\n        buildInput: config,\n        buildOutput: output,\n        manifestFileName: 'my_cool_bundle.shaderbundle.json');\n  });\n}",
+    "confidence": 0.9
+  }
+}

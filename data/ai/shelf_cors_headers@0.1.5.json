@@ -1,0 +1,36 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.1.5",
+  "generatedAt": "2026-11-10T12:47:56.949Z",
+  "data": {
+    "primary_category": "backend",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "CORS headers middleware for Shelf.",
+    "what_it_does": "A Shelf middleware to add CORS headers to shelf responses. It handles preflight requests, allows overriding default headers, and supports custom origin checker functions.",
+    "use_when": [
+      "You are building a Shelf backend that needs to handle CORS headers for web clients.",
+      "You need to handle preflight requests automatically in a Shelf application."
+    ],
+    "avoid_when": [
+      "You are not using the Shelf package for your backend/server."
+    ],
+    "strengths": [
+      "Handles preflight requests automatically",
+      "Allows custom origin checkers such as originOneOf",
+      "Easy to integrate into the Shelf Pipeline"
+    ],
+    "weaknesses": [
+      "Limited to the Shelf ecosystem"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [],
+    "minimal_example": "import 'package:shelf/shelf.dart';\nimport 'package:shelf/shelf_io.dart';\nimport 'package:shelf_cors_headers/shelf_cors_headers.dart';\n\nvoid main() async {\n  var handler = const Pipeline()\n      .addMiddleware(corsHeaders())\n      .addHandler(_requestHandler);\n\n  await serve(handler, 'localhost', 8080);\n}\n\nResponse _requestHandler(Request request) {\n  return Response.ok('Request for \"${request.url}\"');\n}",
+    "confidence": 0.95
+  }
+}

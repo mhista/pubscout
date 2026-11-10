@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.1",
+  "generatedAt": "2026-11-10T13:10:51.359Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "AES encrypted wrapper for shared_preferences to securely store sensitive data.",
+    "what_it_does": "Adds an extra layer of AES encryption to key-value data saved via shared_preferences. It supports various data types, stream-based observers for key changes, and a custom encryptor interface.",
+    "use_when": [
+      "You need to store encrypted simple key-value data on device",
+      "You want a drop-in replacement or wrapper over shared_preferences with encryption"
+    ],
+    "avoid_when": [
+      "You need robust, platform-backed secure storage like Keychain or Keystore directly without a custom password key"
+    ],
+    "strengths": [
+      "Supports multiple data types including strings, numbers, booleans, and lists",
+      "Includes stream observers and widgets to react to storage changes",
+      "Allows custom external encryptors"
+    ],
+    "weaknesses": [
+      "Relies on a user-provided encryption key which must be managed securely",
+      "Plain shared_preferences underlying storage can still be accessed if the key is compromised"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "flutter_secure_storage",
+        "why_pick_it": "Uses platform-native secure storage mechanisms (Keychain/EncryptedSharedPreferences) natively instead of manual AES wrappers over plain shared preferences."
+      }
+    ],
+    "minimal_example": "void main() async {\n  final key = \"\";\n  await EncryptedSharedPreferences.initialize(key: key);\n  var sharedPref = EncryptedSharedPreferences.getInstance();\n  await sharedPref.setString('user_token', 'xxxxxxxxxxxx');\n  sharedPref.getString('user_token');\n}",
+    "confidence": 0.95
+  }
+}

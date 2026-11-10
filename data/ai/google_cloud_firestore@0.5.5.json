@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.5.5",
+  "generatedAt": "2026-11-10T13:04:32.228Z",
+  "data": {
+    "primary_category": "backend",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "A Dart client library for Google Cloud Firestore database.",
+    "what_it_does": "Provides a complete API for interacting with Google Cloud Firestore, including documents, collections, queries, transactions, batches, and bulk writes. It can be used standalone or with the Firebase Admin SDK.",
+    "use_when": [
+      "You are building a backend or server application in Dart that needs to interact with Google Cloud Firestore.",
+      "You are running inside Firebase Functions or using the Firebase Admin SDK and need Firestore access."
+    ],
+    "avoid_when": [
+      "You are building a mobile client application using standard Firebase mobile SDKs (use cloud_firestore instead)."
+    ],
+    "strengths": [
+      "Complete API support for documents, collections, queries, transactions, and enterprise pipeline operations.",
+      "Supports connection pooling via HTTP/2 and integrates with Application Default Credentials or service accounts."
+    ],
+    "weaknesses": [
+      "Not intended as a direct drop-in replacement for the mobile client-side cloud_firestore package."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires either Application Default Credentials (e.g., via gcloud auth application-default login or environment variables) or a service account JSON file.",
+    "alternatives": [
+      {
+        "name": "cloud_firestore",
+        "why_pick_it": "Choose cloud_firestore if you are building a client mobile/web app using Firebase plugins rather than server-side or Cloud/Admin integration."
+      }
+    ],
+    "minimal_example": "import 'package:google_cloud_firestore/google_cloud_firestore.dart';\n\nfinal firestore = Firestore();\nfinal ref = firestore.collection('users').doc('user-id');\nawait ref.set({'name': 'John Doe', 'age': 27});",
+    "confidence": 0.95
+  }
+}

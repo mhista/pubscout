@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "1.0.1",
+  "generatedAt": "2026-11-10T12:26:01.729Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Parse, transform and print GraphQL documents in Dart.",
+    "what_it_does": "Provides libraries to parse GraphQL strings into an AST, visit and transform the AST, and print it back to a string. Includes experimental schema and operation helpers.",
+    "use_when": [
+      "You need to work with GraphQL query documents at build‑time or runtime without a full client",
+      "You want to generate or modify GraphQL queries programmatically"
+    ],
+    "avoid_when": [
+      "You need a complete GraphQL client with networking and caching",
+      "You require code‑generation of Dart models from GraphQL schemas"
+    ],
+    "strengths": [
+      "Lightweight and pure‑Dart",
+      "Supports parsing, visiting, transforming and printing of GraphQL AST",
+      "Works on all Dart platforms"
+    ],
+    "weaknesses": [
+      "No networking or execution layer",
+      "Experimental schema/operation APIs may change"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:gql/language.dart' as lang;\nimport 'package:gql/ast.dart' as ast;\n\nvoid main() {\n  final ast.DocumentNode doc = lang.parseString('''\n    query UserInfo($id: ID!) {\n      user(id: $id) { id name }\n    }\n  ''');\n  print(lang.printNode(doc));\n}",
+    "confidence": 0.87
+  }
+}

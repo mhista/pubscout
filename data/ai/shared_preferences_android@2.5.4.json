@@ -1,0 +1,52 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "2.5.4",
+  "generatedAt": "2026-11-10T12:14:59.488Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Android backend for the shared_preferences plugin, storing key‑value data on Android devices.",
+    "what_it_does": "It implements the shared_preferences API for Android, allowing data to be saved using either the native Android SharedPreferences or the newer DataStore Preferences. The package is endorsed and automatically included when using shared_preferences.",
+    "use_when": [
+      "You need persistent key‑value storage on Android via shared_preferences",
+      "You want to use SharedPreferencesAsync or SharedPreferencesWithCache with Android‑specific options"
+    ],
+    "avoid_when": [
+      "You need cross‑platform storage without adding platform‑specific code",
+      "You require encrypted or secure storage"
+    ],
+    "strengths": [
+      "Official endorsed federated plugin",
+      "Supports both Android SharedPreferences and DataStore backends",
+      "Zero‑config when using shared_preferences"
+    ],
+    "weaknesses": [
+      "Android‑only; no effect on iOS, web, etc.",
+      "Adds native Kotlin/JNI layer, increasing app size"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "shared_preferences",
+        "why_pick_it": "Single package that works on all platforms without needing platform‑specific imports"
+      },
+      {
+        "name": "flutter_secure_storage",
+        "why_pick_it": "Provides encrypted storage when security is required"
+      },
+      {
+        "name": "hive_ce",
+        "why_pick_it": "Offers fast, pure‑Dart key‑value storage without native code"
+      }
+    ],
+    "minimal_example": "const SharedPreferencesAsyncAndroidOptions options = SharedPreferencesAsyncAndroidOptions(\n  backend: SharedPreferencesAndroidBackendLibrary.SharedPreferences,\n  originalSharedPreferencesOptions: AndroidSharedPreferencesStoreOptions(\n    fileName: 'the_name_of_a_file',\n  ),\n);",
+    "confidence": 0.97
+  }
+}

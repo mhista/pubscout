@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.3.1",
+  "generatedAt": "2026-11-10T13:15:16.824Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [
+      "backend"
+    ],
+    "approach": [
+      "code generation",
+      "declarative"
+    ],
+    "one_liner": "Postgres implementation and APIs for the drift database package.",
+    "what_it_does": "Extends the drift database package to support talking to PostgreSQL databases using the postgres package. It provides a PgDatabase connection class and postgres-specific database APIs.",
+    "use_when": [
+      "You are using drift and need to connect to a PostgreSQL database instead of SQLite",
+      "You want to use drift's query builder and code generation with Postgres"
+    ],
+    "avoid_when": [
+      "You are using local-only storage like SQLite or Hive",
+      "You do not use the drift package"
+    ],
+    "strengths": [
+      "Enables drift ORM features for PostgreSQL",
+      "Supports Postgres-specific types, arrays, and functions like now()"
+    ],
+    "weaknesses": [
+      "Requires a running PostgreSQL instance for backend connectivity and testing"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dependencies to pubspec.yaml, configure build.yaml for drift_dev options with postgres dialect, and instantiate PgDatabase.",
+    "alternatives": [
+      {
+        "name": "drift",
+        "why_pick_it": "If you want local SQLite storage instead of a remote PostgreSQL connection."
+      }
+    ],
+    "minimal_example": "final database = AppDatabase(PgDatabase(\n  endpoint: PgEndpoint(\n    host: 'localhost',\n    database: 'postgres',\n    username: 'postgres',\n    password: 'postgres',\n  ),\n));",
+    "confidence": 1
+  }
+}

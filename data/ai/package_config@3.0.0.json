@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "3.0.0",
+  "generatedAt": "2026-11-10T12:13:59.055Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Read and write Dart package configuration files.",
+    "what_it_does": "Provides APIs to locate, read, and write .dart_tool/package_config.json files. Offers discovery functions and typed models for package configurations. No longer supports legacy .packages files.",
+    "use_when": [
+      "You need to resolve package URIs in tooling or build scripts",
+      "You are building a Dart tool that must read or modify the package configuration"
+    ],
+    "avoid_when": [
+      "You only need simple path manipulation without package resolution",
+      "Your project targets Dart versions older than 3.4"
+    ],
+    "strengths": [
+      "Official API that follows the Dart package config spec",
+      "Discovery functions simplify locating config files",
+      "Typed models are sealed and ready for future immutability"
+    ],
+    "weaknesses": [
+      "Only handles package configuration, not a general utility library",
+      "Requires Dart 3.4+, so not usable on older SDKs"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:package_config/package_config.dart';\n\nFuture<void> main() async {\n  final result = await findPackageConfigAndFile(Directory.current);\n  final config = await readConfigFile(result.file);\n  print('Found ${config.packages.length} packages');\n}",
+    "confidence": 0.97
+  }
+}

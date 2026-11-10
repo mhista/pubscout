@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.1.3",
+  "generatedAt": "2026-11-10T12:44:25.826Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Encoder and decoder for canonical JSON format useful for cryptographic hashing and signing.",
+    "what_it_does": "Provides tools to encode and decode canonical JSON format where maps are sorted by key, floats are not allowed, and formatting is strictly controlled. The decoder validates that the value is indeed canonically encoded.",
+    "use_when": [
+      "You need to cryptographically hash or sign JSON objects consistently",
+      "You require deterministic JSON serialization with sorted keys and no whitespace"
+    ],
+    "avoid_when": [
+      "You need to encode or decode standard JSON containing floating-point numbers",
+      "You want a general-purpose JSON serializer that supports code generation"
+    ],
+    "strengths": [
+      "Ensures deterministic JSON output for cryptographic use cases",
+      "Validates strict canonical JSON rules during decoding"
+    ],
+    "weaknesses": [
+      "Does not support floating-point numbers",
+      "Requires strings to be in Unicode Normalization Form C"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:canonical_json/canonical_json.dart';\nvoid main() {\n  final bytes = canonicalJson.encode({\n    'from': 'alice',\n    'message': 'Hi Bob',\n  });\n  final msg = canonicalJson.decode(bytes);\n}",
+    "confidence": 0.95
+  }
+}

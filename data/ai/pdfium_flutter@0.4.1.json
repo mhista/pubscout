@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.4.1",
+  "generatedAt": "2026-11-10T12:24:33.849Z",
+  "data": {
+    "primary_category": "files",
+    "secondary_categories": [],
+    "approach": [
+      "hooks",
+      "imperative"
+    ],
+    "one_liner": "Flutter FFI plugin that bundles PDFium for native PDF rendering on Android, iOS, Windows, macOS, and Linux.",
+    "what_it_does": "It packages PDFium native binaries and exposes low‑level FFI bindings so Flutter apps can load and render PDFs directly. The plugin also handles platform‑specific asset packaging and XCFramework integration.",
+    "use_when": [
+      "You need direct, low‑level access to PDFium for custom PDF processing or rendering",
+      "You target native Flutter platforms (mobile, desktop) and require a bundled PDF engine",
+      "You want automatic native binary handling without managing PDFium yourself"
+    ],
+    "avoid_when": [
+      "You need a high‑level PDF viewer widget or web support",
+      "You prefer a pure‑Dart solution without native toolchains",
+      "You are building for the web"
+    ],
+    "strengths": [
+      "Cross‑platform native PDFium binaries are bundled automatically",
+      "Supports multi‑engine applications via a process‑wide gate",
+      "Handles iOS/macOS XCFramework integration via CocoaPods/SwiftPM",
+      "No separate download step for PDFium binaries"
+    ],
+    "weaknesses": [
+      "Low‑level API requires manual handling of PDF rendering",
+      "Requires a C toolchain for native builds",
+      "No web support"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "A C toolchain is required to compile the bundled gate library on native platforms. iOS/macOS need CocoaPods or Swift Package Manager for the XCFramework. Ensure Flutter 3.47+ and Dart 3.13+.",
+    "alternatives": [],
+    "minimal_example": "import 'package:pdfium_flutter/pdfium_flutter.dart';\n\nfinal pdfium = pdfiumBindings; // default bindings\nfinal customPdfium = getPdfium(modulePath: '/custom/path/to/pdfium.so');",
+    "confidence": 0.93
+  }
+}

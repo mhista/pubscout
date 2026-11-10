@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.2.8",
+  "generatedAt": "2026-11-10T12:43:02.801Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "layout"
+    ],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "A reorderable grid view widget for Flutter supporting drag-and-drop reordering.",
+    "what_it_does": "Provides reorderable grid and sliver grid views similar to the official ReorderableListView. Allows users to drag and drop items to change their order in a grid layout with support for headers, footers, and custom drag widgets.",
+    "use_when": [
+      "You need a grid layout where users can reorder items via drag and drop",
+      "You want support for header and footer items inside a reorderable grid"
+    ],
+    "avoid_when": [
+      "You have extremely long lists where placeholderBuilder encounters bugs",
+      "You require robust drag scope constraints specifically inside ReorderableSliverGridView"
+    ],
+    "strengths": [
+      "Easy migration for developers familiar with ReorderableListView",
+      "Supports builder and count constructors along with sliver variants",
+      "Provides customization options for drag widgets and scroll speed"
+    ],
+    "weaknesses": [
+      "Known issue with placeholderBuilder when lists are very long",
+      "Dragging out of scope behaves differently in ReorderableSliverGridView"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "ReorderableGridView.count(\n  crossAxisCount: 3,\n  children: data.map((e) => Card(key: ValueKey(e), child: Text('$e'))).toList(),\n  onReorder: (oldIndex, newIndex) {\n    setState(() {\n      final element = data.removeAt(oldIndex);\n      data.insert(newIndex, element);\n    });\n  },\n)",
+    "confidence": 0.95
+  }
+}

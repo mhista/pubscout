@@ -1,0 +1,46 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.0.2",
+  "generatedAt": "2026-11-10T12:49:08.074Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Https Certificate pinning for Flutter apps.",
+    "what_it_does": "Checks equality between known SHA-1 or SHA-256 fingerprints and the target server's certificate fingerprint. It integrates with Dio via an interceptor, provides a secure http client, or can be called directly for custom implementations.",
+    "use_when": [
+      "You need to prevent man-in-the-middle attacks by validating server certificate fingerprints.",
+      "You are using Dio or the http package and want to add certificate pinning."
+    ],
+    "avoid_when": [
+      "You do not control or regularly update your server's SSL/TLS certificates, as pin changes will break the app.",
+      "You require advanced certificate validation beyond simple SHA-1/SHA-256 fingerprint matching."
+    ],
+    "strengths": [
+      "Provides built-in interceptors and clients for popular networking libraries like Dio and http.",
+      "Supports checking certificates via SHA-1 and SHA-256 fingerprints."
+    ],
+    "weaknesses": [
+      "Requires manual updating of certificate fingerprints in the app when server certificates rotate.",
+      "Limited documentation on platform-specific native setup or edge cases."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires adding the dependency and configuring allowed SHA fingerprints along with OpenSSL commands to extract the certificate fingerprint.",
+    "alternatives": [
+      {
+        "name": "http",
+        "why_pick_it": "If you need a basic HTTP client without the requirement for certificate pinning."
+      },
+      {
+        "name": "dio",
+        "why_pick_it": "If you need a powerful HTTP client for interceptors and global configurations, though pinning requires an external plugin like this one."
+      }
+    ],
+    "minimal_example": "import 'package:http_certificate_pinning/http_certificate_pinning.dart';\n\nDio getClient(String baseUrl, List<String> allowedSHAFingerprints) {\n    var dio = Dio(BaseOptions(baseUrl: baseUrl))\n      ..interceptors.add(CertificatePinningInterceptor(allowedSHAFingerprints));\n    return dio;\n}",
+    "confidence": 0.95
+  }
+}

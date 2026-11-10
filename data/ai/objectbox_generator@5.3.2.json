@@ -1,0 +1,54 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "5.3.2",
+  "generatedAt": "2026-11-10T12:39:19.591Z",
+  "data": {
+    "primary_category": "codegen",
+    "secondary_categories": [
+      "storage"
+    ],
+    "approach": [
+      "code generation"
+    ],
+    "one_liner": "Generates ObjectBox binding code for annotated Dart entities.",
+    "what_it_does": "Scans Dart files for ObjectBox annotations and creates the necessary generated code to register entities with the ObjectBox database. Integrates with build_runner to produce model files automatically.",
+    "use_when": [
+      "Using ObjectBox as the local database and want automatic model code generation",
+      "You need fast, ACID‑compliant local persistence with minimal manual boilerplate"
+    ],
+    "avoid_when": [
+      "You are not using ObjectBox (e.g., prefer SQLite, Hive, or Drift)",
+      "You want a pure‑runtime solution without a build step"
+    ],
+    "strengths": [
+      "High‑performance, ACID‑compliant storage",
+      "Zero‑runtime reflection – generated code is fast",
+      "Seamless integration with ObjectBox Flutter package"
+    ],
+    "weaknesses": [
+      "Works only with ObjectBox, not a generic solution",
+      "Requires build_runner and adds a compile‑time step",
+      "Limited to Dart/Flutter ecosystem"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add objectbox_generator and build_runner to dev_dependencies, run flutter pub run build_runner build to generate code",
+    "alternatives": [
+      {
+        "name": "sqflite",
+        "why_pick_it": "SQLite‑based storage without code generation"
+      },
+      {
+        "name": "drift",
+        "why_pick_it": "SQL‑centric ORM with its own code generation"
+      },
+      {
+        "name": "hive_ce",
+        "why_pick_it": "Lightweight NoSQL storage without native code generation"
+      }
+    ],
+    "minimal_example": "import 'package:objectbox/objectbox.dart';\n\n@Entity()\nclass Person {\n  int id = 0;\n  String name;\n\n  Person(this.name);\n}\n\n// Run build_runner to generate objectbox.g.dart with ObjectBox bindings",
+    "confidence": 0.9
+  }
+}

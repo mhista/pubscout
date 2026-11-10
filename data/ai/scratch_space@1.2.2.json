@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.2.2",
+  "generatedAt": "2026-11-10T12:30:19.694Z",
+  "data": {
+    "primary_category": "codegen",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "code generation"
+    ],
+    "one_liner": "Manages running external executables within package:build via a temporary directory wrapper.",
+    "what_it_does": "A tool to manage running external executables within package:build by providing a thin wrapper around a temporary directory. It helps add assets to a scratch space, get actual File objects for external binaries, and copy back outputs from the temp directory to the build system.",
+    "use_when": [
+      "You are writing a custom builder that needs to run external command-line executables.",
+      "You need to manage temporary directories and asset staging within package:build."
+    ],
+    "avoid_when": [
+      "You are building a standard app without custom build_runner builders.",
+      "You do not need to interact with external binaries or temporary files."
+    ],
+    "strengths": [
+      "Simplifies integration of external binaries into package:build",
+      "Provides asset synchronization via digests and helper methods for copying outputs back"
+    ],
+    "weaknesses": [
+      "Cannot delete individual assets from a scratch space currently, only the entire space",
+      "Requires proper handling of temporary resources to avoid filling up the disk"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Use as a Resource within package:build builders.",
+    "alternatives": [],
+    "minimal_example": "final myScratchSpaceResource =\n    Resource(() => ScratchSpace(), dispose: (old) => old.delete());\n\nclass MyBuilder extends Builder {\n  Future<void> build(BuildStep buildStep) async {\n    var scratchSpace = await buildStep.fetchResource(myScratchSpaceResource);\n  }\n}",
+    "confidence": 1
+  }
+}

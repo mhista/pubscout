@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.1.5",
+  "generatedAt": "2026-11-10T13:08:01.842Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "animation"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Synchronize scroll activity and viewport fractions across multiple PageViews",
+    "what_it_does": "Synchronizes scroll activity across multiple PageViews with different viewport configurations. It allows single gesture control over multiple page views and provides an expandable page view that animates resizing based on content.",
+    "use_when": [
+      "You need synchronized scrolling across multiple PageViews",
+      "You are building image carousels or multi-layer parallax effects",
+      "You require expandable PageViews that resize based on child content"
+    ],
+    "avoid_when": [
+      "You only need a single standard PageView without synchronization",
+      "You are not using PageViews for your scrolling layouts"
+    ],
+    "strengths": [
+      "Synchronizes multiple PageViews with a single gesture",
+      "Supports different viewport fractions per PageView",
+      "Provides an expandable PageView that adjusts to dynamic content sizes"
+    ],
+    "weaknesses": [
+      "Requires manual disposal of the controller group to prevent memory leaks",
+      "Limited to PageView synchronization use cases"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "final controllerGroup = LinkedPageControllerGroup();\nfinal controller1 = controllerGroup.create(viewportFraction: 0.7);\n\nLinkedPageView(\n  controller: controller1,\n  children: [\n    Container(color: Colors.red),\n    Container(color: Colors.green),\n  ],\n)",
+    "confidence": 0.95
+  }
+}

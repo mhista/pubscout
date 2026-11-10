@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.2",
+  "generatedAt": "2026-11-10T13:16:34.952Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "utils",
+      "web-desktop"
+    ],
+    "approach": [
+      "stream-based",
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Cross-platform inter-process communication library using named pipes and Unix domain sockets.",
+    "what_it_does": "Provides efficient communication between local processes across Windows, Linux, macOS, iOS, and Android. Uses native platform mechanisms like named pipes via Dart FFI on Windows and Unix domain sockets on Unix systems.",
+    "use_when": [
+      "You need to communicate between different Dart or native processes on the same device.",
+      "You want native performance for local inter-process communication without a Flutter C++ plugin layer."
+    ],
+    "avoid_when": [
+      "You need network communication over TCP/IP across remote machines.",
+      "You are targeting web applications where IPC mechanisms are not supported."
+    ],
+    "strengths": [
+      "Cross-platform support including Windows, Linux, macOS, iOS, and Android.",
+      "Pure Dart package with no Flutter C++ plugin layer required.",
+      "Compatible with standard socket APIs."
+    ],
+    "weaknesses": [
+      "Unix domain socket paths are constrained by short OS length limits.",
+      "Not supported on web platforms."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "No complex setup required; pure Dart package with FFI implementation.",
+    "alternatives": [],
+    "minimal_example": "import 'package:dart_ipc/dart_ipc.dart';\n\nvoid main() async {\n  final serverSocket = await bind(path);\n  await for (final socket in serverSocket) {\n    socket.listen((data) {\n      socket.add(utf8.encode('Hello from Server'));\n    });\n  }\n}",
+    "confidence": 0.95
+  }
+}

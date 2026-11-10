@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.0",
+  "generatedAt": "2026-11-10T13:13:05.791Z",
+  "data": {
+    "primary_category": "testing",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "A package for faking Dart and Flutter HttpClient responses for tests and unstable backends.",
+    "what_it_does": "Allows developers to fake responses from the standard Dart and Flutter HttpClient. It is useful for integration tests and for local app development when dealing with unstable backends.",
+    "use_when": [
+      "You need to write integration tests using standard HttpClient without hitting real servers.",
+      "You want to mock network responses during development because the backend is unstable."
+    ],
+    "avoid_when": [
+      "You are using HTTP client libraries like http or dio that do not use dart:io HttpClient directly."
+    ],
+    "strengths": [
+      "Great for integration tests.",
+      "Helps during app development with unstable back-ends.",
+      "Simple API integrating with HttpOverrides."
+    ],
+    "weaknesses": [
+      "Only targets Dart/Flutter's HttpClient, not other third-party HTTP packages."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [],
+    "minimal_example": "class _EmptyResponseHttpOverrides extends HttpOverrides {\n  @override\n  HttpClient createHttpClient(_) => FakeHttpClient(\n        (request, client) => FakeHttpResponse(),\n      );\n}\n\nvoid main() {\n  group('HttpClient', () {\n    setUp(() {\n      HttpOverrides.global = _EmptyResponseHttpOverrides();\n    });\n\n    test('returns faked OK empty response for non-existing website', () async {\n      final client = HttpClient();\n      final request = await client.getUrl(Uri.parse('https://non-existing-site.com'));\n      final response = await request.close();\n\n      expect(response.statusCode, HttpStatus.ok);\n      expect(response.contentLength, 0);\n    });\n  });\n}",
+    "confidence": 0.95
+  }
+}

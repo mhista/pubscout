@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "10.3.0",
+  "generatedAt": "2026-11-10T13:11:14.602Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "devtools"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Automatic capture of exceptions and GraphQL errors for the gql ecosystem like graphql and ferry.",
+    "what_it_does": "SentryLink integrates with the gql ecosystem (such as graphql and ferry) to automatically capture exceptions, GraphQL errors, and performance traces for requests. It helps improve exception reporting through custom extractors and provides serialization/parsing tracing for HttpLink and DioLink.",
+    "use_when": [
+      "You are using the gql ecosystem (graphql, ferry, artemis) in your Dart or Flutter application",
+      "You want to automatically report GraphQL errors and exceptions to Sentry",
+      "You want performance monitoring and tracing for GraphQL requests and serialization"
+    ],
+    "avoid_when": [
+      "You are not using Sentry for error tracking or performance monitoring",
+      "You are not using the gql package ecosystem for network requests"
+    ],
+    "strengths": [
+      "Seamless integration with popular GraphQL packages like graphql, ferry, and artemis",
+      "Supports performance monitoring and tracing for serialization and parsing",
+      "Provides tools to filter redundant HTTP breadcrumbs"
+    ],
+    "weaknesses": [
+      "Tied strictly to Sentry and the gql package ecosystem"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add SentryGql.link() to your GraphQL link chain and optionally configure exception extractors in Sentry.init.",
+    "alternatives": [],
+    "minimal_example": "final link = Link.from([\n    AuthLink(getToken: () async => 'Bearer $personalAccessToken'),\n    SentryGql.link(\n      shouldStartTransaction: true,\n      graphQlErrorsMarkTransactionAsFailed: true,\n    ),\n    HttpLink('https://api.github.com/graphql'),\n]);",
+    "confidence": 0.95
+  }
+}

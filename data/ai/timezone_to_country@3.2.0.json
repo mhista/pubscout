@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "3.2.0",
+  "generatedAt": "2026-11-10T12:38:15.049Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Translate IANA time‑zone IDs to ISO 3166‑1 alpha‑2 country codes.",
+    "what_it_does": "Provides a static method to get a country code from a time‑zone string and an async method to get the device's local country code. It uses the timezone and flutter_timezone packages and bundles the IANA database version.",
+    "use_when": [
+      "You need a quick mapping from time‑zone identifiers to country codes without writing your own lookup table",
+      "You want a pure‑Dart solution that works on mobile, web and desktop"
+    ],
+    "avoid_when": [
+      "You require up‑to‑date time‑zone data beyond the bundled version",
+      "You need full locale or language information, not just the country code"
+    ],
+    "strengths": [
+      "Zero‑configuration API",
+      "Works across all Flutter platforms",
+      "Bundled IANA data ensures consistent results"
+    ],
+    "weaknesses": [
+      "Country code may be ambiguous for some zones (e.g., multiple countries share a zone)",
+      "Relies on the packaged IANA version, which may become outdated"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "String code = await TimeZoneToCountry.getLocalCountryCode();\nprint(code); // e.g., 'KR'",
+    "confidence": 0.92
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.0.27",
+  "generatedAt": "2026-11-10T13:12:19.543Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [
+      "backend"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Native MySQL and MariaDB client written in Dart.",
+    "what_it_does": "Allows Dart and Flutter applications to connect directly to MySQL and MariaDB servers. It provides connection pooling, transactions, prepared statements, TLS support, and typed data access.",
+    "use_when": [
+      "You need to connect a Dart or Flutter app directly to a MySQL or MariaDB database.",
+      "You require features like connection pooling, transactions, and prepared statements."
+    ],
+    "avoid_when": [
+      "You prefer communicating with your database through a secure REST or GraphQL backend API rather than directly from the client.",
+      "You are using a non-MySQL compatible database system."
+    ],
+    "strengths": [
+      "Native Dart implementation with no external C/C++ bindings required.",
+      "Supports connection pooling, transactions, and real prepared statements.",
+      "Supports TLS/SSL connections and multiple authentication methods."
+    ],
+    "weaknesses": [
+      "Exposing direct database credentials in a client-side Flutter application is generally a security risk unless used for server-side Dart.",
+      "Limited to MySQL and MariaDB."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Not documented",
+    "alternatives": [],
+    "minimal_example": "final pool = MySQLConnectionPool(\n  host: '127.0.0.1',\n  port: 3306,\n  userName: 'your_user',\n  password: 'your_password',\n  maxConnections: 10,\n);\n\nvar result = await pool.execute(\"SELECT * FROM book WHERE id = :id\", {\"id\": 1});\nfor (final row in result.rows) {\n  print(row.assoc());\n}",
+    "confidence": 0.95
+  }
+}

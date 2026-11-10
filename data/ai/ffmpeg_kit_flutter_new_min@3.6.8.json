@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.6.8",
+  "generatedAt": "2026-11-10T12:56:26.062Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Run FFmpeg and FFprobe commands from Dart on Android, iOS, macOS, Windows, and Linux.",
+    "what_it_does": "Provides prebuilt native FFmpeg and FFprobe binaries alongside a Dart API to execute commands, read logs, track execution statistics, and inspect media files across multiple platforms.",
+    "use_when": [
+      "You need to process, transcode, or inspect audio and video files directly on the device using FFmpeg.",
+      "You want prebuilt native libraries for Android, iOS, macOS, Windows, and Linux without compiling FFmpeg yourself."
+    ],
+    "avoid_when": [
+      "You need heavy GPL-licensed codecs like x264, x265, or xvidcore (use a -gpl variant instead).",
+      "You only need standard playback and recording capabilities without custom FFmpeg filter graphs or transcoding."
+    ],
+    "strengths": [
+      "Prebuilt binaries for every platform avoid complex custom compilation steps.",
+      "Includes session management, return codes, logs, and statistics callbacks.",
+      "Maintained fork updated for current Flutter releases and the Android V2 embedding."
+    ],
+    "weaknesses": [
+      "Minimal package build excludes optional decoders, encoders, and protocols like HTTPS or specific audio/video codecs.",
+      "Large binary size added to your application."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Prebuilt native binaries are downloaded or linked automatically per platform. Linux requires installing `libjson-glib-dev` alongside standard Flutter dependencies.",
+    "alternatives": [],
+    "minimal_example": "import 'package:ffmpeg_kit_flutter_new_min/ffmpeg_kit.dart';\n\nfinal session = await FFmpegKit.execute('-i input.mp4 -c:v mpeg4 output.mp4');\nfinal returnCode = await session.getReturnCode();\n\nif (ReturnCode.isSuccess(returnCode)) {\n  // Success\n}",
+    "confidence": 0.95
+  }
+}

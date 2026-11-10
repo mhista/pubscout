@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "4.1.7",
+  "generatedAt": "2026-11-10T12:15:18.687Z",
+  "data": {
+    "primary_category": "devtools",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Daemon for running Dart builds in the background",
+    "what_it_does": "Provides a background process that accepts build requests over WebSocket, manages workspace state, and returns build results. It handles version checks, authentication tokens, and workspace isolation.",
+    "use_when": [
+      "You need to run multiple Dart builds concurrently or offload build work to a background process",
+      "You want to integrate build execution into a CI or IDE workflow",
+      "You need to avoid blocking the main thread while building"
+    ],
+    "avoid_when": [
+      "You only need a single, quick build and don't want the overhead of a daemon",
+      "You are building a small script that runs a single build"
+    ],
+    "strengths": [
+      "Handles workspace isolation and version skew detection",
+      "Supports WebSocket authentication and secure communication",
+      "Built on stable Dart packages and requires only Dart SDK"
+    ],
+    "weaknesses": [
+      "Requires Dart 3.7.0+",
+      "No built-in UI, only command-line/WebSocket interface",
+      "Limited to Dart builds, not other languages"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Run `dart pub global activate build_daemon` and start the daemon with `build_daemon start`. Clients connect via WebSocket using the provided token. No special permissions needed.",
+    "alternatives": [],
+    "minimal_example": "```dart\nimport 'package:build_daemon/build_daemon.dart';\n\nfinal daemon = DaemonBuilder();\nawait daemon.start();\n// Build requests can now be sent over WebSocket\n```",
+    "confidence": 0.8
+  }
+}

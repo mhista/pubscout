@@ -1,0 +1,48 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.2.0",
+  "generatedAt": "2026-11-10T12:40:43.314Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Generate random alphanumeric strings and unique nonces in Dart.",
+    "what_it_does": "Nonce provides a static generator and object constructors to create random alphanumeric strings directly from ASCII character codes. It supports default, unique, and secure random variations.",
+    "use_when": [
+      "You need to generate random alphanumeric strings or nonces.",
+      "You require unique nonces tracked globally during execution.",
+      "You need secure random string generation."
+    ],
+    "avoid_when": [
+      "You need advanced cryptographic primitives or hashing functions provided by other packages.",
+      "You need universally unique identifiers (UUIDs) specifically."
+    ],
+    "strengths": [
+      "Generates ASCII character codes directly without Base64 encoding overhead.",
+      "Supports unique nonce tracking out of the box.",
+      "Provides secure random options."
+    ],
+    "weaknesses": [
+      "Limited functionality beyond random string and nonce generation."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "uuid",
+        "why_pick_it": "If you specifically need standard UUIDs (v1, v4, v5) instead of generic alphanumeric nonces."
+      },
+      {
+        "name": "crypto",
+        "why_pick_it": "If you need cryptographic hash functions, digests, or encryption algorithms."
+      }
+    ],
+    "minimal_example": "import 'package:nonce/nonce.dart';\n\n// Generate a string 32 characters long.\nprint(Nonce.generate());\n\n// Generate a unique secure nonce\nprint(Nonce.secure());",
+    "confidence": 1
+  }
+}

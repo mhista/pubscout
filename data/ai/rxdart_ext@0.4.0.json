@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.4.0",
+  "generatedAt": "2026-11-10T12:56:01.493Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "stream-based",
+      "declarative"
+    ],
+    "one_liner": "Extension methods and classes built on top of RxDart like Single and StateStream.",
+    "what_it_does": "Extends RxDart with specialized reactive types such as Single for one-shot operations, and StateStream with synchronous latest-value access and distinct until changed behavior. It provides operators for streams and helpers for state management.",
+    "use_when": [
+      "You are using RxDart and need a Single type for one-shot asynchronous computations.",
+      "You want broadcast state streams with synchronous access to the latest value and automatic distinct checking.",
+      "You want advanced stream operators like flatMapSingle, distinctBy, and asNullable."
+    ],
+    "avoid_when": [
+      "You do not use RxDart or reactive programming in your application.",
+      "You prefer standard Flutter setState or simple ValueNotifiers for state management."
+    ],
+    "strengths": [
+      "Adds useful stream operators and classes missing from core RxDart.",
+      "Provides Single type suited for API calls and single-emission asynchronous tasks.",
+      "StateStream and StateSubject fit well with the BLoC pattern and StreamBuilder."
+    ],
+    "weaknesses": [
+      "Requires learning additional custom Rx types and concepts alongside RxDart.",
+      "Dart 3 class modifiers strictly restrict subclassing or implementing certain core classes outside their libraries."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:rxdart_ext/rxdart_ext.dart';\n\nSingle<User> fetchUser(String id) {\n  return Single.fromCallable(() => http.get(Uri.parse('$baseUrl/users/$id')))\n      .flatMapSingle<String>((res) => res.statusCode == HttpStatus.ok\n          ? Single.value(res.body)\n          : Single.error(Exception('Cannot fetch user with id=$id')))\n      .map((body) => User.fromJson(jsonDecode(body) as Map<String, dynamic>));\n}",
+    "confidence": 0.95
+  }
+}

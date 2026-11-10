@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "9.0.0",
+  "generatedAt": "2026-11-10T12:15:39.240Z",
+  "data": {
+    "primary_category": "notifications",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Linux implementation of the flutter_local_notifications plugin.",
+    "what_it_does": "Provides local notification support for Flutter apps running on Linux. It registers the Linux platform implementation used by the flutter_local_notifications package. Relies on dbus and ffi to communicate with the Linux notification daemon.",
+    "use_when": [
+      "Building a Flutter app that targets Linux and needs local notifications",
+      "You already use flutter_local_notifications and want Linux support out of the box"
+    ],
+    "avoid_when": [
+      "Your app only runs on mobile/web and doesn't need Linux support",
+      "You require push notifications or advanced features not covered by the plugin"
+    ],
+    "strengths": [
+      "Seamlessly integrates with flutter_local_notifications",
+      "Handles Linux notification daemon via dbus",
+      "No extra setup beyond adding the dependency"
+    ],
+    "weaknesses": [
+      "Only works on Linux; no other platforms",
+      "Requires Flutter SDK >=3.44.0 and Dart >=3.12.0",
+      "Limited documentation beyond the main plugin"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "flutter_local_notifications",
+        "why_pick_it": "Main package that includes this Linux implementation and works across all supported platforms"
+      }
+    ],
+    "minimal_example": "import 'package:flutter_local_notifications/flutter_local_notifications.dart';\n\nfinal FlutterLocalNotificationsPlugin notifications = FlutterLocalNotificationsPlugin();\nawait notifications.initialize(const InitializationSettings(\n  linux: LinuxInitializationSettings(defaultActionName: 'Open'),\n));\nawait notifications.show(0, 'Title', 'Body', const NotificationDetails(\n  linux: LinuxNotificationDetails(),\n));",
+    "confidence": 0.9
+  }
+}

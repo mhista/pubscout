@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.4.0",
+  "generatedAt": "2026-11-10T13:17:08.167Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Detects malicious accessibility services, overlays, and device security threats on Android.",
+    "what_it_does": "A Flutter plugin for Android that monitors security threats such as active device administrators, developer mode, malicious accessibility services, overlays, and call/microphone states. It provides methods to check device security status and event streams to observe touches, display changes, calls, and microphone availability.",
+    "use_when": [
+      "You need to protect an Android app against fraud, clickjacking, and malicious accessibility services.",
+      "You need to monitor overlay windows and detect obscured touch events.",
+      "You need to detect active phone calls or microphone usage during app sessions."
+    ],
+    "avoid_when": [
+      "Your application targets iOS or platforms other than Android.",
+      "You require guaranteed 100% protection against sophisticated malware (the package should be part of a multi-layer security strategy)."
+    ],
+    "strengths": [
+      "Detects active blacklisted accessibility services and device administrator presence.",
+      "Provides real-time event streams for touch events, display changes, calls, and microphone usage.",
+      "Allows dynamic enabling and disabling of overlay protections."
+    ],
+    "weaknesses": [
+      "Android-only support (iOS is not supported).",
+      "Cannot protect against overlay malware that uses active accessibility services."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding permissions to the Android manifest (HIDE_OVERLAY_WINDOWS, READ_PHONE_STATE, RECORD_AUDIO) and optionally using tools:node=\"remove\" if specific permissions are not needed.",
+    "alternatives": [],
+    "minimal_example": "final isAdminAppPresent = await FraudProtection.isDeviceAdminActive();\nfinal isDevMode = await FraudProtection.isDeveloperModeEnabled();",
+    "confidence": 0.95
+  }
+}

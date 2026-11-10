@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "5.2.0",
+  "generatedAt": "2026-11-10T13:18:58.143Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Hive storage extension for the stash caching API",
+    "what_it_does": "Provides support to store vaults and caches in the Hive database using binary msgpack serialization.",
+    "use_when": [
+      "You are using the stash caching API and want to use Hive as the persistent storage backend.",
+      "You need high-performing binary serialization for cached items or vaults."
+    ],
+    "avoid_when": [
+      "You are looking for a standalone Hive database implementation without the stash API wrapper.",
+      "You do not need caching features."
+    ],
+    "strengths": [
+      "Integrates seamlessly with the stash caching ecosystem.",
+      "Relies on efficient msgpack binary serialization."
+    ],
+    "weaknesses": [
+      "Requires managing dependencies for both stash and Hive."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add stash_hive to pubspec.yaml and import the library along with stash.",
+    "alternatives": [
+      {
+        "name": "hive_ce",
+        "why_pick_it": "If you want a standalone, community edition of Hive without the stash wrapper."
+      }
+    ],
+    "minimal_example": "import 'package:stash/stash_api.dart';\nimport 'package:stash_hive/stash_hive.dart';\n\nvoid main() async {\n  final store = await newHiveDefaultVaultStore(path: Directory.systemTemp.path);\n  final vault = await store.vault<Task>(name: 'vault', fromEncodable: (json) => Task.fromJson(json));\n}",
+    "confidence": 0.95
+  }
+}

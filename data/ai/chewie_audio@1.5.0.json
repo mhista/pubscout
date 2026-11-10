@@ -1,0 +1,47 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.5.0",
+  "generatedAt": "2026-11-10T12:53:53.099Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "An audio player for Flutter with Cupertino and Material play controls.",
+    "what_it_does": "Chewie Audio wraps the video_player plugin under the hood and provides friendly Material or Cupertino UI controls for audio playback. It supports features like subtitles, playback speed control, custom progress bars, and looping.",
+    "use_when": [
+      "You need an audio player with pre-built Material and Cupertino play controls.",
+      "You want to quickly implement audio playback with subtitle support and customizable options."
+    ],
+    "avoid_when": [
+      "You require a complex multi-track audio engine or advanced background audio session management without video_player dependencies.",
+      "You only need low-level audio/video playback primitives without pre-styled widgets."
+    ],
+    "strengths": [
+      "Comes with ready-to-use Material and Cupertino controls.",
+      "Supports subtitles and custom builders.",
+      "Allows customization of playback speed and additional options."
+    ],
+    "weaknesses": [
+      "Relies on video_player under the hood, making it an audio player built on video infrastructure.",
+      "Limited built-in streaming/casting features (like Chromecast) as noted in the roadmap."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires adding both chewie_audio and video_player as dependencies in your pubspec.yaml. iOS simulators require Flutter 1.26.0+ due to video_player constraints.",
+    "alternatives": [
+      {
+        "name": "just_audio",
+        "why_pick_it": "Pick it for a feature-rich, dedicated audio player designed specifically for complex audio use cases, streaming, and playlists."
+      },
+      {
+        "name": "audioplayers",
+        "why_pick_it": "Pick it for a simpler, dedicated multi-platform audio playback library that doesn't rely on video player underpinnings."
+      }
+    ],
+    "minimal_example": "import 'package:chewie_audio/chewie_audio.dart';\n\nfinal videoPlayerController = VideoPlayerController.network(\n    'https://flutter.github.io/assets-for-api-docs/assets/videos/butterfly.mp4');\n\nawait videoPlayerController.initialize();\n\nfinal chewieAudioController = ChewieAudioController(\n  videoPlayerController: videoPlayerController,\n  autoPlay: true,\n  looping: true,\n);\n\nfinal playerWidget = ChewieAudio(\n  controller: chewieAudioController,\n);",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.8.2",
+  "generatedAt": "2026-11-10T12:39:51.219Z",
+  "data": {
+    "primary_category": "localization",
+    "secondary_categories": [
+      "testing"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A CI quality gate for Flutter localization testing across locales, viewports, and scales.",
+    "what_it_does": "Runs app flows across multiple locales, text scales, device sizes, and RTL modes to report broken layouts, missing keys, and text overflows with screenshot proof.",
+    "use_when": [
+      "You want to automate localization QA and catch text overflows before shipping.",
+      "You need to test your app across different locales, text scales, and RTL layouts automatically."
+    ],
+    "avoid_when": [
+      "You are not using localization in your Flutter app.",
+      "You do not write widget or integration tests."
+    ],
+    "strengths": [
+      "Tests multiple variants (locales, scales, viewports, dark mode) from a single test call.",
+      "Catches text overflows, missing ARB keys, and placeholder mismatches.",
+      "Provides screenshot diffing and regression reports."
+    ],
+    "weaknesses": [
+      "Relies on golden tests and screenshot comparisons, which can be brittle across different host operating systems."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the dependency as a dev_dependency, write a sweep test calling sweepTest, and generate initial golden baselines using dart run locale_sweep update.",
+    "alternatives": [],
+    "minimal_example": "sweepTest(\n  'onboarding',\n  builder: () => const MyApp(),\n  arbDir: 'lib/l10n',\n);",
+    "confidence": 1
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "5.1.1",
+  "generatedAt": "2026-11-10T12:48:17.071Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "storage"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Hive cache store implementation for HTTP and Dio clients using hive_ce.",
+    "what_it_does": "Provides a database cache store implementation backed by hive_ce for HTTP clients like dio and http_cache_client. It handles caching responses, status codes, and managing cache storage safely with concurrent access guards.",
+    "use_when": [
+      "You are using dio or http_cache_client and need Hive-backed caching",
+      "You require persistent caching for HTTP responses across app restarts"
+    ],
+    "avoid_when": [
+      "You are not using a compatible HTTP client like dio or http",
+      "You prefer an in-memory-only cache solution"
+    ],
+    "strengths": [
+      "Uses hive_ce for lightweight NoSQL storage",
+      "Supports race condition guards and isolated Hive cache stores",
+      "Avoids loading all values into RAM using lazy boxes"
+    ],
+    "weaknesses": [
+      "Tied specifically to hive_ce and supported HTTP client wrappers",
+      "Limited documentation outside of basic usage references"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires adding the package and its dependencies to pubspec.yaml.",
+    "alternatives": [
+      {
+        "name": "dio",
+        "why_pick_it": "Provides built-in interceptors and flexible configuration options for networking."
+      }
+    ],
+    "minimal_example": "",
+    "confidence": 0.9
+  }
+}

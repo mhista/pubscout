@@ -1,0 +1,37 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.10.3",
+  "generatedAt": "2026-11-10T12:59:13.657Z",
+  "data": {
+    "primary_category": "devtools",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter wrapper plugin for UXCam SDK to connect and configure app analytics and screen recordings.",
+    "what_it_does": "Allows Flutter applications to integrate the UXCam SDK for session recording and user analytics across Android, iOS, and Web platforms. It initializes using a user configuration object and an app key.",
+    "use_when": [
+      "You need to record user sessions and analyze app usage with UXCam.",
+      "You are targeting Android, iOS, and Web platforms and require native UXCam integration."
+    ],
+    "avoid_when": [
+      "You do not use UXCam for analytics or crash/session tracking.",
+      "You want a purely open-source analytics backend that does not rely on third-party proprietary SDKs."
+    ],
+    "strengths": [
+      "Supports multiple platforms including Android, iOS, and Flutter Web.",
+      "Straightforward configuration using native UXCam keys."
+    ],
+    "weaknesses": [
+      "Requires platform-specific deployment target adjustments (e.g., iOS 13+ or Podfile configurations).",
+      "Relies heavily on external native SDK updates."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add flutter_uxcam to dependencies, initialize with your UXCam app key in main(), and ensure iOS deployment target is set to iOS 13 or later.",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter_uxcam/flutter_uxcam.dart';\n\nvoid main() {\n  FlutterUxcam.optIntoSchematicRecordings();\n  FlutterUxConfig config = FlutterUxConfig(userAppKey: \"UXCAM_APP_KEY\");\n  FlutterUxcam.startWithConfiguration(config);\n}",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.0.0",
+  "generatedAt": "2026-11-10T13:06:39.504Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Core commands implementation for communicating with an Atsign secondary server.",
+    "what_it_does": "The AtLookup Library is a low-level direct implementation of the Atsign Protocol verbs. It provides an interface to interact with an atServer by sending verbs such as scan, update, lookup, llookup, and plookup, and reading their answers.",
+    "use_when": [
+      "You need to send low-level protocol verbs directly to an Atsign secondary server.",
+      "You are building custom tools or clients that interface with the Atsign network."
+    ],
+    "avoid_when": [
+      "You are building a standard Flutter application unrelated to the Atsign ecosystem.",
+      "You want a high-level abstracted client SDK and do not need direct verb management."
+    ],
+    "strengths": [
+      "Direct implementation of Atsign Protocol verbs.",
+      "Supports secure socket and web socket transports for cross-platform usage including web."
+    ],
+    "weaknesses": [
+      "Very niche use case specifically for the Atsign protocol ecosystem.",
+      "Requires proper key management and authentication configuration via companion packages like at_auth."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the dependency to pubspec.yaml and import 'package:at_lookup/at_lookup_io.dart' for native TLS transport.",
+    "alternatives": [],
+    "minimal_example": "import 'package:at_auth/at_auth.dart';\nimport 'package:at_auth/at_auth_io.dart';\nimport 'package:at_commons/at_commons.dart' show AtRootDomain;\nimport 'package:at_lookup/at_lookup_io.dart';\n\nconst root = AtRootDomain.atsignDomain;\nfinal keysIo = FileAtKeysIo();\nfinal AtLookupMuxable atLookUp = AtLookUp.withSecureSocket(\n  atSign: '@alice',\n  rootDomain: root,\n  transport: secureSocketTransport(SecureSocketConfig()),\n  secondaryAddressFinder: CacheableSecondaryAddressFinder(root.rootDomain, root.rootPort),\n  authenticator: authenticatorFor(keysIo, '@alice'),\n);",
+    "confidence": 0.95
+  }
+}

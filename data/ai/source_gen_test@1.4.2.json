@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.4.2",
+  "generatedAt": "2026-11-10T12:44:07.779Z",
+  "data": {
+    "primary_category": "testing",
+    "secondary_categories": [
+      "codegen"
+    ],
+    "approach": [
+      "code generation",
+      "testing"
+    ],
+    "one_liner": "Test support for package:source_gen with helpers to validate success and failure cases.",
+    "what_it_does": "Provides test helpers like annotations (`@ShouldGenerate`, `@ShouldThrow`, `@ShouldGenerateFile`) and batch verification utilities to validate `source_gen` generators by annotating test files.",
+    "use_when": [
+      "You are writing a custom source_gen Generator or GeneratorForAnnotation and need to test success and failure outputs",
+      "You want to test code generation against golden output files",
+      "You need combinatorial batch verification of AST and declaration permutations for generators"
+    ],
+    "avoid_when": [
+      "You are not writing custom code generation tools",
+      "Your project does not use source_gen"
+    ],
+    "strengths": [
+      "Simplifies testing of source_gen generators via annotations",
+      "Supports golden file testing for generated output",
+      "Includes combinatorial batch verification for stress-testing generators"
+    ],
+    "weaknesses": [
+      "Limited usefulness outside of developing custom code generators"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add source_gen_test to dev_dependencies and use annotations on test classes.",
+    "alternatives": [],
+    "minimal_example": "@ShouldGenerate(\n  r'''\nconst TestClass1NameLength = 10;\n\nconst TestClass1NameLowerCase = 'testclass1';\n''',\n  configurations: ['default', 'no-prefix-required'],\n)\n@ShouldThrow(\n  'Uh...',\n  configurations: ['vague'],\n  element: false,\n)\n@TestAnnotation()\nclass TestClass1 {}",
+    "confidence": 1
+  }
+}

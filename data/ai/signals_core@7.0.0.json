@@ -1,0 +1,53 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "7.0.0",
+  "generatedAt": "2026-11-10T12:47:51.788Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [],
+    "approach": [
+      "declarative",
+      "reactive",
+      "no codegen"
+    ],
+    "one_liner": "Fine-grained reactivity library for modeling state and business logic in Dart.",
+    "what_it_does": "Exposes core functions and classes to model business logic with fine-grained reactivity, lazy evaluation, and surgical updates. Tracks dependencies automatically and frees them when no longer needed.",
+    "use_when": [
+      "You want fine-grained reactivity without code generation.",
+      "You are building business logic that can be shared across Flutter and non-Flutter Dart projects."
+    ],
+    "avoid_when": [
+      "You prefer structured architectural patterns like BLoC or standard Provider-based approaches.",
+      "You do not want to manage options classes for configuration in version 7.0.0+."
+    ],
+    "strengths": [
+      "100% Dart Native and framework agnostic.",
+      "Lazy evaluation computes values only when read.",
+      "Fine-grained tracking prevents unnecessary widget or computation rebuilds."
+    ],
+    "weaknesses": [
+      "Requires learning a signals-based mental model.",
+      "Breaking changes in 7.0.0 require refactoring constructors and options configurations."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "riverpod",
+        "why_pick_it": "Provides compile-safe, robust state management tailored extensively for Flutter applications."
+      },
+      {
+        "name": "bloc",
+        "why_pick_it": "Enforces strict separation of concerns using events and states with predictable state transitions."
+      },
+      {
+        "name": "provider",
+        "why_pick_it": "Simpler, inherited-widget based dependency injection and state propagation."
+      }
+    ],
+    "minimal_example": "import 'package:signals_core/signals_core.dart';\n\nfinal counter = signal(0);\n\nvoid main() {\n  effect(() {\n    print('Count: ${counter.value}');\n  });\n  counter.value++;\n}",
+    "confidence": 0.95
+  }
+}

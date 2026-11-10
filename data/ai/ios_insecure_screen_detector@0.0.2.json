@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.0.2",
+  "generatedAt": "2026-11-10T12:46:14.990Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Detect screenshots and screen recording on iOS devices.",
+    "what_it_does": "A Flutter plugin that allows developers to detect when a user takes a screenshot or starts/stops screen recording on iOS. It provides callback mechanisms and status checks to handle insecure screen events.",
+    "use_when": [
+      "You need to detect screenshots taken by users on iOS.",
+      "You need to monitor screen recording status changes on iOS devices.",
+      "You want to secure sensitive content by reacting to screen capture events."
+    ],
+    "avoid_when": [
+      "You need screenshot or screen protection for Android (requires other packages like flutter_windowmanager).",
+      "You only need cross-platform device information without capture detection."
+    ],
+    "strengths": [
+      "Detects both screenshots and screen recordings on iOS.",
+      "Provides methods to check current screen recording status (`isCaptured`).",
+      "Simple API with initialize, listener, and dispose methods."
+    ],
+    "weaknesses": [
+      "Works only for iOS (Android is not supported by this package).",
+      "Screen recording detection only works on iOS versions above 11.0."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Initialize the plugin in initState and dispose of it when exiting the screen.",
+    "alternatives": [],
+    "minimal_example": "final detector = IosInsecureScreenDetector();\nawait detector.initialize();\ndetector.addListener(\n  () => print('Screenshot taken'),\n  (isRecording) => print('Screen recording: $isRecording'),\n);",
+    "confidence": 0.95
+  }
+}

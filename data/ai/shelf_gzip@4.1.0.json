@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.1.0",
+  "generatedAt": "2026-11-10T12:38:17.769Z",
+  "data": {
+    "primary_category": "backend",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Shelf middleware to GZIP encode HTTP responses.",
+    "what_it_does": "Shelf middleware that automatically applies GZIP compression to HTTP responses based on content type and compression level. It skips compression for already compressed content types or small response bodies.",
+    "use_when": [
+      "You are building a Dart backend using the shelf package and want to compress responses.",
+      "You want to optimize bandwidth usage for text or code content served by your shelf server."
+    ],
+    "avoid_when": [
+      "You are not using the shelf package for your backend.",
+      "Response bodies are consistently smaller than 512 bytes and will not benefit from compression."
+    ],
+    "strengths": [
+      "Easy integration with shelf pipelines via gzipMiddleware.",
+      "Allows customization of compression level and compression scope.",
+      "Automatically skips already compressed content types."
+    ],
+    "weaknesses": [
+      "Limited to the shelf ecosystem.",
+      "Not documented for non-shelf frameworks."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Not documented",
+    "alternatives": [],
+    "minimal_example": "var handler = const shelf.Pipeline().addMiddleware(gzipMiddleware).addHandler(staticHandler);",
+    "confidence": 0.95
+  }
+}

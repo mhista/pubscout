@@ -1,0 +1,47 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.1.0",
+  "generatedAt": "2026-11-10T13:17:07.978Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative",
+      "imperative"
+    ],
+    "one_liner": "Flutter runtime permissions made easy with adaptive dialogs and permission gates.",
+    "what_it_does": "Simplifies handling runtime permissions in Flutter by wrapping permission_handler with one-line requests, adaptive dialogs, rationale flows, and settings round-trips. It also provides a PermissionGate widget to wrap UI that requires specific permissions.",
+    "use_when": [
+      "You need to request permissions with automatic adaptive explanation and settings dialogs.",
+      "You want to guard UI widgets behind a permission check using PermissionGate.",
+      "You need a robust fallback flow when permissions are permanently denied or restricted."
+    ],
+    "avoid_when": [
+      "You need permission handling on macOS or Linux platforms, which are not supported.",
+      "You prefer writing custom platform permission dialogs and state management from scratch."
+    ],
+    "strengths": [
+      "Handles complex permission flows (denied, permanently denied, restricted) automatically.",
+      "Includes a PermissionGate widget that re-checks status when returning to the foreground.",
+      "Provides built-in testing support with FakeSmartPermissionGateway."
+    ],
+    "weaknesses": [
+      "Relies on permission_handler and inherits its platform limitations (no macOS or Linux support).",
+      "Requires platform-specific configuration in AndroidManifest.xml, Info.plist, and optionally Podfile."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding permissions to AndroidManifest.xml, usage descriptions to iOS Info.plist, configuring Gradle compileSdk, and optionally setting up Podfile macros for iOS CocoaPods.",
+    "alternatives": [
+      {
+        "name": "permission_handler",
+        "why_pick_it": "If you prefer direct, low-level control over permission requests and status checking without the added UI flows, dialogs, and widgets provided by smart_permission."
+      }
+    ],
+    "minimal_example": "final granted = await SmartPermission.request(\n  context,\n  permission: Permission.camera,\n  description: 'We need the camera to scan QR codes.',\n);\nif (granted) openScanner();",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.5",
+  "generatedAt": "2026-11-10T12:34:21.553Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Converts Quill's Delta format to HTML.",
+    "what_it_does": "Converts Quill Delta formatted data into HTML with support for nested lists, inline styles, and various custom attributes. It operates as a complete port of the quill-delta-to-html TypeScript package.",
+    "use_when": [
+      "You need to convert rich text from a Quill editor (such as Flutter Quill) into HTML format.",
+      "You are generating HTML-based emails using Quill content on the server-side or in Flutter."
+    ],
+    "avoid_when": [
+      "You need to parse HTML back into Quill Delta format."
+    ],
+    "strengths": [
+      "Full support for Quill operations including images, videos, formulas, tables, and mentions.",
+      "Configurable options for output tags, sanitization, and inline styles."
+    ],
+    "weaknesses": [
+      "Supports insert operations only."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:vsc_quill_delta_to_html/vsc_quill_delta_to_html.dart';\n\nvoid main() {\n  final deltaOps = [\n    {'insert': 'Hello\\n'},\n    {\n      'insert': 'This is colorful',\n      'attributes': {'color': '#f00'}\n    }\n  ];\n\n  final converter = QuillDeltaToHtmlConverter(\n    ops,\n    ConverterOptions.forEmail(),\n  );\n\n  final html = converter.convert();\n  print(html);\n}",
+    "confidence": 1
+  }
+}

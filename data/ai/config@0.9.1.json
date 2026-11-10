@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.9.1",
+  "generatedAt": "2026-11-10T12:30:32.189Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "Parse command-line arguments, environment variables, and configuration files with typed options.",
+    "what_it_does": "Extends the Dart args package to handle typed options like ints, durations, and enums from multiple sources including CLI arguments, environment variables, and YAML/JSON configuration files. It performs up-front validation and provides consistent error reporting.",
+    "use_when": [
+      "You need a robust CLI parser that also reads environment variables and config files.",
+      "You require typed configuration options with up-front error validation."
+    ],
+    "avoid_when": [
+      "You are using complex command structures via addCommand() which requires BetterCommandRunner.",
+      "You only need basic command-line parsing and the default args package is sufficient."
+    ],
+    "strengths": [
+      "Supports multiple input sources: CLI flags, environment variables, and config files with clear precedence.",
+      "Provides typed option parsing for integers, dates, durations, lists, and enums.",
+      "Performs up-front validation to collect all errors at once."
+    ],
+    "weaknesses": [
+      "Does not support addCommand() natively, requiring alternative command runners.",
+      "Additional learning curve compared to the standard args package."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "final parser = ConfigParser();\nparser.addFlag('verbose', abbr: 'v');\nparser.addOption('port', defaultsTo: '8080');\nfinal results = parser.parse(['--verbose', '--port', '3000']);",
+    "confidence": 0.95
+  }
+}

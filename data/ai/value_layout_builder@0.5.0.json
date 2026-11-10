@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.5.0",
+  "generatedAt": "2026-11-10T12:28:00.607Z",
+  "data": {
+    "primary_category": "layout",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A LayoutBuilder that passes a custom value to its builder during layout.",
+    "what_it_does": "It extends LayoutBuilder to expose an arbitrary value to the builder via custom constraints. The value is set by a custom RenderObject and can be used to build widgets that depend on layout information.",
+    "use_when": [
+      "You need to access a value computed during layout in a child widget",
+      "You are creating a custom RenderObject that must communicate data to a builder",
+      "You want a lightweight way to pass data from a parent RenderObject to its child widget"
+    ],
+    "avoid_when": [
+      "You only need the standard constraints from LayoutBuilder",
+      "You are not using a custom RenderObject to supply the value"
+    ],
+    "strengths": [
+      "Simple API, no code generation",
+      "Null-safety compliant",
+      "Works with both RenderBox and RenderSliver"
+    ],
+    "weaknesses": [
+      "Requires a custom RenderObject to supply the value",
+      "Not a general-purpose state management tool",
+      "Limited to layout-time data"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dependency in pubspec, import package:value_layout_builder/value_layout_builder.dart",
+    "alternatives": [],
+    "minimal_example": "class _Tester<T> extends SingleChildRenderObjectWidget {\n  const _Tester({Key? key, required this.value, required Widget child})\n      : super(key: key, child: child);\n  final T value;\n  @override\n  _RenderTester<T> createRenderObject(BuildContext context) => _RenderTester<T>(value: value);\n  @override\n  void updateRenderObject(BuildContext context, _RenderTester<T> renderObject) {\n    renderObject.value = value;\n  }\n}\n\n_Tester<String>(\n  value: 'test',\n  child: ValueLayoutBuilder<String>(\n    builder: (context, constraints) {\n      final String value = constraints.value;\n      return Text(value);\n    },\n  ),\n)",
+    "confidence": 0.9
+  }
+}

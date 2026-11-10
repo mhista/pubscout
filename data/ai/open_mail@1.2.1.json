@@ -1,0 +1,36 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.2.1",
+  "generatedAt": "2026-11-10T13:08:26.303Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Query device for installed email apps and open them programmatically.",
+    "what_it_does": "A Flutter plugin that queries the device for installed email apps and allows users to open a specific email app or view a picker list. It extends functionality beyond default url_launcher capabilities by letting users choose non-default mail applications.",
+    "use_when": [
+      "You need to let users choose which specific email app to open on their device.",
+      "You need to query the list of installed email apps on Android or iOS."
+    ],
+    "avoid_when": [
+      "You only need to open a generic mailto link with the default system mail app."
+    ],
+    "strengths": [
+      "Supports identifying multiple installed email apps on Android and iOS.",
+      "Allows opening specific mail apps by name."
+    ],
+    "weaknesses": [
+      "Requires manual configuration of LSApplicationQueriesSchemes in iOS Info.plist for app detection.",
+      "Breaking changes occurred between minor versions (e.g., removal of built-in picker dialog in v1.2.0)."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "For iOS, list the URL schemes of the email apps you want to query in your Info.plist file under LSApplicationQueriesSchemes. No additional setup is required for Android.",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:open_mail/open_mail.dart';\n\nvoid main() {\n  runApp(const MaterialApp(home: MyApp()));\n}\n\nclass MyApp extends StatelessWidget {\n  const MyApp({super.key});\n\n  @override\n  Widget build(BuildContext context) {\n    return Scaffold(\n      appBar: AppBar(\n        title: const Text('Open Mail App Example'),\n      ),\n      body: Center(\n        child: ElevatedButton(\n          onPressed: () async {\n            final result = await OpenMail.openMailApp();\n            \n            if (!result.didOpen) {\n              // Handle no mail apps found\n            }\n          },\n          child: const Text(\"Open Mail App\"),\n        ),\n      ),\n    );\n  }\n}",
+    "confidence": 0.95
+  }
+}

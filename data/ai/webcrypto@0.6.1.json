@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.6.1",
+  "generatedAt": "2026-11-10T12:47:34.095Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "no codegen"
+    ],
+    "one_liner": "Cross-platform implementation of Web Cryptography APIs for Dart.",
+    "what_it_does": "Provides a cross-platform implementation of the Web Cryptography API across Android, iOS, Web, Windows, Linux, and macOS. Outside the browser it embeds BoringSSL using dart:ffi, and inside the browser it wraps window.crypto.",
+    "use_when": [
+      "You need cryptographic operations like hashing, signing, encryption, or key derivation that work identically across mobile, web, and desktop.",
+      "You want to use standard Web Cryptography APIs in Dart and Flutter."
+    ],
+    "avoid_when": [
+      "You need features missing from the Web Cryptography API or package limitations like deriveKey, wrapKey, unwrapKey, or AES-KW.",
+      "Your system lacks cmake or a C compiler required to build BoringSSL via hooks."
+    ],
+    "strengths": [
+      "Consistent API across mobile, web, and desktop platforms.",
+      "Backed by BoringSSL natively and window.crypto on the web.",
+      "Extensive feature set including AES, RSA, ECDSA, HMAC, and hashing algorithms."
+    ],
+    "weaknesses": [
+      "Requires cmake and a C compiler (like gcc or clang) for native builds.",
+      "Native implementation executes on the main thread.",
+      "Some browser and platform specific compatibility limitations and known issues."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Your system must have cmake and a C compiler (like gcc or clang) installed to build BoringSSL using hooks.",
+    "alternatives": [],
+    "minimal_example": "import 'dart:convert' show utf8;\nimport 'package:webcrypto/webcrypto.dart';\n\nFuture<void> main() async {\n  final digest = await Hash.sha256.digestBytes(utf8.encode('Hello World'));\n}",
+    "confidence": 1
+  }
+}

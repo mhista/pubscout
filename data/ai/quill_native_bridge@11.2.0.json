@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "11.2.0",
+  "generatedAt": "2026-11-10T12:27:48.207Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "files"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "An internal plugin for flutter_quill to access platform-specific clipboard and gallery APIs",
+    "what_it_does": "Provides platform-specific APIs to interact with the system clipboard for HTML, images, GIFs, and files. Also allows opening the system gallery app and saving images to storage or gallery.",
+    "use_when": [
+      "You are using flutter_quill and need platform-specific clipboard and media operations",
+      "You need to read or write HTML, images, and files to the system clipboard across multiple platforms"
+    ],
+    "avoid_when": [
+      "You are not using flutter_quill and need standard clipboard or file picking capabilities",
+      "You need general-purpose device information rather than quill-specific platform integrations"
+    ],
+    "strengths": [
+      "Cross-platform support for advanced clipboard types like HTML, images, and GIFs",
+      "Direct integration with flutter_quill package requirements"
+    ],
+    "weaknesses": [
+      "Intended as an internal package for flutter_quill rather than standalone general use",
+      "Requires platform-specific configuration such as FileProvider on Android and Photo Library permissions on iOS and macOS"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires Android FileProvider configuration for clipboard image sharing, and Photo Library usage descriptions in Info.plist for iOS/macOS image saving.",
+    "alternatives": [],
+    "minimal_example": "final String? html = await QuillNativeBridge().getClipboardHtml();",
+    "confidence": 0.95
+  }
+}

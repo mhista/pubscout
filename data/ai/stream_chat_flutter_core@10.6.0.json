@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "10.6.0",
+  "generatedAt": "2026-11-10T12:33:10.959Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "stream-based"
+    ],
+    "one_liner": "Core Flutter SDK for Stream Chat providing business logic and controllers without UI.",
+    "what_it_does": "It supplies controllers for channels, messages, users, polls, drafts and more, handling pagination and state management. Utilities like BetterStreamBuilder and LazyLoadScrollView help build custom chat interfaces on top of the Stream Chat client.",
+    "use_when": [
+      "You need a fully custom chat UI and want to manage chat state yourself",
+      "You want lightweight core functionality without the UI bundle of stream_chat_flutter",
+      "You require pagination, draft handling, and other chat‑specific controllers",
+      "You prefer minimal dependencies and platform‑agnostic setup"
+    ],
+    "avoid_when": [
+      "You want ready‑made chat widgets and UI out of the box",
+      "You are not using Stream Chat as the backend",
+      "You need a generic state‑management solution unrelated to chat"
+    ],
+    "strengths": [
+      "Very low dependency footprint",
+      "Comprehensive set of chat‑specific controllers and utilities",
+      "Easy to integrate with the low‑level stream_chat client",
+      "Works on all Flutter platforms"
+    ],
+    "weaknesses": [
+      "Only useful with Stream Chat backend",
+      "No UI components, so you must build all widgets yourself",
+      "Requires understanding of its controller APIs"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:stream_chat_flutter_core/stream_chat_flutter_core.dart';\n\nvoid main() => runApp(MyApp());\n\nclass MyApp extends StatelessWidget {\n  final client = StreamChatClient('YOUR_API_KEY');\n\n  @override\n  Widget build(BuildContext context) {\n    return MaterialApp(\n      home: StreamChatCore(client: client, child: ChannelListPage()),\n    );\n  }\n}\n\nclass ChannelListPage extends StatelessWidget {\n  final controller = StreamChannelListController();\n\n  @override\n  Widget build(BuildContext context) {\n    return Scaffold(\n      appBar: AppBar(title: Text('Channels')),\n      body: PagedValueListenableBuilder(\n        controller: controller,\n        builder: (context, channels, _) => ListView.builder(\n          itemCount: channels.length,\n          itemBuilder: (_, i) => ListTile(title: Text(channels[i].name ?? 'Unnamed')),\n        ),\n      ),\n    );\n  }\n}",
+    "confidence": 0.93
+  }
+}

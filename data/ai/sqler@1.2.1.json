@@ -1,0 +1,55 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.2.1",
+  "generatedAt": "2026-11-10T13:10:35.630Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [
+      "backend"
+    ],
+    "approach": [
+      "declarative",
+      "imperative"
+    ],
+    "one_liner": "A SQL query builder for Dart with MySQL and SQLite support",
+    "what_it_does": "Sqler is a fluent SQL query builder that allows Dart developers to construct type-safe SQL statements including SELECT, INSERT, UPDATE, and DELETE operations. It supports both MySQL and SQLite syntaxes, parameterized queries, joins, and table definitions.",
+    "use_when": [
+      "You need to programmatically build SQL queries in Dart with a fluent API.",
+      "Your project targets both MySQL and SQLite databases with shared query logic.",
+      "You want to avoid raw SQL string concatenation and prevent SQL injection using parameters."
+    ],
+    "avoid_when": [
+      "You are looking for a complete ORM solution to map database rows directly to complex object models.",
+      "You only need high-level device storage key-value operations."
+    ],
+    "strengths": [
+      "Fluent interface design for method chaining and readability.",
+      "Supports multiple target databases (MySQL and SQLite) from a single query definition.",
+      "Parameterized queries to prevent SQL injection."
+    ],
+    "weaknesses": [
+      "It is currently in a beta release stage.",
+      "Does not handle full database connection pooling or execution by itself, focusing primarily on string generation."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Not documented",
+    "alternatives": [
+      {
+        "name": "sqflite",
+        "why_pick_it": "If you need a direct SQLite database implementation plugin for Flutter rather than a generic query builder."
+      },
+      {
+        "name": "drift",
+        "why_pick_it": "If you want a robust reactive type-safe ORM and query builder specifically for SQLite in Dart and Flutter."
+      },
+      {
+        "name": "sqlite3",
+        "why_pick_it": "If you want direct low-level SQLite bindings for Dart."
+      }
+    ],
+    "minimal_example": "var query = Sqler()\n  .addSelect(QSelect('name'))\n  .addSelect(QSelect('published_date'))\n  .from(QField('books'))\n  .where(WhereOne(QField('publication_year'), QO.EQ, QVar(1980)))\n  .orderBy(QOrder('name'))\n  .limit(10);\n\nprint(query.toSQL());",
+    "confidence": 0.95
+  }
+}

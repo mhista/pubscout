@@ -1,0 +1,50 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "2.0.0",
+  "generatedAt": "2026-11-10T12:30:39.931Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "stream-based",
+      "no codegen"
+    ],
+    "one_liner": "Observable class to watch value changes via callbacks, Future or Stream.",
+    "what_it_does": "Provides a simple Observable that holds a value and notifies listeners when it changes. It exposes the next change as a Future and a continuous Stream. Supports optional equality checks and cancellation.",
+    "use_when": [
+      "Need a tiny, dependency‑free way to react to value changes",
+      "Want to bridge Future/Stream APIs without pulling in a full state‑management library"
+    ],
+    "avoid_when": [
+      "Building a large‑scale app that requires scoped providers or advanced state handling",
+      "Need widget‑level integration like Consumer or selectors"
+    ],
+    "strengths": [
+      "Very lightweight – only depends on meta",
+      "Null‑safe and works on all Dart platforms",
+      "Simple API with Future, Stream and callback support"
+    ],
+    "weaknesses": [
+      "No built‑in Flutter widget helpers",
+      "Limited to single value observation, no composition",
+      "No ecosystem features like debugging or devtools"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "provider",
+        "why_pick_it": "Full Flutter‑friendly state management with widget integration"
+      },
+      {
+        "name": "riverpod",
+        "why_pick_it": "More powerful, compile‑time safety and scoped providers"
+      }
+    ],
+    "minimal_example": "class Observable<T>{\n  Observable({T initialValue,this.onChanged,this.checkEquality=true})\n      : _value=initialValue;\n  final bool checkEquality;\n  final void Function(T) onChanged;\n  var _completer=Completer<T>();\n  bool _canceled=false;\n  T _value;\n  T get value=>_value;\n  set value(T val){\n    if(!_canceled && (!checkEquality||_value!=val)){\n      _value=val;\n      Future.delayed(Duration(microseconds:1),()=>notify(val));\n    }\n  }\n  void notify(T val){\n    onChanged?.call(val);\n    _completer.complete(Future.microtask(()=>val));\n    _completer=Completer<T>();\n  }\n  Future<T> get nextValue=>_completer.future;\n  Stream<T> get values async*{while(!_canceled) yield await nextValue;}\n  void cancel()=>_canceled=true;\n}",
+    "confidence": 0.9
+  }
+}

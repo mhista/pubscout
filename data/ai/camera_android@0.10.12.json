@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.10.12",
+  "generatedAt": "2026-11-10T12:35:08.102Z",
+  "data": {
+    "primary_category": "camera",
+    "secondary_categories": [
+      "audio-video",
+      "device"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Android implementation of the camera plugin using the Camera2 library.",
+    "what_it_does": "Provides the Android-specific implementation for the Flutter camera plugin, allowing developers to interact with device cameras. It supports features like image streaming, JPEG quality control, and video recording via the Camera2 library.",
+    "use_when": [
+      "You are building a Flutter application targeting Android that requires camera preview, image capture, or video recording.",
+      "You are using the standard camera plugin and need to specify the Camera2-based implementation on Android."
+    ],
+    "avoid_when": [
+      "You are building for platforms other than Android.",
+      "You prefer using the camera_android_camerax implementation instead of the Camera2 library version."
+    ],
+    "strengths": [
+      "Built with the native Android Camera2 library.",
+      "Supports custom video output paths and JPEG compression control."
+    ],
+    "weaknesses": [
+      "Video recording via MediaRecorder does not work properly on emulators.",
+      "Platform-specific implementation restricted to Android."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add to pubspec.yaml and use path_provider for safe video recording paths to avoid Scoped Storage restrictions.",
+    "alternatives": [
+      {
+        "name": "camera_android_camerax",
+        "why_pick_it": "If you want to use the CameraX library implementation on Android instead of Camera2."
+      },
+      {
+        "name": "mobile_scanner",
+        "why_pick_it": "If your primary use case is specifically scanning QR or barcodes rather than general camera control."
+      }
+    ],
+    "minimal_example": "flutter pub add camera_android",
+    "confidence": 0.95
+  }
+}

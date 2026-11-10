@@ -1,0 +1,51 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "2.1.1",
+  "generatedAt": "2026-11-10T12:30:18.482Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Synchronous key‑value storage with in‑memory cache and automatic disk backup.",
+    "what_it_does": "Provides fast read/write of primitive types, maps and lists by keeping data in memory and persisting each operation to a file. The API is simple: read, write, remove, listen to changes.",
+    "use_when": [
+      "Need simple persistent key/value storage across app launches",
+      "Want immediate read access without async calls",
+      "Replacing SharedPreferences for lightweight data"
+    ],
+    "avoid_when": [
+      "Require complex queries, indexing or relational data",
+      "Need guaranteed disk write before next operation without awaiting",
+      "Need encryption or secure storage"
+    ],
+    "strengths": [
+      "Very low latency reads/writes",
+      "Works on all major Flutter platforms",
+      "Built‑in listeners for reactive updates"
+    ],
+    "weaknesses": [
+      "No encryption or secure storage",
+      "Not a full database – no indexing or relations",
+      "Backup to disk runs in background, so write completion isn’t immediate"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "shared_preferences",
+        "why_pick_it": "Standard Flutter plugin for simple key/value storage with platform‑specific implementations"
+      },
+      {
+        "name": "hive_ce",
+        "why_pick_it": "Fast NoSQL box storage with optional encryption and richer query features"
+      }
+    ],
+    "minimal_example": "import 'package:get_storage/get_storage.dart';\n\nvoid main() async {\n  await GetStorage.init();\n  final box = GetStorage();\n  box.write('greeting','Hello');\n  print(box.read('greeting'));\n}",
+    "confidence": 0.95
+  }
+}

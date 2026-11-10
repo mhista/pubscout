@@ -1,0 +1,54 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.0",
+  "generatedAt": "2026-11-10T12:47:45.230Z",
+  "data": {
+    "primary_category": "theming",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "Tree-shakable vector SF Symbols for every platform without bundled fonts.",
+    "what_it_does": "Provides vector path representations of Apple's SF Symbols as static constants usable across all platforms in Flutter. Uses custom widgets to render icons with full weight support while ensuring unused symbols are tree-shaken to minimize app size.",
+    "use_when": [
+      "You want to use SF Symbols in a cross-platform Flutter application without bundling Apple fonts that trigger App Store rejections.",
+      "You need tree-shakable icons where only the symbols used are shipped in the final binary."
+    ],
+    "avoid_when": [
+      "You require complex multicolour, hierarchical, or palette SF Symbol rendering modes.",
+      "You want to pass these constants directly into Flutter's default `Icon` widget instead of the package's specific `SFIcon` widget."
+    ],
+    "strengths": [
+      "No bundled font files, avoiding Apple's ITMS-91182 disallowed font warnings and app build rejections.",
+      "Supports all nine weights from w100 to w900 using Apple's weight masters.",
+      "Tree-shakable vector paths ensure minimal impact on app size."
+    ],
+    "weaknesses": [
+      "Monochrome only; hierarchical, palette, and multicolour rendering modes are not supported.",
+      "Requires using the custom `SFIcon` widget instead of Flutter's standard `Icon` widget."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "font_awesome_flutter",
+        "why_pick_it": "If you prefer a comprehensive cross-platform icon set like Font Awesome rather than Apple-style iconography."
+      },
+      {
+        "name": "lucide_icons_flutter",
+        "why_pick_it": "If you need a clean, modern set of open-source vector icons instead of SF Symbols."
+      },
+      {
+        "name": "material_symbols_icons",
+        "why_pick_it": "If you want Google's Material Symbols instead of Apple's SF Symbols."
+      }
+    ],
+    "minimal_example": "import 'package:flutter_sficon/flutter_sficon.dart';\n\nconst SFIcon(\n    SFIcons.sf_heart_fill,\n    fontSize: 40,\n    fontWeight: FontWeight.bold,\n    color: Colors.red,\n);",
+    "confidence": 1
+  }
+}

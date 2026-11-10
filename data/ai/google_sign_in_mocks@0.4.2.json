@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.4.2",
+  "generatedAt": "2026-11-10T13:16:30.759Z",
+  "data": {
+    "primary_category": "testing",
+    "secondary_categories": [
+      "auth"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Mocks for Google Sign In to write unit tests for authentication.",
+    "what_it_does": "Provides a mock implementation of Google Sign In for unit testing Dart and Flutter applications. It enables simulating successful sign-ins, user cancellations, and exceptions without requiring actual platform integrations.",
+    "use_when": [
+      "You are writing unit tests that involve Google Sign In.",
+      "You want to test authentication flows and cancellation states locally."
+    ],
+    "avoid_when": [
+      "You are building production authentication features in your application."
+    ],
+    "strengths": [
+      "Easy to set up and use in unit tests alongside firebase_auth_mocks.",
+      "Allows simulation of canceled sign-ins and custom exceptions."
+    ],
+    "weaknesses": [
+      "Limited only to mocking Google Sign In functionality for testing."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Not documented",
+    "alternatives": [],
+    "minimal_example": "import 'package:google_sign_in_mocks/google_sign_in_mocks.dart';\nimport 'package:test/test.dart';\n\nvoid main() {\n  late MockGoogleSignIn googleSignIn;\n  setUp(() {\n    googleSignIn = MockGoogleSignIn();\n  });\n\n  test('should return idToken when authenticating', () async {\n    final signInAccount = await googleSignIn.signIn();\n    final signInAuthentication = await signInAccount!.authentication;\n    expect(signInAuthentication, isNotNull);\n  });\n}",
+    "confidence": 1
+  }
+}

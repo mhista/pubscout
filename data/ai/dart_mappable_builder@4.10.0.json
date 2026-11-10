@@ -1,0 +1,52 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "4.10.0",
+  "generatedAt": "2026-11-10T12:34:32.364Z",
+  "data": {
+    "primary_category": "codegen",
+    "secondary_categories": [],
+    "approach": [
+      "code generation"
+    ],
+    "one_liner": "Builder that generates dart_mappable code for JSON serialization and data classes.",
+    "what_it_does": "Generates mapping code for classes annotated with @MappableClass, handling generics, inheritance, and primary constructors. It integrates with build_runner to produce efficient, type‑safe serializers.",
+    "use_when": [
+      "You need compile‑time JSON (de)serialization with support for generics and inheritance.",
+      "You want a code‑gen alternative to manual toJson/fromJson implementations.",
+      "You prefer a single annotation‑based approach over multiple boilerplate files."
+    ],
+    "avoid_when": [
+      "You prefer a runtime‑only solution without build steps.",
+      "Your project cannot add build_runner or code‑gen dependencies."
+    ],
+    "strengths": [
+      "Full support for generics, inheritance and primary constructors",
+      "Highly customizable via annotations",
+      "Fast runtime performance because code is generated"
+    ],
+    "weaknesses": [
+      "Requires build_runner and code generation step",
+      "Only works for Dart (no native platform plugins)"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add dart_mappable_builder to dev_dependencies, configure build_runner, and run `flutter pub run build_runner build`.",
+    "alternatives": [
+      {
+        "name": "json_annotation",
+        "why_pick_it": "Provides annotation‑based JSON serialization with json_serializable, a widely used alternative."
+      },
+      {
+        "name": "freezed_annotation",
+        "why_pick_it": "Generates immutable data classes and JSON support via freezed, also uses build_runner."
+      },
+      {
+        "name": "built_value",
+        "why_pick_it": "Offers immutable value types with serialization, suitable for complex models."
+      }
+    ],
+    "minimal_example": "import 'package:dart_mappable/dart_mappable.dart';\n\n@MappableClass()\nclass User with UserMappable {\n  final String name;\n  final int age;\n  const User(this.name, this.age);\n}\n\nvoid main() {\n  final user = User('Alice', 30);\n  final json = user.toJson();\n  final restored = UserMapper.fromMap(json);\n  print(restored);\n}",
+    "confidence": 0.93
+  }
+}

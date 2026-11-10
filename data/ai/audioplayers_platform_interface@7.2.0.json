@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "7.2.0",
+  "generatedAt": "2026-11-10T12:16:12.321Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Platform interface for the audioplayers Flutter plugin.",
+    "what_it_does": "Provides the abstract API that platform-specific implementations of the audioplayers plugin must implement. It defines the contract for playing, pausing, seeking, and managing multiple audio players across Android, iOS, web, Windows, macOS, and Linux.",
+    "use_when": [
+      "You need to create a custom platform implementation for audioplayers.",
+      "You want to extend or replace the default audioplayers behavior on a specific platform."
+    ],
+    "avoid_when": [
+      "You only need ready‑to‑use audio playback without writing platform code."
+    ],
+    "strengths": [
+      "Enables custom platform implementations.",
+      "Keeps the core audioplayers plugin platform‑agnostic.",
+      "Supports all major Flutter platforms out of the box."
+    ],
+    "weaknesses": [
+      "Contains no actual playback functionality itself.",
+      "Requires a separate concrete implementation to be useful."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "just_audio_platform_interface",
+        "why_pick_it": "Provides a similar platform interface for the just_audio plugin, useful if you prefer the just_audio API."
+      }
+    ],
+    "minimal_example": "import 'package:audioplayers_platform_interface/audioplayers_platform_interface.dart';\n\nclass MyAudioplayersPlatform extends AudioplayersPlatformInterface {\n  // implement required methods here\n}\n\nvoid main() {\n  AudioplayersPlatformInterface.instance = MyAudioplayersPlatform();\n  // now use the audioplayers package as usual\n}",
+    "confidence": 0.9
+  }
+}

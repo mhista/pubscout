@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.7.0",
+  "generatedAt": "2026-11-10T12:27:32.706Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A Flutter widget that highlights source code with many languages and themes.",
+    "what_it_does": "Provides a HighlightView widget that renders code with syntax coloring based on the Highlight.js library. It includes a collection of language definitions and visual themes. The widget works on all Flutter platforms and supports null safety.",
+    "use_when": [
+      "You need to display read‑only source code with syntax highlighting in a Flutter app.",
+      "You want a wide range of language support and ready‑made themes without writing your own parser."
+    ],
+    "avoid_when": [
+      "You need an editable code editor with features like autocomplete or linting.",
+      "You are highlighting extremely large files where performance becomes critical."
+    ],
+    "strengths": [
+      "Supports dozens of languages and many themes",
+      "Null‑safe and works on Android, iOS, web, desktop",
+      "Pure Dart, no native setup required"
+    ],
+    "weaknesses": [
+      "Only for display, not editing",
+      "Performance may degrade with very large code blocks",
+      "No built‑in line numbers or advanced UI features"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:flutter_highlight/flutter_highlight.dart';\nimport 'package:flutter_highlight/themes/github.dart';\n\nclass MyWidget extends StatelessWidget {\n  @override\n  Widget build(BuildContext context) {\n    const code = '''main() {\n  print(\"Hello, World!\");\n}''';\n    return HighlightView(\n      code,\n      language: 'dart',\n      theme: githubTheme,\n      padding: EdgeInsets.all(12),\n      textStyle: TextStyle(fontFamily: 'monospace', fontSize: 16),\n    );\n  }\n}",
+    "confidence": 0.97
+  }
+}

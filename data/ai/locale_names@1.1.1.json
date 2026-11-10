@@ -1,0 +1,50 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.1.1",
+  "generatedAt": "2026-11-10T13:05:43.158Z",
+  "data": {
+    "primary_category": "localization",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Provide locale display names in various locales via extensions on Locale from dart:ui.",
+    "what_it_does": "Adds extension methods to the standard Locale class to easily retrieve language, script, and country display names in default, native, or specific target locales. It allows Flutter developers to present human-readable locale labels without writing custom lookup tables.",
+    "use_when": [
+      "You need to display human-readable names of locales or languages in your Flutter application.",
+      "You want to fetch native display names or translate locale names into specific target locales."
+    ],
+    "avoid_when": [
+      "You are looking for general app translation management frameworks like easy_localization or slang.",
+      "You only need basic formatting already covered by the core intl package."
+    ],
+    "strengths": [
+      "Simple extension-based API on standard dart:ui Locale objects.",
+      "Supports default, native, and specific locale formatting.",
+      "Lightweight with minimal dependencies."
+    ],
+    "weaknesses": [
+      "Limited to locale display names and does not provide broader localization utilities.",
+      "Not documented for custom advanced pluralization or number/date formatting."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Just add the dependency to pubspec.yaml and import the package.",
+    "alternatives": [
+      {
+        "name": "intl",
+        "why_pick_it": "If you need comprehensive internationalization, date/number formatting, and message translation support."
+      },
+      {
+        "name": "flutter_localized_locales",
+        "why_pick_it": "If you specifically need localized names for locales using Flutter's built-in localizations."
+      }
+    ],
+    "minimal_example": "Locale locale = Locale.fromSubtags(languageCode: 'zh', scriptCode: 'Hans', countryCode: 'CN');\nprint(locale.defaultDisplayLanguage);",
+    "confidence": 0.95
+  }
+}

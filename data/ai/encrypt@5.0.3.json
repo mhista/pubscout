@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "5.0.3",
+  "generatedAt": "2026-11-10T12:21:18.387Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "High‑level Dart APIs for encryption, decryption, signing and secure random generation.",
+    "what_it_does": "Provides easy‑to‑use wrappers around PointyCastle for symmetric (AES, Salsa20, Fernet) and asymmetric (RSA) cryptography. Includes a CLI tool for generating cryptographically secure random bytes.",
+    "use_when": [
+      "You need to encrypt/decrypt data locally on any platform (mobile, web, desktop).",
+      "You require simple RSA signing/verification or Fernet token handling.",
+      "You want a quick way to generate secure random keys or IVs via a CLI."
+    ],
+    "avoid_when": [
+      "You need password hashing (use the dedicated password package).",
+      "You require fine‑grained control over low‑level cryptographic primitives."
+    ],
+    "strengths": [
+      "Broad algorithm support (AES modes, RSA, Salsa20, Fernet).",
+      "Cross‑platform (Android, iOS, Web, Windows, macOS, Linux).",
+      "Simple, declarative API with built‑in secure‑random CLI."
+    ],
+    "weaknesses": [
+      "Relies on PointyCastle, adding an extra dependency layer."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "crypto",
+        "why_pick_it": "Provides basic hash functions with no encryption API, useful if you only need hashing and want fewer dependencies."
+      }
+    ],
+    "minimal_example": "import 'package:encrypt/encrypt.dart';\n\nvoid main() {\n  final key = Key.fromUtf8('my 32 length key................');\n  final iv = IV.fromLength(16);\n  final encrypter = Encrypter(AES(key));\n  final encrypted = encrypter.encrypt('Hello', iv: iv);\n  final decrypted = encrypter.decrypt(encrypted, iv: iv);\n  print(decrypted);\n}",
+    "confidence": 0.97
+  }
+}

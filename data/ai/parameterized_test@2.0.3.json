@@ -1,0 +1,36 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.3",
+  "generatedAt": "2026-11-10T13:01:07.634Z",
+  "data": {
+    "primary_category": "testing",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Run a Dart test multiple times based on provided parameter lists.",
+    "what_it_does": "Wraps around Dart's test package 'group' and 'test' functions to enable running the same test function multiple times with different parameter values. Supports custom description builders, setup/tearDown hooks, and per-parameter test options.",
+    "use_when": [
+      "You want to run the same test logic against multiple sets of input data without duplicating test code.",
+      "You need to specify test options like skip or testOn for individual parameters."
+    ],
+    "avoid_when": [
+      "You are looking for mocking libraries, golden tests, or integration testing utilities."
+    ],
+    "strengths": [
+      "Eliminates duplicate test code for parameterized test cases",
+      "Integrates seamlessly with the standard Dart test package",
+      "Supports custom description builders and async tests"
+    ],
+    "weaknesses": [
+      "Limited strictly to parameterizing tests within the scope of the built-in test runner wrapper"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add parameterized_test to dev_dependencies in pubspec.yaml.",
+    "alternatives": [],
+    "minimal_example": "parameterizedTest(\n  'Fruit name matches length',\n  [\n    ['kiwi', 4],\n    ['apple', 5],\n  ],\n  (String fruit, int length) {\n    expect(fruit.length, length);\n  },\n);",
+    "confidence": 1
+  }
+}

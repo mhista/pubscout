@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "2.1.6",
+  "generatedAt": "2026-11-10T12:34:42.560Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Detects browser and OS types and versions in Dart web apps.",
+    "what_it_does": "Provides runtime detection of the browser and operating system, exposing boolean flags like browser.isChrome or operatingSystem.isMac. It can also add CSS classes to the <html> element for styling based on platform features.",
+    "use_when": [
+      "You need to adapt UI or behavior based on the user's browser or OS.",
+      "You want to add platform‑specific CSS classes for styling or analytics.",
+      "You need simple feature detection such as touch support."
+    ],
+    "avoid_when": [
+      "You are building a non‑web Flutter app (mobile or desktop).",
+      "You need advanced feature detection beyond touch/mstouch."
+    ],
+    "strengths": [
+      "Lightweight, no heavy dependencies.",
+      "Simple API with clear boolean flags.",
+      "Can decorate the <html> element for CSS styling.",
+      "Supports custom feature detection via Feature objects."
+    ],
+    "weaknesses": [
+      "Only works on web; no support for mobile/desktop Flutter.",
+      "Feature detection limited to touch/mstouch unless extended manually.",
+      "No version ranges beyond simple checks."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add to pubspec and import package: import 'package:platform_detect/platform_detect.dart';",
+    "alternatives": [],
+    "minimal_example": "import 'package:platform_detect/platform_detect.dart';\n\nvoid main() {\n  if (browser.isChrome) {\n    print('Running on Chrome');\n  }\n  if (operatingSystem.isMac) {\n    print('Running on macOS');\n  }\n}",
+    "confidence": 0.95
+  }
+}

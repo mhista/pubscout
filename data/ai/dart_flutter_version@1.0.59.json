@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.59",
+  "generatedAt": "2026-11-10T12:59:02.269Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Retrieve current Dart and Flutter SDK runtime versions using nullable getters.",
+    "what_it_does": "Parses the Dart SDK version from the platform and resolves the corresponding Flutter version via an internal mapping table. It exposes both versions at runtime using an easy-to-use API.",
+    "use_when": [
+      "You need to detect the running Flutter or Dart SDK version programmatically",
+      "You want to execute version-specific conditional logic or feature flags",
+      "You need to log or display SDK version details for debugging purposes"
+    ],
+    "avoid_when": [
+      "You need precision for non-stable release channels like beta, dev, or master",
+      "You are targeting Flutter SDK versions older than 3.0.0"
+    ],
+    "strengths": [
+      "Enables runtime detection of Flutter SDK versions",
+      "Lightweight with minimal dependencies",
+      "Simple nullable getter API"
+    ],
+    "weaknesses": [
+      "Limited to stable channel releases",
+      "Does not support Flutter versions below 3.0.0",
+      "Mapped versions may have slight delays on new releases or platform variations"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Not documented",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:dart_flutter_version/dart_flutter_version.dart';\nimport 'package:pub_semver/pub_semver.dart';\n\nvoid main() {\n  final DartFlutterVersion versionInfo = DartFlutterVersion();\n  final Version? dartVersion = versionInfo.dartVersion;\n  final Version? flutterVersion = versionInfo.flutterVersion;\n  \n  print('Dart: $dartVersion, Flutter: $flutterVersion');\n}",
+    "confidence": 0.95
+  }
+}

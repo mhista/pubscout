@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.22.2",
+  "generatedAt": "2026-11-10T13:08:33.421Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "testing"
+    ],
+    "approach": [
+      "functional",
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "Functional error handling and safety types for Dart.",
+    "what_it_does": "Enhances structure, safety, and debuggability of Dart code by replacing nullables, thrown exceptions, and unawaited futures with sealed functional types like Option, Result, and Resolvable. It uses a companion lint plugin to enforce safety rules at compile-time.",
+    "use_when": [
+      "You want to eliminate try-catch blocks and explicit null-checks in favor of functional pipelines.",
+      "You need strict compiler enforcement for error handling and asynchronous flow safety.",
+      "You want detailed stack traces and breadcrumbs for failures in mission-critical code."
+    ],
+    "avoid_when": [
+      "Your team prefers traditional Dart imperative error handling using try-catch and standard exceptions.",
+      "You are working on a quick prototype where strict functional types add unwanted overhead."
+    ],
+    "strengths": [
+      "Replaces null risks and exceptions with predictable sealed types (Option, Result, Resolvable).",
+      "Companion linter plugin enforces safety rules like preventing dropped outcomes or unhandled futures.",
+      "Breadcrumb tracking allows you to know precisely where failures originated in a chain."
+    ],
+    "weaknesses": [
+      "Requires adopting a completely different functional programming style and API paradigm.",
+      "Learning curve for developers unfamiliar with monadic types like flatMap and fold."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dependencies to pubspec.yaml and enable the custom_lint plugin in analysis_options.yaml.",
+    "alternatives": [],
+    "minimal_example": "import 'package:df_safer_dart/df_safer_dart.dart';\nimport 'dart:convert';\n\nAsync<Option<String>> notificationSound(int userId) =>\n    fetchUserData(userId)\n        .map((body) => UNSAFE(() => jsonDecode(body)))\n        .map((data) => getFromMap<Map>(data, 'config')\n            .flatMap((c) => getFromMap<Map>(c, 'notifications'))\n            .flatMap((n) => getFromMap<String>(n, 'sound')));",
+    "confidence": 0.95
+  }
+}

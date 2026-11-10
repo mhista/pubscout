@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.6.3+15",
+  "generatedAt": "2026-11-10T12:40:03.648Z",
+  "data": {
+    "primary_category": "backend",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Web implementation of Firebase Analytics for Flutter apps.",
+    "what_it_does": "Provides the web platform implementation for the firebase_analytics plugin. It forwards analytics events from Flutter to Google Analytics on the web.",
+    "use_when": [
+      "You need Google Analytics for Firebase in a Flutter web app",
+      "You already use firebase_core and want analytics support on web"
+    ],
+    "avoid_when": [
+      "You target only mobile platforms",
+      "You need a custom analytics solution"
+    ],
+    "strengths": [
+      "Official Firebase support",
+      "Keeps API consistent with firebase_analytics",
+      "Simple to add as a dependency"
+    ],
+    "weaknesses": [
+      "Only works on web platform",
+      "No additional features beyond the core analytics API"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "firebase_analytics",
+        "why_pick_it": "Main package that includes all platform implementations, use if you need a single dependency"
+      }
+    ],
+    "minimal_example": "import 'package:firebase_analytics/firebase_analytics.dart';\nimport 'package:firebase_analytics_web/firebase_analytics_web.dart';\n\nvoid main() async {\n  FirebaseAnalytics analytics = FirebaseAnalytics.instance;\n  await analytics.logEvent(name: 'test_event');\n}",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.16.1",
+  "generatedAt": "2026-11-10T12:28:32.487Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "device"
+    ],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "WidgetFactory mixin to launch links in HTML widgets via url_launcher.",
+    "what_it_does": "Provides a UrlLauncherFactory mixin that enables <a> tags rendered by flutter_widget_from_html to open URLs using the url_launcher plugin. It bridges HTML rendering with native link handling on all supported platforms.",
+    "use_when": [
+      "You render HTML with flutter_widget_from_html and need clickable links.",
+      "You want cross‑platform URL launching without writing custom link handlers."
+    ],
+    "avoid_when": [
+      "You are not using flutter_widget_from_html_core.",
+      "You need advanced url_launcher features not exposed through the mixin."
+    ],
+    "strengths": [
+      "Very easy to add to an existing HtmlWidget factory.",
+      "Works out‑of‑the‑box on Android, iOS, web, Windows, macOS and Linux."
+    ],
+    "weaknesses": [
+      "Only useful together with flutter_widget_from_html_core.",
+      "Adds an extra dependency on url_launcher."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add url_launcher to pubspec and follow its platform‑specific setup (e.g., Android intent filters, iOS LSApplicationQueriesSchemes). No code generation required.",
+    "alternatives": [
+      {
+        "name": "url_launcher",
+        "why_pick_it": "Direct use of url_launcher gives full control without needing the HTML widget integration."
+      }
+    ],
+    "minimal_example": "import 'package:flutter_widget_from_html_core/flutter_widget_from_html_core.dart';\nimport 'package:fwfh_url_launcher/fwfh_url_launcher.dart';\n\nclass MyWidgetFactory extends WidgetFactory with UrlLauncherFactory {}\n\nHtmlWidget(\n  '<a href=\"https://example.com\">Open</a>',\n  factoryBuilder: () => MyWidgetFactory(),\n);",
+    "confidence": 0.97
+  }
+}

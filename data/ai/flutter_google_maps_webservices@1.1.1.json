@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.1.1",
+  "generatedAt": "2026-11-10T13:09:03.908Z",
+  "data": {
+    "primary_category": "maps",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Google maps web services for Flutter (Geocoding, Places, Directions, Distance Matrix, etc.)",
+    "what_it_does": "Provides Dart wrappers for Google Maps web services including Geocoding, Places, Directions, Distance Matrix, Timezone, and Static Maps. Allows querying Google APIs directly from your Flutter application using an API key.",
+    "use_when": [
+      "You need to access Google Maps HTTP APIs like Geocoding or Places search in your app.",
+      "You want to generate static map URLs or fetch route directions."
+    ],
+    "avoid_when": [
+      "You only need an interactive on-screen map widget rather than web service calls.",
+      "You do not have or want to configure a Google Maps Web API key."
+    ],
+    "strengths": [
+      "Covers multiple Google Maps web services (Geocoding, Places, Directions, Distance Matrix, Timezone, Static Map).",
+      "Supports custom HTTP clients for testing or proxying requests."
+    ],
+    "weaknesses": [
+      "Does not cover every single Google Maps API endpoint (e.g., Geolocation, Elevation, Roads are not implemented).",
+      "Requires managing a Google Maps Web API key."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires obtaining a Web API key from the Google Cloud / Maps Platform and passing it to the service constructors.",
+    "alternatives": [
+      {
+        "name": "google_maps_flutter",
+        "why_pick_it": "Pick it if you want to embed an interactive native Google Maps widget inside your application rather than calling REST web services."
+      },
+      {
+        "name": "geocoding",
+        "why_pick_it": "Pick it if you only need standard platform-backed geocoding and reverse-geocoding without using Google's specific web services directly."
+      }
+    ],
+    "minimal_example": "import \"package:flutter_google_maps_webservices/geocoding.dart\";\n\nfinal geocoding = GoogleMapsGeocoding(apiKey: \"<API_KEY>\");\nGeocodingResponse response = await geocoding.searchByAddress(\"1600 Amphitheatre Parkway, Mountain View, CA\");",
+    "confidence": 0.95
+  }
+}

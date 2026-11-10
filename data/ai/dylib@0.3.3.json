@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.3.3",
+  "generatedAt": "2026-11-10T12:39:57.050Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "files"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Resolves file names and paths of dynamic libraries across platforms.",
+    "what_it_does": "Provides helpers to resolve the correct file names and paths for dynamic libraries on Android, iOS, Linux, macOS, and Windows. It integrates with dart-define and environment variables to allow custom library paths.",
+    "use_when": [
+      "You are using dart:ffi to load dynamic libraries across multiple platforms",
+      "You need to handle platform-specific library naming conventions (.so, .dylib, .dll)"
+    ],
+    "avoid_when": [
+      "Your application does not use native C/C++ interop via dart:ffi"
+    ],
+    "strengths": [
+      "Simplifies cross-platform native library loading",
+      "Supports custom paths via environment variables and dart-defines"
+    ],
+    "weaknesses": [
+      "Very narrow scope",
+      "Not documented for complex custom bundling strategies"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:dylib/dylib.dart';\n\nfinal path = resolveDylibPath(\n  'foo',\n  dartDefine: 'LIBFOO_PATH',\n  environmentVariable: 'LIBFOO_PATH',\n);",
+    "confidence": 1
+  }
+}

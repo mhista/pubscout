@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.2.0",
+  "generatedAt": "2026-11-10T13:08:44.956Z",
+  "data": {
+    "primary_category": "maps",
+    "secondary_categories": [
+      "animation"
+    ],
+    "approach": [
+      "declarative",
+      "widget-based"
+    ],
+    "one_liner": "Marker Geo-Animation solution for Google Maps.",
+    "what_it_does": "Provides a widget-based solution to smoothly animate marker position changes on Google Maps. It supports multiple markers simultaneously, marker rotation based on heading direction, ripple effects, and custom animation curves and durations.",
+    "use_when": [
+      "You need to animate marker movements smoothly on Google Maps like in a delivery or ride-sharing app.",
+      "You require features like marker rotation/bearing, ripple effects, and multipoint linear animations."
+    ],
+    "avoid_when": [
+      "You are using a mapping solution other than Google Maps.",
+      "You only need static markers without any position interpolation or animation."
+    ],
+    "strengths": [
+      "Supports multiple markers animating at the same time.",
+      "Includes built-in support for marker rotation and ripple effects.",
+      "Customizable animation duration and curves."
+    ],
+    "weaknesses": [
+      "Geolocation and Google Maps configuration are out of the scope of the package.",
+      "Tied strictly to Google Maps."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires Google Maps configured in your Flutter project; geolocator or location updates must be handled separately.",
+    "alternatives": [],
+    "minimal_example": "Animarker(\n\tcurve: Curves.ease,\n\tmarkers: markers.values.toSet(),\n\tchild: GoogleMap(\n\t\tmapType: MapType.normal,\n\t\tinitialCameraPosition: kSantoDomingo,\n\t\tonMapCreated: (gController) => controller.complete(gController),\n\t),\n)",
+    "confidence": 0.95
+  }
+}

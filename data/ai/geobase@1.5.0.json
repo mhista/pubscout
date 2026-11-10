@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.5.0",
+  "generatedAt": "2026-11-10T12:59:57.174Z",
+  "data": {
+    "primary_category": "maps",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Geospatial data structures, geometry calculations, geodesy, projections, and vector formats in Dart.",
+    "what_it_does": "Geobase provides data structures and algorithms for geographic and projected coordinates, simple geometries, ellipsoidal and spherical geodesy, tiling schemes, coordinate projections, and vector formats like GeoJSON, WKT, and WKB.",
+    "use_when": [
+      "You need to parse or encode vector formats like GeoJSON, WKT, or WKB in pure Dart.",
+      "You need to perform geodesic calculations, spatial measurements, or coordinate transformations without a heavy map UI."
+    ],
+    "avoid_when": [
+      "You only need high-level interactive map widgets and UI rendering.",
+      "You need built-in live device GPS tracking (use geolocator instead)."
+    ],
+    "strengths": [
+      "Comprehensive support for geometric calculations, projections, and formats (GeoJSON, WKT, WKB).",
+      "Pure Dart package working across mobile, web, and desktop platforms."
+    ],
+    "weaknesses": [
+      "Does not include visual map rendering widgets out of the box.",
+      "Requires understanding of geospatial terminology and coordinate systems."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "latlong2",
+        "why_pick_it": "Pick latlong2 if you need a lightweight library focused primarily on distance and coordinate math for map applications."
+      }
+    ],
+    "minimal_example": "import 'package:geobase/geobase.dart';\n\nvoid main() {\n  final greenwich = Geographic.parseDms(lat: '51°28′40″ N', lon: '0°00′05″ W');\n  final sydney = Geographic.parseDms(lat: '33.8688° S', lon: '151.2093° E');\n  final distance = greenwich.vincenty().distanceTo(sydney);\n  print('Distance: $distance');\n}",
+    "confidence": 0.95
+  }
+}

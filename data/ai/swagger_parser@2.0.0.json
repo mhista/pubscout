@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.0",
+  "generatedAt": "2026-11-10T12:34:25.751Z",
+  "data": {
+    "primary_category": "codegen",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "code generation"
+    ],
+    "one_liner": "Generate Dart models and HTTP clients from Swagger and OpenAPI schemas.",
+    "what_it_does": "Parses Swagger 2.0 and OpenAPI 3.x specifications to generate Dart models and HTTP clients. Supports json_serializable, Freezed, dart_mappable, Retrofit, Dio, and package:http.",
+    "use_when": [
+      "You have a Swagger or OpenAPI specification and want to automatically generate Dart code for it.",
+      "You want to standardize API requests and responses using Retrofit, Dio, or package:http."
+    ],
+    "avoid_when": [
+      "You prefer writing your API client and models entirely by hand.",
+      "You use backend technologies or schemas not supported by Swagger or OpenAPI."
+    ],
+    "strengths": [
+      "Supports multiple client and serializer options including Retrofit, Dio, Freezed, and dart_mappable.",
+      "Provides CLI commands to validate schemas and check files without writing."
+    ],
+    "weaknesses": [
+      "Requires updating to Dart ^3.13.0 for version 2.0.0.",
+      "Breaking changes in v2.0.0 require migrating v1 configurations."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding swagger_parser and related builder dependencies, then running build_runner if using serializers.",
+    "alternatives": [],
+    "minimal_example": "import 'package:dio/dio.dart';\nimport 'generated/api.dart';\n\nfinal api = Api(Dio(BaseOptions(baseUrl: 'https://example.com')));\nfinal station = await api.stations.getStation(id: '42');",
+    "confidence": 1
+  }
+}

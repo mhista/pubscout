@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.4.0",
+  "generatedAt": "2026-11-10T12:37:21.099Z",
+  "data": {
+    "primary_category": "codegen",
+    "secondary_categories": [],
+    "approach": [
+      "code generation"
+    ],
+    "one_liner": "A code generator that adds algebraic sum‑type support to Dart.",
+    "what_it_does": "The package provides annotations and a generator to create immutable sum‑type classes with exhaustive pattern matching. It also adds utilities like equality, hashing, and (de)serialization for the generated types.",
+    "use_when": [
+      "You need algebraic data types (union types) with exhaustive switch handling in Dart/Flutter.",
+      "You want compile‑time safety and const constructors for variant classes."
+    ],
+    "avoid_when": [
+      "You prefer a runtime‑only solution without build steps.",
+      "Your project cannot add build_runner or code‑gen dependencies."
+    ],
+    "strengths": [
+      "Generates boiler‑plate‑free sum‑type classes.",
+      "Supports const constructors, generic and recursive types.",
+      "Provides exhaustive `iswitch` pattern matching."
+    ],
+    "weaknesses": [
+      "Requires build_runner and the generator to run.",
+      "Only works with Dart SDK >=3.0.0.",
+      "Limited to sum‑type use‑cases; not a general utility library."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add `sum_types` and `sum_types_generator` to pubspec, run `flutter pub add build_runner`, then execute `flutter pub run build_runner build`.",
+    "alternatives": [],
+    "minimal_example": "import 'package:meta/meta.dart';\nimport 'package:sum_types/sum_types.dart';\n\n@SumType()\nclass Nat extends _$Nat {\n  const Nat.zero() : super(zero: const Unit());\n  const Nat.next(Nat value) : super(next: value);\n}\n",
+    "confidence": 0.9
+  }
+}

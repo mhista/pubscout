@@ -1,0 +1,36 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.3.0",
+  "generatedAt": "2026-11-10T12:49:19.610Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Convert between quill delta format and markdown.",
+    "what_it_does": "Provides converters to translate text between markdown documents and flutter_quill Delta format. Supports customization like custom syntax, block attributes, and embed handlers.",
+    "use_when": [
+      "You need to persist flutter_quill content as markdown in your app.",
+      "You want to render markdown content inside a flutter_quill editor."
+    ],
+    "avoid_when": [
+      "You require full image alt text retention, as only image sources are currently retained."
+    ],
+    "strengths": [
+      "Supports bi-directional conversion between markdown and quill Delta.",
+      "Allows custom elements, attributes, and embed handlers."
+    ],
+    "weaknesses": [
+      "Image alts are currently not supported (only image src is retained).",
+      "Block attributes exclusivity rules from flutter_quill apply."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [],
+    "minimal_example": "import 'package:markdown/markdown.dart' as md;\nimport 'package:markdown_quill/markdown_quill.dart';\n\nfinal mdDocument = md.Document(encodeHtml: false);\nfinal mdToDelta = MarkdownToDelta(markdownDocument: mdDocument);\nfinal deltaToMd = DeltaToMarkdown();\n\nconst markdown = '# Test\\nHello';\nfinal delta = mdToDelta.convert(markdown);\nfinal markdownAgain = deltaToMd.convert(delta);",
+    "confidence": 1
+  }
+}

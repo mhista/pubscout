@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.0.2",
+  "generatedAt": "2026-11-10T13:13:58.204Z",
+  "data": {
+    "primary_category": "notifications",
+    "secondary_categories": [
+      "device"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter plugin for managing app icon badges on iOS and Android devices.",
+    "what_it_does": "It allows you to update or remove the badge count on your app icon for both iOS and Android platforms. It also provides functionality to check if app badge support is available on the device.",
+    "use_when": [
+      "You need to display unread counts on your app icon",
+      "You want to remove or reset badge counts on iOS and Android"
+    ],
+    "avoid_when": [
+      "You need badge updates to actually take effect on Android devices using `updateBadgeCount`",
+      "You are not using notifications permission on iOS"
+    ],
+    "strengths": [
+      "Provides a simple API to check, update, and remove app icon badges",
+      "Supports both iOS and Android platforms"
+    ],
+    "weaknesses": [
+      "Calling `updateBadgeCount()` has no effect on Android devices",
+      "Requires requesting notification permissions on iOS"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires requesting notification permissions on iOS. On Android, it uses notification channels.",
+    "alternatives": [],
+    "minimal_example": "FlutterAppBadgeControl.isAppBadgeSupported().then((value) {\n  print(\"isAppBadgeSupported: $value\");\n});\nFlutterAppBadgeControl.removeBadge();\nFlutterAppBadgeControl.updateBadgeCount(1);",
+    "confidence": 0.95
+  }
+}

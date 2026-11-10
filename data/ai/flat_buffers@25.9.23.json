@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "25.9.23",
+  "generatedAt": "2026-11-10T12:28:52.193Z",
+  "data": {
+    "primary_category": "codegen",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "code generation"
+    ],
+    "one_liner": "FlatBuffers library for Dart to read and write binary data using generated code.",
+    "what_it_does": "Provides a Dart implementation of the FlatBuffers serialization format. It includes a Builder for constructing buffers and generated classes for schema-defined data, enabling efficient cross‑language data exchange.",
+    "use_when": [
+      "You need high‑performance binary serialization compatible with other FlatBuffers implementations",
+      "You want to share data structures between Dart and platforms like C++, Java, or JavaScript"
+    ],
+    "avoid_when": [
+      "You only need simple JSON or text storage",
+      "You require a pure Dart solution without a code‑generation step"
+    ],
+    "strengths": [
+      "Zero‑copy reads for fast deserialization",
+      "Cross‑language compatibility with FlatBuffers ecosystem",
+      "Supports custom buffer allocation and various optimizations"
+    ],
+    "weaknesses": [
+      "Requires running the flatc compiler to generate Dart code",
+      "No built‑in higher‑level abstractions like ORM or JSON mapping"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Install the flatc compiler for your platform and run it against your .fbs schema to generate Dart files; then add the generated files to your project.",
+    "alternatives": [],
+    "minimal_example": "import 'package:flat_buffers/flat_buffers.dart';\n\nvoid main() {\n  final builder = Builder(initialSize: 1024);\n  // Example: write a string\n  final offset = builder.writeString('Hello FlatBuffers');\n  builder.finish(offset);\n  final bytes = builder.buffer;\n  // Read back\n  final bb = ByteData.sublistView(bytes);\n  final reader = ByteDataReader(bb);\n  final str = reader.readString(offset);\n  print(str);\n}",
+    "confidence": 0.97
+  }
+}

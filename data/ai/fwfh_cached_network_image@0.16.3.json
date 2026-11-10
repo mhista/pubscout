@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.16.3",
+  "generatedAt": "2026-11-10T12:28:41.772Z",
+  "data": {
+    "primary_category": "images",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "WidgetFactory extension to render HTML IMG tags using cached_network_image.",
+    "what_it_does": "Provides a WidgetFactory extension for flutter_widget_from_html_core to render HTML image tags using the cached_network_image plugin. It allows cached network images to be seamlessly integrated into HTML strings rendered by HtmlWidget.",
+    "use_when": [
+      "You are using flutter_widget_from_html_core to render HTML content.",
+      "You need cached network images inside your HTML strings."
+    ],
+    "avoid_when": [
+      "You are not using flutter_widget_from_html_core.",
+      "You only need standard image widgets without HTML parsing."
+    ],
+    "strengths": [
+      "Integrates seamlessly with flutter_widget_from_html_core",
+      "Leverages the popular cached_network_image plugin for caching"
+    ],
+    "weaknesses": [
+      "Requires flutter_widget_from_html_core as a dependency"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dependencies to pubspec.yaml and mix in CachedNetworkImageFactory to your WidgetFactory.",
+    "alternatives": [
+      {
+        "name": "cached_network_image",
+        "why_pick_it": "If you want to render cached network images directly in Flutter widgets rather than parsing them from HTML strings."
+      }
+    ],
+    "minimal_example": "class MyWidgetFactory extends WidgetFactory with CachedNetworkImageFactory {\n}\n\nHtmlWidget(\n  html,\n  factoryBuilder: () => MyWidgetFactory(),\n)",
+    "confidence": 1
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "7.0.0",
+  "generatedAt": "2026-11-10T13:15:18.626Z",
+  "data": {
+    "primary_category": "codegen",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "code generation"
+    ],
+    "one_liner": "Generator for OpenAPI client SDKs in Dart and Flutter projects.",
+    "what_it_does": "Generates API client SDKs directly from local or remote OpenAPI specifications using build_runner. It acts as a wrapper around the Java-based OpenAPI Generator CLI to integrate seamlessly into Dart and Flutter development workflows.",
+    "use_when": [
+      "You have an OpenAPI specification (JSON or YAML) and need to generate a matching Dart client SDK.",
+      "You want automated synchronization of your API client when the backend OpenAPI spec updates."
+    ],
+    "avoid_when": [
+      "You do not have Java installed on your system (Java 8 or higher is required).",
+      "You prefer writing your REST API clients manually."
+    ],
+    "strengths": [
+      "Automates client SDK generation from standard OpenAPI specs.",
+      "Supports both local file and remote URL specifications with caching."
+    ],
+    "weaknesses": [
+      "Requires Java to be installed and available in the system PATH.",
+      "Issues with generated code often need to be addressed in the base OpenApi library rather than this wrapper."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires Java (version 8 or higher) installed in your system PATH. Add openapi_generator_annotations to dependencies and openapi_generator to dev_dependencies, then run build_runner.",
+    "alternatives": [],
+    "minimal_example": "@Openapi(\n  additionalProperties: DioProperties(pubName: 'petstore_api', pubAuthor: 'Johnny Depp'),\n  inputSpec: RemoteSpec(path: 'https://petstore3.swagger.io/api/v3/openapi.json'),\n  generatorName: Generator.dio,\n  outputDirectory: 'api/petstore_api',\n)\nclass Example {}",
+    "confidence": 1
+  }
+}

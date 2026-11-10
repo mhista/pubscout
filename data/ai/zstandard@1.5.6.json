@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.5.6",
+  "generatedAt": "2026-11-10T12:44:15.217Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Flutter plugin for fast Zstandard compression and decompression across native and WebAssembly.",
+    "what_it_does": "Provides native and WebAssembly integration for the Zstandard (zstd) compression algorithm via FFI. It allows compressing and decompressing byte data synchronously or asynchronously using extension methods or the main Zstandard class.",
+    "use_when": [
+      "You need fast data compression or decompression for local storage, transmission, or backups.",
+      "Your application targets multiple native platforms as well as the Web using WebAssembly."
+    ],
+    "avoid_when": [
+      "You only need simple string hashing or basic collections helpers without compression.",
+      "You are targeting Fuchsia where native support is not available."
+    ],
+    "strengths": [
+      "Cross-platform support including Android, iOS, Windows, macOS, Linux, and Web via WebAssembly.",
+      "Offers both an object-oriented API and convenient extension functions on Uint8List."
+    ],
+    "weaknesses": [
+      "Fuchsia is explicitly not supported.",
+      "Requires proper native integration configurations."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the dependency to pubspec.yaml; leverages native FFI and WebAssembly out of the box without complex manual linking steps for standard use.",
+    "alternatives": [],
+    "minimal_example": "void act() async {\n  final zstandard = Zstandard();\n\n  Uint8List original = Uint8List.fromList([...]);\n\n  Uint8List? compressed = await zstandard.compress(original);\n  \n  final decompressed = compressed == null\n      ? null\n      : await zstandard.decompress(compressed);\n}",
+    "confidence": 1
+  }
+}

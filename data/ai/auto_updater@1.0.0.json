@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.0",
+  "generatedAt": "2026-11-10T12:37:34.570Z",
+  "data": {
+    "primary_category": "web-desktop",
+    "secondary_categories": [
+      "device"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Allows Flutter desktop apps to automatically update themselves based on Sparkle and WinSparkle.",
+    "what_it_does": "Provides a plugin for Flutter desktop apps on macOS and Windows to check for updates, set feed URLs, manage update intervals, and install updates using Sparkle and WinSparkle backends.",
+    "use_when": [
+      "You are building a Flutter desktop application for macOS and/or Windows and need auto-update functionality.",
+      "You want to use Sparkle or WinSparkle to host and distribute application updates."
+    ],
+    "avoid_when": [
+      "You are building for mobile or web platforms where desktop auto-update frameworks like Sparkle do not apply.",
+      "You distribute your desktop app exclusively through app stores (like the Mac App Store) that handle updates natively."
+    ],
+    "strengths": [
+      "Supports both macOS and Windows via native Sparkle and WinSparkle integrations.",
+      "Provides simple command-line tools for generating keys and signing updates."
+    ],
+    "weaknesses": [
+      "Linux is not supported.",
+      "Requires manual setup of native dependencies like OpenSSL on Windows and specific Info.plist keys on macOS."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires installing OpenSSL on Windows via Chocolatey, configuring Info.plist keys for macOS, setting up appcast.xml feeds, and handling platform-specific packaging configurations.",
+    "alternatives": [],
+    "minimal_example": "import 'package:auto_updater/auto_updater.dart';\n\nvoid main() async {\n  WidgetsFlutterBinding.ensureInitialized();\n  String feedURL = 'http://localhost:5002/appcast.xml';\n  await autoUpdater.setFeedURL(feedURL);\n  await autoUpdater.checkForUpdates();\n  await autoUpdater.setScheduledCheckInterval(3600);\n  runApp(MyApp());\n}",
+    "confidence": 1
+  }
+}

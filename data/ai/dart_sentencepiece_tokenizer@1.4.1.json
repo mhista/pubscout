@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.4.1",
+  "generatedAt": "2026-11-10T12:45:01.859Z",
+  "data": {
+    "primary_category": "ai-ml",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based",
+      "no codegen"
+    ],
+    "one_liner": "A pure Dart implementation of SentencePiece tokenizer supporting BPE and Unigram.",
+    "what_it_does": "It provides a pure Dart implementation of SentencePiece tokenizers supporting BPE (Gemma), Unigram (Llama), and Hugging Face tokenizer.json pipelines. It offers full encoding, decoding, batch processing, and a streaming API.",
+    "use_when": [
+      "You need to tokenize text for LLMs like Llama or Gemma directly in pure Dart or Flutter.",
+      "You want compatibility with Hugging Face tokenizer.json pipelines without relying on native bindings."
+    ],
+    "avoid_when": [
+      "You are using a non-SentencePiece based tokenizer that requires completely different architectures."
+    ],
+    "strengths": [
+      "Pure Dart implementation with zero dependencies, working across all platforms.",
+      "Memory efficient with typed arrays and optimized BPE merge operations.",
+      "Includes support for Hugging Face tokenizer.json and a real-time text streaming API."
+    ],
+    "weaknesses": [
+      "Input text exceeding 500,000 characters throws an ArgumentError to prevent out-of-memory errors."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "llamadart",
+        "why_pick_it": "Pick llamadart if you need a full Llama model execution environment rather than just a tokenizer."
+      },
+      {
+        "name": "tflite_flutter",
+        "why_pick_it": "Pick tflite_flutter if you are running TensorFlow Lite models and require its specific ecosystem integrations."
+      }
+    ],
+    "minimal_example": "import 'package:dart_sentencepiece_tokenizer/dart_sentencepiece_tokenizer.dart';\n\nvoid main() {\n  final tokenizer = SentencePieceTokenizer.fromModelFileSync(\n    'tokenizer.model',\n    config: SentencePieceConfig.llama,\n  );\n\n  final encoding = tokenizer.encode('Hello, world!');\n  print(encoding.tokens);\n  print(encoding.ids);\n}",
+    "confidence": 1
+  }
+}

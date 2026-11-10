@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.1",
+  "generatedAt": "2026-11-10T12:50:52.273Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "Detects when your widget appears or disappears from the screen.",
+    "what_it_does": "FocusDetector provides callbacks to get notified every time a widget appears or disappears from the screen. It behaves similarly to onResume/onPause on Android or viewDidAppear/viewDidDisappear on iOS. It can trigger events when navigating, scrolling the widget in or out of view, or turning the device screen on and off.",
+    "use_when": [
+      "You need to turn on and off resource-consuming features like camera, location, or bluetooth based on widget visibility.",
+      "You need to sync data with a remote API or local database when a screen gains focus.",
+      "You need to pause and resume video or audio playback when navigating away from a screen."
+    ],
+    "avoid_when": [
+      "You only need basic page route transitions without sub-widget visibility detection."
+    ],
+    "strengths": [
+      "Simple widget-based integration.",
+      "Handles both visibility changes and app foreground/background transitions.",
+      "Cross-platform support."
+    ],
+    "weaknesses": [
+      "Relies on visibility_detector under the hood, which inherits its performance characteristics."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "FocusDetector(\n  onFocusLost: () {\n    logger.i('Focus Lost.');\n  },\n  onFocusGained: () {\n    logger.i('Focus Gained.');\n  },\n  child: Container(),\n)",
+    "confidence": 1
+  }
+}

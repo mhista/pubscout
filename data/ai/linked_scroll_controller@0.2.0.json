@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.2.0",
+  "generatedAt": "2026-11-10T12:31:42.477Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Synchronizes scroll positions of multiple scrollable widgets.",
+    "what_it_does": "Provides a controller group that keeps several ScrollControllers in sync. When one scrolls, all others jump to the same offset. It supports dynamic addition of controllers and offers animateTo/jumpTo for the group.",
+    "use_when": [
+      "You need two or more scrollable widgets to move together, e.g., side‑by‑side lists or horizontally scrolling items inside a vertical list.",
+      "You want a simple, null‑safe solution without external dependencies or code generation.",
+      "You are building a Flutter app that targets Android, iOS, web, macOS, Windows, or Linux.",
+      "You prefer an imperative API that works directly with ScrollControllers."
+    ],
+    "avoid_when": [
+      "You need complex scrolling behavior like parallax or nested scroll physics that require custom scroll physics.",
+      "You are already using a state‑management solution that handles scroll positions differently and you want to avoid duplicate controllers."
+    ],
+    "strengths": [
+      "Simple API, no extra dependencies.",
+      "Fully null‑safe and stable release.",
+      "Supports dynamic controller addition with unique keys.",
+      "Provides group animateTo/jumpTo for coordinated scrolling."
+    ],
+    "weaknesses": [
+      "Only synchronizes scroll offset, no advanced physics or animations.",
+      "Requires unique keys when adding controllers dynamically to avoid offset drift.",
+      "Limited to scrollable widgets; not a general state‑management tool."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "class LinkedScrollables extends StatefulWidget {\n  @override\n  _LinkedScrollablesState createState() => _LinkedScrollablesState();\n}\n\nclass _LinkedScrollablesState extends State<LinkedScrollables> {\n  final LinkedScrollControllerGroup _controllers = LinkedScrollControllerGroup();\n  late final ScrollController _letters;\n  late final ScrollController _numbers;\n\n  @override\n  void initState() {\n    super.initState();\n    _letters = _controllers.addAndGet();\n    _numbers = _controllers.addAndGet();\n  }\n\n  @override\n  void dispose() {\n    _letters.dispose();\n    _numbers.dispose();\n    super.dispose();\n  }\n\n  @override\n  Widget build(BuildContext context) {\n    return Row(\n      children: [\n        Expanded(\n          child: ListView(controller: _letters, children: const [\n            _Tile('Hello A'),\n            _Tile('Hello B'),\n            _Tile('Hello C'),\n            _Tile('Hello D'),\n            _Tile('Hello E'),\n          ]),\n        ),\n        Expanded(\n          child: ListView(controller: _numbers, children: const [\n            _Tile('Hello 1'),\n            _Tile('Hello 2'),\n            _Tile('Hello 3'),\n            _Tile('Hello 4'),\n            _Tile('Hello 5'),\n          ]),\n        ),\n      ],\n    );\n  }\n}\n\nclass _Tile extends StatelessWidget {\n  final String caption;\n  const _Tile(this.caption);\n  @override\n  Widget build(BuildContext context) => Container(\n    margin: const EdgeInsets.all(8.0),\n    padding: const EdgeInsets.all(8.0),\n    height: 250.0,\n    child: Center(child: Text(caption)),\n  );\n}\n",
+    "confidence": 0.95
+  }
+}

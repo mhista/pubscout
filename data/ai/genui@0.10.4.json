@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.10.4",
+  "generatedAt": "2026-11-10T12:43:18.701Z",
+  "data": {
+    "primary_category": "ai-ml",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "stream-based",
+      "declarative"
+    ],
+    "one_liner": "Generates and displays dynamic user interfaces in Flutter using AI.",
+    "what_it_does": "GenUI allows you to build dynamic, conversational user interfaces where the UI is constructed by an AI in real-time based on conversations with the user. It provides a Conversation facade, customizable widget catalogs, reactive data models, and transport adapters to handle incoming A2UI message streams.",
+    "use_when": [
+      "You want to build applications where the UI is generated dynamically by an LLM or AI agent.",
+      "You need a conversational UI that can update components and data models on the fly."
+    ],
+    "avoid_when": [
+      "Your application requires a completely static, pre-defined user interface.",
+      "You are not using an AI model or backend to generate dynamic UI definitions."
+    ],
+    "strengths": [
+      "Enables real-time, context-aware, and interactive generative user interfaces.",
+      "Flexible backend-agnostic design with custom widget catalogs and reactive data binding."
+    ],
+    "weaknesses": [
+      "Relies heavily on external LLM response reliability and structured streaming.",
+      "Requires custom bridge implementation for your specific AI agent provider."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding network client entitlements for iOS or macOS if making outbound network requests, and implementing an AI transport adapter.",
+    "alternatives": [],
+    "minimal_example": "class _MyHomePageState extends State<MyHomePage> {\n  late final SurfaceController _controller;\n  late final A2uiTransportAdapter _transport;\n  late final Conversation _conversation;\n\n  @override\n  void initState() {\n    super.initState();\n    _controller = SurfaceController(catalogs: [CoreCatalogItems.asCatalog()]);\n    _transport = A2uiTransportAdapter(onSend: _onSendToLLM);\n    _conversation = Conversation(controller: _controller, transport: _transport);\n  }\n\n  Future<void> _onSendToLLM(ChatMessage message) async {\n    final responseStream = myLlmClient.streamGenerateContent(message);\n    await for (final chunk in responseStream) {\n      _transport.addChunk(chunk);\n    }\n  }\n}",
+    "confidence": 1
+  }
+}

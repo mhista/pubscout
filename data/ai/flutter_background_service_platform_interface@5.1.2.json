@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "5.1.2",
+  "generatedAt": "2026-11-10T12:34:09.567Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "no codegen"
+    ],
+    "one_liner": "Platform interface for flutter_background_service plugin",
+    "what_it_does": "Provides a common interface that platform-specific implementations of the flutter_background_service plugin must implement. It ensures consistency across Android, iOS, web, Windows, macOS, and Linux.",
+    "use_when": [
+      "You need to create a custom platform implementation for flutter_background_service",
+      "You want to contribute to or modify the flutter_background_service plugin"
+    ],
+    "avoid_when": [
+      "You only need to use the flutter_background_service plugin without custom platform code",
+      "You are looking for a full background service implementation"
+    ],
+    "strengths": [
+      "Ensures type safety and consistency across platforms",
+      "Simplifies plugin development by providing a clear contract",
+      "No runtime overhead"
+    ],
+    "weaknesses": [
+      "Requires understanding of Flutter platform interfaces",
+      "Not useful if you only use the existing plugin"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "None",
+    "alternatives": [],
+    "minimal_example": "// Example of extending the platform interface\nclass MyPlatformService extends FlutterBackgroundServicePlatform {\n  @override\n  Future<void> start() async {\n    // platform-specific start logic\n  }\n}\n\n// Register the implementation\nFlutterBackgroundServicePlatform.instance = MyPlatformService();",
+    "confidence": 0.9
+  }
+}

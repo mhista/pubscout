@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.6.1",
+  "generatedAt": "2026-11-10T12:31:02.351Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "devtools"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "A Dart wrapper for interacting with the Android Debug Bridge (adb).",
+    "what_it_does": "Provides a Dart API to run adb commands, manage devices, forward ports, install apps, and read logcat output. It abstracts adb invocation and error handling for easier use in Dart/Flutter projects.",
+    "use_when": [
+      "You need to automate Android device tasks from Dart code",
+      "You want to integrate adb operations into CI/CD pipelines or Flutter tooling"
+    ],
+    "avoid_when": [
+      "Your app runs on iOS only",
+      "You require a cross‑platform device management solution beyond Android"
+    ],
+    "strengths": [
+      "Simple, focused API for adb",
+      "No external Dart dependencies",
+      "Supports common adb actions like install, uninstall, forward ports"
+    ],
+    "weaknesses": [
+      "Only works on Android devices",
+      "Relies on adb being available in the system PATH",
+      "Limited to command‑line features, no high‑level abstractions"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:adb/adb.dart';\n\nvoid main() async {\n  final adb = Adb();\n  final devices = await adb.devices();\n  print('Connected devices: $devices');\n  await adb.install('path/to/app.apk');\n}",
+    "confidence": 0.85
+  }
+}

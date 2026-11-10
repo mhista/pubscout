@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "6.1.1",
+  "generatedAt": "2026-11-10T12:56:57.188Z",
+  "data": {
+    "primary_category": "devtools",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Cross-platform Matomo tracking client for analytics in Flutter apps.",
+    "what_it_does": "Wraps the Matomo Tracking API to send page views, goals, and events from a Flutter application. Supports global or local route observation, custom dimensions, cookieless tracking, and persistent dispatch queues.",
+    "use_when": [
+      "You need to integrate Matomo analytics into your Flutter cross-platform app.",
+      "You require automatic screen tracking via navigator observers or specific widget/state mixins."
+    ],
+    "avoid_when": [
+      "You prefer using a different analytics platform such as Firebase or Sentry.",
+      "You do not use Matomo as your analytics backend."
+    ],
+    "strengths": [
+      "Fully cross-platform support (Android, iOS, Web, Windows, macOS, Linux).",
+      "Offers both global and local navigator observers as well as state mixins for precise tracking.",
+      "Supports persistent dispatching so queued actions aren't lost if the app terminates."
+    ],
+    "weaknesses": [
+      "Tied strictly to the Matomo tracking API ecosystem.",
+      "Requires proper configuration of site ID and tracking endpoints."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Initialize the tracker early in your application lifecycle with your site ID and Matomo URL endpoint.",
+    "alternatives": [
+      {
+        "name": "sentry_flutter",
+        "why_pick_it": "Pick if you want error tracking, crash reporting, and performance monitoring instead of web/app usage analytics."
+      },
+      {
+        "name": "mixpanel_flutter",
+        "why_pick_it": "Pick if you prefer Mixpanel as your product analytics platform."
+      }
+    ],
+    "minimal_example": "await MatomoTracker.instance.initialize(\n    siteId: siteId,\n    url: 'https://example.com/matomo.php',\n);",
+    "confidence": 0.95
+  }
+}

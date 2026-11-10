@@ -1,0 +1,35 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.0.0",
+  "generatedAt": "2026-11-10T12:52:03.655Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "A domain parser based on the Public Suffix List to identify root and suffix parts of URLs.",
+    "what_it_does": "Identifies public suffixes (TLDs), root domains, registrable domains, and subdomains from URLs. It supports punycode encoded URLs and custom rule lists.",
+    "use_when": [
+      "You need to parse URLs to extract root domains or TLDs accurately using the Public Suffix List.",
+      "You are working with punycoded domains and need both encoded and decoded forms."
+    ],
+    "avoid_when": [
+      "You do not want to manage or load suffix rule lists separately."
+    ],
+    "strengths": [
+      "Supports custom rule lists and ICANN vs private rules.",
+      "Handles punycode encoded URLs."
+    ],
+    "weaknesses": [
+      "Does not bundle a default suffix list, requiring it to be loaded at runtime."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires loading the Public Suffix List file via assets or network and initializing DefaultSuffixRules or SuffixRules.",
+    "alternatives": [],
+    "minimal_example": "import 'package:public_suffix/public_suffix.dart';\n\nmain() {\n  var suffixListString = 'load the list into this string';\n  DefaultSuffixRules.initFromString(suffixListString);\n  var parsedUrl = PublicSuffix(urlString: 'https://www.komposten.github.io');\n  print(parsedUrl.suffix);\n  print(parsedUrl.root);\n}",
+    "confidence": 1
+  }
+}

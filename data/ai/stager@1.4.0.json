@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.4.0",
+  "generatedAt": "2026-11-10T13:19:59.883Z",
+  "data": {
+    "primary_category": "devtools",
+    "secondary_categories": [
+      "testing"
+    ],
+    "approach": [
+      "code generation"
+    ],
+    "one_liner": "Flutter productivity tool to isolate and run UI widgets as standalone apps.",
+    "what_it_does": "Stager allows developers to isolate portions of a Flutter app into self-contained 'Scenes'. It uses code generation to build a control panel app where you can test different UI states, dark mode, text scales, and custom environment controls.",
+    "use_when": [
+      "You want to develop and test individual widgets or flows in isolation without navigating through the entire app.",
+      "You need to showcase various UI states (loading, empty, error, dark mode) to designers.",
+      "You want to reuse UI scenes inside widget tests."
+    ],
+    "avoid_when": [
+      "You are building a tiny app where traditional navigation and full-app debugging is already fast enough.",
+      "You cannot use code generation in your project."
+    ],
+    "strengths": [
+      "Greatly increases development velocity for complex UI components.",
+      "Built-in environment controls for dark mode, text scales, and custom properties.",
+      "Scenes can be easily reused in widget tests."
+    ],
+    "weaknesses": [
+      "Requires running build_runner to generate Stager app entry points.",
+      "Adds boilerplate for setting up Scene subclasses."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires running build_runner to generate the Stager app entry points, and launching apps using the generated files with optional --dart-define parameters.",
+    "alternatives": [],
+    "minimal_example": "class EmptyListScene extends BasePostsListScene {\n  @override\n  String get title => 'Empty List';\n\n  @override\n  Future<void> setUp() async {\n    await super.setUp();\n    when(mockApi.fetchPosts()).thenAnswer((_) async => <Post>[]);\n  }\n}",
+    "confidence": 1
+  }
+}

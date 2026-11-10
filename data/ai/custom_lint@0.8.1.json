@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.8.1",
+  "generatedAt": "2026-11-10T12:23:32.251Z",
+  "data": {
+    "primary_category": "testing",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Tool for creating and running custom Dart lint rules",
+    "what_it_does": "Provides a framework to write, test, and distribute custom lint rules for Dart projects. It includes a CLI, hot‑reload support, and built‑in testing helpers.",
+    "use_when": [
+      "You need project‑specific lint rules not covered by default lints",
+      "You want to enforce coding standards across a team or CI",
+      "You want to bundle lint rules with a library for consumers"
+    ],
+    "avoid_when": [
+      "You only need standard lints",
+      "You prefer a lightweight static analysis tool without plugin support"
+    ],
+    "strengths": [
+      "Easy to write and test lints",
+      "Hot‑reload and debugging support",
+      "Built‑in ignore handling and CI integration"
+    ],
+    "weaknesses": [
+      "Requires Dart SDK 3.0+",
+      "Adds a dev dependency and analysis_options configuration",
+      "Learning curve for plugin API"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add custom_lint to dev_dependencies, create analysis_options.yaml with plugins: - custom_lint, optionally configure rules. No build_runner needed.",
+    "alternatives": [],
+    "minimal_example": "// analysis_options.yaml\nanalyzer:\n  plugins:\n    - custom_lint\n\n# In a custom lint package\nclass MyLint extends DartLintRule {\n  MyLint() : super(code: _code);\n  static const _code = LintCode(name: 'my_lint', problemMessage: 'Example lint');\n  @override\n  void run(CustomLintResolver resolver, ErrorReporter reporter, CustomLintContext context) {\n    context.registry.addVariableDeclaration((node) {\n      reporter.atNode(node, _code);\n    });\n  }\n}",
+    "confidence": 0.9
+  }
+}

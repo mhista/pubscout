@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.4.0",
+  "generatedAt": "2026-11-10T13:10:31.139Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "localization"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "A Flutter plugin to retrieve the SIM country code using platform-specific APIs.",
+    "what_it_does": "It accesses native platform APIs to retrieve the SIM country code. On Android, it uses TelephonyManager. On iOS, it uses either Locale or CTTelephonyNetworkInfo depending on the iOS version.",
+    "use_when": [
+      "You need to retrieve the SIM card country code on Android or iOS.",
+      "You want a straightforward imperative method call to get the region ISO code."
+    ],
+    "avoid_when": [
+      "You are running on iOS simulators or devices without a SIM card where it will return null.",
+      "You need deep locale or language translation management rather than just the SIM country code."
+    ],
+    "strengths": [
+      "Simple API with a single main method: getSIMCountryCode.",
+      "Handles deprecated iOS APIs by falling back to Locale for iOS 16.0 and higher."
+    ],
+    "weaknesses": [
+      "Returns null on iOS simulators and devices without a SIM card.",
+      "Windows and Linux support is very basic and simply returns null instead of throwing an exception."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "No extra native setup or permissions are documented beyond adding the dependency.",
+    "alternatives": [
+      {
+        "name": "devicelocale",
+        "why_pick_it": "It provides the device locale and language settings if you need general locale information rather than strictly the SIM country code."
+      }
+    ],
+    "minimal_example": "import 'package:device_region/device_region.dart';\n\nFuture<void> getCountry() async {\n  String? simCountryCode = await DeviceRegion.getSIMCountryCode();\n}",
+    "confidence": 0.95
+  }
+}

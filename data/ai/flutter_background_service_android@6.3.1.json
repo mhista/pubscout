@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "6.3.1",
+  "generatedAt": "2026-11-10T12:33:55.227Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Android plugin to run Dart code continuously even when the app is closed.",
+    "what_it_does": "Provides the Android side of the flutter_background_service federated plugin. It lets a Flutter app start a foreground service that keeps executing Dart code after the UI is gone, with fixes for recent Android versions and permission handling.",
+    "use_when": [
+      "you need to run periodic or long‑running Dart code on Android even when the app is in the background or terminated",
+      "you require a simple foreground service without writing native Android code"
+    ],
+    "avoid_when": [
+      "you need iOS support (this package is Android‑only)",
+      "you prefer battery‑optimized scheduling like WorkManager or AlarmManager",
+      "you need fine‑grained control over service lifecycle beyond what the plugin offers"
+    ],
+    "strengths": [
+      "easy integration via endorsed federated plugin",
+      "handles recent Android version quirks (AGP 8.0+, Android 12/14)",
+      "provides a straightforward API to start/stop a foreground service"
+    ],
+    "weaknesses": [
+      "Android‑only, no iOS fallback",
+      "limited documentation beyond basic usage",
+      "potential battery impact if misused"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add FOREGROUND_SERVICE permission (and optionally POST_NOTIFICATIONS for Android 13) to AndroidManifest, configure the service declaration, and handle alarm/notification permissions on Android 12+ as described in the changelog.",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter_background_service/flutter_background_service.dart';\n\nvoid main() async {\n  WidgetsFlutterBinding.ensureInitialized();\n  await FlutterBackgroundService().configure(\n    androidConfiguration: AndroidConfiguration(\n      onStart: onStart,\n      autoStart: true,\n      foregroundMode: true,\n    ),\n  );\n  runApp(MyApp());\n}\n\nvoid onStart() {\n  // Dart code that runs in the background\n}\n",
+    "confidence": 0.9
+  }
+}

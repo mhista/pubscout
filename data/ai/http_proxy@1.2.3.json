@@ -1,0 +1,48 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.2.3",
+  "generatedAt": "2026-11-10T12:55:59.650Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Automatically gets mobile device proxy settings and configures HTTP traffic.",
+    "what_it_does": "Gets proxy settings of a mobile device automatically and sets up proxy routing for HTTP requests. It allows developers to easily inspect network traffic using tools like Charles proxy.",
+    "use_when": [
+      "You want to debug HTTP requests with proxy tools like Charles on mobile devices",
+      "You need to automatically capture mobile device proxy settings"
+    ],
+    "avoid_when": [
+      "You do not need to debug network traffic using local proxies",
+      "You are looking for a complete networking client"
+    ],
+    "strengths": [
+      "Simplifies routing HTTP traffic through proxy debugging tools",
+      "Automatically fetches device proxy configurations"
+    ],
+    "weaknesses": [
+      "Limited platform support to Android and iOS",
+      "Not documented for advanced custom proxy configurations beyond automatic fetching"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Initialize via HttpProxy.createHttpProxy() and assign to HttpOverrides.global before runApp().",
+    "alternatives": [
+      {
+        "name": "http",
+        "why_pick_it": "A standard, widely used HTTP client for Dart which this package integrates with for proxy routing."
+      },
+      {
+        "name": "dio",
+        "why_pick_it": "A powerful HTTP client for Dart, which has built-in support for interceptors and proxy configurations."
+      }
+    ],
+    "minimal_example": "void main() async {\n  WidgetsFlutterBinding.ensureInitialized();\n  HttpProxy httpProxy = await HttpProxy.createHttpProxy();\n  HttpOverrides.global = httpProxy;\n  runApp(MyApp());\n}",
+    "confidence": 0.95
+  }
+}

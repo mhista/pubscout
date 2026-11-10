@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.9.0",
+  "generatedAt": "2026-11-10T12:32:18.568Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "state-management"
+    ],
+    "approach": [
+      "declarative",
+      "imperative"
+    ],
+    "one_liner": "Framework for building terminal user interfaces with Flutter‑like components and hot reload.",
+    "what_it_does": "Nocterm lets you create rich TUI applications using familiar Flutter patterns such as StatefulComponent, setState, and layout widgets like Column and Row. It includes testing utilities that mimic Flutter widget tests for terminal output.",
+    "use_when": [
+      "You need a terminal UI with a Flutter‑style API",
+      "You want hot‑reload and component‑based development for CLI tools"
+    ],
+    "avoid_when": [
+      "You are targeting graphical mobile/web/desktop UI",
+      "You need a pure Dart solution without native ffi dependencies"
+    ],
+    "strengths": [
+      "Flutter‑like API reduces learning curve",
+      "Built‑in hot reload for rapid iteration",
+      "Testing support similar to Flutter widgets"
+    ],
+    "weaknesses": [
+      "Works only in terminal environments",
+      "Relies on ffi, requiring native setup",
+      "Small ecosystem compared to mainstream UI frameworks"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires Dart VM with --enable-vm-service for hot reload; ffi may need platform‑specific libraries installed.",
+    "alternatives": [],
+    "minimal_example": "import 'package:nocterm/nocterm.dart';\n\nvoid main() {\n  runApp(const Counter());\n}\n\nclass Counter extends StatefulComponent {\n  const Counter({super.key});\n\n  @override\n  State<Counter> createState() => _CounterState();\n}\n\nclass _CounterState extends State<Counter> {\n  int _count = 0;\n\n  @override\n  Component build(BuildContext context) {\n    return Focusable(\n      focused: true,\n      onKeyEvent: (event) {\n        if (event.logicalKey == LogicalKey.space) {\n          setState(() => _count++);\n          return true;\n        }\n        return false;\n      },\n      child: Center(child: Text('Count: $_count')),\n    );\n  }\n}",
+    "confidence": 0.9
+  }
+}

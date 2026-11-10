@@ -1,0 +1,46 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.4.0",
+  "generatedAt": "2026-11-10T12:44:13.701Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "Provides a stream of device orientation data including rotation matrix, quaternion, and Euler angles.",
+    "what_it_does": "The flutter_rotation_sensor plugin gives real-time access to a device's physical orientation on Android, iOS, and supported web browsers. It provides data in three representations: rotation matrix, quaternion, and Euler angles (azimuth, pitch, roll), with customizable update intervals and reference frames.",
+    "use_when": [
+      "You need real-time tracking of device orientation or movement in space.",
+      "Building augmented reality, navigation, or gaming applications requiring compass and rotation data."
+    ],
+    "avoid_when": [
+      "Targeting platforms where rotation sensors are not supported.",
+      "You only require simple device info without sensor orientation streams."
+    ],
+    "strengths": [
+      "Supports multiple formats: rotation matrix, quaternion, and Euler angles.",
+      "Cross-platform support including Android, iOS, and web browsers.",
+      "Customizable update intervals and coordinate system remapping."
+    ],
+    "weaknesses": [
+      "Web platform may require explicit permission handling via user gestures.",
+      "Depends on hardware capabilities and browser Sensor API support."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "No special native permissions required for Android and iOS; web requires runtime permission flows on browsers that enforce them.",
+    "alternatives": [
+      {
+        "name": "sensors_plus",
+        "why_pick_it": "If you need broader access to standard accelerometer, magnetometer, gyroscope, and user acceleration sensors."
+      }
+    ],
+    "minimal_example": "StreamBuilder(\n  stream: RotationSensor.orientationStream,\n  builder: (context, snapshot) {\n    if (snapshot.hasData) {\n      final data = snapshot.data!;\n      return Text('Azimuth: ${data.eulerAngles.azimuth}');\n    } else if (snapshot.hasError) {\n      return Text('Error: ${snapshot.error}');\n    }\n    return const CircularProgressIndicator();\n  },\n)",
+    "confidence": 0.95
+  }
+}

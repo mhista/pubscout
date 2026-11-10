@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "31.1.0",
+  "generatedAt": "2026-11-10T13:00:49.463Z",
+  "data": {
+    "primary_category": "backend",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "code generation"
+    ],
+    "one_liner": "Dart SDK for integrating server-side code with the Appwrite backend server",
+    "what_it_does": "Provides client initialization and service classes to interact with Appwrite backend APIs like users, databases, and storage. Throws typed exceptions for error handling and maps responses to typed models.",
+    "use_when": [
+      "You are building server-side Dart code that connects to an Appwrite backend",
+      "You need to manage Appwrite users, databases, and files from a Dart backend"
+    ],
+    "avoid_when": [
+      "You are building a Flutter app (use the dedicated Flutter Appwrite SDK instead)",
+      "You are connecting to Firebase or Supabase instead of Appwrite"
+    ],
+    "strengths": [
+      "Official SDK for Appwrite server integration in Dart",
+      "Includes typed models and robust exception handling",
+      "Supports multiple authentication methods including API keys and user JWTs"
+    ],
+    "weaknesses": [
+      "Not intended for client-side Flutter usage",
+      "Self-hosted Appwrite instances require keeping track of matching SDK versions"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Install via pub add and initialize the Client with your Appwrite endpoint, project ID, and API key.",
+    "alternatives": [
+      {
+        "name": "supabase",
+        "why_pick_it": "Choose this if you are using Supabase as your backend service instead of Appwrite."
+      }
+    ],
+    "minimal_example": "import 'package:dart_appwrite/dart_appwrite.dart';\nimport 'package:dart_appwrite/models.dart' as models;\n\nClient client = Client()\n    .setEndpoint('https://cloud.appwrite.io/v1')\n    .setProject('<YOUR_PROJECT_ID>')\n    .setKey('<YOUR_API_KEY>');\n\nUsers users = Users(client);\nmodels.User user = await users.create(\n  userId: ID.unique(),\n  email: 'email@example.com',\n  password: 'password',\n  name: \"Walter O'Brien\",\n);",
+    "confidence": 1
+  }
+}

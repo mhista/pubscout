@@ -1,0 +1,48 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.1.2",
+  "generatedAt": "2026-11-10T13:16:31.670Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "Record audio from the microphone with real-time amplitude monitoring and built-in playback.",
+    "what_it_does": "Records audio to M4A format on iOS and Android while streaming normalized real-time amplitude values. It also includes built-in playback controls for recorded files.",
+    "use_when": [
+      "You need to record voice or audio clips with live amplitude feedback on iOS and Android.",
+      "You want an easy way to play back recorded audio files within the same plugin."
+    ],
+    "avoid_when": [
+      "Your app requires web or desktop support, as only iOS and Android are supported.",
+      "You need complex low-level audio processing beyond basic recording, playback, and amplitude streams."
+    ],
+    "strengths": [
+      "Provides real-time amplitude streaming (0.0 to 1.0) out of the box.",
+      "Includes built-in playback controls (play, pause, stop).",
+      "Configurable recording settings like sample rate, channels, and audio quality."
+    ],
+    "weaknesses": [
+      "Platform support is limited strictly to iOS and Android.",
+      "Does not support web or desktop targets."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires adding RECORD_AUDIO and WRITE_EXTERNAL_STORAGE permissions to AndroidManifest.xml, and NSMicrophoneUsageDescription to Info.plist on iOS.",
+    "alternatives": [
+      {
+        "name": "record",
+        "why_pick_it": "A mature, highly popular package for recording audio to various formats across mobile, web, and desktop."
+      },
+      {
+        "name": "audioplayers",
+        "why_pick_it": "If you primarily need comprehensive audio playback and sound management alongside recording options."
+      }
+    ],
+    "minimal_example": "final MicStreamRecorder _recorder = MicStreamRecorder();\n\n// Listen to amplitude values\n_recorder.amplitudeStream.listen((amplitude) {\n  print('Amplitude: $amplitude');\n});\n\n// Start and stop recording\nawait _recorder.startRecording();\nfinal path = await _recorder.stopRecording();",
+    "confidence": 0.95
+  }
+}
