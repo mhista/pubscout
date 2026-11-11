@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.0.3",
+  "generatedAt": "2026-11-11T11:41:01.653Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "A simple least recently used (LRU) cache implementation in Dart.",
+    "what_it_does": "Provides an LRU cache data structure that keeps track of the most recently accessed items and automatically evicts the least recently used elements when capacity limits are met. It uses Dart's LinkedHashMap and supports thread-safe operations.",
+    "use_when": [
+      "You need an in-memory cache with a maximum capacity and automatic eviction of least recently used items.",
+      "You require thread-safe operations for concurrent cache access."
+    ],
+    "avoid_when": [
+      "You need persistent storage that survives application restarts.",
+      "You need advanced distributed caching solutions."
+    ],
+    "strengths": [
+      "Thread-safe out of the box using synchronization.",
+      "Customizable size calculation through a sizeOf method."
+    ],
+    "weaknesses": [
+      "In-memory only, data is lost when the app terminates.",
+      "Limited feature set beyond basic LRU caching."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:lru_cache/lru_cache.dart';\n\nvoid main() {\n  final cache = LruCache<String, String>(2);\n  cache.put('key1', 'value1');\n  cache.put('key2', 'value2');\n  print(cache.get('key1'));\n}",
+    "confidence": 0.95
+  }
+}

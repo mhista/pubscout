@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.5",
+  "generatedAt": "2026-11-11T11:13:03.136Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Automatic resource cleanup and finalization similar to C# using and Java try-with-resource.",
+    "what_it_does": "Provides a Releasable mixin and extension methods to ensure deterministic resource cleanup and automatic finalization. Supports safe execution scopes via use(), useAsync(), and consume() extension methods.",
+    "use_when": [
+      "You need deterministic cleanup of resources similar to C# IDisposable.",
+      "You want to ensure resources are released in a finally block or via extension methods."
+    ],
+    "avoid_when": [
+      "You rely completely on deterministic garbage collection without explicit handles."
+    ],
+    "strengths": [
+      "Offers familiar scoping patterns like use() and useAsync() for resource management.",
+      "Includes support for Dart's Finalizer for non-deterministic clean-up fallback.",
+      "Simple mixin-based API."
+    ],
+    "weaknesses": [
+      "Relies on manual calls to super.release() and autoRelease() to manage nested resources.",
+      "Finalizer based auto-release is non-deterministic and not guaranteed."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "class Resource with Releasable {\n  @override\n  void release() {\n    super.release();\n  }\n}\n\nvoid main() {\n  final data = Resource().use((res) {\n    // use `res`\n  });\n}",
+    "confidence": 1
+  }
+}

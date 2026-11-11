@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.4.2",
+  "generatedAt": "2026-11-11T11:21:11.125Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "code generation",
+      "stream-based"
+    ],
+    "one_liner": "Provides pseudo terminal processes for Flutter apps via native code.",
+    "what_it_does": "The plugin creates and manages PTY processes on Android, iOS, macOS, Windows, and Linux. It exposes a Dart API to start a shell, read output streams, write input, resize, and kill the process.",
+    "use_when": [
+      "You need a real terminal/PTY inside a Flutter app (e.g., terminal emulator, CLI tools).",
+      "You require cross‑platform native PTY support with environment variable and working‑directory control."
+    ],
+    "avoid_when": [
+      "You target web or platforms without native build toolchains.",
+      "You prefer a pure‑Dart solution without native compilation."
+    ],
+    "strengths": [
+      "Native PTY implementation works on all major desktop and mobile platforms.",
+      "Supports resizing, env vars, working directory, and exit codes.",
+      "Provides a stream of output for reactive handling."
+    ],
+    "weaknesses": [
+      "Requires native toolchains and build steps for each platform.",
+      "Experimental package; may have stability issues compared to mature alternatives."
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Configure the plugin as an FFI plugin in pubspec, ensure Android NDK, Xcode, and CMake are installed, and compile native libraries for each target platform.",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter_pty/flutter_pty.dart';\n\nfinal pty = Pty.start('bash');\npty.output.listen((data) => print(String.fromCharCodes(data)));\npty.write(Utf8Encoder().convert('ls -al\\n'));\npty.resize(30, 80);\npty.kill();",
+    "confidence": 0.9
+  }
+}

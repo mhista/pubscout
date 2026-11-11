@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.1.12",
+  "generatedAt": "2026-11-11T11:27:01.798Z",
+  "data": {
+    "primary_category": "devtools",
+    "secondary_categories": [
+      "device"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Automated error catching and reporting plugin for Flutter with multiple handlers.",
+    "what_it_does": "Catcher 2 automatically catches uncaught exceptions/errors in Flutter applications and provides multiple reporting options like dialogs, notifications, console logs, email sending, Sentry, and custom HTTP requests. It supports Android, iOS, Web, Linux, Windows, and macOS.",
+    "use_when": [
+      "You need to catch uncaught Flutter and Dart exceptions automatically across multiple platforms.",
+      "You want configurable reporting flows such as showing error dialogs to users or emailing crash logs."
+    ],
+    "avoid_when": [
+      "You only need lightweight logging without UI crash dialogs or reporting handlers."
+    ],
+    "strengths": [
+      "Supports multiple built-in handlers (Console, Email, Sentry, Toast, HTTP, Discord, Slack, etc.).",
+      "Cross-platform support including mobile, web, and desktop.",
+      "Easy setup with debug and release configurations."
+    ],
+    "weaknesses": [
+      "Requires proper navigator key configuration for dialog and page report modes to function."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Initialize with Catcher2 in main() and add Catcher2.navigatorKey to your MaterialApp/CupertinoApp.",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:catcher_2/catcher_2.dart';\n\nmain() {\n  Catcher2Options debugOptions = Catcher2Options(DialogReportMode(), [ConsoleHandler()]);\n  Catcher2(rootWidget: MyApp(), debugConfig: debugOptions);\n}\n\nclass MyApp extends StatelessWidget {\n  @override\n  Widget build(BuildContext context) {\n    return MaterialApp(\n      navigatorKey: Catcher2.navigatorKey,\n      home: Scaffold(body: Center(child: Text('Catcher 2'))),\n    );\n  }\n}",
+    "confidence": 0.95
+  }
+}

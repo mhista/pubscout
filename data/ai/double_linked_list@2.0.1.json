@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.1",
+  "generatedAt": "2026-11-11T11:34:18.575Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "A generic double linked list data structure for Dart and Flutter.",
+    "what_it_does": "Provides a generic double linked list implementation allowing constant time insertions at both ends, before or after any element, and constant time element deletion. It also supports standard Iterable operations and custom extensions for easy list creation.",
+    "use_when": [
+      "You need constant-time insertions and deletions at arbitrary positions via nodes.",
+      "You require a classic double-linked list data structure in Dart."
+    ],
+    "avoid_when": [
+      "You only need standard Dart lists or queues which are more than sufficient for most use cases.",
+      "You require indexed random access, which is inefficient in a linked list."
+    ],
+    "strengths": [
+      "Constant time insertions and deletions at both ends and relative to any node.",
+      "Supports many common Iterable methods like map, where, reduce, and fold."
+    ],
+    "weaknesses": [
+      "Improper iteration while mutating the list can lead to infinite loops if not handled carefully.",
+      "Lacks random access by index."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:double_linked_list/double_linked_list.dart';\n\nmain() {\n  final emptyList = DoubleLinkedList<int>.empty();\n  final fromList = DoubleLinkedList<int>.fromIterable([1, 2, 3]);\n  final fromListExtension = [1, 2, 3].toDoubleLinkedList();\n  fromListExtension.forEach(print);\n}",
+    "confidence": 0.95
+  }
+}

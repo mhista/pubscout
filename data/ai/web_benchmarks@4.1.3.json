@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.1.3",
+  "generatedAt": "2026-11-11T11:17:11.764Z",
+  "data": {
+    "primary_category": "testing",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "A benchmark harness for performance-testing Flutter web apps in Chrome.",
+    "what_it_does": "Provides a client and server harness to performance-test Flutter web applications inside Chrome. It automates running benchmarks, extracting performance traces, and analyzing or comparing results.",
+    "use_when": [
+      "You need to performance-test Flutter web applications in Chrome",
+      "You want to compute deltas or averages between multiple benchmark runs"
+    ],
+    "avoid_when": [
+      "You are testing mobile or desktop apps rather than Flutter web",
+      "You want to run benchmarks in browsers other than Chrome"
+    ],
+    "strengths": [
+      "Automates extracting performance traces and metrics from Chrome",
+      "Supports analyzing and comparing benchmark results with built-in delta and average computations"
+    ],
+    "weaknesses": [
+      "Currently only supports running benchmarks in Chrome",
+      "Requires setting up both a client and a server harness"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires setting up a client benchmark code piece and a server to serve the app's code, assets, and communicate with the browser.",
+    "alternatives": [],
+    "minimal_example": "import 'dart:convert';\nimport 'dart:io';\nimport 'package:web_benchmarks/analysis.dart';\n\nvoid main() {\n  final BenchmarkResults baselineResults = BenchmarkResults.parse({});\n  final BenchmarkResults testResults1 = BenchmarkResults.parse({});\n  final BenchmarkResults delta = computeDelta(baselineResults, testResults1);\n  stdout.writeln(delta.toJson());\n}",
+    "confidence": 0.95
+  }
+}

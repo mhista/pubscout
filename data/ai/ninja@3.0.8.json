@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.0.8",
+  "generatedAt": "2026-11-11T11:14:06.979Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Cryptography library for Dart to encrypt, decrypt, sign, and verify messages using RSA and AES.",
+    "what_it_does": "Provides cryptographic primitives for Dart and Flutter. It supports RSA encryption and decryption (OAEP, PKCS1v15), digital signatures (RSASSA-PSS, RSASSA-PKCS1-V1_5), key generation and PEM loading (PKCS#1 and PKCS#8), along with AES block cipher encryption.",
+    "use_when": [
+      "You need to encrypt or decrypt data using RSA or AES in a Dart or Flutter application.",
+      "You need to sign and verify messages with RSA signatures.",
+      "You need to parse or generate PEM-formatted RSA keys."
+    ],
+    "avoid_when": [
+      "You need curve-based cryptography or advanced AES block cipher modes like GCM (marked as TODO in the library).",
+      "You need a full suite of modern high-level cryptographic protocols beyond basic encryption/signatures."
+    ],
+    "strengths": [
+      "Provides straightforward APIs for common RSA and AES operations.",
+      "Supports loading keys from standard PEM formats (PKCS#1 and PKCS#8).",
+      "Pure Dart implementation supporting multiple platforms (Android, iOS, Web, Windows, macOS, Linux)."
+    ],
+    "weaknesses": [
+      "Certain block cipher modes (GCM, ECB, CFB, OFB) and curve-based cryptography are currently missing or marked as TODO.",
+      "Limited documentation outside of basic README snippets."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "No special native setup or build_runner required; just add the dependency to pubspec.yaml.",
+    "alternatives": [
+      {
+        "name": "crypto",
+        "why_pick_it": "If you only need cryptographic hashes like SHA or MD5 which are provided by Dart's core crypto package."
+      }
+    ],
+    "minimal_example": "void main() {\n  final aes = AESKey(Uint8List.fromList(List.generate(16, (i) => i)));\n  String encoded = aes.encryptToBase64('Dart');\n  print(encoded);\n  String decoded = aes.decryptToUtf8(encoded);\n  print(decoded);\n}",
+    "confidence": 0.95
+  }
+}

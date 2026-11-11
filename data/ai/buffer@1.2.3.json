@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.8-flash",
+  "version": "1.2.3",
+  "generatedAt": "2026-11-11T11:07:22.159Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Utilities and classes for reading and writing byte buffers and binary data streams.",
+    "what_it_does": "Provides ByteDataWriter and ByteDataReader classes to simplify reading and writing binary data formats. It allows working with byte sequences and streams efficiently, handling operations like reading/writing integers of various byte sizes and null-terminated byte sequences. It has zero external dependencies and runs on all Dart/Flutter platforms.",
+    "use_when": [
+      "Building custom binary protocol decoders or encoders.",
+      "Reading and writing structured binary data to or from byte buffers incrementally.",
+      "Handling null-terminated bytes and variable-length integer byte streams."
+    ],
+    "avoid_when": [
+      "Working only with text-based formats like JSON or XML.",
+      "Standard Dart typed_data ByteData methods are sufficient for your simple buffer operations."
+    ],
+    "strengths": [
+      "Zero external dependencies.",
+      "Convenient sequential reader and writer APIs compared to manual index management with ByteData.",
+      "Cross-platform support across mobile, web, and desktop."
+    ],
+    "weaknesses": [
+      "README documentation is very brief with only a single minimal example."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "final writer = ByteDataWriter();\nwriter.writeUint8(255);\nwriter.writeUint16(65535);\nwriter.writeUint32(4294967295);\n\nfinal reader = ByteDataReader();\nreader.add(writer.toBytes());\nprint(reader.readUint8());\nprint(reader.readUint16());\nprint(reader.readUint32());",
+    "confidence": 0.95
+  }
+}

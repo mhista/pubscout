@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.1.1",
+  "generatedAt": "2026-11-11T11:34:24.092Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Singleton isolated worker for running heavy tasks in isolates on Flutter and web workers on web.",
+    "what_it_does": "Provides a singleton isolated worker that runs heavy computational tasks in a separate Isolate on mobile/desktop platforms and via Web Workers on the web. It mimics Flutter's compute function syntax and includes a WorkerDelegator to handle shared platform execution.",
+    "use_when": [
+      "You need to run heavy background calculations without blocking the main UI thread.",
+      "You need a cross-platform solution that supports both Dart Isolates and Web Workers with a similar API."
+    ],
+    "avoid_when": [
+      "You only need simple one-off background tasks where Flutter's built-in compute function is sufficient.",
+      "You are working entirely on platforms where standard Dart isolates or Isolate.run already satisfy all your background processing requirements."
+    ],
+    "strengths": [
+      "Identical syntax to Flutter's compute function.",
+      "Cross-platform support including web via Web Workers.",
+      "WorkerDelegator simplifies sharing execution logic across platforms."
+    ],
+    "weaknesses": [
+      "Web workers require manual setup of a worker.js file in the web folder.",
+      "Web worker execution cannot directly use Dart closures as messages due to web platform limitations."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "For web support, you must download a worker.js file and place it in the web directory of your Flutter project.",
+    "alternatives": [],
+    "minimal_example": "int doSomeHeavyCalculation(int count) {\n    return count;\n}\n\nvoid main() {\n    IsolatedWorker().run(doSomeHeavyCalculation, 1000);\n}",
+    "confidence": 0.95
+  }
+}

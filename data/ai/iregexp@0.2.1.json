@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.2.1",
+  "generatedAt": "2026-11-11T11:06:38.829Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Dart implementation of RFC 9485 I-Regexp, validating and matching patterns.",
+    "what_it_does": "It parses I-Regexp patterns, validates them, and uses Dart's RegExp for matching. It provides shortcuts for full-string and substring matches.",
+    "use_when": [
+      "You need to validate I-Regexp patterns before use",
+      "You want a lightweight regex implementation that follows RFC 9485",
+      "You need to match patterns in a Dart-only environment"
+    ],
+    "avoid_when": [
+      "You need advanced regex features not covered by RFC 9485",
+      "You require a full-featured regex engine with lookbehind or other non-I-Regexp constructs"
+    ],
+    "strengths": [
+      "Validates patterns against RFC 9485",
+      "Simple API with matches() and matchesSubstring()",
+      "No external code generation or build steps"
+    ],
+    "weaknesses": [
+      "Limited to RFC 9485 syntax",
+      "No support for advanced regex features",
+      "Relies on Dart's RegExp for actual matching"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:iregexp/iregexp.dart';\nvoid main(){\n  final iRegexp = IRegexp('[0-9]+.[0-9]+.[0-9]+');\n  print(iRegexp.matches('1.2.3')); // true\n  print(iRegexp.matches('foo')); // false\n}",
+    "confidence": 0.85
+  }
+}

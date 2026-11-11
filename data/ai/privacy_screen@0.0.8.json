@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.0.8",
+  "generatedAt": "2026-11-11T11:25:19.431Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "auth"
+    ],
+    "approach": [
+      "declarative",
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Hides sensitive data in the app switcher and provides automatic lock triggers with native lifeCycle listeners.",
+    "what_it_does": "A Flutter plugin that hides sensitive app data using privacy screens on iOS and FLAG_SECURE on Android when the app enters the background. It also provides automatic app locking mechanisms via native lifecycle listeners.",
+    "use_when": [
+      "You need to hide sensitive content when the app is in the background or app switcher.",
+      "You want to implement an automatic lock screen triggered by native lifecycle events after a set duration."
+    ],
+    "avoid_when": [
+      "You need a package that is actively maintained, as this plugin is unmaintained.",
+      "You require custom privacy views on Android (Android forces a black/white screen via FLAG_SECURE)."
+    ],
+    "strengths": [
+      "Uses native app lifecycles instead of Flutter's to ensure proper behavior when entering native views.",
+      "Supports custom privacy images and blur effects on iOS.",
+      "Provides a native lifecycle events stream and customizable lock gates."
+    ],
+    "weaknesses": [
+      "The plugin is explicitly marked as no longer maintained.",
+      "Android does not support custom privacy views and disables screenshots globally when enabled.",
+      "Lock screens cannot be presented on top of active native views on iOS."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires adding privacy_screen to pubspec.yaml and configuring native assets (like LaunchImage on iOS) if custom images are desired.",
+    "alternatives": [],
+    "minimal_example": "bool result = await PrivacyScreen.instance.enable(\n    iosOptions: const PrivacyIosOptions(\n        enablePrivacy: true,\n        privacyImageName: \"LaunchImage\",\n        autoLockAfterSeconds: 5,\n        lockTrigger: IosLockTrigger.didEnterBackground,\n    ),\n    androidOptions: const PrivacyAndroidOptions(\n        enableSecure: true,\n        autoLockAfterSeconds: 5,\n    ),\n    backgroundColor: Colors.white,\n    blurEffect: PrivacyBlurEffect.extraLight,\n);",
+    "confidence": 0.95
+  }
+}

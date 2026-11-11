@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.7.2",
+  "generatedAt": "2026-11-11T11:12:57.106Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "web-desktop"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Translates dart:ffi calls on the web to WebAssembly using dart:js.",
+    "what_it_does": "Web_ffi allows developers to use a dart:ffi-compatible API on the web by translating calls through dart:js to a browser running WebAssembly compiled with emscripten. It introduces a Memory class to handle the memory model differences between native platforms and WebAssembly.",
+    "use_when": [
+      "You need to run WebAssembly code compiled with emscripten on the web using a dart:ffi-like API.",
+      "You are sharing existing C/C++ or WebAssembly logic that expects an ffi-like interface in a web Flutter application."
+    ],
+    "avoid_when": [
+      "You are targeting native platforms where standard dart:ffi is already available.",
+      "Your WebAssembly modules require full struct support or array extensions which are not yet implemented."
+    ],
+    "strengths": [
+      "Provides a drop-in solution mimicking the dart:ffi API on the web.",
+      "Allows reuse of ffi-based patterns across web and native targets."
+    ],
+    "weaknesses": [
+      "Currently only supports WebAssembly compiled with emscripten.",
+      "Lacks support for structs (except opaque structs) and pointer array extensions.",
+      "Has strict constraints on function return types and pointer nesting."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires emscripten compiler settings and initializing Memory using Memory.init() before use.",
+    "alternatives": [],
+    "minimal_example": "import 'package:web_ffi/web_ffi.js';\n\nvoid main() {\n  Memory.init();\n  // load and use your WebAssembly module\n}",
+    "confidence": 0.95
+  }
+}

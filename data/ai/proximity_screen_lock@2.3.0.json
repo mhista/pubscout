@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.3.0",
+  "generatedAt": "2026-11-11T11:32:33.751Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Bind screen activation to proximity sensor and detect proximity events in Flutter.",
+    "what_it_does": "A Flutter plugin that binds screen activation to the device proximity sensor. It allows detecting proximity events and checking if proximity locking is supported or available on the current device.",
+    "use_when": [
+      "You want to turn off or lock the screen when an object is close to the proximity sensor",
+      "You need to listen to proximity sensor state changes on mobile devices"
+    ],
+    "avoid_when": [
+      "You are building for non-mobile platforms where proximity sensors are absent",
+      "You need general sensor access beyond proximity"
+    ],
+    "strengths": [
+      "Simple API to toggle active proximity locking",
+      "Provides stream of proximity states",
+      "Checks sensor availability for iOS and Android"
+    ],
+    "weaknesses": [
+      "Not supported on non-mobile platforms",
+      "Availability depends on hardware support on Android"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [],
+    "minimal_example": "if (ProximityLockScreen.isProximityLockSupported()) {\n  ProximityLockScreen.setActive(true);\n  ProximityScreenLock.proximityStates.listen((objectDetected) async {\n    print(objectDetected ? 'Object detected' : 'No object detected');\n  });\n}",
+    "confidence": 0.95
+  }
+}

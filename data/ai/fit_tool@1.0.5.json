@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.5",
+  "generatedAt": "2026-11-11T11:48:34.075Z",
+  "data": {
+    "primary_category": "files",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "A library for reading and writing Garmin FIT fitness activity files.",
+    "what_it_does": "Reads and decodes Garmin FIT files either all at once or via byte streams into messages and rows. Allows building and writing custom workouts, activities, and courses into standard FIT files.",
+    "use_when": [
+      "You need to parse Garmin FIT files in a Flutter or Dart app",
+      "You need to generate FIT workout files to export to devices"
+    ],
+    "avoid_when": [
+      "You need to interact with live fitness sensors directly (this only processes static files)"
+    ],
+    "strengths": [
+      "Supports both batch and stream-based decoding for large files",
+      "Can convert FIT data to and from CSV format"
+    ],
+    "weaknesses": [
+      "Relies on manual file path setup which may require platform-specific path handling"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [],
+    "minimal_example": "import 'dart:io';\nimport 'package:fit_tool/src/fit_file.dart';\n\nFuture<void> main() async {\n  final file = File('./test/data/sdk/Activity.fit');\n  final bytes = await file.readAsBytes();\n  final fitFile = FitFile.fromBytes(bytes);\n}",
+    "confidence": 0.95
+  }
+}

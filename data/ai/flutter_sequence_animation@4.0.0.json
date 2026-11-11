@@ -1,0 +1,47 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.0.0",
+  "generatedAt": "2026-11-11T11:27:46.784Z",
+  "data": {
+    "primary_category": "animation",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Compose multiple animations sequentially using a single controller.",
+    "what_it_does": "Allows developers to define a sequence of animatables with specific durations and tags using a builder. It automatically computes the total animation duration and merges multiple animatables into a single animation per tag without manual interval calculation.",
+    "use_when": [
+      "You need to orchestrate complex staggered animations with a single AnimationController",
+      "You want to avoid manually calculating percentage intervals for sequential animations"
+    ],
+    "avoid_when": [
+      "You need physics-based motion or complex timeline state machines provided by Rive",
+      "You prefer implicit animations or simple one-off tweens"
+    ],
+    "strengths": [
+      "Removes the need to calculate manual percentage intervals",
+      "Uses only a single AnimationController for complex sequences",
+      "Easy to chain multiple animatables under the same tag"
+    ],
+    "weaknesses": [
+      "Animations with the same tag cannot overlap and must be ordered",
+      "Limited documentation beyond the basic README example"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "flutter_animate",
+        "why_pick_it": "Provides a rich, chainable extension-based animation system with many built-in effects."
+      },
+      {
+        "name": "animate_do",
+        "why_pick_it": "Offers a collection of ready-to-use animations based on animate.css."
+      }
+    ],
+    "minimal_example": "sequenceAnimation = new SequenceAnimationBuilder()\n  .addAnimatable(\n      animatable: new ColorTween(begin: Colors.red, end: Colors.yellow),\n      from:  const Duration(seconds: 0),\n      to: const Duration(seconds: 2),\n      tag: \"color\"\n    ).animate(controller);",
+    "confidence": 0.95
+  }
+}

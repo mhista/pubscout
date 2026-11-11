@@ -1,0 +1,53 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.0.0",
+  "generatedAt": "2026-11-11T11:27:32.568Z",
+  "data": {
+    "primary_category": "devtools",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "A Dio interceptor that logs formatted JSON and cUrl commands.",
+    "what_it_does": "It logs Dio HTTP requests, responses, errors, headers, query parameters, and processing times. It also generates and prints corresponding cUrl commands for easy copying and debugging.",
+    "use_when": [
+      "You are using Dio for networking and need pretty-printed JSON logs in your console",
+      "You need to quickly copy and paste HTTP requests as cUrl commands for testing"
+    ],
+    "avoid_when": [
+      "You are not using Dio",
+      "You need a general-purpose logger that is not tied to HTTP interceptors"
+    ],
+    "strengths": [
+      "Formats JSON and prints cUrl commands correctly",
+      "Supports FormData and various content types",
+      "Easy to configure as a standard Dio interceptor"
+    ],
+    "weaknesses": [
+      "Limited only to Dio network logging",
+      "Lacks advanced error reporting integrations like Sentry out of the box"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Not documented",
+    "alternatives": [
+      {
+        "name": "pretty_dio_logger",
+        "why_pick_it": "It is the package that inspired this one and serves the same purpose of logging Dio requests."
+      },
+      {
+        "name": "talker",
+        "why_pick_it": "If you want a more comprehensive logging and debugging ecosystem with a UI."
+      },
+      {
+        "name": "logger",
+        "why_pick_it": "If you need a general-purpose application logger rather than specifically an HTTP interceptor."
+      }
+    ],
+    "minimal_example": "Dio dio = Dio();\ndio.interceptors.add(\n  PrettyDioLogger(\n    requestHeader: true,\n    queryParameters: true,\n    requestBody: true,\n    responseHeader: true,\n    responseBody: true,\n    error: true,\n    showProcessingTime: true,\n    showCUrl: true,\n  ),\n);",
+    "confidence": 0.95
+  }
+}

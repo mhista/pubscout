@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.0.3",
+  "generatedAt": "2026-11-11T11:12:02.726Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Monitors network capabilities like bandwidth and signal strength on Android and iOS.",
+    "what_it_does": "Provides runtime information about the current network such as upstream/downstream bandwidth, signal strength, and transport type. Works on Android (API 29+) and iOS, exposing the data through a simple Dart API.",
+    "use_when": [
+      "You need to adapt UI or logic based on actual network quality",
+      "Debugging or logging real‑time network characteristics",
+      "Building apps that react to changes in Wi‑Fi vs cellular connectivity"
+    ],
+    "avoid_when": [
+      "You only need high‑level connectivity status (online/offline)",
+      "You require cross‑platform networking without native code",
+      "You need extensive streaming or bandwidth management features"
+    ],
+    "strengths": [
+      "Exposes detailed low‑level network metrics",
+      "Supports both Android and iOS platforms",
+      "Handles iOS main‑thread blocking issue"
+    ],
+    "weaknesses": [
+      "Limited to Android Q+ for full feature set",
+      "iOS support provides only basic info",
+      "Requires native configuration and permissions"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add required permissions (e.g., ACCESS_NETWORK_STATE) to AndroidManifest.xml and appropriate keys to iOS Info.plist; ensure the plugin is registered in the host app.",
+    "alternatives": [],
+    "minimal_example": "FlutterNetworkCapabilities flutterNetworkCapabilitiesPlugin = FlutterNetworkCapabilities();\nfinal info = await flutterNetworkCapabilitiesPlugin.getNetworkInfo();\ndebugPrint(info);",
+    "confidence": 0.85
+  }
+}

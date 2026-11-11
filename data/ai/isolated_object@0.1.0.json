@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.1.0",
+  "generatedAt": "2026-11-11T11:09:26.153Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Wraps an object in a separate isolate to run its methods off the main isolate.",
+    "what_it_does": "Creates a dedicated isolate for a given object and forwards method calls to it via closures. Returns the result asynchronously and can shut down the isolate with close().",
+    "use_when": [
+      "Heavy synchronous work blocks the UI and you need a simple background executor for a single object",
+      "You want a dependency‑free way to keep timers or animations alive while the main isolate is busy"
+    ],
+    "avoid_when": [
+      "You need multiple isolates or complex inter‑isolate communication",
+      "You require UI widgets or platform channel integration",
+      "You need code‑generation or advanced state‑management features"
+    ],
+    "strengths": [
+      "Very small, zero dependencies",
+      "Works on all Dart/Flutter platforms",
+      "Simple, imperative API"
+    ],
+    "weaknesses": [
+      "One isolate per object adds startup overhead",
+      "Limited to single‑object use‑case",
+      "No built‑in error handling beyond failing in‑flight calls"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:isolated_object/isolated_object.dart';\n\nfinal counter = IsolatedObject<Counter>(() => Counter());\nawait counter.evaluate((c) => c.increment());\nfinal value = await counter.evaluate((c) => c.value);\nawait counter.close();",
+    "confidence": 0.95
+  }
+}

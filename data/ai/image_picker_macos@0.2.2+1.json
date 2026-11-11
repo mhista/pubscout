@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.2.2+1",
+  "generatedAt": "2026-11-11T11:06:38.165Z",
+  "data": {
+    "primary_category": "images",
+    "secondary_categories": [
+      "files"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "macOS platform implementation of the image_picker plugin",
+    "what_it_does": "Provides macOS platform-specific implementation for picking images and videos using file selection. It works as an endorsed federated plugin for image_picker.",
+    "use_when": [
+      "You are building a Flutter application for macOS that needs to pick images or videos.",
+      "You are using the main image_picker package and need macOS desktop support."
+    ],
+    "avoid_when": [
+      "You need ImageSource.camera support without setting a custom cameraDelegate.",
+      "You require max width, max height, or image quality adjustments on macOS currently."
+    ],
+    "strengths": [
+      "Endorsed federated plugin that integrates automatically with image_picker.",
+      "Enables file picking for images and videos on macOS."
+    ],
+    "weaknesses": [
+      "Certain arguments like maxWidth, maxHeight, imageQuality, and maxDuration are not currently supported.",
+      "Requires manual addition of user-selected read-only entitlements in macOS."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the read-only file access entitlement (com.apple.security.files.user-selected.read-only) to your macOS entitlements configuration.",
+    "alternatives": [
+      {
+        "name": "image_picker",
+        "why_pick_it": "The main cross-platform package that automatically includes this macOS implementation."
+      }
+    ],
+    "minimal_example": "// This package is endorsed and used automatically via image_picker.\n// To use directly if needed:\nimport 'package:image_picker_macos/image_picker_macos();",
+    "confidence": 0.95
+  }
+}

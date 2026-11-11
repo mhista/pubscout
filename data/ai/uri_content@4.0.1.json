@@ -1,0 +1,55 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "4.0.1",
+  "generatedAt": "2026-11-11T11:19:50.197Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "utils",
+      "files"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Fetch Uint8List from a Uri without creating temporary files",
+    "what_it_does": "This package reads bytes directly from a Uri and returns them as a Uint8List. It supports data, file, http, https and Android content schemes, and can stream large files in chunks.",
+    "use_when": [
+      "Need to download binary data from a network or file Uri",
+      "Want to avoid temporary files on disk",
+      "Need custom headers or a mockable HTTP client",
+      "Testing requires a controllable source"
+    ],
+    "avoid_when": [
+      "Fetching very large files with the from() method (use getContentStream instead)",
+      "Using unsupported schemes (e.g., ftp)"
+    ],
+    "strengths": [
+      "No temp files, minimal disk usage",
+      "Supports multiple schemes including Android content URIs",
+      "Stream API for large files",
+      "Customizable HTTP client and headers"
+    ],
+    "weaknesses": [
+      "from() can crash on large files if memory is insufficient",
+      "Requires Android permissions for content scheme (READ_EXTERNAL_STORAGE)",
+      "No built‑in retry logic"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "http",
+        "why_pick_it": "Standard HTTP client for simple GET requests, but lacks Uri extension and content scheme support"
+      },
+      {
+        "name": "dio",
+        "why_pick_it": "Feature‑rich HTTP client with interceptors, but still creates temp files for downloads"
+      }
+    ],
+    "minimal_example": "import 'dart:typed_data';\nimport 'package:uri_content/uri_content.dart';\n\nFuture<Uint8List> loadBytes() async {\n  final uri = Uri.parse('https://example.com/file.bin');\n  return await uri.getContent();\n}",
+    "confidence": 0.9
+  }
+}

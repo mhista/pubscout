@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "10.3.0",
+  "generatedAt": "2026-11-11T11:22:13.541Z",
+  "data": {
+    "primary_category": "devtools",
+    "secondary_categories": [
+      "storage"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Performance tracing integration for the drift SQL package using Sentry.",
+    "what_it_does": "Adds support for performance tracing to the drift package by intercepting database queries and sending them to Sentry. It helps developers monitor SQL query performance and track database operations within transactions.",
+    "use_when": [
+      "You are using the drift package for local database storage and already use Sentry for error tracking or performance monitoring.",
+      "You need to trace and monitor the performance of SQL queries in your application."
+    ],
+    "avoid_when": [
+      "You are not using the drift package.",
+      "You do not use Sentry for monitoring or performance tracing."
+    ],
+    "strengths": [
+      "Seamlessly integrates drift with Sentry performance tracing.",
+      "Easy to set up with existing Sentry and drift configurations."
+    ],
+    "weaknesses": [
+      "Strictly tied to the Sentry ecosystem.",
+      "Dependent on both sentry and drift packages functioning correctly together."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Initialize the Sentry SDK with a valid DSN and wrap your drift database executor with SentryQueryInterceptor.",
+    "alternatives": [],
+    "minimal_example": "Future<void> main() async {\n  const dsn = 'YOUR_DSN';\n  await Sentry.init(\n    (options) {\n      options.dsn = dsn;\n      options.tracesSampleRate = 1.0;\n    },\n  );\n  final executor = NativeDatabase.memory().interceptWith(\n    SentryQueryInterceptor(databaseName: 'my_db_name'),\n  );\n  final db = AppDatabase(executor);\n}",
+    "confidence": 0.95
+  }
+}

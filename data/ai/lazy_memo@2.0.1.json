@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.1",
+  "generatedAt": "2026-11-11T11:14:12.620Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Cached lazy variables and memoized functions for Dart.",
+    "what_it_does": "Provides classes for defining lazy variables that can be marked for re-initialization, collection-backed lazy types (List, Set, Map), and memoized functions that cache calculation results based on input arguments.",
+    "use_when": [
+      "You need to store and reuse the result of costly computations in Dart.",
+      "You want memoized functions that store and recall the result of function calls with high computational cost.",
+      "You need lazy variables that can be selectively invalidated and re-initialized."
+    ],
+    "avoid_when": [
+      "You just need standard lazy initialization once, which is fully covered by Dart's built-in late modifier.",
+      "You are dealing with trivial computations where caching overhead outweighs recalculation costs."
+    ],
+    "strengths": [
+      "Supports cache invalidation and re-initialization for lazy variables.",
+      "Includes specialized collection wrappers like LazyList, LazySet, and LazyMap.",
+      "Provides memoized function builders to avoid repeated expensive calculations."
+    ],
+    "weaknesses": [
+      "Memoization comes at the cost of additional indirections and higher memory usage.",
+      "Requires manual maintenance of function tables or cache states."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add lazy_memo to pubspec.yaml dependencies.",
+    "alternatives": [],
+    "minimal_example": "import 'package:lazy_memo/lazy_memo.dart';\n\ndouble objectFactory() {\n  return 42.0;\n}\n\nlate final a = Lazy(objectFactory);\nvar value = a();",
+    "confidence": 1
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.1.1",
+  "generatedAt": "2026-11-11T11:10:57.366Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [
+      "images",
+      "networking"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Cross-platform caching library for Flutter using IndexedDB and the file system.",
+    "what_it_does": "A simple cross-platform caching library for Flutter. It automatically manages storage using IndexedDB on the web and the file system on mobile and desktop platforms, and uses Dio for network requests.",
+    "use_when": [
+      "You need to cache network resources or images across mobile, desktop, and web.",
+      "You want a drop-in ImageProvider replacement that uses local cache.",
+      "You need direct key-value cache operations like get, set, delete, and contains."
+    ],
+    "avoid_when": [
+      "You need complex relational queries or a robust local database like SQLite.",
+      "You require advanced cache purging strategies like LRU, MRU, or FIFO out of the box."
+    ],
+    "strengths": [
+      "Cross-platform support utilizing IndexedDB on web and file system on IO platforms.",
+      "Includes a built-in CachedNetworkImage provider for Flutter widgets.",
+      "Supports multiple resource sources including network URLs, assets, data URIs, and base64 strings."
+    ],
+    "weaknesses": [
+      "Lacks automatic cache purging or maximum size/item count configuration.",
+      "Does not currently support cancellation for downloads in progress."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "flutter_cache_manager",
+        "why_pick_it": "Pick if you need a widely used, mature file caching manager with built-in automatic purging and advanced cache control."
+      }
+    ],
+    "minimal_example": "import 'package:cross_cache/cross_cache.dart';\nimport 'package:dio/dio.dart';\n\nfinal cache = CrossCache();\n\nFuture<void> loadImageData(String imageUrl) async {\n  final imageData = await cache.downloadAndSave(imageUrl);\n}\n\n// Remember to dispose when done\n// cache.dispose();",
+    "confidence": 0.95
+  }
+}

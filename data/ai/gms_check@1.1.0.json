@@ -1,0 +1,35 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.1.0",
+  "generatedAt": "2026-11-11T11:47:58.318Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Check if Google Mobile Services is available on the Android device.",
+    "what_it_does": "Checks if Google Services are available on an Android device and defaults to true on other platforms. It prevents initializing unnecessary services that require Google Services.",
+    "use_when": [
+      "You want to avoid initializing services that require Google Services on devices without them",
+      "You need to conditionally initialize Firebase services based on GMS availability"
+    ],
+    "avoid_when": [
+      "You do not use any Google Services or Firebase features in your app"
+    ],
+    "strengths": [
+      "Simple API with a single check method",
+      "Uses OptionalMethodChannel to prevent MissingPluginException on other platforms"
+    ],
+    "weaknesses": [
+      "Only checks availability on Android, returning true by default for other platforms"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Call await GmsCheck().checkGmsAvailability() once before runApp in main().",
+    "alternatives": [],
+    "minimal_example": "Future<void> main() async {\n  await GmsCheck().checkGmsAvailability();\n  runApp(const MyApp());\n}",
+    "confidence": 1
+  }
+}

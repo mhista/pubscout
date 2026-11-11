@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "1.0.0",
+  "generatedAt": "2026-11-11T11:09:14.094Z",
+  "data": {
+    "primary_category": "auth",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Server-side utilities for Sign in with Apple in Dart",
+    "what_it_does": "Provides functions to validate Apple identity tokens, exchange authorization codes for refresh tokens, and revoke user authorizations. It supports Android, web, and native Apple platforms.",
+    "use_when": [
+      "You need to implement Sign in with Apple on a Dart backend",
+      "You want to validate identity tokens and manage user sessions",
+      "You need to revoke Apple authorizations from the server"
+    ],
+    "avoid_when": [
+      "You only need client-side Sign in with Apple",
+      "You are building a Flutter app without a Dart backend"
+    ],
+    "strengths": [
+      "No external dependencies beyond http and jsonwebtoken",
+      "Supports all platforms that can run Dart",
+      "Handles token validation and refresh flow"
+    ],
+    "weaknesses": [
+      "Limited to Apple sign-in only",
+      "No built-in UI or client integration",
+      "Requires manual handling of private keys"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dependency to pubspec, provide Apple private key as a string, call provided methods",
+    "alternatives": [],
+    "minimal_example": "```dart\nimport 'package:sign_in_with_apple_server/sign_in_with_apple_server.dart';\n\nfinal client = SignInWithAppleServer(\n  clientId: 'com.example.app',\n  privateKey: '-----BEGIN PRIVATE KEY-----\n<key data>\n-----END PRIVATE KEY-----',\n  keyId: 'ABC123',\n);\n\nfinal token = await client.validateIdentityToken(idToken);\nprint('User ID: ${token.userId}');\n```",
+    "confidence": 0.85
+  }
+}

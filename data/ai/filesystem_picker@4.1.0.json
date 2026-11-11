@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.1.0",
+  "generatedAt": "2026-11-11T11:19:47.457Z",
+  "data": {
+    "primary_category": "files",
+    "secondary_categories": [
+      "ui-kits"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "File and folder picker dialog to browse the device file system.",
+    "what_it_does": "Provides a file system explorer widget that can be opened as a fullscreen dialog, popup dialog, or bottom sheet. Allows users to browse directories, filter by allowed extensions, and select files or folders.",
+    "use_when": [
+      "You need to let users pick specific folders or files from the device file system.",
+      "You are building desktop or mobile apps that require direct directory and file browsing."
+    ],
+    "avoid_when": [
+      "You only need to pick generic documents or media via native system pickers without a custom directory browser UI.",
+      "You require web platform filesystem access where this package may not apply."
+    ],
+    "strengths": [
+      "Supports multiple display modes including fullscreen, popup dialog, and bottom sheet.",
+      "Highly customizable themes, shortcut support, and context actions like creating folders.",
+      "Cross-platform support across Android, iOS, Windows, macOS, and Linux."
+    ],
+    "weaknesses": [
+      "Requires managing permissions (e.g., via permission_handler) on Android for storage access.",
+      "Android Manifest permissions must be manually updated for legacy storage access."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dependency to pubspec.yaml and configure Android permissions in AndroidManifest.xml if targeting Android storage.",
+    "alternatives": [],
+    "minimal_example": "String path = await FilesystemPicker.open(\n  title: 'Open file',\n  context: context,\n  rootDirectory: rootPath,\n  fsType: FilesystemType.file,\n  allowedExtensions: ['.txt'],\n  fileTileSelectMode: FileTileSelectMode.wholeTile,\n);",
+    "confidence": 0.95
+  }
+}

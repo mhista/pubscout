@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.33",
+  "generatedAt": "2026-11-11T11:17:23.515Z",
+  "data": {
+    "primary_category": "auth",
+    "secondary_categories": [
+      "camera",
+      "payments"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter plugin for Digio KYC, eSign, UPI, mandate, and video verification flows.",
+    "what_it_does": "Allows your Flutter application to trigger and run Digio's complete KYC workflows, electronic signatures, UPI, mandate, and reverse penny drop flows on Android and iOS. It also supports a stateless selfie capture mode using JWT credentials.",
+    "use_when": [
+      "You need to integrate Digio KYC and eSign workflows into your app",
+      "You require native document capture, video KYC, and biometric authentication flows"
+    ],
+    "avoid_when": [
+      "You are building a non-fintech application that does not require identity verification",
+      "You want a custom UI built entirely in Flutter for your onboarding process"
+    ],
+    "strengths": [
+      "Supports a wide range of regulated workflows like eSign, UPI, and mandates",
+      "Provides both full workflow orchestration and stateless native task modes"
+    ],
+    "weaknesses": [
+      "Requires extensive native configuration and repository setups on Android",
+      "Depends on proprietary third-party native SDKs"
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Requires adding custom Maven repositories, configuring Android build.gradle, updating ProGuard rules or using BOM settings, and adding camera, microphone, and location permissions for Android and iOS.",
+    "alternatives": [],
+    "minimal_example": "final digioConfig = DigioConfig();\ndigioConfig.theme.primaryColor = \"#32a83a\";\ndigioConfig.environment = Environment.SANDBOX;\n\nfinal kycWorkflow = KycWorkflow(digioConfig);\nfinal workflowResult = await kycWorkflow.start(\n  \"DOCUMENT_ID\",\n  \"customer@email.com\",\n  \"TOKEN_ID\",\n  additionalData,\n);",
+    "confidence": 0.95
+  }
+}

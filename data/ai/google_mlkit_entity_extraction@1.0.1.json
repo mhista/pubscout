@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.1",
+  "generatedAt": "2026-11-11T11:20:56.981Z",
+  "data": {
+    "primary_category": "ai-ml",
+    "secondary_categories": [
+      "device"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter plugin to use Google's ML Kit Entity Extraction API to recognize specific entities.",
+    "what_it_does": "Recognizes and extracts specific entities like dates, flight numbers, money, and IBANs from static text using on-device models. Automatically handles downloading language models as needed.",
+    "use_when": [
+      "You need to extract structured data (dates, money, flight numbers, etc.) from raw text on-device.",
+      "You are targeting Android and iOS platforms and want to leverage native Google ML Kit capabilities."
+    ],
+    "avoid_when": [
+      "You need web or desktop platform support.",
+      "You require cloud-based language understanding models."
+    ],
+    "strengths": [
+      "Performs entity extraction locally on-device for privacy and offline use.",
+      "Supports a wide range of languages including English, Spanish, French, Chinese, and Arabic.",
+      "Provides an entity model manager to check, download, or delete language models."
+    ],
+    "weaknesses": [
+      "Does not support Web or desktop platforms.",
+      "Depends on native platform setup and specific minimum deployment targets (iOS 15.0+)."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires setting minimum iOS deployment target to 15.0, configuring Xcode Other Linker Flags (-ObjC, -all_load), and setting Android minSdkVersion to 21 or higher.",
+    "alternatives": [],
+    "minimal_example": "final entityExtractor = EntityExtractor(language: EntityExtractorLanguage.english);\nfinal List<EntityAnnotation> annotations = await entityExtractor.annotateText(text);\nentityExtractor.close();",
+    "confidence": 1
+  }
+}

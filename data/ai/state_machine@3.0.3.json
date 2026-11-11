@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.0.3",
+  "generatedAt": "2026-11-11T11:14:18.497Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Finite state machine library to define legal state transitions and listen to state changes.",
+    "what_it_does": "Allows developers to create finite state machines, define legal state transitions, and handle state entrances, departures, and payloads. It throws exceptions for illegal transitions and supports transition cancellation conditions.",
+    "use_when": [
+      "You need to enforce strict rules on how an object or UI component transitions between states.",
+      "You want to listen to state entrances, departures, and transitions with optional data payloads."
+    ],
+    "avoid_when": [
+      "You are looking for widget-level state management solutions like Provider or Bloc for Flutter UI rebuilding.",
+      "Your state flow is simple enough that boolean flags or standard enums suffice."
+    ],
+    "strengths": [
+      "Prevents illegal state transitions by design.",
+      "Supports cancellation conditions and wildcards for transitions.",
+      "Exposes streams for state entrances and departures."
+    ],
+    "weaknesses": [
+      "Limited documentation on advanced architectural patterns.",
+      "Unclear active maintenance status with unknown license."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "StateMachine light = new StateMachine('light');\nState isOn = light.newState('on');\nState isOff = light.newState('off');\nStateTransition turnOn = light.newStateTransition('turnOn', [isOff], isOn);\nlight.start(isOff);\nturnOn();",
+    "confidence": 0.95
+  }
+}

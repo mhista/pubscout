@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.7.0",
+  "generatedAt": "2026-11-11T11:34:12.018Z",
+  "data": {
+    "primary_category": "web-desktop",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Check if your Flutter application is already running and bring it to the foreground.",
+    "what_it_does": "Allows desktop apps to check if another instance of the same application is currently running. If an instance is found, it can focus the existing window and exit the new instance.",
+    "use_when": [
+      "You are building a desktop application for macOS, Windows, or Linux that should only have a single running instance.",
+      "You need to focus the already running window when a user tries to launch a second instance."
+    ],
+    "avoid_when": [
+      "You are building primarily for mobile or web platforms where this package always reports as the first instance.",
+      "You require robust single-instance support on Android or iOS."
+    ],
+    "strengths": [
+      "Provides confirmed working support for macOS, Windows, and Linux.",
+      "Supports focusing the running instance using built-in RPC capabilities.",
+      "Includes a debug mode feature to bypass single-instance checks during development."
+    ],
+    "weaknesses": [
+      "Always reports as the first instance on Android, iOS, and Web.",
+      "Requires manual configuration of app sandbox and network entitlements on macOS."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "On macOS, you must disable sandboxing and enable server/client networking entitlements in your .entitlements files.",
+    "alternatives": [],
+    "minimal_example": "void main() async {\n  WidgetsFlutterBinding.ensureInitialized();\n  await windowManager.ensureInitialized();\n\n  if (await FlutterSingleInstance().isFirstInstance()) {\n    runApp(const MyApp());\n  } else {\n    print(\"App is already running\");\n    final err = await FlutterSingleInstance().focus();\n    exit(0);\n  }\n}",
+    "confidence": 0.95
+  }
+}

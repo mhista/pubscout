@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.0.2",
+  "generatedAt": "2026-11-11T11:31:16.674Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "layout"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A tab bar view widget where each tab's height automatically adjusts to fit its content.",
+    "what_it_does": "Combines autoscale_tabbarview and expandable_page_view functionalities to provide a ContentSizeTabBarView widget. It allows creating a tab bar view whose height automatically resizes to fit its content, fixing issues found in release mode when nested inside scroll views.",
+    "use_when": [
+      "You need a TabBarView that dynamically resizes its height based on the current tab's content.",
+      "You experience layout or sizing issues with AutoScaleTabBarView inside a CustomScrollView or SingleChildScrollView in release mode."
+    ],
+    "avoid_when": [
+      "You do not need automatic height adjustments for tabs."
+    ],
+    "strengths": [
+      "Automatically adjusts height to fit tab content",
+      "Works inside scroll views where other auto-scaling tab views fail in release mode",
+      "Smooth tab switching animations with TabController integration"
+    ],
+    "weaknesses": [
+      "Limited documentation and community usage beyond the basic example"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:content_size_tabbarview/content_size_tabbarview.dart';\n\nvoid main() {\n  runApp(MyApp());\n}\n\nclass MyApp extends StatelessWidget {\n  @override\n  Widget build(BuildContext context) {\n    return MaterialApp(\n      home: Scaffold(\n        appBar: AppBar(\n          title: Text('ContentSizeTabBarView Example'),\n        ),\n        body: DefaultTabController(\n                child: ContentSizeTabBarView(\n                  children: [\n                    Center(child: Text('Tab 1 Content')),\n                    Center(child: Text('Tab 2 Content')),\n                  ],\n                ),\n        ),\n      ),\n    );\n  }\n}",
+    "confidence": 0.95
+  }
+}

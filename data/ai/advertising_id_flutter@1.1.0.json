@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.1.0",
+  "generatedAt": "2026-11-11T11:22:07.318Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "payments"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Access advertising ID, limit ad tracking status, and authorization status on mobile platforms.",
+    "what_it_does": "A Flutter plugin to access the device advertising ID on Android, iOS, macOS, and HarmonyOS. It also allows retrieving whether ad tracking is limited or checking authorization status.",
+    "use_when": [
+      "You need to read the device advertising ID for analytics or attribution.",
+      "You need to check if user ad tracking is limited or authorized."
+    ],
+    "avoid_when": [
+      "You do not use advertising or tracking identifiers in your application.",
+      "You require verified native build support for HarmonyOS, which is still pending."
+    ],
+    "strengths": [
+      "Supports multiple platforms including Android, iOS, macOS, and HarmonyOS.",
+      "Provides simple asynchronous APIs with exception handling."
+    ],
+    "weaknesses": [
+      "HarmonyOS native build and device validation are still pending.",
+      "Authorization status checking is primarily for iOS and returns default values on Android."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires standard platform-specific configurations for advertising identifiers (such as AdSupport framework on iOS or permissions on HarmonyOS).",
+    "alternatives": [],
+    "minimal_example": "String? advertisingId;\ntry {\n  advertisingId = await AdvertisingId().getAdvertisingId(true);\n} on PlatformException {\n  advertisingId = null;\n}",
+    "confidence": 0.95
+  }
+}

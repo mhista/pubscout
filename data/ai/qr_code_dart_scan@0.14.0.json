@@ -1,0 +1,52 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.14.0",
+  "generatedAt": "2026-11-11T11:19:41.356Z",
+  "data": {
+    "primary_category": "camera",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Flutter widget for live or picture‑based QR code scanning using a pure‑Dart decoder.",
+    "what_it_does": "Provides a camera preview widget that captures frames and decodes QR codes (and other supported formats) on iOS and Android. Supports live scanning, picture‑take scanning, and format filtering.",
+    "use_when": [
+      "You need a QR/barcode scanner without native ML libraries",
+      "You prefer a pure‑Dart solution that works on both iOS and Android",
+      "You want to customize scanning parameters like crop area or orientation"
+    ],
+    "avoid_when": [
+      "You require Web or desktop scanning support",
+      "You need high‑performance real‑time scanning in debug mode",
+      "You depend on advanced ML features like face detection"
+    ],
+    "strengths": [
+      "Pure‑Dart decoder avoids native SDKs",
+      "Supports many 1D/2D formats beyond QR",
+      "Allows format filtering and custom cropping"
+    ],
+    "weaknesses": [
+      "Performance lower in debug mode",
+      "No Web or desktop support",
+      "Relies on camera plugin bugs (rotation)"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add iOS camera/microphone usage descriptions in Info.plist and set minSdkVersion 21 on Android; may need dependency_override for camera_android_camerax.",
+    "alternatives": [
+      {
+        "name": "mobile_scanner",
+        "why_pick_it": "Native ML‑based scanning with broader platform support including Web"
+      },
+      {
+        "name": "google_mlkit_barcode_scanning",
+        "why_pick_it": "High‑performance on‑device ML scanning with extensive format support"
+      }
+    ],
+    "minimal_example": "```dart\nimport 'package:flutter/material.dart';\nimport 'package:qr_code_dart_scan/qr_code_dart_scan.dart';\n\nclass ScanPage extends StatelessWidget {\n  @override\n  Widget build(BuildContext context) {\n    return Scaffold(\n      body: QRCodeDartScanView(\n        onCapture: (result) {\n          debugPrint('Scanned: ${result.text}');\n        },\n      ),\n    );\n  }\n}\n```",
+    "confidence": 0.92
+  }
+}

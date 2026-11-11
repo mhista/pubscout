@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.11.0",
+  "generatedAt": "2026-11-11T11:14:31.064Z",
+  "data": {
+    "primary_category": "maps",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Vector tile layer for flutter_map with MapLibre-style rendering and isolate decoding.",
+    "what_it_does": "Renders MapLibre and Mapbox GL vector tile styles inside a flutter_map layer. It performs isolate-based tile decoding, GPU-resident raster caching, and screen-space label collision.",
+    "use_when": [
+      "You are building a flutter_map application and need to render vector tiles from MVT sources or PMTiles.",
+      "You want support for MapLibre styles, sprites, and custom glyph fonts without heavy native dependencies."
+    ],
+    "avoid_when": [
+      "Your project does not use flutter_map.",
+      "You need native Google Maps integration rather than OpenStreetMap/vector tile providers."
+    ],
+    "strengths": [
+      "Self-contained package handling MVT decoding, style engines, and rasterization.",
+      "Runs tile decoding on worker isolates and supports multiple platforms including web and desktop.",
+      "Deterministic LRU memory and disk caching with offline support."
+    ],
+    "weaknesses": [
+      "Tied strictly to the flutter_map ecosystem.",
+      "High concurrent decoding and raster caching can consume significant memory on mobile devices."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add flutter_map and flutter_map_vector_tiles to pubspec.yaml and load a style using StyleReader.",
+    "alternatives": [
+      {
+        "name": "google_maps_flutter",
+        "why_pick_it": "If you prefer Google's native map renderer over flutter_map and vector tiles."
+      }
+    ],
+    "minimal_example": "import 'package:flutter_map/flutter_map.dart';\nimport 'package:flutter_map_vector_tiles/flutter_map_vector_tiles.dart' as vt;\nimport 'package:latlong2/latlong.dart';\n\nfinal style = await vt.StyleReader(\n  uri: 'https://api.maptiler.com/maps/streets-v2/style.json?key={key}',\n  apiKey: myKey,\n).read();\n\nFlutterMap(\n  options: MapOptions(\n    initialCenter: style.center ?? const LatLng(48.137, 11.575),\n    initialZoom: style.zoom ?? 12,\n  ),\n  children: [\n    vt.VectorTileLayer(\n      theme: style.theme,\n      tileProviders: style.providers,\n      rasterSources: style.rasterSources,\n      sprites: style.sprites,\n      glyphs: style.glyphs,\n    ),\n  ],\n);",
+    "confidence": 0.95
+  }
+}

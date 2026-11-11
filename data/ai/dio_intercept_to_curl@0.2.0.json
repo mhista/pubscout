@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.2.0",
+  "generatedAt": "2026-11-11T11:42:56.317Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "devtools"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Intercepts Dio requests and prints them as curl commands in the debug panel.",
+    "what_it_does": "It intercepts Dio HTTP requests and generates equivalent cURL commands in the debug output. This allows developers to easily copy and paste requests into a terminal, Postman, or Insomnia for replaying and debugging.",
+    "use_when": [
+      "You need to quickly debug and replay Dio HTTP requests in a terminal or Postman",
+      "You want to share exact cURL representations of app requests with backend developers"
+    ],
+    "avoid_when": [
+      "You need a comprehensive network inspector UI rather than terminal text logs"
+    ],
+    "strengths": [
+      "Simple to set up with Dio interceptors",
+      "Supports FormData conversion to plain maps for file uploads",
+      "Postman and Insomnia ready"
+    ],
+    "weaknesses": [
+      "Only prints to the debug panel/terminal",
+      "Limited to request logging and cURL generation"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Just add the interceptor to your Dio instance.",
+    "alternatives": [
+      {
+        "name": "pretty_dio_logger",
+        "why_pick_it": "Provides a pretty printer for Dio request, response, and error logs if you prefer a detailed formatted log output instead of cURL commands."
+      }
+    ],
+    "minimal_example": "_dio = Dio();\n\n_dio.interceptors.add(DioInterceptToCurl());",
+    "confidence": 0.95
+  }
+}

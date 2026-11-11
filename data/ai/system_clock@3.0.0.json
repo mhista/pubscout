@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.0.0",
+  "generatedAt": "2026-11-11T11:27:38.331Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "device"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Dart timekeeping facilities to get system uptime and elapsed time.",
+    "what_it_does": "Provides timekeeping facilities powered by dart:ffi to easily retrieve system uptime and elapsed realtime. Supports Android, iOS, macOS, Windows, Linux, with web falling back to DateTime.now().",
+    "use_when": [
+      "You need to measure system uptime excluding deep sleep time.",
+      "You need to measure elapsed realtime including time spent in sleep.",
+      "You need high-resolution timing on supported desktop and mobile platforms."
+    ],
+    "avoid_when": [
+      "You only need standard wall-clock time provided by core Dart libraries.",
+      "You are targeting web platforms where native system clocks are not accessible and fall back to standard time."
+    ],
+    "strengths": [
+      "Easy to get uptime and elapsed time.",
+      "Cross-platform support including mobile and desktop via FFI.",
+      "Pure Dart package requiring no Flutter plugin dependencies."
+    ],
+    "weaknesses": [
+      "Web platform is limited to a fallback of DateTime.now()."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:system_clock/system_clock.dart';\n\nvoid main() {\n  print(\"system uptime: \\${SystemClock.uptime()}\");\n  print(\"system elapsed realtime: \\${SystemClock.elapsedRealtime()}\");\n}",
+    "confidence": 1
+  }
+}

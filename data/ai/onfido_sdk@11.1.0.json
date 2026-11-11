@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "11.1.0",
+  "generatedAt": "2026-11-11T11:12:24.679Z",
+  "data": {
+    "primary_category": "auth",
+    "secondary_categories": [
+      "camera"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter plugin for Onfido identity verification SDK integration.",
+    "what_it_does": "Provides screens and APIs to capture documents, facial video, and NFC data for identity verification. Handles SDK initialization, session management, and uploads results to Onfido.",
+    "use_when": [
+      "You need to verify user identity with document and facial capture",
+      "You require NFC document data extraction",
+      "You want a ready‑made verification flow on Android and iOS"
+    ],
+    "avoid_when": [
+      "You only need simple image picking or generic camera access",
+      "You prefer a pure Dart solution without native SDKs"
+    ],
+    "strengths": [
+      "Full‑featured identity verification flow",
+      "Built‑in NFC support",
+      "Direct upload to Onfido service",
+      "Regular native SDK updates"
+    ],
+    "weaknesses": [
+      "Requires native configuration and permissions",
+      "Tied to Onfido service, not generic",
+      "Large native dependencies may increase app size"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add iOS keys NSCameraUsageDescription and NSMicrophoneUsageDescription; set iOS deployment target to 13.0; configure Android NFC dependencies or exclude them; ensure Xcode 26+ for recent versions.",
+    "alternatives": [],
+    "minimal_example": "```dart\nimport 'package:onfido_sdk/onfido_sdk.dart';\n\nvoid main() async {\n  final onfido = OnfidoSdk();\n  await onfido.initialize(\n    token: 'YOUR_SDK_TOKEN',\n    flowSteps: FlowSteps(document: true, face: true),\n  );\n  final result = await onfido.start();\n  print('Verification result: $result');\n}\n```",
+    "confidence": 0.78
+  }
+}

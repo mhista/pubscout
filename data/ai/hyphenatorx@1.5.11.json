@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.5.11",
+  "generatedAt": "2026-11-11T11:20:50.950Z",
+  "data": {
+    "primary_category": "localization",
+    "secondary_categories": [
+      "widgets",
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Implementation of a TeX-based hyphenation algorithm for various languages in Flutter.",
+    "what_it_does": "Provides text hyphenation widgets and utilities based on TeX definitions. It supports multiple languages via synchronous loading or asynchronous loading from local assets, caching hyphenated words, and returning syllables or wrapped text results.",
+    "use_when": [
+      "You need automatic text hyphenation for western or supported non-western languages.",
+      "You want to use a custom widget that hyphenates and wraps text based on available width."
+    ],
+    "avoid_when": [
+      "You need hyphenation for languages that have not been evaluated or included in the TeX patterns.",
+      "You require extreme high performance without internal letter-testing overhead for very large texts."
+    ],
+    "strengths": [
+      "Supports over 70 languages using standard TeX hyphenation definitions.",
+      "Offers both synchronous and asynchronous loading of language data.",
+      "Includes built-in caching for hyphenated and non-hyphenated words."
+    ],
+    "weaknesses": [
+      "Internal is-letter-testing can impact performance for large texts.",
+      "Some non-western languages may require evaluation for proper behavior."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Optionally load language data as assets if using asynchronous loading, or import the language configuration directly.",
+    "alternatives": [],
+    "minimal_example": "import 'package:hyphenatorx/widget/texthyphenated.dart';\n\nTextHyphenated('subdivision', 'en_us', style: TextStyle(fontSize: 56));",
+    "confidence": 0.95
+  }
+}

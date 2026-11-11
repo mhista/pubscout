@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.1",
+  "generatedAt": "2026-11-11T11:16:59.533Z",
+  "data": {
+    "primary_category": "testing",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "cli"
+    ],
+    "one_liner": "Algorithmic Cognitive Complexity calculation and Data-Flow analysis library and CLI tools.",
+    "what_it_does": "Calculates algorithmic Cognitive Complexity and analyzes statement data-flow, file decomposition, and shallow helpers for Dart and Flutter. Includes CLI tools, a GitHub Action, and an AI agent skill for automated code quality gates.",
+    "use_when": [
+      "You want to enforce a maximum cognitive complexity threshold in your CI pipeline.",
+      "You need automated recommendations for splitting large files or safely extracting helper methods."
+    ],
+    "avoid_when": [
+      "You are looking for traditional style-only linters that do not evaluate complexity or data-flow.",
+      "Your project uses a Dart SDK version older than 3.12.0."
+    ],
+    "strengths": [
+      "Deterministic complexity engine without external LLM calls or token latency.",
+      "Includes data-flow analysis, acyclic file decomposition, and git diff analysis.",
+      "Provides ready-to-use GitHub Action integration."
+    ],
+    "weaknesses": [
+      "Requires a minimum Dart SDK version of 3.12.0."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the package to pubspec.yaml or run directly via `dart run cognitive_complexity`.",
+    "alternatives": [
+      {
+        "name": "lints",
+        "why_pick_it": "Provides official static analysis lint rules for Dart projects."
+      },
+      {
+        "name": "flutter_lints",
+        "why_pick_it": "Provides recommended static analysis lints specifically for Flutter apps."
+      }
+    ],
+    "minimal_example": "import 'package:cognitive_complexity/cognitive_complexity.dart';\n\nvoid main() {\n  final analyzer = ComplexityAnalyzer();\n  final results = analyzer.analyzePath('lib');\n\n  for (final res in results) {\n    print('${res.name}: score is ${res.score} (${res.filePath}:L${res.startLine})');\n  }\n}",
+    "confidence": 1
+  }
+}

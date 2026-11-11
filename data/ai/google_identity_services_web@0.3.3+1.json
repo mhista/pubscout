@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.3.3+1",
+  "generatedAt": "2026-11-11T11:10:14.755Z",
+  "data": {
+    "primary_category": "auth",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Dart JS-interop wrapper for Google Identity Services Web SDK",
+    "what_it_does": "Provides Dart bindings to Google’s Sign‑In‑With‑Google and OAuth2 JavaScript APIs, allowing Flutter Web apps to load the SDK and call its functions from Dart code.",
+    "use_when": [
+      "Implement Google Sign‑In on a Flutter Web app",
+      "Need to call Google OAuth2 flows from a web page"
+    ],
+    "avoid_when": [
+      "Building a mobile or desktop app",
+      "Using a server‑side authentication flow"
+    ],
+    "strengths": [
+      "Pure Dart wrapper, no native code",
+      "Handles loading the SDK via script tag or on‑demand",
+      "No need for allowInterop in callbacks",
+      "Supports both authentication and authorization APIs"
+    ],
+    "weaknesses": [
+      "Web‑only, not usable on mobile or desktop",
+      "Requires manual script tag or conditional import",
+      "Limited to Google Identity Services, no other providers"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the package to pubspec, optionally insert <script src=\"https://accounts.google.com/gsi/client\" async defer></script> in index.html or call loadWebSdk() in main.dart",
+    "alternatives": [],
+    "minimal_example": "import 'package:google_identity_services_web/loader.dart' as gis;\n\nvoid main() async {\n  await gis.loadWebSdk(); // load the SDK\n  // use google.accounts.id or google.accounts.oauth2 via the provided bindings\n}\n",
+    "confidence": 0.9
+  }
+}

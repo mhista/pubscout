@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.3.2",
+  "generatedAt": "2026-11-11T11:41:38.997Z",
+  "data": {
+    "primary_category": "ai-ml",
+    "secondary_categories": [
+      "images"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Flutter plugin for Google's ML Kit Subject Segmentation API to separate subjects from backgrounds.",
+    "what_it_does": "A Flutter plugin that uses Google's ML Kit Subject Segmentation API to easily separate multiple subjects from the background in a picture. It provides masks and bitmaps for individual subjects as well as foreground processing, handling objects, pets, and humans.",
+    "use_when": [
+      "You need to separate multiple subjects from backgrounds in static images on mobile.",
+      "You want to build features like sticker creation or background swapping.",
+      "You require on-device image processing to preserve user privacy."
+    ],
+    "avoid_when": [
+      "You need support for web or desktop platforms.",
+      "You require iOS support for subject segmentation (currently only available for Android in beta)."
+    ],
+    "strengths": [
+      "On-device processing preserving user privacy.",
+      "Supports multi-subject segmentation with confidence masks and bitmaps.",
+      "Uses Google's native ML Kit APIs via platform channels."
+    ],
+    "weaknesses": [
+      "iOS support is not currently available for subject segmentation.",
+      "Feature is still in Beta and limited to static images."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires minimum Android SDK requirements (minSdkVersion: 24, targetSdkVersion: 36, compileSdkVersion: 36) and optional AndroidManifest.xml dependency declarations for model downloading.",
+    "alternatives": [],
+    "minimal_example": "final options = SubjectSegmenterOptions(\n  enableForegroundBitmap: false,\n  enableForegroundConfidenceMask: true,\n  enableMultipleSubjects: SubjectResultOptions(\n    enableConfidenceMask: true,\n    enableSubjectBitmap: false,\n  ),\n);\nfinal segmenter = SubjectSegmenter(options: options);\nfinal result = await segmenter.processImage(inputImage);\nsegmenter.close();",
+    "confidence": 0.95
+  }
+}

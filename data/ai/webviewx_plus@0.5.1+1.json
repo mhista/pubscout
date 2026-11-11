@@ -1,0 +1,56 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.5.1+1",
+  "generatedAt": "2026-11-11T11:17:41.753Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "web-desktop"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Cross‑platform webview widget using webview_flutter for mobile and iframe for web with JS interop",
+    "what_it_does": "Provides a WebViewX widget and controller that can load URLs, HTML or bypassed URLs. It supports JavaScript execution, media playback policies, and allows Dart callbacks from JavaScript.",
+    "use_when": [
+      "Need to display web content inside a Flutter app on mobile or web",
+      "Require JavaScript interop between Dart and the loaded page",
+      "Want a simple, declarative API without writing native platform code"
+    ],
+    "avoid_when": [
+      "Building a highly custom native webview with advanced features like custom rendering or native plugins",
+      "Using the widget in a pure web‑only project where iframe is not suitable"
+    ],
+    "strengths": [
+      "Cross‑platform support (Android, iOS, Web)",
+      "Built‑in JS interop via EmbeddedJsContent and DartCallback",
+      "Easy controller API for navigation and content loading",
+      "No build_runner or code generation required"
+    ],
+    "weaknesses": [
+      "Relies on webview_flutter which may have platform limitations",
+      "Iframe on web can have gesture and reload quirks",
+      "Limited to the features exposed by webview_flutter and iframe"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "webview_flutter",
+        "why_pick_it": "Standard Flutter webview for mobile only"
+      },
+      {
+        "name": "webview_flutter_wkwebview",
+        "why_pick_it": "Uses WKWebView on iOS for better performance"
+      },
+      {
+        "name": "webview_flutter_android",
+        "why_pick_it": "Uses Android WebView for Android only"
+      }
+    ],
+    "minimal_example": "WebViewX(\n  initialContent: '<h2>Hello, world!</h2>',\n  initialSourceType: SourceType.HTML,\n  onWebViewCreated: (controller) => webviewController = controller,\n);",
+    "confidence": 0.85
+  }
+}

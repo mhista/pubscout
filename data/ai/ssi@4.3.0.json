@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.3.0",
+  "generatedAt": "2026-11-11T11:34:24.919Z",
+  "data": {
+    "primary_category": "auth",
+    "secondary_categories": [
+      "utils",
+      "web3"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Affinidi Self-Sovereign Identity library for Dart and Flutter.",
+    "what_it_does": "Provides tools and libraries for implementing Self-Sovereign Identity (SSI) solutions, supporting Decentralised Identifiers (DIDs), Verifiable Credentials (VCs), and Verifiable Presentations (VPs). It manages cryptographic keys and wallets across multiple DID methods.",
+    "use_when": [
+      "You need to implement Decentralised Identifiers (DID) resolution and management.",
+      "You are building a digital wallet that handles Verifiable Credentials (VCs) and Verifiable Presentations (VPs).",
+      "You need cryptographic signing and verification using various key management solutions like BIP32 and persistent wallets."
+    ],
+    "avoid_when": [
+      "You only require standard centralized authentication like OAuth or social logins without decentralized identifiers.",
+      "You are targeting a Dart SDK version older than 3.10.0."
+    ],
+    "strengths": [
+      "Supports multiple DID methods including did:key, did:peer, did:web, and did:webvh.",
+      "Provides comprehensive Verifiable Credential and Presentation data models (V1 and V2, JWT, and SD-JWT).",
+      "WebAssembly compatibility through dart2wasm."
+    ],
+    "weaknesses": [
+      "Niche domain-specific package with a steep learning curve related to SSI standards.",
+      "Experimental support for post-quantum algorithms (ML-DSA-44) tied to draft W3C specifications."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the dependency to pubspec.yaml and import ssi.dart. Requires Dart SDK version ^3.10.0.",
+    "alternatives": [],
+    "minimal_example": "import 'dart:typed_data';\nimport 'package:base_codecs/base_codecs.dart';\nimport 'package:ssi/ssi.dart';\n\nvoid main() async {\n  final seed = hexDecode(\n    'a1772b144344781f2a55fc4d5e49f3767bb0967205ad08454a09c76d96fd2ccd',\n  );\n\n  final keyId = \"m/44'/60'/0'/0'/0'\";\n  final wallet = Bip32Wallet.fromSeed(seed);\n\n  final data = Uint8List.fromList([1, 2, 3]);\n  final signature = await wallet.sign(data, keyId: keyId);\n  final isRootSignatureValid =\n      await wallet.verify(data, signature: signature, keyId: keyId);\n  print('check if root signature is valid: $isRootSignatureValid');\n}",
+    "confidence": 1
+  }
+}

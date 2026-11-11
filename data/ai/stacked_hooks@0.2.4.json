@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.2.4",
+  "generatedAt": "2026-11-11T11:41:32.803Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "hooks"
+    ],
+    "one_liner": "Classes that help use Flutter Hooks with the stacked package architecture.",
+    "what_it_does": "It provides widget classes like StackedHookView that bridge the stacked architecture with the flutter_hooks package. This allows you to consume ViewModels provided by Provider while utilizing hooks inside your widget build methods.",
+    "use_when": [
+      "You are building an app using the stacked architecture and want to use flutter_hooks",
+      "You need to manage local UI controllers like TextEditingController within stacked views"
+    ],
+    "avoid_when": [
+      "You are not using the stacked architecture package",
+      "you prefer other state management solutions like Riverpod or Bloc"
+    ],
+    "strengths": [
+      "Integrates flutter_hooks seamlessly with stacked ViewModels",
+      "Reduces boilerplate when using TextEditingControllers and similar hooks in stacked views"
+    ],
+    "weaknesses": [
+      "Dependent on both stacked and flutter_hooks ecosystems",
+      "Limited functionality beyond bridging the two packages"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [],
+    "minimal_example": "class _HookForm extends StackedHookView<HomeViewModel> {\n  @override\n  Widget buildStackedView(BuildContext context, HomeViewModel model) {\n    final title = useTextEditingController();\n    return Column(\n      mainAxisSize: MainAxisSize.min,\n      children: <Widget>[\n        Text(model.title),\n        TextField(controller: title, onChanged: model.updateTitle),\n      ],\n    );\n  }\n}",
+    "confidence": 0.95
+  }
+}

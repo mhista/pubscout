@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.9.0",
+  "generatedAt": "2026-11-11T11:38:32.900Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [
+      "storage",
+      "device"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Query audio and song metadata from device storage across Android, iOS, and Web.",
+    "what_it_does": "Allows developers to query songs, albums, artists, playlists, and genres from the device's storage. It also supports fetching and displaying artwork using a built-in widget and managing playlists.",
+    "use_when": [
+      "You need to build a custom music player that reads local audio files from the device.",
+      "You want to organize and query songs by artist, album, genre, or playlist.",
+      "You need to display artwork associated with local audio files."
+    ],
+    "avoid_when": [
+      "You are streaming music exclusively from remote servers.",
+      "You only need general file picking rather than a specialized music library database."
+    ],
+    "strengths": [
+      "Comprehensive querying methods for songs, albums, artists, playlists, and genres.",
+      "Built-in QueryArtworkWidget for rendering album art easily.",
+      "Cross-platform support covering Android, iOS, and Web."
+    ],
+    "weaknesses": [
+      "Playlist manipulation and certain media scanning methods are limited or not supported on iOS and Web.",
+      "Requires explicit native permissions setup in AndroidManifest.xml and Info.plist."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding storage/media permissions to AndroidManifest.xml and NSAppleMusicUsageDescription to Info.plist for iOS.",
+    "alternatives": [],
+    "minimal_example": "final OnAudioQuery _audioQuery = OnAudioQuery();\n\nList<AudioModel> audios = await _audioQuery.queryAudios();",
+    "confidence": 0.95
+  }
+}

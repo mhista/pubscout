@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.6.1",
+  "generatedAt": "2026-11-11T11:12:51.336Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Fast and error-resilient pure-Dart codecs for binary, octal, hex, base32, base64, UTF-8, and PHC strings.",
+    "what_it_does": "Provides a pure-Dart library of fast, error-resilient codecs supporting Base-2, Base-8, Base-16, Base-32, Base-64, BigInt, UTF-8, and the PHC/Modular Crypt Format. It features zero dependencies, zero native code or FFI, and works across all platforms including the web and Flutter.",
+    "use_when": [
+      "You need to encode or decode binary data to various text bases (Base16, Base32, Base64, etc.) without external dependencies.",
+      "You are building or using cryptographic libraries that require constant-time byte comparisons and rendering digests as text.",
+      "You need to parse or build PHC/Modular Crypt Format strings."
+    ],
+    "avoid_when": [
+      "You only need standard JSON serialization or basic UTF-8 string conversions already built into dart:convert."
+    ],
+    "strengths": [
+      "Zero runtime dependencies and runs on every platform (VM, Flutter, Web).",
+      "Comprehensive alphabet variants (RFC 4648, crockford, geohash, z-base-32, URL-safe, etc.).",
+      "Includes non-throwing decoders and constant-time byte comparison."
+    ],
+    "weaknesses": [
+      "Scope is strictly limited to encoding, decoding, and parsing specific text formats.",
+      "Does not handle high-level cryptographic primitives on its own (relies on partner libraries like hashlib)."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:convertlib/convertlib.dart';\n\nvoid main() {\n  final data = toUtf8('convertlib');\n  final hex = toHex(data);\n  final b64 = toBase64(data);\n  print('hex: $hex');\n  print('base64: $b64');\n}",
+    "confidence": 1
+  }
+}

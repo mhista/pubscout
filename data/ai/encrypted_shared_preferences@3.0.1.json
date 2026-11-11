@@ -1,0 +1,48 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.0.1",
+  "generatedAt": "2026-11-11T11:41:32.779Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Stores shared preferences as encrypted values on device storage.",
+    "what_it_does": "This plugin stores values as encrypted data using shared preferences and decrypts them automatically when retrieved. It supports custom encryption modes and passing custom shared preferences instances.",
+    "use_when": [
+      "You need to store simple key-value pairs securely using encryption.",
+      "You want a drop-in encrypted alternative to standard shared preferences."
+    ],
+    "avoid_when": [
+      "You require complex relational querying or large dataset storage.",
+      "Platform-native secure keystore/keychain bindings are strictly required instead of encrypted shared preferences."
+    ],
+    "strengths": [
+      "Easy to use with an API similar to standard shared preferences.",
+      "Supports multiple AES encryption modes of operation.",
+      "Allows access to the internal shared preferences instance."
+    ],
+    "weaknesses": [
+      "License is unknown.",
+      "Relying on shared preferences encryption might not meet strict hardware-backed secure storage requirements compared to dedicated keychain/keystore plugins."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Not documented",
+    "alternatives": [
+      {
+        "name": "flutter_secure_storage",
+        "why_pick_it": "Provides secure storage using keychain and encrypted keystore natively on supported platforms."
+      },
+      {
+        "name": "shared_preferences",
+        "why_pick_it": "If you do not need encryption and prefer standard unencrypted key-value storage."
+      }
+    ],
+    "minimal_example": "EncryptedSharedPreferences encryptedSharedPreferences = EncryptedSharedPreferences();\nencryptedSharedPreferences.setString('sample', 'Hello, World!');\nencryptedSharedPreferences.getString('sample').then((String value) {\n    print(value);\n});",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.4.0",
+  "generatedAt": "2026-11-11T11:25:01.100Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Classical Bluetooth serial communication for Flutter on Android.",
+    "what_it_does": "Provides a Flutter interface for Classical Bluetooth via the Serial Port Profile (RFCOMM). It allows monitoring adapter status, discovering devices, pairing, managing multiple simultaneous connections, and sending or receiving byte streams.",
+    "use_when": [
+      "You need to communicate with classic Bluetooth devices like Arduino HC-05 modules or Raspberry Pi over RFCOMM on Android.",
+      "You need to manage device discovery, pairing/bonding, and multiple concurrent serial connections."
+    ],
+    "avoid_when": [
+      "Your project targets iOS or platforms other than Android.",
+      "You need Bluetooth Low Energy (BLE) functionality."
+    ],
+    "strengths": [
+      "Supports multiple simultaneous connections.",
+      "Handles adapter status, bonding, and discovery natively.",
+      "Includes stream-based input/output for data exchange."
+    ],
+    "weaknesses": [
+      "Only supports Android currently.",
+      "Limited to Classical Bluetooth RFCOMM / Serial Port profile."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires Android configuration and permissions, plus ensuring a running SDP pointing to the SP/RFCOMM channel on the target device.",
+    "alternatives": [],
+    "minimal_example": "try {\n    BluetoothConnection connection = await BluetoothConnection.toAddress(address);\n    print('Connected to the device');\n\n    connection.input.listen((Uint8List data) {\n        print('Data incoming: ${ascii.decode(data)}');\n        connection.output.add(data);\n    });\n} catch (exception) {\n    print('Cannot connect, exception occured');\n}",
+    "confidence": 0.95
+  }
+}

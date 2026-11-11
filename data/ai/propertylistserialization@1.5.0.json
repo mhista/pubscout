@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "1.5.0",
+  "generatedAt": "2026-11-11T11:08:07.350Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "iOS‑compatible plist serialization and deserialization library for Dart.",
+    "what_it_does": "Converts supported Dart objects to XML or binary Apple property list format and back. Provides methods for reading and writing plist strings or binary data with iOS‑compatible accuracy.",
+    "use_when": [
+      "You need to read or write Apple .plist files on any Flutter platform",
+      "Cross‑platform apps must exchange configuration or preferences with iOS/macOS services"
+    ],
+    "avoid_when": [
+      "Performance‑critical binary serialization beyond plist needs",
+      "You require custom object mapping or code‑generated models"
+    ],
+    "strengths": [
+      "Accurate XML and binary plist output matching iOS behavior",
+      "Supports both XML and binary formats, including NSKeyedArchiver UID constructs",
+      "Null‑safe and BSD‑2 licensed"
+    ],
+    "weaknesses": [
+      "Only handles basic plist types; no custom object support",
+      "Binary dict ordering may differ for multi‑entry dictionaries",
+      "No code‑generation or declarative API"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:propertylistserialization/propertylistserialization.dart';\n\nvar list = [];\nvar dict = <String, Object>{'Selected': true, 'IconName': 'largeIcon.png', 'IconSize': 32};\nlist.add(dict);\n\nvar xml = PropertyListSerialization.stringWithPropertyList(list);\nvar back = PropertyListSerialization.propertyListWithString(xml) as List;\n",
+    "confidence": 0.93
+  }
+}

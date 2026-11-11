@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.5.10",
+  "generatedAt": "2026-11-11T11:11:59.168Z",
+  "data": {
+    "primary_category": "web-desktop",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "imperative",
+      "declarative"
+    ],
+    "one_liner": "Flutter integration for nativeapi: widgets, dart:ui conversions and multi-window bridge.",
+    "what_it_does": "Provides Flutter integration for nativeapi with specialized window-dragging widgets, conversions between nativeapi and dart:ui types, and a multi-window bridge for desktop systems.",
+    "use_when": [
+      "You are building a Flutter desktop application using package:nativeapi",
+      "You need window dragging, resizing, or context menu widgets tailored for desktop",
+      "You need to convert nativeapi geometries and colors to dart:ui types"
+    ],
+    "avoid_when": [
+      "You are targeting purely mobile or web platforms without native desktop window requirements",
+      "You do not use nativeapi in your project"
+    ],
+    "strengths": [
+      "Seamlessly bridges nativeapi types with Flutter's dart:ui",
+      "Includes ready-to-use desktop widgets like DragToMoveArea and ContextMenuRegion",
+      "Exposes a multi-window bridge on top of nativeapi"
+    ],
+    "weaknesses": [
+      "Requires careful namespace management when importing nativeapi types that shadow dart:ui",
+      "Platform support is limited to desktop and specific mobile operating systems supported by nativeapi"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add nativeapi_flutter to pubspec.yaml and import it alongside your Flutter widgets.",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter/widgets.dart';\nimport 'package:nativeapi_flutter/nativeapi_flutter.dart';\n\nfinal window = WindowManager.instance.getCurrent();\nwindow?.contentSize = const Size(800, 600).toNative();\nfinal Rect bounds = window!.bounds.toRect();",
+    "confidence": 0.95
+  }
+}

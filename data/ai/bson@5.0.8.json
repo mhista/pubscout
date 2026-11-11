@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "5.0.8",
+  "generatedAt": "2026-11-11T11:10:50.173Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "BSON binary-encoded serialization library for Dart and EJSON support.",
+    "what_it_does": "Allows conversion of Dart maps, EJSON representations, and objects using the BsonSerializable mixin into binary BSON representation and vice versa. Provides classes like BsonCodec, EjsonCodec, and ObjectCodec to handle serialization and deserialization.",
+    "use_when": [
+      "You need to serialize and deserialize BSON data in Dart.",
+      "You are working with MongoDB or systems requiring EJSON compatibility.",
+      "You want to serialize custom Dart objects using a BsonSerializable mixin."
+    ],
+    "avoid_when": [
+      "You only need standard JSON serialization (use built-in dart:convert or json_annotation instead).",
+      "You require complex schema-driven code generation without manual mixins."
+    ],
+    "strengths": [
+      "Supports full BSON type mapping including ObjectIds, Timestamps, and Decimals.",
+      "Provides EJSON version 2 support.",
+      "Includes support for object serialization via mixins."
+    ],
+    "weaknesses": [
+      "Breaking API changes introduced in major versions require migration effort.",
+      "Handling types properly in cross-platform targets like dart2js requires explicit wrapping for certain types like doubles."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the dependency to pubspec.yaml and import the package.",
+    "alternatives": [],
+    "minimal_example": "var bsonBinary = BsonCodec.serialize(bsonDocument);\nvar result = BsonCodec.deserialize(bsonBinary);",
+    "confidence": 0.95
+  }
+}

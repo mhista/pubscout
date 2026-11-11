@@ -1,0 +1,53 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "1.0.1",
+  "generatedAt": "2026-11-11T11:14:10.813Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Provides pure‑Dart codecs for base16, base32, base58, base58check and base85 encodings.",
+    "what_it_does": "The package implements a collection of encoders and decoders for common base representations, including many variants of base32 and base58. It offers ready‑to‑use functions and codec objects for synchronous conversion of byte data to and from these textual formats.",
+    "use_when": [
+      "You need to encode or decode data in hex, base32, base58 or base85 without native dependencies.",
+      "You require support for multiple alphabet variants such as Crockford base32 or Bitcoin base58.",
+      "You want a pure‑Dart solution that works on all Flutter platforms."
+    ],
+    "avoid_when": [
+      "You need streaming or chunked encoding of very large data sets.",
+      "Performance‑critical encoding where a native implementation is required."
+    ],
+    "strengths": [
+      "Supports a wide range of base encodings and alphabet variants.",
+      "Pure Dart implementation works on all platforms.",
+      "Simple synchronous API with both codec objects and helper functions."
+    ],
+    "weaknesses": [
+      "No asynchronous or streaming API for large payloads.",
+      "Limited to encoding/decoding; no higher‑level utilities."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "bs58",
+        "why_pick_it": "Provides a focused, well‑tested base58 implementation with a smaller API surface."
+      },
+      {
+        "name": "fast_base58",
+        "why_pick_it": "Optimized for performance with native code support."
+      },
+      {
+        "name": "blockchain_utils",
+        "why_pick_it": "Includes base58 and other crypto utilities tailored for blockchain use cases."
+      }
+    ],
+    "minimal_example": "import 'package:base_codecs/base_codecs.dart';\n\nvoid main() {\n  final bytes = [0xDE, 0xAD, 0xBE, 0xEF];\n  final hex = base16Encode(bytes); // \"deadbeef\"\n  final base58 = base58BitcoinEncode(bytes);\n  print('hex: $hex, base58: $base58');\n}",
+    "confidence": 0.93
+  }
+}

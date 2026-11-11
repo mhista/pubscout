@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.2",
+  "generatedAt": "2026-11-11T11:27:44.357Z",
+  "data": {
+    "primary_category": "devtools",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter SDK for FractalUp Radar observability service.",
+    "what_it_does": "Collects and delivers application telemetry including logs, errors, metrics, RUM views, and HTTP tracking to FractalUp Radar. Supports automatic and manual instrumentation, offline queues, and distributed tracing.",
+    "use_when": [
+      "You use FractalUp Radar for observability and error tracking in your Flutter application",
+      "You need automatic RUM tracking, error capture, and HTTP instrumentation"
+    ],
+    "avoid_when": [
+      "You are using a different telemetry provider like Sentry, Firebase Crashlytics, or Datadog",
+      "You do not require cloud observability and error monitoring"
+    ],
+    "strengths": [
+      "Comprehensive observability covering logs, metrics, exceptions, and RUM",
+      "Supports offline event queuing and durable delivery",
+      "Provides migration compatibility layers for existing monitoring SDKs"
+    ],
+    "weaknesses": [
+      "Tied specifically to the FractalUp platform",
+      "Native features like continuous profiling and real session replay require custom platform integration"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires configuring ingestion keys and endpoints via --dart-define during build, and initializing FractalUp.init in main.dart.",
+    "alternatives": [],
+    "minimal_example": "Future<void> main() async {\n  WidgetsFlutterBinding.ensureInitialized();\n\n  await FractalUp.init((options) {\n    options.ingestionKey = const String.fromEnvironment('FRACTALUP_INGESTION_KEY');\n    options.endpoint = Uri.parse(const String.fromEnvironment('FRACTALUP_ENDPOINT'));\n    options.serviceName = 'my-flutter-app';\n  }, appRunner: () => runApp(const MyApp()));\n}",
+    "confidence": 0.95
+  }
+}

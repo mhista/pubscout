@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.0.4",
+  "generatedAt": "2026-11-11T11:09:57.039Z",
+  "data": {
+    "primary_category": "maps",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Detects intersections between polygons and polylines using a sweepline algorithm.",
+    "what_it_does": "Detects intersections between polygons and/or polylines using a sweepline algorithm. It accepts GeoJSON Feature or Geometry types and returns a list of intersection points. It supports both standalone usage and a class-based approach for checking multiple geometries against a single base geometry.",
+    "use_when": [
+      "You need to detect polygon or polyline self-intersections in Dart or Flutter.",
+      "You are working with GeoJSON geometries and need to find intersection points efficiently."
+    ],
+    "avoid_when": [
+      "You are dealing with massive geometries containing tens of thousands of vertices where other algorithms like bentley-ottmann might be better suited.",
+      "You do not need spatial intersection calculations."
+    ],
+    "strengths": [
+      "Fast sweepline algorithm optimized for polygons and polylines with few overlapping segments on the x plane.",
+      "Provides both simple functional and class-based reusable queue APIs."
+    ],
+    "weaknesses": [
+      "Relatively early version package (0.0.4).",
+      "Performance can be outperformed by bentley-ottmann algorithms when handling extremely large geometries with thousands of vertices."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:sweepline_intersections/sweepline_intersections.dart';\n\nvar box = Feature(geometry: Polygon(coordinates: [[Position.of([0, 0]), Position.of([1, 0]), Position.of([1, 1]), Position.of([0, 1]), Position.of([0, 0])]]));\nvar intersections = sweeplineIntersections(box);",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.1.0",
+  "generatedAt": "2026-11-11T11:28:28.316Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "layout"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "An enhanced NestedScrollView providing overscroll support for parent and nested scroll views.",
+    "what_it_does": "NestedScrollViewPlus is an enhanced version of Flutter's NestedScrollView. It adds overscroll support for both the nested and parent scroll views, creating a more seamless scrolling experience.",
+    "use_when": [
+      "You need overscroll support for both parent and nested scroll views.",
+      "You want a drop-in replacement for NestedScrollView to fix scrolling conflicts."
+    ],
+    "avoid_when": [
+      "You are using a standard SingleChildScrollView or ListView without nesting.",
+      "You do not require custom overscroll mechanics."
+    ],
+    "strengths": [
+      "Supports overscroll on both nested and parent scroll views.",
+      "Easy replacement for standard NestedScrollView widgets.",
+      "Supports loading indicators like CupertinoSliverRefreshControl."
+    ],
+    "weaknesses": [
+      "Requires manual configuration of inner CustomScrollView physics.",
+      "May require tracking older Flutter versions via a separate repository if not using recent Flutter."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Simply add the dependency to pubspec.yaml and replace NestedScrollView with NestedScrollViewPlus.",
+    "alternatives": [],
+    "minimal_example": "NestedScrollViewPlus(\n  headerSliverBuilder: (context, innerScrolled) => <Widget>[\n    // insert header sliver widgets here\n  ],\n  body: CustomScrollView(\n    physics: const BouncingScrollPhysics(\n      parent: AlwaysScrollableScrollPhysics(),\n    ),\n    slivers: <Widget>[\n      // insert body sliver widgets here\n    ],\n  ),\n);",
+    "confidence": 1
+  }
+}

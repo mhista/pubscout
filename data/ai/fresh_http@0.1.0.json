@@ -1,0 +1,51 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.1.0",
+  "generatedAt": "2026-11-11T11:11:53.373Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "auth"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "An auto-refreshing http client that manages authentication tokens transparently.",
+    "what_it_does": "Wraps package:http to handle token-based authentication automatically. It refreshes expired tokens proactively or on 401 responses, retries requests, and manages single-flight token refreshes concurrently.",
+    "use_when": [
+      "You need automatic token refresh on 401 responses using package:http.",
+      "You want concurrent requests to share a single token refresh call.",
+      "You need to stream authentication status changes for app routing."
+    ],
+    "avoid_when": [
+      "You are using the dio package instead of package:http for your networking layer.",
+      "You do not use token-based authentication."
+    ],
+    "strengths": [
+      "Handles single-flight refresh to prevent duplicate concurrent refresh calls.",
+      "Provides pluggable token storage for secure persistence.",
+      "Exposes an authentication status stream for reactive UI routing."
+    ],
+    "weaknesses": [
+      "Requires custom implementation of token persistence (InMemoryTokenStorage is non-persistent).",
+      "Dependent on package:http."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "http",
+        "why_pick_it": "Use vanilla http if you do not need automated authentication token refreshing and want a simpler lower-level client."
+      },
+      {
+        "name": "dio",
+        "why_pick_it": "Use dio if you prefer an alternative full-featured HTTP client with its own interceptors and ecosystem instead of package:http."
+      }
+    ],
+    "minimal_example": "final client = Fresh.oAuth2(\n  tokenStorage: InMemoryTokenStorage<OAuth2Token>(),\n  refreshToken: (token, client) async {\n    final response = await client.post(\n      Uri.parse('https://api.example.com/auth/refresh'),\n      body: {'refresh_token': token?.refreshToken},\n    );\n    final body = jsonDecode(response.body) as Map<String, dynamic>;\n    return OAuth2Token(\n      accessToken: body['access_token'],\n      refreshToken: body['refresh_token'],\n    );\n  },\n);",
+    "confidence": 0.95
+  }
+}

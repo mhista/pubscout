@@ -1,0 +1,58 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "1.2.0",
+  "generatedAt": "2026-11-11T11:08:27.543Z",
+  "data": {
+    "primary_category": "backend",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Core Dart framework for building high‑performance web servers with routing and WebSocket support.",
+    "what_it_does": "Relic provides a type‑safe API for handling HTTP requests and responses, a built‑in trie router, middleware, static file handling and integrated WebSocket support. It aims to be a modern replacement for Shelf with better performance and developer ergonomics.",
+    "use_when": [
+      "You need to implement a custom backend service or API in Dart.",
+      "You want typed request/response handling and built‑in routing/WebSocket support.",
+      "You prefer a Shelf‑like API but with performance improvements and hot‑reload friendliness."
+    ],
+    "avoid_when": [
+      "You only need a client‑side HTTP library.",
+      "You are building a Flutter UI‑heavy app and need UI widgets or state‑management solutions.",
+      "You require a full‑stack solution with storage, authentication, or database integration out of the box."
+    ],
+    "strengths": [
+      "Strongly typed request/response model",
+      "Built‑in high‑performance trie router",
+      "Integrated static file and WebSocket handling",
+      "Hot‑reload friendly and isolate‑aware"
+    ],
+    "weaknesses": [
+      "Server‑only; no client‑side HTTP utilities",
+      "Smaller ecosystem than Shelf",
+      "May be overkill for simple endpoints"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "shelf",
+        "why_pick_it": "Mature, widely used server framework with many middleware packages."
+      },
+      {
+        "name": "http",
+        "why_pick_it": "Lightweight client‑side HTTP library if you only need to make requests."
+      },
+      {
+        "name": "web_socket_channel",
+        "why_pick_it": "Focused WebSocket client/server support without full server framework."
+      }
+    ],
+    "minimal_example": "import 'package:relic/io_adapter.dart';\nimport 'package:relic/relic.dart';\n\nFuture<void> main() async {\n  final app = RelicApp()\n    ..get('/hello', (req) => Response.ok(body: Body.fromString('Hello!')))\n    ..use('/', logRequests());\n  await app.serve();\n}",
+    "confidence": 0.9
+  }
+}

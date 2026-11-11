@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "1.0.2",
+  "generatedAt": "2026-11-11T11:03:43.311Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "codegen"
+    ],
+    "approach": [
+      "code generation",
+      "imperative"
+    ],
+    "one_liner": "Measures duration of synchronous and asynchronous actions with optional JSON serialization.",
+    "what_it_does": "Provides trackers to time code blocks and collect detailed timing slices. Supports both sync and async actions and can serialize results via json_serializable.",
+    "use_when": [
+      "You need lightweight performance timing in Dart/Flutter code",
+      "You want JSON‑serializable timing data for logging or analytics"
+    ],
+    "avoid_when": [
+      "You require visual profiling charts or deep flame‑graph analysis",
+      "You need a full‑featured benchmarking suite"
+    ],
+    "strengths": [
+      "Simple, easy‑to‑use API",
+      "Handles both sync and async actions",
+      "Integrates with json_serializable for easy data export"
+    ],
+    "weaknesses": [
+      "Limited to basic timing, no advanced profiling features",
+      "Requires build_runner step for code generation",
+      "No UI or visualization tools"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Run `dart pub run build_runner build` to generate serialization code",
+    "alternatives": [],
+    "minimal_example": "var tracker = AsyncTimeTracker();\nawait tracker.track(() async {\n  // some async code here\n});\nprint('${tracker.duration} ${tracker.innerDuration} ${tracker.slices}');",
+    "confidence": 0.95
+  }
+}

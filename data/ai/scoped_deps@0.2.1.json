@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.2.1",
+  "generatedAt": "2026-11-11T11:10:42.126Z",
+  "data": {
+    "primary_category": "dependency-injection",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "A simple DI library using Dart Zones for scoped dependencies.",
+    "what_it_does": "Provides a way to register and resolve values within a zone‑based scope. Overrides can be applied per‑scope and are automatically respected in async code. No code generation or Flutter‑specific widgets are required.",
+    "use_when": [
+      "You need lightweight, runtime‑only dependency injection in pure Dart or Flutter projects.",
+      "You want scoped overrides that work across async boundaries without extra boilerplate."
+    ],
+    "avoid_when": [
+      "You require compile‑time safety or code‑generated bindings.",
+      "You need integration with Flutter widget trees or provider‑style APIs."
+    ],
+    "strengths": [
+      "Zero code‑generation, works out of the box.",
+      "Scoped overrides are easy to test and work with async code.",
+      "Pure Dart, no platform‑specific setup."
+    ],
+    "weaknesses": [
+      "Relies on Zones, which can be confusing for newcomers.",
+      "No compile‑time checks for missing bindings.",
+      "Smaller ecosystem compared to more popular DI packages."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "get_it",
+        "why_pick_it": "Mature, widely used DI container with global singleton support and extensive community examples."
+      },
+      {
+        "name": "injector",
+        "why_pick_it": "Provides similar runtime registration with a simpler API and broader adoption."
+      }
+    ],
+    "minimal_example": "import 'package:scoped_deps/scoped_deps.dart';\n\nfinal value = create(() => 42);\n\nvoid main() {\n  runScoped(() {\n    print(read(value)); // 42\n  }, values: {value});\n}",
+    "confidence": 0.93
+  }
+}

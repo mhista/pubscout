@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "1.5.1",
+  "generatedAt": "2026-11-11T11:23:44.808Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "Utility to collect and dispose StreamSubscriptions and Sinks in Dart/Flutter.",
+    "what_it_does": "DisposeBag lets you add StreamSubscriptions and Sinks and dispose them all at once. It provides extension methods for easy disposal and removal. Works on all Dart platforms.",
+    "use_when": [
+      "You have multiple stream subscriptions or sinks that need coordinated cleanup",
+      "You want a lightweight way to avoid memory leaks in Flutter widgets",
+      "You prefer a simple API without additional dependencies"
+    ],
+    "avoid_when": [
+      "You need a full‑featured dependency‑injection or state‑management solution",
+      "You require code‑generation or advanced resource handling"
+    ],
+    "strengths": [
+      "Very small and easy to understand",
+      "Null‑safe and works on all platforms",
+      "Extension methods make usage concise"
+    ],
+    "weaknesses": [
+      "Only handles streams and sinks, no broader resource management",
+      "No built‑in logging configuration beyond a static logger"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "async",
+        "why_pick_it": "Provides utilities like StreamQueue and other async helpers that can also help manage stream lifecycles"
+      }
+    ],
+    "minimal_example": "import 'package:disposebag/disposebag.dart';\nimport 'dart:async';\n\nvoid main() async {\n  final bag = DisposeBag([]);\n  await Stream.value(1).listen(null).disposedBy(bag);\n  await bag.dispose();\n}",
+    "confidence": 0.97
+  }
+}

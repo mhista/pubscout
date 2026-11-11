@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.0.44",
+  "generatedAt": "2026-11-11T11:27:22.006Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Retrieves mobile and Wi-Fi internet signal strength in dBm on Android.",
+    "what_it_does": "A Flutter plugin for Android that gets mobile and Wi-Fi signal information, returning the RSSI value in dBm along with additional Wi-Fi details like link speed, frequency, SSID, and BSSID.",
+    "use_when": [
+      "You need to measure cellular or Wi-Fi signal strength in dBm within an Android app.",
+      "You want to retrieve Wi-Fi connection info like SSID, frequency, and link speed."
+    ],
+    "avoid_when": [
+      "You need cross-platform support including iOS (iOS is currently in development).",
+      "You are looking for general device network connectivity status changes rather than specific signal strength metrics."
+    ],
+    "strengths": [
+      "Provides precise signal strength values in dBm.",
+      "Combines mobile and Wi-Fi data retrieval into a single plugin."
+    ],
+    "weaknesses": [
+      "Android-only support currently; iOS is not yet supported.",
+      "Requires explicit Android permissions and location services enabled for certain Wi-Fi metadata due to system privacy restrictions."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires setting the minimum Android SDK to 21 or higher and adding permissions like ACCESS_FINE_LOCATION, READ_PHONE_STATE, ACCESS_WIFI_STATE, and ACCESS_NETWORK_STATE to the Android manifest.",
+    "alternatives": [
+      {
+        "name": "connectivity_plus",
+        "why_pick_it": "Choose this if you need cross-platform connectivity type monitoring (Wi-Fi, cellular, ethernet) across Android, iOS, and other platforms without detailed signal dBm measurements."
+      }
+    ],
+    "minimal_example": "import 'package:flutter_internet_signal/flutter_internet_signal.dart';\n\nvoid main() async {\n  final FlutterInternetSignal internetSignal = FlutterInternetSignal();\n  final mobileSignal = await internetSignal.getMobileSignalStrength();\n  final wifiSignal = await internetSignal.getWifiSignalInfo();\n  print('Result dBm -> $mobileSignal');\n  print('Result wifi info -> ${wifiSignal.toString()}');\n}",
+    "confidence": 0.95
+  }
+}

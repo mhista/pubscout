@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.3.4",
+  "generatedAt": "2026-11-11T11:25:19.314Z",
+  "data": {
+    "primary_category": "animation",
+    "secondary_categories": [
+      "audio-video",
+      "widgets"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "A high performance danmaku component for Flutter using CustomPainter.",
+    "what_it_does": "Canvas Danmaku provides a high performance danmaku (bullet comments) rendering library for Flutter. It uses CustomPainter to directly draw comments, optimizing repaints by layering scrolling and static danmakus and pausing when no danmaku is present.",
+    "use_when": [
+      "You need to display video overlay comments or bulletin messages (danmaku) in a Flutter app.",
+      "You require high performance rendering that minimizes widget tree complexity."
+    ],
+    "avoid_when": [
+      "You need interactive danmaku items that users can click or tap on."
+    ],
+    "strengths": [
+      "High performance CustomPainter-based rendering",
+      "Optimized excessive repaint handling and power saving",
+      "Responsive layout that adapts to parent component height"
+    ],
+    "weaknesses": [
+      "Danmakus rendered as animations are not interactive and cannot be clicked"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "none",
+    "alternatives": [],
+    "minimal_example": "import 'package:canvas_danmaku/canvas_danmaku.dart';\n\nclass _DanmakuPageState extends State<DanmakuPage> {\n    late DanmakuController _controller;\n    @override\n    Widget build(BuildContext context) {\n        return Stack(\n        children: [\n            Container(),\n            DanmakuScreen(\n            createdController: (e) {\n                _controller = e;\n            },\n            option: DanmakuOption(),\n            ),\n        ],\n        );\n    }\n}",
+    "confidence": 0.95
+  }
+}

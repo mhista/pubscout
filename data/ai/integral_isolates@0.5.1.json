@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.5.1",
+  "generatedAt": "2026-11-11T11:17:35.365Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Easy to use isolates for Dart and Flutter using a long-lived isolate.",
+    "what_it_does": "Provides a long-lived isolate mechanism similar to Dart's compute function. Supports tailored input and output types, isolate streams, and backpressure handling strategies.",
+    "use_when": [
+      "You need to run heavy computations repeatedly using a long-lived isolate",
+      "You want to handle backpressure for intense computation call stacks"
+    ],
+    "avoid_when": [
+      "You only need a single fire-and-forget background computation task where Dart's built-in compute suffices",
+      "You want a fully finalized and frozen API (the package API is still subject to change)"
+    ],
+    "strengths": [
+      "Long-lived isolate execution avoids repeated spawn overhead",
+      "Built-in backpressure strategies to prevent memory exhaustion",
+      "Tailored stateful isolates for type safety"
+    ],
+    "weaknesses": [
+      "API is not final and is subject to change",
+      "Requires manual disposal of isolates to free resources"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "void main() async {\n  final statefulIsolate = StatefulIsolate();\n  print(await statefulIsolate.compute(_isPrime, 7));\n  statefulIsolate.dispose();\n}\n\nbool _isPrime(int value) {\n  if (value == 1) {\n    return false;\n  }\n  for (int i = 2; i < value; ++i) {\n    if (value % i == 0) {\n      return false;\n    }\n  }\n  return true;\n}",
+    "confidence": 0.95
+  }
+}

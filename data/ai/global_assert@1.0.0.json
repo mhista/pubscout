@@ -1,0 +1,36 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.0",
+  "generatedAt": "2026-11-11T11:25:19.084Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "Perform build-time assertions on constants so misconfigured apps fail at compilation.",
+    "what_it_does": "Provides an @Assert annotation to validate constant values at build time. It ensures that apps with invalid configurations fail to compile rather than failing at runtime.",
+    "use_when": [
+      "You configure your app using const values and environment variables.",
+      "You want to catch configuration errors during compilation instead of runtime."
+    ],
+    "avoid_when": [
+      "You need dynamic runtime configuration validation."
+    ],
+    "strengths": [
+      "Fails compilation early for misconfigurations.",
+      "Requires meaningful error messages for assertions."
+    ],
+    "weaknesses": [
+      "Expected to be deprecated when Dart natively supports metaprogramming."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "@Assert(\n  myBuildTimeVal == 'val1' || myBuildTimeVal == 'val2',\n  'myBuildTimeVal must be one of \"val1\" or \"val2\"',\n)\nconst myBuildTimeVal = String.fromEnvironment('MY_VAL');\n\nvoid main() {\n  print('myBuildTimeVal is \"$myBuildTimeVal\"');\n}",
+    "confidence": 1
+  }
+}

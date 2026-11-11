@@ -1,0 +1,53 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.4.0",
+  "generatedAt": "2026-11-11T11:20:57.801Z",
+  "data": {
+    "primary_category": "ai-ml",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Unified API for on-device AI inference using native OS models.",
+    "what_it_does": "Provides a unified API for on-device AI inference utilizing Apple Foundation Models, Android Gemini Nano, Windows AI APIs, and Chrome Prompt API. Supports text generation, streaming, structured JSON outputs, tool calling, and generative UI specs without bundled model checkpoints.",
+    "use_when": [
+      "You need on-device AI inference using OS-managed models to save app size",
+      "You want native tool calling and structured schema outputs",
+      "You need generative UI capabilities driven locally"
+    ],
+    "avoid_when": [
+      "You require custom model checkpoints bundled directly with your app",
+      "You need full feature parity across all platforms including older OS versions"
+    ],
+    "strengths": [
+      "No app-bundled model checkpoints, reducing app download size",
+      "Leverages native OS-optimized AI capabilities and hardware acceleration",
+      "Unified API across iOS, Android, Windows, macOS, and Web"
+    ],
+    "weaknesses": [
+      "Platform support requires specific modern OS versions and hardware",
+      "Some features like tool calling or image inputs are platform-dependent and limited"
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Requires high minimum OS/hardware requirements (iOS/macOS 26+, Android API 26+, Windows 11 25H2 Copilot+ PC, Chrome 148+). Android requires specific Kotlin versions. Windows requires MSIX packaging and runtime configuration.",
+    "alternatives": [
+      {
+        "name": "firebase_ai",
+        "why_pick_it": "If you prefer cloud-based Gemini models via Firebase instead of relying on device hardware constraints."
+      },
+      {
+        "name": "tflite_flutter",
+        "why_pick_it": "If you want to bundle custom TensorFlow Lite models directly within your app rather than depending on OS-managed models."
+      },
+      {
+        "name": "llamadart",
+        "why_pick_it": "If you want to run LLaMA models locally via native bindings instead of system-provided AI frameworks."
+      }
+    ],
+    "minimal_example": "await LocalAi.ensureReady(onProgress: (p) => debugPrint('$p%'));\n\nfinal model = await LocalAiModel.create(maxTokens: 4096);\nfinal session = await model.openSession(systemInstruction: 'Be concise.');\n\nawait session.addQueryChunk('Summarize this in one line: ...');\nawait for (final chunk in session.getResponseAsync()) {\n  stdout.write(chunk);\n}\n\nawait session.close();\nawait model.close();",
+    "confidence": 0.95
+  }
+}

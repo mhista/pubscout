@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.3.0",
+  "generatedAt": "2026-11-11T11:10:57.026Z",
+  "data": {
+    "primary_category": "localization",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Pure Dart implementation of the RFC 3492 Punycode specification for encoding and decoding.",
+    "what_it_does": "Provides encoding and decoding of Punycode strings, as well as helpers for Internationalized Domain Names (IDN) and email addresses. It supports mixed-case annotation and standard IDNA validation rules.",
+    "use_when": [
+      "You need to convert internationalized domain names or emails to and from ASCII/Punycode.",
+      "You are working with Punycode encoding in a pure Dart or cross-platform application."
+    ],
+    "avoid_when": [
+      "You are not dealing with internationalized domains, emails, or raw Punycode strings."
+    ],
+    "strengths": [
+      "Full RFC 3492 compliance with official errata fixes",
+      "Supports mixed-case annotation via Appendix A",
+      "Implements `Codec<String, String>` for integration with `dart:convert`"
+    ],
+    "weaknesses": [
+      "Niche functionality limited specifically to Punycode and IDNA tasks"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:punycoder/punycoder.dart';\n\nfinal encoded = punycode.encode('münchen'); // mnchen-3ya\nfinal decoded = punycode.decode('mnchen-3ya'); // münchen\n\nfinal domainAscii = domainToAscii('mañana.com'); // xn--maana-pta.com",
+    "confidence": 1
+  }
+}

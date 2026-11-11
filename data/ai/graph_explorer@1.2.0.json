@@ -1,0 +1,50 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.2.0",
+  "generatedAt": "2026-11-11T11:38:36.816Z",
+  "data": {
+    "primary_category": "charts",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "A library for generating and analyzing graphs with JSON and ASCIIArtTree support.",
+    "what_it_does": "Allows developers to build, analyze, and scan paths through graph structures in Dart. It supports finding shortest paths, exporting graphs to JSON trees, and rendering ASCII art trees.",
+    "use_when": [
+      "You need to build and manipulate graph data structures in memory.",
+      "You want to analyze paths, find shortest paths, or scan graph nodes.",
+      "You need to visualize graphs as JSON trees or ASCII art representations."
+    ],
+    "avoid_when": [
+      "You need complex UI graph visualization components or interactive diagrams.",
+      "Your primary need is for standard statistical charting like bar, line, or pie charts."
+    ],
+    "strengths": [
+      "Supports path finding and graph analysis algorithms.",
+      "Includes built-in support for generating ASCII art trees and JSON representations.",
+      "Cross-platform compatibility."
+    ],
+    "weaknesses": [
+      "Does not provide interactive UI widgets for rendering graphs visually on screen."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "graphs",
+        "why_pick_it": "Pick graphs if you want a dedicated package for graph algorithms and searching without extra ASCII/JSON tree formatting utilities."
+      },
+      {
+        "name": "directed_graph",
+        "why_pick_it": "Pick directed_graph if you specifically need to work with directed graphs."
+      }
+    ],
+    "minimal_example": "import 'dart:convert';\nimport 'package:graph_explorer/graph_explorer.dart';\n\nvoid main() async {\n  var graph = Graph<String>();\n  graph.node('a').getOrAddOutput('b').addOutput('c');\n  var result = await graph.scanPathsFrom('a', 'c', findAll: true);\n  for (var p in result.paths) {\n    print(p.toListOfString());\n  }\n}",
+    "confidence": 0.95
+  }
+}

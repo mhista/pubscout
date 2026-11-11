@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.8.5",
+  "generatedAt": "2026-11-11T11:45:16.702Z",
+  "data": {
+    "primary_category": "files",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Toolkit for parsing, editing, validating, and converting workout activity files in GPX, TCX, FIT, GeoJSON, and CSV.",
+    "what_it_does": "Provides a pure Dart toolkit and command-line tool to parse, normalize, validate, edit, and convert workout activity files across GPX, TCX, FIT, GeoJSON, and CSV formats. It includes stream-aware builders, point-level editing, multi-sport workflows, and robust error diagnostics.",
+    "use_when": [
+      "You need to parse, edit, or convert workout files like GPX, TCX, or FIT in a Dart or Flutter application.",
+      "You want a format-agnostic model for GPS points, laps, and sensor channels.",
+      "You need detailed diagnostic messages instead of parser crashes when handling malformed activity files."
+    ],
+    "avoid_when": [
+      "You are working with file formats completely unrelated to workout or fitness tracking activities.",
+      "You need a full-featured mapping SDK rather than a file parsing/conversion toolkit."
+    ],
+    "strengths": [
+      "Supports multiple popular activity file formats including GPX, TCX, FIT, GeoJSON, and CSV.",
+      "Parsers are designed never to throw on malformed files, reporting issues as structured diagnostics.",
+      "Includes multi-sport split/merge workflows and point-level editing capabilities."
+    ],
+    "weaknesses": [
+      "Payloads and streams over 64MB require explicit isolate usage or streaming APIs.",
+      "Strict FIT integrity checks require specific import configurations."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Pure Dart library; add to pubspec.yaml dependencies.",
+    "alternatives": [],
+    "minimal_example": "import 'package:activity_files/activity_files.dart';\n\nFuture<void> convertGpxToFit(Uint8List bytes) async {\n  final imported = await ActivityFiles.import(bytes, useIsolate: true);\n  if (imported.hasErrors) {\n    throw StateError('Import failed:\\n${imported.diagnosticsSummary()}');\n  }\n  final normalized = ActivityFiles.edit(imported.activity).sortAndDedup().trimInvalid().activity;\n  final export = ActivityFiles.export(activity: normalized, to: ActivityFileFormat.fit, runValidation: true);\n  final fitBytes = export.asBytes();\n}",
+    "confidence": 1
+  }
+}

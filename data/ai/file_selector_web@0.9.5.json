@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.9.5",
+  "generatedAt": "2026-11-11T11:04:30.897Z",
+  "data": {
+    "primary_category": "files",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Web implementation of file_selector for selecting files in Flutter web.",
+    "what_it_does": "Provides file selection APIs for Flutter web, including openFile, openFiles, getSaveLocation, and mimeType support. It is automatically included when using file_selector and requires no extra pubspec entry.",
+    "use_when": [
+      "Selecting files in a Flutter web app",
+      "Need to support cancel event or mimeType on XFile",
+      "Using file_selector as a dependency and want web support automatically"
+    ],
+    "avoid_when": [
+      "Using on non-web platforms",
+      "Relying on cancel event in very old browsers"
+    ],
+    "strengths": [
+      "Automatically included via endorsement",
+      "Supports mimeType on XFile",
+      "Handles cancel event for modern browsers",
+      "No extra setup needed"
+    ],
+    "weaknesses": [
+      "Only works on web",
+      "Cancel event support limited to recent browsers"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "file_selector",
+        "why_pick_it": "Platform-agnostic implementation that includes web support via this plugin"
+      }
+    ],
+    "minimal_example": "import 'package:file_selector/file_selector.dart';\n\nFuture<void> pickFile() async {\n  final XFile? file = await openFile();\n  if (file != null) {\n    print('Selected: ${file.path}');\n  }\n}",
+    "confidence": 0.95
+  }
+}

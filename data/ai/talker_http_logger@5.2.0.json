@@ -1,0 +1,50 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "5.2.0",
+  "generatedAt": "2026-11-11T11:38:33.115Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "devtools"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Lightweight and customizable HTTP client logger based on Talker for Dart and Flutter.",
+    "what_it_does": "Logs HTTP requests, responses, and errors into Talker using the http_interceptor package. It supports customizing headers, printing curl commands, hiding sensitive headers, and filtering logs.",
+    "use_when": [
+      "You are using the http package with http_interceptor and want to log requests using Talker.",
+      "You need to print cURL commands for debugging HTTP requests.",
+      "You want to hide sensitive headers like Authorization or Cookie from logs."
+    ],
+    "avoid_when": [
+      "You are using the dio package instead of http (use talker_dio_logger instead).",
+      "you are not using Talker for logging."
+    ],
+    "strengths": [
+      "Integrates seamlessly with Talker and http_interceptor.",
+      "Supports request cURL command generation.",
+      "Allows hiding sensitive headers and filtering specific logs."
+    ],
+    "weaknesses": [
+      "Strictly dependent on http_interceptor and Talker.",
+      "Limited to the http package ecosystem."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the dependency to pubspec.yaml and pass TalkerHttpLogger into your InterceptedClient interceptors list.",
+    "alternatives": [
+      {
+        "name": "http",
+        "why_pick_it": "If you just need standard HTTP requests without Talker-based logging or interceptors."
+      },
+      {
+        "name": "dio",
+        "why_pick_it": "If you prefer using Dio as your HTTP client instead of the basic http package."
+      }
+    ],
+    "minimal_example": "import 'package:http_interceptor/http_interceptor.dart';\nimport 'package:talker_http_logger/talker_http_logger.dart';\n\nvoid main() async {\n  final client = InterceptedClient.build(interceptors: [\n    TalkerHttpLogger(\n      settings: const TalkerHttpLoggerSettings(\n        printRequestHeaders: true,\n        printResponseHeaders: true,\n        printResponseMessage: true,\n      ),\n    ),\n  ]);\n\n  await client.get(\"https://google.com\".toUri());\n}",
+    "confidence": 0.95
+  }
+}

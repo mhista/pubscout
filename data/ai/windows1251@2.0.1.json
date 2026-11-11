@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.1",
+  "generatedAt": "2026-11-11T11:47:34.062Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "localization"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Cyrillic Windows-1251 (cp1251) character encoding implementation for Dart.",
+    "what_it_does": "Provides tools for encoding and decoding text using the Windows-1251 character set, commonly used for Cyrillic languages. Supports chunked conversion for streaming data and configurable error handling for invalid characters.",
+    "use_when": [
+      "You need to parse or generate text using the Windows-1251 character encoding.",
+      "You are working with legacy data or systems utilizing Cyrillic Windows-1251 script."
+    ],
+    "avoid_when": [
+      "You are working purely with standard UTF-8 encoded text.",
+      "You need modern multi-language support where standard Unicode is already fully implemented."
+    ],
+    "strengths": [
+      "Pure Dart implementation with no external dependencies.",
+      "Supports chunked conversion for streaming data.",
+      "Configurable invalid character and byte behavior."
+    ],
+    "weaknesses": [
+      "Limited to a single legacy character encoding."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:windows1251/windows1251.dart';\n\nvoid main() {\n  final decoded = windows1251.decode([207, 240, 232, 226, 229, 242, 33]);\n  print(decoded); // Output: 'Привет!'\n\n  final encoded = windows1251.encode('Привет!');\n  print(encoded); // Output: [207, 240, 232, 226, 229, 242, 33]\n}",
+    "confidence": 1
+  }
+}

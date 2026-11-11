@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "2.2.2",
+  "generatedAt": "2026-11-11T11:20:12.425Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Renders Contentful Rich Text JSON into a Flutter widget tree.",
+    "what_it_does": "Parses the JSON structure returned by Contentful's Rich Text field and builds corresponding Flutter widgets. Supports basic blocks, inline marks, hyperlinks, and allows custom renderers for nodes and marks.",
+    "use_when": [
+      "You need to display Contentful Rich Text content in a Flutter app without writing your own parser.",
+      "You want a plug‑and‑play solution that converts Contentful JSON to widgets.",
+      "You need to customize rendering of specific marks or blocks."
+    ],
+    "avoid_when": [
+      "You require full support for all Contentful node types (e.g., embedded assets, quotes).",
+      "You need a highly optimized, hand‑crafted rendering pipeline."
+    ],
+    "strengths": [
+      "Easy integration with a single widget call",
+      "Supports common blocks and inline styles",
+      "Customizable renderers for marks and nodes"
+    ],
+    "weaknesses": [
+      "Limited node support; some Contentful features not implemented",
+      "Customization requires understanding of provided render APIs"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:contentful_rich_text/contentful_rich_text.dart';\n\nvar document = getContentfulJson(); // your Contentful JSON\n\nclass Demo extends StatelessWidget {\n  @override\n  Widget build(BuildContext context) {\n    return ContentfulRichText(document).documentToWidgetTree;\n  }\n}",
+    "confidence": 0.85
+  }
+}

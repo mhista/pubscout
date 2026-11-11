@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.2.1",
+  "generatedAt": "2026-11-11T11:19:10.117Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Utilities for diffing two JSON objects in Dart.",
+    "what_it_does": "Generates a hierarchical diff between two JSON structures. Returns added, removed, changed, moved entries and nested DiffNodes for deep differences.",
+    "use_when": [
+      "You need to compare two JSON payloads to detect additions, deletions, or modifications.",
+      "You want a simple, null‑safe API to produce a readable diff for configuration or API responses."
+    ],
+    "avoid_when": [
+      "You require streaming diff of very large JSON documents.",
+      "You need a high‑performance binary diff or patch generation."
+    ],
+    "strengths": [
+      "Clear, hierarchical DiffNode API",
+      "Supports moved elements in lists",
+      "Null‑safe and pure Dart"
+    ],
+    "weaknesses": [
+      "Operates only on in‑memory data",
+      "No streaming or incremental diff support",
+      "Small ecosystem and limited documentation"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:json_diff/json_diff.dart';\n\nfinal left = {\"a\": 2, \"b\": 3, \"c\": 5, \"d\": {\"x\": 4, \"y\": 8}};\nfinal right = {\"b\": 7, \"c\": 5, \"d\": {\"x\": 4, \"z\": 16}, \"e\": 11};\nfinal differ = JsonDiffer.fromJson(left, right);\nDiffNode diff = differ.diff();\nprint(diff.added); // {\"e\": 11}\nprint(diff.removed); // {\"a\": 2}\nprint(diff.changed); // {\"b\": [3, 7]}\n",
+    "confidence": 0.9
+  }
+}

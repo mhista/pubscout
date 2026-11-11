@@ -1,0 +1,46 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.3.4+1",
+  "generatedAt": "2026-11-11T11:05:32.506Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "devtools"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Utility to launch a locally installed version of a CLI when a global version is invoked.",
+    "what_it_does": "When a globally installed CLI runs, it checks for a matching package in the current or parent directories. If a different local version is found, it relaunches the CLI using that local version, otherwise it continues with the global one.",
+    "use_when": [
+      "Developing a Dart CLI that may be installed globally and locally",
+      "Ensuring the correct version of a CLI runs during development or CI"
+    ],
+    "avoid_when": [
+      "You only need a single installation path for your CLI",
+      "The CLI is not distributed via pub packages"
+    ],
+    "strengths": [
+      "Automatically resolves version mismatches",
+      "Works with Dart 3.14 and newer",
+      "No extra build steps required"
+    ],
+    "weaknesses": [
+      "Limited to Dart CLI packages",
+      "Only supports launch logic, no other features"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "io",
+        "why_pick_it": "Provides general file and process utilities but lacks the specific launch‑version logic of cli_launcher"
+      }
+    ],
+    "minimal_example": "import 'package:cli_launcher/cli_launcher.dart';\n\nvoid main(List<String> args) => launchExecutable(args);",
+    "confidence": 0.92
+  }
+}

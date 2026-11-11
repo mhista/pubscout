@@ -1,0 +1,53 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.5.8",
+  "generatedAt": "2026-11-11T11:19:53.747Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Run FFmpeg and FFprobe commands from Dart with prebuilt audio codecs for multiple platforms.",
+    "what_it_does": "Allows Flutter applications to execute FFmpeg and FFprobe commands to process media. This variant is focused specifically on audio codecs such as mp3, opus, vorbis, and speex. Prebuilt binaries are provided for Android, iOS, macOS, Windows, and Linux.",
+    "use_when": [
+      "You need to process audio files or streams using FFmpeg inside a Flutter application",
+      "You want prebuilt native libraries for audio codecs without compiling FFmpeg yourself"
+    ],
+    "avoid_when": [
+      "You need video codecs (use the video or full variants instead)",
+      "You need GPL-licensed codecs like x264 or x265 (use a -gpl variant instead)"
+    ],
+    "strengths": [
+      "Provides a single unified Dart API across Android, iOS, macOS, Windows, and Linux",
+      "Prebuilt native libraries mean no compilation needed during build time",
+      "Includes logs, statistics, and completion callbacks for sessions"
+    ],
+    "weaknesses": [
+      "Large binary size due to bundled native FFmpeg libraries",
+      "Platform-specific setup requirements like minimum OS versions or package prerequisites on Linux"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires minimum platform versions (Android API 24, iOS 14.0, macOS 10.15, Windows 10). Linux requires installing additional development packages like libjson-glib-dev.",
+    "alternatives": [
+      {
+        "name": "just_audio",
+        "why_pick_it": "If you only need to play audio rather than perform advanced FFmpeg transcoding and processing operations."
+      },
+      {
+        "name": "audioplayers",
+        "why_pick_it": "For simple audio playback use cases where a full FFmpeg wrapper is overkill."
+      },
+      {
+        "name": "video_player",
+        "why_pick_it": "If you only need standard platform-backed video/audio playback instead of media manipulation."
+      }
+    ],
+    "minimal_example": "import 'package:ffmpeg_kit_flutter_new_audio/ffmpeg_kit.dart';\n\nfinal session = await FFmpegKit.execute('-i input.mp3 -c:a libmp3lame output.mp3');\nfinal returnCode = await session.getReturnCode();\n\nif (ReturnCode.isSuccess(returnCode)) {\n  // Success\n}",
+    "confidence": 0.95
+  }
+}

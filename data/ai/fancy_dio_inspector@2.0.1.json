@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.1",
+  "generatedAt": "2026-11-11T11:44:10.179Z",
+  "data": {
+    "primary_category": "devtools",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "An HTTP inspector widget and interceptor for Dio to log and view requests, responses, and errors.",
+    "what_it_does": "It catches HTTP requests, responses, and errors made via Dio using an interceptor and displays them in a dedicated widget view. Developers can view request details and copy cURL commands directly from the UI.",
+    "use_when": [
+      "You are using the Dio package for networking in your Flutter app.",
+      "You need a visual debugging tool to inspect HTTP traffic during development."
+    ],
+    "avoid_when": [
+      "You are not using Dio for your network requests.",
+      "You require a network inspector that operates completely outside the widget tree without custom UI views."
+    ],
+    "strengths": [
+      "Allows viewing and copying cURL commands for every request.",
+      "Provides a built-in UI view (`FancyDioInspectorView`) for easy integration.",
+      "Supports localization and theme customization."
+    ],
+    "weaknesses": [
+      "Tied specifically to the Dio HTTP client.",
+      "UI inspector view must be manually added to your widget tree."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the dependency, add FancyDioInterceptor to your Dio instance, and place FancyDioInspectorView in your widget tree.",
+    "alternatives": [
+      {
+        "name": "pretty_dio_logger",
+        "why_pick_it": "If you prefer console-only logging for Dio requests rather than an in-app visual inspector widget."
+      },
+      {
+        "name": "inspector",
+        "why_pick_it": "If you need a general-purpose debugging and inspection suite."
+      }
+    ],
+    "minimal_example": "final dio = Dio();\ndio.interceptors.add(FancyDioInterceptor());",
+    "confidence": 0.95
+  }
+}

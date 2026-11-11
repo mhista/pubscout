@@ -1,0 +1,46 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "3.0.2",
+  "generatedAt": "2026-11-11T11:03:09.722Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "no codegen",
+      "imperative"
+    ],
+    "one_liner": "Shelf handler that serves a `packages/` directory of Dart package assets.",
+    "what_it_does": "Provides a Shelf handler that resolves `package:` URIs and serves the corresponding files from a `packages/` directory. Designed to be placed first in a Cascade so other requests fall through to subsequent handlers.",
+    "use_when": [
+      "You need to serve Dart package assets over HTTP during development",
+      "You are building a simple Shelf server and want automatic package resolution",
+      "You want a drop‑in handler that works with Shelf's Cascade"
+    ],
+    "avoid_when": [
+      "You require a full‑featured static file server with caching and compression",
+      "You need to serve assets from locations other than `packages/`",
+      "You are deploying to production where a CDN is preferred"
+    ],
+    "strengths": [
+      "Very small and focused API",
+      "Integrates directly with Shelf's Cascade",
+      "Null‑safe and requires only core Shelf dependencies"
+    ],
+    "weaknesses": [
+      "Only serves `packages/` paths, no other static file features",
+      "No built‑in caching or performance optimizations"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "shelf_static",
+        "why_pick_it": "General purpose static file serving without package‑specific logic"
+      }
+    ],
+    "minimal_example": "import 'package:shelf/shelf.dart';\nimport 'package:shelf_packages_handler/shelf_packages_handler.dart';\n\nfinal handler = packagesHandler({\n  'my_package': Uri.parse('file:///path/to/my_package/lib/'),\n});\nfinal cascade = Cascade().add(handler).add(_otherHandler).handler;\n",
+    "confidence": 0.9
+  }
+}

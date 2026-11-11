@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.10.0",
+  "generatedAt": "2026-11-11T11:28:21.421Z",
+  "data": {
+    "primary_category": "files",
+    "secondary_categories": [
+      "device"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Save files to the device using native save dialogs in Flutter.",
+    "what_it_does": "Provides an interface to write files as bytes or strings directly to the device. Uses native components like ACTION_CREATE_DOCUMENT on Android, UIDocumentPickerViewController on iOS, NSSavePanel on macOS, and the showSaveFilePicker API or download attributes on the Web.",
+    "use_when": [
+      "You need to prompt the user to save a file to a specific location using a native dialog.",
+      "You want to save Uint8List bytes or text strings from a Flutter app across Android, iOS, web, or macOS."
+    ],
+    "avoid_when": [
+      "You need support for Windows or Linux platforms.",
+      "You want background file downloading or automatic saving without opening a native user prompt."
+    ],
+    "strengths": [
+      "Uses native save dialogs on Android, iOS, macOS, and web.",
+      "Supports both byte arrays and string contents.",
+      "Compatible with WASM."
+    ],
+    "weaknesses": [
+      "Does not support Windows and Linux platforms.",
+      "Web implementation can throw a SecurityError if not called immediately after user interaction."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires platform-specific configurations like setting minimum SDK version on Android, adding document browser/sharing permissions in Info.plist on iOS (requires iOS 16+), and adding user-selected read-write entitlements on macOS.",
+    "alternatives": [],
+    "minimal_example": "FlutterFileSaver().writeFileAsString(\n    fileName: 'file.txt',\n    string: 'Hello World!',\n);",
+    "confidence": 1
+  }
+}

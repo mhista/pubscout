@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.0.10",
+  "generatedAt": "2026-11-11T11:23:29.852Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "web-desktop"
+    ],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "Flutter package for enabling SEO (meta, body tag) support on Web.",
+    "what_it_does": "It listens to widget tree changes and converts specialized widgets like Seo.text, Seo.image, Seo.link, and Seo.head into an HTML document tree on the web. This helps search engines index Flutter web applications properly.",
+    "use_when": [
+      "You are building a Flutter Web application and need search engine optimization.",
+      "You want to render meta tags, headers, links, and text into the underlying HTML DOM from Flutter widgets."
+    ],
+    "avoid_when": [
+      "You need server-side rendering for Open Graph and Twitter Card tags out of the box (requires custom SSR implementation).",
+      "You are targeting non-web platforms primarily."
+    ],
+    "strengths": [
+      "Enables proper SEO indexing for Flutter Web apps",
+      "Supports multiple HTML elements including meta tags, images, text tags (h1-h6), and links",
+      "Includes production-ready WidgetTree traversal implementation"
+    ],
+    "weaknesses": [
+      "Open Graph and Twitter Card tags do not work dynamically without server-side rendering setup",
+      "SemanticsTree approach is experimental and lacks support for certain tags"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Use usePathUrlStrategy() in main and wrap your app with SeoController.",
+    "alternatives": [],
+    "minimal_example": "void main() {\n  usePathUrlStrategy();\n  runApp(const App());\n}\n\nclass App extends StatelessWidget {\n  const App({super.key});\n\n  @override\n  Widget build(BuildContext context) {\n    return SeoController(\n      enabled: true,\n      tree: WidgetTree(context: context),\n      child: MaterialApp(\n        home: Scaffold(\n          body: Seo.text(\n            text: 'Some text',\n            child: Text('Some text'),\n          ),\n        ),\n      ),\n    );\n  }\n}",
+    "confidence": 0.95
+  }
+}

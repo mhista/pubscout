@@ -1,0 +1,55 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.5.0",
+  "generatedAt": "2026-11-11T11:41:08.187Z",
+  "data": {
+    "primary_category": "devtools",
+    "secondary_categories": [
+      "networking",
+      "storage"
+    ],
+    "approach": [
+      "imperative",
+      "declarative"
+    ],
+    "one_liner": "In-app debug console with network inspector, storage monitor, and password protection.",
+    "what_it_does": "Provides an in-app graphical debugging console to monitor logs, HTTP network requests (such as via Dio), storage operations, and navigation events. It supports optional password protection and tools like cURL export and custom debug tabs.",
+    "use_when": [
+      "You need an in-app console to debug network requests, local storage, and logs directly on device",
+      "You want to allow QA or support teams to inspect app state and export logs in production securely"
+    ],
+    "avoid_when": [
+      "You only require basic console prints without an in-app graphical user interface",
+      "You need comprehensive remote error reporting and crash tracking services"
+    ],
+    "strengths": [
+      "Includes a built-in network inspector, storage monitor, and navigator observer",
+      "Supports optional password protection and hidden gesture triggers for production use",
+      "Allows adding custom debug tabs for environment switching or clearing caches"
+    ],
+    "weaknesses": [
+      "Requires manual code integration and widget attachment throughout the app",
+      "Adds an in-app UI footprint that must be carefully restricted in production environments"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Instantiate Logarte, attach the floating button to the widget tree or use LogarteMagicalTap, and add the Dio interceptor or navigator observer.",
+    "alternatives": [
+      {
+        "name": "logger",
+        "why_pick_it": "If you only need structured console logging without an in-app graphical viewer."
+      },
+      {
+        "name": "pretty_dio_logger",
+        "why_pick_it": "If you specifically need Dio network request logging formatted neatly in the standard debug console."
+      },
+      {
+        "name": "talker",
+        "why_pick_it": "If you are looking for an alternative feature-rich in-app console and error handling package."
+      }
+    ],
+    "minimal_example": "final Logarte logarte = Logarte(\n    password: '1234',\n    ignorePassword: kDebugMode,\n);\n\n// Attach in initState\nlogarte.attach(\n  context: context,\n  visible: kDebugMode,\n);",
+    "confidence": 1
+  }
+}

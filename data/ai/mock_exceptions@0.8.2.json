@@ -1,0 +1,48 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.8.2",
+  "generatedAt": "2026-11-11T11:06:54.416Z",
+  "data": {
+    "primary_category": "testing",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Allows throwing exceptions on specified method calls in fakes",
+    "what_it_does": "Provides a small API to configure a fake to throw an exception when a particular method, getter or setter is invoked. It works by checking the invocation at the start of the fake’s implementation and throwing if a match is found.",
+    "use_when": [
+      "Testing fakes that need to simulate error conditions",
+      "When you want to keep the fake’s real logic but occasionally trigger failures",
+      "When you need fine‑grained control over which calls throw"
+    ],
+    "avoid_when": [
+      "Using full mocking frameworks like Mockito for stubbing and verification",
+      "When you need to return values or capture arguments, not just throw"
+    ],
+    "strengths": [
+      "Very small dependency footprint",
+      "Focused only on exception throwing, no extra features",
+      "Works with any fake implementation",
+      "Simple, readable API"
+    ],
+    "weaknesses": [
+      "Only supports throwing, not stubbing return values",
+      "Requires manual insertion of maybeThrowException in each fake method",
+      "Not a full mocking solution"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add maybeThrowException(this, Invocation.method(...)) to the start of each fake method you want to guard. No build_runner or permissions needed.",
+    "alternatives": [
+      {
+        "name": "mockito",
+        "why_pick_it": "Provides full mocking, stubbing, and verification capabilities, but is heavier and requires a mock class."
+      }
+    ],
+    "minimal_example": "final f = MyFake();\nwhenCalling(Invocation.method(#doSomething, ['fun']))\n    .on(f)\n    .thenThrow(Exception());\nexpect(() => f.doSomething('fun'), throwsException);",
+    "confidence": 0.9
+  }
+}

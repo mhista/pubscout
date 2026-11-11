@@ -1,0 +1,46 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.1.1",
+  "generatedAt": "2026-11-11T11:43:19.305Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "state-management"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "A simple event dispatch mechanism for broadcasting information to registered observers.",
+    "what_it_does": "It provides a centralized notification center using a singleton pattern. It enables broadcasting messages and type-safe payloads across your application with support for subscription management like pause, resume, and cancel.",
+    "use_when": [
+      "You need to decouple components and broadcast events across the app",
+      "You want a lightweight pub-sub event bus without heavy state management dependencies"
+    ],
+    "avoid_when": [
+      "You prefer reactive stream-based solutions like standard Dart Streams or RxDart",
+      "You need robust, enterprise-grade state containers or dependency injection frameworks"
+    ],
+    "strengths": [
+      "Type-safe payloads",
+      "Subscription lifecycle controls (pause, resume, cancel)",
+      "Zero heavy dependencies"
+    ],
+    "weaknesses": [
+      "Relies on a singleton pattern which can make testing more global",
+      "Does not handle persistent storage or UI rendering widgets"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "eventify",
+        "why_pick_it": "Provides a similar event bus and listener pattern for Dart and Flutter applications."
+      }
+    ],
+    "minimal_example": "NotificationCenter().subscribe<int>('updateCounter', (int data) {\n  print(data);\n});\nNotificationCenter().notify('updateCounter', data: 10);",
+    "confidence": 1
+  }
+}

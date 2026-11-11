@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "2.0.3",
+  "generatedAt": "2026-11-11T11:21:10.939Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Dart library for converting standard data types to a binary format and back",
+    "what_it_does": "It encodes supported primitive types, Uint8List, String, Map and List into a binary representation. It can also decode that binary back into the original Dart values.",
+    "use_when": [
+      "You need a simple way to serialize data for storage or network transmission without external dependencies",
+      "You work on a single platform or control both ends of the communication and can tolerate the dart2js int‑as‑double limitation"
+    ],
+    "avoid_when": [
+      "You require high‑performance streaming or large‑scale binary protocols",
+      "You need custom object serialization or schema evolution support"
+    ],
+    "strengths": [
+      "Zero dependencies and pure Dart",
+      "Supports common Dart collections and primitive types",
+      "Null‑safe and works on all Flutter platforms"
+    ],
+    "weaknesses": [
+      "No support for custom class serialization",
+      "No streaming or chunked encoding",
+      "No built‑in compression or encryption"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:binary_codec/binary_codec.dart';\n\nvoid main() {\n  final data = {'name': 'Alice', 'age': 30, 'active': true};\n  final bytes = BinaryCodec.encode(data);\n  final decoded = BinaryCodec.decode(bytes) as Map;\n  print(decoded); // {name: Alice, age: 30, active: true}\n}",
+    "confidence": 0.9
+  }
+}

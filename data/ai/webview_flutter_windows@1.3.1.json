@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.3.1",
+  "generatedAt": "2026-11-11T11:23:05.348Z",
+  "data": {
+    "primary_category": "web-desktop",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "A WebView2-powered webview plugin for Flutter on Windows.",
+    "what_it_does": "Renders Microsoft Edge WebView2 off-screen as a Flutter texture, allowing seamless integration into the widget tree with keyboard focus handling, JavaScript bridging, cookie management, and a typed event API.",
+    "use_when": [
+      "You need to embed a web browser or web content inside a Flutter desktop application for Windows.",
+      "You require robust keyboard focus management between Flutter text fields and the embedded webview.",
+      "You need a two-way JavaScript bridge or headless web automation on Windows."
+    ],
+    "avoid_when": [
+      "You are building for platforms other than Windows.",
+      "The user's environment lacks the WebView2 Runtime and cannot have it installed."
+    ],
+    "strengths": [
+      "Seamless texture composition avoiding native airspace issues.",
+      "Robust two-way JavaScript bridge and rich broadcast event streams.",
+      "Built-in keyboard focus management and high-DPI awareness."
+    ],
+    "weaknesses": [
+      "Restricted solely to Windows.",
+      "Requires the underlying Microsoft Edge WebView2 Runtime to be installed on the user's machine.",
+      "Requires manual native setup with Visual Studio C++ build tools for development."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires Visual Studio 2022 with the Desktop development with C++ workload on your development machine, and the WebView2 Runtime on users' machines.",
+    "alternatives": [],
+    "minimal_example": "final _controller = WebviewController();\n\nFuture<void> _initWebview() async {\n  await _controller.initialize();\n  await _controller.loadUrl('https://flutter.dev');\n}\n\n@override\nWidget build(BuildContext context) {\n  return _controller.value.isInitialized\n      ? Webview(_controller)\n      : const Center(child: CircularProgressIndicator());\n}",
+    "confidence": 0.95
+  }
+}

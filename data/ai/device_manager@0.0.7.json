@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.0.7",
+  "generatedAt": "2026-11-11T11:25:31.175Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "web-desktop"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Manager for hardware devices and WM_DEVICECHANGE notifications on Windows and Android.",
+    "what_it_does": "Transmits WM_DEVICECHANGE messages to notify Flutter applications when hardware devices are connected or disconnected. It provides a simple listener interface to detect device additions and removals.",
+    "use_when": [
+      "You need to detect when USB or serial devices are plugged in or unplugged on Windows",
+      "You are building a Windows desktop Flutter application that interacts with physical hardware"
+    ],
+    "avoid_when": [
+      "You need cross-platform hardware device management beyond Windows and Android",
+      "You require complex serial communication protocols rather than just connection notifications"
+    ],
+    "strengths": [
+      "Simple listener-based API for handling hardware change events",
+      "Native support for Windows WM_DEVICECHANGE messages"
+    ],
+    "weaknesses": [
+      "Limited documentation and sparse feature set",
+      "Platform support is restricted mainly to Windows and Android"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the dependency to pubspec.yaml and register the listener after runApp.",
+    "alternatives": [],
+    "minimal_example": "DeviceManager().addListener(() {\n    var event = DeviceManager().lastEvent;\n    if (event != null) {\n        if (event.eventType == EventType.add) {\n          scaffoldKey.currentState!.showSnackBar(\n          const SnackBar(content: Text('New device detected!')));\n        } else if (event.eventType == EventType.remove) {\n          scaffoldKey.currentState!.showSnackBar(const SnackBar(content: Text('Device removed!')));\n        }\n    }\n});",
+    "confidence": 0.9
+  }
+}

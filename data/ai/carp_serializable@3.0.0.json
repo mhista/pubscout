@@ -1,0 +1,54 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "3.0.0",
+  "generatedAt": "2026-11-11T11:08:20.825Z",
+  "data": {
+    "primary_category": "codegen",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "code generation"
+    ],
+    "one_liner": "Polymorphic JSON (de)serialization using json_serializable with type info.",
+    "what_it_does": "Extends json_serializable to support polymorphic classes by adding a __type field and a registry of fromJson functions. It re-exports uuid for ID generation.",
+    "use_when": [
+      "You need to serialize/deserialize class hierarchies to/from JSON",
+      "You already use json_serializable and want minimal boilerplate for polymorphism",
+      "You need unique IDs in your models"
+    ],
+    "avoid_when": [
+      "You only need simple flat JSON models",
+      "You prefer runtime reflection over code generation",
+      "You are targeting non-Flutter platforms"
+    ],
+    "strengths": [
+      "Adds polymorphic support with minimal extra code",
+      "Re-exports uuid for convenient ID generation",
+      "Integrates with existing json_serializable workflow",
+      "Provides graceful fallback for unknown types"
+    ],
+    "weaknesses": [
+      "Requires build_runner and code generation",
+      "Adds extra registration step at startup",
+      "Limited to json_serializable ecosystem",
+      "No support for other serialization formats"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add carp_serializable and json_annotation to dependencies, build_runner and json_serializable to dev_dependencies, run build_runner to generate code, register classes in FromJsonFactory before use.",
+    "alternatives": [
+      {
+        "name": "built_value",
+        "why_pick_it": "Provides code generation for immutable value types and polymorphic serialization via @BuiltValueSerializerPlugin"
+      },
+      {
+        "name": "freezed_annotation",
+        "why_pick_it": "Offers code generation for immutable classes with union types and JSON support"
+      }
+    ],
+    "minimal_example": "```dart\n@JsonSerializable()\nclass A extends Serializable {\n  int index;\n  A([this.index = 0]) : super();\n  @override\n  Function get fromJsonFunction => _$AFromJson;\n  factory A.fromJson(Map<String, dynamic> json) => FromJsonFactory().fromJson<A>(json);\n  @override\n  Map<String, dynamic> toJson() => _$AToJson(this);\n}\n```",
+    "confidence": 0.9
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.0",
+  "generatedAt": "2026-11-11T11:17:29.422Z",
+  "data": {
+    "primary_category": "camera",
+    "secondary_categories": [
+      "audio-video",
+      "web-desktop"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Flutter camera plugin for Linux, macOS, and Windows desktop platforms.",
+    "what_it_does": "Implements camera_platform_interface to provide desktop support for the standard camera package. Enables camera enumeration, live preview, photo capture, video recording, and image streaming on Linux, macOS, and Windows.",
+    "use_when": [
+      "You need camera preview, photo capture, or video recording in a Flutter desktop app.",
+      "You want to use the standard camera package API across mobile and desktop platforms."
+    ],
+    "avoid_when": [
+      "You require mobile platforms (use the standard camera package instead).",
+      "You need advanced mobile features like flash/torch control, exposure/focus point selection, or zoom beyond 1.0x."
+    ],
+    "strengths": [
+      "Seamless integration with the standard camera package and CameraController API.",
+      "Supports Linux, macOS, and Windows with native backends (GStreamer, AVFoundation, Media Foundation).",
+      "Provides image streaming and custom FPS/bitrate controls."
+    ],
+    "weaknesses": [
+      "Desktop cameras generally lack mobile features like flash, touch-to-focus, and zoom.",
+      "Requires platform-specific library setup on Linux (GStreamer) and permission descriptions on macOS."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Linux requires installing GStreamer development libraries. macOS requires adding camera and microphone usage descriptions to Info.plist and optionally entitlements for sandboxed apps.",
+    "alternatives": [],
+    "minimal_example": "import 'package:camera/camera.dart';\n\nfinal cameras = await availableCameras();\nfinal controller = CameraController(cameras.first, ResolutionPreset.high);\nawait controller.initialize();\n\nCameraPreview(controller);",
+    "confidence": 1
+  }
+}

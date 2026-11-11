@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "1.2.0",
+  "generatedAt": "2026-11-11T11:09:45.322Z",
+  "data": {
+    "primary_category": "backend",
+    "secondary_categories": [
+      "networking",
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "A Dart client for Redis implementing low‑level and high‑level command APIs.",
+    "what_it_does": "Provides a connection to a RESP server, a client that handles request/response, and tiered command libraries. Supports raw command execution and convenient typed commands.",
+    "use_when": [
+      "You need direct Redis access from a Dart or Flutter app",
+      "You want fine‑grained control over command tiers and responses"
+    ],
+    "avoid_when": [
+      "You require a higher‑level ORM‑like abstraction",
+      "You need built‑in connection pooling or advanced clustering support"
+    ],
+    "strengths": [
+      "Supports multiple command tiers for flexibility",
+      "Handles RESP types and UTF‑8 encoding",
+      "No external dependencies"
+    ],
+    "weaknesses": [
+      "No built‑in connection pooling or reconnection logic",
+      "Limited to Redis protocol, no other backends",
+      "API may be low‑level for beginners"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:resp_client/resp_client.dart';\nimport 'package:resp_client/resp_server.dart';\nimport 'package:resp_client/resp_commands.dart';\n\nvoid main() async {\n  final server = await connectSocket('localhost');\n  final client = RespClient(server);\n  final commands = RespCommandsTier2(client);\n  final result = await commands.get('myKey');\n  print(result);\n  await server.close();\n}",
+    "confidence": 0.87
+  }
+}

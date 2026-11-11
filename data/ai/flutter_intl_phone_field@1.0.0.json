@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.0",
+  "generatedAt": "2026-11-11T11:39:36.798Z",
+  "data": {
+    "primary_category": "forms",
+    "secondary_categories": [
+      "localization",
+      "widgets"
+    ],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "International phone number input with country picker, formatting, and validation for 250+ countries.",
+    "what_it_does": "Provides a customized TextFormField for international phone number input. Features an integrated searchable country picker, as-you-type formatting, and libphonenumber-accurate validation.",
+    "use_when": [
+      "You need users to input phone numbers with country codes",
+      "You require libphonenumber-accurate phone validation and formatting"
+    ],
+    "avoid_when": [
+      "Your app does not use package:material_ui",
+      "You only need standard local phone inputs without country codes"
+    ],
+    "strengths": [
+      "Accurate validation and formatting generated from Google's libphonenumber metadata",
+      "Supports over 251 territories with smart resolution for shared calling codes",
+      "Includes multiple picker presentation styles and flexible customization options"
+    ],
+    "weaknesses": [
+      "Requires package:material_ui instead of standard package:flutter/material.dart",
+      "Strict validation may reject newer or unallocated phone ranges"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires adding package:material_ui and importing the package alongside material_ui.",
+    "alternatives": [],
+    "minimal_example": "IntlPhoneField(\n  decoration: const InputDecoration(\n    labelText: 'Phone number',\n    border: OutlineInputBorder(),\n  ),\n  initialCountryCode: 'IN',\n  onChanged: (phone) => print(phone.completeNumber),\n)",
+    "confidence": 0.95
+  }
+}

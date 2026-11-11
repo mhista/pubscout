@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "1.1.0",
+  "generatedAt": "2026-11-11T11:15:46.301Z",
+  "data": {
+    "primary_category": "auth",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Detects biometric authentication changes on Android and iOS",
+    "what_it_does": "This plugin checks whether the device’s biometric data (fingerprint or Face/Touch ID) has changed since the last check. It uses native APIs to compare stored biometric state and reports VALID, CHANGED, or INVALID status.",
+    "use_when": [
+      "You need to react to biometric changes in your authentication flow",
+      "Your app requires a secure re‑authentication after biometric data is updated"
+    ],
+    "avoid_when": [
+      "You only need to perform a one‑time biometric authentication",
+      "Your app does not need to monitor biometric changes"
+    ],
+    "strengths": [
+      "Leverages native key invalidation and LAContext domain state",
+      "No additional native code required",
+      "Supports both Android and iOS"
+    ],
+    "weaknesses": [
+      "Android support limited to fingerprint; face unlock may not trigger key invalidation",
+      "Requires API level 23+ on Android",
+      "iOS detection relies on stored domain state, may need manual persistence"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dependency to pubspec.yaml. No extra permissions or native configuration needed.",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter_biometric_change_detector/flutter_biometric_change_detector.dart';\n\nFuture<void> check() async {\n  final status = await FlutterBiometricChangeDetector.detectBiometricChange();\n  if (status == AuthChangeStatus.CHANGED) {\n    // handle biometric change\n  }\n}",
+    "confidence": 0.9
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "1.12.0",
+  "generatedAt": "2026-11-11T11:23:22.347Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [],
+    "approach": [
+      "no codegen"
+    ],
+    "one_liner": "Mediation adapter for Unity Ads to work with the google_mobile_ads Flutter plugin",
+    "what_it_does": "It bridges the Unity Ad Network with the Google Mobile Ads SDK, allowing Unity ads to be requested and served through the standard google_mobile_ads API. The plugin handles platform-specific integration for Android and iOS.",
+    "use_when": [
+      "You already use google_mobile_ads and want to add Unity Ads as a mediation partner",
+      "You need to serve ads from Unity while keeping a single ad SDK in your app"
+    ],
+    "avoid_when": [
+      "You are not using google_mobile_ads or you do not need Unity Ads"
+    ],
+    "strengths": [
+      "Supports both Android and iOS adapters",
+      "Keeps Unity integration up to date with the latest Unity adapter versions",
+      "No additional code generation required"
+    ],
+    "weaknesses": [
+      "Only works with google_mobile_ads",
+      "Requires keeping the plugin in sync with the Google Mobile Ads Flutter plugin"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add gma_mediation_unity to pubspec, run flutter pub get, then configure Unity Ads in your app as per the Unity Ads developer guide. No build_runner needed.",
+    "alternatives": [],
+    "minimal_example": "// Add to pubspec\n// dependencies:\n//   google_mobile_ads: ^9.1.0\n//   gma_mediation_unity: ^1.12.0\n\nimport 'package:google_mobile_ads/google_mobile_ads.dart';\n\nvoid main() {\n  WidgetsFlutterBinding.ensureInitialized();\n  MobileAds.instance.initialize();\n  // Unity Ads will be available through the standard AdRequest flow.\n}",
+    "confidence": 0.8
+  }
+}

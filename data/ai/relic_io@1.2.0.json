@@ -1,0 +1,51 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "1.2.0",
+  "generatedAt": "2026-11-11T11:08:27.445Z",
+  "data": {
+    "primary_category": "backend",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Dart io adapter for the Relic high‑performance web server framework.",
+    "what_it_does": "Provides the I/O adapter that lets Relic run on the Dart VM, exposing server APIs, routing, middleware and WebSocket support. It integrates with RelicCore to deliver a type‑safe, performant backend.",
+    "use_when": [
+      "building high‑performance Dart web servers",
+      "need typed request/response handling with built‑in routing and WebSocket support"
+    ],
+    "avoid_when": [
+      "Flutter UI applications",
+      "client‑side HTTP communication"
+    ],
+    "strengths": [
+      "type‑safe APIs with validated headers",
+      "built‑in trie router for fast routing",
+      "configurable caching for normalized paths",
+      "integrated WebSocket handling"
+    ],
+    "weaknesses": [
+      "server‑only; cannot be used in Flutter client code",
+      "no client‑side HTTP features",
+      "relatively new ecosystem compared to Shelf"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add `relic` and `relic_io` to pubspec, then import `package:relic/io_adapter.dart` and `package:relic/relic.dart`. No extra permissions required.",
+    "alternatives": [
+      {
+        "name": "http",
+        "why_pick_it": "lightweight HTTP client/server for simple use‑cases"
+      },
+      {
+        "name": "shelf_web_socket",
+        "why_pick_it": "provides WebSocket support for the Shelf server ecosystem"
+      }
+    ],
+    "minimal_example": "import 'package:relic/io_adapter.dart';\nimport 'package:relic/relic.dart';\n\nFuture<void> main() async {\n  final app = RelicApp()\n    ..get('/hello', (req) => Response.ok(body: Body.fromString('Hello')));\n  await app.serve();\n}",
+    "confidence": 0.9
+  }
+}

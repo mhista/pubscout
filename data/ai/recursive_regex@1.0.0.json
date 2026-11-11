@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "1.0.0",
+  "generatedAt": "2026-11-11T11:17:33.419Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "RegExp implementation that matches delimited text blocks recursively.",
+    "what_it_does": "Provides a RegExp‑like class that isolates text between start and end delimiters and returns each block as a match. It can operate globally, filter by surrounding patterns, and capture named groups inside the delimiters.",
+    "use_when": [
+      "You need to extract or process nested bracket‑like structures (e.g., XML‑like tags).",
+      "You require pre‑ or post‑pattern constraints on matched blocks."
+    ],
+    "avoid_when": [
+      "The input has no nested delimiters (plain RegExp is faster).",
+      "Performance is critical for large texts (this implementation is slower).",
+      "You need full regular‑expression features beyond delimiter matching."
+    ],
+    "strengths": [
+      "Handles arbitrarily nested delimiters correctly.",
+      "Supports prepended, appended, and inverse match filters.",
+      "Provides named capture groups inside delimiters."
+    ],
+    "weaknesses": [
+      "Not optimized for simple, non‑nested strings.",
+      "Limited to delimiter‑based matching; not a full parser."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "petitparser",
+        "why_pick_it": "A general‑purpose parser combinator library that can also handle nested structures with more control."
+      }
+    ],
+    "minimal_example": "import 'package:recursive_regex/recursive_regex.dart';\n\nfinal regex = RecursiveRegex(\n  startDelimiter: RegExp(r'<'),\n  endDelimiter: RegExp(r'>'),\n  global: true,\n);\nfinal input = '<a<b<c><d>>>';\nprint(regex.allMatches(input)); // ['<c>', '<d>', '<b<c><d>>', '<a<b<c><d>>>']",
+    "confidence": 0.9
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.0",
+  "generatedAt": "2026-11-11T11:34:18.167Z",
+  "data": {
+    "primary_category": "animation",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "An implicit animation library for creating smooth transitions between values in Flutter.",
+    "what_it_does": "It provides a simple widget that handles smooth implicit animations between two values over a given duration and curve. The builder function is called at each frame when the value changes, supporting a child parameter for optimization.",
+    "use_when": [
+      "You need implicit animations and AnimatedContainer is not sufficient",
+      "You want to animate custom numeric values between state changes"
+    ],
+    "avoid_when": [
+      "You need explicit animation controllers and complex choreography",
+      "You are already using an extensive animation library that covers this"
+    ],
+    "strengths": [
+      "Simple API for implicit animations",
+      "Supports optimization by separating animated parts from static children"
+    ],
+    "weaknesses": [
+      "Very minimal feature set compared to comprehensive animation suites",
+      "Not documented beyond basic usage"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [
+      {
+        "name": "flutter_animate",
+        "why_pick_it": "Offers a much more robust and feature-rich fluent API for animating Flutter widgets."
+      }
+    ],
+    "minimal_example": "@override\nWidget build(BuildContext context) {\n  return Animated(\n    value: 1.2,\n    curve: Curves.easeInOut,\n    duration: Duration(milliseconds: 300),\n    builder: (context, child, animation) => Transform.scale(\n      scale: animation.value,\n      child: child,\n    ),\n    child: Container(\n      width: 40,\n      height: 40,\n      color: Colors.red,\n    ),\n  );\n}",
+    "confidence": 0.95
+  }
+}

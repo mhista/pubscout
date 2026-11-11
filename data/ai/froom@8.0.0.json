@@ -1,0 +1,52 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "8.0.0",
+  "generatedAt": "2026-11-11T11:32:17.779Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [
+      "codegen"
+    ],
+    "approach": [
+      "code generation",
+      "declarative",
+      "stream-based"
+    ],
+    "one_liner": "A typesafe and reactive SQLite abstraction layer for Flutter applications.",
+    "what_it_does": "Froom provides automatic mapping between in-memory objects and SQLite database rows while allowing full control through SQL queries. It supports reactive queries using Streams, automatic migrations, upserts, encryption, and web storage via IndexedDB.",
+    "use_when": [
+      "You want a Room-inspired ORM for SQLite in Flutter with compile-time query verification.",
+      "You need reactive database queries that emit streams of data when tables change.",
+      "You require cross-platform database support including mobile, desktop, and web."
+    ],
+    "avoid_when": [
+      "You prefer a non-relational NoSQL key-value database like Hive or Isar.",
+      "You want to avoid using code generation tools like build_runner in your workflow."
+    ],
+    "strengths": [
+      "Typesafe API with support for compile-time checked SQL queries.",
+      "Reactive streams for automatic UI updates on database changes.",
+      "Supports automatic migrations, encryption, and full-text search (FTS5)."
+    ],
+    "weaknesses": [
+      "Requires running a code generator (`build_runner`) whenever entities or DAOs change.",
+      "Requires a basic understanding of SQL and SQLite."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add `froom` to dependencies and `froom_generator` with `build_runner` to dev_dependencies. Run `dart run build_runner build` to generate database code.",
+    "alternatives": [
+      {
+        "name": "drift",
+        "why_pick_it": "Choose drift if you want a more robust, feature-rich reactive SQL library for Dart and Flutter with powerful Dart-based query building."
+      },
+      {
+        "name": "sqflite",
+        "why_pick_it": "Choose sqflite if you want direct, lightweight control over raw SQLite without any ORM abstraction layer or code generation."
+      }
+    ],
+    "minimal_example": "final database = await $FroomAppDatabase.databaseBuilder('app_database.db').build();\n\nfinal personDao = database.personDao;\nfinal person = Person(1, 'Frank');\n\nawait personDao.insertPerson(person);\nfinal result = await personDao.findPersonById(1);",
+    "confidence": 0.95
+  }
+}

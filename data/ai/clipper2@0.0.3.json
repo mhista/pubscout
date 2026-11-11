@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.0.3",
+  "generatedAt": "2026-11-11T11:22:07.642Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Performs polygon clipping, intersection, union, difference, XOR, and offsetting operations.",
+    "what_it_does": "The clipper2 library performs intersection, union, difference and xor boolean operations on both simple and complex polygons. It also performs polygon offsetting. This library is a Dart port of Angus Johnson's Clipper2 library.",
+    "use_when": [
+      "You need to perform boolean operations (intersection, union, difference, XOR) on polygons",
+      "You need polygon offsetting capabilities in a Dart or Flutter application"
+    ],
+    "avoid_when": [
+      "You need high precision 64-bit integer operations on the web (precision is restricted)",
+      "You are looking for UI widgets or full UI kits"
+    ],
+    "strengths": [
+      "Port of the well-tested and robust Clipper2 library",
+      "Works across all platforms including mobile, desktop, and web",
+      "Provides extensive HTML documentation from the original C++ library"
+    ],
+    "weaknesses": [
+      "Precision is restricted when compiling for the web due to lack of 64-bit integers"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:clipper2/clipper2.dart';\n\nfinal subject = Path64Ext.from([100, 50, 10, 79, 65, 2, 65, 98, 10, 21]);\nfinal clip = Path64Ext.from[98, 63, 4, 68, 77, 8, 52, 100, 19, 12];\nsolution = Clipper.intersect(\n  subject: subject, \n  clip: clip, \n  fillRule: FillRule.nonZero,\n);",
+    "confidence": 0.95
+  }
+}

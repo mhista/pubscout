@@ -1,0 +1,55 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "10.1.0",
+  "generatedAt": "2026-11-11T11:44:10.849Z",
+  "data": {
+    "primary_category": "notifications",
+    "secondary_categories": [
+      "audio-video"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Infobip Mobile Messaging Flutter Plugin for push notifications, LiveChat, and WebRTC calls.",
+    "what_it_does": "Enables push notifications, LiveChat, and WebRTC calls in Flutter apps via the Infobip Mobile Messaging platform. Handles SDK initialization, message event listeners, and platform-specific configurations.",
+    "use_when": [
+      "You need to integrate Infobip push notifications in your Flutter app.",
+      "You want to use Infobip LiveChat and WebRTC calls.",
+      "You are targeting Android and iOS with native push integration."
+    ],
+    "avoid_when": [
+      "You prefer an open-source self-hosted notification solution without third-party platform dependencies.",
+      "You only need local notifications without remote push capabilities."
+    ],
+    "strengths": [
+      "Supports push notifications, LiveChat, and WebRTC calls out of the box.",
+      "Provides support for both CocoaPods and Swift Package Manager on iOS.",
+      "Active updates matching native Android and iOS SDK versions."
+    ],
+    "weaknesses": [
+      "Requires manual native configurations for iOS (AppDelegate, notification service extensions) and Android (Firebase setup, Google services).",
+      "Tied strictly to the proprietary Infobip backend and platform ecosystem."
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Requires setting up an application at the Infobip portal, modifying iOS AppDelegate with delegate installation, configuring CocoaPods or SPM, and adding Firebase google-services for Android.",
+    "alternatives": [
+      {
+        "name": "firebase_messaging",
+        "why_pick_it": "If you want direct Firebase Cloud Messaging integration without relying on the Infobip platform."
+      },
+      {
+        "name": "onesignal_flutter",
+        "why_pick_it": "If you prefer OneSignal as an alternative push notification platform."
+      },
+      {
+        "name": "intercom_flutter",
+        "why_pick_it": "If you want an alternative all-in-one messaging and live chat platform."
+      }
+    ],
+    "minimal_example": "await InfobipMobilemessaging.init(mmconf.Configuration(\n  applicationCode: '<Your app code>',\n  iosSettings: mmconf.IOSSettings(\n    notificationTypes: ['alert', 'badge', 'sound'],\n    logging: true,\n  ),\n  androidSettings: mmconf.AndroidSettings(\n    multipleNotifications: true,\n  ),  \n));\n\nInfobipMobilemessaging.on(LibraryEvent.messageReceived, (Message event) => {\n   print('Callback. messageReceived event,  message text: ${event.body}');\n});",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "1.0.5",
+  "generatedAt": "2026-11-11T11:12:10.272Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Extension to flutter_markdown_plus that renders LaTeX in markdown.",
+    "what_it_does": "Adds support for inline and block LaTeX syntax to flutter_markdown_plus using flutter_math_fork. It provides builders and syntax classes to parse and display mathematical expressions.",
+    "use_when": [
+      "You need to display LaTeX equations in markdown content.",
+      "You already use flutter_markdown_plus and want a single package for LaTeX support."
+    ],
+    "avoid_when": [
+      "You are not using flutter_markdown_plus or need a different markdown renderer.",
+      "You require advanced math rendering beyond basic LaTeX support."
+    ],
+    "strengths": [
+      "Simple integration with existing flutter_markdown_plus setup.",
+      "Supports both inline and block LaTeX with custom styling.",
+      "No additional build_runner or code generation required.",
+      "Cross‑platform support (android, ios, web, desktop)."
+    ],
+    "weaknesses": [
+      "Only works with flutter_markdown_plus; not compatible with flutter_markdown.",
+      "Relies on flutter_math_fork, which may have its own limitations.",
+      "No support for custom LaTeX packages or advanced rendering options.",
+      "No active maintenance beyond dependency updates (latest changelog only updates dependencies)."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dependency to pubspec, import the package, and use LatexElementBuilder with appropriate extensionSet.",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter_markdown_plus_latex/flutter_markdown_plus_latex.dart';\n\nMarkdownBody(\n  data: 'latex: \\$c = \\pm\\sqrt{a^2 + b^2}\\$',\n  builders: {'latex': LatexElementBuilder()},\n  extensionSet: md.ExtensionSet([LatexBlockSyntax()], [LatexInlineSyntax()]),\n);",
+    "confidence": 0.85
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.7.0",
+  "generatedAt": "2026-11-11T11:26:30.947Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "web-desktop"
+    ],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "Implementation of The Remote Framebuffer Protocol (VNC protocol) in Dart.",
+    "what_it_does": "Provides a client implementation of the Remote Framebuffer Protocol (RFC 6143, aka VNC protocol) for connecting to VNC servers, handling handshakes, pixel formats, encodings, and input events.",
+    "use_when": [
+      "You need to build a VNC client or viewer in Flutter or Dart.",
+      "You want to connect to a remote desktop using VNC protocol versions 3.3, 3.7, or 3.8."
+    ],
+    "avoid_when": [
+      "You need support for obsolescent or advanced encodings like RRE, Hextile, TRLE, or ZRLE.",
+      "You require a complete pre-built UI widget rather than a low-level protocol client."
+    ],
+    "strengths": [
+      "Supports multiple VNC protocol versions (3.3, 3.7, 3.8).",
+      "Handles both VNC Authentication and unauthenticated connections.",
+      "Provides stream-based updates and message handling."
+    ],
+    "weaknesses": [
+      "Lacks several encodings like Hextile, ZRLE, and desktop size pseudo-encodings.",
+      "Does not include a full out-of-the-box UI widget for viewing the framebuffer."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Simply add the dependency to pubspec.yaml and connect via RemoteFrameBufferClient.",
+    "alternatives": [],
+    "minimal_example": "final RemoteFrameBufferClient client = RemoteFrameBufferClient();\nawait client.connect(\n  hostname: '127.0.0.1',\n  password: 'password',\n);\nclient.updateStream.listen(\n  (final RemoteFrameBufferClientUpdate update) {\n    // Update your framebuffer\n  },\n);\nclient.handleIncomingMessages();",
+    "confidence": 0.95
+  }
+}

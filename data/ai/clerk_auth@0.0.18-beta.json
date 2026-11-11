@@ -1,0 +1,57 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.0.18-beta",
+  "generatedAt": "2026-11-11T11:14:53.086Z",
+  "data": {
+    "primary_category": "auth",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Dart SDK for Clerk authentication and user management.",
+    "what_it_does": "Provides sign‑up, sign‑in, session handling and user profile management through Clerk's API. Includes session‑token polling and support for passkeys and organization data. Works across Android, iOS, macOS, Windows and Linux.",
+    "use_when": [
+      "You need Clerk as your authentication backend",
+      "You want a single package handling sign‑in, sign‑up and session token streams",
+      "You require cross‑platform support without native SDKs"
+    ],
+    "avoid_when": [
+      "You need a stable, production‑ready SDK (still beta)",
+      "You prefer official provider SDKs like Firebase or Google Sign‑In",
+      "Your app only needs simple local biometrics"
+    ],
+    "strengths": [
+      "Community‑maintained with frequent updates",
+      "Supports passkeys, session token streaming and organization metadata",
+      "Works on all major desktop and mobile platforms"
+    ],
+    "weaknesses": [
+      "Beta status – breaking changes expected",
+      "Limited to Clerk backend only",
+      "Documentation still emerging"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add publishable key in AuthConfig, choose a Persistor (e.g., DefaultPersistor) and ensure a cache directory is provided for the platform.",
+    "alternatives": [
+      {
+        "name": "firebase_auth",
+        "why_pick_it": "Official, stable Firebase authentication with broad community support"
+      },
+      {
+        "name": "google_sign_in",
+        "why_pick_it": "Google‑only sign‑in with official SDKs"
+      },
+      {
+        "name": "sign_in_with_apple",
+        "why_pick_it": "Apple‑only sign‑in with native support"
+      }
+    ],
+    "minimal_example": "import 'dart:io';\nimport 'package:clerk_auth/clerk_auth.dart';\n\nFuture<void> main() async {\n  final auth = Auth(\n    config: const AuthConfig(publishableKey: '<YOUR-PUBLISHABLE-KEY>'),\n    persistor: DefaultPersistor(getCacheDirectory: () => Directory.current),\n  );\n  await auth.initialize();\n  await auth.attemptSignIn(strategy: Strategy.password, identifier: '<USER-EMAIL>', password: '<PASSWORD>');\n  print('Signed in as ${auth.user}');\n  await auth.signOut();\n  auth.terminate();\n}",
+    "confidence": 0.85
+  }
+}

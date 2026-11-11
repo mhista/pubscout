@@ -1,0 +1,48 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.5.0",
+  "generatedAt": "2026-11-11T11:43:08.088Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Efficiently derive memoized data from your Redux store or other state",
+    "what_it_does": "Provides selector functions to compute derived data from a single input like a Redux store. Caches results and only recomputes when input arguments change. Allows composing multiple selectors together.",
+    "use_when": [
+      "You are using Redux and need to compute expensive derived data from state",
+      "You want to keep your Redux state minimal by deriving views of data on the fly",
+      "You need to compose multiple data selectors efficiently without unnecessary recalculations"
+    ],
+    "avoid_when": [
+      "Your application is small and simple functions are enough",
+      "You are using a state management solution that already has built-in derivation and memoization like Riverpod"
+    ],
+    "strengths": [
+      "Memoizes derived computations to prevent redundant work",
+      "Composable selectors that can be combined like building blocks",
+      "Customizable memoization functions for different comparison strategies"
+    ],
+    "weaknesses": [
+      "Adds an extra layer of abstraction that is unnecessary for small applications",
+      "Geared primarily toward Redux workflows"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Not documented",
+    "alternatives": [
+      {
+        "name": "riverpod",
+        "why_pick_it": "Riverpod provides built-in state derivation and caching via providers, serving as a complete modern state management and dependency injection solution."
+      },
+      {
+        "name": "flutter_riverpod",
+        "why_pick_it": "Offers built-in reactive data derivation and caching integrated directly with Flutter widgets."
+      }
+    ],
+    "minimal_example": "final productsSelector = (AppState state) => state.products;\nfinal onSaleSelector = createSelector1(\n  productsSelector,\n  (products) => products.where((product) => product.onSale),\n);",
+    "confidence": 0.95
+  }
+}

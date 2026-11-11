@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.2.2",
+  "generatedAt": "2026-11-11T11:39:31.354Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "localization"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Parse strings in any format or language into DateTime objects, respecting ISO and RFC standards.",
+    "what_it_does": "Parses date and time strings across various international formats and languages into standard DateTime objects. It supports locale-specific parsing, ISO and major RFC standards, and UNIX timestamps in seconds, milliseconds, microseconds, or nanoseconds.",
+    "use_when": [
+      "You need to parse user-inputted dates that may come in unpredictable or mixed formats.",
+      "You need locale-aware date parsing for multiple languages.",
+      "You are handling dates adhering to major RFC or ISO standards alongside casual strings."
+    ],
+    "avoid_when": [
+      "You only ever deal with strict, uniform ISO 8601 date strings that Dart's built-in DateTime.parse can handle."
+    ],
+    "strengths": [
+      "Flexible parsing inspired by Python's dateutil library",
+      "Extensive locale support via the intl package",
+      "Handles ambiguous date cases via configuration rules"
+    ],
+    "weaknesses": [
+      "Requires the intl dependency for multi-language support",
+      "May require configuration rules to resolve ambiguous date formats like dd/mm/yy vs mm/dd/yy"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "const parser = AnyDate();\nfinal date = parser.parse('13 Aug 2023');",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.8.1",
+  "generatedAt": "2026-11-11T11:34:06.044Z",
+  "data": {
+    "primary_category": "navigation",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Imperative navigation extension for BuildContext without declarative patterns or build_runner.",
+    "what_it_does": "Provides BuildContext extension methods to push, pop, and manage routes imperatively while automatically handling route names for Sentry integration. It avoids verbose declarative routing patterns and does not require code generation.",
+    "use_when": [
+      "You prefer an imperative routing approach over a declarative setup like go_router",
+      "You want type-safe navigation and results without using build_runner",
+      "You need automatic route naming for error tracking services like Sentry"
+    ],
+    "avoid_when": [
+      "You need advanced declarative deep linking and URL path synchronisation out of the box",
+      "Your application relies heavily on obfuscation for production builds"
+    ],
+    "strengths": [
+      "Extremely low boilerplate for pushing and popping widgets",
+      "No code generation step required",
+      "Built-in type-safe results and Sentry integration support"
+    ],
+    "weaknesses": [
+      "Breaks if Flutter obfuscation is enabled because class names are used for route names",
+      "Opinionated approach that replaces standard Navigator calls heavily"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Optionally wrap your app with RouterinoHome and set Routerino.navigatorKey for global context usage.",
+    "alternatives": [],
+    "minimal_example": "context.push(() => MyPage());",
+    "confidence": 0.95
+  }
+}

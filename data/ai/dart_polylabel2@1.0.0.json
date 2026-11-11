@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.8-flash",
+  "version": "1.0.0",
+  "generatedAt": "2026-11-11T11:04:50.158Z",
+  "data": {
+    "primary_category": "maps",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Calculates the pole of inaccessibility for polygons to place labels optimally.",
+    "what_it_does": "A Dart port of Mapbox's polylabel algorithm that identifies the pole of inaccessibility within a polygon. It determines the most interior point of a polygon along with its distance to the polygon boundary. This enables optimal positioning for text labels or markers on complex shapes.",
+    "use_when": [
+      "Placing labels or center points visually inside complex polygon geometries on maps",
+      "Finding the most interior point of a 2D shape without using dart:math Point objects"
+    ],
+    "avoid_when": [
+      "Simple bounding box center or centroid arithmetic is sufficient for regular shapes",
+      "Working with non-polygon spatial data"
+    ],
+    "strengths": [
+      "Avoids dart:math Point to reduce generic casting overhead and improve performance",
+      "Modern Dart API using records for coordinates and return values",
+      "Supports all Dart and Flutter platforms with no native dependencies"
+    ],
+    "weaknesses": [
+      "Not backwards compatible with the older polylabel package",
+      "Limited documentation beyond the basic invocation snippet"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:dart_polylabel2/dart_polylabel2.dart';\n\nfinal polygon = [[(x: 0, y: 0), (x: 1, y: 0), (x: 1, y: 1), (x: 0, y: 1), (x: 0, y: 0)]];\nfinal (point: (:x, :y), :distance) = polylabel(polygon);",
+    "confidence": 0.95
+  }
+}

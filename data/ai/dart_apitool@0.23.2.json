@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.23.2",
+  "generatedAt": "2026-11-11T11:43:49.100Z",
+  "data": {
+    "primary_category": "devtools",
+    "secondary_categories": [
+      "testing"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Analyze and diff public APIs of Dart packages to check semantic versioning.",
+    "what_it_does": "Dart API Tool analyzes the public API of a package, creates a model of it, and compares it against another version. It helps maintainers verify that version numbers follow semantic versioning correctly by detecting breaking changes.",
+    "use_when": [
+      "You want to automate semver checking in your package CI pipeline.",
+      "You need to compare public APIs between different package versions, git branches, or local directories."
+    ],
+    "avoid_when": [
+      "You need a general-purpose linter or formatter for source code.",
+      "You want to analyze implementation details or internal logic rather than public APIs."
+    ],
+    "strengths": [
+      "Supports local paths, pub.dev packages, and Git repositories with specific tags or branches.",
+      "Integrates smoothly into CI workflows to catch accidental breaking changes early."
+    ],
+    "weaknesses": [
+      "It cannot cover all potential API changes or look into internal implementations.",
+      "Relies heavily on the accuracy of the analyzer and public exports."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Install globally via dart pub global activate dart_apitool.",
+    "alternatives": [],
+    "minimal_example": "dart-apitool diff --old pub://my_package/1.0.0 --new .",
+    "confidence": 1
+  }
+}

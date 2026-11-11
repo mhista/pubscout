@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.3.0",
+  "generatedAt": "2026-11-11T11:29:43.713Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "files"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based",
+      "hooks"
+    ],
+    "one_liner": "Dart SMB2/3 client built on libsmb2 for listings, streaming, downloads, uploads, and watches.",
+    "what_it_does": "Connects to SMB2 and SMB3 file shares on Samba, Windows, and NAS devices. Runs worker isolates for connection pooling, supporting file listings, streaming reads/writes, atomic downloads and uploads, copies, and directory watches across multiple platforms.",
+    "use_when": [
+      "You need to interact with SMB2/SMB3 file shares or NAS devices from a Dart or Flutter application.",
+      "You require robust file management operations like recursive directory listings, streaming, and progress-tracked downloads/uploads.",
+      "You want network operations to run off the main UI isolate using connection pools."
+    ],
+    "avoid_when": [
+      "You only need local device file system access (use standard Dart io instead).",
+      "Your target platform is not supported by the underlying libsmb2 native library."
+    ],
+    "strengths": [
+      "Pure Dart client with background worker isolates ensuring the UI isolate never waits on the network.",
+      "Comprehensive SMB feature set including directory watches, hard/symbolic links, and recursive tree operations.",
+      "Built-in automatic reconnection handling and typed SMB exceptions."
+    ],
+    "weaknesses": [
+      "Relies on native libsmb2 and OpenSSL dependencies bundled via a build hook, adding significantly to binary size.",
+      "Requires strict matching of native library versions if configured through custom user defines."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires INTERNET permission on Android and network client entitlements on macOS.",
+    "alternatives": [],
+    "minimal_example": "import 'package:dart_smb2/dart_smb2.dart';\n\nFuture<void> main() async {\n  final pool = await Smb2Pool.connect(\n    host: '192.168.1.10',\n    share: 'Music',\n    user: 'alice',\n    password: 'secret',\n  );\n  try {\n    for (final entry in await pool.listDirectory('')) {\n      print('${entry.name}  ${entry.isDirectory ? 'dir' : '${entry.size} B'}');\n    }\n  } finally {\n    await pool.disconnect();\n  }\n}",
+    "confidence": 1
+  }
+}

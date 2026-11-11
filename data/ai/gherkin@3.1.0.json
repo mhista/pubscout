@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.1.0",
+  "generatedAt": "2026-11-11T11:16:01.874Z",
+  "data": {
+    "primary_category": "testing",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "hooks"
+    ],
+    "one_liner": "A Gherkin parser and test runner for BDD testing in Dart and Flutter.",
+    "what_it_does": "It provides a fully featured Gherkin parser and test runner similar to Cucumber. It lets developers write feature files using BDD syntax and run them using explicitly provided step definitions, hooks, and configuration files.",
+    "use_when": [
+      "You want to write Behaviour Driven Development (BDD) tests using Gherkin feature files in Dart or Flutter.",
+      "You need to test your application scenarios with step definitions and custom world contexts without relying on reflection."
+    ],
+    "avoid_when": [
+      "You prefer standard widget or unit tests without feature files.",
+      "You require automatic reflection-based step discovery."
+    ],
+    "strengths": [
+      "Does not rely on mirrors/reflection, making it compatible with Flutter's constraints.",
+      "Closely follows Cucumber standards and syntax.",
+      "Supports customizable reporters, hooks, and step parameters."
+    ],
+    "weaknesses": [
+      "Requires explicit configuration and manual registration of steps, hooks, and parameters.",
+      "Setup can be verbose compared to standard testing frameworks."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires creating feature files, writing step definition classes, and setting up a configuration runner manually.",
+    "alternatives": [],
+    "minimal_example": "Future<void> main() {\n  final steps = [\n      givenTheNumbers(),\n      whenTheStoredNumbersAreAdded(),\n      thenExpectNumericResult()\n  ];\n  final config = TestConfiguration.standard(\n    steps,\n    hooks: [HookExample()],\n    customStepParameterDefinitions: [PowerOfTwoParameter()],\n    createWorld: (config) => Future.value(CalculatorWorld()),\n  );\n\n  return GherkinRunner().execute(config);\n}",
+    "confidence": 0.95
+  }
+}

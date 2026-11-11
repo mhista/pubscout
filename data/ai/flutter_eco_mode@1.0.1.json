@@ -1,0 +1,50 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.1",
+  "generatedAt": "2026-11-11T11:29:25.828Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "Plugin to determine device capacities, low-end status, battery eco mode, and connectivity.",
+    "what_it_does": "Evaluates hardware information, battery state, thermal state, and network connectivity to help implement custom eco-friendly power-saving modes in mobile apps.",
+    "use_when": [
+      "You want to detect low-end devices or battery eco modes to reduce app resource consumption",
+      "You need detailed platform hardware, storage, memory, and connectivity info on Android and iOS"
+    ],
+    "avoid_when": [
+      "You only need standard device information handled better by alternative packages like device_info_plus",
+      "You require support for desktop or web platforms"
+    ],
+    "strengths": [
+      "Provides aggregated device range and battery eco-mode streams out of the box",
+      "Typed custom exceptions replace generic platform exceptions",
+      "Supports both Android and iOS platforms"
+    ],
+    "weaknesses": [
+      "Limited platform support (Android and iOS only)",
+      "Some network connectivity checks may require optional native runtime permissions on Android"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Cellular network type detection on Android may require appropriate permissions.",
+    "alternatives": [
+      {
+        "name": "device_info_plus",
+        "why_pick_it": "If you only need standard device and OS metadata without the eco-mode scoring wrapper."
+      },
+      {
+        "name": "connectivity_plus",
+        "why_pick_it": "If you only require standard network connectivity monitoring across multiple platforms."
+      }
+    ],
+    "minimal_example": "try {\n  final connectivity = await FlutterEcoMode.instance.getConnectivity();\n} on EcoModePermissionDeniedException catch (e) {\n  // handle missing permission\n} on EcoModeException catch (e) {\n  // handle other typed errors\n}",
+    "confidence": 0.95
+  }
+}

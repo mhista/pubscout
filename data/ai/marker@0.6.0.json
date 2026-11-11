@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.6.0",
+  "generatedAt": "2026-11-11T11:12:38.899Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Renders a markdown AST back to markdown string",
+    "what_it_does": "Marker takes a list of markdown AST nodes and converts them back into a markdown string. It supports multiple markdown flavors and handles inline and reference links and images.",
+    "use_when": [
+      "You need to regenerate markdown from a parsed AST",
+      "You want to customize or post-process markdown output",
+      "You are working with the markdown package and need a reverse renderer"
+    ],
+    "avoid_when": [
+      "You need to render markdown to HTML or other formats",
+      "You are building a UI widget that displays markdown"
+    ],
+    "strengths": [
+      "Supports original, changelog, and custom markdown flavors",
+      "Handles inline and reference links and images",
+      "Fully null‑safe and compatible with Dart 3",
+      "No build_runner or code generation required"
+    ],
+    "weaknesses": [
+      "Only renders to markdown, not to HTML or other formats",
+      "No UI components or styling",
+      "Limited to the markdown package AST"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'dart:io';\nimport 'package:markdown/markdown.dart';\nimport 'package:marker/marker.dart';\n\nvoid main() {\n  final file = File('CHANGELOG.md');\n  final nodes = Document().parseLines(file.readAsLinesSync());\n  final markdown = render(nodes);\n  print(markdown);\n}",
+    "confidence": 0.9
+  }
+}

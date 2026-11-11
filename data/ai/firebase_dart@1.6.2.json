@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.6.2",
+  "generatedAt": "2026-11-11T11:14:36.855Z",
+  "data": {
+    "primary_category": "backend",
+    "secondary_categories": [
+      "auth",
+      "storage"
+    ],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "A pure Dart implementation of Firebase Authentication, Realtime Database, and Cloud Storage.",
+    "what_it_does": "Provides a pure Dart port of Firebase clients so you can access authentication, realtime database, and cloud storage across any platform including command line apps. It allows running database and auth logic in separate isolates or without an external emulator during unit tests.",
+    "use_when": [
+      "You need Firebase services in pure Dart environments like command-line apps.",
+      "You want to write unit tests for Firebase-dependent code without needing an external emulator.",
+      "You want to run Firebase operations in a separate isolate to keep the main thread smooth for rendering."
+    ],
+    "avoid_when": [
+      "You need full official feature parity with native Firebase SDKs for every authentication provider or storage option.",
+      "You rely heavily on features explicitly marked as unsupported in the package documentation (e.g., popup/redirect auth flows)."
+    ],
+    "strengths": [
+      "Pure Dart code works across all platforms, including command line and various desktop/mobile environments.",
+      "Built-in testing support allowing local setup without an external Firebase emulator.",
+      "Supports running the Firebase code in a separate isolate."
+    ],
+    "weaknesses": [
+      "Does not support all functionalities of the official Firebase authentication and storage services.",
+      "Query optimization features might occasionally conflict with very particular security rules."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Initialize FirebaseDart with a storage path or use FirebaseDartFlutter.setup(), then initialize Firebase using your configuration options.",
+    "alternatives": [],
+    "minimal_example": "FirebaseDart.setup(storagePath: 'path/to/persistent/storage');\nvar app = await Firebase.initializeApp(\n    options: FirebaseOptions.fromMap(json\n        .decode(File('example/firebase-config.json').readAsStringSync())));",
+    "confidence": 0.95
+  }
+}

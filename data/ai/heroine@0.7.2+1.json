@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.7.2+1",
+  "generatedAt": "2026-11-11T11:31:23.100Z",
+  "data": {
+    "primary_category": "animation",
+    "secondary_categories": [
+      "navigation"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Spring-based physics hero transitions and gesture-driven animations in Flutter.",
+    "what_it_does": "Heroine enables smooth spring-based hero transitions between routes with customizable bounce, drag-to-dismiss gestures, and velocity-aware animations. It integrates with Flutter's navigation system via a navigator observer and offers various shuttle builders for advanced transition effects.",
+    "use_when": [
+      "You want spring-based, physics-driven hero animations instead of default Flutter curves.",
+      "You need drag-to-dismiss interactions for detail views.",
+      "You require customizable flight shuttle builders like 3D flips or color fades during transitions."
+    ],
+    "avoid_when": [
+      "You are looking for state management or dependency injection libraries.",
+      "You want non-interactive, standard page transitions without hero elements."
+    ],
+    "strengths": [
+      "Provides smooth spring-based physics and velocity-aware animations.",
+      "Supports drag-to-dismiss gestures out of the box.",
+      "Offers flexible transition effects with chainable shuttle builders."
+    ],
+    "weaknesses": [
+      "Does not support nested transitions (though nesting heroines not part of the same transition is allowed).",
+      "Requires proper registration of `HeroineController` in navigators."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Register `HeroineController()` in your app's navigator observers (e.g., `MaterialApp(navigatorObservers: [HeroineController()])`).",
+    "alternatives": [],
+    "minimal_example": "MaterialApp(\n  home: MyHomePage(),\n  navigatorObservers: [HeroineController()],\n);\n\n// Source route\nHeroine(\n  tag: 'unique-tag',\n  child: MyWidget(),\n);\n\n// Destination route\nHeroine(\n  tag: 'unique-tag',\n  child: MyExpandedWidget(),\n);",
+    "confidence": 0.95
+  }
+}

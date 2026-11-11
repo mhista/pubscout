@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.1",
+  "generatedAt": "2026-11-11T11:23:17.533Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "auth"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Pure Dart Argon2 algorithm for password hashing across all platforms.",
+    "what_it_does": "Provides a pure Dart implementation of the Argon2 password hashing algorithm, allowing developers to generate cryptographic keys and hashes from passwords and salts on all Dart platforms including JS/Web, Flutter, and VM/Native.",
+    "use_when": [
+      "You need to securely hash passwords using the Argon2 algorithm in a pure Dart environment.",
+      "Your application targets multiple platforms including Web, Native, and Flutter."
+    ],
+    "avoid_when": [
+      "You only need standard hashing algorithms like SHA or MD5 already covered by the crypto package.",
+      "You prefer platform-specific native implementations for performance reasons."
+    ],
+    "strengths": [
+      "Pure Dart implementation works across all platforms (JS/Web, Flutter, VM/Native).",
+      "Implements the winner of the Password Hash Competition 2015."
+    ],
+    "weaknesses": [
+      "Pure Dart implementations of heavy crypto algorithms may be slower than native C bindings.",
+      "Limited documentation beyond the basic README example."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "crypto",
+        "why_pick_it": "If you need standard cryptographic hash functions like SHA, MD5, or HMAC built for Dart."
+      }
+    ],
+    "minimal_example": "import 'dart:typed_data';\nimport 'package:argon2/argon2.dart';\n\nvoid main() {\n  var password = 'pass123456';\n  var salt = 'somesalt'.toBytesLatin1();\n  var parameters = Argon2Parameters(\n    Argon2Parameters.ARGON2_i,\n    salt,\n    version: Argon2Parameters.ARGON2_VERSION_10,\n    iterations: 2,\n    memoryPowerOf2: 16,\n  );\n  var argon2 = Argon2BytesGenerator();\n  argon2.init(parameters);\n  var passwordBytes = parameters.converter.convert(password);\n  var result = Uint8List(32);\n  argon2.generateBytes(passwordBytes, result, 0, result.length);\n  var resultHex = result.toHexString();\n  print('Result: $resultHex');\n}",
+    "confidence": 1
+  }
+}

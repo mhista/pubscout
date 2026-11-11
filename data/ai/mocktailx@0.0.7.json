@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.0.7",
+  "generatedAt": "2026-11-11T11:43:01.026Z",
+  "data": {
+    "primary_category": "testing",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Utility functions for the mocktail library to increase productivity in tests.",
+    "what_it_does": "Adds extension methods to mocktail stubbing objects, allowing concise syntax for answers, returns, streams, and ordered mock sequences. It acts as a wrapper so mocktail does not need to be imported separately.",
+    "use_when": [
+      "You are already using mocktail for testing and want to reduce boilerplate when stubbing methods.",
+      "You need to easily stub sequential return values or answers using thenReturnInOrder or thenAnswerInOrder."
+    ],
+    "avoid_when": [
+      "You do not use the mocktail library in your test suite.",
+      "You prefer using standard mocktail syntax without additional wrappers."
+    ],
+    "strengths": [
+      "Reduces boilerplate code for common stubbing patterns like void functions and streams.",
+      "Provides convenient ordered return and answer sequences.",
+      "Exports mocktail so you do not need to import both packages."
+    ],
+    "weaknesses": [
+      "Dependent on the mocktail package and its version updates.",
+      "Very narrow scope focused only on syntax sugar for mocktail."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add mocktailx to your dev_dependencies and import package:mocktailx/mocktailx.dart in your test files.",
+    "alternatives": [],
+    "minimal_example": "when(() => repo.addOne(any())).thenReturnInOrder([6, 7, 99]);",
+    "confidence": 1
+  }
+}

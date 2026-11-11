@@ -1,0 +1,52 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.2",
+  "generatedAt": "2026-11-11T11:36:48.199Z",
+  "data": {
+    "primary_category": "animation",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Provides physics-based spring animation curves with customizable bounciness.",
+    "what_it_does": "It implements physics-based spring animations as standard Flutter Curves. It allows developers to create natural motion by specifying a bounce parameter between 0 and 1, and provides a recommendedDuration property for accurate timing.",
+    "use_when": [
+      "You want to add natural, spring-physics based curves to Flutter's AnimationController or Animated widgets.",
+      "You need configurable bounciness levels ranging from smooth to maximum bounce."
+    ],
+    "avoid_when": [
+      "You need timeline-based keyframe animations or complex pre-rendered animations.",
+      "You are using complex vector graphics engines like Rive or Lottie."
+    ],
+    "strengths": [
+      "Intuitive API that integrates seamlessly as a standard Flutter Curve.",
+      "Provides five predefined curves with varying bounciness levels.",
+      "Includes a recommendedDuration property calculated automatically from the bounce parameter."
+    ],
+    "weaknesses": [
+      "Limited to spring curve calculations rather than being a complete animation authoring suite."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "flutter_animate",
+        "why_pick_it": "If you want a comprehensive, chainable extension-based animation library instead of isolated spring curves."
+      },
+      {
+        "name": "lottie",
+        "why_pick_it": "If you want to render complex vector animations exported from After Effects."
+      },
+      {
+        "name": "rive",
+        "why_pick_it": "If you need interactive state machine animations."
+      }
+    ],
+    "minimal_example": "final ElegantSpring curve = ElegantSpring.smooth;\n\nAnimatedScale(\n    scale: condition ? 0.5 : 1.0,\n    duration: curve.recommendedDuration,\n    curve: curve,\n    child: const Text('Hello'),\n)",
+    "confidence": 1
+  }
+}

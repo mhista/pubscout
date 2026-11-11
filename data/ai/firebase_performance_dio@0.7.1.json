@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.7.1",
+  "generatedAt": "2026-11-11T11:13:12.956Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "backend"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Dio interceptor that records HTTP request metrics in Firebase Performance.",
+    "what_it_does": "The package provides a Dio interceptor which creates a Firebase Performance HttpMetric for each request and reports timing data. It stores the metric in the request's extra field and finishes it when the response arrives.",
+    "use_when": [
+      "You already use Dio for network calls and want automatic performance monitoring with Firebase.",
+      "You need minimal code to add Firebase Performance metrics to existing Dio requests."
+    ],
+    "avoid_when": [
+      "You are not using Firebase Performance in your project.",
+      "You use a different HTTP client (e.g., http package) and cannot add a Dio interceptor."
+    ],
+    "strengths": [
+      "Zero‑boilerplate integration with existing Dio instances",
+      "Keeps metric lifecycle tied to Dio request lifecycle"
+    ],
+    "weaknesses": [
+      "Works only with Dio, not other HTTP clients",
+      "Relies on firebase_performance plugin setup separately"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Ensure firebase_performance is initialized in your app (e.g., call Firebase.initializeApp and enable Performance collection). Then add the interceptor to your Dio instance.",
+    "alternatives": [],
+    "minimal_example": "final dio = Dio();\nfinal interceptor = DioFirebasePerformanceInterceptor();\ndio.interceptors.add(interceptor);",
+    "confidence": 0.92
+  }
+}

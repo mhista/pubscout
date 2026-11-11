@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.6.0",
+  "generatedAt": "2026-11-11T11:28:06.613Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "backend"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Dart client library for accessing the HTTP API of the Typesense search engine.",
+    "what_it_does": "Provides a Dart and Flutter client to connect and interact with the Typesense search engine HTTP API. Allows performing searches, managing collections, documents, synonyms, and other engine operations.",
+    "use_when": [
+      "You are building a Flutter app that connects directly to a Typesense search backend.",
+      "You need to execute full-text search, filtering, and sorting queries against Typesense."
+    ],
+    "avoid_when": [
+      "You need a general-purpose HTTP client rather than a Typesense-specific API wrapper.",
+      "You are using a search engine other than Typesense."
+    ],
+    "strengths": [
+      "Direct integration with Typesense search engine APIs.",
+      "Supports multi-node configurations, retries, and connection timeouts.",
+      "Actively updated with support for recent Typesense server features."
+    ],
+    "weaknesses": [
+      "Still under development, meaning some APIs might change in future versions.",
+      "Exposing master API keys in user-facing apps is insecure; requires setting up search-only keys."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the dependency to pubspec.yaml and configure a Client with your node addresses and API key.",
+    "alternatives": [
+      {
+        "name": "http",
+        "why_pick_it": "If you prefer making raw HTTP requests to the Typesense API without using a dedicated client library."
+      },
+      {
+        "name": "dio",
+        "why_pick_it": "If you want a powerful generic HTTP client for handling requests instead of the dedicated Typesense wrapper."
+      }
+    ],
+    "minimal_example": "import 'package:typesense/typesense.dart';\n\nvoid main() async {\n  final config = Configuration(\n    'xyz',\n    nodes: {\n      Node(Protocol.http, 'localhost', port: 8108),\n    },\n  );\n  final client = Client(config);\n  await client.collection('companies').documents.search({'q': 'stark'});\n}",
+    "confidence": 0.95
+  }
+}

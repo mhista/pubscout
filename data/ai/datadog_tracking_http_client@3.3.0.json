@@ -1,0 +1,51 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.3.0",
+  "generatedAt": "2026-11-11T11:08:11.322Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "devtools"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "A tracking implementation of HttpClient for monitoring HTTP calls and distributed tracing with Datadog.",
+    "what_it_does": "It wraps `dart:io`'s `HttpClient` via `HttpOverrides` or provides a composable `DatadogClient` for the `http` package to track performance of HTTP calls, capture request/response headers, and enable Datadog Distributed Tracing.",
+    "use_when": [
+      "You are using Datadog RUM and want to automatically track performance and errors of HTTP requests.",
+      "You need to enable Datadog Distributed Tracing for your backend API calls.",
+      "You are using native HTTP libraries like cronet_http or cupertino_http with the composable DatadogClient."
+    ],
+    "avoid_when": [
+      "You are not using Datadog for monitoring and analytics.",
+      "You need to use custom `HttpOverrides` that conflict with Datadog's initialization order and cannot be initialized prior to Datadog."
+    ],
+    "strengths": [
+      "Automatic network tracking from background isolates and main thread.",
+      "Supports distributed tracing with OTel b3 and W3C tracecontext header injection.",
+      "Composable `DatadogClient` available for specific resource requests or packages like cronet_http."
+    ],
+    "weaknesses": [
+      "Modifies global `HttpOverrides.global`, which can conflict with other packages overriding HTTP behavior.",
+      "Requires proper ordering of `HttpOverrides` initialization if you have your own overrides."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Enable it during the configuration of the Datadog SDK using enableHttpTracking() and configure firstPartyHosts.",
+    "alternatives": [
+      {
+        "name": "http",
+        "why_pick_it": "If you only need standard HTTP requests without Datadog RUM tracking and distributed tracing."
+      },
+      {
+        "name": "dio",
+        "why_pick_it": "If you prefer a powerful HTTP client with interceptors instead of wrapping HttpClient or using the http package."
+      }
+    ],
+    "minimal_example": "final configuration = DatadogConfiguration(\n  firstPartyHosts: ['example.com'],\n)..enableHttpTracking();",
+    "confidence": 0.95
+  }
+}

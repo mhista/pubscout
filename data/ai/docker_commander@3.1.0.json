@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.1.0",
+  "generatedAt": "2026-11-11T11:47:28.097Z",
+  "data": {
+    "primary_category": "backend",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Docker manager for local and remote host machines to automate Docker Daemons and Swarms.",
+    "what_it_does": "Automates Docker Daemons and Swarms from Dart, supporting local and remote management, file manipulation inside containers, formulas, and pre-configured popular containers like PostgreSQL, Apache, and NGINX.",
+    "use_when": [
+      "You need to manage Docker containers programmatically from Dart or Flutter.",
+      "You want to spin up pre-configured services like PostgreSQL or NGINX during development or testing."
+    ],
+    "avoid_when": [
+      "You do not have access to a Docker daemon or the ability to map the Docker socket."
+    ],
+    "strengths": [
+      "Supports both local and remote Docker host management.",
+      "Includes pre-configured containers and formulas for popular services.",
+      "Works across multiple platforms."
+    ],
+    "weaknesses": [
+      "Requires access to a Docker daemon and proper socket configuration."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires mapping the Docker Host Daemon socket file (/var/run/docker.sock) and a running Docker environment.",
+    "alternatives": [],
+    "minimal_example": "import 'package:docker_commander/docker_commander_vm.dart';\n\nvoid main() async {\n  var dockerCommander = DockerCommander(DockerHostLocal());\n  await dockerCommander.initialize();\n  await dockerCommander.checkDaemon();\n  var dockerContainer = await dockerCommander.run('hello-world');\n  var exitCode = await dockerContainer.waitExit();\n  print('EXIT CODE: $exitCode');\n}",
+    "confidence": 0.95
+  }
+}

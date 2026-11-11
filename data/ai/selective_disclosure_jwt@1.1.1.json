@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.1.1",
+  "generatedAt": "2026-11-11T11:37:40.700Z",
+  "data": {
+    "primary_category": "auth",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Dart SDK for working with Selective Disclosure JSON Web Tokens (SD-JWT)",
+    "what_it_does": "Implements the IETF SD-JWT specification allowing issuers to create JWTs with selectively disclosable claims, holders to present specific claims, and verifiers to validate them.",
+    "use_when": [
+      "You need to implement privacy-preserving data sharing using Selective Disclosure JSON Web Tokens.",
+      "Your application acts as an Issuer, Holder, or Verifier within an SD-JWT workflow."
+    ],
+    "avoid_when": [
+      "You only require standard JWT encoding and decoding without selective disclosure features."
+    ],
+    "strengths": [
+      "Supports multiple signing algorithms including ES256, ES256K, RS256, HS256, and EdDSA.",
+      "Provides built-in key binding to prevent unauthorized presentations."
+    ],
+    "weaknesses": [
+      "Niche standard that may require understanding complex IETF specifications.",
+      "Custom signers, hashers, and verifiers must be written manually if you use uncommon cryptographic algorithms."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:selective_disclosure_jwt/selective_disclosure_jwt.dart';\n\nvoid main() async {\n  final issuerPrivateKey = SdPrivateKey('KEY', SdJwtSignAlgorithm.es256k);\n  final handler = SdJwtHandlerV1();\n  final claims = {'given_name': 'Alice', 'family_name': 'Smith'};\n  final disclosureFrame = {'_sd': ['given_name']};\n\n  final sdJwt = await handler.sign(\n    claims: claims,\n    disclosureFrame: disclosureFrame,\n    signer: SDKeySigner(issuerPrivateKey),\n  );\n  print(sdJwt.serialized);\n}",
+    "confidence": 0.95
+  }
+}

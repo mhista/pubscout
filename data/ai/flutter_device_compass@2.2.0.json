@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.2.0",
+  "generatedAt": "2026-11-11T11:35:01.853Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "stream-based"
+    ],
+    "one_liner": "A Flutter compass plugin using device sensors to provide real-time heading and accuracy.",
+    "what_it_does": "Provides real-time device heading in degrees (0-360) using built-in device sensors. It automatically compensates for device orientation changes, offers camera-mode heading for augmented reality, and exposes sensor accuracy and hardware availability.",
+    "use_when": [
+      "You need to build a compass or directional UI in Flutter.",
+      "Your application requires augmented reality or camera-mode orientation headings.",
+      "You need orientation-compensated heading readings from device sensors."
+    ],
+    "avoid_when": [
+      "The target devices lack physical compass or rotation sensors.",
+      "You only require standard geolocation coordinates without magnetic heading."
+    ],
+    "strengths": [
+      "Orientation-aware and automatically compensates for device rotation changes.",
+      "Exposes camera-mode heading for AR or camera overlays.",
+      "Tunable update presets to balance smoothness and battery consumption."
+    ],
+    "weaknesses": [
+      "Requires platform-specific location permissions on iOS.",
+      "Depends on physical hardware sensors which are not available on all devices."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "iOS requires location permission strings in Info.plist. Android usage of fine location is optional depending on features.",
+    "alternatives": [
+      {
+        "name": "sensors_plus",
+        "why_pick_it": "Provides raw accelerometer, gyroscope, and magnetometer sensor streams if you need to build custom sensor processing instead of a dedicated compass."
+      }
+    ],
+    "minimal_example": "import 'package:flutter_device_compass/flutter_device_compass.dart';\n\nfinal subscription = FlutterCompass.events?.listen((CompassEvent event) {\n  print('Heading: ${event.heading}°');\n});",
+    "confidence": 0.95
+  }
+}

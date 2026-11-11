@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.0.5",
+  "generatedAt": "2026-11-11T11:27:19.985Z",
+  "data": {
+    "primary_category": "files",
+    "secondary_categories": [
+      "device"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Open files with default system-provided applications.",
+    "what_it_does": "A plugin that allows opening files using the default applications provided by the system. It supports Android, iOS, Web, Linux, macOS, and Windows platforms.",
+    "use_when": [
+      "You need to open generated or downloaded files with system applications.",
+      "You want to handle file opening across Android, iOS, Web, and desktop platforms."
+    ],
+    "avoid_when": [
+      "You need to install APK files on Android (does not include REQUEST_INSTALL_PACKAGES permission).",
+      "You rely on broad external storage permissions on Android."
+    ],
+    "strengths": [
+      "Supports multiple platforms including mobile, desktop, and web.",
+      "Rewritten Android implementation for more robust permission checks without bundling dangerous permissions."
+    ],
+    "weaknesses": [
+      "Does not handle or request permissions for you; permission denied results must be handled manually.",
+      "On web, files are typically downloaded or opened directly via browser behavior without pre-flight checks."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "No special build tools needed. Platform-specific permission handling may be required depending on where the files are stored.",
+    "alternatives": [],
+    "minimal_example": "import 'package:open_app_file/open_app_file.dart';\n\nOpenAppFile.open('/sdcard/example.txt');",
+    "confidence": 0.95
+  }
+}

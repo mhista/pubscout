@@ -1,0 +1,46 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.1.2",
+  "generatedAt": "2026-11-11T11:14:28.513Z",
+  "data": {
+    "primary_category": "images",
+    "secondary_categories": [
+      "files"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Convert HEIC images to JPG, PNG, or WebP on mobile, web, and desktop.",
+    "what_it_does": "A Flutter package to convert HEIC and HEIF images into JPG, PNG, or WebP formats across mobile, web, and desktop platforms. It provides resizing, batch conversion, file path APIs, and image information reading without blocking the UI thread.",
+    "use_when": [
+      "You need to handle user-uploaded HEIC photos on web or cross-platform apps.",
+      "You want to convert HEIC images to standard formats like JPG or PNG.",
+      "You need to check image types or read dimensions without full decoding."
+    ],
+    "avoid_when": [
+      "You only need standard image picking without conversion functionality.",
+      "You need robust WebP encoding directly on mobile without falling back to PNG."
+    ],
+    "strengths": [
+      "Supports multiple platforms including mobile, web, and desktop.",
+      "Provides helper utilities such as batch conversion, magic-byte checks, and dimension reading.",
+      "Runs processing in an isolate to keep the UI thread free."
+    ],
+    "weaknesses": [
+      "WebP output on mobile falls back to PNG because the Dart image package lacks a WebP encoder.",
+      "Desktop and WebP on mobile rely on the Dart image package fallback which may have limited HEIC support."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires Flutter 3.24.0 or later. iOS deployment target must be 12.0 or later.",
+    "alternatives": [
+      {
+        "name": "image_picker",
+        "why_pick_it": "If you primarily need to pick images from the device gallery or camera rather than explicitly converting HEIC data formats."
+      }
+    ],
+    "minimal_example": "import 'package:heic_to_png_jpg/heic_to_png_jpg.dart';\n\nfinal Uint8List heicData = ...;\nfinal jpg = await HeicConverter.convertToJPG(heicData: heicData, quality: 85);",
+    "confidence": 0.95
+  }
+}

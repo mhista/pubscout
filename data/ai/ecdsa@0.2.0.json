@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.2.0",
+  "generatedAt": "2026-11-11T11:12:56.211Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Implements ECDSA signing and verification in pure Dart.",
+    "what_it_does": "Provides functions to generate EC keys, sign message hashes, and verify signatures. Includes deterministic signing, low‑S signatures, and Ethereum‑specific recovery helpers.",
+    "use_when": [
+      "Need ECDSA signatures in a Dart/Flutter app",
+      "Building blockchain or crypto‑related features without native code"
+    ],
+    "avoid_when": [
+      "Require hardware‑backed key storage or signing",
+      "Need higher‑level authentication flows",
+      "Performance‑critical cryptography where native libs are preferred"
+    ],
+    "strengths": [
+      "Pure Dart implementation, no native dependencies",
+      "Supports multiple curves via elliptic package",
+      "Security‑focused updates (deterministic, low‑S)"
+    ],
+    "weaknesses": [
+      "Limited to ECDSA only, no broader crypto suite",
+      "May be slower than native implementations",
+      "No built‑in key management or storage"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:ecdsa/ecdsa.dart';\nimport 'package:elliptic/elliptic.dart';\n\nvoid main() {\n  var ec = getP256();\n  var priv = ec.generatePrivateKey();\n  var pub = priv.publicKey;\n  var hashHex = 'b94d27b9934d3e08a52e52d7da7dabfac484efe37a5380ee9088f7ace2efcde9';\n  var hash = List<int>.generate(hashHex.length ~/ 2,\n      (i) => int.parse(hashHex.substring(i * 2, i * 2 + 2), radix: 16));\n  var sig = signature(priv, hash);\n  var result = verify(pub, hash, sig);\n  assert(result);\n}",
+    "confidence": 0.9
+  }
+}

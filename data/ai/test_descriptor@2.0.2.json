@@ -1,0 +1,46 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.8-flash",
+  "version": "2.0.2",
+  "generatedAt": "2026-11-11T11:10:14.872Z",
+  "data": {
+    "primary_category": "testing",
+    "secondary_categories": [
+      "files"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Declarative API for creating and verifying file and directory structures in tests.",
+    "what_it_does": "Provides an API using descriptors (such as `d.file` and `d.dir`) to declare filesystem structures. It automatically manages a temporary sandbox directory per test, allowing you to create files on disk and validate that file hierarchies match expected structures. It handles setup and cleanup of sandbox directories automatically when used with the `test` package.",
+    "use_when": [
+      "Testing CLI tools, file parsers, or code generators that manipulate filesystem paths",
+      "Setting up and validating complex directory and file hierarchies in unit and integration tests",
+      "You need isolated sandbox environments per test run that are cleaned up automatically"
+    ],
+    "avoid_when": [
+      "Testing in environments without `dart:io` access such as web applications",
+      "Unit tests that do not involve filesystem interactions"
+    ],
+    "strengths": [
+      "Declarative, tree-like structure makes complex folder setups easy to read and maintain",
+      "Automatic creation and teardown of the temporary test sandbox directory",
+      "Provides both creation (`create()`) and assertion (`validate()`) workflows"
+    ],
+    "weaknesses": [
+      "Archive support (zip/tar) was removed in version 2.0.0",
+      "Relies directly on filesystem I/O rather than an in-memory mock filesystem"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "file",
+        "why_pick_it": "Provides a full mockable filesystem interface (MemoryFileSystem) to test file operations in-memory without touching disk."
+      }
+    ],
+    "minimal_example": "import 'package:test/test.dart';\nimport 'package:test_descriptor/test_descriptor.dart' as d;\n\nvoid main() {\n  test('file verification', () async {\n    await d.dir('parent', [\n      d.file('sibling.txt', 'hello world'),\n      d.dir('child', [d.file('item.txt', 'item-content')])\n    ]).create();\n\n    await d.dir('parent', [\n      d.file('sibling.txt', 'hello world')\n    ]).validate();\n  });\n}",
+    "confidence": 1
+  }
+}

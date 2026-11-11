@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.0.18-beta",
+  "generatedAt": "2026-11-11T11:25:31.674Z",
+  "data": {
+    "primary_category": "auth",
+    "secondary_categories": [
+      "ui-kits"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Community-maintained Clerk SDK for user authentication and management in Flutter.",
+    "what_it_does": "Allows Flutter applications to authenticate users and manage profiles using Clerk. Provides widgets and utilities for sign-up, sign-in, and handling authentication states.",
+    "use_when": [
+      "You are using Clerk as your authentication and user management backend in a Flutter app",
+      "You want pre-built UI components for Clerk authentication flows"
+    ],
+    "avoid_when": [
+      "You require official, first-party support from Clerk (this SDK is community-maintained)",
+      "Your project relies on older versions of Flutter (< 3.27.4) or Dart (< 3.6.2)"
+    ],
+    "strengths": [
+      "Integrates Clerk sign-up, sign-in, and user management directly into Flutter",
+      "Includes helpful widgets like ClerkAuthBuilder and ClerkUserButton",
+      "Supports passkeys, Google OAuth, and Sign in with Apple"
+    ],
+    "weaknesses": [
+      "Currently in Beta, meaning breaking changes should be expected until the 1.0.0 release",
+      "Community-maintained and provided as-is without official Clerk support"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires adding the INTERNET permission to Android's AndroidManifest.xml and configuring publishable API keys from the Clerk Dashboard.",
+    "alternatives": [
+      {
+        "name": "firebase_auth",
+        "why_pick_it": "Choose this if you use Firebase as your backend instead of Clerk."
+      }
+    ],
+    "minimal_example": "ClerkAuth(\n  config: ClerkAuthConfig(publishableKey: publishableKey),\n  child: MaterialApp(\n    home: ClerkAuthBuilder(\n      signedInBuilder: (context, authState) => const ClerkUserButton(),\n      signedOutBuilder: (context, authState) => const ClerkAuthentication(),\n    ),\n  ),\n)",
+    "confidence": 0.95
+  }
+}

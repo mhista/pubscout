@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.0.0",
+  "generatedAt": "2026-11-11T11:12:51.393Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Cryptographic algorithms for encryption, signatures, key agreement, and hashing across platforms.",
+    "what_it_does": "Provides popular cryptographic algorithms including AES, ChaCha20, ED25519, X25519, Argon2, and various hashing and MAC functions. It supports multi-platform usage with optimized browser Web Crypto and operating system APIs.",
+    "use_when": [
+      "You need secure encryption, decryption, or password hashing in your Dart or Flutter application.",
+      "You require cross-platform cryptographic operations with browser performance optimization."
+    ],
+    "avoid_when": [
+      "You only need simple built-in Dart operations without advanced ciphers or key exchange protocols."
+    ],
+    "strengths": [
+      "Good cross-platform support including web, mobile, and desktop.",
+      "Utilizes platform APIs and Web Cryptography for improved performance.",
+      "Comprehensive algorithm support (AES, ChaCha20, Ed25519, Argon2id, etc.)."
+    ],
+    "weaknesses": [
+      "Some non-Dart algorithms (like NIST elliptic curves and RSA) lack pure-Dart implementations.",
+      "Complex API surface with ongoing transitions to wands and new major versions."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Optionally import cryptography_flutter_plus when using Flutter to delegate calls to Android/iOS/macOS OS APIs.",
+    "alternatives": [
+      {
+        "name": "cryptography",
+        "why_pick_it": "The original package maintained by gohilla before repository movement and community updates in cryptography_plus."
+      }
+    ],
+    "minimal_example": "final algorithm = AesGcm.with256bits();\nfinal secretKey = await algorithm.newSecretKey();\nfinal nonce = algorithm.newNonce();\n\nfinal encrypted = await algorithm.encrypt(\n  utf8.encode('Hello world!'),\n  secretKey: secretKey,\n  nonce: nonce,\n);",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.0.61",
+  "generatedAt": "2026-11-11T11:17:23.787Z",
+  "data": {
+    "primary_category": "payments",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter plugin for HyperSDK enabling payment orchestration via dynamic modules.",
+    "what_it_does": "Provides integration with HyperSDK for payment orchestration, dynamic modules, transaction processing, and user payment profile management. Supports rendering payment options via full-screen views, containers, or embedded widgets.",
+    "use_when": [
+      "You need to integrate Juspay HyperSDK payment orchestration into a Flutter application.",
+      "You require dynamic payment modules and multi-tenant payment handling on Android and iOS."
+    ],
+    "avoid_when": [
+      "You are looking for a standard Stripe or generic in-app purchase implementation not tied to Juspay.",
+      "You want a pure Dart payment solution without native Android/iOS native setup requirements."
+    ],
+    "strengths": [
+      "Supports multiple payment widgets, container views, and full-screen processes.",
+      "Provides flexibility for Android and iOS configuration including Swift Package Manager and CocoaPods."
+    ],
+    "weaknesses": [
+      "Requires manual native configuration on both Android (ext properties, FragmentActivity) and iOS (MerchantConfig.json, build scripts).",
+      "AGPL-3.0 license may pose restrictions depending on your application's licensing requirements."
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Requires modifying root build.gradle on Android, extending FlutterFragmentActivity, adding MerchantConfig.json on iOS, and setting up Podfile or Swift Package Manager build scripts.",
+    "alternatives": [
+      {
+        "name": "flutter_stripe",
+        "why_pick_it": "If your target gateway is Stripe rather than Juspay."
+      },
+      {
+        "name": "adyen_checkout",
+        "why_pick_it": "If you are integrating Adyen payment processing instead of Juspay."
+      }
+    ],
+    "minimal_example": "final hyperSDK = HyperSDK();\nawait hyperSDK.initiate(initiatePayload, initiateCallbackHandler);\nawait hyperSDK.process(processPayload, hyperSDKCallbackHandler);",
+    "confidence": 0.95
+  }
+}

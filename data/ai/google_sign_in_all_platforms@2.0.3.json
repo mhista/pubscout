@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.3",
+  "generatedAt": "2026-11-11T11:46:50.482Z",
+  "data": {
+    "primary_category": "auth",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Google Sign-In plugin supporting all platforms including Windows and Linux desktop.",
+    "what_it_does": "Allows users to sign in with their Google accounts across Android, iOS, Web, Windows, macOS, and Linux. On desktop platforms, it utilizes the default browser with existing sessions, while delegating to the official package on mobile and web.",
+    "use_when": [
+      "You need Google Sign-In support on desktop platforms like Windows and Linux.",
+      "You want a unified Google authentication API across all platforms."
+    ],
+    "avoid_when": [
+      "You only need to target mobile or web platforms (where the official package is sufficient).",
+      "You do not want to configure custom OAuth redirect URIs for desktop."
+    ],
+    "strengths": [
+      "Brings Google Sign-In to Windows and Linux desktop platforms.",
+      "Preserves existing browser sessions on desktop.",
+      "Provides a reactive authentication state stream."
+    ],
+    "weaknesses": [
+      "Requires platform-specific OAuth client credentials configuration.",
+      "Desktop support relies on a local redirect server and browser flow."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires setting up Google OAuth credentials and redirect URIs in the Google Cloud Console, along with standard platform configuration for mobile and web.",
+    "alternatives": [
+      {
+        "name": "google_sign_in",
+        "why_pick_it": "If you only need official Google Sign-In support for Android, iOS, macOS, and web without desktop Windows/Linux."
+      }
+    ],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:google_sign_in_all_platforms/google_sign_in_all_platforms.dart';\n\nfinal googleSignIn = GoogleSignIn(\n  params: const GoogleSignInParams(\n    clientId: 'your-client-id.apps.googleusercontent.com',\n    clientSecret: 'your-client-secret',\n    scopes: ['openid', 'profile', 'email'],\n  ),\n);",
+    "confidence": 0.95
+  }
+}

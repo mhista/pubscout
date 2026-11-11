@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.5.5",
+  "generatedAt": "2026-11-11T11:09:45.312Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Provides Dart access to Flutter engine components for native/FFI code.",
+    "what_it_does": "The plugin lets you obtain the engine handle, FlutterView, texture registry, JavaVM and class loader from Dart. This information can be passed to native code (e.g., Rust) to interact with the Flutter engine.",
+    "use_when": [
+      "You need to call native code (FFI) that requires Flutter engine objects like the view or texture registry.",
+      "Your plugin or app runs on multiple platforms and must access engine internals from native side."
+    ],
+    "avoid_when": [
+      "Your app is pure Dart/Flutter with no native integration needed.",
+      "You only need high‑level Flutter APIs; this low‑level access adds unnecessary complexity."
+    ],
+    "strengths": [
+      "Simple API to retrieve engine handles and registrars.",
+      "Supports Android, iOS, Windows, macOS, and Linux.",
+      "Designed for Rust/FFI integration."
+    ],
+    "weaknesses": [
+      "Limited to engine context; no other utilities provided.",
+      "Requires native code knowledge to use effectively."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add the plugin to pubspec, run flutter pub get, and ensure native build scripts link against the provided binaries. No special permissions required.",
+    "alternatives": [],
+    "minimal_example": "import 'package:irondash_engine_context/irondash_engine_context.dart';\n\nfinal handle = await EngineContext.instance.getEngineHandle();\nnativeMethod(handle);",
+    "confidence": 0.9
+  }
+}

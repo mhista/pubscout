@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.10.1",
+  "generatedAt": "2026-11-11T11:29:13.941Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "nRF Connect Device Manager Flutter plugin for firmware updates and device configuration",
+    "what_it_does": "Provides a Flutter wrapper around native Android, iOS, and macOS nRF Connect libraries to handle firmware updates (DFU), read image lists, and manage device settings over Bluetooth using the MCU Manager protocol.",
+    "use_when": [
+      "You need to perform Over-The-Air (OTA) firmware updates on Nordic Semiconductor or compatible devices.",
+      "You need to read or write device configuration settings using the SMP protocol from a Flutter app."
+    ],
+    "avoid_when": [
+      "You are building a standard mobile app that does not interact with hardware or microcontrollers via BLE and MCU Manager."
+    ],
+    "strengths": [
+      "Official Nordic Semiconductor support across Android, iOS, and macOS.",
+      "Supports web via Web Bluetooth.",
+      "Exposes streams for update progress, states, and logs."
+    ],
+    "weaknesses": [
+      "Heavy dependency on underlying native Android and iOS library behaviors and quirks.",
+      "Requires platform-specific configuration and permissions."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires native minimum SDK setup (Android minSdkVersion 21, iOS 13.0, macOS 10.15). For web support, requires adding a specific script tag to web/index.html before flutter_bootstrap.js.",
+    "alternatives": [],
+    "minimal_example": "final managerFactory = FirmwareUpdateManagerFactory();\nfinal updateManager = await managerFactory.getUpdateManager(deviceId);\nfinal updateStream = updateManager.setup();\nupdateManager.updateStateStream?.listen((event) {\n  print(event);\n});",
+    "confidence": 1
+  }
+}

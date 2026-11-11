@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.0",
+  "generatedAt": "2026-11-11T11:18:01.544Z",
+  "data": {
+    "primary_category": "ai-ml",
+    "secondary_categories": [
+      "ui-kits",
+      "audio-video"
+    ],
+    "approach": [
+      "declarative",
+      "stream-based"
+    ],
+    "one_liner": "AI chat widgets and LLM provider integration for Flutter apps.",
+    "what_it_does": "Provides a set of AI chat-related widgets to easily add an AI chat window supporting multi-turn chat, streaming responses, voice input, and multimedia attachments to a Flutter app. It uses an abstract LLM provider API with built-in support for Firebase AI.",
+    "use_when": [
+      "You want to add an AI chat interface to your mobile, desktop, or web Flutter app.",
+      "You are using Firebase AI / Gemini as your LLM backend.",
+      "You need built-in support for voice input, rich text, and multimedia attachments in chat."
+    ],
+    "avoid_when": [
+      "You are not using Firebase or need an LLM provider not supported by the abstract API.",
+      "You need low-level model access without any prebuilt UI chat widgets."
+    ],
+    "strengths": [
+      "Multi-turn chat and real-time streaming responses out of the box.",
+      "Supports text, image, and voice input along with file attachments.",
+      "Cross-platform support for Android, iOS, web, and macOS."
+    ],
+    "weaknesses": [
+      "Requires a Firebase project and setup for its primary out-of-the-box provider.",
+      "API key support for certain direct providers has been dropped in favor of Firebase projects."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires initializing Firebase using flutterfire config, adding platform network access permissions for macOS/Android, and configuring microphone and media picker permissions.",
+    "alternatives": [],
+    "minimal_example": "class ChatPage extends StatelessWidget {\n  const ChatPage({super.key});\n\n  @override\n  Widget build(BuildContext context) => Scaffold(\n    appBar: AppBar(title: const Text('AI Chat')),\n    body: LlmChatView(\n      provider: FirebaseProvider(\n        model: FirebaseAI.googleAI().generativeModel(model: 'gemini-2.0-flash'),\n      ),\n    ),\n  );\n}",
+    "confidence": 0.95
+  }
+}

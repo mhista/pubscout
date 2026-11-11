@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.0",
+  "generatedAt": "2026-11-11T11:14:12.752Z",
+  "data": {
+    "primary_category": "images",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Load and cache SVG images from the network in Flutter",
+    "what_it_does": "Provides a widget to easily load, cache, and display network SVG images with built-in placeholder support, error handling, fade-in animations, and cache management functions.",
+    "use_when": [
+      "You need to display SVG images fetched from network URLs in your Flutter app.",
+      "You require automatic offline caching and placeholder/error states for SVGs."
+    ],
+    "avoid_when": [
+      "You are only rendering local asset or memory-based SVGs.",
+      "You do not need caching functionality and can directly use flutter_svg."
+    ],
+    "strengths": [
+      "Built-in caching via flutter_cache_manager.",
+      "Supports placeholders, error widgets, and custom fade durations.",
+      "Provides functions to pre-cache images and clear caches."
+    ],
+    "weaknesses": [
+      "Adds an extra dependency layer over flutter_svg and flutter_cache_manager."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "flutter_svg",
+        "why_pick_it": "If you need core SVG rendering capabilities without built-in network caching."
+      }
+    ],
+    "minimal_example": "CachedNetworkSVGImage(\n    imageUrl: 'https://upload.wikimedia.org/wikipedia/commons/0/02/SVG_logo.svg',\n    placeholder: const CircularProgressIndicator(color: Colors.green),\n    errorWidget: const Icon(Icons.error, color: Colors.red),\n    width: 250.0,\n    height: 250.0,\n    fadeDuration: const Duration(milliseconds: 500),\n)",
+    "confidence": 1
+  }
+}

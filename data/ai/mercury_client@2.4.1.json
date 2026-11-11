@@ -1,0 +1,48 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.4.1",
+  "generatedAt": "2026-11-11T11:32:16.320Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Portable HTTP client with browser and native support and memory cache",
+    "what_it_does": "Provides a portable HTTP client supporting GET, HEAD, POST, PUT, DELETE, PATCH, and OPTIONS methods for both browser and native environments. Includes built-in memory caching capabilities with timeout and stale response handling.",
+    "use_when": [
+      "You need a single HTTP client implementation that works seamlessly on both browser and native platforms.",
+      "You require built-in in-memory caching with stale response callbacks for HTTP requests."
+    ],
+    "avoid_when": [
+      "You need advanced networking features like interceptors, global transformers, or multipart form uploads provided by more extensive ecosystem clients like dio."
+    ],
+    "strengths": [
+      "Portable across browser and native platforms",
+      "Built-in memory cache with stale response notification support",
+      "Supports standard HTTP methods"
+    ],
+    "weaknesses": [
+      "Limited feature set compared to larger HTTP libraries like dio",
+      "Fewer community resources and plugins"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "http",
+        "why_pick_it": "Choose http for a standard, widely-used, lightweight multi-platform package maintained by the Dart team."
+      },
+      {
+        "name": "dio",
+        "why_pick_it": "Choose dio if you need advanced features like interceptors, global configuration, cancellation tokens, and robust FormData support."
+      }
+    ],
+    "minimal_example": "import 'package:mercury_client/mercury_client.dart';\n\nmain() async {\n  var client = HttpClient('http://gateway.your.domain/api-1');\n\n  try {\n    var response = await client.post(\n      'call-foo',\n      parameters: {'var': '123'},\n      body: \"{ 'content': 'any' }\",\n      contentType: 'application/json',\n    );\n\n    if (response.isOK) {\n      print(response.body);\n    }\n  } catch (e) {\n    print('Error requesting URL: $e');\n  }\n}",
+    "confidence": 0.95
+  }
+}

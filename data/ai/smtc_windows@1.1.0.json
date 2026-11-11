@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.1.0",
+  "generatedAt": "2026-11-11T11:19:04.516Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [
+      "web-desktop"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Windows SystemMediaTransportControls implementation for Flutter",
+    "what_it_does": "Provides access to the Windows OS Media Control applet, allowing your Flutter app to display and control media playback state, metadata, and timeline information natively on Windows. It listens to media button press events from the OS and updates the native transport controls.",
+    "use_when": [
+      "You are building a Flutter desktop application for Windows that plays audio or video.",
+      "You need to integrate with the Windows OS media player overlay and media keys."
+    ],
+    "avoid_when": [
+      "Your app does not target the Windows platform.",
+      "You do not require native OS media control integration."
+    ],
+    "strengths": [
+      "Bridges Flutter with Windows SystemMediaTransportControls natively.",
+      "Supports streams for handling hardware and OS media button presses like play, pause, next, and previous.",
+      "Allows updating metadata, timeline, and player status."
+    ],
+    "weaknesses": [
+      "Requires rustup to be installed due to flutter_rust_bridge usage.",
+      "Limited to the Windows platform."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Make sure rustup is installed on your system. Initialize SMTCWindows using SMTCWindows.initialize() inside main().",
+    "alternatives": [],
+    "minimal_example": "Future<void> main() async {\n  WidgetsFlutterBinding.ensureInitialized();\n  await SMTCWindows.initialize();\n  runApp(const MyApp());\n}",
+    "confidence": 1
+  }
+}

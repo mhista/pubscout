@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.1",
+  "generatedAt": "2026-11-11T11:31:22.354Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Dart plugin to parse HLS m3u8 master and media playlist files.",
+    "what_it_does": "Parses HLS (HTTP Live Streaming) m3u8 playlist files into structured Dart objects. Supports both master playlists and media playlists, handling a wide range of standard HLS tags.",
+    "use_when": [
+      "You need to parse HLS m3u8 playlists manually in Flutter or Dart.",
+      "You are building a custom video player logic that requires reading master or media stream attributes."
+    ],
+    "avoid_when": [
+      "You only need a high-level video player widget without inspecting raw playlist structures.",
+      "Your project relies heavily on unsupported tags such as EXT-X-DATERANGE or EXT-X-SERVER-CONTROL."
+    ],
+    "strengths": [
+      "Supports both master and media HLS playlist files.",
+      "Null-safe implementation with a clean API."
+    ],
+    "weaknesses": [
+      "Some HLS tags are not supported.",
+      "Does not play video on its own, purely a parser."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "Uri playlistUri;\ntry {\n  var playlist = await HlsPlaylistParser.create().parseString(playlistUri, contentString);\n  if (playlist is HlsMasterPlaylist) {\n    // master m3u8 file\n  } else if (playlist is HlsMediaPlaylist) {\n    // media m3u8 file\n  }\n} on ParserException catch (e) {\n  print(e);\n}",
+    "confidence": 0.95
+  }
+}

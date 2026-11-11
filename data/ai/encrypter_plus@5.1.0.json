@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "5.1.0",
+  "generatedAt": "2026-11-11T11:11:56.056Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "High-level APIs over PointyCastle for two-way cryptography, supporting AES, RSA, Salsa20, and Fernet.",
+    "what_it_does": "Provides simple wrappers around cryptographic algorithms like AES, RSA, Salsa20, and Fernet for symmetric and asymmetric encryption, decryption, and digital signatures. It also includes a command-line tool to generate cryptographically secure random keys and IVs.",
+    "use_when": [
+      "You need to encrypt and decrypt sensitive data within your Dart or Flutter application.",
+      "You want to perform cryptographic operations using algorithms like AES, RSA, or Salsa20 without dealing with low-level PointyCastle APIs."
+    ],
+    "avoid_when": [
+      "You need password hashing (the documentation recommends using the separate 'password' package instead).",
+      "You require a dedicated crypto backend that is actively maintained by a cryptography specialist team."
+    ],
+    "strengths": [
+      "Simple high-level API for complex encryption algorithms.",
+      "Supports multiple algorithms including AES, RSA, Salsa20, and Fernet.",
+      "Includes secure random generation utilities and command-line support."
+    ],
+    "weaknesses": [
+      "The author notes they are not a cryptography specialist and the fork relies on community maintenance.",
+      "Limited documentation outside of basic usage examples."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Not documented",
+    "alternatives": [
+      {
+        "name": "crypto",
+        "why_pick_it": "If you only need standard cryptographic hash functions like SHA or MD5 rather than two-way encryption algorithms like AES or RSA."
+      }
+    ],
+    "minimal_example": "import 'package:encrypter_plus/encrypter_plus.dart';\n\nvoid main() {\n  final plainText = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit';\n  final key = Key.fromUtf8('my 32 length key................');\n  final iv = IV.fromLength(16);\n\n  final encrypter = Encrypter(AES(key));\n\n  final encrypted = encrypter.encrypt(plainText, iv: iv);\n  final decrypted = encrypter.decrypt(encrypted, iv: iv);\n\n  print(decrypted);\n}",
+    "confidence": 0.95
+  }
+}

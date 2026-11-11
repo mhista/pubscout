@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "6.2.0",
+  "generatedAt": "2026-11-11T11:20:12.652Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "no codegen",
+      "imperative"
+    ],
+    "one_liner": "Rust‑like Option and Result types for safer Dart code.",
+    "what_it_does": "Provides sealed Option and Result classes that model nullable values and error handling similar to Rust. Includes functional helpers like match, when, and async redirection utilities.",
+    "use_when": [
+      "You want explicit handling of nulls and errors without using exceptions",
+      "You need exhaustive pattern‑matching with sealed classes",
+      "You prefer functional‑style APIs for error propagation"
+    ],
+    "avoid_when": [
+      "Simple try/catch is sufficient and you don't need extra types",
+      "You are looking for code‑generation or serialization helpers",
+      "You need a full functional programming library rather than just Option/Result"
+    ],
+    "strengths": [
+      "Sealed classes enable exhaustive pattern matching",
+      "Rich API with sync and async helpers",
+      "Encourages safer, null‑free code"
+    ],
+    "weaknesses": [
+      "Adds extra abstraction and boilerplate",
+      "Limited to Option/Result; no broader FP utilities",
+      "May increase learning curve for developers unfamiliar with Rust concepts"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:oxidized/oxidized.dart';\n\nResult<String, Exception> readFileSync(String name) {\n  return Result.of(() => File(name).readAsStringSync());\n}\n\nvoid main() {\n  var result = readFileSync('README.md');\n  result.match((text) => print(text.substring(0, 80)), (err) => print(err));\n}",
+    "confidence": 0.9
+  }
+}

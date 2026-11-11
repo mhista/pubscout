@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.1.3",
+  "generatedAt": "2026-11-11T11:07:09.000Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Platform interface for the audio_service plugin",
+    "what_it_does": "Defines the common API that all platform implementations of audio_service must expose. It allows the plugin and its extensions to interact with platform-specific code through a consistent interface.",
+    "use_when": [
+      "You are writing a new platform implementation for audio_service",
+      "You need to ensure that multiple platform plugins adhere to the same contract"
+    ],
+    "avoid_when": [
+      "You only need the default audio_service plugin without custom platform code"
+    ],
+    "strengths": [
+      "Standardizes the API across platforms",
+      "Easily extendable by new platform implementations",
+      "Keeps the plugin core lightweight"
+    ],
+    "weaknesses": [
+      "Provides no functionality itself",
+      "Requires separate platform-specific packages to do work"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "```dart\nimport 'package:audio_service_platform_interface/audio_service_platform_interface.dart';\n\nclass MyPlatformAudioService extends AudioServicePlatform {\n  // Implement required methods here\n}\n\nvoid register() {\n  AudioServicePlatform.instance = MyPlatformAudioService();\n}\n```",
+    "confidence": 0.9
+  }
+}

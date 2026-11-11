@@ -1,0 +1,47 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "5.0.0",
+  "generatedAt": "2026-11-11T11:17:33.423Z",
+  "data": {
+    "primary_category": "ai-ml",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Type‑safe Dart client for Ollama’s chat, generation, embeddings, audio and model management APIs.",
+    "what_it_does": "Provides Dart classes to call Ollama’s REST endpoints for chat completions, streaming responses, multimodal embeddings, speech generation, transcription, and model operations. Handles configuration, retries, and error handling without requiring Flutter.",
+    "use_when": [
+      "You need direct access to a local or Ollama Cloud server from Dart or Flutter",
+      "You want streaming chat or audio responses with type‑safe models",
+      "You require model management (pull, push, delete) and cloud usage reporting"
+    ],
+    "avoid_when": [
+      "You need a higher‑level abstraction that includes UI widgets",
+      "You prefer a Flutter‑only package with built‑in widgets"
+    ],
+    "strengths": [
+      "Pure Dart, no Flutter dependency",
+      "Comprehensive coverage of Ollama API, including newer speech and System One features",
+      "Built‑in streaming, retries, and interceptors"
+    ],
+    "weaknesses": [
+      "Limited to Ollama backend; not a generic LLM client",
+      "No UI components, so you must build your own UI"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "llamadart",
+        "why_pick_it": "Another Dart client for Ollama/LLM APIs with a similar feature set"
+      }
+    ],
+    "minimal_example": "import 'package:ollama_dart/ollama_dart.dart';\n\nvoid main() async {\n  final client = OllamaClient();\n  final response = await client.chat.create(\n    request: ChatRequest(model: 'gpt-oss', messages: [ChatMessage.user('Explain isolates.')]),\n  );\n  print(response.message?.content);\n  client.close();\n}",
+    "confidence": 0.95
+  }
+}

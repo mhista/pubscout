@@ -1,0 +1,46 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "2.0.4",
+  "generatedAt": "2026-11-11T11:13:29.576Z",
+  "data": {
+    "primary_category": "codegen",
+    "secondary_categories": [
+      "dependency-injection",
+      "navigation"
+    ],
+    "approach": [
+      "code generation"
+    ],
+    "one_liner": "Generates routing and dependency‑injection boilerplate for Stacked apps.",
+    "what_it_does": "The package reads a StackedApp annotation and creates the necessary route definitions and service registration code. It reduces manual setup of navigation and DI in Stacked projects. The generated code works with the Stacked framework version 1.9.0+.",
+    "use_when": [
+      "You want to scaffold Stacked applications quickly without writing repetitive routing/DI code",
+      "You are already using the Stacked architecture and need compile‑time generation of routes and services"
+    ],
+    "avoid_when": [
+      "You are not using Stacked or prefer manual setup",
+      "You need runtime‑only DI without code generation"
+    ],
+    "strengths": [
+      "Eliminates boilerplate for Stacked routing and DI",
+      "Integrates directly with Stacked’s annotation system",
+      "Keeps generated code type‑safe and up‑to‑date"
+    ],
+    "weaknesses": [
+      "Tied to the Stacked framework, not useful for other architectures",
+      "Requires build_runner to run the generator"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add stacked_generator to dev_dependencies, run `flutter pub run build_runner build` after adding a StackedApp annotation.",
+    "alternatives": [
+      {
+        "name": "source_gen",
+        "why_pick_it": "Provides a generic code‑generation framework; you could write custom generators instead of using stacked_generator"
+      }
+    ],
+    "minimal_example": "import 'package:stacked/stacked.dart';\nimport 'package:stacked_generator/stacked_generator.dart';\n\n@StackedApp(\n  routes: [MaterialRoute(page: HomeView)],\n  dependencies: [LazySingleton(classType: HomeService)],\n)\nclass AppSetup {}\n\n// Run: flutter pub run build_runner build",
+    "confidence": 0.93
+  }
+}

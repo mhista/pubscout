@@ -1,0 +1,46 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.8-flash",
+  "version": "30.0.2",
+  "generatedAt": "2026-11-11T11:06:20.992Z",
+  "data": {
+    "primary_category": "codegen",
+    "secondary_categories": [
+      "devtools"
+    ],
+    "approach": [
+      "code generation"
+    ],
+    "one_liner": "Type-safe code generator for communication between Flutter and host platforms.",
+    "what_it_does": "Generates structured, type-safe Dart and native host platform code (Kotlin, Java, Swift, Objective-C, C++, GObject) from an interface definition file. It replaces manual platform channel serialization and string-based method routing with generated message codecs and typed method interfaces. It also provides a direct native interop mode using FFI and JNI for high-performance and synchronous host calls.",
+    "use_when": [
+      "Building Flutter plugins or apps with extensive custom native platform integrations.",
+      "Eliminating manual string-based MethodChannel messaging and binary buffer encoding errors.",
+      "Needing type-safe bidirectional communication (Host APIs and Flutter APIs) across iOS, Android, macOS, Windows, or Linux."
+    ],
+    "avoid_when": [
+      "Exposing generated classes directly in your package's public API, as generated code changes frequently between versions.",
+      "Your project only needs trivial, one-off platform channel calls where code generation adds unnecessary complexity."
+    ],
+    "strengths": [
+      "Supports multiple host targets: Android (Kotlin/Java), iOS/macOS (Swift/Obj-C), Windows (C++), and Linux (GObject).",
+      "Offers both standard platform channels and high-performance native interop (direct Dart FFI and JNI).",
+      "Generates typed data models, error handling, asynchronous wrappers, and event channels."
+    ],
+    "weaknesses": [
+      "Frequent breaking changes in generated code across package updates make it unsuitable for public API exposure.",
+      "Native interop mode is complex to set up and has preview limitations regarding multi-engine routing."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires defining an API schema Dart file outside lib/, running the Pigeon CLI generator, and integrating generated native source files into platform-specific build configurations (Xcode, CMake, Gradle).",
+    "alternatives": [
+      {
+        "name": "ffi",
+        "why_pick_it": "Use when calling C or C-compatible native libraries directly without needing platform channel code generation for mobile frameworks."
+      }
+    ],
+    "minimal_example": "import 'package:pigeon/pigeon.dart';\n\nclass SearchRequest {\n  String? query;\n}\n\nclass SearchReply {\n  String? result;\n}\n\n@HostApi()\nabstract class Api {\n  SearchReply search(SearchRequest request);\n}",
+    "confidence": 1
+  }
+}

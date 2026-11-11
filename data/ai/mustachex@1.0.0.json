@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.0",
+  "generatedAt": "2026-11-11T11:16:01.773Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Extended Mustache template processor for Dart with variable recasing and missing variable handling.",
+    "what_it_does": "Processes Mustache templates with added support for variable recasing, missing variable fulfillment functions, and automatic hasFoo guards. It ports and extends previous mustache and mustache_template packages.",
+    "use_when": [
+      "You need to render text templates using Mustache syntax in Dart or Flutter.",
+      "You need automatic variable recasing such as snake_case or pascalCase inside templates.",
+      "You need custom fallback handlers for missing variables during template rendering."
+    ],
+    "avoid_when": [
+      "You require complex logic processing that goes beyond template string replacement.",
+      "You are already heavily invested in alternative parsing libraries like xml or yaml."
+    ],
+    "strengths": [
+      "Supports multiple variable recasing formats out of the box.",
+      "Provides missing variable fulfillment callbacks.",
+      "Includes helpful hasFoo guard checks for various types of values."
+    ],
+    "weaknesses": [
+      "Depends on a fork of older unmaintained packages ported into the repository.",
+      "Limited to template processing use cases."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:mustachex/mustachex.dart';\n\nmain() async {\n  var template = '{{greeting_pascalCase}} {{world_pc}}!';\n  var vars = {'greeting': 'HELLO'};\n  String fulfillmentFunction(MissingVariableException variable) {\n    return 'WORLD';\n  }\n  var processor = MustachexProcessor(\n      initialVariables: vars, missingVarFulfiller: fulfillmentFunction);\n  var rendered = await processor.process(template);\n}",
+    "confidence": 0.95
+  }
+}

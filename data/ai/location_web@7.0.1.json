@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "7.0.1",
+  "generatedAt": "2026-11-11T11:08:21.061Z",
+  "data": {
+    "primary_category": "maps",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Web implementation of the location plugin for Flutter web.",
+    "what_it_does": "Provides geolocation support on web by wrapping the browser Geolocation API. It exposes the same API as the main location package, but only works on web.",
+    "use_when": [
+      "You need location data in a Flutter web app",
+      "You already depend on the location package and want the web implementation automatically added"
+    ],
+    "avoid_when": [
+      "You target mobile or desktop platforms that require native location plugins",
+      "You need advanced geofencing or background location updates"
+    ],
+    "strengths": [
+      "Automatically added when depending on location",
+      "Handles permission and error mapping to PlatformException",
+      "Bug fixes for NaN heading and permission handling"
+    ],
+    "weaknesses": [
+      "Web only, no support for iOS/Android/desktop",
+      "Requires browsers that support Geolocation API"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add location: ^7.0.0 to pubspec; no extra permissions needed beyond browser prompts",
+    "alternatives": [
+      {
+        "name": "geolocator",
+        "why_pick_it": "Cross‑platform geolocation for mobile, web, and desktop"
+      }
+    ],
+    "minimal_example": "import 'package:location/location.dart';\n\nfinal location = Location();\n\nFuture<void> getLocation() async {\n  final locData = await location.getLocation();\n  print('Lat: ${locData.latitude}, Lng: ${locData.longitude}');\n}",
+    "confidence": 0.95
+  }
+}

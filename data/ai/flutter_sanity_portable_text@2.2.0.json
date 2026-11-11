@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.2.0",
+  "generatedAt": "2026-11-11T11:46:40.061Z",
+  "data": {
+    "primary_category": "ui-kits",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Flutter renderer for Sanity.io Portable Text format with block, span, and style support.",
+    "what_it_does": "Renders Sanity.io Portable Text format content inside Flutter applications. Supports standard and custom blocks, spans, annotations, and styles with helpful inline error messages for unregistered elements.",
+    "use_when": [
+      "You need to render Sanity CMS portable text content in a Flutter application.",
+      "You want custom block and custom mark support for rich text rendering."
+    ],
+    "avoid_when": [
+      "You are not using Sanity.io as your backend CMS.",
+      "You only need to render basic Markdown or HTML strings."
+    ],
+    "strengths": [
+      "Complete support for standard Portable Text styles and marks.",
+      "Extensible architecture for custom blocks, custom marks, and custom list builders.",
+      "Developer-friendly error handling for unregistered elements."
+    ],
+    "weaknesses": [
+      "Tied specifically to the Sanity.io Portable Text format.",
+      "FSL-1.1-MIT license requires attention regarding commercial terms."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the package to pubspec.yaml and register any custom blocks or mark definitions if needed.",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:flutter_sanity_portable_text/flutter_sanity_portable_text.dart';\n\nvoid main() {\n  runApp(const MyApp());\n}\n\nclass MyApp extends StatelessWidget {\n  const MyApp({super.key});\n\n  @override\n  Widget build(BuildContext context) {\n    return MaterialApp(\n      home: Scaffold(\n        body: PortableText(\n          blocks: [\n            TextBlockItem(\n              children: [\n                Span(\n                  text: 'Sanity Portable Text',\n                ),\n              ],\n              style: 'h1',\n            ),\n          ],\n        ),\n      ),\n    );\n  }\n}",
+    "confidence": 0.95
+  }
+}
