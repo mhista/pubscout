@@ -1,0 +1,51 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.5.0",
+  "generatedAt": "2026-11-12T11:37:28.168Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "stream-based",
+      "declarative"
+    ],
+    "one_liner": "Cubits and widgets to eliminate boilerplate for single requests and paginated pages.",
+    "what_it_does": "Provides specialized cubits like RequestCubit and PaginatedCubit alongside accompanying UI builders to handle loading, refreshing, error, and empty states for API requests and infinite scrolling lists.",
+    "use_when": [
+      "Building pages that perform single HTTP or CQRS requests with loading, error, and success states.",
+      "Implementing paginated lists with infinite scrolling and automatic next-page fetching.",
+      "Eliminating repetitive state management boilerplate around Bloc/Cubit async calls."
+    ],
+    "avoid_when": [
+      "Not using the flutter_bloc ecosystem or state management architecture.",
+      "Building simple local UI state that doesn't involve asynchronous network requests."
+    ],
+    "strengths": [
+      "Reduces boilerplate for standard request-response and pagination flows.",
+      "Built-in request deduplication, caching, and refresh support.",
+      "Global configuration provider for default loaders, error widgets, and request modes."
+    ],
+    "weaknesses": [
+      "Tied strictly to the bloc/cubit state management pattern.",
+      "Requires writing custom subclasses and mappers for each request type."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "bloc",
+        "why_pick_it": "If you want raw state management without opinions on request and pagination abstractions."
+      },
+      {
+        "name": "flutter_bloc",
+        "why_pick_it": "Provides foundational state management primitives without specific request/pagination cubit wrappers."
+      }
+    ],
+    "minimal_example": "RequestCubitBuilder(\n  cubit: context.read<ProjectDetailsCubit>(),\n  onLoading: (context) => const Center(child: CircularProgressIndicator()),\n  onSuccess: (context, data) => ListView(children: [Text(data.id)]),\n)",
+    "confidence": 1
+  }
+}

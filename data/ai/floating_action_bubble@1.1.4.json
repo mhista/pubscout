@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.1.4",
+  "generatedAt": "2026-11-12T11:46:15.822Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "animation"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "An animated menu using a floating action button with customizable items.",
+    "what_it_does": "Provides a widget to display an expandable animated menu triggered by a Floating Action Button. Each menu item (Bubble) supports custom titles, icons, colors, and press actions.",
+    "use_when": [
+      "You want a floating action button that expands into multiple custom menu options.",
+      "You need an easy way to animate a circular or bubble menu from a FAB."
+    ],
+    "avoid_when": [
+      "You need complex navigation drawers or bottom navigation bars.",
+      "You want a built-in state management solution instead of manually handling AnimationControllers."
+    ],
+    "strengths": [
+      "Fully customizable bubble and icon appearances.",
+      "Supports null safety and animation controllers."
+    ],
+    "weaknesses": [
+      "Requires manual setup of an AnimationController and CurvedAnimation.",
+      "Limited documentation outside of the basic README example."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Just add the dependency to pubspec.yml.",
+    "alternatives": [],
+    "minimal_example": "FloatingActionBubble(\n  items: <Bubble>[\n    Bubble(\n      title: \"Settings\",\n      iconColor: Colors.white,\n      bubbleColor: Colors.blue,\n      icon: Icons.settings,\n      titleStyle: TextStyle(fontSize: 16, color: Colors.white),\n      onPress: () {\n        _animationController.reverse();\n      },\n    ),\n  ],\n  animation: _animation,\n  onPress: () => _animationController.isCompleted\n      ? _animationController.reverse()\n      : _animationController.forward(),\n  iconColor: Colors.blue,\n  iconData: Icons.ac_unit,\n  backGroundColor: Colors.white,\n)",
+    "confidence": 0.95
+  }
+}

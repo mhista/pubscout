@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.0.4",
+  "generatedAt": "2026-11-12T11:25:54.865Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Extensions to convert int, double, BigInt and strings to/from byte arrays with endianness control",
+    "what_it_does": "Provides helper methods for converting common numeric types and strings to byte representations and back. Supports signed/unsigned integers of various bit widths, IEEE‑754 doubles, and fast string encoding.",
+    "use_when": [
+      "You need to serialize numeric data to bytes for networking or file I/O",
+      "You want to convert strings to bytes efficiently for binary protocols",
+      "You need endianness control for cross‑platform compatibility"
+    ],
+    "avoid_when": [
+      "You require high‑performance binary serialization beyond simple conversions",
+      "You need advanced encoding like Base64 or custom binary formats",
+      "You are building a full serialization framework"
+    ],
+    "strengths": [
+      "Simple API, no dependencies",
+      "Supports multiple bit widths and endianness",
+      "Fast string byte encoding helpers"
+    ],
+    "weaknesses": [
+      "Limited to basic types, no complex object serialization",
+      "No support for custom encoders or compression",
+      "No documentation on performance benchmarks"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:byte_extensions/byte_extensions.dart';\n\nfinal bytes = 12345.toBytes(endian: Endian.big, signed: true, bits: 32);\nfinal value = bytes.toInt(endian: Endian.big, signed: true, bits: 32);",
+    "confidence": 0.85
+  }
+}

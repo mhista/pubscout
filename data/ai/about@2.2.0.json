@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.2.0",
+  "generatedAt": "2026-11-12T11:16:28.489Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "ui-kits"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Displays an About dialog which describes the application, shows licenses, and changelogs.",
+    "what_it_does": "Provides a customizable about page or dialog for Flutter applications. It can display application descriptions, icons, legalese, markdown changelogs, and license information.",
+    "use_when": [
+      "You need to quickly add an About dialog or page to your Flutter application.",
+      "You want to display app licenses and a changelog parsed from markdown."
+    ],
+    "avoid_when": [
+      "You are building a command-line or headless Dart application.",
+      "You want an completely custom drawer or settings menu unrelated to app details."
+    ],
+    "strengths": [
+      "Supports displaying licenses and changelogs easily.",
+      "Supports multiple platforms including Android, iOS, Web, Windows, macOS, and Linux.",
+      "Allows custom templates and markdown files."
+    ],
+    "weaknesses": [
+      "Relies on specific file naming and assets like CHANGELOG.md for certain list tiles."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Not documented",
+    "alternatives": [],
+    "minimal_example": "showAboutPage(\n  context: context,\n  values: {\n    'version': '1.0',\n    'year': DateTime.now().year.toString(),\n  },\n  applicationLegalese: 'Copyright © David PHAM-VAN, {{ year }}',\n  applicationDescription: const Text(\n      'Displays an About dialog, which describes the application.'),\n  children: const <Widget>[\n    MarkdownPageListTile(\n      icon: Icon(Icons.list),\n      title: Text('Changelog'),\n      filename: 'CHANGELOG.md',\n    ),\n    LicensesPageListTile(\n      icon: Icon(Icons.favorite),\n    ),\n  ],\n);",
+    "confidence": 0.95
+  }
+}

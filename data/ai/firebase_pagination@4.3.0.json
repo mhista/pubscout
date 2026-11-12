@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.3.0",
+  "generatedAt": "2026-11-12T12:00:03.342Z",
+  "data": {
+    "primary_category": "backend",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative",
+      "stream-based"
+    ],
+    "one_liner": "Paginate Cloud Firestore and Firebase Realtime Database with live updates.",
+    "what_it_does": "Provides ready-to-use widgets like FirestorePagination and RealtimeDBPagination to handle scrolling-based data pagination and live updates from Firebase backends.",
+    "use_when": [
+      "You need to display paginated lists from Cloud Firestore or Firebase Realtime Database.",
+      "You want automatic handling of infinite scrolling and data updates."
+    ],
+    "avoid_when": [
+      "You are not using Firebase as your backend.",
+      "You prefer implementing custom pagination logic using scroll controllers."
+    ],
+    "strengths": [
+      "Simplifies pagination for both Cloud Firestore and Firebase Realtime Database",
+      "Supports live updates and real-time changes",
+      "Low resource usage with a maximum of two stream listeners"
+    ],
+    "weaknesses": [
+      "Tightly coupled to Firebase services"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires configured Firebase in your Flutter application.",
+    "alternatives": [],
+    "minimal_example": "FirestorePagination(\n  query: FirebaseFirestore.instance.collection('scores').orderBy('score'),\n  itemBuilder: (context, docs, index) {\n    final data = docs[index].data() as Map<String, dynamic>;\n  },\n)",
+    "confidence": 1
+  }
+}

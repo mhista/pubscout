@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "5.10.1",
+  "generatedAt": "2026-11-12T11:13:32.961Z",
+  "data": {
+    "primary_category": "devtools",
+    "secondary_categories": [
+      "codegen",
+      "device"
+    ],
+    "approach": [
+      "code generation",
+      "no codegen"
+    ],
+    "one_liner": "Embeds Git commit, branch, and build metadata into Flutter apps with optional UI screens.",
+    "what_it_does": "Generates Dart files containing git information (commit SHA, branch, build date) via a CLI command. Provides await-less access to build information and optional debugging UI screens to inspect commit history and package details.",
+    "use_when": [
+      "You need to easily track which Git commit and branch are deployed in a test or production build.",
+      "You want an in-app debug screen to view build metadata, commit lists, and change history."
+    ],
+    "avoid_when": [
+      "You are not using Git for version control.",
+      "You do not want to run a CLI generation step before building your app."
+    ],
+    "strengths": [
+      "Provides immediate await-less access to build and git metadata.",
+      "Includes helpful built-in UI components and pages for debugging and viewing git history."
+    ],
+    "weaknesses": [
+      "Requires running a CLI command to generate files during the build process.",
+      "Tightly couples app code to a Git repository context."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Run `dart run git_stamp --build-type full` to generate the necessary files in your project.",
+    "alternatives": [],
+    "minimal_example": "import 'git_stamp/git_stamp.dart';\n\nText('Version: ${GitStamp.appVersion}');\nText('Branch: ${GitStamp.buildBranch}');\nText('SHA: ${GitStamp.sha}');",
+    "confidence": 0.95
+  }
+}

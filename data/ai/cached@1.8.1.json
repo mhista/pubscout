@@ -1,0 +1,51 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.8.1",
+  "generatedAt": "2026-11-12T11:29:51.170Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [
+      "codegen",
+      "utils"
+    ],
+    "approach": [
+      "code generation",
+      "declarative"
+    ],
+    "one_liner": "Simplifies and speeds up creation of in-memory and persistent caching mechanisms using code generation.",
+    "what_it_does": "The package generates caching code for Dart classes and methods. It supports LRU eviction, time-to-live (TTL), conditional caching, persistent storage integration, and stream updates.",
+    "use_when": [
+      "You want to automatically cache API responses or expensive method calls in memory or persistent storage.",
+      "You need LRU cache eviction or TTL-based expiration without writing manual cache boilerplate."
+    ],
+    "avoid_when": [
+      "You do not want to use code generation or build_runner in your project.",
+      "You need a general-purpose key-value store without class-level annotations."
+    ],
+    "strengths": [
+      "Reduces boilerplate for caching method results.",
+      "Supports LRU cache algorithm, TTL, and conditional caching via 'where'.",
+      "Supports persistent storage integrations and cache streams."
+    ],
+    "weaknesses": [
+      "Requires running build_runner for code generation.",
+      "Deprecated persistentStorage parameter requires migrating to newer annotations."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add cached and build_runner to dev_dependencies, add cached_annotation to dependencies, and run build_runner.",
+    "alternatives": [
+      {
+        "name": "flutter_cache_manager",
+        "why_pick_it": "If you specifically need to cache web files, images, or downloads instead of arbitrary method results."
+      },
+      {
+        "name": "shared_preferences",
+        "why_pick_it": "If you just need simple key-value persistence without method-level caching annotations."
+      }
+    ],
+    "minimal_example": "@WithCache()\nabstract mixin class RemoteRepository implements Repository, _$RemoteRepository {\n  factory RemoteRepository({required SomeApiDataSource dataSource}) = _RemoteRepository;\n\n  @Cached()\n  Future<SomeResponseType> getSthData() {\n    return dataSource.getData();\n  }\n}",
+    "confidence": 1
+  }
+}

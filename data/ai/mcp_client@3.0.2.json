@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.0.2",
+  "generatedAt": "2026-11-12T11:35:05.271Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "ai-ml"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Dart client implementation for the Model Context Protocol (MCP) supporting all revisions and transports.",
+    "what_it_does": "Allows Flutter and Dart applications to connect with MCP servers via stdio, SSE, or Streamable HTTP. It provides capability negotiation, OAuth 2.1 authentication, and handles primitives like resources, tools, prompts, tasks, and sampling.",
+    "use_when": [
+      "You need to connect your Flutter application to Model Context Protocol (MCP) servers.",
+      "You want to consume LLM context, tools, and prompts from external MCP-compatible servers."
+    ],
+    "avoid_when": [
+      "You are building a standard REST or GraphQL client without MCP requirements."
+    ],
+    "strengths": [
+      "Supports every MCP revision from 2024-11-05 through 2026-07-28.",
+      "Unified transport configuration for stdio, SSE, and Streamable HTTP.",
+      "Built-in OAuth 2.1 authorization and JSON schema validation."
+    ],
+    "weaknesses": [
+      "Specific to the Model Context Protocol ecosystem, limiting general-purpose HTTP usage."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires adding the dependency to pubspec.yaml. Stdio transport on Windows may require runInShell: true for .cmd files.",
+    "alternatives": [],
+    "minimal_example": "import 'package:mcp_client/mcp_client.dart';\n\nvoid main() async {\n  final config = McpClient.simpleConfig(\n    name: 'Example Client',\n    version: '1.0.0',\n  );\n  final transportConfig = TransportConfig.stdio(\n    command: 'npx',\n    arguments: ['-y', '@modelcontextprotocol/server-filesystem', '/path/to/dir'],\n  );\n  final clientResult = await McpClient.createAndConnect(\n    config: config,\n    transportConfig: transportConfig,\n  );\n  final client = clientResult.fold((c) => c, (error) => throw error);\n  client.disconnect();\n}",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.0.3",
+  "generatedAt": "2026-11-12T11:59:27.219Z",
+  "data": {
+    "primary_category": "charts",
+    "secondary_categories": [
+      "widgets",
+      "animation"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Flutter package for rendering interactive Sankey diagrams with gradient links and d3 layout.",
+    "what_it_does": "Provides widgets and helpers for rendering flow diagrams using the d3-sankey layout algorithm directly in Flutter. It supports gradient links, node selection, custom node widths, padding, and toggleable labels.",
+    "use_when": [
+      "You need to display a Sankey diagram showing flow values and node connections.",
+      "You want interactive node selection with callbacks and HSL selection borders."
+    ],
+    "avoid_when": [
+      "You need standard charts like line, bar, or pie charts instead of node-link flow diagrams."
+    ],
+    "strengths": [
+      "Adapts the proven d3-sankey layout algorithm into Dart.",
+      "Supports smooth gradient links and texture overlays.",
+      "Includes responsive design support via LayoutBuilder."
+    ],
+    "weaknesses": [
+      "Limited to Sankey flow diagrams.",
+      "Early version (0.0.3) with potentially evolving APIs."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:sankey_flutter/sankey_helpers.dart';\nimport 'package:sankey_flutter/sankey_node.dart';\nimport 'package:sankey_flutter/sankey_link.dart';\n\nfinal nodes = [\n  SankeyNode(id: 0, label: 'Source A'),\n  SankeyNode(id: 1, label: 'Target'),\n];\nfinal links = [\n  SankeyLink(source: nodes[0], target: nodes[1], value: 100),\n];\nfinal nodeColors = generateDefaultNodeColorMap(nodes);\nfinal dataSet = SankeyDataSet(nodes: nodes, links: links);\nfinal sankey = generateSankeyLayout(width: 600, height: 400);\ndataSet.layout(sankey);\n\nSankeyDiagramWidget(\n  data: dataSet,\n  nodeColors: nodeColors,\n  size: Size(600, 400),\n);",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.1.2",
+  "generatedAt": "2026-11-12T11:40:45.851Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "layout",
+      "animation"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A Sliver Flutter widget that expands or collapses another child Sliver widget.",
+    "what_it_does": "Sliver Expandable allows developers to add expand and collapse functionality to any Sliver in Flutter. It supports headers and animated transitions when toggling the expanded state.",
+    "use_when": [
+      "You need collapsible sections inside a CustomScrollView",
+      "You want to build expandable lists using slivers"
+    ],
+    "avoid_when": [
+      "You are not using CustomScrollView or slivers in your layout",
+      "You only need standard non-sliver expansion panels"
+    ],
+    "strengths": [
+      "Works natively with Flutter slivers and CustomScrollView",
+      "Includes support for animated expansion and headers"
+    ],
+    "weaknesses": [
+      "Limited to sliver-based layouts"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "AnimatedSliverExpandable(\n  expanded: _expanded,\n  headerBuilder: (context, animation) => ListTile(\n    onTap: () => setState(() => _expanded = !_expanded),\n    title: const Text('Expandable'),\n  ),\n  sliver: SliverList(\n    delegate: SliverChildBuilderDelegate(\n      (context, index) => ListTile(title: Text('Item $index')),\n      childCount: 5,\n    ),\n  ),\n)",
+    "confidence": 1
+  }
+}

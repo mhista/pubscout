@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.1.0",
+  "generatedAt": "2026-11-12T11:29:50.897Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [
+      "device"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "A Flutter plugin to listen to volume button press events on Android and iOS.",
+    "what_it_does": "It allows Flutter apps to listen for volume button press events (up, down, and capture) on both Android and iOS platforms. Developers can register a listener callback to handle these hardware button events and remove it when no longer needed.",
+    "use_when": [
+      "You need to detect physical volume button presses in your app",
+      "You want to handle hardware camera capture button events on iOS 17.2+"
+    ],
+    "avoid_when": [
+      "You only need to play or record audio",
+      "You need complex media session management"
+    ],
+    "strengths": [
+      "Cross-platform support for Android and iOS",
+      "Simple API with straightforward add and remove listener methods"
+    ],
+    "weaknesses": [
+      "Requires manual modification of the Android MainActivity class",
+      "Limited to volume and capture button events"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "On Android, you must extend your MainActivity with VolumeListenerActivity and remove FlutterActivity.",
+    "alternatives": [],
+    "minimal_example": "VolumeListener.addListener((VolumeKey event) {\n    switch (event) {\n        case VolumeKey.up:\n            print('Volume Up'); break;\n        case VolumeKey.down:\n            print('Volume Down'); break;\n        case VolumeKey.capture:\n            print('iOS Hardware Camera Capture'); \n            break;\n    }\n});\nVolumeListener.removeListener();",
+    "confidence": 0.95
+  }
+}

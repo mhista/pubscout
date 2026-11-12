@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.1",
+  "generatedAt": "2026-11-12T11:28:05.615Z",
+  "data": {
+    "primary_category": "ai-ml",
+    "secondary_categories": [
+      "audio-video"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Use whisper.cpp speech-to-text models implementation for Android and iOS",
+    "what_it_does": "Provides an implementation of whisper.cpp models for speech-to-text transcription and translation on Android, iOS, and macOS. Supports multiple model sizes from tiny to large, allowing offline audio processing.",
+    "use_when": [
+      "You need on-device speech-to-text transcription for audio files",
+      "You want to run whisper.cpp models within a Flutter application on Android, iOS, or macOS"
+    ],
+    "avoid_when": [
+      "You require cloud-based speech recognition services with streaming real-time mic input not supported by this API",
+      "You are targeting platforms other than Android, iOS, and macOS"
+    ],
+    "strengths": [
+      "Supports multiple whisper.cpp model sizes (tiny, base, small, medium, large)",
+      "Optimized and fast native implementations for mobile and desktop platforms"
+    ],
+    "weaknesses": [
+      "Requires managing model files and downloads",
+      "Limited platform support (Android, iOS, macOS only)"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires supplying audio files in WAV format and downloading whisper.cpp model files.",
+    "alternatives": [],
+    "minimal_example": "final Whisper whisper = Whisper(\n    model: WhisperModel.base,\n    downloadHost: \"https://huggingface.co/ggerganov/whisper.cpp/resolve/main\"\n);\nfinal String transcription = await whisper.transcribe(\n    transcribeRequest: TranscribeRequest(\n        audio: jfkPath,\n        isTranslate: true,\n        isNoTimestamps: false,\n        splitOnWord: true,\n    ),\n);",
+    "confidence": 0.95
+  }
+}

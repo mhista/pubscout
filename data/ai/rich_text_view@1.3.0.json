@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "1.3.0",
+  "generatedAt": "2026-11-12T11:30:45.100Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "RichTextView renders text with mentions, hashtags, emails, URLs and view‑more support.",
+    "what_it_does": "It parses a string and turns special patterns into tappable widgets. RichTextEditor adds an input field with mention/hashtag suggestions.",
+    "use_when": [
+      "You need inline links or mentions in a read‑only text block",
+      "You want a view‑more / view‑less toggle",
+      "You need a simple editor with mention/hashtag suggestions"
+    ],
+    "avoid_when": [
+      "You need complex custom parsing beyond the provided parsers",
+      "You require full‑blown rich text editing with formatting controls"
+    ],
+    "strengths": [
+      "Easy to use declarative API",
+      "Supports many common patterns out of the box",
+      "View‑more/less toggle built‑in",
+      "Editor with suggestion controller"
+    ],
+    "weaknesses": [
+      "Limited to predefined parsers, custom parsing requires extending ParserType",
+      "No support for advanced formatting (e.g., tables)",
+      "No built‑in theming beyond TextStyle"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "RichTextView(\n  text: \"Hello @user #tag https://example.com\",\n  supportedTypes: [\n    MentionParser(onTap: (m) => print(m.value)),\n    HashTagParser(onTap: (h) => print(h.value)),\n    UrlParser(onTap: (u) => print(u.value)),\n  ],\n  linkStyle: TextStyle(color: Colors.blue),\n  maxLines: 3,\n  truncate: true,\n  viewLessText: 'less',\n);",
+    "confidence": 0.92
+  }
+}

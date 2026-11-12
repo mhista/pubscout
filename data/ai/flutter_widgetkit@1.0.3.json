@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.3",
+  "generatedAt": "2026-11-12T11:14:04.219Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter library for iOS WidgetKit extensions and communication.",
+    "what_it_does": "Allows Flutter apps to call essential methods from the iOS WidgetKit framework such as reloading timelines. It also enables data communication with native widgets via App Groups and UserDefaults.",
+    "use_when": [
+      "You are building iOS widgets in SwiftUI and need to update timelines from your Flutter app.",
+      "You need to share data between your Flutter app and iOS widgets using App Groups and UserDefaults."
+    ],
+    "avoid_when": [
+      "You want to build the UI of the iOS widgets entirely in Flutter (widgets themselves must be developed natively in SwiftUI).",
+      "You are targeting Android-only or non-iOS platforms."
+    ],
+    "strengths": [
+      "Simplifies iOS WidgetKit timeline reloading from Flutter.",
+      "Provides key-value communication with native iOS widgets via App Groups.",
+      "Supports null-safety."
+    ],
+    "weaknesses": [
+      "Widgets themselves must still be developed natively in SwiftUI.",
+      "Limited strictly to iOS WidgetKit functionality."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires setting up iOS App Groups and building the native SwiftUI widgets separately.",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter_widgetkit/flutter_widgetkit.dart';\n\n// Reloading Widget Timelines\nWidgetKit.reloadAllTimelines();\nWidgetKit.reloadTimelines('test');\n\n// Communicate with Widget\nWidgetKit.setItem('testString', 'Hello World', 'group.com.fasky');",
+    "confidence": 0.95
+  }
+}

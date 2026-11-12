@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.9.0",
+  "generatedAt": "2026-11-12T11:52:14.889Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [
+      "storage"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Persist Redux state across app restarts with custom storage engines and serializers",
+    "what_it_does": "It creates a Redux middleware that automatically saves your application state to storage on every action, and allows loading the initial state upon startup. It supports custom storage engines and serializers.",
+    "use_when": [
+      "You are using Redux for state management in Flutter or Dart",
+      "You need to persist your application state across app restarts"
+    ],
+    "avoid_when": [
+      "You are not using Redux",
+      "You prefer simpler local key-value storage without a state container"
+    ],
+    "strengths": [
+      "Fully type safe",
+      "Supports multiple storage engines (Flutter, Web, File, and custom)",
+      "Includes state and raw transformations and custom serializers"
+    ],
+    "weaknesses": [
+      "Tied directly to the Redux state management ecosystem",
+      "Requires manual serialization logic for state classes"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Not documented",
+    "alternatives": [],
+    "minimal_example": "void main() async {\n  final persistor = Persistor<AppState>(\n    storage: FileStorage(File(\"state.json\")),\n    serializer: JsonSerializer<AppState>(AppState.fromJson),\n  );\n  final initialState = await persistor.load();\n  final store = Store<AppState>(\n    reducer,\n    initialState: initialState ?? AppState(),\n    middleware: [persistor.createMiddleware()],\n  );\n}",
+    "confidence": 0.95
+  }
+}

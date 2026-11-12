@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "3.3.1",
+  "generatedAt": "2026-11-12T11:13:52.746Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Adds persistent storage to CachedQuery using Sqflite",
+    "what_it_does": "It stores query results on disk as JSON and can deserialize them back to Dart objects. The storage is initialized once and then all CachedQuery queries are automatically persisted.",
+    "use_when": [
+      "You want queries to survive app restarts",
+      "You already use CachedQuery for caching",
+      "You need a simple SQL-backed storage without writing raw SQL"
+    ],
+    "avoid_when": [
+      "You are not using CachedQuery",
+      "You need a key‑value store or secure storage instead of SQL"
+    ],
+    "strengths": [
+      "Built on Sqflite, no extra dependencies",
+      "Automatic persistence for all queries",
+      "Supports any JSON‑serializable data",
+      "Easy to initialize with CachedStorage.ensureInitialized()"
+    ],
+    "weaknesses": [
+      "Only works with CachedQuery",
+      "Relies on Sqflite, so only works on mobile/desktop",
+      "No support for encrypted storage"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "await CachedStorage.ensureInitialized() before first query",
+    "alternatives": [],
+    "minimal_example": "void main() async {\n  CachedQuery.instance.configFlutter(\n    storage: await CachedStorage.ensureInitialized(),\n  );\n}\n",
+    "confidence": 0.9
+  }
+}

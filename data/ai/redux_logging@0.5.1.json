@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.5.1",
+  "generatedAt": "2026-11-12T11:48:06.524Z",
+  "data": {
+    "primary_category": "devtools",
+    "secondary_categories": [
+      "state-management"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Redux.dart middleware that logs or prints the latest action, state, and timestamp.",
+    "what_it_does": "Connects a Logger to a Redux store to record dispatched actions and current states. It provides a simple printer factory to output logs directly to the console or allows routing through standard Logger instances with customizable formatters.",
+    "use_when": [
+      "You are using Redux.dart and need to log dispatched actions and state changes",
+      "You want quick console printing for debugging Redux flows"
+    ],
+    "avoid_when": [
+      "You are using a state management solution other than Redux.dart like Riverpod or Bloc",
+      "You do not need action and state logging"
+    ],
+    "strengths": [
+      "Easy setup with LoggingMiddleware.printer() for instant console logging",
+      "Supports custom message formatters for tailored log output",
+      "Integrates seamlessly with the standard Dart logging package"
+    ],
+    "weaknesses": [
+      "Must be placed as the last middleware in the Redux store middleware list",
+      "Strictly tied to the redux package ecosystem"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Simply add the middleware to your Redux store definition.",
+    "alternatives": [],
+    "minimal_example": "import \"package:redux/redux.dart\";\nimport 'package:redux_logging/redux_logging.dart';\n\nfinal store = new Store<int>(\n  (int state, dynamic action) => state + 1,\n  initialValue: 0,\n  middleware: [new LoggingMiddleware.printer()]\n);",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.6.1",
+  "generatedAt": "2026-11-12T11:45:02.174Z",
+  "data": {
+    "primary_category": "codegen",
+    "secondary_categories": [],
+    "approach": [
+      "code generation"
+    ],
+    "one_liner": "A tool that uses Dart's Analyzer to generate data classes, unions, and enums.",
+    "what_it_does": "It uses Dart's Analyzer and Tachyon build engine to generate boilerplate code like copyWith, toString, ==, hashCode, fromJson, and toJson for classes, unions, and enums directly through IDE code actions.",
+    "use_when": [
+      "You want fast code generation for immutable data models and union types",
+      "You want to avoid writing manual boilerplate code for equals, hashCode, and JSON serialization"
+    ],
+    "avoid_when": [
+      "You prefer runtime reflection or a non-codegen approach",
+      "You are already heavily invested in built_value or freezed"
+    ],
+    "strengths": [
+      "Fast build times using Tachyon",
+      "Provides IDE code actions instead of relying purely on a watch command",
+      "Supports customizable naming conventions and custom JSON converters"
+    ],
+    "weaknesses": [
+      "Requires configuring Tachyon and the analysis server",
+      "Has breaking changes between major versions"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding dependencies, creating tachyon_config.yaml, registering the plugin in analysis_options.yaml, and restarting the analysis server.",
+    "alternatives": [
+      {
+        "name": "freezed",
+        "why_pick_it": "Popular union and data class generator relying on build_runner."
+      },
+      {
+        "name": "built_value",
+        "why_pick_it": "Provides strict immutability and code generation for complex data structures."
+      }
+    ],
+    "minimal_example": "import 'package:data_class_plugin/data_class_plugin.dart';\n\n@DataClass()\nclass User {\n   String get id;\n   String get username;\n}",
+    "confidence": 1
+  }
+}

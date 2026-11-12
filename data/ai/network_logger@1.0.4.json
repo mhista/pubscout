@@ -1,0 +1,50 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.4",
+  "generatedAt": "2026-11-12T11:20:45.101Z",
+  "data": {
+    "primary_category": "devtools",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Network logger with user interface to inspect traffic logs and Dio interceptor.",
+    "what_it_does": "Network logger with a well-designed user interface to inspect network traffic logs. It includes a Dio interceptor and an overlay button to easily view HTTP traffic on a GUI.",
+    "use_when": [
+      "You are using Dio for networking and need a visual way to inspect traffic logs.",
+      "You want an easy overlay button to access network logs during development."
+    ],
+    "avoid_when": [
+      "You are not using Dio as your HTTP client.",
+      "You do not need a visual UI for network inspection."
+    ],
+    "strengths": [
+      "Includes a Dio interceptor for quick setup.",
+      "Comes with a draggable overlay button and UI for inspecting logs.",
+      "Supports copying body to clipboard and selectable fields."
+    ],
+    "weaknesses": [
+      "Only includes a Dio interceptor currently.",
+      "Not documented for non-Dio HTTP clients."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the DioNetworkLogger interceptor to your Dio client and attach NetworkLoggerOverlay to your context in initState.",
+    "alternatives": [
+      {
+        "name": "pretty_dio_logger",
+        "why_pick_it": "If you prefer console-based pretty logging for Dio requests instead of an in-app visual UI."
+      },
+      {
+        "name": "talker",
+        "why_pick_it": "If you want a comprehensive logging and error handling solution with network inspection capabilities."
+      }
+    ],
+    "minimal_example": "var dio = Dio();\ndio.interceptors.add(DioNetworkLogger());\n\n@override\nvoid initState() {\n  NetworkLoggerOverlay.attachTo(context);\n  super.initState();\n}",
+    "confidence": 0.95
+  }
+}

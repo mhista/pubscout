@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "3.0.2",
+  "generatedAt": "2026-11-12T11:33:00.095Z",
+  "data": {
+    "primary_category": "layout",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Extended list widgets with garbage collection, viewport tracking and trailing layout support.",
+    "what_it_does": "Provides ListView/GridView variants that can track which items enter the viewport, collect garbage indexes, and layout the last child specially (e.g., load‑more footers). It also offers a close‑to‑trailing option for reverse lists.",
+    "use_when": [
+      "You need to know which items are visible for cache management",
+      "You want automatic load‑more/footer handling at the end of a list",
+      "You require a list that stays close to the trailing edge when reversed"
+    ],
+    "avoid_when": [
+      "A plain ListView/GridView is sufficient",
+      "You need a lightweight solution without extra delegate logic"
+    ],
+    "strengths": [
+      "Viewport and garbage‑collection callbacks",
+      "Customizable last‑child layout types",
+      "Close‑to‑trailing behavior for chat‑style lists"
+    ],
+    "weaknesses": [
+      "Adds extra delegate complexity",
+      "Documentation is limited to README examples",
+      "Only works on Flutter platforms"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "ExtendedListView.builder(\n  extendedListDelegate: ExtendedListDelegate(\n    collectGarbage: (garbages) => print('collect garbage: $garbages'),\n    viewportBuilder: (first, last) => print('viewport: [$first,$last]'),\n    closeToTrailing: true,\n  ),\n  itemBuilder: (context, index) => ListTile(title: Text('Item $index')),\n  itemCount: 100,\n);",
+    "confidence": 0.9
+  }
+}

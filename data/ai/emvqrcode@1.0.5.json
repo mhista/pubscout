@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "1.0.5",
+  "generatedAt": "2026-11-12T11:24:23.768Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Encode and decode EMVCO QR codes in Dart",
+    "what_it_does": "This package provides classes to build, parse, and verify EMVCO QR payloads. It supports both MPM and CPM formats and includes CRC validation.",
+    "use_when": [
+      "You need to generate an EMVQR for a merchant or payment terminal",
+      "You need to decode an EMVQR received from a customer",
+      "You need to verify the integrity of an EMVQR string"
+    ],
+    "avoid_when": [
+      "You only need to display or scan generic QR codes",
+      "You require a UI widget for QR code rendering"
+    ],
+    "strengths": [
+      "Pure Dart, no native dependencies",
+      "Supports both MPM and CPM EMV formats",
+      "Includes CRC verification",
+      "Well documented examples"
+    ],
+    "weaknesses": [
+      "No UI components for rendering QR codes",
+      "Limited to EMVCO specifications only"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dependency in pubspec, no additional permissions or build steps",
+    "alternatives": [],
+    "minimal_example": "```dart\nimport 'package:emvqrcode/emvqrcode.dart';\n\nfinal emv = EMVQR();\nemv.setPayloadFormatIndicator(\"00\");\nemv.setPointOfInitiationMethod(\"12\");\n// add merchant account info, additional data, etc.\nfinal encoded = EMVMPM.encode(emv);\nprint(encoded); // prints EMVQR string\n```",
+    "confidence": 0.9
+  }
+}

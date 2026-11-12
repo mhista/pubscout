@@ -1,0 +1,46 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.3.0",
+  "generatedAt": "2026-11-12T11:40:35.856Z",
+  "data": {
+    "primary_category": "navigation",
+    "secondary_categories": [
+      "device"
+    ],
+    "approach": [
+      "imperative",
+      "declarative"
+    ],
+    "one_liner": "Register and handle custom protocols and deep links in Flutter apps.",
+    "what_it_does": "Allows Flutter apps to register custom URL schemes and handle incoming protocol URLs across Android, iOS, macOS, and Windows. It provides event listeners for protocol URLs received while the app is running and supports getting initial URLs.",
+    "use_when": [
+      "You need to handle custom URL schemes or deep links in a desktop or mobile Flutter app",
+      "You want to forward protocol launch URLs from secondary app instances to a running instance on Windows"
+    ],
+    "avoid_when": [
+      "You only need standard web URL routing without custom protocol handlers",
+      "You are targeting Linux (not supported)"
+    ],
+    "strengths": [
+      "Cross-platform support covering Android, iOS, macOS, and Windows",
+      "Queues URLs that arrive before a listener is attached",
+      "Provides initial URL retrieval and event listeners"
+    ],
+    "weaknesses": [
+      "Requires manual configuration in platform-specific files such as AndroidManifest.xml, Info.plist, and main.cpp",
+      "Linux is not supported"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires native configuration including intent filters on Android, CFBundleURLTypes in Info.plist for iOS and macOS, and wWinMain modifications for Windows.",
+    "alternatives": [
+      {
+        "name": "app_links",
+        "why_pick_it": "Alternative library for handling deep links and app links across platforms."
+      }
+    ],
+    "minimal_example": "import 'package:protocol_handler/protocol_handler.dart';\n\nvoid main() async {\n  WidgetsFlutterBinding.ensureInitialized();\n  await protocolHandler.register('myprotocol');\n  runApp(MyApp());\n}",
+    "confidence": 0.95
+  }
+}

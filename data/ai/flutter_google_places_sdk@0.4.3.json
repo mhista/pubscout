@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.4.3",
+  "generatedAt": "2026-11-12T11:11:01.337Z",
+  "data": {
+    "primary_category": "maps",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Flutter plugin for Google Places SDK using native platform libraries.",
+    "what_it_does": "Provides a Dart API to access Google Places autocomplete and other SDK features via the native libraries on each platform. It avoids HTTP requests, allowing API‑key restrictions on Android and iOS. Web support uses the Maps JavaScript API.",
+    "use_when": [
+      "You need Google Places autocomplete with native SDK integration",
+      "You want to restrict your API key to specific apps",
+      "You target multiple platforms (Android, iOS, web, desktop)"
+    ],
+    "avoid_when": [
+      "Location restriction is required (not supported)",
+      "You only need a simple HTTP‑based places request"
+    ],
+    "strengths": [
+      "Uses native SDK for better security",
+      "Cross‑platform plugin covering mobile, web, and desktop",
+      "Simple Dart‑only API"
+    ],
+    "weaknesses": [
+      "Location restriction not available",
+      "Web usage requires enabling Maps JavaScript API"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add the plugin to pubspec, provide your Google API key when creating FlutterGooglePlacesSdk. For web, enable Maps JavaScript API in Google Cloud. No additional native build steps beyond standard plugin setup.",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:flutter_google_places_sdk/flutter_google_places_sdk.dart';\n\nvoid main() {\n  runApp(MaterialApp(\n    home: Scaffold(\n      body: Center(\n        child: ElevatedButton(\n          onPressed: () async {\n            final places = FlutterGooglePlacesSdk('my-key');\n            final predictions = await places.findAutocompletePredictions('Tel Aviv');\n            print('Result: $predictions');\n          },\n          child: Text('Predict and print to console'),\n        ),\n      ),\n    ),\n  ));\n}",
+    "confidence": 0.9
+  }
+}

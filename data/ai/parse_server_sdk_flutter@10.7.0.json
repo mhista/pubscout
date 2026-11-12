@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "10.7.0",
+  "generatedAt": "2026-11-12T11:48:13.919Z",
+  "data": {
+    "primary_category": "backend",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Connect Flutter apps to Parse Server backends",
+    "what_it_does": "Provides the Flutter SDK to connect to Parse Server and utilize the Parse Platform complete application stack. It handles communication with the backend and local storage of data using Sembast and shared preferences.",
+    "use_when": [
+      "You are building a Flutter app backed by a Parse Server",
+      "You need offline data persistence using Parse objects"
+    ],
+    "avoid_when": [
+      "You are using a different backend provider like Firebase or Supabase",
+      "You do not need a backend client"
+    ],
+    "strengths": [
+      "Continuous testing with recent Flutter releases",
+      "Integrates local storage via Sembast and shared preferences"
+    ],
+    "weaknesses": [
+      "Tied specifically to the Parse Server ecosystem",
+      "Requires managing Parse Server infrastructure"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the dependency to pubspec.yaml and follow the Parse Flutter SDK guide for initialization.",
+    "alternatives": [
+      {
+        "name": "supabase",
+        "why_pick_it": "Choose Supabase if you prefer an open source Firebase alternative with PostgreSQL instead of Parse Server."
+      }
+    ],
+    "minimal_example": "import 'package:parse_server_sdk_flutter/parse_server_sdk_flutter.dart';\n\nvoid main() async {\n  WidgetsFlutterBinding.ensureInitialized();\n  \n  await Parse().initialize(\n    'YOUR_APP_ID',\n    'https://parseapi.back4app.com',\n    clientKey: 'YOUR_CLIENT_KEY',\n    autoSendSessionId: true,\n  );\n}",
+    "confidence": 0.95
+  }
+}

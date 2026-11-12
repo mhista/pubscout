@@ -1,0 +1,48 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.1",
+  "generatedAt": "2026-11-12T11:56:39.006Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [
+      "images",
+      "files"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Native video and image compression for Android, iOS, and Web without FFmpeg.",
+    "what_it_does": "Compresses videos and images natively using hardware-accelerated platform encoders on Android, iOS, and Web. Supports target size, bitrate, and quality controls without bundling an FFmpeg binary.",
+    "use_when": [
+      "You need to compress videos or images before uploading them.",
+      "You want cross-platform media compression without adding FFmpeg or GPL dependencies.",
+      "You need to target precise output file sizes or bitrates."
+    ],
+    "avoid_when": [
+      "You require complex video editing, filtering, or merging capabilities.",
+      "You need extensive format transcoding outside of standard platform codecs."
+    ],
+    "strengths": [
+      "No large FFmpeg binary or GPL license constraints.",
+      "Cross-platform support including Android, iOS, and Web.",
+      "Precise target size and quality configuration APIs."
+    ],
+    "weaknesses": [
+      "Some specific advanced platform configurations (like audio bitrate or frame-rate decimation on Android) are not supported.",
+      "Web EXIF metadata is stripped entirely due to canvas re-encoding limitations."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "No permissions declared by default; add foreground service or storage permissions only if background compression or specific downloads saving is needed.",
+    "alternatives": [
+      {
+        "name": "video_player",
+        "why_pick_it": "If you only need to play videos rather than compress and transcode them."
+      }
+    ],
+    "minimal_example": "import 'package:flutter_compress/flutter_compress.dart';\n\nfinal result = await FlutterCompress.instance.compress(\n  inputPath,\n  const VideoCompressConfig(\n    targetSizeMB: 10,\n    codec: VideoCodec.h265,\n  ),\n  onProgress: (p) => debugPrint('${(p.progress * 100).toStringAsFixed(0)}%'),\n);",
+    "confidence": 0.95
+  }
+}

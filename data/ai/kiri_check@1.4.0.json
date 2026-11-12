@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "1.4.0",
+  "generatedAt": "2026-11-12T11:19:48.625Z",
+  "data": {
+    "primary_category": "testing",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Property-based testing library for Dart, integrating with package:test.",
+    "what_it_does": "It lets you define properties that are automatically tested with random data, supports custom exploration, and offers stateful testing for systems that change over time.",
+    "use_when": [
+      "Writing property-based tests for Dart code",
+      "Testing stateful systems like databases or UI state machines",
+      "Integrating tests into existing package:test suites"
+    ],
+    "avoid_when": [
+      "Replacing unit tests that only check specific inputs",
+      "Using in projects that require code generation or declarative UI patterns"
+    ],
+    "strengths": [
+      "Seamless integration with package:test",
+      "Supports stateful testing",
+      "Customizable exploration and shrinking",
+      "Cross-platform support (Android, iOS, web, desktop)"
+    ],
+    "weaknesses": [
+      "No built-in async support documented",
+      "Limited to Dart (no Flutter widgets integration)",
+      "Requires manual setup of stateful behaviors"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add as dev_dependency and import 'package:kiri_check/kiri_check.dart'; no build_runner needed",
+    "alternatives": [],
+    "minimal_example": "import 'package:kiri_check/kiri_check.dart';\n\nvoid main() {\n  property('FizzBuzz', () {\n    forAll(integer(min: 0, max: 100), (n) {\n      final result = fizzbuzz(n);\n      if (n % 15 == 0) {\n        expect(result, 'FizzBuzz');\n      } else if (n % 3 == 0) {\n        expect(result, 'Fizz');\n      } else if (n % 5 == 0) {\n        expect(result, 'Buzz');\n      } else {\n        expect(result, n.toString());\n      }\n    });\n  });\n}",
+    "confidence": 0.9
+  }
+}

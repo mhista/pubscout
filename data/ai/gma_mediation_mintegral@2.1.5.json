@@ -1,0 +1,50 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "2.1.5",
+  "generatedAt": "2026-11-12T11:22:55.135Z",
+  "data": {
+    "primary_category": "backend",
+    "secondary_categories": [],
+    "approach": [
+      "code generation"
+    ],
+    "one_liner": "Mediation adapter enabling Mintegral ads through the google_mobile_ads plugin.",
+    "what_it_does": "The package bridges Flutter code to the Mintegral ad network via Google Mobile Ads. It forwards ad requests and handles callbacks on Android and iOS.",
+    "use_when": [
+      "You need Mintegral mediation in a Flutter app",
+      "You already use google_mobile_ads for other ad formats",
+      "You target both Android and iOS"
+    ],
+    "avoid_when": [
+      "You are not using google_mobile_ads",
+      "You only need a single ad network without mediation",
+      "You prefer a pure‑Dart solution"
+    ],
+    "strengths": [
+      "Integrates directly with Google Mobile Ads",
+      "Supports latest Mintegral adapter versions for Android and iOS",
+      "Works on both Android and iOS"
+    ],
+    "weaknesses": [
+      "Only works for Mintegral, not other networks",
+      "Requires native SDK setup and platform configuration",
+      "Adds native build complexity"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add the Mintegral SDK adapters to Android and iOS projects, update AndroidManifest and Info.plist with required permissions and IDs, ensure google_mobile_ads version compatibility, and run flutter pub get.",
+    "alternatives": [
+      {
+        "name": "google_mobile_ads",
+        "why_pick_it": "Core ad SDK without mediation, simpler if you only need Google ads"
+      },
+      {
+        "name": "applovin_max",
+        "why_pick_it": "Provides its own mediation layer for multiple networks, including Mintegral"
+      }
+    ],
+    "minimal_example": "import 'package:gma_mediation_mintegral/gma_mediation_mintegral.dart';\n\nvoid main() async {\n  WidgetsFlutterBinding.ensureInitialized();\n  await MobileAds.instance.initialize();\n  // No extra Dart code needed; configure Mintegral IDs in native manifests.\n  runApp(MyApp());\n}",
+    "confidence": 0.9
+  }
+}

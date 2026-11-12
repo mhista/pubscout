@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.6",
+  "generatedAt": "2026-11-12T11:37:14.279Z",
+  "data": {
+    "primary_category": "web-desktop",
+    "secondary_categories": [
+      "storage"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Manage web cookies for Android and iOS WebViews",
+    "what_it_does": "A Flutter plugin to get, set, check, and clear cookies used by WebViews on Android and iOS. It utilizes native cookie stores like Android's CookieManager and iOS's HTTPCookieStore.",
+    "use_when": [
+      "You need to read or write cookies for a WebView in your app.",
+      "You want to manage cookies independently or alongside webview_flutter."
+    ],
+    "avoid_when": [
+      "You are looking for general local key-value storage unrelated to web cookies.",
+      "Your target iOS version is lower than 11.0."
+    ],
+    "strengths": [
+      "Supports both Android and iOS native cookie managers.",
+      "Can be used directly or together with webview_flutter.",
+      "Provides methods to get, set, check, remove, and clear cookies."
+    ],
+    "weaknesses": [
+      "Requires minimum iOS version 11.0.",
+      "Empty domain attributes can cause undefined behavior."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Set minimum target iOS version to 11.0. For Objective-C, ensure use_frameworks! and use_modular_headers! are enabled in the Podfile.",
+    "alternatives": [
+      {
+        "name": "webview_flutter",
+        "why_pick_it": "If you are already using webview_flutter, it has built-in cookie management capabilities for some use cases."
+      }
+    ],
+    "minimal_example": "final cookieManager = WebviewCookieManager();\n\nfinal gotCookies = await cookieManager.getCookies('https://youtube.com');\nfor (var item in gotCookies) {\n  print(item);\n}",
+    "confidence": 1
+  }
+}

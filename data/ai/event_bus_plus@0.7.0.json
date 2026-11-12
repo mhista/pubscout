@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.7.0",
+  "generatedAt": "2026-11-12T11:25:42.332Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "stream-based",
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Publisher/subscriber event bus library for Dart and Flutter.",
+    "what_it_does": "Provides a central communication bus using the publisher/subscriber pattern to decouple event senders and receivers. It supports filtering by event type, tracking events in progress, maintaining an event history, and mapping events.",
+    "use_when": [
+      "You need to simplify communication between decoupled components or widgets.",
+      "You want to track event history and monitor events in progress."
+    ],
+    "avoid_when": [
+      "You prefer built-in state management solutions like Provider or Bloc for complex application state."
+    ],
+    "strengths": [
+      "Decouples event senders and receivers",
+      "Supports event progress tracking and history",
+      "Includes event mapping capabilities"
+    ],
+    "weaknesses": [
+      "Global event buses can make debugging data flow harder if overused",
+      "Limited to publisher/subscriber patterns"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "IAppEventBus eventBus = AppEventBus();\nfinal event = FollowEvent('@devcraft.ninja');\neventBus.on<FollowAppEvent>().listen((e) { /*do something*/ });\neventBus.fire(event);",
+    "confidence": 1
+  }
+}

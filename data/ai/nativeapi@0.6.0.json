@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.6.0",
+  "generatedAt": "2026-11-12T11:10:39.651Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Dart bindings to native system APIs across desktop and mobile",
+    "what_it_does": "Provides unified access to native APIs such as windows, tray icons, menus, displays, keyboard, dialogs, storage, and more, usable from both Flutter and plain Dart.",
+    "use_when": [
+      "Need native window control in a Flutter or Dart app",
+      "Need tray icons or system menus",
+      "Need access to display information or keyboard events"
+    ],
+    "avoid_when": [
+      "Only need high‑level Flutter widgets",
+      "Target only mobile platforms without desktop support"
+    ],
+    "strengths": [
+      "Cross‑platform support (Android, iOS, Windows, macOS, Linux)",
+      "Unified API surface across platforms",
+      "Works with both Flutter and plain Dart"
+    ],
+    "weaknesses": [
+      "Work in progress, breaking changes in recent releases",
+      "Requires Flutter 3.50 / Dart 3.14 for full functionality",
+      "Experimental runNativeApp() still needs older Dart VM APIs"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add dependency, import package:nativeapi/nativeapi.dart, may need platform permissions for tray or window access",
+    "alternatives": [],
+    "minimal_example": "import 'package:nativeapi/nativeapi.dart';\n\nfor (final display in DisplayManager.instance.getAll()) {\n  print('${display.name ?? ''}: ${display.size.width}x${display.size.height}');\n}",
+    "confidence": 0.8
+  }
+}

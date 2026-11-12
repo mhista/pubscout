@@ -1,0 +1,53 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "2.0.0",
+  "generatedAt": "2026-11-12T11:29:04.020Z",
+  "data": {
+    "primary_category": "camera",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Provides barcode and QR code scanning on Android and iOS via native camera APIs.",
+    "what_it_does": "The plugin opens a camera view, scans barcodes or QR codes, and returns the result as a string. It supports one‑time scans and continuous streaming of results.",
+    "use_when": [
+      "You need quick barcode/QR scanning without writing native code",
+      "You want a simple API that works on both Android and iOS"
+    ],
+    "avoid_when": [
+      "You require advanced image processing or custom detection models",
+      "You need cross‑platform support for web or desktop"
+    ],
+    "strengths": [
+      "Easy to integrate with a single method call",
+      "Supports continuous scanning via a stream",
+      "Handles iOS Swift setup and permission configuration"
+    ],
+    "weaknesses": [
+      "Limited to Android and iOS only",
+      "No built‑in support for custom detection logic",
+      "Relies on native UI, so UI customization is minimal"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "iOS requires Swift support, deployment target >=12, Swift version 5, and adding NSCameraUsageDescription to Info.plist; Android works out‑of‑the‑box but ensure flutter_plugin_android_lifecycle is present.",
+    "alternatives": [
+      {
+        "name": "mobile_scanner",
+        "why_pick_it": "Offers similar scanning features with additional support for custom overlay UI and better performance on newer devices"
+      },
+      {
+        "name": "google_mlkit_barcode_scanning",
+        "why_pick_it": "Provides on‑device ML‑Kit barcode detection with more format support and no need for native UI"
+      },
+      {
+        "name": "barcode",
+        "why_pick_it": "Pure Dart implementation, works on all platforms including web"
+      }
+    ],
+    "minimal_example": "import 'package:flutter_barcode_scanner/flutter_barcode_scanner.dart';\n\nFuture<void> scan() async {\n  String result = await FlutterBarcodeScanner.scanBarcode('#ff6666', 'Cancel', true, ScanMode.DEFAULT);\n  print('Scanned: $result');\n}",
+    "confidence": 0.92
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "4.0.0",
+  "generatedAt": "2026-11-12T11:30:16.445Z",
+  "data": {
+    "primary_category": "codegen",
+    "secondary_categories": [],
+    "approach": [
+      "code generation"
+    ],
+    "one_liner": "Automates pigeon code generation via build_runner for platform channels",
+    "what_it_does": "pigeon_generator integrates build_runner with pigeon, automatically generating Dart, Swift, Kotlin, Objective‑C, C++ and GObject code from pigeon files. It removes the need to run pigeon manually and supports multiple output paths and lint suppression.",
+    "use_when": [
+      "You need to generate platform channel code for Flutter plugins or apps",
+      "You want to avoid manual pigeon command execution",
+      "You need multi‑platform code generation (iOS, Android, macOS, Windows, Linux)",
+      "You prefer a single build_runner command to produce all outputs"
+    ],
+    "avoid_when": [
+      "You only need a single platform (e.g., only Dart) and prefer minimal dependencies",
+      "You are on an older Dart SDK that does not support the required minimum 3.11",
+      "You already have a custom build script that handles pigeon generation"
+    ],
+    "strengths": [
+      "Fully automated build_runner integration",
+      "Supports all pigeon output languages and multiple Swift paths",
+      "Provides lint suppression and copyright header options",
+      "Handles Windows path separators correctly"
+    ],
+    "weaknesses": [
+      "Requires Dart 3.11+ and pigeon 29.1.1+",
+      "Adds build_runner as a dev dependency",
+      "Configuration can be verbose for complex projects",
+      "No runtime API, only build‑time generation"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add build_runner, pigeon, and pigeon_generator to dev_dependencies, create a pigeons folder, configure build.yaml with inputs and optional outputs, then run `flutter pub run build_runner build`",
+    "alternatives": [
+      {
+        "name": "pigeon",
+        "why_pick_it": "Use pigeon directly with manual command if you want finer control and avoid build_runner overhead"
+      }
+    ],
+    "minimal_example": "```yaml\n# pubspec.yaml\ndev_dependencies:\n  build_runner: ^2.4.0\n  pigeon: ^29.1.1\n  pigeon_generator: ^4.0.0\n\n# build.yaml\ntargets:\n  $default:\n    builders:\n      pigeon_generator:\n        options:\n          inputs: pigeons\n```",
+    "confidence": 0.92
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.1.4",
+  "generatedAt": "2026-11-12T11:39:29.079Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "devtools",
+      "storage"
+    ],
+    "approach": [
+      "declarative",
+      "imperative"
+    ],
+    "one_liner": "Http inspector and logger for Dio and Http packages with UI and local sqlite storage.",
+    "what_it_does": "Logs every HTTP request, response, and error for Dio and Http clients, stores them locally using SQLite, and provides an out-of-the-box activity page UI to inspect them.",
+    "use_when": [
+      "You want to inspect HTTP requests, responses, and errors directly inside your Flutter app using a visual UI.",
+      "You need to log network activities for both Dio and the standard http package."
+    ],
+    "avoid_when": [
+      "You only need console logging without any in-app visual UI.",
+      "You are using an HTTP client other than Dio or the standard http package."
+    ],
+    "strengths": [
+      "Supports both Dio and http packages.",
+      "Includes built-in Material 3 and dark mode UI for inspecting network traffic.",
+      "Persists logs locally using SQLite."
+    ],
+    "weaknesses": [
+      "Relies on manual navigation setup or GlobalKey configuration to open the inspector UI.",
+      "Limited to Dio and standard http package clients."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Call NetworkInspector.initialize() after WidgetsFlutterBinding.ensureInitialized(), and add the respective interceptor to your Dio or http clients.",
+    "alternatives": [
+      {
+        "name": "pretty_dio_logger",
+        "why_pick_it": "If you only use Dio and prefer pretty console logging over an in-app visual UI."
+      },
+      {
+        "name": "talker",
+        "why_pick_it": "If you want a more comprehensive logging and error-handling ecosystem with a dedicated Flutter screen."
+      }
+    ],
+    "minimal_example": "void main() {\n  WidgetsFlutterBinding.ensureInitialized();\n  NetworkInspector.initialize();\n  runApp(const ExampleApp());\n}",
+    "confidence": 1
+  }
+}

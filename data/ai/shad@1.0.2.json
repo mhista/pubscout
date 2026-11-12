@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.2",
+  "generatedAt": "2026-11-12T11:20:33.664Z",
+  "data": {
+    "primary_category": "ui-kits",
+    "secondary_categories": [
+      "theming"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A Flutter port of shadcn/ui with 40+ components and no Material dependency.",
+    "what_it_does": "Provides a comprehensive set of standalone UI components styled after shadcn/ui. It includes its own theming engine, multiple style presets, and color schemes without relying on Material or Cupertino packages.",
+    "use_when": [
+      "You want the shadcn/ui aesthetic in your Flutter application.",
+      "You want to build an app with no Material or Cupertino dependencies."
+    ],
+    "avoid_when": [
+      "You rely heavily on standard Material Design widgets and behaviors out of the box.",
+      "You need complex components like native navigation menus or charts that are not yet implemented."
+    ],
+    "strengths": [
+      "No dependency on Material or Cupertino by default",
+      "Rich collection of 40+ styled components",
+      "Flexible theming with multiple built-in styles and color schemes"
+    ],
+    "weaknesses": [
+      "Some shadcn/ui components (like navigation menus and charts) are not yet available",
+      "Requires opt-in interop if you want to mix standard Material or Cupertino widgets"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the dependency to pubspec.yaml and wrap your app in ShadApp.",
+    "alternatives": [
+      {
+        "name": "material_ui",
+        "why_pick_it": "If your project requires standard Material Design components."
+      },
+      {
+        "name": "cupertino_ui",
+        "why_pick_it": "If your project targets Apple platforms and requires native iOS Cupertino styling."
+      }
+    ],
+    "minimal_example": "import 'package:flutter/widgets.dart';\nimport 'package:shad/shad.dart';\n\nvoid main() {\n  runApp(const MyApp());\n}\n\nclass MyApp extends StatelessWidget {\n  const MyApp({super.key});\n\n  @override\n  Widget build(BuildContext context) {\n    return ShadApp(\n      theme: ShadThemeData(\n        brightness: Brightness.light,\n        colorScheme: const ShadZincColorScheme.light(),\n        style: ShadStyleTokens.nova,\n      ),\n      home: const Center(child: Text('Hello Shad')),\n    );\n  }\n}",
+    "confidence": 0.95
+  }
+}

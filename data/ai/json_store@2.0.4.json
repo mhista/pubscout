@@ -1,0 +1,55 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.4",
+  "generatedAt": "2026-11-12T11:35:57.631Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "A key-value storage solution built on sqflite with encryption and time-to-live support.",
+    "what_it_does": "It provides a browser localStorage-like interface in Flutter for storing Dart JSON maps. Data is backed by SQLite, can be fully encrypted using secure storage for keys, and supports item expiration via time-to-live (TTL).",
+    "use_when": [
+      "You need simple key-value storage for JSON maps with optional encryption.",
+      "You want automatic expiration (TTL) for cached key-value data.",
+      "You need batch processing performance for writing multiple items."
+    ],
+    "avoid_when": [
+      "you need reactive state management tied directly to storage changes.",
+      "your target Android minSdk is lower than 18."
+    ],
+    "strengths": [
+      "Built-in data encryption using secure storage for keys.",
+      "Supports time-to-live (TTL) expiration on stored items.",
+      "Batch processing for high-performance writes."
+    ],
+    "weaknesses": [
+      "Requires minimum Android SDK version 18.",
+      "Relies on a singleton architecture which may limit multi-instance configurations."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "In project/android/app/build.gradle set minSdkVersion to >= 18.",
+    "alternatives": [
+      {
+        "name": "shared_preferences",
+        "why_pick_it": "Pick if you need a standard lightweight key-value store without SQL overhead or built-in encryption needs."
+      },
+      {
+        "name": "sqflite",
+        "why_pick_it": "Pick if you need raw relational SQL queries rather than a key-value interface."
+      },
+      {
+        "name": "drift",
+        "why_pick_it": "Pick if you want a type-safe reactive SQL database library with code generation."
+      }
+    ],
+    "minimal_example": "JsonStore jsonStore = JsonStore();\nMap<String, dynamic> json = await jsonStore.getItem('counter');",
+    "confidence": 1
+  }
+}

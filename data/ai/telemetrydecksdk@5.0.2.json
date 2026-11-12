@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "5.0.2",
+  "generatedAt": "2026-11-12T11:33:20.323Z",
+  "data": {
+    "primary_category": "devtools",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter SDK for TelemetryDeck, a privacy-conscious analytics service for apps and websites",
+    "what_it_does": "Allows your Flutter app to send analytics signals, error logs, and purchase events to TelemetryDeck using native Kotlin and Swift libraries. It supports tracking durations, user sessions, navigation events, and custom attributes.",
+    "use_when": [
+      "You want to integrate TelemetryDeck analytics into your Flutter app",
+      "You need privacy-conscious tracking with optional client-side user hashing and custom salts"
+    ],
+    "avoid_when": [
+      "You require an alternative analytics provider such as Firebase or Sentry",
+      "Your app targets platforms other than Android, iOS, or macOS"
+    ],
+    "strengths": [
+      "Wraps native SDKs for Android, iOS, and macOS",
+      "Provides a rich set of built-in helpers for duration, navigation, error, and purchase tracking"
+    ],
+    "weaknesses": [
+      "Requires specific minimum platform versions (Android API 24, iOS 15.0, macOS 12.0)",
+      "Relies on native SDK behavior which can differ slightly per platform"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Initialize the client in main() with your TelemetryDeck App ID and namespace. Ensure internet permissions or entitlements are configured for macOS if needed.",
+    "alternatives": [
+      {
+        "name": "sentry",
+        "why_pick_it": "If you prefer error tracking, crash reporting, and performance monitoring over general app analytics."
+      }
+    ],
+    "minimal_example": "void main() {\n  WidgetsFlutterBinding.ensureInitialized();\n  Telemetrydecksdk.start(\n    const TelemetryManagerConfiguration(\n      appID: \"XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX\",\n      namespace: \"my-namespace\",\n    ),\n  );\n  runApp(const MyApp());\n}",
+    "confidence": 1
+  }
+}

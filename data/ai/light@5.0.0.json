@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "5.0.0",
+  "generatedAt": "2026-11-12T11:25:02.476Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "stream-based"
+    ],
+    "one_liner": "Flutter plugin that streams ambient light sensor (lux) values on Android and iOS.",
+    "what_it_does": "Exposes a native ambient light sensor reading as a Dart stream of integer lux values. Handles iOS SensorKit entitlement and permission requests, while Android works without extra permissions.",
+    "use_when": [
+      "You need real‑time ambient light data for adaptive UI or research purposes",
+      "Your app runs on devices that support the ambient light sensor and you can obtain the required iOS entitlements"
+    ],
+    "avoid_when": [
+      "You cannot obtain the required SensorKit entitlement on iOS",
+      "Target devices lack an ambient light sensor",
+      "You only need a simple brightness level without sensor precision"
+    ],
+    "strengths": [
+      "Simple API with a single stream",
+      "Supports both Android and iOS natively",
+      "Handles iOS permission flow internally"
+    ],
+    "weaknesses": [
+      "iOS requires special entitlement and setup, making it hard for many apps",
+      "Limited to devices that expose an ambient light sensor",
+      "Only provides raw lux integers, no higher‑level processing"
+    ],
+    "setup_effort": "high",
+    "setup_notes": "On iOS add the SensorKit entitlement (com.apple.developer.sensorkit.reader.allow) with ambient-light-sensor, include NSSensorKitUsageDetail in Info.plist, and request authorization via Light().requestAuthorization(). Android needs no extra permissions.",
+    "alternatives": [
+      {
+        "name": "sensors_plus",
+        "why_pick_it": "Provides access to a wide range of device sensors without special iOS entitlements, useful if you need other sensors or want a simpler setup."
+      }
+    ],
+    "minimal_example": "import 'dart:async';\nimport 'package:light/light.dart';\n\nStreamSubscription<int>? _sub;\n\nFuture<void> start() async {\n  await Light().requestAuthorization(); // no‑op on Android\n  _sub = Light().lightSensorStream.listen((int lux) {\n    print('Lux: $lux');\n  });\n}\n\nvoid stop() => _sub?.cancel();",
+    "confidence": 0.93
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.1",
+  "generatedAt": "2026-11-12T11:23:50.263Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Lightweight semaphore, condition variable, and lock implementation for isolates.",
+    "what_it_does": "Provides synchronization primitives like semaphores, condition variables, and locks to control access to shared resources within an isolate. Helps coordinate asynchronous producer-consumer workloads or limit simultaneous tasks.",
+    "use_when": [
+      "You need to limit concurrent access to a shared resource within an isolate",
+      "You require traditional concurrency primitives like semaphores, locks, or condition variables"
+    ],
+    "avoid_when": [
+      "You are communicating across different isolates rather than within a single isolate",
+      "High-level abstractions or reactive streams can handle your concurrency needs"
+    ],
+    "strengths": [
+      "Lightweight and straightforward API",
+      "Includes helpful examples for complex patterns like producer-consumer"
+    ],
+    "weaknesses": [
+      "Marked as unsupported in an earlier changelog entry (version 0.2.1), though later updated for Dart 3",
+      "Limited to synchronization within a single isolate"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [],
+    "minimal_example": "import 'dart:async';\nimport 'package:semaphore/semaphore.dart';\n\nFuture<void> main() async {\n  const maxCount = 3;\n  final sm = LocalSemaphore(maxCount);\n  await sm.acquire();\n  try {\n    // Do work\n  } finally {\n    sm.release();\n  }\n}",
+    "confidence": 0.9
+  }
+}

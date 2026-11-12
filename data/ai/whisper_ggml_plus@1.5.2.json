@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.5.2",
+  "generatedAt": "2026-11-12T12:00:20.011Z",
+  "data": {
+    "primary_category": "ai-ml",
+    "secondary_categories": [
+      "audio-video",
+      "files"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "On-device Whisper.cpp speech transcription plugin for Flutter.",
+    "what_it_does": "Transcribes completed audio files locally using Whisper.cpp without sending data to a remote server. Supports model downloads, timestamps, and voice activity detection.",
+    "use_when": [
+      "You need on-device audio transcription without relying on cloud APIs.",
+      "Your application works with file-based batch audio processing."
+    ],
+    "avoid_when": [
+      "You require real-time streaming speech-to-text directly while recording.",
+      "You want built-in microphone UI capture controls."
+    ],
+    "strengths": [
+      "Runs completely on-device across Android, iOS, Windows, macOS, and Linux.",
+      "Supports Large-v3-Turbo models and optional CoreML/Metal acceleration on Apple platforms."
+    ],
+    "weaknesses": [
+      "Does not support partial streaming transcription tokens while recording.",
+      "Requires manual management of GGML model files and optional CoreML assets."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires downloading or bundling a GGML .bin model file in app-writable storage. Optionally register a companion converter like whisper_ggml_plus_ffmpeg for non-WAV audio formats.",
+    "alternatives": [],
+    "minimal_example": "import 'package:whisper_ggml_plus/whisper_ggml_plus.dart';\n\nfinal controller = WhisperController();\nfinal result = await controller.transcribe(\n  model: WhisperModel.base,\n  audioPath: wavPath,\n  lang: 'auto',\n);",
+    "confidence": 1
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.0.0",
+  "generatedAt": "2026-11-12T11:42:07.965Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "auth"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Detect root, jailbreak, emulators, and device security threats in Flutter apps.",
+    "what_it_does": "Security Plus is a Flutter plugin that provides device security checks such as root detection, emulator detection, development mode, mock location, and external storage detection.",
+    "use_when": [
+      "You need to prevent your app from running on rooted Android devices or emulators.",
+      "You want to detect security risks like mock locations and development mode."
+    ],
+    "avoid_when": [
+      "You require robust, guaranteed production-grade protection without reliance on client-side checks alone.",
+      "You only need standard device info without security checks."
+    ],
+    "strengths": [
+      "Includes advanced root detection and Frida anti-tampering protection.",
+      "Provides multiple security check layers including emulator and mock location detection."
+    ],
+    "weaknesses": [
+      "Client-side security checks can potentially be bypassed by advanced users.",
+      "iOS platform support is still marked as partial or under development in the platform table."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding location permissions to AndroidManifest.xml and Info.plist for location-related security checks.",
+    "alternatives": [],
+    "minimal_example": "try {\n  bool isRooted = await SecurityPlus.isRooted;\n  if (isRooted) {\n    // Handle rooted device\n  }\n} catch (e) {\n  // Handle errors\n}",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.0",
+  "generatedAt": "2026-11-12T11:27:20.179Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "functional",
+      "extension methods"
+    ],
+    "one_liner": "Functional programming essentials for Dart with composition, memoization, and trampolines.",
+    "what_it_does": "Brings functional programming features to Dart through extension methods, including function composition, pipes, constant values, currying, flipping, nullable invocation, stack-safe recursion trampolines, and memoization. It also provides basic functions and a TaggedRecord base class for product and sum types.",
+    "use_when": [
+      "You want to use function composition or pipes to reduce code nesting.",
+      "You need stack-safe recursion via trampolines to prevent stack overflow.",
+      "You want to memoize function results or use weak memoization for object keys."
+    ],
+    "avoid_when": [
+      "You prefer a strictly object-oriented or procedural programming style without functional patterns.",
+      "You need a comprehensive state management framework instead of core utility helpers."
+    ],
+    "strengths": [
+      "Provides tail call optimization and stack-safe recursion.",
+      "Supports up to 9 arguments for extensions like composition and currying.",
+      "Includes both strong and weak memoization capabilities."
+    ],
+    "weaknesses": [
+      "Can make code harder to read for developers unfamiliar with functional programming idioms.",
+      "Using memoization on impure functions leads to unexpected behavior."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "double intToDouble(int x) => x.toDouble();\nString doubleToString(double x) => x.toString();\n\nfinal intToStringComposition = doubleToString.dot(intToDouble);\n\nString intToStringPipe(int x) => x.pipe(intToDouble).pipe(doubleToString);",
+    "confidence": 1
+  }
+}

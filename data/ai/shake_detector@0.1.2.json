@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.1.2",
+  "generatedAt": "2026-11-12T11:14:12.028Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "stream-based"
+    ],
+    "one_liner": "Detect phone shake gestures with pause/resume and optional widget wrapper",
+    "what_it_does": "The package listens to device sensors to detect shake gestures and exposes callbacks. It can be used as a widget wrapper or a listener class, with automatic pause/resume when the app goes to background or foreground.",
+    "use_when": [
+      "Need shake gesture detection in a Flutter app",
+      "Want automatic pause/resume when app backgrounded",
+      "Prefer a simple widget wrapper for UI integration"
+    ],
+    "avoid_when": [
+      "You need custom shake sensitivity or advanced motion analysis",
+      "You already have a custom sensor listener implementation"
+    ],
+    "strengths": [
+      "Easy to integrate via widget or listener",
+      "Handles background/foreground pause automatically",
+      "No extra build_runner or codegen required"
+    ],
+    "weaknesses": [
+      "Only supports sensors_plus; no custom sensitivity settings documented",
+      "Limited to shake detection, no other motion gestures"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "```dart\nclass HomePage extends StatelessWidget {\n  const HomePage({super.key});\n  @override\n  Widget build(BuildContext context) {\n    return Scaffold(\n      appBar: AppBar(title: const Text('ShakeGesture Example')),\n      body: Center(\n        child: ShakeDetectWrap(\n          enabled: true,\n          onShake: () {\n            ScaffoldMessenger.of(context).showSnackBar(\n              const SnackBar(content: Text('Shake!')),\n            );\n          },\n          child: const Center(\n            child: OutlinedButton(\n              onPressed: ShakeGestureTestHelperExtension.simulateShake,\n              child: Text('Simulate Shake'),\n            ),\n          ),\n        ),\n      ),\n    );\n  }\n}\n```",
+    "confidence": 0.9
+  }
+}

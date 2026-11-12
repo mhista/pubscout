@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "3.2.1",
+  "generatedAt": "2026-11-12T11:31:23.821Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Checks rooting, jailbreaking, physical device status and correct app installation on Android and iOS.",
+    "what_it_does": "Provides static getters to determine if the device is rooted or jailbroken, if it is a real device, and if the app was installed from a legitimate store. The checks run natively on each platform.",
+    "use_when": [
+      "You need to enforce security policies before allowing sensitive operations",
+      "You want to detect emulators or debug builds during runtime"
+    ],
+    "avoid_when": [
+      "You need advanced threat detection beyond rooting/jailbreaking",
+      "You require continuous monitoring or background services beyond simple checks"
+    ],
+    "strengths": [
+      "Simple API, no code generation, works on both Android and iOS",
+      "Supports background execution and recent Android SDKs",
+      "No external dependencies"
+    ],
+    "weaknesses": [
+      "May return false positives in development environments",
+      "Limited to rooting/jailbreaking detection, not full security analysis"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dependency in pubspec and import package; no special permissions required.",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter_security_checker/flutter_security_checker.dart';\n\nFuture<void> checkSecurity() async {\n  final bool isRooted = await FlutterSecurityChecker.isRooted;\n  final bool isRealDevice = await FlutterSecurityChecker.isRealDevice;\n  final bool hasCorrectlyInstalled = await FlutterSecurityChecker.hasCorrectlyInstalled;\n}\n",
+    "confidence": 0.9
+  }
+}

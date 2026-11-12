@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "2.16.0",
+  "generatedAt": "2026-11-12T11:13:38.943Z",
+  "data": {
+    "primary_category": "notifications",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter plugin for Mindbox push notifications, in‑app messages and event tracking.",
+    "what_it_does": "Provides a wrapper around the native Mindbox SDKs for Android and iOS. Allows sending client events to Mindbox and handling push and in‑app messages. Exposes initialization and operation APIs from Dart.",
+    "use_when": [
+      "You need to integrate Mindbox’s push‑notification and in‑app‑message platform into a Flutter app",
+      "You already use Mindbox as your backend for marketing communications"
+    ],
+    "avoid_when": [
+      "You require a cross‑platform solution that also works on web or desktop",
+      "You prefer a fully open‑source push‑notification stack"
+    ],
+    "strengths": [
+      "Simple wrapper around official native SDKs",
+      "Keeps native SDK versions in sync with the Flutter package",
+      "Supports both Android and iOS out of the box"
+    ],
+    "weaknesses": [
+      "Only works with Mindbox services, no alternative providers",
+      "No web or desktop support",
+      "Documentation largely points to external sites"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add mindbox, mindbox_android and mindbox_ios to pubspec. Follow Mindbox docs to add required permissions to AndroidManifest.xml and iOS Info.plist, and initialize the SDK in native Android/iOS code.",
+    "alternatives": [
+      {
+        "name": "firebase_messaging",
+        "why_pick_it": "Provides cross‑platform push notifications with extensive documentation and web support"
+      }
+    ],
+    "minimal_example": "import 'package:mindbox/mindbox.dart';\n\nvoid main() async {\n  await Mindbox.initialize(appId: 'YOUR_APP_ID');\n  // send an event\n  await Mindbox.sendEvent('purchase', {'price': 9.99});\n}",
+    "confidence": 0.85
+  }
+}

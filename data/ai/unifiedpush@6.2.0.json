@@ -1,0 +1,58 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "6.2.0",
+  "generatedAt": "2026-11-12T11:10:41.600Z",
+  "data": {
+    "primary_category": "notifications",
+    "secondary_categories": [
+      "device",
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Library to subscribe and receive push notifications using the UnifiedPush system.",
+    "what_it_does": "It registers the app with a UnifiedPush distributor, receives encrypted push messages and decrypts them automatically, and supports background handling on Linux. It also provides APIs to manage distributors and endpoints.",
+    "use_when": [
+      "You need push notifications without tying to a specific vendor like Firebase",
+      "Your app runs on Android and/or Linux and wants to let users choose a distributor",
+      "You require automatic decryption of Web Push messages"
+    ],
+    "avoid_when": [
+      "You only target iOS or web platforms",
+      "You prefer a simple local‑notification solution",
+      "You don't want to manage an external distributor app"
+    ],
+    "strengths": [
+      "Cross‑platform (Android & Linux) support",
+      "No vendor lock‑in, works with any UnifiedPush distributor",
+      "Handles decryption of Web Push payloads automatically",
+      "Allows user‑chosen distributor"
+    ],
+    "weaknesses": [
+      "Requires an external distributor app to be installed",
+      "Setup can be complex (native Android config, Linux DBus options)",
+      "Limited to Android and Linux; no iOS/web support"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add LinuxOptions when initializing, configure Android distributor (or embed one), ensure required permissions, may need dependency_overrides for webcrypto on Linux builds",
+    "alternatives": [
+      {
+        "name": "firebase_messaging",
+        "why_pick_it": "Standard Firebase Cloud Messaging integration with broad platform support"
+      },
+      {
+        "name": "flutter_local_notifications",
+        "why_pick_it": "Local notification handling without external distributor"
+      },
+      {
+        "name": "onesignal_flutter",
+        "why_pick_it": "Push service with its own backend and easy setup"
+      }
+    ],
+    "minimal_example": "void init(List<String> args){final linuxOptions=LinuxOptions(dbusName:'com.example',storage:MyStorage(),background:args.contains('--unifiedpush-bg'));UnifiedPush.initialize(onNewEndpoint:onNewEndpoint,onMessage:onMessage,linuxOptions:linuxOptions).then((registered){if(registered)UnifiedPush.register('myInstance');});}",
+    "confidence": 0.78
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.5.0",
+  "generatedAt": "2026-11-12T11:37:04.233Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [
+      "web-desktop"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Windows plugin to manage audio devices, master and app volumes, and extract native icons.",
+    "what_it_does": "Fetches input and output audio devices on Windows, manages master and specific application volumes, sets default devices, and extracts native icons from executables or windows. It also provides listeners for audio device changes.",
+    "use_when": [
+      "You are building a Flutter desktop application for Windows that needs advanced audio device management.",
+      "You need to control individual application volumes on Windows.",
+      "You need to extract native Windows icons from files or handles."
+    ],
+    "avoid_when": [
+      "You are building for platforms other than Windows.",
+      "You only need standard cross-platform media playback."
+    ],
+    "strengths": [
+      "Provides granular control over Windows audio devices and mixer volumes.",
+      "Includes change listeners for audio device state and property updates.",
+      "Offers native icon extraction utilities."
+    ],
+    "weaknesses": [
+      "Limited strictly to the Windows platform.",
+      "Can trigger platform channel thread-related warning messages on native callbacks."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires Windows platform. No special manual native setup required beyond standard Flutter plugin integration.",
+    "alternatives": [],
+    "minimal_example": "var audioDevices = await Audio.enumDevices(audioDeviceType) ?? [];\nfinal volume = await Audio.getVolume(audioDeviceType);\nawait Audio.setVolume(0.5, audioDeviceType);",
+    "confidence": 0.95
+  }
+}

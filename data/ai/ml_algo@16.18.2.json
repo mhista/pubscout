@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "16.18.2",
+  "generatedAt": "2026-11-12T11:33:20.328Z",
+  "data": {
+    "primary_category": "ai-ml",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Native Dart implementation of machine learning algorithms and performance evaluation tools.",
+    "what_it_does": "Provides native Dart implementations of popular machine learning algorithms including linear regression, logistic regression, decision trees, k-nearest neighbors, and clustering searchers. It supports cross-validation and hyperparameter tuning for Dart VM, Flutter, and web applications via WebAssembly.",
+    "use_when": [
+      "You want to run machine learning models natively in Dart without relying on external native bindings.",
+      "You are working on data science projects or lightweight predictive features in Flutter and web apps."
+    ],
+    "avoid_when": [
+      "You need complex deep learning architectures like neural networks or large language models.",
+      "Your dataset contains non-numeric types like strings or nulls without pre-processing them first."
+    ],
+    "strengths": [
+      "Pure Dart implementation works across mobile, desktop, and web via WebAssembly.",
+      "Comprehensive collection of regression, classification, and retrieval algorithms.",
+      "Built-in cross-validation and performance metric tools."
+    ],
+    "weaknesses": [
+      "Does not support strings, booleans, or nulls natively; data must be preprocessed into numbers.",
+      "Limited to classical machine learning algorithms rather than deep learning."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the package to pubspec.yaml along with ml_dataframe and ml_preprocessing for data handling.",
+    "alternatives": [
+      {
+        "name": "tflite_flutter",
+        "why_pick_it": "If you need to run TensorFlow Lite models on mobile devices instead of pure Dart classical algorithms."
+      }
+    ],
+    "minimal_example": "import 'package:ml_algo/ml_algo.dart';\nimport 'package:ml_dataframe/ml_dataframe.dart';\n\nvoid main() {\n  final samples = getPimaIndiansDiabetesDataFrame();\n  final validator = CrossValidator.kFold(samples, numberOfFolds: 5);\n  final createClassifier = (DataFrame data) => LogisticRegressor(data, 'Outcome');\n  validator.evaluate(createClassifier, MetricType.accuracy);\n}",
+    "confidence": 1
+  }
+}

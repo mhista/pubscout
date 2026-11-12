@@ -1,0 +1,46 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.1.1",
+  "generatedAt": "2026-11-12T11:18:57.060Z",
+  "data": {
+    "primary_category": "navigation",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Easy-to-use URL-based router for Flutter web, mobile and desktop.",
+    "what_it_does": "Wraps over Flutter's Router API to provide simple declarative mapping from URLs to pages. Supports nested navigation for tabs, route guards, redirects, and multiple route maps.",
+    "use_when": [
+      "You need a declarative, URL-based router for mobile, web, and desktop",
+      "You want easy support for tab-based nested navigation",
+      "You need to handle route guards or swap entire routing maps based on auth state"
+    ],
+    "avoid_when": [
+      "You prefer a strictly imperative navigation approach using Navigator.push directly without URL mapping"
+    ],
+    "strengths": [
+      "Simple declarative API with path and query parameters support",
+      "Built-in tab and nested route handling",
+      "Extensive unit, widget, and integration test coverage"
+    ],
+    "weaknesses": [
+      "Requires learning a specific path-based routing structure"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Configure MaterialApp.router with RoutemasterDelegate and RoutemasterParser.",
+    "alternatives": [
+      {
+        "name": "go_router",
+        "why_pick_it": "It is the officially supported declarative routing package by the Flutter team."
+      },
+      {
+        "name": "auto_route",
+        "why_pick_it": "If you prefer code-generation for strongly-typed route arguments and auto-generated navigation code."
+      }
+    ],
+    "minimal_example": "final routes = RouteMap(\n  routes: {\n    '/': (_) => MaterialPage(child: HomePage()),\n    '/feed': (_) => MaterialPage(child: FeedPage()),\n  }\n);\n\nvoid main() {\n  runApp(\n      MaterialApp.router(\n        routerDelegate: RoutemasterDelegate(routesBuilder: (context) => routes),\n        routeInformationParser: RoutemasterParser(),\n      ),\n  );\n}",
+    "confidence": 1
+  }
+}

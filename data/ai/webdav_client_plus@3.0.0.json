@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.0.0",
+  "generatedAt": "2026-11-12T11:15:37.618Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "files"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "A simple WebDAV client for Dart and Flutter supporting file operations and extensions.",
+    "what_it_does": "Provides a client to interact with WebDAV servers for listing, reading, writing, streaming, copying, moving, and deleting files and directories. It supports various authentication methods including Basic, Bearer, and Digest, along with locks, property management, and WebDAV extensions.",
+    "use_when": [
+      "You need to connect a Flutter or Dart app to a WebDAV file server or remote storage.",
+      "You require support for WebDAV-specific features like property management, locking, and DeltaV."
+    ],
+    "avoid_when": [
+      "You are communicating with a standard REST or GraphQL backend instead of a WebDAV server."
+    ],
+    "strengths": [
+      "Supports multiple authentication types (Basic, Bearer, Digest).",
+      "Provides helper methods for common WebDAV extensions, locks, and property management.",
+      "Allows streaming uploads and downloads without buffering."
+    ],
+    "weaknesses": [
+      "Dependent on server-side WebDAV implementation quirks and compliance.",
+      "Streamed uploads cannot be replayed with Digest auth without an initial request."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Not documented",
+    "alternatives": [
+      {
+        "name": "dio",
+        "why_pick_it": "If you only need a powerful general-purpose HTTP client rather than WebDAV-specific protocol handling."
+      },
+      {
+        "name": "http",
+        "why_pick_it": "If you prefer the simpler, core Dart HTTP client for basic REST requests."
+      }
+    ],
+    "minimal_example": "final client = WebdavClient.basicAuth(\n  url: 'https://example.com/remote.php/dav/files/alice',\n  user: 'alice',\n  pwd: 'password',\n);\n\nfor (final file in await client.readDir('/')) {\n  print('${file.name} ${file.isDir ? '(dir)' : '${file.size} bytes'}');\n}",
+    "confidence": 0.95
+  }
+}

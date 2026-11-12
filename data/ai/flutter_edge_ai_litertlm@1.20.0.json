@@ -1,0 +1,53 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.20.0",
+  "generatedAt": "2026-11-12T11:11:22.444Z",
+  "data": {
+    "primary_category": "ai-ml",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "LiteRT-LM on-device engine for flutter_edge_ai supporting .litertlm models and embeddings.",
+    "what_it_does": "Provides a LiteRT-LM engine implementation for the flutter_edge_ai package, running .litertlm models, EmbeddingGemma 2 embeddings, and LiteRT .tflite embeddings across multiple native platforms and web via FFI. It handles sessions, streaming, structured outputs, and platform-specific execution on CPU, GPU, and NPU.",
+    "use_when": [
+      "You are using flutter_edge_ai and need to run .litertlm language models or embeddings on-device.",
+      "You want support for structured outputs (JSON schema) via LiteRT-LM constrained decoding.",
+      "You need multi-platform on-device inference across Android, iOS, web, Windows, macOS, and Linux."
+    ],
+    "avoid_when": [
+      "You are not using flutter_edge_ai in your application.",
+      "Your application relies strictly on cloud-based LLM APIs and does not require local on-device inference."
+    ],
+    "strengths": [
+      "Runs models locally across various hardware targets including CPU, GPU, and NPU.",
+      "Supports structured output via JSON schema validation.",
+      "Integrated deeply with the flutter_edge_ai ecosystem and model catalog."
+    ],
+    "weaknesses": [
+      "Requires strict version matching and upgrading of multiple dependent flutter_edge_ai packages together.",
+      "NPU and certain platforms have specific limitations regarding session sharing, samplers, or context windows."
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Requires pairing with flutter_edge_ai, registering the LiteRtLmEngine during initialization, and adhering to strict package version requirements alongside other edge AI packages.",
+    "alternatives": [
+      {
+        "name": "tflite_flutter",
+        "why_pick_it": "If you want direct TensorFlow Lite model execution without the specific flutter_edge_ai framework abstraction."
+      },
+      {
+        "name": "llamadart",
+        "why_pick_it": "If you prefer running LLaMA models via llama.cpp bindings rather than LiteRT-LM."
+      },
+      {
+        "name": "firebase_ai",
+        "why_pick_it": "If you want to use cloud-backed AI models instead of local on-device execution."
+      }
+    ],
+    "minimal_example": "import 'package:flutter_edge_ai/flutter_edge_ai.dart';\nimport 'package:flutter_edge_ai_litertlm/flutter_edge_ai_litertlm.dart';\n\nawait FlutterEdgeAi.initialize(\n  inferenceEngines: [LiteRtLmEngine()],\n);",
+    "confidence": 0.95
+  }
+}

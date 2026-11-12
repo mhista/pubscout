@@ -1,0 +1,50 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.5.0",
+  "generatedAt": "2026-11-12T12:02:26.449Z",
+  "data": {
+    "primary_category": "camera",
+    "secondary_categories": [
+      "ai-ml",
+      "images"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter plugin for Optical Character Recognition using Tesseract and Apple Vision.",
+    "what_it_does": "Extracts text from images using the Tesseract engine on Android/iOS and Apple Vision on iOS. It supports unicode, multiple languages via trained data files, and configurable OCR options.",
+    "use_when": [
+      "You need on-device text recognition from images using Tesseract or Apple Vision.",
+      "You need support for multiple languages through .traineddata files."
+    ],
+    "avoid_when": [
+      "You only need barcode or QR code scanning rather than general OCR.",
+      "You want to avoid manual iOS CocoaPods configuration and framework file placement."
+    ],
+    "strengths": [
+      "Supports multiple engines (Tesseract and Apple Vision).",
+      "Configurable options like language, page segmentation mode, and engine mode.",
+      "Unicode and multi-language support."
+    ],
+    "weaknesses": [
+      "Requires manual addition of language trained data files and assets configuration.",
+      "Requires manual iOS steps including downloading and placing libtesseract.xcframework."
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Requires adding language .traineddata files and tessdata_config.json to assets and configuring pubspec.yaml. iOS requires manual placement of libtesseract.xcframework and custom Podfile paths.",
+    "alternatives": [
+      {
+        "name": "mobile_scanner",
+        "why_pick_it": "Pick if you specifically need barcode and QR code scanning instead of full text OCR."
+      },
+      {
+        "name": "camera",
+        "why_pick_it": "Pick if you want a complete camera preview and capture solution."
+      }
+    ],
+    "minimal_example": "Future<void> _performOcr(String imagePath) async {\n  try {\n    String extractedText = await TesseractOcr.extractText(imagePath);\n    print('Extracted Text: $extractedText');\n  } catch (e) {\n    print('Error performing OCR: $e');\n  }\n}",
+    "confidence": 0.95
+  }
+}

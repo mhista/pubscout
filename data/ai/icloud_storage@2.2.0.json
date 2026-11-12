@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.2.0",
+  "generatedAt": "2026-11-12T11:20:33.988Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [
+      "files"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Flutter plugin to upload, download, and manage files in the app's iCloud container.",
+    "what_it_does": "Allows Flutter applications running on iOS and macOS to interact with iCloud containers. It provides methods to upload, download, delete, move, rename, and gather files with progress tracking and update streams.",
+    "use_when": [
+      "You need to sync or manage files inside an iCloud container on iOS or macOS.",
+      "You want to track upload and download progress via streams."
+    ],
+    "avoid_when": [
+      "You need a cross-platform solution that includes Android, Windows, or Linux.",
+      "You are looking for general local key-value or SQLite storage."
+    ],
+    "strengths": [
+      "Supports multiple iCloud containers.",
+      "Provides progress streams for both uploads and downloads.",
+      "Supports macOS alongside iOS."
+    ],
+    "weaknesses": [
+      "Requires complex manual Apple Developer and Xcode configuration.",
+      "Limited platform support (iOS and macOS only)."
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Requires an Apple Developer account, creating an App ID and iCloud Container ID, enabling iCloud capability in Xcode, and configuring File Access for macOS if App Sandbox is enabled.",
+    "alternatives": [],
+    "minimal_example": "await ICloudStorage.upload(\n  containerId: 'iCloudContainerId',\n  filePath: '/localDir/localFile',\n  destinationRelativePath: 'destDir/destFile',\n  onProgress: (stream) {\n    stream.listen((progress) => print('Upload Progress: $progress'));\n  },\n);",
+    "confidence": 0.95
+  }
+}

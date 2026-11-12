@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.1.0",
+  "generatedAt": "2026-11-12T11:45:20.441Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "no codegen",
+      "stream-based"
+    ],
+    "one_liner": "Fast packer and unpacker for the External Term Erlang Format (version 131).",
+    "what_it_does": "Eterl packs and unpacks data according to the External Term Erlang Format (version 131). It supports strings, atoms, bools, doubles, ints, BigInts, maps, lists, and tuples, and implements standard Codec and Converter interfaces including stream transformation.",
+    "use_when": [
+      "You need to communicate with Erlang or Elixir backends using the External Term format.",
+      "You want to serialize and deserialize Erlang terms efficiently in Dart."
+    ],
+    "avoid_when": [
+      "You are working with standard JSON or protocol buffers instead of Erlang binary formats."
+    ],
+    "strengths": [
+      "Fast packing and unpacking performance with benchmarks provided.",
+      "Implements standard Dart Codec and Converter interfaces.",
+      "Supports stream transformations."
+    ],
+    "weaknesses": [
+      "Limited to the External Term Erlang Format (version 131).",
+      "Tuples are only supported while decoding and are converted to lists."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:eterl/eterl.dart';\n\nvoid main() {\n    final data = [{'hello': ['eterl', 1,2,3]}];\n    final packed = eterl.pack(data);\n    final unpacked = eterl.unpack(packed);\n    print(unpacked);\n}",
+    "confidence": 1
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.6.0",
+  "generatedAt": "2026-11-12T11:23:50.454Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Provides access to Unicode 17.0 emojis, including metadata, skin tone variants, and search.",
+    "what_it_does": "The package exposes a collection of Emoji objects and a UnicodeEmojis class that lets you retrieve all emojis or search by name, short name, category, subcategory, or ASCII representation. It also supports skin tone variations for human emojis.",
+    "use_when": [
+      "You need a comprehensive list of emojis with metadata for a Flutter or Dart app.",
+      "You want to search emojis by various attributes without pulling data from an API.",
+      "You need skin tone variants for human emojis in your UI."
+    ],
+    "avoid_when": [
+      "You only need a few specific emojis and want to avoid the overhead of a large data set.",
+      "You require real-time emoji updates from a server rather than static data."
+    ],
+    "strengths": [
+      "Large, up-to-date emoji set (Unicode 17.0).",
+      "Fast search algorithm with optional result limit.",
+      "Built-in support for skin tone variations.",
+      "No external dependencies beyond collection."
+    ],
+    "weaknesses": [
+      "Large package size due to full emoji data.",
+      "No UI widgets; only data access.",
+      "No support for custom emoji images or animations."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add to pubspec.yaml and import 'package:unicode_emojis/unicode_emojis.dart'.",
+    "alternatives": [],
+    "minimal_example": "import 'package:unicode_emojis/unicode_emojis.dart';\n\nvoid main() {\n  const emojis = UnicodeEmojis.allEmojis;\n  print(emojis.take(10).map((e) => e.emoji).toList());\n  final blue = UnicodeEmojis.search('blue');\n  print(blue.map((e) => e.emoji).toList());\n}",
+    "confidence": 0.95
+  }
+}

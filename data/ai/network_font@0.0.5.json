@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.0.5",
+  "generatedAt": "2026-11-12T11:13:19.425Z",
+  "data": {
+    "primary_category": "theming",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Load custom fonts from the network without storing them in local asset folders.",
+    "what_it_does": "Downloads custom fonts from a network URL and caches them locally using Hive and path_provider. Provides utility widgets, text styles, and extensions to render text using the downloaded network fonts.",
+    "use_when": [
+      "You need to load dynamic or custom fonts from a remote server.",
+      "You want to avoid bloating your app bundle with static font assets."
+    ],
+    "avoid_when": [
+      "You require fonts to be bundled securely offline for first-load guarantees without network connectivity.",
+      "You are using font formats other than OpenType (OTF) and TrueType (TTF)."
+    ],
+    "strengths": [
+      "Automates caching and expiration management for network fonts.",
+      "Offers multiple ways to use fonts via widgets, text styles, or extensions."
+    ],
+    "weaknesses": [
+      "Limited to OTF and TTF font formats.",
+      "Requires active internet connection on the first load to download fonts."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "No special native permissions or build_runner required; uses path_provider, http, and hive under the hood.",
+    "alternatives": [],
+    "minimal_example": "final NetworkFont _networkFont = NetworkFont('family', url:'font_url');\n\nNetworkFontText(\n    'NetworkFontText Widget',\n    font: _networkFont,\n    style: TextStyle(fontSize: 18),\n);",
+    "confidence": 0.95
+  }
+}

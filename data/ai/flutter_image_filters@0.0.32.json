@@ -1,0 +1,47 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.0.32",
+  "generatedAt": "2026-11-12T11:30:55.082Z",
+  "data": {
+    "primary_category": "images",
+    "secondary_categories": [
+      "widgets",
+      "codegen"
+    ],
+    "approach": [
+      "imperative",
+      "code generation"
+    ],
+    "one_liner": "Apply OpenGL fragment shader filters to images with preview widgets.",
+    "what_it_does": "Applies various OpenGL/SPIR-V fragment shader filters to images, supports filter pipelines, lookup tables, and includes preview widgets like ImageShaderPreview.",
+    "use_when": [
+      "You need to apply GPU-accelerated image filters like brightness, contrast, blur, or lookup tables.",
+      "You want to render filtered images in real-time inside Flutter widgets."
+    ],
+    "avoid_when": [
+      "You only need basic image loading or caching without complex shaders.",
+      "Your target platform does not support the required graphics backend capabilities."
+    ],
+    "strengths": [
+      "Wide selection of pre-built GPUImage-based shaders.",
+      "Supports grouped filter pipelines and custom shaders.",
+      "Provides ready-to-use preview widgets."
+    ],
+    "weaknesses": [
+      "Platform-specific rendering issues may occur depending on Android/iOS versions.",
+      "Requires managing texture sources and configurations manually."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Uses OpenGL fragment shaders and supports code generation via build_runner for custom/bunch configurations.",
+    "alternatives": [
+      {
+        "name": "image",
+        "why_pick_it": "If you want pure Dart CPU-based image manipulation instead of GPU-accelerated shaders."
+      }
+    ],
+    "minimal_example": "final texture = await TextureSource.fromAsset('demo.jpeg');\nfinal configuration = BrightnessShaderConfiguration();\nconfiguration.brightness = 0.5;\nfinal image = await configuration.export(texture, texture.size);",
+    "confidence": 0.95
+  }
+}

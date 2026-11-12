@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.1.0",
+  "generatedAt": "2026-11-12T11:56:44.454Z",
+  "data": {
+    "primary_category": "images",
+    "secondary_categories": [
+      "backend",
+      "widgets"
+    ],
+    "approach": [
+      "imperative",
+      "declarative"
+    ],
+    "one_liner": "Flutter plugin for generating Sanity CMS image URLs with color palettes and LQIP support.",
+    "what_it_does": "Generates image URLs for Sanity CMS with crop and hotspot support. Parses image metadata such as color palettes and low-quality image placeholders (LQIP). Provides a placeholder widget for loading states.",
+    "use_when": [
+      "You are building a Flutter app backed by Sanity CMS.",
+      "You need low-quality image previews (LQIP) while loading images.",
+      "You want to style your app using color palettes extracted from Sanity images."
+    ],
+    "avoid_when": [
+      "You are not using Sanity CMS as your backend.",
+      "You need general-purpose local image caching or advanced image picking."
+    ],
+    "strengths": [
+      "Native integration with Sanity CMS image features and asset pipelines.",
+      "Provides built-in color palette extraction and LQIP placeholder support.",
+      "Includes helper widgets like ImagePlaceholder."
+    ],
+    "weaknesses": [
+      "Tightly coupled to a single backend (Sanity CMS).",
+      "Limited to image URL generation and metadata parsing."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires adding flutter_sanity and flutter_sanity_image_url dependencies.",
+    "alternatives": [],
+    "minimal_example": "final builder = ImageUrlBuilder(sanityClient);\n\nImageUrlBuilder urlFor(asset) {\n  return builder.image(asset);\n}\n\nImage.network(urlFor(image).size(200, 200).url())",
+    "confidence": 0.95
+  }
+}

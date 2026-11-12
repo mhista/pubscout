@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.2",
+  "generatedAt": "2026-11-12T12:03:37.139Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "layout"
+    ],
+    "approach": [
+      "declarative",
+      "builder"
+    ],
+    "one_liner": "Finds the intrinsic size of a widget and provides it in a convenient builder.",
+    "what_it_does": "Finds the intrinsic size of a widget prior to adding it fully to the widget tree and provides it in a builder function. It renders the subject with zero opacity for one frame to calculate dimensions, then displays the real widget.",
+    "use_when": [
+      "You need to know a widget's intrinsic size before or during layout construction",
+      "Building a SliverAppBar with a dynamically sized flexible space or bottom"
+    ],
+    "avoid_when": [
+      "You cannot tolerate a single-frame transparent measurement phase without a fallback loading state",
+      "Standard layout primitives like IntrinsicWidth or IntrinsicHeight already solve your layout constraints"
+    ],
+    "strengths": [
+      "Convenient builder pattern for intrinsic size measurement",
+      "Supports refreshing sizes when subject dimensions change",
+      "Allows specifying a first-frame widget to avoid visual glitches"
+    ],
+    "weaknesses": [
+      "Requires a 1-frame layout pass with zero opacity which can cause a visual glitch if not handled",
+      "Requires manual refresh calls when the subject changes size"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "IntrinsicSizeBuilder(\n  subject: const Text(\n    'Hello world',\n    style: TextStyle(fontSize: 25),\n  ),\n  builder: (context, subjectSize, subject) => Center(\n    child: Column(\n      mainAxisSize: MainAxisSize.min,\n      children: [\n        subject,\n        Text('The size of subject is $subjectSize'),\n      ],\n    ),\n  ),\n)",
+    "confidence": 1
+  }
+}

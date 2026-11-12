@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.3.1",
+  "generatedAt": "2026-11-12T11:59:21.570Z",
+  "data": {
+    "primary_category": "maps",
+    "secondary_categories": [
+      "ui-kits"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Flutter plugin for Kakao Map native platform services on Android, iOS, and Web.",
+    "what_it_does": "Provides a native platform-based Kakao Map view for Flutter applications. It enables camera movement control, markers (pois), custom shapes, routes, and overlays.",
+    "use_when": [
+      "You need to integrate Kakao Map services into a Flutter app targeting Korea.",
+      "You require map overlays like Pois, shapes, and routes across Android and iOS."
+    ],
+    "avoid_when": [
+      "you need standard global mapping solutions where Google Maps is preferred.",
+      "You rely heavily on advanced Web SDK features that are restricted or unimplemented in this plugin."
+    ],
+    "strengths": [
+      "Supports native Kakao Maps for Android, iOS, and Web.",
+      "Rich set of graphical elements including Poi, shapes, routes, and dim screens.",
+      "Provides helper methods for hash keys on Android."
+    ],
+    "weaknesses": [
+      "Web environment has limited support for certain features like camera rotation, tilt, and route patterns.",
+      "Requires specific manual configurations in AndroidManifest.xml and project files."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires app registration on Kakao Developers, native SDK initialization, Internet/Location permissions on Android, ProGuard rule updates, and adding script tags to web/index.html for web support.",
+    "alternatives": [
+      {
+        "name": "google_maps_flutter",
+        "why_pick_it": "If you need standard global mapping using Google Maps instead of Kakao Map."
+      },
+      {
+        "name": "flutter_map",
+        "why_pick_it": "If you prefer a pure Dart map solution using OpenStreetMap tiles without native SDK setup."
+      }
+    ],
+    "minimal_example": "Widget build(BuildContext context) {\n  return Scaffold(\n    body: KakaoMap(\n      option: const KakaoMapOption(\n        position: LatLng(37.394776, 127.11116),\n        zoomLevel: 16,\n        mapType: MapType.normal,\n      ),\n      onMapReady: (KakaoMapController controller) {\n        print(\"Kakao Map is ready.\");\n      },\n    ),\n  );\n}",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.7.2",
+  "generatedAt": "2026-11-12T11:37:08.661Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Consistent, high-performance, and reproducible random number generators in Dart.",
+    "what_it_does": "Provides classes implementing various pseudorandom number generators with the same API as dart:math's Random. It ensures bit-accurate numbers across platforms and supports reproducibility and high-quality randomness for simulations.",
+    "use_when": [
+      "You need reproducible random sequences for testing or simulations",
+      "You need consistent random results across different native platforms",
+      "You want faster alternatives to dart:math's Random"
+    ],
+    "avoid_when": [
+      "Your target platform is JavaScript and you need to use 64-bit generators that are unsupported there",
+      "You are looking for cryptographically secure random numbers"
+    ],
+    "strengths": [
+      "Bit-accurate consistency across different platforms",
+      "Multiple well-known RNG algorithms available (Xorshift, Xoshiro, Splitmix, Mulberry)",
+      "Faster execution times compared to standard dart:math Random in benchmarks"
+    ],
+    "weaknesses": [
+      "Some 64-bit generators are unsupported on JavaScript and will throw an UnsupportedError",
+      "Not cryptographically secure"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:xrandom/xrandom.dart';\n\nfinal random = Xrandom();\nvar a = random.nextBool();\nvar b = random.nextDouble();\nvar c = random.nextInt(100);",
+    "confidence": 0.95
+  }
+}

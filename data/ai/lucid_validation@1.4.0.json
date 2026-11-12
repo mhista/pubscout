@@ -1,0 +1,50 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "1.4.0",
+  "generatedAt": "2026-11-12T11:23:20.600Z",
+  "data": {
+    "primary_category": "forms",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "declarative",
+      "imperative"
+    ],
+    "one_liner": "A pure Dart package for building strongly‑typed, fluent validation rules for models.",
+    "what_it_does": "It lets you define validation rules with a fluent API, supporting inline validators, rule sets, and polymorphic validation. The validator returns detailed results or throws exceptions on failure.",
+    "use_when": [
+      "You need compile‑time safety and autocomplete for validation logic",
+      "You want a reusable, chainable validator that works on both Flutter and server Dart"
+    ],
+    "avoid_when": [
+      "Simple required‑field checks where a full validator is overkill",
+      "Performance‑critical loops needing hand‑rolled checks"
+    ],
+    "strengths": [
+      "Strongly typed with compile‑time checks",
+      "Fluent, expressive API with many built‑in validators",
+      "Supports inline validators, rule sets, and async rules"
+    ],
+    "weaknesses": [
+      "No built‑in UI integration, you must map results yourself",
+      "Learning curve for the fluent API"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "email_validator",
+        "why_pick_it": "Provides a tiny, focused email validation function without the full fluent API"
+      },
+      {
+        "name": "dependency_validator",
+        "why_pick_it": "Checks package dependencies but not model field validation, useful for CI checks"
+      }
+    ],
+    "minimal_example": "import 'package:lucid_validation/lucid_validation.dart';\n\nclass User{final String email;User(this.email);} \n\nclass UserValidator extends LucidValidator<User>{\n  UserValidator(){\n    ruleFor((u)=>u.email,key:'email').notEmpty().validEmail();\n  }\n}\n\nvoid main(){\n  final validator=UserValidator();\n  final result=validator.validate(User('test@example.com'));\n  print(result.isValid);\n}",
+    "confidence": 0.93
+  }
+}

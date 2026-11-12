@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.1",
+  "generatedAt": "2026-11-12T11:15:36.681Z",
+  "data": {
+    "primary_category": "images",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "A minimalistic JPEG encoder for Dart and Flutter.",
+    "what_it_does": "It encodes raw RGBA image data into JPEG format. It is designed to be lightweight and purely focused on JPEG conversion without offering full image manipulation capabilities.",
+    "use_when": [
+      "You need to convert a dart:ui Image into a JPEG byte array.",
+      "You want a minimal encoder without heavy image processing dependencies."
+    ],
+    "avoid_when": [
+      "You need advanced image editing, cropping, or filtering.",
+      "You require the highest level of image compression and optimization."
+    ],
+    "strengths": [
+      "Minimalistic and lightweight.",
+      "Direct Dart port for simple JPEG creation."
+    ],
+    "weaknesses": [
+      "Does not offer extra image manipulation functionality.",
+      "Not necessarily the most optimized or best compressed JPEG output."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [
+      {
+        "name": "image",
+        "why_pick_it": "Choose this if you need full image manipulation, decoding, and encoding support for multiple formats."
+      }
+    ],
+    "minimal_example": "import \"dart:ui\" as ui;\n\nfinal data = await image.toByteData(format: skia.ImageByteFormat.rawRgba);\nfinal jpg = JpegEncoder().compress(data!.buffer.asUint8List(), image.width, image.height, 90);",
+    "confidence": 0.95
+  }
+}

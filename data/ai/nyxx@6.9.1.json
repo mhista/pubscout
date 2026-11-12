@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "6.9.1",
+  "generatedAt": "2026-11-12T12:03:43.167Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "backend"
+    ],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "A complete and efficient wrapper around Discord's API for bots and applications.",
+    "what_it_does": "Provides a robust wrapper for Discord's API, allowing developers to build bots and applications that connect to the Discord Gateway, manage guilds, users, and handle events like messages and interactions.",
+    "use_when": [
+      "You are building a Discord bot in Dart",
+      "You need to interact with Discord's REST and WebSocket Gateway APIs"
+    ],
+    "avoid_when": [
+      "You are not developing Discord-related applications",
+      "You need a UI component library or state management solution"
+    ],
+    "strengths": [
+      "Complete implementation of Discord API features",
+      "Active maintenance with updates for new Discord gateway events and features",
+      "Includes stream-based event handling out of the box"
+    ],
+    "weaknesses": [
+      "Requires platform-specific setup or native dependencies (like ffi and zstd_ffi)",
+      "Limited strictly to Discord bot and application development"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires obtaining a Discord bot token and configuring appropriate Gateway intents.",
+    "alternatives": [],
+    "minimal_example": "import 'package:nyxx/nyxx.dart';\n\nvoid main() async {\n  final client = await Nyxx.connectGateway('<TOKEN>', GatewayIntents.allUnprivileged);\n\n  final botUser = await client.users.fetchCurrentUser();\n\n  client.onMessageCreate.listen((event) async {\n    if (event.mentions.contains(botUser)) {\n      await event.message.channel.sendMessage(MessageBuilder(\n        content: 'You mentioned me!',\n        referencedMessage: MessageReferenceBuilder.reply(messageId: event.message.id),\n      ));\n    }\n  });\n}",
+    "confidence": 1
+  }
+}

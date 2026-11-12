@@ -1,0 +1,57 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "1.0.1",
+  "generatedAt": "2026-11-12T11:24:10.284Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [
+      "dependency-injection"
+    ],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "Provides BLoC to descendant widgets with O(1) access and automatic disposal.",
+    "what_it_does": "bloc_provider lets you create a BLoC instance and expose it to the widget subtree. The provided BLoC is retrieved in O(1) time and is disposed automatically when the provider's state is removed.",
+    "use_when": [
+      "You need a lightweight way to share a BLoC across widgets without adding a large dependency",
+      "You prefer O(1) lookup and automatic disposal of the BLoC",
+      "Your project already uses the classic BLoC pattern and wants a simple provider"
+    ],
+    "avoid_when": [
+      "You require a actively maintained package with richer features",
+      "You need code‑generation, scoped providers, or advanced state‑management capabilities",
+      "You are already using Riverpod, Provider, or flutter_bloc for state management"
+    ],
+    "strengths": [
+      "O(1) access to the BLoC",
+      "Automatic disposal of the BLoC",
+      "Very small and simple API"
+    ],
+    "weaknesses": [
+      "Minimally maintained and may lack future updates",
+      "Limited feature set compared to newer providers",
+      "No built‑in support for code‑gen or advanced scoping"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "provider",
+        "why_pick_it": "Widely used, actively maintained, and supports simple dependency injection"
+      },
+      {
+        "name": "bloc",
+        "why_pick_it": "Full BLoC library with extensive tooling and community support"
+      },
+      {
+        "name": "riverpod",
+        "why_pick_it": "Modern, compile‑time safety and richer provider features"
+      }
+    ],
+    "minimal_example": "void main()=>runApp(BlocProvider<CounterBloc>(creator:(_,__)=>CounterBloc(),child:MyApp()));\nclass MyApp extends StatelessWidget{ @override Widget build(BuildContext c){final bloc=BlocProvider.of<CounterBloc>(c);return MaterialApp(home:Scaffold(body:StreamBuilder<int>(stream:bloc.count,initialData:bloc.count.value,builder:(_,s)=>Text('count: ${s.data}'))),floatingActionButton:FloatingActionButton(onPressed:()=>bloc.increment.add(null),child:Icon(Icons.add)),);}}",
+    "confidence": 0.9
+  }
+}

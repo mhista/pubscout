@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.9.3",
+  "generatedAt": "2026-11-12T11:24:40.636Z",
+  "data": {
+    "primary_category": "backend",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "stream-based",
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Native Dart client to run GROQ queries and fetch documents from Sanity.io.",
+    "what_it_does": "Allows Dart and Flutter applications to connect to Sanity.io projects, execute GROQ queries, fetch live data streams, and build asset URLs with transformations. It provides type-safe interactions with Sanity's HTTP API.",
+    "use_when": [
+      "You are building a Flutter or Dart app powered by Sanity.io CMS",
+      "You need to execute GROQ queries with parameter support",
+      "You require live updates or streaming content from Sanity datasets"
+    ],
+    "avoid_when": [
+      "You are using a backend other than Sanity.io",
+      "You do not use GROQ queries"
+    ],
+    "strengths": [
+      "Full GROQ query support with type safety",
+      "Live fetch capability with automatic reconnects",
+      "Flexible asset and image URL handling"
+    ],
+    "weaknesses": [
+      "Tied specifically to the Sanity.io backend",
+      "Limited to supported features of the Sanity HTTP API"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [],
+    "minimal_example": "import 'package:sanity_client/sanity_client.dart';\n\nfinal client = SanityClient(\n  SanityConfig(\n    projectId: 'your_project_id',\n    dataset: 'your_dataset',\n    apiVersion: 'v2024-02-16',\n    useCdn: true,\n  ),\n);\n\nfinal movies = await client.fetch('''\n  *[_type == \"movie\"] {\n    _id,\n    title\n  }\n''');",
+    "confidence": 1
+  }
+}

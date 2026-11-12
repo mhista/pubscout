@@ -1,0 +1,48 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.0.0",
+  "generatedAt": "2026-11-12T11:34:06.035Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [],
+    "approach": [
+      "stream-based",
+      "declarative"
+    ],
+    "one_liner": "Provides BLoCs to descendant widgets with internal disposal and RxDart stream builders.",
+    "what_it_does": "Provides BLoC instances to descendant widgets in O(1) time and automatically disposes them when unmounted using an internal state holder. It also includes an RxDart-compatible stream builder widget.",
+    "use_when": [
+      "You are building BLoCs using RxDart and need an efficient widget-tree provider and stream builder.",
+      "You want automatic disposal of BLoC instances tied to the provider's lifecycle."
+    ],
+    "avoid_when": [
+      "you are using the official `flutter_bloc` package instead of custom RxDart BLoCs.",
+      "you prefer a modern state management solution like Riverpod."
+    ],
+    "strengths": [
+      "O(1) BLoC lookup via context extension or BlocProvider",
+      "Automatic disposal of BLoCs",
+      "Built-in RxStreamBuilder support for handling streams and value streams"
+    ],
+    "weaknesses": [
+      "Tied specifically to RxDart-based BLoC patterns rather than the official bloc library",
+      "Limited ecosystem compared to official bloc or riverpod"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [
+      {
+        "name": "flutter_bloc",
+        "why_pick_it": "Official and widely adopted package for the Bloc pattern."
+      },
+      {
+        "name": "riverpod",
+        "why_pick_it": "Modern, compile-safe dependency injection and state management solution."
+      }
+    ],
+    "minimal_example": "final bloc = BlocProvider.of<MyBloc>(context);\nreturn RxStreamBuilder<String>(\n  stream: bloc.stream,\n  builder: (context, state) {\n    return Text('$state');\n  },\n);",
+    "confidence": 0.95
+  }
+}

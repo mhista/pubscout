@@ -1,0 +1,53 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.5.2",
+  "generatedAt": "2026-11-12T11:30:15.017Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Embedded NoSQL JSON document database for pure Dart and Flutter apps.",
+    "what_it_does": "Provides an embedded, NoSQL document-style database supporting JSON documents, blobs, encryption, SQL++ queries, full-text search, and data synchronization. It runs across Android, iOS, Windows, macOS, and Linux.",
+    "use_when": [
+      "You need a robust, local NoSQL document database in a pure Dart or Flutter app.",
+      "You require advanced features like SQL++ queries, full-text search, and data synchronization.",
+      "You need to store and observe complex, deeply nested JSON structures locally."
+    ],
+    "avoid_when": [
+      "You only need simple key-value persistence and prefer a lighter dependency.",
+      "You strictly require a relational SQL database without document store complexity."
+    ],
+    "strengths": [
+      "Cross-platform support spanning mobile and desktop operating systems.",
+      "Rich querying capabilities using SQL++ and full-text search.",
+      "Supports live queries and database change notifications."
+    ],
+    "weaknesses": [
+      "Heavier footprint compared to basic key-value stores.",
+      "Not an official Couchbase product."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Standalone Dart and Flutter with no manual setup required, just add the package.",
+    "alternatives": [
+      {
+        "name": "sqflite",
+        "why_pick_it": "You prefer a traditional SQLite relational database interface over a NoSQL document store."
+      },
+      {
+        "name": "drift",
+        "why_pick_it": "You want a type-safe SQL database builder for Dart and Flutter."
+      },
+      {
+        "name": "shared_preferences",
+        "why_pick_it": "You only need simple key-value storage for small configuration settings."
+      }
+    ],
+    "minimal_example": "import 'package:cbl/cbl.dart';\n\nFuture<void> run() async {\n  final database = await Database.openAsync('database');\n  final collection = await database.createCollection('components');\n  \n  final mutableDocument = MutableDocument({'type': 'SDK', 'majorVersion': 2});\n  await collection.saveDocument(mutableDocument);\n  \n  await database.close();\n}",
+    "confidence": 1
+  }
+}

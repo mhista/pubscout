@@ -1,0 +1,48 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "2.3.1",
+  "generatedAt": "2026-11-12T11:11:06.568Z",
+  "data": {
+    "primary_category": "images",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "hooks",
+      "code generation"
+    ],
+    "one_liner": "OpenCV4 bindings for Dart/Flutter using ffi for native computer‑vision functions.",
+    "what_it_does": "The package wraps OpenCV 4 modules and exposes them to Dart via ffi. It lets Flutter apps perform image processing, feature detection, DNN inference and other vision tasks with native performance.",
+    "use_when": [
+      "You need advanced computer‑vision algorithms not available in pure‑Dart libraries",
+      "Cross‑platform (mobile/desktop) apps require high‑performance image processing"
+    ],
+    "avoid_when": [
+      "Targeting web only where native assets aren't supported",
+      "You prefer a lightweight pure‑Dart solution"
+    ],
+    "strengths": [
+      "Comprehensive OpenCV module coverage",
+      "Native performance via ffi",
+      "Supports Android, iOS, Windows, macOS, Linux",
+      "Hooks and code‑gen simplify native asset handling"
+    ],
+    "weaknesses": [
+      "Requires native build steps and CMake",
+      "Large binary size",
+      "Not usable on web platforms"
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Requires Dart SDK >=3.10, CMake, and native‑assets hooks configuration. May need to adjust deployment_target for iOS/macOS and ensure prebuilt binaries are available or build OpenCV yourself.",
+    "alternatives": [
+      {
+        "name": "image",
+        "why_pick_it": "Pure‑Dart image manipulation library with no native build, suitable for simple processing and web support"
+      }
+    ],
+    "minimal_example": "import 'package:dartcv/dartcv.dart';\n\nvoid main() async {\n  final img = await Imgcodecs.imread('assets/photo.jpg');\n  final gray = Imgproc.cvtColor(img, Imgproc.COLOR_BGR2GRAY);\n  Imgcodecs.imwrite('assets/gray.jpg', gray);\n}",
+    "confidence": 0.85
+  }
+}

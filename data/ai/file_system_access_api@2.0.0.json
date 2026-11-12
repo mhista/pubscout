@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "2.0.0",
+  "generatedAt": "2026-11-12T11:13:10.321Z",
+  "data": {
+    "primary_category": "files",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Dart library exposing the browser File System Access API for web apps.",
+    "what_it_does": "Provides Dart bindings to the experimental Web File System Access API. Allows web apps to open, save, and manipulate files and directories chosen by the user, including drag‑and‑drop support.",
+    "use_when": [
+      "You need to read or write user‑selected files or directories in a Flutter web app.",
+      "You want native‑like file dialogs and directory traversal on supported browsers."
+    ],
+    "avoid_when": [
+      "Your app runs on mobile, desktop, or unsupported browsers.",
+      "You require a stable, production‑ready file system solution."
+    ],
+    "strengths": [
+      "Direct access to the browser's native file system API",
+      "Supports open, save, and directory pickers",
+      "Provides stream of directory entries for watch‑like behavior",
+      "Includes drag‑and‑drop handling"
+    ],
+    "weaknesses": [
+      "Experimental and only works on Chrome, Edge, Opera",
+      "Not recommended for production use",
+      "No fallback for unsupported browsers"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the package to pubspec, import it, and guard usage with `kIsWeb` to avoid build/runtime errors.",
+    "alternatives": [],
+    "minimal_example": "void main() async {\n  if (!FileSystemAccess.supported) return;\n  final handles = await window.showOpenFilePicker(multiple: true);\n  for (final handle in handles) {\n    final file = await handle.getFile();\n    print('<file name=\"${handle.name}\" size=\"${file.size}\" />');\n  }\n}",
+    "confidence": 0.9
+  }
+}

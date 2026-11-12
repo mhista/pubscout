@@ -1,0 +1,52 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.0.0",
+  "generatedAt": "2026-11-12T11:13:07.412Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "storage",
+      "files",
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "A pure Dart tus client for resumable file uploads.",
+    "what_it_does": "Allows pausing, canceling, and resuming file uploads using the tus protocol over HTTP. It supports both file-based and stream-based uploads with configurable chunk sizes, persistent caching, and progress tracking.",
+    "use_when": [
+      "You need resumable file uploads that can survive app restarts, crashes, or network drops.",
+      "You are uploading large files where chunking and progress reporting are required."
+    ],
+    "avoid_when": [
+      "Your backend does not support the tus protocol.",
+      "You only need simple, non-resumable HTTP file uploads."
+    ],
+    "strengths": [
+      "Supports persistent caching to automatically resume uploads after app restarts.",
+      "Pure Dart implementation with broad platform support including mobile, desktop, and web.",
+      "Fine-grained progress reporting via sub-chunks."
+    ],
+    "weaknesses": [
+      "Requires a server that specifically implements the tus protocol.",
+      "Default fingerprint generation can break if the creation URL is one-time or pre-signed without custom overrides."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Not documented",
+    "alternatives": [
+      {
+        "name": "http",
+        "why_pick_it": "If you do not need the tus protocol and just want to perform standard HTTP requests."
+      },
+      {
+        "name": "dio",
+        "why_pick_it": "If you need a robust general-purpose HTTP client with interceptors and FormData support rather than a dedicated tus protocol client."
+      }
+    ],
+    "minimal_example": "final file = XFile('/path/to/some/video.mp4');\nfinal tusServerURL = 'https://master.tus.io/files';\nfinal tusClient = initTusClient(file, tusServerURL);\nhandleClient(tusClient);",
+    "confidence": 0.95
+  }
+}

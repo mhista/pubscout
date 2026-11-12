@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.2.0",
+  "generatedAt": "2026-11-12T11:43:00.310Z",
+  "data": {
+    "primary_category": "camera",
+    "secondary_categories": [
+      "utils",
+      "images"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter plugin for iOS and Android to decode QR codes.",
+    "what_it_does": "Provides a plugin for decoding QR codes from local files on Android and iOS.",
+    "use_when": [
+      "You need to decode a QR code from a local image file",
+      "You are building an app for Android and iOS that requires QR code reading capabilities"
+    ],
+    "avoid_when": [
+      "You need live camera preview scanning instead of local file decoding",
+      "You need web or desktop support"
+    ],
+    "strengths": [
+      "Simple API for decoding QR codes from local files",
+      "Supports Android and iOS"
+    ],
+    "weaknesses": [
+      "Limited platform support (only iOS and Android)",
+      "Minimal documentation and features"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "For iOS, add the Privacy - Photo Library Usage Description key to Info.plist.",
+    "alternatives": [
+      {
+        "name": "mobile_scanner",
+        "why_pick_it": "Provides a comprehensive scanner widget for real-time camera scanning."
+      },
+      {
+        "name": "google_mlkit_barcode_scanning",
+        "why_pick_it": "Uses Google ML Kit for robust barcode and QR code scanning."
+      }
+    ],
+    "minimal_example": "import 'package:qr_code_tools/qr_code_tools.dart';\n\nString _data;\n\nFuture decode(String file) async {\n  String data = await QrCodeToolsPlugin.decodeFrom(file);\n  setState(() {\n    _data = data;\n  });\n}",
+    "confidence": 0.95
+  }
+}

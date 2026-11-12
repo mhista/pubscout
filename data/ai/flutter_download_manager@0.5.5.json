@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.5.5",
+  "generatedAt": "2026-11-12T11:47:56.705Z",
+  "data": {
+    "primary_category": "files",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Cross-platform file downloader supporting parallel, batch, and resumable downloads.",
+    "what_it_does": "Allows managing file download tasks by URL with support for pause, cancel, queue, and resume features. Provides progress and status updates for individual files and batch downloads.",
+    "use_when": [
+      "You need to download files from URLs with support for pausing and resuming.",
+      "You want to manage batch or parallel file downloads in a cross-platform Flutter application."
+    ],
+    "avoid_when": [
+      "You need downloads to persist and run in the background after the Dart application closes.",
+      "Target platforms require automated background sync services."
+    ],
+    "strengths": [
+      "Supports resumable, parallel, and batch downloads.",
+      "Cross-platform support for Android, iOS, Windows, macOS, and Linux.",
+      "Easy to track status and progress via listeners."
+    ],
+    "weaknesses": [
+      "Does not run in a background process; shuts down when the app closes.",
+      "Mobile platforms require manual permission handling for file storage."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "On mobile, ensure the app has the required permissions to save files to absolute or relative paths.",
+    "alternatives": [],
+    "minimal_example": "var dl = DownloadManager();\nvar url = \"adasdad.com/asda.sdas\";\ndl.addDownload(url, \"./test.sdas\");\n\nDownloadTask? task = dl.getDownload(url);\n\ntask?.status.addListener(() {\n  print(task.status.value);\n});",
+    "confidence": 0.95
+  }
+}

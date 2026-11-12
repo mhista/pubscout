@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "3.0.1",
+  "generatedAt": "2026-11-12T11:19:31.537Z",
+  "data": {
+    "primary_category": "images",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Renders PDF pages to bitmap images using native iOS and Android renderers.",
+    "what_it_does": "The package opens a PDF file, lets you query page sizes, and renders any page to a Uint8List bitmap. It works via platform channels and supports scaling and background color options.",
+    "use_when": [
+      "You need to display PDF content as images in a Flutter app",
+      "You require fast native rendering on Android and iOS",
+      "You want to avoid heavy PDF parsing libraries"
+    ],
+    "avoid_when": [
+      "You need interactive PDF features like text selection or annotations",
+      "You target platforms other than Android/iOS (e.g., web, desktop)"
+    ],
+    "strengths": [
+      "Uses native renderers for performance",
+      "Simple API for opening, rendering, and closing pages",
+      "Supports scaling and custom background"
+    ],
+    "weaknesses": [
+      "Only works on Android and iOS",
+      "Requires higher minSdk (24) and recent Flutter/Dart versions",
+      "No web or desktop support"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add the plugin to pubspec, ensure Android minSdk >=24 and AGP >=9, iOS deployment target >=13, and configure platform-specific permissions if needed",
+    "alternatives": [],
+    "minimal_example": "class MyApp extends StatefulWidget{@override _MyAppState createState()=>_MyAppState();}\nclass _MyAppState extends State<MyApp>{Uint8List? image;void renderPdf() async{String path=await FilePicker.getFilePath(type:FileType.custom,allowedExtensions:['pdf']);final pdf=PdfImageRenderer(path:path);await pdf.open();await pdf.openPage(pageIndex:0);final size=await pdf.getPageSize(pageIndex:0);final img=await pdf.renderPage(pageIndex:0,x:0,y:0,width:size.width,height:size.height,scale:1,background:Colors.white);await pdf.closePage(pageIndex:0);pdf.close();setState(()=>image=img);}\n@override Widget build(BuildContext context){return MaterialApp(home:Scaffold(appBar:AppBar(title:Text('pdf_image_renderer')),body:Center(child:image!=null?Image(image:MemoryImage(image!)):Text('Loading...'))));}}",
+    "confidence": 0.92
+  }
+}

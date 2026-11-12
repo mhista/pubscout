@@ -1,0 +1,53 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "2.16.0",
+  "generatedAt": "2026-11-12T11:28:46.497Z",
+  "data": {
+    "primary_category": "notifications",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Amplify Flutter plugin for push notifications using AWS Pinpoint.",
+    "what_it_does": "Provides a Push Notifications category for Amplify Flutter that integrates with AWS Pinpoint. It handles registration, receipt, and interaction with push messages on Android and iOS. Works alongside other Amplify plugins for analytics, auth, and storage.",
+    "use_when": [
+      "You need push notifications in a Flutter app backed by AWS Amplify/Pinpoint",
+      "You already use other Amplify Flutter plugins and want a unified solution"
+    ],
+    "avoid_when": [
+      "You require web, desktop, or Linux support for notifications",
+      "You prefer a lighter‑weight or non‑AWS notification service"
+    ],
+    "strengths": [
+      "Native Android and iOS support with AWS Pinpoint",
+      "Seamless integration with other Amplify plugins",
+      "Regular updates and bug fixes"
+    ],
+    "weaknesses": [
+      "No support for web, Windows, macOS, or Linux",
+      "Adds many Amplify dependencies, increasing app size",
+      "Requires native configuration and AWS setup"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add Amplify configuration files, update AndroidManifest (permissions, services) and iOS Info.plist (push capabilities), run amplify push, and initialize Amplify in Dart code.",
+    "alternatives": [
+      {
+        "name": "firebase_messaging",
+        "why_pick_it": "Google‑backed push service with cross‑platform (including web) support and a smaller dependency footprint"
+      },
+      {
+        "name": "onesignal_flutter",
+        "why_pick_it": "Provides rich notification features and a dashboard without needing AWS infrastructure"
+      },
+      {
+        "name": "flutter_local_notifications",
+        "why_pick_it": "Handles local notifications and can be combined with other push services for a custom solution"
+      }
+    ],
+    "minimal_example": "import 'package:amplify_flutter/amplify.dart';\nimport 'package:amplify_push_notifications/amplify_push_notifications.dart';\n\nFuture<void> configureAmplify() async {\n  await Amplify.addPlugin(AmplifyPushNotifications());\n  await Amplify.configure(amplifyconfig);\n}\n\nvoid main() async {\n  WidgetsFlutterBinding.ensureInitialized();\n  await configureAmplify();\n  runApp(MyApp());\n}",
+    "confidence": 0.93
+  }
+}

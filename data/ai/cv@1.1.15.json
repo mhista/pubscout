@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "1.1.15",
+  "generatedAt": "2026-11-12T11:13:20.666Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "no codegen"
+    ],
+    "one_liner": "Helpers to convert Dart objects to/from Map and JSON without code generation.",
+    "what_it_does": "cv provides a lightweight way to define models with fields and convert them to maps or JSON. It supports nested models, lists, maps, dates, enums and multi‑type fields, all without code generation.",
+    "use_when": [
+      "You need quick, mutable models that map to JSON or Map for local storage or API payloads.",
+      "You want to avoid build_runner or codegen tooling for simple data structures.",
+      "You need to handle null and unset values explicitly in your models."
+    ],
+    "avoid_when": [
+      "Your data models are large and complex, requiring performance optimisations or immutability.",
+      "You rely heavily on code generation for type safety and boilerplate reduction (e.g., freezed)."
+    ],
+    "strengths": [
+      "No code generation required",
+      "Easy to register and use models",
+      "Handles null/unset values and type conversions",
+      "Supports nested models and collections"
+    ],
+    "weaknesses": [
+      "Requires manual constructor registration",
+      "Models are mutable, which may not fit all architectures",
+      "No built‑in immutability or validation"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dependency, register constructors with cvAddConstructor or cvAddConstructors before converting maps or JSON.",
+    "alternatives": [],
+    "minimal_example": "import 'package:cv/cv.dart';\n\nclass Todo extends CvModelBase {\n  final title = CvField<String>('title');\n  final done = CvField<bool>('done');\n  @override\n  CvFields get fields => [title, done];\n}\n\nvoid main() {\n  cvAddConstructor(Todo.new);\n  var todo = Todo()..title.v = 'Buy milk';\n  print(todo.toMap()); // {title: Buy milk}\n  var fromMap = {'title': 'Call Bob', 'done': true}.cv<Todo>();\n  print(fromMap.done.v); // true\n}\n",
+    "confidence": 0.9
+  }
+}

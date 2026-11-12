@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.5.2",
+  "generatedAt": "2026-11-12T11:13:19.350Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [
+      "device"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Flutter plugin to use ContentProvider and ContentResolver APIs on Android.",
+    "what_it_does": "This plugin exposes Android ContentProvider and related ContentResolver APIs to Flutter. It allows developers to both consume existing content providers from other apps and create their own custom content providers in Flutter and native code.",
+    "use_when": [
+      "You need to access data exposed by other Android applications via ContentResolver.",
+      "You need to build a custom ContentProvider in a Flutter app for other Android apps to consume."
+    ],
+    "avoid_when": [
+      "You are targeting iOS or other non-Android platforms.",
+      "You just need a standard local key-value or SQLite database without Android-specific content provider sharing."
+    ],
+    "strengths": [
+      "Provides full support for Android ContentProvider and ContentResolver APIs.",
+      "Allows creating custom Android ContentProviders with Dart business logic."
+    ],
+    "weaknesses": [
+      "Android-only platform support.",
+      "Requires manual configuration in native Android code (Java/Kotlin) and AndroidManifest.xml."
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Requires configuring package visibility in AndroidManifest.xml, subclassing AndroidContentProvider in native Kotlin or Java code, and setting up Dart entrypoints.",
+    "alternatives": [],
+    "minimal_example": "class MyAndroidContentProvider extends AndroidContentProvider {\n  MyAndroidContentProvider(String authority) : super(authority);\n\n  @override\n  Future<int> delete(\n    String uri,\n    String? selection,\n    List<String>? selectionArgs,\n  ) async {\n    return 0;\n  }\n}",
+    "confidence": 1
+  }
+}

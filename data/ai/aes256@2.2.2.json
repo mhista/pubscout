@@ -1,0 +1,47 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "2.2.2",
+  "generatedAt": "2026-11-12T11:30:12.444Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "AES‑256‑GCM encryption/decryption with PBKDF2‑SHA256 key derivation.",
+    "what_it_does": "Provides simple async methods to encrypt and decrypt text using a passphrase. The library builds a binary payload of salt, nonce, ciphertext and tag and works on all Flutter platforms.",
+    "use_when": [
+      "You need client‑side symmetric encryption with a passphrase",
+      "Cross‑platform support including web, mobile and desktop",
+      "You want a lightweight pure‑Dart solution with strong defaults"
+    ],
+    "avoid_when": [
+      "You require hardware‑accelerated crypto or custom algorithms",
+      "Key management must be done with secure hardware or external KMS",
+      "Performance is critical for large data streams"
+    ],
+    "strengths": [
+      "Strong defaults (100k PBKDF2 iterations, random salt/nonce)",
+      "Works everywhere (Flutter, Dart VM, Web) without native code",
+      "Simple, stateless API"
+    ],
+    "weaknesses": [
+      "Relies on a user‑provided passphrase for key material",
+      "No support for other ciphers or modes",
+      "Web version lacks native acceleration"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "crypto",
+        "why_pick_it": "Provides low‑level cryptographic primitives including AES and PBKDF2 without the higher‑level payload handling."
+      }
+    ],
+    "minimal_example": "import 'package:aes256/aes256.dart';\n\nvoid main() async {\n  final encrypted = await Aes256.encrypt(text: 'Hello world', passphrase: 'my-passphrase');\n  final decrypted = await Aes256.decrypt(encrypted: encrypted, passphrase: 'my-passphrase');\n  print(decrypted); // Hello world\n}",
+    "confidence": 0.93
+  }
+}

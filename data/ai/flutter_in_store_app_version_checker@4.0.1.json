@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "4.0.1",
+  "generatedAt": "2026-11-12T11:32:25.863Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Checks for newer app versions on multiple app stores with a single API call",
+    "what_it_does": "The plugin queries Google Play, Apple App Store, RuStore, AppGallery, and ApkPure to determine the latest published version of an app. It returns the current, store, and URL information along with a flag indicating whether an update is available.",
+    "use_when": [
+      "You need to prompt users to update without a backend",
+      "You want to support multiple app stores in one call",
+      "You need semver‑aware comparison and regional storefront support"
+    ],
+    "avoid_when": [
+      "You only target a single store",
+      "You require web or desktop support",
+      "You need to customize the network layer beyond http.Client"
+    ],
+    "strengths": [
+      "Lightweight – only http and meta dependencies",
+      "No need for package_info_plus – reads metadata natively",
+      "Supports regional storefronts and semver comparison",
+      "Fully testable with injectable http.Client"
+    ],
+    "weaknesses": [
+      "Android/iOS only – no web, Windows, Linux, macOS support",
+      "Requires INTERNET permission (added automatically)",
+      "Limited to the listed stores"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the plugin via pub add; the plugin declares INTERNET permission automatically. No build_runner or codegen required.",
+    "alternatives": [],
+    "minimal_example": "final res = await InStoreAppVersionChecker.instance.checkUpdate(\n  const InStoreAppVersionCheckerParams(locale: 'en-US'),\n);\nif (res.canUpdate) {\n  // show update dialog\n}",
+    "confidence": 0.9
+  }
+}

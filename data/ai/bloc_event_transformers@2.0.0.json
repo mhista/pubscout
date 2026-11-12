@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "2.0.0",
+  "generatedAt": "2026-11-12T11:24:23.559Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "stream-based"
+    ],
+    "one_liner": "Configurable event transformers for BLoC: throttle, debounce, skip, delay",
+    "what_it_does": "Provides stream-based transformers that can be applied to BLoC events to control their timing. It supports throttling, debouncing, skipping, and delaying events without custom implementation.",
+    "use_when": [
+      "You need to limit event frequency in a BLoC",
+      "You want to debounce rapid user input",
+      "You need to skip a set number of events",
+      "You want to delay event processing"
+    ],
+    "avoid_when": [
+      "You are not using BLoC for state management",
+      "You require custom event handling logic not covered by these transformers"
+    ],
+    "strengths": [
+      "Easy to integrate with existing BLoC code",
+      "No code generation required",
+      "Supports multiple common transformers",
+      "MIT license"
+    ],
+    "weaknesses": [
+      "Only works with BLoC",
+      "Limited to the four provided transformers"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "```dart\nimport 'package:bloc_event_transformers/bloc_event_transformers.dart';\n\nclass CounterBloc extends Bloc<CounterEvent, int> {\n  CounterBloc() : super(0) {\n    on<IncrementEvent>(\n      (event, emit) => emit(state + 1),\n      transformer: throttle(const Duration(seconds: 1)),\n    );\n  }\n}\n```",
+    "confidence": 0.9
+  }
+}

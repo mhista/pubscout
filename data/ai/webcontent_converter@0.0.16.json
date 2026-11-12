@@ -1,0 +1,47 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.0.16",
+  "generatedAt": "2026-11-12T11:29:39.311Z",
+  "data": {
+    "primary_category": "web-desktop",
+    "secondary_categories": [
+      "files",
+      "images"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Convert web content, URIs, or HTML strings to image bitmaps or PDF files across platforms.",
+    "what_it_does": "This plugin utilizes platform-native webviews (WebView on Android, WKWebView on iOS/macOS, WebView2 on Windows, and html2canvas/html2pdf on Web) to convert HTML content or web URIs into image bitmaps, PDF files, or raw PDF bytes. It also provides print preview functionality and an embedded webview widget.",
+    "use_when": [
+      "You need to generate screenshots of HTML content or web pages as images.",
+      "You need to create invoices or receipts as paginated PDF files from HTML templates.",
+      "You need to invoke the platform's native print preview UI from HTML content."
+    ],
+    "avoid_when": [
+      "You need a general-purpose, full-featured webview widget for normal in-app browsing rather than snapshotting/conversion.",
+      "Your Windows deployment environment lacks the WebView2 Runtime and cannot guarantee it."
+    ],
+    "strengths": [
+      "Uses native webviews across platforms without needing to download or bundle heavy binaries like Chromium or Puppeteer.",
+      "Supports Android, iOS, macOS, Windows, and Web.",
+      "Provides both file output and in-memory byte arrays for generated images and PDFs."
+    ],
+    "weaknesses": [
+      "Windows requires the WebView2 Runtime to be present on the target machine.",
+      "Pixel dimensions for PDF-to-image rasterization can vary slightly across different platform native renderers."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires INTERNET permission for remote URLs on Android and handling App Transport Security for http:// on iOS/macOS. Web requires running the setup command to inject required script tags into index.html.",
+    "alternatives": [
+      {
+        "name": "webview_flutter",
+        "why_pick_it": "If you primarily need a full-featured UI webview component rather than converting pages into static images or PDFs."
+      }
+    ],
+    "minimal_example": "final content = Demo.getReceiptContent();\nfinal bytes = await WebcontentConverter.contentToImage(content: content);\nif (bytes.isNotEmpty) _saveFile(bytes);",
+    "confidence": 0.95
+  }
+}

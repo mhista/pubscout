@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.1.1",
+  "generatedAt": "2026-11-12T11:25:07.835Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Print receipts via ESC/POS thermal WiFi/Ethernet printers",
+    "what_it_does": "This package provides a NetworkPrinter class that connects to ESC/POS thermal printers over WiFi or Ethernet and sends print commands. It supports text, styles, images and basic printer control such as feed and cut.",
+    "use_when": [
+      "You need to print receipts on a networked ESC/POS printer from a Flutter or Dart app",
+      "You prefer a simple imperative API without code generation",
+      "You are targeting Android, iOS, Windows, macOS or Linux"
+    ],
+    "avoid_when": [
+      "You need Bluetooth printing",
+      "You require advanced barcode or PDF417 support not yet implemented"
+    ],
+    "strengths": [
+      "Cross‑platform network support",
+      "Simple imperative API",
+      "Built on top of esc_pos_utils_plus for styling"
+    ],
+    "weaknesses": [
+      "No Bluetooth support",
+      "Limited feature set (no QR, PDF417, line spacing)",
+      "Very early version"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:esc_pos_printer_plus/esc_pos_printer_plus.dart';\n\nconst PaperSize paper = PaperSize.mm80;\nfinal profile = await CapabilityProfile.load();\nfinal printer = NetworkPrinter(paper, profile);\n\nfinal res = await printer.connect('192.168.0.123', port: 9100);\nif (res == PosPrintResult.success) {\n  printer.text('Hello, world!');\n  printer.cut();\n  printer.disconnect();\n}\nprint('Print result: ${res.msg}');",
+    "confidence": 0.9
+  }
+}

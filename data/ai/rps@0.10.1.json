@@ -1,0 +1,53 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.10.1",
+  "generatedAt": "2026-11-12T11:15:29.016Z",
+  "data": {
+    "primary_category": "devtools",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "declarative",
+      "hooks"
+    ],
+    "one_liner": "Run and manage scripts defined in pubspec.yaml or rps.yaml from the command line",
+    "what_it_does": "RPS lets you define shell commands in your pubspec or a separate rps.yaml file and execute them with a simple CLI. It supports nested commands, hooks, platform‑specific scripts, positional arguments and references.",
+    "use_when": [
+      "You want a lightweight script runner without writing separate Dart scripts",
+      "You need to keep long flutter or build commands in pubspec for CI or local use",
+      "You want to share scripts across a team via pubspec"
+    ],
+    "avoid_when": [
+      "You need complex task orchestration with dependencies beyond simple shell commands",
+      "You are building a full CI/CD pipeline that requires advanced tooling"
+    ],
+    "strengths": [
+      "Simple YAML configuration, no code generation",
+      "Built‑in hooks and references for reusable workflows",
+      "Platform‑specific script support",
+      "Positional arguments and external rps.yaml"
+    ],
+    "weaknesses": [
+      "Limited to shell commands, no Dart API integration",
+      "No advanced dependency graph or parallel execution",
+      "Requires Dart SDK and global activation"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "dart pub global activate rps",
+    "alternatives": [
+      {
+        "name": "pubspec_parse",
+        "why_pick_it": "Parse pubspec.yaml in Dart code"
+      },
+      {
+        "name": "stack_trace",
+        "why_pick_it": "Debugging and stack traces"
+      }
+    ],
+    "minimal_example": "```yaml\nscripts:\n  build:\n    web: flutter build web --flavor production -t lib/main.dart\n    android: flutter build apk --flavor production -t lib/main.dart\n```",
+    "confidence": 0.92
+  }
+}

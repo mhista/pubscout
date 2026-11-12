@@ -1,0 +1,37 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.9.1",
+  "generatedAt": "2026-11-12T11:13:37.274Z",
+  "data": {
+    "primary_category": "web-desktop",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Register global system-wide hot keys on macOS and Windows.",
+    "what_it_does": "Allows Flutter desktop applications to register global hot keys that trigger callbacks even when the application is not in focus. It is supported on macOS and Windows and uses physical keyboard keys for definitions.",
+    "use_when": [
+      "You are building a desktop application for macOS or Windows that requires global keyboard shortcuts.",
+      "You need keyboard shortcuts to trigger actions even when your app is running in the background."
+    ],
+    "avoid_when": [
+      "You only need in-app keyboard shortcuts handled by standard Flutter focus nodes.",
+      "You are targeting mobile or web platforms."
+    ],
+    "strengths": [
+      "Enables system-wide global hot keys on macOS and Windows.",
+      "Simple API to create and dispose hot keys."
+    ],
+    "weaknesses": [
+      "Only supports macOS and Windows platforms.",
+      "Not documented for platforms other than macOS and Windows."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [],
+    "minimal_example": "final hotKey = await HotKey.create(\n  definition: HotKeyDefinition(\n    key: PhysicalKeyboardKey.minus,\n    alt: true,\n    meta: true,\n  ),\n  callback: () {\n    print('hot key pressed');\n  },\n);\n\nhotKey.dispose();",
+    "confidence": 0.95
+  }
+}

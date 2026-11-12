@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.7.0",
+  "generatedAt": "2026-11-12T11:10:20.975Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter desktop window resizing, moving, showing, hiding via nativeapi.",
+    "what_it_does": "Provides APIs to control window size, position, visibility and decoration on Windows, macOS and Linux. It exposes native window objects and events through the nativeapi core.",
+    "use_when": [
+      "You need frameless or custom title bars",
+      "You want to programmatically resize or reposition windows",
+      "You need multi‑window support in a desktop Flutter app"
+    ],
+    "avoid_when": [
+      "You target only mobile or web",
+      "You need a very lightweight dependency and can live without nativeapi"
+    ],
+    "strengths": [
+      "Cross‑platform native window control",
+      "No platform‑specific plugin code, all logic in nativeapi",
+      "Supports custom title bars and multi‑window APIs"
+    ],
+    "weaknesses": [
+      "Requires Flutter 3.50 / Dart 3.14 and nativeapi 0.6.0",
+      "Linux needs GTK3, X11 and Xi dev files",
+      "Legacy API is deprecated and will be removed"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add window_manager to pubspec, run flutter pub get. On Linux install libgtk-3-dev libx11-dev libxi-dev. No build_runner needed.",
+    "alternatives": [
+      {
+        "name": "win32",
+        "why_pick_it": "Provides low‑level Windows window APIs if you only target Windows and need finer control."
+      }
+    ],
+    "minimal_example": "import 'package:window_manager/window_manager.dart';\n\nfinal window = WindowManager.instance.getCurrent()!;\nwindow.title = 'My App';\nwindow.setSize(const Size(1000, 700).toNative(), false);\nwindow.center();\nwindow.show();",
+    "confidence": 0.9
+  }
+}

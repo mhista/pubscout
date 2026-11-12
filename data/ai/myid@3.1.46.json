@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.1.46",
+  "generatedAt": "2026-11-12T12:03:30.179Z",
+  "data": {
+    "primary_category": "auth",
+    "secondary_categories": [
+      "camera",
+      "device"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter plugin for MyID identity verification SDK supporting Android and iOS.",
+    "what_it_does": "Provides native integration with the MyID service for user identification and face detection. Handles camera capture, document scanning, and user verification flows on Android and iOS.",
+    "use_when": [
+      "You need to verify user identity via the MyID service in your mobile app.",
+      "You require face detection and capture capabilities integrated with native MyID SDKs."
+    ],
+    "avoid_when": [
+      "You are building a web or desktop application (supports Android and iOS only).",
+      "You need general-purpose authentication like OAuth or social logins."
+    ],
+    "strengths": [
+      "Supports both identification and face detection entry types.",
+      "Provides extensive customization options for appearance and organization details on iOS and Android.",
+      "Includes Huawei Mobile Services (HMS) integration support."
+    ],
+    "weaknesses": [
+      "Requires platform-specific configuration such as iOS Podfile updates and Info.plist permissions.",
+      "Tied directly to the proprietary MyID backend service and its session parameters."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires setting platform target to iOS 13.0, adding camera usage description in Info.plist, and optionally adding the Huawei Integrity SDK for HMS devices.",
+    "alternatives": [],
+    "minimal_example": "var result = await MyIdClient.start(\n    config: MyIdConfig(\n        sessionId: sessionId,\n        clientHash: clientHash,\n        clientHashId: clientHashId,\n        environment: MyIdEnvironment.PRODUCTION\n    ),\n    iosAppearance: MyIdIOSAppearance(),\n);",
+    "confidence": 0.95
+  }
+}

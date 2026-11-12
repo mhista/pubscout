@@ -1,0 +1,54 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "6.0.0",
+  "generatedAt": "2026-11-12T11:43:00.668Z",
+  "data": {
+    "primary_category": "navigation",
+    "secondary_categories": [
+      "state-management",
+      "widgets",
+      "forms",
+      "utils"
+    ],
+    "approach": [
+      "code generation",
+      "declarative"
+    ],
+    "one_liner": "An opinionated MVVM application framework with typed routing, auth, and form widgets.",
+    "what_it_does": "Provides a comprehensive batteries-included app framework combining typed go_router navigation, MVVM state management via ViewModel and ViewModelWidget, permission handling, form components, and utility functions.",
+    "use_when": [
+      "Building full-featured production apps and want a pre-built MVVM and navigation structure",
+      "You need type-safe routing using go_router_builder",
+      "You want built-in authentication hooks and feature-access control"
+    ],
+    "avoid_when": [
+      "You prefer a minimalist routing solution without an opinionated framework",
+      "You use alternative state management libraries like Bloc or Riverpod and do not want the ViewModel pattern"
+    ],
+    "strengths": [
+      "Typed routing integration with go_router_builder",
+      "Clean separation of concerns with MVVM framework classes",
+      "Includes helpful widgets like form fields, layout components, and data grids"
+    ],
+    "weaknesses": [
+      "High coupling to the framework's specific architectural patterns",
+      "Requires build_runner setup for route generation"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding go_router_builder and build_runner to dev_dependencies and running build_runner for route generation.",
+    "alternatives": [
+      {
+        "name": "go_router",
+        "why_pick_it": "If you want standard declarative routing without the opinionated MVVM framework layer of flutter_slick."
+      },
+      {
+        "name": "auto_route",
+        "why_pick_it": "If you prefer code-generated nested routing and typed route arguments through auto_route instead."
+      }
+    ],
+    "minimal_example": "import 'package:flutter_slick/navigation/slick_route.dart';\nimport 'package:go_router/go_router.dart';\n\n@TypedGoRoute<HomeRoute>(path: '/')\nclass HomeRoute extends SlickRoute with $HomeRoute {\n  const HomeRoute();\n\n  @override\n  Widget build(BuildContext context, GoRouterState state) => const HomeScreen();\n}",
+    "confidence": 0.95
+  }
+}

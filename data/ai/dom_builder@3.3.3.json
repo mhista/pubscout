@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.3.3",
+  "generatedAt": "2026-11-12T11:20:38.346Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "declarative",
+      "imperative"
+    ],
+    "one_liner": "Generate and manipulate virtual or real DOM elements, DSX, and HTML declarations.",
+    "what_it_does": "Allows developers to generate and manipulate DOM elements, HTML declarations, and DSX (similar to JSX) across Web and Native platforms. Supports element querying, building, accessibility attributes, and mixing virtual elements with real package:web elements.",
+    "use_when": [
+      "You need to build or manipulate DOM trees in Dart for web or native environments.",
+      "You want to use HTML-like declarative syntax (DSX) in Dart code.",
+      "You need to construct HTML tables, Bootstrap cards, and custom components dynamically."
+    ],
+    "avoid_when": [
+      "You are building standard Flutter UI widgets where Flutter's widget tree is sufficient.",
+      "You do not need DOM manipulation or HTML rendering capabilities."
+    ],
+    "strengths": [
+      "Works across both Web and Native platforms.",
+      "Supports DSX (Dart Syntax Extension) similar to JSX.",
+      "Built-in accessibility attribute support (ARIA, roles, tabIndex)."
+    ],
+    "weaknesses": [
+      "Limited to DOM manipulation and HTML-related workflows, making it unnecessary for standard Flutter UI applications."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:dom_builder/dom_builder.dart';\n\nvoid main() {\n  var div = $divHTML('<div class=\"container\"><span>Builder</span></div>')\n      .insertAt( 0, $span( id: 's1', content: 'The ' ) )\n      .insertAfter( '#s1' , $span( id: 's2', content: 'DOM ', style: 'font-weight: bold' ) );\n  print( div.buildHTML( withIdent: true ) );\n}",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.0.6",
+  "generatedAt": "2026-11-12T11:37:02.537Z",
+  "data": {
+    "primary_category": "payments",
+    "secondary_categories": [],
+    "approach": [
+      "declarative",
+      "imperative"
+    ],
+    "one_liner": "Accept payments via Apple Pay, Samsung Pay, STC Pay, and Credit Card using Moyasar.",
+    "what_it_does": "Provides Flutter widgets and API bindings to process payments through Moyasar with managed 3DS handling. It supports Apple Pay, Samsung Pay, STC Pay, and Credit Cards, automatically managing widget visibility depending on platform availability.",
+    "use_when": [
+      "You need to accept regional and international payments in a Flutter application via Moyasar.",
+      "You want built-in widgets for Apple Pay, Samsung Pay, STC Pay, and Credit Cards with automatic platform availability checking."
+    ],
+    "avoid_when": [
+      "You use a payment gateway other than Moyasar.",
+      "You are processing in-app purchases through Apple App Store or Google Play Billing."
+    ],
+    "strengths": [
+      "Widgets automatically hide themselves when payment methods are unavailable on the current device.",
+      "Managed 3DS handling for credit card transactions.",
+      "Native PassKit implementation for Apple Pay without external pay package dependencies."
+    ],
+    "weaknesses": [
+      "Apple Pay currency is currently restricted to SAR.",
+      "Requires specific platform configurations such as Apple Pay developer credentials and Samsung Pay metadata."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires a Moyasar account and API keys, plus platform-specific steps like Apple Pay configuration in Xcode and Samsung Pay meta-data in AndroidManifest.xml.",
+    "alternatives": [
+      {
+        "name": "flutter_stripe",
+        "why_pick_it": "Choose this if you need to process payments using Stripe instead of Moyasar."
+      },
+      {
+        "name": "in_app_purchase",
+        "why_pick_it": "Choose this if you are selling digital goods or subscriptions through Apple App Store and Google Play billing rather than using a payment gateway."
+      }
+    ],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:moyasar/moyasar.dart';\n\nclass Checkout extends StatelessWidget {\n  Checkout({super.key});\n\n  final paymentConfig = PaymentConfig(\n    publishableApiKey: 'YOUR_PUBLISHABLE_API_KEY',\n    amount: 25758,\n    description: 'Order #1324',\n    creditCard: CreditCardConfig(saveCard: false, manual: false),\n  );\n\n  void onPaymentResult(result) {\n    if (result is PaymentResponse && result.status == PaymentStatus.paid) {\n      // Paid\n    }\n  }\n\n  @override\n  Widget build(BuildContext context) {\n    return CreditCard(config: paymentConfig, onPaymentResult: onPaymentResult);\n  }\n}",
+    "confidence": 0.95
+  }
+}

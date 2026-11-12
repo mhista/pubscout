@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.1.1",
+  "generatedAt": "2026-11-12T11:17:34.313Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Cross‑platform Flutter package that generates video thumbnails in JPEG, PNG or WebP.",
+    "what_it_does": "It extracts a frame from a video file and returns it as image bytes. Supports Android, iOS, Web, Windows, macOS and Linux via platform channels, FFmpeg or HTML5 Canvas.",
+    "use_when": [
+      "You need thumbnails for a video library or gallery.",
+      "You target multiple platforms including Web and desktop.",
+      "You want fine control over size, quality and format.",
+      "You prefer a pure Dart API without external build steps."
+    ],
+    "avoid_when": [
+      "You only need a single thumbnail on a single platform and prefer a lightweight native plugin.",
+      "You need advanced video editing or playback features beyond thumbnails."
+    ],
+    "strengths": [
+      "Full cross‑platform support including WASM for Web.",
+      "Batch generation and customizable dimensions, quality and format.",
+      "Comprehensive error handling via ThumbnailException.",
+      "No dart:io in public API, making it safe for Web."
+    ],
+    "weaknesses": [
+      "Requires native FFmpeg installation on desktop targets.",
+      "Platform channel setup is needed for mobile (no extra build steps, but native code is required).",
+      "Limited to JPEG, PNG, WebP output; no GIF or TIFF yet."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add dependency, call CrossPlatformVideoThumbnails.initialize(); on mobile platforms native code is already bundled, no extra permissions needed.",
+    "alternatives": [
+      {
+        "name": "video_player",
+        "why_pick_it": "Provides native video playback but not thumbnail generation; could be used together for UI."
+      }
+    ],
+    "minimal_example": "import 'package:cross_platform_video_thumbnails/cross_platform_video_thumbnails.dart';\n\nvoid main() async {\n  await CrossPlatformVideoThumbnails.initialize();\n  final thumb = await CrossPlatformVideoThumbnails.generateThumbnail(\n    'assets/video.mp4',\n    ThumbnailOptions(timePosition: 5.0, width: 320, height: 240, format: ThumbnailFormat.jpeg),\n  );\n  print('Thumbnail size: ${thumb.size} bytes');\n}",
+    "confidence": 0.92
+  }
+}

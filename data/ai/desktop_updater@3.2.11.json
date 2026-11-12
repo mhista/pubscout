@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "3.2.11",
+  "generatedAt": "2026-11-12T11:11:22.092Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Sparkle-style auto-updater for Flutter desktop apps",
+    "what_it_does": "Provides a cross‑platform updater that downloads signed release artifacts, verifies them, and installs updates. It includes a CLI for publishing feeds and a built‑in UI for showing update progress.",
+    "use_when": [
+      "You need automatic, signed updates for macOS, Windows, or Linux Flutter apps",
+      "You want a single package that handles download, verification, and installation",
+      "You prefer a command‑line tool to publish and manage update feeds"
+    ],
+    "avoid_when": [
+      "You need a lightweight, single‑file updater without key management",
+      "You are targeting only one platform and can use platform‑specific tools"
+    ],
+    "strengths": [
+      "Cross‑platform support (macOS, Windows, Linux)",
+      "Verified releases with cryptographic signatures",
+      "CLI for publishing and key management",
+      "Built‑in UI for update progress"
+    ],
+    "weaknesses": [
+      "Requires manual key generation and secure storage",
+      "Setup involves multiple native steps and configuration files",
+      "Documentation is extensive but can be complex for beginners"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Run `dart run desktop_updater:release keygen` to generate keys, add a `desktop_updater.yaml` config, implement a recovery store, and configure platform‑specific build steps (e.g., macOS install helper).",
+    "alternatives": [],
+    "minimal_example": "```dart\nimport \"package:desktop_updater/desktop_updater.dart\";\n\nconst trustedReleasePublicKeys = <String, String>{\n  \"release-0123456789abcdef01234567\":\n      \"base64-raw-ed25519-public-key\",\n};\n\nFuture<DesktopUpdaterController> createDesktopUpdaterController() async {\n  return DesktopUpdaterController(\n    appArchiveUrl: Uri.parse(\"https://updates.example.com/app-archive.json\"),\n    expectedPackageId: \"com.example.app\",\n    trustedReleasePublicKeys: trustedReleasePublicKeys,\n    recoveryStore: JsonFileUpdateRecoveryStore(File(\"path/to/pending-install.json\")),\n  );\n}\n```",
+    "confidence": 0.8
+  }
+}

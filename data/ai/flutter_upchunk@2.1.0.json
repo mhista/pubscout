@@ -1,0 +1,47 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.1.0",
+  "generatedAt": "2026-11-12T11:23:48.550Z",
+  "data": {
+    "primary_category": "files",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "A chunk uploader for Flutter based on the JS library UpChunk.",
+    "what_it_does": "Flutter UpChunk allows you to upload large files in chunks to a given endpoint with support for pauses, resumes, retries, and progress tracking.",
+    "use_when": [
+      "You need to upload large files in chunks to avoid request timeouts or size limits.",
+      "You want built-in retry logic, pausing, and resuming for file uploads."
+    ],
+    "avoid_when": [
+      "You are doing simple single-request file uploads where standard HTTP POST/PUT suffices."
+    ],
+    "strengths": [
+      "Supports chunked uploading with configurable chunk sizes and retry attempts.",
+      "Provides pause, resume, restart, and stop controls.",
+      "Supports web, mobile, and desktop platforms."
+    ],
+    "weaknesses": [
+      "Relies on specific server-side support for chunked PUT requests."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Not documented",
+    "alternatives": [
+      {
+        "name": "dio",
+        "why_pick_it": "For general-purpose HTTP requests and advanced interceptor support if chunking is not strictly required."
+      },
+      {
+        "name": "http",
+        "why_pick_it": "For simple core networking tasks without extra chunking logic."
+      }
+    ],
+    "minimal_example": "final upChunkUpload = UpChunk(\n  endPoint: uploadUrl,\n  file: XFile(filePath),\n  onProgress: (progress) {\n    print('Upload progress: ${progress.ceil()}%');\n  },\n  onSuccess: (response) {\n    print('Upload complete! (status: ${response.statusCode})');\n  },\n);",
+    "confidence": 0.95
+  }
+}

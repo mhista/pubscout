@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.11.2",
+  "generatedAt": "2026-11-12T11:12:49.839Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter package for sending Snowplow analytics events on Android, iOS, and Web.",
+    "what_it_does": "Provides a wrapper around Snowplow native trackers to manually or automatically track screen views, custom events, and context data. Supports multiple trackers, session handling, GDPR, and media tracking across platforms.",
+    "use_when": [
+      "You need Snowplow analytics in a Flutter app",
+      "You want a single API for Android, iOS, and Web tracking"
+    ],
+    "avoid_when": [
+      "You prefer a different analytics platform",
+      "You need a pure Dart/HTTP‑only solution without native plugins"
+    ],
+    "strengths": [
+      "Full feature parity with Snowplow native SDKs",
+      "Cross‑platform support (Android, iOS, Web)",
+      "Automatic view tracking and session management"
+    ],
+    "weaknesses": [
+      "Requires native setup for each platform",
+      "Limited to Snowplow ecosystem",
+      "No code‑generation helpers"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add the package, configure native iOS/Android trackers, and for Web include the Snowplow JS tracker in index.html. No extra permissions beyond network access are needed.",
+    "alternatives": [],
+    "minimal_example": "import 'package:snowplow_tracker/snowplow_tracker.dart';\n\nFuture<void> main() async {\n  SnowplowTracker tracker = await Snowplow.createTracker(\n    namespace: 'myApp',\n    endpoint: 'https://collector.example.com',\n  );\n  tracker.track(ScreenView(id: '123', name: 'home', type: 'full', transitionType: 'none'));\n}",
+    "confidence": 0.78
+  }
+}

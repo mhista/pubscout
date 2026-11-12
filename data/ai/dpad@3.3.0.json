@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.3.0",
+  "generatedAt": "2026-11-12T11:15:18.270Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "ui-kits",
+      "device"
+    ],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "D-pad navigation and focus management for Flutter TV apps.",
+    "what_it_does": "Provides production-grade D-pad navigation, focus regions with memory, TV-correct directional traversal, and remote-key handling for Flutter applications targeting TV platforms. It replaces Flutter's default focus engine to properly support regions, beam-based traversal, edge controls, and remote semantics.",
+    "use_when": [
+      "Building an app for Android TV, Fire TV, or Apple TV using Flutter.",
+      "Needing memory inside focus regions so returning to a row restores the previously selected item.",
+      "Managing complex spatial directional navigation and remote control inputs."
+    ],
+    "avoid_when": [
+      "Building standard mobile or desktop applications that do not rely on remote control or D-pad input.",
+      "Needing advanced non-TV gamepad mechanics unrelated to spatial focus management."
+    ],
+    "strengths": [
+      "Regions with memory that survive rebuilds and lazy lists.",
+      "Beam-based traversal mimicking real TV platforms like Android Leanback.",
+      "Built-in visual effects including animated flying highlights and custom focus states."
+    ],
+    "weaknesses": [
+      "Specific to TV and D-pad/remote-controlled interfaces, rendering it largely irrelevant for typical touch-first mobile designs.",
+      "Requires wrapping the app and managing custom region components instead of relying purely on default Flutter focus nodes."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Wrap the root MaterialApp builder with Dpad.wrap().",
+    "alternatives": [],
+    "minimal_example": "MaterialApp(\n  builder: Dpad.wrap(),\n  home: const HomePage(),\n)",
+    "confidence": 1
+  }
+}

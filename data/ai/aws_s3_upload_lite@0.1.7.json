@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.1.7",
+  "generatedAt": "2026-11-12T11:59:20.264Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Upload files and byte data directly to AWS S3 buckets with progress tracking.",
+    "what_it_does": "Provides simple APIs to upload File objects or byte data to Amazon S3 buckets. Supports custom metadata, headers, ACL permissions, session tokens, and upload progress callbacks, returning the full S3 URL upon success.",
+    "use_when": [
+      "You need to upload user-generated files or data directly from a Flutter app to Amazon S3.",
+      "You require upload progress monitoring and custom metadata or headers for S3 objects."
+    ],
+    "avoid_when": [
+      "You need a comprehensive AWS SDK for Flutter covering multiple services beyond S3 uploads.",
+      "You want to store credentials directly on the client for sensitive production environments without secure handling."
+    ],
+    "strengths": [
+      "Simple and straightforward API for S3 uploads.",
+      "Supports progress tracking callbacks and session tokens for temporary credentials.",
+      "Returns the full S3 URL on successful uploads."
+    ],
+    "weaknesses": [
+      "Limited to uploading files and byte data to S3 rather than a full storage management suite.",
+      "Exposing access and secret keys on the client side requires careful security considerations."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires valid AWS S3 bucket credentials, region, and appropriate bucket permissions or CORS/ACL configurations.",
+    "alternatives": [],
+    "minimal_example": "String fileUrl = await AwsS3.uploadFile(\n  accessKey: 'your-access-key',\n  secretKey: 'your-secret-key',\n  bucket: 'your-bucket',\n  file: File('path/to/your/file.jpg'),\n  region: 'us-east-1',\n  destDir: 'uploads',\n  filename: 'photo.jpg',\n);",
+    "confidence": 0.95
+  }
+}

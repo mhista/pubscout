@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.4.0",
+  "generatedAt": "2026-11-12T11:15:51.286Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "declarative",
+      "imperative"
+    ],
+    "one_liner": "Shows a remotely controlled force update prompt for iOS and Android apps.",
+    "what_it_does": "Fetches a required app version from a remote source (like Firebase Remote Config or a custom backend) and compares it with the current app version. If the required version is greater, it prompts the user to update and navigates them to the store listing.",
+    "use_when": [
+      "You need to force users to update their app versions using a remote configuration.",
+      "You want a UI-agnostic package that only tells you when to show the update prompt."
+    ],
+    "avoid_when": [
+      "You need web or desktop platform support for force updates.",
+      "You want a solution that automatically queries app store APIs directly instead of a remote server."
+    ],
+    "strengths": [
+      "Remote-controlled logic independent of store API quirks.",
+      "UI-agnostic, allowing full customization of the update alert dialog.",
+      "Small and simple codebase."
+    ],
+    "weaknesses": [
+      "Only supports iOS and Android.",
+      "Requires managing a remote endpoint or remote config source for the required version."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add ForceUpdateWidget to MaterialApp's builder property and supply an iOS App Store ID if deploying to iOS.",
+    "alternatives": [],
+    "minimal_example": "ForceUpdateWidget(\n  navigatorKey: _rootNavigatorKey,\n  forceUpdateClient: ForceUpdateClient(\n    fetchRequiredVersion: () => Future.value('2.0.0'),\n    iosAppStoreId: '6482293361',\n  ),\n  allowCancel: false,\n  showForceUpdateAlert: (context, allowCancel) => showAlertDialog(\n    context: context,\n    title: 'App Update Required',\n    content: 'Please update to continue using the app.',\n    defaultActionText: 'Update Now',\n  ),\n  showStoreListing: (storeUrl) async {\n    if (await canLaunchUrl(storeUrl)) {\n      await launchUrl(storeUrl, mode: LaunchMode.externalApplication);\n    }\n  },\n  child: child!,\n)",
+    "confidence": 1
+  }
+}

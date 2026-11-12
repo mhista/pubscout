@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.5.0",
+  "generatedAt": "2026-11-12T11:37:27.881Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "device",
+      "audio-video"
+    ],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "Universal Plug and Play (UPnP) client implementation supporting IGD control and DLNA media casting.",
+    "what_it_does": "Provides SSDP device discovery over IPv4 and IPv6, DLNA media casting with AVTransport and RenderingControl, and NAT port mapping for Internet Gateway Devices (IGD).",
+    "use_when": [
+      "You need to discover and interact with UPnP or DLNA devices on a local network.",
+      "You want to perform NAT port forwarding on a router using UPnP IGD.",
+      "You need to stream media or control volume on DLNA renderers."
+    ],
+    "avoid_when": [
+      "You need UPnP eventing (GENA SUBSCRIBE/NOTIFY) or ContentDirectory browsing, which are not covered.",
+      "Targeting iOS without being willing to request Apple's Multicast Networking entitlement."
+    ],
+    "strengths": [
+      "Supports SSDP search over both IPv4 and IPv6 returning typed device profiles.",
+      "Covers DLNA casting and IGD port forwarding out of the box.",
+      "Includes helper methods and robust timeout coverage for HTTP communication."
+    ],
+    "weaknesses": [
+      "Lacks support for certain UPnP features like eventing (GENA) and ContentDirectory browsing.",
+      "Requires manual configuration for Multicast Networking capabilities on iOS 14+."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires INTERNET and ACCESS_NETWORK_STATE permissions on Android (plus NEARBY_WIFI_DEVICES), and Multicast Networking capability approval on iOS 14+.",
+    "alternatives": [],
+    "minimal_example": "import 'package:upnp_client/upnp_client.dart';\n\nvoid main() async {\n  final discoverer = DeviceDiscoverer();\n  await for (final device in discoverer.start()) {\n    print('Found device: ${device.friendlyName}');\n  }\n}",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.5.0",
+  "generatedAt": "2026-11-12T11:18:03.410Z",
+  "data": {
+    "primary_category": "charts",
+    "secondary_categories": [
+      "web-desktop",
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Flutter widget to render Apache ECharts data visualization libraries via WebView.",
+    "what_it_does": "A Flutter widget that embeds Apache ECharts to display advanced charts such as WebGL 3D, GIS maps, lines, bars, and pies in a reactive manner. It supports two-way communication between Flutter and JavaScript, and configurable extensions.",
+    "use_when": [
+      "You need complex data visualization charts powered by Apache ECharts.",
+      "You require advanced chart types like 3D charts, heatmaps, or GIS maps."
+    ],
+    "avoid_when": [
+      "You want a purely native rendering chart library to avoid webview instability or performance issues.",
+      "You are building performance-critical charts inside scrolling lists where webview overhead causes lag."
+    ],
+    "strengths": [
+      "Access to the rich feature set and diverse chart types of Apache ECharts.",
+      "Supports reactive updating of charts when the option property changes.",
+      "Two-way communication between Flutter and JavaScript via custom scripts and message handlers."
+    ],
+    "weaknesses": [
+      "Relies on a WebView underneath, which can introduce performance and stability issues.",
+      "Requires passing configurations as raw JavaScript/JSON strings."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Not documented",
+    "alternatives": [
+      {
+        "name": "fl_chart",
+        "why_pick_it": "Pick it for a purely native Flutter charting library without webview overhead."
+      },
+      {
+        "name": "syncfusion_flutter_charts",
+        "why_pick_it": "Pick it for a robust, feature-rich, and native set of business charts."
+      },
+      {
+        "name": "graphic",
+        "why_pick_it": "Pick it as a grammar-of-graphics charting library recommended by the authors as an alternative."
+      }
+    ],
+    "minimal_example": "Container(\n  child: Echarts(\n  option: '''\n    {\n      xAxis: {\n        type: 'category',\n        data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']\n      },\n      yAxis: {\n        type: 'value'\n      },\n      series: [{\n        data: [820, 932, 901, 934, 1290, 1330, 1320],\n        type: 'line'\n      }]\n    }\n  ''',\n  ),\n  width: 300,\n  height: 250,\n)",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "1.1.9",
+  "generatedAt": "2026-11-12T11:19:17.392Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "state-management"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "A synchronized Map for sharing key‑value data across Dart isolates and processes",
+    "what_it_does": "Provides a thread‑safe, shared map implementation that can be accessed from multiple isolates or external apps. It exposes async getters, setters, and callbacks for initialization and absence handling.",
+    "use_when": [
+      "You need to share mutable state between isolates or separate Dart processes",
+      "You want a lightweight, dependency‑free shared data store without a full state‑management framework"
+    ],
+    "avoid_when": [
+      "You only need simple in‑memory maps within a single isolate",
+      "You require advanced state‑management features like reactive widgets or dependency injection"
+    ],
+    "strengths": [
+      "Zero dependencies, pure Dart",
+      "Supports async operations and callbacks",
+      "Designed for isolate communication and scalability"
+    ],
+    "weaknesses": [
+      "No built‑in UI integration",
+      "Limited to Map semantics, no advanced querying",
+      "Requires manual handling of shared references"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dependency in pubspec, import package, create SharedStore and obtain SharedMap via async factory methods",
+    "alternatives": [],
+    "minimal_example": "import 'dart:isolate';\nimport 'package:shared_map/shared_map.dart';\n\nvoid main() async {\n  var store = SharedStore('app');\n  var map = await store.getSharedMap<String,int>('counter');\n  await map.put('count', 1);\n  var val = await map.get('count');\n  print(val); // 1\n}\n",
+    "confidence": 0.92
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.24.0",
+  "generatedAt": "2026-11-12T12:00:07.924Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "images"
+    ],
+    "approach": [
+      "declarative",
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "Image-based printing for Bluetooth thermal printers on iOS and Android.",
+    "what_it_does": "Allows Flutter applications to discover Bluetooth thermal printers, build receipts using Flutter widgets, and print images, PDFs, or custom ESC/POS commands.",
+    "use_when": [
+      "You need to print receipts from a Flutter app to a Bluetooth thermal printer.",
+      "You want to design receipts using Flutter widgets and convert them to images for printing."
+    ],
+    "avoid_when": [
+      "You are printing exclusively to network or USB printers without Bluetooth capability.",
+      "You need a robust text-only raw text printing solution without image rasterization."
+    ],
+    "strengths": [
+      "Supports building receipts using standard Flutter widgets via a `Receipt` controller.",
+      "Provides discovery streams to build custom device selectors.",
+      "Supports printing images, PDFs, and custom ESC/POS byte commands."
+    ],
+    "weaknesses": [
+      "Widget-to-receipt feature is experimental and layout fitting must be managed carefully.",
+      "Platform support is limited to Android, iOS, web, and macOS plugins."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires platform-level Bluetooth permissions and configuration on Android and iOS.",
+    "alternatives": [],
+    "minimal_example": "Future<void> print() async {\n  final device = await FlutterBluetoothPrinter.selectDevice(context);\n  if (device != null) {\n    controller?.print(address: device.address);\n  }\n}",
+    "confidence": 0.95
+  }
+}

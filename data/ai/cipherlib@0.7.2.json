@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.7.2",
+  "generatedAt": "2026-11-12T11:37:21.221Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Pure-Dart symmetric ciphers, authenticated encryption, and post-quantum key encapsulation.",
+    "what_it_does": "Provides a pure-Dart cryptography library supporting modern stream ciphers, AES modes, authenticated encryption with Poly1305, and ML-KEM post-quantum key exchange. It features one-shot and streaming operations without requiring any native code or FFI bindings.",
+    "use_when": [
+      "You need symmetric encryption or post-quantum key encapsulation implemented purely in Dart.",
+      "Your application targets platforms where native bindings or FFI are unavailable or undesirable.",
+      "You require support for streaming encryption via StreamTransformers."
+    ],
+    "avoid_when": [
+      "You need hardware-accelerated side-channel-resistant implementations where pure-Dart table lookups are insufficient.",
+      "You are using encryption algorithms not covered by the library's supported set."
+    ],
+    "strengths": [
+      "Runs on every platform where Dart does with no native code or FFI dependencies.",
+      "Supports authenticated encryption by default with constant-time tag checks.",
+      "Includes post-quantum cryptographic primitives (ML-KEM)."
+    ],
+    "weaknesses": [
+      "Pure-Dart AES uses table lookups which are not guaranteed to run in constant time.",
+      "Dart runtimes cannot guarantee constant-time execution for ML-KEM side-channel protection."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [],
+    "minimal_example": "import 'package:cipherlib/cipherlib.dart';\nimport 'package:cipherlib/codecs.dart';\nimport 'package:cipherlib/random.dart';\n\nvoid main() {\n  final key = randomBytes(32);\n  final nonce = randomBytes(12);\n  final aad = toUtf8('order-id=INV-1001');\n  final plain = toUtf8('Ship 3 units to dock-7');\n\n  final aes = AES(key).gcm(nonce, aad: aad);\n  final sealed = aes.encrypt(plain);\n  final opened = aes.decrypt(sealed);\n\n  print('plain : ${fromUtf8(opened)}');\n}",
+    "confidence": 1
+  }
+}

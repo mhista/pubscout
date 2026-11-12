@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.3.1",
+  "generatedAt": "2026-11-12T11:13:46.672Z",
+  "data": {
+    "primary_category": "devtools",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Real-time performance monitoring with FPS tracking, memory usage, and CPU monitoring for Flutter.",
+    "what_it_does": "Tracks real-time performance metrics in Flutter applications including FPS, system-level memory, and CPU usage. It provides native implementations for iOS and Android, alongside fallbacks for web and desktop platforms. Developers can display these metrics directly in the UI using a provided widget.",
+    "use_when": [
+      "You need to monitor frame rates and UI performance during development or production.",
+      "You want to track memory and CPU usage across Android and iOS platforms.",
+      "You need built-in UI components to show real-time performance metrics."
+    ],
+    "avoid_when": [
+      "You are targeting environments where native hardware metrics or debug overlays are not desired.",
+      "You require detailed profiling tools that go beyond basic real-time metrics."
+    ],
+    "strengths": [
+      "Provides native support for memory and CPU usage on Android and iOS.",
+      "Includes cross-platform fallback mechanisms for web and desktop platforms.",
+      "Easy integration with a ready-to-use widget tree component."
+    ],
+    "weaknesses": [
+      "Memory monitoring on web shows 0.0 MB due to browser security restrictions.",
+      "CPU usage on desktop and web relies on FPS-based estimations rather than full native processes."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Initialize the monitor by calling FlutterPerfMonitor.initialize() in your main function and add PerfMonitorWidget to your widget tree.",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter_perf_monitor/flutter_perf_monitor.dart';\n\nvoid main() {\n  FlutterPerfMonitor.initialize();\n  runApp(MyApp());\n}\n\nclass MyApp extends StatelessWidget {\n  @override\n  Widget build(BuildContext context) {\n    return MaterialApp(\n      home: Scaffold(\n        body: Column(\n          children: [\n            PerfMonitorWidget(),\n            Expanded(\n              child: YourAppContent(),\n            ),\n          ],\n        ),\n      ),\n    );\n  }\n}",
+    "confidence": 0.95
+  }
+}

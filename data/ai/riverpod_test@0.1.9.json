@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.1.9",
+  "generatedAt": "2026-11-12T11:25:47.072Z",
+  "data": {
+    "primary_category": "testing",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "A testing library for easily testing Riverpod providers.",
+    "what_it_does": "It provides helper functions like testProvider, testNotifier, and testAsyncNotifier to simplify testing Riverpod providers and notifiers. It allows you to specify actions, expected state emissions, and verification steps.",
+    "use_when": [
+      "You are using Riverpod for state management and want to write unit tests for your providers.",
+      "You want to test state changes, async values, and notifiers emitted by Riverpod."
+    ],
+    "avoid_when": [
+      "Your project does not use Riverpod.",
+      "You prefer writing standard Dart test blocks without specialized testing wrappers."
+    ],
+    "strengths": [
+      "Simplifies testing of various Riverpod provider types including Notifier, AsyncNotifier, and StateNotifier.",
+      "Port of bloc_test which makes it familiar for developers coming from the BLoC library."
+    ],
+    "weaknesses": [
+      "Tightly coupled to the Riverpod state management library."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the package to your dev_dependencies.",
+    "alternatives": [
+      {
+        "name": "test",
+        "why_pick_it": "You prefer using core testing utilities and writing custom provider testing logic manually."
+      }
+    ],
+    "minimal_example": "testProvider(\n  'expect [0]',\n  provider: counterProvider,\n  expect: () => [0],\n);\n\nfinal counterProvider = Provider<int>((ref) => 0);",
+    "confidence": 1
+  }
+}

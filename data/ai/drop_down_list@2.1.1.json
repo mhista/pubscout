@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.1.1",
+  "generatedAt": "2026-11-12T12:02:44.190Z",
+  "data": {
+    "primary_category": "forms",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A customizable dropdown widget supporting single/multiple selection and integrated search.",
+    "what_it_does": "Provides a customizable dropdown widget displayed in a bottom sheet. It supports both single and multiple selection, type-safe custom data handling through generics, and integrated search functionality.",
+    "use_when": [
+      "You need a bottom sheet dropdown that supports single or multiple selection.",
+      "You require built-in search capabilities inside your selection list.",
+      "You want to handle custom data types in a type-safe manner."
+    ],
+    "avoid_when": [
+      "You need an inline dropdown button instead of a bottom sheet modal.",
+      "You require complex form field integration with built-in form validation controllers out of the box."
+    ],
+    "strengths": [
+      "Supports both single and multiple selection modes",
+      "Built-in search functionality",
+      "Type-safe generic support for custom data",
+      "Highly customizable UI appearance and bottom sheet behavior"
+    ],
+    "weaknesses": [
+      "Presented exclusively as a bottom sheet modal via `DropDownState`",
+      "Limited to specific pre-defined UI parameters and callbacks"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "DropDownState<String>(\n  dropDown: DropDown<String>(\n    data: <SelectedListItem<String>>[\n      SelectedListItem<String>(data: 'Tokyo'),\n      SelectedListItem<String>(data: 'New York'),\n      SelectedListItem<String>(data: 'London'),\n    ],\n    onSelected: (selectedItems) {\n      List<String> list = [];\n      for (var item in selectedItems) {\n        list.add(item.data);\n      }\n    },\n  ),\n).showModal(context);",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "7.2.0",
+  "generatedAt": "2026-11-12T11:24:42.637Z",
+  "data": {
+    "primary_category": "devtools",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Pure-Dart structured logging, tracing, filtering, history, observers, export, and redaction core.",
+    "what_it_does": "Provides typed log entries with severity levels, tracing extensions for async/sync/stream operations, bounded in-memory or rolling file history, filter rules, observer hooks, and built-in data redaction for Dart and Flutter applications.",
+    "use_when": [
+      "You need structured logging and tracing in pure Dart or server-side applications without Flutter dependencies.",
+      "You want built-in data redaction to mask sensitive tokens, API keys, and credentials before writing to disk or exporting."
+    ],
+    "avoid_when": [
+      "You only need the built-in Dart print function for a very small CLI script.",
+      "You require a full-fledged hosted crash reporting and analytics backend rather than local history and observation."
+    ],
+    "strengths": [
+      "Pure Dart with no mandatory Flutter dependency.",
+      "Built-in redaction engine for secure logging.",
+      "Supports rolling file history, filtering, observers, and trace extensions."
+    ],
+    "weaknesses": [
+      "Must explicitly compile with ISPECT_ENABLED=true for diagnostics to run.",
+      "Requires manual setup for advanced features like rolling file history."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add to pubspec.yaml and compile with -DISPECT_ENABLED=true for diagnostics.",
+    "alternatives": [],
+    "minimal_example": "import 'package:ispectify/ispectify.dart';\n\nfinal logger = ISpectLogger();\n\nlogger.info('Application started');\nlogger.warning('Cache miss, falling back to network');",
+    "confidence": 0.95
+  }
+}

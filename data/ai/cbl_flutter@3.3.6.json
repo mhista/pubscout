@@ -1,0 +1,54 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "3.3.6",
+  "generatedAt": "2026-11-12T11:18:44.689Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Flutter plugin for Couchbase Lite, an embedded NoSQL document database with sync support.",
+    "what_it_does": "Provides a Dart API to open, query, and modify Couchbase Lite databases on mobile and desktop. Includes observable change notifications and built‑in data synchronization capabilities.",
+    "use_when": [
+      "You need a full‑featured offline‑first NoSQL database with query and sync support across Android, iOS, macOS, Windows, and Linux.",
+      "You want a single library that handles documents, full‑text search, and live queries without writing platform‑specific code."
+    ],
+    "avoid_when": [
+      "You only need simple key‑value storage or a lightweight SQLite wrapper.",
+      "App size or native binary size must be minimal.",
+      "You require an officially supported Couchbase product."
+    ],
+    "strengths": [
+      "Multi‑platform native implementation",
+      "Rich query language (SQL++, QueryBuilder) and full‑text search",
+      "Built‑in change listeners and data sync"
+    ],
+    "weaknesses": [
+      "Large native binaries increase app size",
+      "Not an official Couchbase product (may affect support)",
+      "Complexity compared to simple key‑value stores"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Compiles native Couchbase Lite libraries; ensure Android API 34 or higher and iOS/macOS native setup as per documentation.",
+    "alternatives": [
+      {
+        "name": "sqflite",
+        "why_pick_it": "Lightweight SQLite wrapper for simple relational storage."
+      },
+      {
+        "name": "drift",
+        "why_pick_it": "Type‑safe SQLite with code generation and reactive queries."
+      },
+      {
+        "name": "sqlite3",
+        "why_pick_it": "Direct low‑level SQLite access without Flutter‑specific abstractions."
+      }
+    ],
+    "minimal_example": "import 'package:cbl/cbl.dart';\n\nFuture<void> run() async {\n  final db = await Database.openAsync('mydb');\n  final coll = await db.createCollection('items');\n  final doc = MutableDocument({'name':'example'});\n  await coll.saveDocument(doc);\n  final fetched = await coll.document(doc.id);\n  print('Fetched: ${fetched?.string('name')}');\n  await db.close();\n}",
+    "confidence": 0.9
+  }
+}

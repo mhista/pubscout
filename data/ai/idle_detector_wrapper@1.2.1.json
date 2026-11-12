@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.2.1",
+  "generatedAt": "2026-11-12T11:17:21.261Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "utils",
+      "widgets",
+      "storage"
+    ],
+    "approach": [
+      "declarative",
+      "imperative"
+    ],
+    "one_liner": "Detects user idle state with support for web scrolling, mouse movement, touch, and keyboard input.",
+    "what_it_does": "Wraps a Flutter widget to monitor user activity such as mouse movements, scrolling, touch gestures, and keyboard input. It triggers callbacks when the user becomes idle or active again, and optionally persists timestamps across app restarts using SharedPreferences.",
+    "use_when": [
+      "You need to detect user inactivity for session timeouts or auto-locking.",
+      "You are building a Flutter Web app where standard idle detectors miss mouse wheel scrolling.",
+      "You want idle states to persist across application restarts."
+    ],
+    "avoid_when": [
+      "You need complex state management for non-idle related app logic.",
+      "Your application requires a completely headless service without wrapping widgets."
+    ],
+    "strengths": [
+      "Comprehensive web scroll support which is often missed in other idle detectors.",
+      "Optional session continuity via SharedPreferences timestamp persistence.",
+      "Configurable keyboard and mouse event detection per platform."
+    ],
+    "weaknesses": [
+      "Requires wrapping widgets in an IdleDetector tree.",
+      "Keyboard detection defaults vary by platform and might need manual tuning."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "IdleDetector(\n  idleTime: const Duration(seconds: 30),\n  onIdle: () => print('User is idle'),\n  onActive: () => print('User is active'),\n  child: MyAppWidget(),\n)",
+    "confidence": 0.95
+  }
+}

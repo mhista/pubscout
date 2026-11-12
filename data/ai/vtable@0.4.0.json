@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.4.0",
+  "generatedAt": "2026-11-12T11:22:03.828Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A Flutter table widget with virtualization, sorting, and custom cell rendering.",
+    "what_it_does": "Provides a scrollable table that renders only visible rows for performance. Supports column sorting, custom cell widgets, tooltips, and configurable column widths and alignment.",
+    "use_when": [
+      "Displaying large data sets that need fast scrolling",
+      "Needing sortable columns or custom cell content",
+      "Wanting a lightweight, pure‑Flutter table without external native code"
+    ],
+    "avoid_when": [
+      "Very small tables where a simple ListView suffices",
+      "Require spreadsheet‑style editing, pagination, or complex formulas",
+      "Need built‑in export or import features"
+    ],
+    "strengths": [
+      "Virtualization keeps memory usage low",
+      "Highly customizable cell rendering and validation",
+      "Built‑in sorting and theming support"
+    ],
+    "weaknesses": [
+      "Limited to basic table features; no built‑in pagination or editing",
+      "No code generation or declarative schema support",
+      "May lack advanced features found in dedicated data‑grid packages"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "Widget build(BuildContext context) {\n  return VTable<SampleRowData>(\n    items: listOfItems,\n    columns: [\n      VTableColumn(\n        label: 'Planet',\n        width: 120,\n        grow: 0.6,\n        transformFunction: (row) => row.name,\n      ),\n      VTableColumn(\n        label: 'Gravity',\n        width: 100,\n        grow: 0.3,\n        transformFunction: (row) => row.gravity.toStringAsFixed(1),\n        alignment: Alignment.centerRight,\n        compareFunction: (a, b) => a.gravity.compareTo(b.gravity),\n        validators: [SampleRowData.validateGravity],\n      ),\n    ],\n  );\n}",
+    "confidence": 0.9
+  }
+}

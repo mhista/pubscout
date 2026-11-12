@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.2.0",
+  "generatedAt": "2026-11-12T11:49:46.902Z",
+  "data": {
+    "primary_category": "maps",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Fast, dependency-free TSP and delivery route optimization for Dart and Flutter.",
+    "what_it_does": "Calculates the shortest travel route for a list of locations using the Traveling Salesman Problem solver and plans multi-vehicle deliveries respecting capacity, time windows, and shifts. Runs synchronously or asynchronously on a background isolate.",
+    "use_when": [
+      "You need to find the shortest delivery or travel route for a list of stops.",
+      "You are building a multi-vehicle delivery planner with capacities and time windows.",
+      "You need route optimization that runs without external dependencies or heavy native setup."
+    ],
+    "avoid_when": [
+      "You need real-time turn-by-turn navigation UI rather than just route calculation.",
+      "You expect built-in map rendering widgets (the package only provides calculation logic)."
+    ],
+    "strengths": [
+      "Dependency-free and pure Dart, working on all platforms including server/CLI.",
+      "Provides both exact solutions for small inputs and optimized local search for thousands of stops.",
+      "Includes multi-vehicle routing with capacity, time windows, and driver shifts."
+    ],
+    "weaknesses": [
+      "Does not render maps or provide driving directions UI by itself.",
+      "Custom distance functions passed to async methods must be top-level, static, or serialize cleanly."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:tsp_route_finder/tsp_route_finder.dart';\n\nconst stops = [\n  TspLocation(latitude: 30.0454, longitude: 31.2332, name: 'Cairo'),\n  TspLocation(latitude: 30.7865, longitude: 31.0012, name: 'Tanta'),\n];\n\nfinal result = TspRouteFinder.solve(stops, startIndex: 0);",
+    "confidence": 1
+  }
+}

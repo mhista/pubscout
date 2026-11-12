@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "1.0.0",
+  "generatedAt": "2026-11-12T11:29:33.957Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "A Dart list that automatically keeps its elements sorted.",
+    "what_it_does": "SortedList extends DelegatingList and inserts items in their correct order based on a comparator. Retrieval is fast because the list is always sorted, but insert operations are slower due to reordering.",
+    "use_when": [
+      "You need a collection that is always sorted for fast reads",
+      "The data set is relatively static with few insertions",
+      "You want a drop‑in replacement for List without managing sorting yourself"
+    ],
+    "avoid_when": [
+      "Frequent insertions or large batches where insert cost matters",
+      "You need to insert at arbitrary positions",
+      "You require advanced list features like slicing or custom indexing"
+    ],
+    "strengths": [
+      "Keeps items sorted automatically",
+      "Simple List‑like API",
+      "Null‑safe implementation"
+    ],
+    "weaknesses": [
+      "Insert operations are slower due to sorting",
+      "Cannot insert at a specific index",
+      "Limited to basic list functionality"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:sorted_list/sorted_list.dart';\n\nvoid main() {\n  var sortedList = SortedList<int>((a, b) => a.compareTo(b));\n  sortedList.addAll([5, 1, 3, 2]);\n  for (var i in sortedList) {\n    print(i); // 1,2,3,5\n  }\n}",
+    "confidence": 0.98
+  }
+}

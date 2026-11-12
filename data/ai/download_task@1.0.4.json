@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.4",
+  "generatedAt": "2026-11-12T12:02:17.881Z",
+  "data": {
+    "primary_category": "files",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Resumable HTTP download request with pause, resume, cancel, and realtime progress.",
+    "what_it_does": "Allows you to perform HTTP downloads with capabilities to pause, resume, and cancel requests. Provides realtime progress updates and error handling through a stream interface.",
+    "use_when": [
+      "You need to download files via HTTP with pause and resume capabilities.",
+      "You want a pure Dart solution with minimal dependencies for file downloading.",
+      "You need to track realtime progress and handle failures during downloads."
+    ],
+    "avoid_when": [
+      "You need a comprehensive networking client for general API requests (e.g., Dio).",
+      "You require advanced queue management or background download services not covered by simple streams."
+    ],
+    "strengths": [
+      "Supports pause, resume, and cancel operations.",
+      "Realtime progress updates and error handling.",
+      "Pure Dart with only the http dependency."
+    ],
+    "weaknesses": [
+      "Limited to file downloading and lacks general HTTP client features.",
+      "No documentation on platform-specific background download limitations."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [],
+    "minimal_example": "final task = await DownloadTask.download(url, File(\"image.webp\"));\ntask.events.listen((event) {});\ntask.pause();\ntask.resume();\ntask.cancel();",
+    "confidence": 0.95
+  }
+}

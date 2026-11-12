@@ -1,0 +1,48 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.3.0",
+  "generatedAt": "2026-11-12T11:36:03.983Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Multi-platform audio stream player for raw audio data streams",
+    "what_it_does": "A Flutter plugin that continuously plays buffered, raw float32 multi-channel audio data streams across Android, iOS, macOS, Windows, Linux, and Web platforms. It uses miniaudio natively and WebAudio on the web.",
+    "use_when": [
+      "You need to play real-time generated or streamed raw PCM audio data in a Flutter application.",
+      "You require cross-platform support including all desktop, mobile, and web platforms."
+    ],
+    "avoid_when": [
+      "You simply want to play standard pre-recorded audio files like MP3 or WAV from disk or URL.",
+      "You need advanced high-level audio playback controls, playlists, or mixing."
+    ],
+    "strengths": [
+      "Supports all Flutter platforms including Web, Windows, macOS, Linux, iOS, and Android.",
+      "Handles real-time generated raw audio data stream playback efficiently.",
+      "Built with high-performance miniaudio library for native platforms."
+    ],
+    "weaknesses": [
+      "Limited to raw float32 multi-channel audio data streams.",
+      "Requires manual buffer and stream management."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "For developers cloning the repository, the miniaudio submodule must be updated using git submodule update --init. On the web platform, resume() must be called after user interaction.",
+    "alternatives": [
+      {
+        "name": "just_audio",
+        "why_pick_it": "Pick just_audio if you need feature-rich playback for standard audio files and URLs rather than low-level raw audio streaming."
+      },
+      {
+        "name": "audioplayers",
+        "why_pick_it": "Pick audioplayers for simpler playback of audio files and simple sound effects across platforms."
+      }
+    ],
+    "minimal_example": "import 'package:mp_audio_stream/mp_audio_stream.dart';\n\nvoid main() async {\n  final audioStream = getAudioStream();\n  audioStream.init(channels: 2);\n  audioStream.resume();\n  // push Float32List samples here\n  audioStream.uninit();\n}",
+    "confidence": 0.95
+  }
+}

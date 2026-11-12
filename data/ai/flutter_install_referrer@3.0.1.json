@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "3.0.1",
+  "generatedAt": "2026-11-12T11:23:07.482Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "device"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Detects how a Flutter app was installed on Android or iOS.",
+    "what_it_does": "This plugin exposes the installation source (Google Play, App Store, TestFlight, etc.) and the package name or app ID. It provides both a Future API and widget helpers to consume the result.",
+    "use_when": [
+      "You need to know the store or source for analytics or attribution.",
+      "You want to conditionally enable features based on the installation channel.",
+      "You need to log installation data for marketing campaigns."
+    ],
+    "avoid_when": [
+      "Your app is only installed from a single known source and you don't need to track it.",
+      "You are targeting only one platform and prefer a simpler solution."
+    ],
+    "strengths": [
+      "Modern Kotlin/Swift implementation with coroutine support.",
+      "Cross‑platform (Android & iOS) with minimal code.",
+      "Widget helpers for easy integration into UI.",
+      "Supports Swift Package Manager and updated Gradle/Kotlin DSL."
+    ],
+    "weaknesses": [
+      "Requires Android minSdk 24 and Flutter 3.44 / Dart 3.12.",
+      "No support for other platforms (e.g., web, desktop).",
+      "Relies on native platform APIs, so debugging can be harder."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add dependency to pubspec, import package, call InstallReferrer.referrer or use widget helpers. No build_runner or codegen needed.",
+    "alternatives": [],
+    "minimal_example": "```dart\nimport 'package:flutter_install_referrer/flutter_install_referrer.dart';\n\nFuture<void> getReferrer() async {\n  final app = await InstallReferrer.referrer;\n  print('Package: ${app?.packageName}');\n  print('Referrer: ${app?.referrer}');\n}\n```",
+    "confidence": 0.9
+  }
+}

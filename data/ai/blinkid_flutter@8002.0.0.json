@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "8002.0.0",
+  "generatedAt": "2026-11-12T11:59:55.138Z",
+  "data": {
+    "primary_category": "camera",
+    "secondary_categories": [
+      "ai-ml"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Flutter plugin for BlinkID document scanning, OCR, and barcode reading.",
+    "what_it_does": "It implements secure document scanning and optical character recognition (OCR) for identity documents via camera stream or static images using the BlinkID SDK. It includes configurable modules for document capture, MRZ, barcodes, and VIZ field extraction.",
+    "use_when": [
+      "You need to scan identity documents like passports, driver's licenses, and ID cards.",
+      "You want built-in OCR and document data extraction without building custom parsers."
+    ],
+    "avoid_when": [
+      "You only need to scan generic QR codes or barcodes without identity document parsing.",
+      "You prefer a native SDK integration over a Flutter wrapper for maximum performance."
+    ],
+    "strengths": [
+      "Comprehensive support for a wide variety of global identity documents and regions.",
+      "Configurable scanning modules and session presets (document capture, MRZ, barcodes, VIZ)."
+    ],
+    "weaknesses": [
+      "Requires a valid license key from Microblink Developer Hub.",
+      "Native SDK dependencies require platform-specific configurations (minSdk 24, iOS 16.0+, Xcode 16.3+)."
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Requires enabling Swift Package Manager on iOS, setting minSdk to 24 and updating AGP/Kotlin versions on Android, and adding camera and photo library usage descriptions to Info.plist.",
+    "alternatives": [
+      {
+        "name": "mobile_scanner",
+        "why_pick_it": "If you only need general barcode and QR code scanning rather than full identity document OCR."
+      },
+      {
+        "name": "camera",
+        "why_pick_it": "If you want to build a completely custom camera-based capture flow from scratch without third-party OCR engines."
+      }
+    ],
+    "minimal_example": "final blinkIdPlugin = BlinkIdFlutter();\nfinal result = await blinkIdPlugin.performScan(\n  blinkIdSdkSettings: sdkSettings,\n  blinkIdSessionSettings: sessionSettings,\n  blinkidScanningUxSettings: uxSettings,\n);",
+    "confidence": 1
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.1.2",
+  "generatedAt": "2026-11-12T11:41:46.001Z",
+  "data": {
+    "primary_category": "auth",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Standards-compliant OpenID Connect client library for Flutter with multi-flow authentication support.",
+    "what_it_does": "Enables OpenID Connect authentication using authorization code flow with PKCE, password flow, and device flow. It handles login, logout, token revocation, token refreshing, and user info retrieval with secure platform storage integration.",
+    "use_when": [
+      "You need to authenticate users via an OpenID Connect compliant Identity Provider.",
+      "You require platform-native authentication views rather than embedded WebViews."
+    ],
+    "avoid_when": [
+      "You are using Firebase or Supabase authentication and prefer their dedicated SDKs."
+    ],
+    "strengths": [
+      "Supports multiple authentication flows including PKCE, password, and device code.",
+      "Uses endorsed platform implementations and native browser APIs instead of WebViews.",
+      "Handles token refresh and secure credential storage automatically."
+    ],
+    "weaknesses": [
+      "Requires platform-specific configuration for redirect URIs and deep links.",
+      "macOS requires proper code signing and keychain entitlements."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires configuring redirect URIs, custom schemes, or App Links/Universal Links, along with Android Manifest updates, iOS/macOS URL types, and macOS keychain entitlements.",
+    "alternatives": [],
+    "minimal_example": "import 'package:openidconnect/openidconnect.dart';\n\nfinal result = await OpenIdConnect.loginInteractive(\n  context: context,\n  clientId: 'your_client_id',\n  scopes: ['openid', 'profile'],\n  issuer: 'https://your-identity-provider',\n  redirectUrl: 'my.app://callback',\n);",
+    "confidence": 0.95
+  }
+}
