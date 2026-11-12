@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.1.0",
+  "generatedAt": "2026-11-11T11:39:43.156Z",
+  "data": {
+    "primary_category": "files",
+    "secondary_categories": [
+      "web-desktop"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Render HTML content to high-quality PDF files or bytes using native WebViews.",
+    "what_it_does": "Converts HTML and CSS content into PDF files or raw byte arrays using native platform components (Android WebView and iOS WKWebView). Provides full support for modern CSS properties, images, and custom page sizes.",
+    "use_when": [
+      "You need to generate professional PDFs from HTML and CSS templates.",
+      "You require accurate rendering with full CSS support including flexbox, grids, and custom fonts.",
+      "You want to convert HTML directly to Uint8List bytes without saving to a file."
+    ],
+    "avoid_when": [
+      "You are targeting platforms other than Android and iOS.",
+      "You need a pure Dart HTML-to-PDF rendering solution without native platform dependencies."
+    ],
+    "strengths": [
+      "Full CSS3 and modern layout support via native WebViews.",
+      "Supports both file saving and direct byte array conversion.",
+      "Configurable page sizes including A4, Letter, and custom dimensions."
+    ],
+    "weaknesses": [
+      "Limited to Android and iOS platforms.",
+      "Requires platform-specific configuration for external resources like images (such as internet permissions)."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires adding INTERNET permission on Android and AppTransportSecurity configurations on iOS if loading external images.",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter_native_html_to_pdf/flutter_native_html_to_pdf.dart';\nimport 'package:path_provider/path_provider.dart';\n\nfinal converter = HtmlToPdfConverter();\n\nconst htmlContent = \"\"\"\n<!DOCTYPE html>\n<html>\n<head><title>Sample PDF</title></head>\n<body>\n    <h1>Hello World!</h1>\n    <p>This is a sample PDF.</p>\n</body>\n</html>\n\"\"\";\n\nDirectory appDocDir = await getApplicationDocumentsDirectory();\nfinal pdfFile = await converter.convertHtmlToPdf(\n  html: htmlContent,\n  targetDirectory: appDocDir.path,\n  targetName: \"my_document\",\n);",
+    "confidence": 1
+  }
+}

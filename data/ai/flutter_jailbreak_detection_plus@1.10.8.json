@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "1.10.8",
+  "generatedAt": "2026-11-10T12:39:43.755Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Detect if an Android device is rooted or an iOS device is jailbroken.",
+    "what_it_does": "Provides getters to check root status on Android via RootBeer and jailbreak status on iOS via IOSSecuritySuite. Also offers a developer‑mode check (Android developer options, iOS simulator).",
+    "use_when": [
+      "You need to block functionality on rooted or jailbroken devices",
+      "Compliance or security policies require device integrity checks"
+    ],
+    "avoid_when": [
+      "You only need generic device info without security checks",
+      "You require a cross‑platform solution that also handles emulators uniformly"
+    ],
+    "strengths": [
+      "Uses native libraries (RootBeer, IOSSecuritySuite) for reliable detection",
+      "Runs root checks on a background thread on Android",
+      "Supports Swift Package Manager and recent Flutter versions"
+    ],
+    "weaknesses": [
+      "Developer‑mode check differs between platforms",
+      "Only provides boolean getters, no detailed reason codes",
+      "May throw PlatformException that must be handled"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the plugin to pubspec, run flutter pub get; iOS requires CocoaPods or Swift Package Manager, Android minSdk 21.",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter_jailbreak_detection_plus/flutter_jailbreak_detection_plus.dart';\n\nbool jailbroken = await FlutterJailbreakDetectionPlus.jailbroken;\nbool developerMode = await FlutterJailbreakDetectionPlus.developerMode;",
+    "confidence": 0.97
+  }
+}

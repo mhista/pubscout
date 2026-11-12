@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.0.1",
+  "generatedAt": "2026-11-11T11:23:23.532Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "device"
+    ],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "Library to ping IP subnets and discover local network devices and services.",
+    "what_it_does": "Allows developers to scan an IP subnet to discover active network devices and services on specific ports. It provides methods to ping addresses either sequentially or all at once using Dart streams.",
+    "use_when": [
+      "You need to discover network printers or other local hardware in a Wi-Fi network",
+      "You want to scan a local subnet for active IP addresses on specific ports"
+    ],
+    "avoid_when": [
+      "You need advanced network diagnostic tools beyond basic subnet pinging",
+      "Devices are not connected to a local Wi-Fi network"
+    ],
+    "strengths": [
+      "Simple stream-based API for network discovery",
+      "Supports checking single ports, port ranges, and subnets",
+      "Null safe"
+    ],
+    "weaknesses": [
+      "Requires devices to be connected to Wi-Fi",
+      "Limited documentation beyond basic examples"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "The device must be connected to a Wi-Fi network.",
+    "alternatives": [],
+    "minimal_example": "import 'package:ping_discover_network/ping_discover_network.dart';\n\nconst port = 80;\nfinal stream = NetworkAnalyzer.discover2(\n  '192.168.0', port,\n  timeout: Duration(milliseconds: 5000),\n);\n\nstream.listen((NetworkAddress addr) {\n  if (addr.exists) {\n    print('Found device: ${addr.ip}:$port');\n  }\n});",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.0.4",
+  "generatedAt": "2026-11-12T11:54:12.693Z",
+  "data": {
+    "primary_category": "devtools",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Check pub.dev for updates for your Dart CLI and print update information.",
+    "what_it_does": "It checks pub.dev to see if a newer version of your Dart command-line tool is available. If an update exists, it prints notification details to the console.",
+    "use_when": [
+      "You are building a Dart CLI tool and want to notify users of available updates",
+      "You want a simple API to check pub.dev version info directly in your main function"
+    ],
+    "avoid_when": [
+      "You are building a Flutter GUI or mobile application instead of a CLI",
+      "You need complex offline-first caching for update checks"
+    ],
+    "strengths": [
+      "Simple and straightforward setup with minimal code",
+      "Tailored specifically for Dart CLI packages"
+    ],
+    "weaknesses": [
+      "Very limited configuration options documented",
+      "Relies entirely on network requests to pub.dev during CLI startup"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:cli_notify/cli_notify.dart';\n\nfinal packageName = 'package-name';\nfinal currentVersion = '1.0.0';\nvoid main() async {\n  await Notify(\n    packageName: packageName,\n    currentVersion: currentVersion,\n  ).update();\n}",
+    "confidence": 0.95
+  }
+}

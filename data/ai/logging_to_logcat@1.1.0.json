@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.1.0",
+  "generatedAt": "2026-11-12T11:34:58.738Z",
+  "data": {
+    "primary_category": "devtools",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Forwards dart:developer logging output to Android's logcat.",
+    "what_it_does": "Extends the logging package with an activateLogcat() method. This sends all logs recorded via Logger directly to Android's logcat using native method channels, mapping custom severity levels appropriately.",
+    "use_when": [
+      "You are developing a Flutter app for Android and use the logging package",
+      "You want to view your Dart logs inside Android Studio's Logcat"
+    ],
+    "avoid_when": [
+      "You are targeting non-Android platforms exclusively",
+      "You do not use the logging package"
+    ],
+    "strengths": [
+      "Seamless integration with the popular logging package",
+      "Maps standard logging levels to Android logcat levels cleanly"
+    ],
+    "weaknesses": [
+      "Only works on Android",
+      "Not documented for platforms other than Android"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Invoke Logger.root.activateLogcat() during app startup.",
+    "alternatives": [],
+    "minimal_example": "import 'package:logging_to_logcat/logging_to_logcat.dart';\nimport 'package:logging/logging.dart';\n\nLogger.root.activateLogcat();\n\nfinal Logger log = Logger(\"MyLogger\");\nlog.info(\"demo logline!\");",
+    "confidence": 1
+  }
+}

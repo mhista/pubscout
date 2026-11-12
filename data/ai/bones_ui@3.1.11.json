@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.1.11",
+  "generatedAt": "2026-11-12T11:31:41.591Z",
+  "data": {
+    "primary_category": "ui-kits",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "declarative"
+    ],
+    "one_liner": "An intuitive and user-friendly Web User Interface framework for Dart.",
+    "what_it_does": "Bones_UI provides a framework for building web user interfaces in Dart. It includes a CLI to create and serve projects, component rendering abstractions, routing capabilities, and built-in support for unit testing components in a browser environment.",
+    "use_when": [
+      "You want to build web user interfaces using pure Dart.",
+      "You need an integrated CLI for project generation, serving, and testing.",
+      "You want support for defining component hierarchies and handling routing on the web."
+    ],
+    "avoid_when": [
+      "You are building a Flutter application targeting mobile or desktop.",
+      "You prefer standard Flutter widgets over a dedicated web-first framework."
+    ],
+    "strengths": [
+      "Includes a dedicated CLI for scaffolding and managing projects.",
+      "Comes with testing utilities specifically designed for UI roots and routing.",
+      "Supports component-based structure for web apps in Dart."
+    ],
+    "weaknesses": [
+      "Limited primarily to web platform usage.",
+      "Smaller ecosystem and community compared to mainstream UI frameworks."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Activate the CLI globally using 'dart pub global activate bones_ui' to create and manage projects.",
+    "alternatives": [],
+    "minimal_example": "import 'dart:html';\n\nimport 'package:bones_ui/bones_ui_kit.dart';\n\nvoid main() async {\n  var root = MyUIRoot(querySelector('#output'));\n  root.initialize();\n}\n\nclass MyUIRoot extends UIRoot {\n  MyUIRoot(Element? rootContainer) : super(rootContainer);\n\n  @override\n  UIComponent renderMenu() => MyMenu(content);\n\n  @override\n  UIComponent renderContent() => MyHome(content);\n}\n\nclass MyMenu extends UIComponent {\n  MyMenu(Element parent) : super(parent);\n  @override\n  dynamic render() => $div(content: 'Menu');\n}\n\nclass MyHome extends UIComponent {\n  MyHome(Element parent) : super(parent);\n  @override\n  dynamic render() => $div(content: 'Home');\n}",
+    "confidence": 0.9
+  }
+}

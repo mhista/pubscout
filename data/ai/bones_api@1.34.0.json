@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.34.0",
+  "generatedAt": "2026-11-09T11:25:40.943Z",
+  "data": {
+    "primary_category": "backend",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "declarative",
+      "imperative"
+    ],
+    "one_liner": "A powerful API backend framework for Dart with HTTP server, routing, SQL translator, and DB adapters.",
+    "what_it_does": "Bones_API provides a comprehensive backend framework for Dart featuring an integrated HTTP server, modular route handling, entity handlers, a built-in SQL translator, and database adapters. It also includes cron job scheduling, static file hosting with virtual aliases, and a command-line interface.",
+    "use_when": [
+      "Building a backend API server in Dart",
+      "Needing built-in routing, entity management, and SQL/database adapters",
+      "Requiring scheduled background cron tasks and static file serving with aliases"
+    ],
+    "avoid_when": [
+      "Building frontend UI applications (it's a backend framework)",
+      "Looking for a minimalist routing-only package like shelf without extra framework layers"
+    ],
+    "strengths": [
+      "Comprehensive all-in-one framework including HTTP server, routing, and DB adapters",
+      "Built-in cron scheduler with IANA time zones and retries",
+      "Advanced static file server features with `.aliases` path mapping"
+    ],
+    "weaknesses": [
+      "Large dependency footprint due to covering server, database, and utilities",
+      "Less modular for developers who want to pick and choose individual micro-packages"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Activate the CLI globally using 'dart pub global activate bones_api' and configure your API routes and server modules in code.",
+    "alternatives": [],
+    "minimal_example": "import 'package:bones_api/bones_api_server.dart';\n\nclass MyBTCModule extends APIModule {\n  MyBTCModule(APIRoot apiRoot) : super(apiRoot, 'btc');\n\n  @override\n  void configure() {\n    routes.get('time', (request) => APIResponse.ok(DateTime.now()));\n  }\n}\n\nclass MyAPI extends APIRoot {\n  MyAPI() : super('example', '1.0');\n  @override\n  Set<APIModule> loadModules() => {MyBTCModule(this)};\n}\n\nvoid main() async {\n  var api = MyAPI();\n  var serverPort = await startAPIServer(api);\n  print('Server started on port $serverPort');\n}",
+    "confidence": 0.95
+  }
+}

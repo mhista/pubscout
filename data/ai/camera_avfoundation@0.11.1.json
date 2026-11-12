@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.11.1",
+  "generatedAt": "2026-11-10T12:24:53.937Z",
+  "data": {
+    "primary_category": "camera",
+    "secondary_categories": [],
+    "approach": [
+      "code generation"
+    ],
+    "one_liner": "iOS implementation of the Flutter camera plugin providing preview, photo, and video capture.",
+    "what_it_does": "Implements the camera plugin for iOS, adding features like zero‑shutter‑lag still capture, custom video output paths, and video rotation handling. It works behind the scenes when you use the federated `camera` package on iOS.",
+    "use_when": [
+      "You need iOS‑specific camera capabilities",
+      "You require zero‑shutter‑lag photos or custom video file paths",
+      "You are using the federated `camera` plugin and want the iOS implementation"
+    ],
+    "avoid_when": [
+      "Your app targets only Android/Web and doesn't need iOS support",
+      "You don't need advanced iOS camera features and prefer a single cross‑platform package"
+    ],
+    "strengths": [
+      "Full iOS support with latest iOS 17 features",
+      "Endorsed federated plugin – automatically included with `camera`",
+      "Allows custom video output paths and zero‑shutter‑lag capture"
+    ],
+    "weaknesses": [
+      "iOS‑only – no effect on Android or Web",
+      "Requires manual Info.plist changes for file‑browser visibility",
+      "Depends on the main `camera` package for a complete solution"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "If using custom video output paths, add LSSupportsOpeningDocumentsInPlace and UISupportsDocumentBrowser keys (set to true) in ios/Runner/Info.plist.",
+    "alternatives": [
+      {
+        "name": "camera",
+        "why_pick_it": "Cross‑platform camera plugin that includes iOS, Android, and Web implementations"
+      }
+    ],
+    "minimal_example": "import 'package:camera/camera.dart';\n\nFuture<void> record() async {\n  final cameras = await availableCameras();\n  final controller = CameraController(cameras.first, ResolutionPreset.max);\n  await controller.initialize();\n  await controller.startVideoRecording();\n  // ...\n  await controller.stopVideoRecording();\n}",
+    "confidence": 0.93
+  }
+}

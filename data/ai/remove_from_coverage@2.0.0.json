@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "2.0.0",
+  "generatedAt": "2026-11-10T12:38:34.643Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "devtools"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Command-line tool to remove files matching patterns from lcov.info coverage reports.",
+    "what_it_does": "It reads an lcov.info file (or stdin) and filters out entries whose paths match given regular‑expression patterns. The filtered result is written to stdout (or a new file). This helps exclude generated or unwanted files from coverage metrics.",
+    "use_when": [
+      "You need to exclude generated files (e.g., *.g.dart) from coverage reports",
+      "You work with non‑Dart projects that still produce lcov.info files",
+      "You want a quick, OS‑agnostic way to post‑process coverage data"
+    ],
+    "avoid_when": [
+      "Your test runner can already exclude files during generation",
+      "You need real‑time coverage filtering during test execution"
+    ],
+    "strengths": [
+      "Simple CLI with no extra dependencies",
+      "Works on Windows, macOS, and Linux",
+      "Pattern matching via RegExp provides flexible exclusions"
+    ],
+    "weaknesses": [
+      "Only works after the lcov.info file is generated",
+      "Limited to regex‑based file path matching",
+      "No built‑in CI integration"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Install with `pub global activate remove_from_coverage` and run via `pub global run` or add to PATH; no native permissions required",
+    "alternatives": [],
+    "minimal_example": "remove_from_coverage -f coverage/lcov.info -r '\\\\.g\\\\.dart$'",
+    "confidence": 0.97
+  }
+}

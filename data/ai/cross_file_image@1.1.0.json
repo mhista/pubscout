@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.1.0",
+  "generatedAt": "2026-11-11T11:34:06.202Z",
+  "data": {
+    "primary_category": "images",
+    "secondary_categories": [
+      "files"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "An ImageProvider implementation for cross_file XFile objects.",
+    "what_it_does": "Provides an ImageProvider called XFileImage that accepts an XFile instance, allowing cross-platform file representations to be easily rendered using Flutter's standard Image widget.",
+    "use_when": [
+      "You need to display an XFile (from image_picker or file_selector) directly inside an Image widget",
+      "You are building cross-platform apps that handle picked files uniformly"
+    ],
+    "avoid_when": [
+      "You need advanced image caching or transformation features",
+      "You are working directly with standard File or Uint8List objects without using cross_file"
+    ],
+    "strengths": [
+      "Seamless integration with cross_file XFile",
+      "Extremely simple usage with minimal API surface",
+      "Supports multiple platforms including Android, iOS, Web, Windows, macOS, and Linux"
+    ],
+    "weaknesses": [
+      "Very limited scope providing only a single ImageProvider class",
+      "Lacks advanced caching or placeholder features"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "image",
+        "why_pick_it": "If you need to manipulate image bytes or decode formats directly in Dart."
+      },
+      {
+        "name": "cached_network_image",
+        "why_pick_it": "If you are loading and caching images from network URLs instead of local files."
+      }
+    ],
+    "minimal_example": "import 'package:cross_file_image/cross_file_image.dart';\n\nImage(image: XFileImage(xfile));",
+    "confidence": 0.95
+  }
+}

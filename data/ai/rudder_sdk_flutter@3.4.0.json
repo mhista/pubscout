@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "3.4.0",
+  "generatedAt": "2026-11-10T12:38:42.337Z",
+  "data": {
+    "primary_category": "backend",
+    "secondary_categories": [
+      "devtools"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter SDK for RudderStack event tracking and analytics",
+    "what_it_does": "Provides native event tracking for Android, iOS and web, integrating with RudderStack’s data plane. It supports custom contexts, device tokens, anonymous IDs and advertising IDs.",
+    "use_when": [
+      "You need enterprise‑grade analytics with data residency control",
+      "You want to send events to multiple destinations via RudderStack",
+      "You need native push notification integration via device tokens"
+    ],
+    "avoid_when": [
+      "You only need a simple analytics solution without native plugins",
+      "You are already using another analytics SDK that covers your needs"
+    ],
+    "strengths": [
+      "Native platform plugins for Android, iOS and web",
+      "Open‑source and MIT licensed",
+      "Supports custom contexts, device tokens, anonymous IDs and advertising IDs"
+    ],
+    "weaknesses": [
+      "Only works with RudderStack",
+      "Requires platform‑specific setup for each plugin"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add rudder_sdk_flutter to pubspec, run flutter pub get, import RudderClient and initialize with write key and URLs. No build_runner needed.",
+    "alternatives": [],
+    "minimal_example": "import 'package:rudder_sdk_flutter_platform_interface/platform.dart';\nimport 'package:rudder_sdk_flutter/RudderController.dart';\n\nRudderConfigBuilder builder = RudderConfigBuilder();\nbuilder.withDataPlaneUrl(\"https://rudderstacgwyx.dataplane.rudderstack.com\");\nbuilder.withControlPlaneUrl(\"https://api.rudderlabs.com\");\nRudderOption options = RudderOption();\noptions.putIntegration(\"Amplitude\", true);\nfinal String _writeKey = \"write_key\";\nRudderClient rudderClient = RudderClient();\nawait rudderClient.initialize(_writeKey, config: builder.build(), options: options);",
+    "confidence": 0.9
+  }
+}

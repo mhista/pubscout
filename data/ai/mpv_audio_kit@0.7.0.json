@@ -1,0 +1,50 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.7.0",
+  "generatedAt": "2026-11-12T11:27:20.315Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Cross-platform audio player built on libmpv and FFmpeg.",
+    "what_it_does": "Provides a typed Dart API for audio playback across Android, iOS, macOS, Windows, Linux, web, and TV platforms. Supports FFmpeg audio filters, equalizers, live visualizers, waveforms, and streaming from sources like Jellyfin, Plex, and Samba.",
+    "use_when": [
+      "You need advanced audio features like FFmpeg effects, equalizer, and visualizers.",
+      "You are building a cross-platform media library player targeting desktop, mobile, web, and TVs."
+    ],
+    "avoid_when": [
+      "You only need a simple, lightweight sound effects player and want to avoid native library binaries.",
+      "You do not want the initial build to download prebuilt libmpv binaries."
+    ],
+    "strengths": [
+      "Supports an extensive range of platforms including desktop, mobile, web, and TV OSes.",
+      "Includes rich audio tuning, filters, and analysis tools like live spectrum and waveform.",
+      "Handles complex media protocols and streaming out of the box."
+    ],
+    "weaknesses": [
+      "First build requires network access to download native libmpv binaries for each target.",
+      "Adds significant binary size to the application due to embedded libmpv."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "First build needs network access to download native libmpv binaries. Requires specific background mode capabilities on iOS and internet permissions on Android.",
+    "alternatives": [
+      {
+        "name": "just_audio",
+        "why_pick_it": "A feature-rich, pure Dart and native audio player widely used for complex playlists and platform media sessions without embedding libmpv."
+      },
+      {
+        "name": "audioplayers",
+        "why_pick_it": "Simpler and quicker to set up for basic audio playback and sound effects."
+      }
+    ],
+    "minimal_example": "void main() {\n  WidgetsFlutterBinding.ensureInitialized();\n  MpvAudioKit.ensureInitialized();\n  runApp(const MyApp());\n}\n\nfinal player = Player();\nawait player.open(Media('https://example.com/audio.flac'));\nawait player.play();\n\nplayer.stream.position.listen((position) => print(position));",
+    "confidence": 0.95
+  }
+}

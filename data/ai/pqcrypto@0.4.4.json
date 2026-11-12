@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.4.4",
+  "generatedAt": "2026-11-10T12:56:37.905Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "auth"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Pure Dart post-quantum cryptography package implementing ML-KEM, ML-DSA, and SLH-DSA.",
+    "what_it_does": "Implements post-quantum cryptography algorithms (ML-KEM, ML-DSA, and SLH-DSA) in pure Dart with zero external dependencies. It provides NIST-aligned cryptographic primitives with checked-in known-answer vector evidence.",
+    "use_when": [
+      "You need post-quantum cryptography algorithms like ML-KEM, ML-DSA, or SLH-DSA in a pure Dart or Flutter application.",
+      "You require cross-platform cryptographic operations including Web support without native dependency headaches."
+    ],
+    "avoid_when": [
+      "You need official FIPS 140 or CMVP module validation (the package does not claim module validation).",
+      "You require traditional classical-only algorithms and do not need post-quantum resistance."
+    ],
+    "strengths": [
+      "Zero third-party dependencies with 100% pure Dart implementation.",
+      "Comprehensive support for ML-KEM, ML-DSA, and SLH-DSA across all parameter sets.",
+      "Byte-exact validation against official NIST ACVP and KAT corpora."
+    ],
+    "weaknesses": [
+      "No official CMVP or FIPS 140 module validation claimed.",
+      "Some parameter sets (like SLH-DSA slow variants) can be CPU-intensive in pure Dart."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the package to pubspec.yaml; no native configuration, permissions, or build_runner required.",
+    "alternatives": [],
+    "minimal_example": "final params = DilithiumParams.mlDsa65;\nfinal (pk, sk) = MlDsa.generateKeyPair(params);\nfinal sig = MlDsa.sign(sk, message, params);\nfinal ok = MlDsa.verify(pk, message, sig, params);",
+    "confidence": 1
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.1.0",
+  "generatedAt": "2026-11-11T11:34:23.961Z",
+  "data": {
+    "primary_category": "files",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Detect file types based on content headers and magic numbers across platforms.",
+    "what_it_does": "A Flutter package to detect file types using their magic numbers and file extensions instead of relying solely on MIME types. It reads files cross-platform using cross_file and supports mobile, desktop, and web without native code dependencies.",
+    "use_when": [
+      "You need to reliably identify file types from bytes, paths, or blobs across platforms including the web.",
+      "You want to avoid relying purely on untrustworthy MIME types or file extensions provided by users."
+    ],
+    "avoid_when": [
+      "You require deep content inspection or parsing of complex document internals beyond basic file type detection."
+    ],
+    "strengths": [
+      "Supports mobile, desktop, and web without native code dependencies.",
+      "Allows dynamic registration of custom file signatures, extensions, and MIME-to-type mappings.",
+      "Optimized stream reading prevents high memory usage on large files."
+    ],
+    "weaknesses": [
+      "Limited to predefined file type signatures unless custom types are explicitly registered."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:file_magic_number/file_magic_number.dart';\n\nvoid main() {\n  final bytes = Uint8List.fromList([0x25, 0x50, 0x44, 0x46]);\n  final FileMagicNumberType fileType = FileMagicNumber.detectFileTypeFromBytes(bytes);\n  print(fileType);\n}",
+    "confidence": 0.95
+  }
+}

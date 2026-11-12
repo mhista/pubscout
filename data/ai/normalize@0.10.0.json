@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.10.0",
+  "generatedAt": "2026-11-11T11:06:23.344Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Normalizes and denormalizes GraphQL responses to a cache-friendly map structure.",
+    "what_it_does": "It traverses GraphQL AST and writes entities with __typename and IDs into a normalized map. It can also reconstruct the original response from that map.",
+    "use_when": [
+      "You need client‑side caching for GraphQL queries",
+      "You want to work with normalized data like Apollo cache",
+      "You need to convert GraphQL responses to a reference‑based structure for efficient updates"
+    ],
+    "avoid_when": [
+      "You are not using GraphQL",
+      "You require built‑in network transport (use a GraphQL client instead)"
+    ],
+    "strengths": [
+      "Works with gql AST directly",
+      "Supports fragments, variables, interfaces, unions, and type policies",
+      "Lightweight and pure Dart"
+    ],
+    "weaknesses": [
+      "Only handles normalization, not fetching or cache eviction",
+      "Limited support for custom key fields (no functions or nested lists)",
+      "No built‑in reactive or stream integration"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:gql/language.dart';\nimport 'package:gql/ast.dart';\nimport 'package:normalize/normalize.dart';\n\nfinal DocumentNode query = parseString('''\n  query TestQuery {\n    posts { id __typename author { id __typename name } title }\n  }\n''');\n\nfinal data = {\"posts\":[{\"id\":\"123\",\"__typename\":\"Post\",\"author\":{\"id\":\"1\",\"__typename\":\"Author\",\"name\":\"Paul\"},\"title\":\"My post\"}]};\n\nfinal normalized = {};\nnormalizeOperation(\n  merge:(dataId,value)=> (normalized[dataId]??={}).addAll(value),\n  document:query,\n  data:data,\n);\nprint(normalized);\n",
+    "confidence": 0.9
+  }
+}

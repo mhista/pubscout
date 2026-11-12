@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.9.0",
+  "generatedAt": "2026-11-09T11:07:00.437Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "A query string encoding and decoding library for Dart ported from JavaScript's qs.",
+    "what_it_does": "Encodes Dart maps into query strings and decodes query strings into nested maps and lists. It supports advanced features like dot notation, custom delimiters, different list formats, character sets, and safety limits.",
+    "use_when": [
+      "You need to encode complex, nested Dart maps into URL query strings.",
+      "You need to parse complex query strings with nested brackets or dot notation into maps.",
+      "You want parity with the JavaScript 'qs' library for API interoperability."
+    ],
+    "avoid_when": [
+      "You only need basic, flat query parameter manipulation covered by Dart's built-in Uri class."
+    ],
+    "strengths": [
+      "Supports deeply nested maps and lists using bracket or dot notation.",
+      "Highly configurable options for charset encoding, duplicate handling, and depth limits.",
+      "Provides convenient Uri extensions for idiomatic Dart usage."
+    ],
+    "weaknesses": [
+      "Adds an external dependency overhead for functionality partially handled by core libraries if query strings are completely flat."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:qs_dart/qs_dart.dart';\nimport 'package:test/test.dart';\n\nvoid main() {\n  test('Simple example', () {\n    expect(\n      QS.decode('a=c'),\n      equals({'a': 'c'}),\n    );\n\n    expect(\n      QS.encode({'a': 'c'}),\n      equals('a=c'),\n    );\n  });\n}",
+    "confidence": 1
+  }
+}

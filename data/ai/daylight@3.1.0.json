@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "3.1.0",
+  "generatedAt": "2026-11-09T11:23:09.998Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Calculate sunrise and sunset times for a location without using any remote API.",
+    "what_it_does": "The package implements the classic sunrise/sunset algorithm to compute solar events for a given latitude and longitude. It returns results in UTC and works on all Dart platforms without network access.",
+    "use_when": [
+      "You need offline sunrise/sunset calculations",
+      "You want a lightweight, pure‑Dart solution that works on mobile, web, and desktop",
+      "You already have the location coordinates and just need solar times"
+    ],
+    "avoid_when": [
+      "You require high‑precision astronomical data beyond the basic algorithm",
+      "You need automatic timezone conversion or locale‑aware formatting",
+      "You need additional solar events like twilight phases not provided"
+    ],
+    "strengths": [
+      "No network or platform‑specific dependencies",
+      "Pure Dart, works everywhere",
+      "Simple API and small footprint"
+    ],
+    "weaknesses": [
+      "Limited to basic sunrise/sunset calculations",
+      "Outputs only UTC, no built‑in timezone handling",
+      "Accuracy depends on the algorithm’s assumptions"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:daylight/daylight.dart';\n\nfinal location = DaylightLocation(52.518611, 13.408056);\nfinal calculator = DaylightCalculator(location);\nfinal results = calculator.calculateForDay(DateTime.now(), Zenith.official);\nprint('Sunrise: ${results.sunrise}');\nprint('Sunset: ${results.sunset}');",
+    "confidence": 0.95
+  }
+}

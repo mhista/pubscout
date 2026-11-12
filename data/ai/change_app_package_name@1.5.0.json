@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "1.5.0",
+  "generatedAt": "2026-11-10T12:31:30.902Z",
+  "data": {
+    "primary_category": "devtools",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Rename Flutter app's Android and iOS package identifiers via a single CLI command.",
+    "what_it_does": "Updates AndroidManifest, build.gradle, MainActivity files and iOS bundle identifier to a new package name. Moves files to the new directory structure and removes the old one. Supports selective platform renaming.",
+    "use_when": [
+      "You need to change the app's package/bundle identifier for rebranding or publishing under a new ID",
+      "You want an automated, one‑command way to update all related files across Android and iOS"
+    ],
+    "avoid_when": [
+      "Your project uses custom Gradle or Xcode configurations that the tool can't detect",
+      "You require runtime package name changes or dynamic identifiers"
+    ],
+    "strengths": [
+      "Handles both Android and iOS in one step",
+      "Supports latest Flutter versions and Kotlin/Java MainActivity files",
+      "Can target a single platform if needed"
+    ],
+    "weaknesses": [
+      "CLI‑only; no GUI integration",
+      "May not work with heavily customized project structures",
+      "Only updates package name; does not adjust related code references"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add to dev_dependencies and run `dart run change_app_package_name:main <new.package.name>`",
+    "alternatives": [],
+    "minimal_example": "dev_dependencies:\n  change_app_package_name: ^1.5.0\n\n# then run\ndart run change_app_package_name:main com.example.newname --android",
+    "confidence": 0.97
+  }
+}

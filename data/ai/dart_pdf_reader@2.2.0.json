@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "2.2.0",
+  "generatedAt": "2026-11-09T11:14:13.663Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "files"
+    ],
+    "approach": [
+      "stream-based"
+    ],
+    "one_liner": "Pure‑dart PDF parser that reads PDF structures from a byte stream.",
+    "what_it_does": "It parses PDF files into a document object model, exposing catalogs, pages, outlines and other PDF objects. It works on all supported platforms, including web, by using a byte stream abstraction.",
+    "use_when": [
+      "You need to read PDF metadata or extract pages without rendering the PDF.",
+      "You want a lightweight, pure‑dart solution that works on web and mobile.",
+      "You need to process PDFs in a serverless or CLI environment without native dependencies."
+    ],
+    "avoid_when": [
+      "You need to render PDFs to the screen or display them in a widget.",
+      "You require advanced PDF manipulation like editing or signing.",
+      "You need a full PDF viewer with UI components."
+    ],
+    "strengths": [
+      "Pure Dart, no native dependencies; works on web, mobile, desktop.",
+      "Supports badly formatted PDFs and compressed cross‑reference tables.",
+      "Provides a clear API for accessing catalog, pages, outlines, and page objects.",
+      "Good test coverage and CI integration."
+    ],
+    "weaknesses": [
+      "No rendering or UI support; only parsing.",
+      "Limited to reading; no editing or annotation features.",
+      "Performance may be slower for very large PDFs compared to native libraries.",
+      "Requires manual handling of file streams on each platform."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dependency in pubspec and import 'dart_pdf_reader.dart'. No special permissions needed.",
+    "alternatives": [],
+    "minimal_example": "final stream = ByteStream(File(inputFile).readAsBytesSync());\nfinal doc = await PDFParser(stream).parse();\nfinal pages = await (await doc.catalog).getPages();",
+    "confidence": 0.8
+  }
+}

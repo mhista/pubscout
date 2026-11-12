@@ -1,0 +1,51 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.4.0",
+  "generatedAt": "2026-11-12T11:10:21.106Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "web-desktop"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Read desktop screen size, work area, scale factor and cursor position on Windows, macOS and Linux.",
+    "what_it_does": "Provides a synchronous API to query primary and all displays, their geometry, scale, orientation and other properties. It also streams display add/remove/change events and cursor location.",
+    "use_when": [
+      "You need to adapt UI layout to multiple monitors or high‑DPI screens",
+      "You need to know the cursor position for custom pointer handling",
+      "You want to react to display configuration changes at runtime"
+    ],
+    "avoid_when": [
+      "You target mobile platforms only",
+      "You need a cross‑platform solution that also works on web"
+    ],
+    "strengths": [
+      "Works on all three desktop platforms with a single API",
+      "No native code required in your app – uses nativeapi under the hood",
+      "Synchronous calls make it easy to use in init code",
+      "Provides live updates via listeners"
+    ],
+    "weaknesses": [
+      "Only supports desktop, no mobile or web",
+      "Relies on nativeapi version compatibility"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dependency, ensure GTK3/X11/Xi dev packages on Linux; requires Flutter 3.50+",
+    "alternatives": [
+      {
+        "name": "win32",
+        "why_pick_it": "Direct Windows API access for display info without extra plugin"
+      },
+      {
+        "name": "gtk",
+        "why_pick_it": "Low‑level GTK bindings for Linux display handling"
+      }
+    ],
+    "minimal_example": "import 'package:screen_retriever/screen_retriever.dart';\nfinal dm = DisplayManager.instance;\nfinal primary = dm.getPrimary();\nprint('Primary ${primary?.name} size ${primary?.size.toSize()}');\nfinal cursor = dm.getCursorPosition();\nprint('Cursor at ${cursor.toOffset()}');",
+    "confidence": 0.9
+  }
+}

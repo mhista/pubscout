@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.2.6",
+  "generatedAt": "2026-11-12T11:21:46.271Z",
+  "data": {
+    "primary_category": "ai-ml",
+    "secondary_categories": [],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "Run llama.cpp GGUF models on Android via a Flutter plugin",
+    "what_it_does": "This plugin lets Flutter apps load and run llama.cpp models on Android devices. It streams generated tokens, supports GPU acceleration, and exposes full generation parameters.",
+    "use_when": [
+      "Need on-device LLM inference without external APIs",
+      "Require real‑time token streaming for chat UIs",
+      "Want to leverage Vulkan GPU for faster inference"
+    ],
+    "avoid_when": [
+      "Target iOS or other platforms",
+      "Need inference to survive backgrounding without a custom foreground service",
+      "Deploy very large models that exceed device RAM"
+    ],
+    "strengths": [
+      "Android‑only GPU acceleration via Vulkan",
+      "Fine‑grained control of sampling, penalties, and templates",
+      "Stable streaming with guaranteed onDone termination",
+      "No external network dependency"
+    ],
+    "weaknesses": [
+      "Only works on Android (iOS support missing)",
+      "Requires NDK r27+ and ARM64 ABI",
+      "No built‑in background service for long‑running inference",
+      "Setup requires proguard rules and native library handling"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add dependency, include proguard rules, ensure Android API 26+, NDK r27+, and optional GPU detection before loading model",
+    "alternatives": [],
+    "minimal_example": "import 'package:llama_flutter_android/llama_flutter_android.dart';\n\nfinal controller = LlamaController();\nawait controller.loadModel(modelPath: '/path/to/model.gguf', threads: 4, contextSize: 2048);\nfinal sub = controller.generate(prompt: 'Hello', maxTokens: 100).listen((token) => print(token), onDone: () => print('Done'));\nawait controller.stop();\nawait controller.dispose();",
+    "confidence": 0.9
+  }
+}

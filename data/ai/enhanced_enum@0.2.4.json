@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.2.4",
+  "generatedAt": "2026-11-12T12:02:15.275Z",
+  "data": {
+    "primary_category": "codegen",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "code generation"
+    ],
+    "one_liner": "Generator for enum extensions, string conversion, and pattern matching methods.",
+    "what_it_does": "Enhanced Enum generates utility methods for enums such as parsing from strings, mapping naming conventions like snake_case, and adding when/maybeWhen pattern matching capabilities. It uses build_runner to generate the extension code.",
+    "use_when": [
+      "You need to parse enums from string representations easily.",
+      "You want pattern matching methods like when() and maybeWhen() on enums.",
+      "You need custom naming conventions like snake_case or screamingSnakeCase for enums."
+    ],
+    "avoid_when": [
+      "You want to avoid code generation and build_runner dependencies in your project."
+    ],
+    "strengths": [
+      "Supports multiple naming conventions out of the box.",
+      "Provides built-in pattern matching methods (when, maybeWhen).",
+      "Allows custom overrides for individual enum values."
+    ],
+    "weaknesses": [
+      "Requires build_runner and code generation setup.",
+      "Depends on an extra generator package."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add enhanced_enum to dependencies and enhanced_enum_generator as a dev dependency, then run build_runner.",
+    "alternatives": [
+      {
+        "name": "freezed_annotation",
+        "why_pick_it": "Freezed also offers advanced union and enum-like code generation features."
+      }
+    ],
+    "minimal_example": "import 'package:enhanced_enum/enhanced_enum.dart';\n\npart 'main.g.dart';\n\n@EnhancedEnum()\nenum Animals { fox, rabbit, redPanda }\n\nvoid main() {\n  Animals.values.fromString('fox');\n  Animals.fox.when(fox: () => 1, rabbit: () => 2, redPanda: () => 3);\n}",
+    "confidence": 0.95
+  }
+}

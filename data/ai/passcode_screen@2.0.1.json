@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "2.0.1",
+  "generatedAt": "2026-11-12T11:27:43.254Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Platform-agnostic passcode lock screen widget",
+    "what_it_does": "Provides a customizable passcode input screen that mimics native iOS behavior. It supports callbacks for passcode entry, validation, cancellation, and can be styled via colors, sizes, and custom widgets.",
+    "use_when": [
+      "You need a simple passcode lock screen for authentication or secure sections of an app",
+      "You want a ready-made, null-safe widget that works on mobile, web, and desktop",
+      "You need customizable UI elements like cancel/delete buttons and keyboard layout"
+    ],
+    "avoid_when": [
+      "You require biometric authentication or multi-factor login flows",
+      "You need a full authentication framework with backend integration",
+      "You want a lightweight solution that only needs a simple dialog"
+    ],
+    "strengths": [
+      "Highly customizable UI via color, size, and widget parameters",
+      "Platform agnostic with no native configuration required",
+      "Supports web and desktop keyboard listeners",
+      "Null safety and up-to-date with Flutter 2+"
+    ],
+    "weaknesses": [
+      "Limited to passcode input only, no biometric or OAuth support",
+      "No built-in navigation handling beyond callbacks",
+      "Requires manual stream handling for validation",
+      "No integration with backend services"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:passcode_screen/passcode_screen.dart';\n\nPasscodeScreen(\n  title: Text('Enter Passcode'),\n  passwordEnteredCallback: (code) => print('Code: $code'),\n  cancelButton: Text('Cancel'),\n  deleteButton: Text('Delete'),\n  shouldTriggerVerification: StreamController<bool>.broadcast().stream,\n);",
+    "confidence": 0.9
+  }
+}

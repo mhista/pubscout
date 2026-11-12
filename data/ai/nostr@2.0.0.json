@@ -1,0 +1,47 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.0",
+  "generatedAt": "2026-11-11T11:19:53.499Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "web3",
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Pure-Dart Nostr protocol library supporting events, signing, encryption, and 35+ NIPs.",
+    "what_it_does": "Provides protocol-level handling for Nostr events, key management, cryptographic operations, and 35+ NIP implementations in pure Dart. It is transport-agnostic and fully compatible with Flutter Web.",
+    "use_when": [
+      "Building Nostr clients or relays in Flutter or pure Dart",
+      "Implementing specific Nostr Improvement Proposals (NIPs)",
+      "Needing web-compatible Nostr event signing and encryption"
+    ],
+    "avoid_when": [
+      "You need built-in WebSocket transport (the library is transport-agnostic)",
+      "You only require legacy NIP-04 plaintext DMs which have been removed"
+    ],
+    "strengths": [
+      "Pure-Dart implementation supporting over 35 NIPs",
+      "Transport-agnostic and Flutter Web compatible",
+      "Implements modern standards like NIP-17 direct messages and NIP-59 gift wrap"
+    ],
+    "weaknesses": [
+      "Does not include built-in transport/WebSocket handling",
+      "Requires manual implementation for partially supported NIPs like NIP-46 or NIP-47 URI parsing"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the package to pubspec.yaml using pub add nostr.",
+    "alternatives": [
+      {
+        "name": "web3dart",
+        "why_pick_it": "If working with EVM-compatible blockchains instead of the Nostr protocol."
+      }
+    ],
+    "minimal_example": "import 'package:nostr/nostr.dart';\n\nfinal keys = Keys.generate();\nfinal event = Event.from(\n  kind: 1,\n  tags: [],\n  content: 'Hello Nostr!',\n  secretKey: keys.secret,\n);\nprint(event.serialize());",
+    "confidence": 0.95
+  }
+}

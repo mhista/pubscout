@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.0",
+  "generatedAt": "2026-11-10T13:14:04.520Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "An efficient broadcast system for message sending, receiving, and state management in Flutter.",
+    "what_it_does": "FBroadcast provides a broadcasting system allowing widgets and modules to communicate through messages, supporting sticky broadcasts, two-way communication, and context binding for easy unregistering.",
+    "use_when": [
+      "You want complete decoupling between widgets or modules without using complex state managers.",
+      "You need sticky broadcasts that can be queued before a receiver is registered.",
+      "You need simple two-way communication between decoupled modules."
+    ],
+    "avoid_when": [
+      "You prefer structured, predictable reactive state management architectures like Bloc or Riverpod.",
+      "Your project requires strict type safety for every message and payload."
+    ],
+    "strengths": [
+      "Enables complete decoupling between widgets and modules.",
+      "Supports sticky broadcasts and two-way communication.",
+      "Context binding allows batch removal of receivers easily."
+    ],
+    "weaknesses": [
+      "Relies heavily on string-based keys which can become difficult to maintain at scale.",
+      "Can make data flow harder to trace compared to explicit state containers."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "FBroadcast.instance().register(Key_Message, (value, callback) {\n  var data = value;\n});\n\nFBroadcast.instance().broadcast(Key_Message, value: data);",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "5.0.0",
+  "generatedAt": "2026-11-11T11:12:06.892Z",
+  "data": {
+    "primary_category": "devtools",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Feature flagging and A/B testing platform client for Flutter apps.",
+    "what_it_does": "Allows your Flutter application to connect to GrowthBook to toggle features on and off without new deployments, run A/B tests, and track experiment metrics. Supports smart caching, sticky bucketing, and remote evaluation.",
+    "use_when": [
+      "You need to run A/B tests and experiments with statistical significance in a Flutter app",
+      "You want to toggle features dynamically via remote configuration",
+      "You require user targeting and segmentation rules"
+    ],
+    "avoid_when": [
+      "You do not use the GrowthBook experimentation platform",
+      "You only need simple local configuration files without remote synchronization"
+    ],
+    "strengths": [
+      "Full support for feature flags, A/B testing, and sticky bucketing",
+      "Smart caching with TTL and stale-while-revalidate for offline resilience",
+      "Cross-platform support across mobile, desktop, and web"
+    ],
+    "weaknesses": [
+      "Requires a GrowthBook backend or proxy setup",
+      "Major version upgrades can introduce strict breaking changes regarding targeting conditions and type safety"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Initialize the SDK using GBSDKBuilderApp with your GrowthBook API key and host URL during app startup.",
+    "alternatives": [],
+    "minimal_example": "final sdk = await GBSDKBuilderApp(\n  apiKey: \"sdk_your_api_key\",\n  hostURL: \"https://growthbook.io\",\n).initialize();\nfinal welcomeMessage = sdk.feature('welcome_message');\nif (welcomeMessage.on) {\n  print('Feature is enabled: ${welcomeMessage.value}');\n}",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.0.0",
+  "generatedAt": "2026-11-11T11:38:33.256Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "Reactive key-value storage powered by RxDart",
+    "what_it_does": "Provides a reactive key-value storage wrapper for Dart and Flutter using RxDart streams to observe changes. It supports custom storage adapters, encoders, decoders, and in-memory persistence.",
+    "use_when": [
+      "You need to observe specific storage keys as streams in a reactive architecture",
+      "You want an RxDart-powered storage layer in your Dart or Flutter application"
+    ],
+    "avoid_when": [
+      "You need multi-key transactions or complex relational SQL features",
+      "You prefer standard Futures and do not use RxDart or streams"
+    ],
+    "strengths": [
+      "Reactive stream support for observing individual keys or all entries",
+      "Built-in in-memory storage adapter",
+      "Customizable encoders and decoders for synchronous and asynchronous operations"
+    ],
+    "weaknesses": [
+      "Queue system excludes multi-key transactions",
+      "Direct adapter changes or changes through other wrappers are not observed"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires Dart SDK >=3.0.0 <4.0.0. Add via pub add rx_storage.",
+    "alternatives": [
+      {
+        "name": "shared_preferences",
+        "why_pick_it": "If you want the standard, official key-value storage solution for simple preferences without RxDart overhead."
+      },
+      {
+        "name": "sqflite",
+        "why_pick_it": "If you need a relational SQLite database rather than a simple key-value store."
+      },
+      {
+        "name": "flutter_secure_storage",
+        "why_pick_it": "If you need to store sensitive data securely using platform-specific secure hardware storage."
+      }
+    ],
+    "minimal_example": "import 'package:rx_storage/rx_storage.dart';\n\nFuture<void> main() async {\n  final storage = RxStorage<String, void>(InMemoryStorage<String>());\n  final subscription = storage\n      .observe<String>('name', (raw) => raw as String?)\n      .listen((value) => print('Name: $value'));\n\n  try {\n    await storage.write<String>('name', 'Ada', (value) => value);\n  } finally {\n    await subscription.cancel();\n    await storage.dispose();\n  }\n}",
+    "confidence": 0.95
+  }
+}

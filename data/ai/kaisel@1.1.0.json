@@ -1,0 +1,50 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.1.0",
+  "generatedAt": "2026-11-09T11:55:48.394Z",
+  "data": {
+    "primary_category": "navigation",
+    "secondary_categories": [],
+    "approach": [
+      "declarative",
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "A Dart 3-native Flutter router using sealed routes and pattern matching.",
+    "what_it_does": "Provides type-safe navigation for Flutter applications using Dart 3 sealed classes, exhaustive pattern matching, and a stack-as-state model instead of string paths or code generation.",
+    "use_when": [
+      "You want compile-time type safety for routes and parameters without code generation.",
+      "You prefer a stack-as-state navigation model driven by sealed classes.",
+      "You need modular or deep-linkable routing with guarded pipelines."
+    ],
+    "avoid_when": [
+      "Your project must rely strictly on URL string paths as the primary source of truth.",
+      "You are not using Dart 3 sealed classes."
+    ],
+    "strengths": [
+      "Compile-time type safety and exhaustiveness checking for route switches.",
+      "No code generation or manual equality boilerplate required.",
+      "Built-in support for shells, lazy branches, and guards."
+    ],
+    "weaknesses": [
+      "Requires adherence to sealed class route hierarchies.",
+      "Differs significantly from traditional path-based routers like go_router."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "None required beyond adding the package and setting up the router configuration in MaterialApp.router.",
+    "alternatives": [
+      {
+        "name": "go_router",
+        "why_pick_it": "If you prefer traditional string paths and URL-centric navigation."
+      },
+      {
+        "name": "auto_route",
+        "why_pick_it": "If you prefer code-generated route management with builder configurations."
+      }
+    ],
+    "minimal_example": "sealed class AppRoute extends KaiselRoute {\n  const AppRoute();\n}\n\nfinal class Home extends AppRoute { const Home(); }\n\nfinal _config = KaiselRouterConfig<AppRoute>(\n  initial: const Home(),\n  builder: (context, route) => switch (route) {\n    Home() => const HomeScreen(),\n  },\n);\n\nvoid main() => runApp(MaterialApp.router(routerConfig: _config));",
+    "confidence": 0.95
+  }
+}

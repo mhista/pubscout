@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.1.2",
+  "generatedAt": "2026-11-12T11:35:51.409Z",
+  "data": {
+    "primary_category": "testing",
+    "secondary_categories": [
+      "utils",
+      "devtools"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Reachability and dead/unused declaration analysis for Dart and Flutter packages.",
+    "what_it_does": "Performs whole-package AST analysis using package:analyzer to build a reachability graph from known entrypoints to internal declarations. Identifies unused top-level declarations, classes, functions, and variables, supporting both open-world library modes and closed-app executable analysis.",
+    "use_when": [
+      "You want to audit your Dart or Flutter package for dead or unused code",
+      "You need automated CI checks to fail if dead code is introduced",
+      "You want to find internal declarations that can be safely made private"
+    ],
+    "avoid_when": [
+      "You are looking for runtime performance profiling rather than static dead code analysis"
+    ],
+    "strengths": [
+      "Supports dual analysis modes (open-world library and closed-app)",
+      "Framework adapters for Flutter, build_runner, and package test",
+      "Co-invoked test hazard protection to avoid false-positive test deletions",
+      "Granular suppressions via code directives"
+    ],
+    "weaknesses": [
+      "May require configuration for complex dynamic dependency injection or reflection-heavy code patterns"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Can be run directly via CLI using dart run undead or embedded as a library in Dart scripts.",
+    "alternatives": [],
+    "minimal_example": "import 'package:undead/undead.dart';\n\nvoid main() async {\n  final options = UndeadOptions(\n    packagePath: '.',\n    mode: AnalysisMode.library,\n  );\n  final engine = UndeadEngine(options);\n  final report = await engine.analyze();\n\n  for (final finding in report.undead) {\n    print('Unused: ${finding.name} (${finding.file}:L${finding.line})');\n  }\n}",
+    "confidence": 0.95
+  }
+}

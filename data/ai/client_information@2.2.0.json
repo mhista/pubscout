@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "2.2.0",
+  "generatedAt": "2026-11-12T11:17:09.232Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Fetch basic app, OS, and device information across Android, iOS, and Web.",
+    "what_it_does": "Provides a simple API to retrieve application, software, operating system, and device details. It supports mock data for testing and allows decorators to modify returned values.",
+    "use_when": [
+      "You need to display or log app metadata such as version or build code.",
+      "You want to identify a device uniquely for analytics or feature flags.",
+      "You need OS or browser information for conditional logic.",
+      "You want to mock device data in unit tests."
+    ],
+    "avoid_when": [
+      "Your project requires more detailed hardware sensor data beyond basic identifiers.",
+      "You need to persist device identifiers across app upgrades without using cookies on Web."
+    ],
+    "strengths": [
+      "Cross‑platform support (Android, iOS, Web).",
+      "Simple async API with no build_runner or codegen.",
+      "Built‑in mock mode for testing.",
+      "Decorator support for custom value formatting."
+    ],
+    "weaknesses": [
+      "Web deviceId is generated via cookie, not a true hardware ID.",
+      "Limited to basic metadata; no sensor or network info.",
+      "No support for platform‑specific advanced features."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:client_information/client_information.dart';\n\nFuture<void> main() async {\n  ClientInformation info = await ClientInformation.fetch();\n  print('Device ID: ${info.deviceId}');\n  print('OS: ${info.osName} ${info.osVersion}');\n}",
+    "confidence": 0.9
+  }
+}

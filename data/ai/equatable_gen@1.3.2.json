@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "1.3.2",
+  "generatedAt": "2026-11-11T11:15:23.430Z",
+  "data": {
+    "primary_category": "codegen",
+    "secondary_categories": [],
+    "approach": [
+      "code generation"
+    ],
+    "one_liner": "Generates Equatable props getters via build_runner",
+    "what_it_does": "It creates a private extension that supplies the List<Object?> props getter for classes that extend Equatable or use EquatableMixin. The generator can automatically include fields, getters, and respect @ignore/@include annotations.",
+    "use_when": [
+      "You need boilerplate-free equality for Equatable classes",
+      "You want zero-annotation support and inheritance handling",
+      "You are already using build_runner for code generation"
+    ],
+    "avoid_when": [
+      "You prefer manual control over props without codegen",
+      "You are not using Equatable or EquatableMixin"
+    ],
+    "strengths": [
+      "Zero-annotation mode with auto_include",
+      "Supports inheritance and getter inclusion",
+      "Easy integration with build_runner"
+    ],
+    "weaknesses": [
+      "Requires build_runner and part files",
+      "Only works with Equatable/EquatableMixin",
+      "No runtime configuration beyond build.yaml"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add equatable_annotations, equatable_gen, build_runner to pubspec; create build.yaml with builder options; add part 'file.g.dart'; run flutter pub run build_runner build",
+    "alternatives": [],
+    "minimal_example": "```dart\nclass MyClass extends Equatable {\n  const MyClass({required this.id, required this.name});\n  final String id;\n  final String name;\n  @override\n  List<Object?> get props => _$props;\n}\n```",
+    "confidence": 0.9
+  }
+}

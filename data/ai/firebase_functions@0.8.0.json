@@ -1,0 +1,37 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.8.0",
+  "generatedAt": "2026-11-09T11:44:58.389Z",
+  "data": {
+    "primary_category": "backend",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Define Cloud Functions for Firebase in Dart with support for the Admin SDK and Firestore.",
+    "what_it_does": "Allows developers to write and deploy serverless Cloud Functions for Firebase using Dart. It integrates with the Firebase Admin SDK, Cloud Storage, and Firestore, handling requests and responses via Shelf.",
+    "use_when": [
+      "You want to write your Firebase Cloud Functions in Dart instead of Node.js or Python",
+      "You need to handle HTTPS triggers and HTTPS-based cloud endpoints in Dart"
+    ],
+    "avoid_when": [
+      "You need production support for background triggers other than HTTPS triggers",
+      "You are not using Firebase for your backend infrastructure"
+    ],
+    "strengths": [
+      "Enables full-stack Dart development including server-side cloud functions",
+      "Integrates with the Firebase Admin SDK and Cloud Storage/Firestore"
+    ],
+    "weaknesses": [
+      "Background triggers outside of HTTPS are currently experimental",
+      "Requires specific Firebase CLI and SDK constraints for native build hooks"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires configuring Firebase functions and matching SDK constraints, with specific firebase-tools requirements for deployment.",
+    "alternatives": [],
+    "minimal_example": "import 'package:firebase_functions/firebase_functions.dart';\n\nvoid main(List<String> args) {\n  runFunctions((firebase) {\n    firebase.https.onRequest(\n      name: 'hello',\n      (request) async {\n        return Response.ok('Hello from Dart!');\n      },\n    );\n  });\n}",
+    "confidence": 0.95
+  }
+}

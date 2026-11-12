@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.8-flash",
+  "version": "4.0.0",
+  "generatedAt": "2026-11-11T11:03:38.047Z",
+  "data": {
+    "primary_category": "devtools",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "Client library for communicating with the Dart Tooling Daemon (DTD).",
+    "what_it_does": "Provides a client API to connect and interact with the Dart Tooling Daemon over WebSockets. Enables developer tools to perform workspace file system access, register service methods, and broadcast or listen to tool streams. It facilitates inter-tool communication within IDEs and command-line development environments.",
+    "use_when": [
+      "Building custom Dart or Flutter developer tools, IDE extensions, or DevTools plugins.",
+      "Exchanging events or services between development tools running in the same workspace.",
+      "Accessing project workspace files via the standardized Dart Tooling Daemon interface."
+    ],
+    "avoid_when": [
+      "Building standard end-user Flutter applications with no developer tooling integration.",
+      "Operating outside of a Dart development environment that lacks an active DTD instance."
+    ],
+    "strengths": [
+      "Standardized communication protocol across IDEs (VS Code, IntelliJ) and CLI tooling.",
+      "Supports custom service registration and RPC calls between separate developer tools.",
+      "Provides built-in stream handling and workspace file system access abstractions."
+    ],
+    "weaknesses": [
+      "Requires an active external DTD process (started via IDE or CLI runner with --print-dtd) during development and runtime.",
+      "Not intended for runtime application logic or end-user features."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires obtaining an active DTD URI by copying it from an IDE workspace action or launching an app with the --print-dtd flag.",
+    "alternatives": [],
+    "minimal_example": "import 'package:dtd/dtd.dart';\n\nvoid main() async {\n  final dtdUri = 'ws://127.0.0.1:62925/';\n  final client = await DartToolingDaemon.connect(dtdUri);\n\n  // Use client to register services or listen to streams\n  await client.close();\n}",
+    "confidence": 0.95
+  }
+}

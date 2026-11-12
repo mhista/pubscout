@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.1.5",
+  "generatedAt": "2026-11-12T11:42:54.431Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "animation",
+      "layout"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A customizable vertical and horizontal sheet widget that snaps to different positions.",
+    "what_it_does": "Provides a sheet widget that can be placed anywhere (not limited to the bottom) and snaps to different vertical and horizontal positions. It supports custom animations, scrollable widgets inside the sheet, and controller-based manipulation.",
+    "use_when": [
+      "You need a bottom sheet or floating panel that snaps to specific positions.",
+      "You require a sheet that can be oriented either vertically or horizontally.",
+      "You need the sheet to coordinate smoothly with an inner scrollable widget like a ListView."
+    ],
+    "avoid_when": [
+      "You only need a standard Material Design bottom sheet with default behavior.",
+      "You do not need snapping functionality or custom sheet positioning."
+    ],
+    "strengths": [
+      "Supports both vertical and horizontal snapping sheets.",
+      "Can adapt to scrollable widgets inside the sheet.",
+      "Fully customizable animations, snap positions, and grabbing widgets."
+    ],
+    "weaknesses": [
+      "Inner scrollable widgets require a specific configuration of the reverse property depending on their position."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:snapping_sheet_2/snapping_sheet.dart';\n\nclass GettingStartedExample extends StatelessWidget {\n    @override\n    Widget build(BuildContext context) {\n        return Scaffold(\n            body: SnappingSheet(\n                child: MyOwnPageContent(), \n                grabbingHeight: 75,\n                grabbing: MyOwnGrabbingWidget(),\n                sheetBelow: SnappingSheetContent(\n                    draggable: (details) => true,\n                    child: MyOwnSheetContent(),\n                ),\n            ),\n        );\n    }\n}",
+    "confidence": 1
+  }
+}

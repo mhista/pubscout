@@ -1,0 +1,46 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "1.3.1",
+  "generatedAt": "2026-11-11T11:20:37.888Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "stream-based",
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Detects active VPN connections on Android and iOS with real-time updates.",
+    "what_it_does": "Provides a method to check if a VPN is active and a stream that emits status changes. The API is testable via dependency injection and works without hidden singletons.",
+    "use_when": [
+      "You need to block or warn users when they are on a VPN for security or compliance reasons",
+      "You want to react in‑app to VPN status changes, e.g., adjust network behavior",
+      "You need a lightweight, platform‑specific VPN check without pulling in a full networking stack"
+    ],
+    "avoid_when": [
+      "Your app also targets web or desktop platforms",
+      "You require detailed network diagnostics beyond VPN detection",
+      "You prefer a pure‑Dart solution without native code"
+    ],
+    "strengths": [
+      "Reliable detection on both Android and iOS",
+      "Real‑time status updates via a stream",
+      "Testable design with injectable dependencies",
+      "Zero static singleton usage"
+    ],
+    "weaknesses": [
+      "Only supports mobile platforms (no web/desktop)",
+      "Requires native setup (SwiftPM for iOS, Android SDK changes)",
+      "Limited to VPN detection only"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add vpn_detector to pubspec, run flutter pub get, ensure iOS SwiftPM integration (Swift 5, iOS 13+) and Android compileSdk 35/minSdk 21. No extra permissions required.",
+    "alternatives": [],
+    "minimal_example": "import 'package:vpn_detector/vpn_detector.dart';\n\nvoid main() async {\n  final status = await VpnDetector().isVpnActive();\n  print(status == VpnStatus.active ? 'VPN is active' : 'VPN is not active');\n}",
+    "confidence": 0.95
+  }
+}

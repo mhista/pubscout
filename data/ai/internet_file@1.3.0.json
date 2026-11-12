@@ -1,0 +1,48 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "1.3.0",
+  "generatedAt": "2026-11-09T11:09:59.498Z",
+  "data": {
+    "primary_category": "files",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Download internet files and optionally cache them locally across all platforms.",
+    "what_it_does": "InternetFile provides a simple API to fetch files from the web and return them as Uint8List. It can also store the file locally using a pluggable storage implementation, supporting progress callbacks and custom headers.",
+    "use_when": [
+      "Fetching assets like fonts, PDFs or images that need to be cached locally",
+      "Integrating with plugins that require direct file access on any platform",
+      "Implementing custom storage logic for web or offline support"
+    ],
+    "avoid_when": [
+      "You only need a single HTTP request without caching or progress tracking",
+      "You prefer a full-featured HTTP client like Dio for complex request handling"
+    ],
+    "strengths": [
+      "Cross-platform support (web, mobile, desktop, server)",
+      "Optional local storage with pluggable implementation",
+      "Progress callback with received and total bytes",
+      "Simple API, no code generation required"
+    ],
+    "weaknesses": [
+      "No advanced caching policies (e.g., TTL, eviction)",
+      "Relies on http and universal_file, so adding it increases dependencies",
+      "Limited to file download, not general HTTP requests"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "http",
+        "why_pick_it": "Use http for simple single-file downloads without the need for local caching or progress callbacks."
+      }
+    ],
+    "minimal_example": "import 'package:internet_file/internet_file.dart';\n\nfinal Uint8List bytes = await InternetFile.get(\n  'https://example.com/file.ttf',\n  progress: (received, total) {\n    print('downloaded $received of $total bytes');\n  },\n);",
+    "confidence": 0.9
+  }
+}

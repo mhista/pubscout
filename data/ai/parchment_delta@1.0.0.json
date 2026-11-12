@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "1.0.0",
+  "generatedAt": "2026-11-11T11:14:32.650Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Dart implementation of Quill Delta format for rich-text editing",
+    "what_it_does": "Provides a Delta class to represent, compose, and transform rich-text changes in the Quill.js format. It can be used to build or integrate a rich-text editor in Dart applications.",
+    "use_when": [
+      "You need to manipulate or serialize Quill Delta documents in a Dart/Flutter app",
+      "You are building a custom editor or syncing rich-text changes with a backend that uses Quill format"
+    ],
+    "avoid_when": [
+      "You are using a full-featured editor widget that already handles Delta internally",
+      "You only need simple text editing without Delta semantics"
+    ],
+    "strengths": [
+      "Simple API, no heavy dependencies",
+      "Supports compose, retain, delete operations",
+      "Cross-platform (dart, web, mobile, desktop)"
+    ],
+    "weaknesses": [
+      "No UI components",
+      "Limited to Delta format only",
+      "No built-in persistence or collaboration features"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:parchment_delta/parchment_delta.dart';\n\nvoid main() {\n  var doc = Delta()..insert('Hello world', {'h': '1'});\n  var change = Delta()\n    ..retain(6)\n    ..delete(5)\n    ..insert('Earth');\n  var result = doc.compose(change);\n  print(result);\n}",
+    "confidence": 0.9
+  }
+}

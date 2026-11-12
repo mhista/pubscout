@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "1.0.0",
+  "generatedAt": "2026-11-12T11:29:26.364Z",
+  "data": {
+    "primary_category": "images",
+    "secondary_categories": [
+      "maps"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Convert widgets, local, network images or SVGs to BitmapDescriptor for google_maps_flutter markers",
+    "what_it_does": "Provides helper functions to turn a widget, asset image, network image or SVG into a BitmapDescriptor that can be used as a marker icon. Supports custom shapes, borders and text overlays.",
+    "use_when": [
+      "You need custom marker icons that are not simple icons",
+      "You want to use a widget or SVG as a marker",
+      "You need to load images from the network and resize them for markers"
+    ],
+    "avoid_when": [
+      "You only need default marker icons",
+      "You are targeting non-Flutter platforms"
+    ],
+    "strengths": [
+      "Simple API, single dependency",
+      "Supports widgets, assets, network images, SVGs, and custom text overlays",
+      "Handles resizing and border styling"
+    ],
+    "weaknesses": [
+      "Only works with google_maps_flutter",
+      "Requires async calls for image loading",
+      "No support for other map plugins"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dependency and import package; no special permissions needed",
+    "alternatives": [],
+    "minimal_example": "```dart\nfinal marker = await MarkerIcon.downloadResizePictureCircle(\n  'https://example.com/image.png',\n  size: 150,\n  addBorder: true,\n  borderColor: Colors.white,\n  borderSize: 15,\n);\nMarker(\n  markerId: MarkerId('id'),\n  icon: marker,\n  position: LatLng(35.0, 50.0),\n);\n```",
+    "confidence": 0.9
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "2.2.0",
+  "generatedAt": "2026-11-11T11:08:38.875Z",
+  "data": {
+    "primary_category": "files",
+    "secondary_categories": [
+      "web-desktop"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Platform interface for the flutter_dropzone plugin",
+    "what_it_does": "Defines the common API that all platform implementations of flutter_dropzone must expose. It provides methods for dropping files, getting file streams, and retrieving file metadata.",
+    "use_when": [
+      "You need to create a custom platform implementation for flutter_dropzone",
+      "You want to ensure consistency across different platform plugins"
+    ],
+    "avoid_when": [
+      "You only need to use the flutter_dropzone plugin itself",
+      "You are not extending or modifying the plugin’s platform layer"
+    ],
+    "strengths": [
+      "Provides a stable, null-safe contract for all platforms",
+      "Keeps the plugin architecture clean and extensible",
+      "Supports web, Android, iOS, macOS, Windows, and Linux"
+    ],
+    "weaknesses": [
+      "No runtime functionality – only an interface",
+      "Requires a separate implementation for each platform"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "// Example of extending the interface\nclass MyDropzonePlatform extends FlutterDropzonePlatform {\n  @override\n  Future<void> init() async {\n    // platform-specific init code\n  }\n}\n",
+    "confidence": 0.9
+  }
+}

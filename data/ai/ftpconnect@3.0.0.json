@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.0.0",
+  "generatedAt": "2026-11-09T11:29:55.948Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "files"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Interact with FTP, FTPS, FTPES, and SFTP servers to upload, download, and manage files.",
+    "what_it_does": "Provides a Dart client library for connecting to FTP and SFTP servers. It supports uploading and downloading files or entire directories, managing remote directories, and handling in-memory data transfers.",
+    "use_when": [
+      "You need to upload or download files from an FTP or SFTP server in your Flutter application.",
+      "You want to manage remote directories and files programmatically."
+    ],
+    "avoid_when": [
+      "You are building a web application and require raw TCP socket connections for SFTP/FTP.",
+      "You are interacting with a standard REST, GraphQL, or gRPC backend rather than a file server."
+    ],
+    "strengths": [
+      "Supports multiple protocols including FTP, FTPS, FTPES, and SFTP.",
+      "Implements a unified interface for both FTP and SFTP clients.",
+      "Supports recursive directory uploads and downloads."
+    ],
+    "weaknesses": [
+      "Does not support web platforms due to the lack of raw TCP socket support.",
+      "Imperative API requires manual connection and disconnection handling."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Not documented",
+    "alternatives": [],
+    "minimal_example": "import 'dart:io';\nimport 'package:ftpconnect/ftpconnect.dart';\n\nmain() async{\n    FTPConnect ftpConnect = FTPConnect('example.com',user:'user', pass:'pass');\n    File fileToUpload = File('fileToUpload.txt');\n    await ftpConnect.connect();\n    bool res = await ftpConnect.uploadFile(fileToUpload);\n    await ftpConnect.disconnect();\n    print(res);\n}",
+    "confidence": 1
+  }
+}

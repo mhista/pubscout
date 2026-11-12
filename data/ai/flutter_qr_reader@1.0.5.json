@@ -1,0 +1,57 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "1.0.5",
+  "generatedAt": "2026-11-11T11:21:27.378Z",
+  "data": {
+    "primary_category": "camera",
+    "secondary_categories": [
+      "widgets",
+      "ui-kits"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Scans QR codes from the camera or image files on Android and iOS.",
+    "what_it_does": "Provides a platform view for live QR code scanning and a method to decode QR codes from image files. Includes a built‑in UI widget and flashlight control.",
+    "use_when": [
+      "You need quick QR scanning with a ready‑made UI",
+      "You target only Android/iOS and can add native permissions",
+      "You want null‑safe Dart API"
+    ],
+    "avoid_when": [
+      "You need web or desktop support",
+      "You require heavy customization of the scanning UI",
+      "You prefer a pure Dart solution without platform views"
+    ],
+    "strengths": [
+      "Simple API for both camera and image scanning",
+      "Built‑in UI widget and flashlight control",
+      "Null‑safety support"
+    ],
+    "weaknesses": [
+      "Limited to Android and iOS",
+      "Relies on platform views which may affect performance",
+      "Customization of the scanner UI is limited"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add camera permission to AndroidManifest, add NSCameraUsageDescription and io.flutter.embedded_views_preview=YES to iOS Info.plist",
+    "alternatives": [
+      {
+        "name": "mobile_scanner",
+        "why_pick_it": "Pure Dart scanner with web support and more customization"
+      },
+      {
+        "name": "google_mlkit_barcode_scanning",
+        "why_pick_it": "Google ML Kit based, higher accuracy and cross‑platform"
+      },
+      {
+        "name": "barcode",
+        "why_pick_it": "Lightweight Dart barcode/QR library without native views"
+      }
+    ],
+    "minimal_example": "import 'package:flutter_qr_reader/flutter_qr_reader.dart';\n\nQrReaderView(\n  width: 320,\n  height: 350,\n  callback: (data) {\n    print('Scanned: $data');\n  },\n);\n",
+    "confidence": 0.85
+  }
+}

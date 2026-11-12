@@ -1,0 +1,46 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.6.0",
+  "generatedAt": "2026-11-11T11:10:41.765Z",
+  "data": {
+    "primary_category": "testing",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Runs test suites and methods discovered via reflection.",
+    "what_it_does": "Provides functions to define reflective test suites and classes. It automatically discovers test methods, handles setUp/tearDown, and integrates with package:test grouping.",
+    "use_when": [
+      "You want to write tests without manually listing each test method",
+      "You need hierarchical test groups generated from class names",
+      "You prefer annotation‑based test discovery in Dart"
+    ],
+    "avoid_when": [
+      "You are targeting platforms where reflection is disabled (e.g., Flutter web)",
+      "You need fine‑grained control over test registration beyond class‑based grouping"
+    ],
+    "strengths": [
+      "Reduces boilerplate by auto‑discovering test methods",
+      "Integrates with package:test's group hierarchy for better IDE support",
+      "Supports expected‑fail and skipped tests via annotations"
+    ],
+    "weaknesses": [
+      "Relies on Dart reflection which may not be available in all environments",
+      "Adds an extra dependency on package:test",
+      "Limited to simple naming/annotation conventions"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "test",
+        "why_pick_it": "Standard test runner without reflection, works everywhere"
+      }
+    ],
+    "minimal_example": "import 'package:test/test.dart';\nimport 'package:test_reflective_loader/test_reflective_loader.dart';\n\nvoid main() {\n  defineReflectiveSuite(() {\n    defineReflectiveTests(MyTestClass);\n  });\n}\n\n@reflectiveTest\nclass MyTestClass {\n  void test_example() => expect(true, isTrue);\n}",
+    "confidence": 0.87
+  }
+}

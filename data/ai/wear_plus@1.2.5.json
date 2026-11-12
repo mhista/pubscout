@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.2.5",
+  "generatedAt": "2026-11-12T12:01:17.301Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "ui-kits"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Flutter support and widgets for Wear OS devices.",
+    "what_it_does": "Provides Flutter support for Wear OS by Google. It supplies specific widgets such as WatchShape to determine if the watch is square or round, and AmbientMode for handling ambient states.",
+    "use_when": [
+      "You are developing a Flutter application targeting Wear OS smartwatches",
+      "You need to handle watch-specific shapes like square or round screens",
+      "You need to support ambient mode and active mode for watch faces"
+    ],
+    "avoid_when": [
+      "You are building a standard mobile or desktop application",
+      "You do not need native watch shape or ambient mode support"
+    ],
+    "strengths": [
+      "Actively maintained plugin for Wear OS",
+      "Provides essential watch-specific widgets like WatchShape and AmbientMode"
+    ],
+    "weaknesses": [
+      "Requires setting a minimum SDK version to 23",
+      "Limited to specific Wear OS capabilities documented in the README"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Set your minSdkVersion to 23. If creating a standalone watch app, add the application meta-data for standalone to your manifest.",
+    "alternatives": [],
+    "minimal_example": "class WatchScreen extends StatelessWidget {\n  @override\n  Widget build(BuildContext context) {\n    return WatchShape(\n      builder: (BuildContext context, WearShape shape, Widget? child) {\n        return AmbientMode(\n          builder: (context, mode, child) {\n            return mode == Mode.active ? ActiveWatchFace() : AmbientWatchFace();\n          },\n        );\n      },\n    );\n  }\n}",
+    "confidence": 0.95
+  }
+}

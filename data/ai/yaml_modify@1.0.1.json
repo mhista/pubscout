@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.1",
+  "generatedAt": "2026-11-12T12:02:33.358Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "A library for modifying YAML files.",
+    "what_it_does": "A library for modifying YAML files, for example you can modify pubspec.yaml by this library. It provides utilities to load, modify, and serialize back to YAML strings.",
+    "use_when": [
+      "You need to programmatically modify and write YAML files like pubspec.yaml",
+      "You want to parse YAML into a modifiable structure and convert it back to a string"
+    ],
+    "avoid_when": [
+      "You only need to read YAML files without modifying them",
+      "You need complex schema validation for YAML"
+    ],
+    "strengths": [
+      "Enables modifying existing YAML files programmatically",
+      "Null safety supported"
+    ],
+    "weaknesses": [
+      "Very minimal documentation",
+      "Limited features mentioned beyond basic modification and serialization"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [
+      {
+        "name": "yaml",
+        "why_pick_it": "yaml is the standard package for parsing YAML, though yaml_modify is specifically for modifying and writing back."
+      }
+    ],
+    "minimal_example": "import 'package:yaml_modify/yaml_modify.dart';\n\nmain() {\n  File file = File(\"pubspec.yaml\");\n  final yaml = loadYaml(file.readAsStringSync());\n\n  final modifiable = getModifiableNode(yaml);\n  modifiable['flutter'] = {\n    'assets':['img1.png', 'img2.png']\n  };\n\n  final strYaml = toYamlString(modifiable);\n  File(\"pubspec-output.yaml\").writeAsStringSync(strYaml);\n  print(strYaml);\n}",
+    "confidence": 0.9
+  }
+}

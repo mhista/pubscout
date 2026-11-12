@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "1.1.1",
+  "generatedAt": "2026-11-10T12:31:23.958Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "High-performance Dart R-tree spatial index for points and rectangles.",
+    "what_it_does": "Provides an in‑memory R‑tree data structure for fast 2D spatial indexing of points and rectangles. Supports bulk loading, insertion, search, removal and k‑nearest‑neighbour queries. Includes tiny queue and quick‑select utilities used internally.",
+    "use_when": [
+      "You need fast in‑memory spatial queries (e.g., map features, collision detection).",
+      "Bulk loading or frequent insertions with fast search performance are required.",
+      "You want a pure‑Dart solution that works on all Flutter platforms."
+    ],
+    "avoid_when": [
+      "Accurate geodesic distance calculations over large geographic areas are needed.",
+      "Persistent or server‑side spatial indexing is required.",
+      "You need built‑in storage or database integration."
+    ],
+    "strengths": [
+      "Very fast pure‑Dart implementation.",
+      "Works on all Flutter platforms (mobile, web, desktop).",
+      "Supports bulk load and k‑nearest‑neighbour queries."
+    ],
+    "weaknesses": [
+      "Only in‑memory; no persistence layer.",
+      "Uses simple Euclidean distance, not suitable for large‑scale geographic calculations.",
+      "Limited to 2D indexing; no built‑in support for higher dimensions."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "final tree = RBush(16);\n\ntree.insert(RBushElement(minX:10,minY:10,maxX:20,maxY:30,data:'sample'));\n\nfinal found = tree.search(RBushBox(minX:5,minY:5,maxX:25,maxY:25));",
+    "confidence": 0.97
+  }
+}

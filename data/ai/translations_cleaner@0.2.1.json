@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.2.1",
+  "generatedAt": "2026-11-09T11:11:40.922Z",
+  "data": {
+    "primary_category": "localization",
+    "secondary_categories": [
+      "devtools"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Command-line tool to find, delete, and sort unused translations in .arb files.",
+    "what_it_does": "Searches Dart files using AST parsing to detect key usage and automatically cleans, sorts, or lists unused translation keys across all languages in .arb files. Designed for flutter_localizations.",
+    "use_when": [
+      "You use flutter_localizations with .arb files and want to remove dead or unused translation keys.",
+      "You want to sort translation keys alphabetically.",
+      "You want to enforce unused translation checks in a CI pipeline."
+    ],
+    "avoid_when": [
+      "Your project uses localization formats other than .arb files, such as JSON or YAML.",
+      "You need automated runtime localization loading rather than a build-time/dev-time cleanup utility."
+    ],
+    "strengths": [
+      "AST-based detection drastically reduces false positives compared to raw regex searches.",
+      "Supports multiple commands including cleaning, listing unused terms, and sorting translations.",
+      "Can be easily integrated into CI workflows with the abort flag."
+    ],
+    "weaknesses": [
+      "Limited exclusively to .arb files and flutter_localizations.",
+      "Does not support other localization formats like JSON or YAML."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add translations_cleaner as a dev dependency in your pubspec.yaml and run via dart run or flutter pub run.",
+    "alternatives": [],
+    "minimal_example": "dart pub add --dev translations_cleaner\ndart run translations_cleaner clean-translations",
+    "confidence": 0.95
+  }
+}

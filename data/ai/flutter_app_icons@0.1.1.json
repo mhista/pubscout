@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.1.1",
+  "generatedAt": "2026-11-09T11:26:45.176Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "web-desktop"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Change your web favicon and Android application icon programmatically at runtime.",
+    "what_it_does": "Provides a way to dynamically change the website favicon or Android application icon via plugin methods. It allows toggling between predefined activity aliases on Android and updating favicon elements on the web.",
+    "use_when": [
+      "You need to change the app icon dynamically based on user preferences or app state on Android.",
+      "You want to programmatically change the website favicon in a Flutter web application."
+    ],
+    "avoid_when": [
+      "You just want to set a static launcher icon once at build time.",
+      "You need iOS support for dynamic app icons (not currently documented as supported)."
+    ],
+    "strengths": [
+      "Supports both Android runtime icon switching and web favicon updates.",
+      "Migrated to package:web to compile to WASM."
+    ],
+    "weaknesses": [
+      "Requires manual and complex configuration of activity aliases in AndroidManifest.xml.",
+      "Android implementation requires specific IDE and main activity adjustments."
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Requires AndroidManifest.xml modifications, setting up activity-aliases, and specific Android activity configuration.",
+    "alternatives": [
+      {
+        "name": "flutter_launcher_icons",
+        "why_pick_it": "Use flutter_launcher_icons if you want to statically generate and configure your app icons for various platforms at build time rather than changing them dynamically at runtime."
+      }
+    ],
+    "minimal_example": "final _flutterAppIconsPlugin = FlutterAppIcons();\n_flutterAppIconsPlugin.setIcon(icon: 'favicon.png');",
+    "confidence": 0.95
+  }
+}

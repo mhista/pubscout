@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.2",
+  "generatedAt": "2026-11-09T11:29:21.961Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter plugin to open various native device settings screens on Android and iOS.",
+    "what_it_does": "Provides a comprehensive set of methods to open specific native operating system settings screens, such as Wi-Fi, Bluetooth, Data Roaming, and Location Source on Android. On iOS, it defaults to opening the app settings screen.",
+    "use_when": [
+      "You need to direct users to specific system settings screens from within your Android app",
+      "You want to prompt users to enable permissions or connections like Wi-Fi or Bluetooth"
+    ],
+    "avoid_when": [
+      "You need deep and reliable integration across many non-Android platforms, as iOS support is limited to opening app settings",
+      "You prefer handling permissions via declarative UI or in-app dialogs without leaving the app"
+    ],
+    "strengths": [
+      "Supports a massive range of individual settings screens on Android",
+      "Simple method-based API for quick invocation"
+    ],
+    "weaknesses": [
+      "iOS functionality is limited to opening the app settings page rather than specific setting panes",
+      "Relies on native intents that may change across Android OS versions"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "No special native configuration or permissions are strictly documented beyond standard plugin inclusion, though specific settings may require appropriate runtime permissions.",
+    "alternatives": [
+      {
+        "name": "app_settings",
+        "why_pick_it": "It serves a similar purpose of opening device settings screens and is available in the catalog."
+      }
+    ],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:open_settings/open_settings.dart';\n\nvoid main() => runApp(MaterialApp(\n      home: Scaffold(\n        body: Center(\n          child: ElevatedButton(\n            onPressed: () {\n                OpenSettings.openWIFISetting();\n              },\n            child: Text('Wi-fi Settings'),\n          ),\n        ),\n      ),\n    ));",
+    "confidence": 0.95
+  }
+}

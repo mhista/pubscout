@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.2.0",
+  "generatedAt": "2026-11-12T11:11:24.912Z",
+  "data": {
+    "primary_category": "codegen",
+    "secondary_categories": [],
+    "approach": [
+      "code generation"
+    ],
+    "one_liner": "Low-code generation for hashCode, ==, toString, copyWith, change, and Builder methods.",
+    "what_it_does": "Generates boilerplate methods like hashCode, ==, toString, copyWith, merge, and Builder classes for Dart classes using a build_runner setup. It uses mixins to remain minimally intrusive on the class interface and supports inheritance, generics, and null values.",
+    "use_when": [
+      "You want to generate boilerplate methods for data classes with low code overhead.",
+      "You need support for copyWith, builders, and change classes via mixins."
+    ],
+    "avoid_when": [
+      "You do not want to use code generation or build_runner in your project."
+    ],
+    "strengths": [
+      "Minimally intrusive on the class interface through generated mixins.",
+      "Supports inheritance and generic classes.",
+      "Provides helper classes like *Changes and *Builder for data manipulation."
+    ],
+    "weaknesses": [
+      "Requires a build_runner code-generation setup."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires adding mek_data_class and build_runner with mek_data_class_generator to pubspec.yaml, and running build_runner.",
+    "alternatives": [
+      {
+        "name": "freezed",
+        "why_pick_it": "More feature-rich union types and immutable state modeling using code generation."
+      },
+      {
+        "name": "built_value",
+        "why_pick_it": "Strict immutability and deep builder patterns for complex data structures."
+      }
+    ],
+    "minimal_example": "@DataClass()\nclass Product with _$Product {\n  final String title;\n  final double price;\n\n  const Product({\n    required this.title,\n    required this.price,\n  });\n}",
+    "confidence": 1
+  }
+}

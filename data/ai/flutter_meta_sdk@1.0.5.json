@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "1.0.5",
+  "generatedAt": "2026-11-11T11:21:11.163Z",
+  "data": {
+    "primary_category": "auth",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Flutter plugin to integrate Facebook Meta SDK for app events and deep links.",
+    "what_it_does": "Provides a bridge to the native Facebook/Meta SDKs so you can log app events and handle deep links from Flutter. It works on Android and iOS and requires native configuration of app IDs and tokens.",
+    "use_when": [
+      "you need Facebook app‑event tracking in a Flutter app",
+      "you want deep‑link handling via the Meta SDK"
+    ],
+    "avoid_when": [
+      "you only need generic analytics without Facebook",
+      "you cannot modify native iOS/Android files"
+    ],
+    "strengths": [
+      "supports both Android and iOS",
+      "keeps the native Facebook SDK up‑to‑date",
+      "simple Dart API"
+    ],
+    "weaknesses": [
+      "requires manual native setup (info.plist, AndroidManifest)",
+      "no web support for events",
+      "limited to Facebook ecosystem"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add FacebookAppID, FacebookClientToken and URL schemes to iOS Info.plist; add meta-data entries to AndroidManifest and string resources; provide app ID and token in code.",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter_meta_sdk/flutter_meta_sdk.dart';\n\nvoid main() async {\n  WidgetsFlutterBinding.ensureInitialized();\n  await FlutterMetaSdk.initialize(appId: '[APP_ID]', clientToken: '[CLIENT_TOKEN]');\n  FlutterMetaSdk.logEvent('app_open');\n  runApp(MyApp());\n}",
+    "confidence": 0.78
+  }
+}

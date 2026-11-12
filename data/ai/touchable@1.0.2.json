@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.2",
+  "generatedAt": "2026-11-10T13:16:36.783Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "animation"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Add gesture callbacks and interactivity to shapes drawn inside a Flutter CustomPainter canvas.",
+    "what_it_does": "It wraps a CustomPaint widget and provides a TouchyCanvas that tracks shape dimensions, painting styles, stroke widths, and clipping regions. When a user interacts with the canvas, it automatically detects which shape was touched and fires the corresponding callback.",
+    "use_when": [
+      "You are building custom drawings using a CustomPainter and need touch interactions for individual shapes",
+      "You want to handle tap, pan, or other gesture events on custom canvas drawings easily"
+    ],
+    "avoid_when": [
+      "You are building standard UI layouts where standard Flutter widgets like GestureDetector and containers suffice",
+      "You need advanced touch detection on complex vertices that are not yet supported by the roadmap"
+    ],
+    "strengths": [
+      "Supports multiple gesture callbacks per shape",
+      "Automatically handles paint style, stroke width, and clipping modes",
+      "Simple and intuitive API utilizing CanvasTouchDetector and TouchyCanvas"
+    ],
+    "weaknesses": [
+      "Custom Path hit testing is currently limited to opaque hit test behavior",
+      "Missing support for translation, rotation, scaling, and skewing transformations",
+      "Not running touch detection in a separate isolate yet"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "No native configuration or build_runner required; just add the dependency to pubspec.yaml.",
+    "alternatives": [],
+    "minimal_example": "CanvasTouchDetector(\n    builder: (context) => \n        CustomPaint(\n            painter: MyPainter(context)\n        )\n)",
+    "confidence": 0.95
+  }
+}

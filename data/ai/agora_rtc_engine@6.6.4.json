@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "6.6.4",
+  "generatedAt": "2026-11-09T11:10:31.437Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter plugin that wraps the Agora RTC SDK for real‑time audio/video calls and live streaming.",
+    "what_it_does": "It exposes Agora's native RTC APIs to Flutter, letting you start and manage voice/video sessions on Android, iOS, macOS, Windows, and (alpha) web. The package handles platform channel communication and provides Dart wrappers for the native SDK features.",
+    "use_when": [
+      "You need low‑latency, high‑quality real‑time voice or video communication across multiple platforms.",
+      "You want to leverage Agora's cloud services and advanced RTC features (e.g., custom audio/video processing)."
+    ],
+    "avoid_when": [
+      "You require a pure‑Dart solution without native SDK dependencies.",
+      "You only target web and need full feature parity (the web support is still alpha)."
+    ],
+    "strengths": [
+      "Official Agora support and frequent updates.",
+      "Cross‑platform coverage including desktop and mobile.",
+      "Access to the full native SDK feature set via Flutter."
+    ],
+    "weaknesses": [
+      "Requires native SDK setup and platform‑specific permissions.",
+      "Web implementation is alpha and limited.",
+      "Binary size increase due to native libraries."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add Android permissions (camera, microphone, etc.) in AndroidManifest.xml, iOS/macOS privacy keys in Info.plist, and include the iris‑web‑rtc JS script in web/index.html. Follow Agora's native SDK integration docs for each platform.",
+    "alternatives": [],
+    "minimal_example": "import 'package:agora_rtc_engine/agora_rtc_engine.dart';\n\nFuture<void> main() async {\n  final engine = await RtcEngine.createWithContext(RtcEngineContext('YOUR_APP_ID'));\n  await engine.enableVideo();\n  await engine.joinChannel(null, 'testChannel', null, 0);\n}\n",
+    "confidence": 0.93
+  }
+}

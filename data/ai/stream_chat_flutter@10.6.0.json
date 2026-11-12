@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "10.6.0",
+  "generatedAt": "2026-11-10T12:34:13.364Z",
+  "data": {
+    "primary_category": "ui-kits",
+    "secondary_categories": [
+      "widgets",
+      "theming",
+      "layout"
+    ],
+    "approach": [
+      "declarative",
+      "stream-based"
+    ],
+    "one_liner": "Full-featured Flutter UI SDK for Stream Chat, providing ready‑made chat widgets and theming.",
+    "what_it_does": "It offers a collection of customizable Flutter widgets for building chat experiences, handling messages, media, reactions, threads, and more. The SDK integrates with Stream's backend services and includes offline storage, push notifications, and localization support.",
+    "use_when": [
+      "You need a ready-made chat UI with rich media, reactions, threads, and typing indicators",
+      "You want tight integration with Stream's chat backend and prefer a declarative widget‑based approach"
+    ],
+    "avoid_when": [
+      "You require a completely custom chat UI from scratch",
+      "You are not using Stream as the backend service"
+    ],
+    "strengths": [
+      "Comprehensive set of chat widgets",
+      "Built‑in theming and customization via ThemeExtension",
+      "Supports all major platforms (mobile, web, desktop)",
+      "Handles media uploads, offline storage, and push notifications"
+    ],
+    "weaknesses": [
+      "Relies on Stream backend, limiting backend flexibility",
+      "Requires multiple native permissions and platform setup",
+      "Package size can be large due to many dependencies"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add Android photo_manager permissions, iOS file_picker and image_picker setup, video_player configuration, and macOS network client entitlement; follow each plugin's installation guide.",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:stream_chat_flutter/stream_chat_flutter.dart';\n\nvoid main() async {\n  final client = StreamChatClient('YOUR_API_KEY');\n  await client.connectUser(User(id: 'user-id'), 'USER_TOKEN');\n  runApp(MaterialApp(\n    theme: ThemeData(extensions: [StreamTheme.light()]),\n    home: StreamChat(client: client, child: const MyHomePage()),\n  ));\n}\n\nclass MyHomePage extends StatelessWidget {\n  const MyHomePage({Key? key}) : super(key: key);\n  @override\n  Widget build(BuildContext context) => Scaffold(\n        appBar: AppBar(title: const Text('Chat')),\n        body: const StreamChannelListView(),\n      );\n}\n",
+    "confidence": 0.9
+  }
+}

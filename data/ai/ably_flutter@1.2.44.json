@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.2.44",
+  "generatedAt": "2026-11-10T13:00:19.481Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "notifications"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "A wrapper around Ably's client library SDKs for real-time messaging on iOS and Android.",
+    "what_it_does": "Provides APIs to build realtime experiences using Ably's Pub/Sub platform. It supports features like pub-sub messaging, message history, presence, and push notifications.",
+    "use_when": [
+      "You need real-time pub-sub messaging, chat features, or live updates in your Flutter app.",
+      "You require message history and presence features managed via Ably's infrastructure."
+    ],
+    "avoid_when": [
+      "You are building a basic app with standard REST API requests that do not require real-time websocket synchronization.",
+      "You prefer to self-host your own WebSocket or MQTT backend instead of using Ably."
+    ],
+    "strengths": [
+      "Backed by Ably's highly performant, reliable, and scalable messaging infrastructure.",
+      "Supports robust features including message history, client presence, and push notifications."
+    ],
+    "weaknesses": [
+      "Requires using an external paid or freemium third-party service (Ably).",
+      "Platform support is limited to Android and iOS according to package specification."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding the dependency to pubspec.yaml and setting up Android/iOS minimum version requirements (Android 4.4 / API 19+, iOS 10+).",
+    "alternatives": [],
+    "minimal_example": "final clientOptions = ably.ClientOptions(key: 'your-ably-api-key', clientId: 'me');\nfinal realtimeClient = ably.Realtime(options: clientOptions);\nfinal channel = realtimeClient.channels.get('test-channel');\nchannel.subscribe().listen((ably.Message message) {\n  print('Received message: \\${message.data}');\n});",
+    "confidence": 0.95
+  }
+}

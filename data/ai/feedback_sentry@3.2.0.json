@@ -1,0 +1,54 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "3.2.0",
+  "generatedAt": "2026-11-11T11:23:09.124Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "backend",
+      "ui-kits"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Collect in‑app feedback and send it to Sentry.",
+    "what_it_does": "Provides a BetterFeedback widget that captures user screenshots, comments and optional contact info. When submitted, the feedback is uploaded to Sentry as a user feedback event. It builds on the `feedback` package and integrates with `sentry_flutter`.",
+    "use_when": [
+      "You need in‑app user feedback tied to Sentry error tracking",
+      "You already use the `feedback` package and want Sentry integration",
+      "You want a quick, low‑code way to report bugs from the UI"
+    ],
+    "avoid_when": [
+      "You do not use Sentry as your backend",
+      "You require a custom feedback backend or more advanced UI",
+      "You need a platform‑specific feedback solution not covered by this wrapper"
+    ],
+    "strengths": [
+      "Simple API – just wrap your app with BetterFeedback",
+      "Leverages existing `feedback` UI components",
+      "Automatic upload to Sentry’s user feedback feature"
+    ],
+    "weaknesses": [
+      "Works only with Sentry as the backend",
+      "Adds extra dependencies (`feedback` and `sentry`)",
+      "Limited customization of the feedback UI"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Follow the normal `sentry_flutter` setup (DSN, initialization) then add `feedback_sentry` to pubspec and wrap the app with BetterFeedback.",
+    "alternatives": [
+      {
+        "name": "sentry_flutter",
+        "why_pick_it": "Directly use Sentry’s SDK without the extra feedback wrapper"
+      },
+      {
+        "name": "sentry",
+        "why_pick_it": "If you only need to send events to Sentry and handle feedback yourself"
+      }
+    ],
+    "minimal_example": "import 'package:feedback/feedback.dart';\nimport 'package:feedback_sentry/feedback_sentry.dart';\nimport 'package:flutter/material.dart';\n\nvoid main() {\n  runApp(\n    BetterFeedback(\n      child: const MyApp(),\n    ),\n  );\n}\n\n// somewhere in the UI\nBetterFeedback.of(context).showAndUploadToSentry(\n  name: 'John Doe',\n  email: 'john@example.com',\n);",
+    "confidence": 0.9
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.6.0",
+  "generatedAt": "2026-11-09T11:47:45.620Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Access native chrome.* APIs to build Chrome extensions with Dart and Flutter.",
+    "what_it_does": "Provides a high-level, type-safe interface for accessing Chrome extension APIs (such as tabs, storage, alarms, runtime) using Dart and Flutter. The library builds on top of dart:js_interop and supports JavaScript and WebAssembly compilation.",
+    "use_when": [
+      "You are building a Chrome extension or browser extension using Dart or Flutter",
+      "You need type-safe access to chrome.* APIs like chrome.tabs, chrome.storage, or chrome.runtime"
+    ],
+    "avoid_when": [
+      "You are developing a standard mobile or desktop application unrelated to browser extensions"
+    ],
+    "strengths": [
+      "Comprehensive coverage of Chrome extension APIs",
+      "Type-safe interface built on top of dart:js_interop",
+      "Supports compilation to JavaScript and WebAssembly"
+    ],
+    "weaknesses": [
+      "Strictly limited to Chrome extensions and browser extension development"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "No special dependencies required, uses dart:js_interop.",
+    "alternatives": [],
+    "minimal_example": "import 'package:chrome_extension/tabs.dart';\n\nvoid main() async {\n  var tabs = await chrome.tabs.query(QueryInfo(\n    active: true,\n    currentWindow: true,\n  ));\n  print(tabs.first.title);\n}",
+    "confidence": 1
+  }
+}

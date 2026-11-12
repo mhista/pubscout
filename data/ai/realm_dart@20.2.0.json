@@ -1,0 +1,56 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "20.2.0",
+  "generatedAt": "2026-11-10T13:11:15.056Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [
+      "codegen"
+    ],
+    "approach": [
+      "code generation",
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Official Realm database SDK for Flutter and Dart to store and query objects locally.",
+    "what_it_does": "Realm is an object-oriented mobile database that runs directly inside mobile, tablet, and desktop devices. It provides schema validation via code generation, fast querying capabilities, and reactive streams for data changes.",
+    "use_when": [
+      "You need a fast, local NoSQL object database for Flutter or Dart applications.",
+      "You require reactive streams of query results to update your UI automatically when data changes.",
+      "You want a rich querying language without writing raw SQL."
+    ],
+    "avoid_when": [
+      "You are looking for built-in Atlas Device Sync or backend synchronization features, as they were deprecated and removed in version 20.0.0.",
+      "You prefer a lightweight key-value store like SharedPreferences for simple configuration settings."
+    ],
+    "strengths": [
+      "Faster than raw SQLite on many common operations.",
+      "Object-oriented data model without needing a traditional ORM.",
+      "Built-in support for listening to changes on query results."
+    ],
+    "weaknesses": [
+      "Requires code generation steps using build tools and native binary installations.",
+      "Atlas Device Sync features have been deprecated and removed."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding the dependency, running 'dart run realm generate' (or 'realm_dart generate') for codegen, and installing native binaries using 'dart run realm install'. Minimum Flutter version 3.10.2 or Dart 3.0.2.",
+    "alternatives": [
+      {
+        "name": "sqflite",
+        "why_pick_it": "If you prefer working with traditional relational SQLite databases using SQL statements."
+      },
+      {
+        "name": "drift",
+        "why_pick_it": "If you want a reactive, type-safe SQLite database builder for Dart and Flutter."
+      },
+      {
+        "name": "hive_ce",
+        "why_pick_it": "If you need a pure Dart lightweight NoSQL key-value database without native binary dependencies."
+      }
+    ],
+    "minimal_example": "var config = Configuration.local([Car.schema]);\nvar realm = Realm(config);\nvar car = Car(\"Tesla\", \"Model Y\", kilometers: 5);\nrealm.write(() {\n  realm.add(car);\n});\nvar cars = realm.all<Car>();",
+    "confidence": 1
+  }
+}

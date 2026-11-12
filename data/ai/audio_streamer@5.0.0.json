@@ -1,0 +1,53 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "5.0.0",
+  "generatedAt": "2026-11-09T11:29:27.634Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [
+      "device"
+    ],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "Stream PCM audio data from the microphone on Android and iOS.",
+    "what_it_does": "Provides a singleton audio streamer that exposes a stream of Pulse-code modulation (PCM) audio data buffers. Allows customization of the sampling rate.",
+    "use_when": [
+      "You need real-time PCM audio streaming from the microphone for processing or analysis",
+      "You are building an audio visualization tool or custom recording app"
+    ],
+    "avoid_when": [
+      "You only need simple background music or sound effect playback",
+      "Your target iOS deployment target is below 16.0 or Android minSdk is below 24"
+    ],
+    "strengths": [
+      "Provides raw PCM audio streams directly",
+      "Supports custom sampling rate configuration"
+    ],
+    "weaknesses": [
+      "Requires manual platform permission configuration",
+      "High minimum SDK requirements (iOS 16.0+, Android minSdk 24)"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires RECORD_AUDIO permission on Android and NSMicrophoneUsageDescription plus background audio modes on iOS.",
+    "alternatives": [
+      {
+        "name": "record",
+        "why_pick_it": "If you want to record audio to a file rather than stream raw PCM buffers."
+      },
+      {
+        "name": "audioplayers",
+        "why_pick_it": "If your primary goal is playing audio files or streams rather than recording from the mic."
+      },
+      {
+        "name": "just_audio",
+        "why_pick_it": "If you need advanced audio playback capabilities."
+      }
+    ],
+    "minimal_example": "AudioStreamer().audioStream.listen(\n  (List<double> buffer) {\n    print('Max amp: \\${buffer.reduce(max)}');\n  },\n  onError: (Object error) {\n    print(error);\n  },\n  cancelOnError: true,\n);",
+    "confidence": 0.95
+  }
+}

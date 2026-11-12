@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.2.1",
+  "generatedAt": "2026-11-12T11:15:00.184Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Compute CIE color difference (ΔE) using 1976, 1994, and 2000 formulas in pure Dart.",
+    "what_it_does": "The package provides functions to calculate the perceptual difference between two colors in CIELAB space. It supports the three main DeltaE algorithms (cie76, cie94, ciede2000) and offers a unified API.",
+    "use_when": [
+      "You need to compare two colors for perceptual similarity in a design or image processing workflow.",
+      "You want to validate color differences against industry standards in a Flutter or Dart project.",
+      "You need a lightweight, dependency-free solution for color difference calculations.",
+      "You are building a tool that requires accurate color matching or tolerance checks."
+    ],
+    "avoid_when": [
+      "You require a full color management or conversion library beyond ΔE calculations.",
+      "You need to work with color spaces other than CIELAB without additional conversion utilities."
+    ],
+    "strengths": [
+      "Pure Dart implementation, no native dependencies.",
+      "Supports all three major DeltaE algorithms with optional weighting.",
+      "No external build steps or code generation required.",
+      "Compatible with all platforms (android, ios, web, windows, macos, linux)."
+    ],
+    "weaknesses": [
+      "Limited to color difference calculations only; no color conversion utilities.",
+      "No support for other color spaces or advanced color management features."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "```dart\nimport 'package:delta_e/delta_e.dart';\n\nvoid main() {\n  LabColor lab1 = LabColor(36, 60, 41);\n  LabColor lab2 = LabColor(100, 40, 90);\n  print(deltaE76(lab1, lab2)); // 83.04817878797824\n  print(deltaE94(lab1, lab2)); // 67.97917774753019\n  print(deltaE00(lab1, lab2)); // 56.85828292477247\n}\n```",
+    "confidence": 0.9
+  }
+}

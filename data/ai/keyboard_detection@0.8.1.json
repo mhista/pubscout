@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.8.1",
+  "generatedAt": "2026-11-09T11:19:58.792Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [],
+    "approach": [
+      "declarative",
+      "stream-based"
+    ],
+    "one_liner": "Detect keyboard visibility using bottom view inset in Flutter",
+    "what_it_does": "Provides a widget and controller to listen for keyboard visibility changes and size. It exposes callbacks, streams, and boolean helpers.",
+    "use_when": [
+      "You need to react to keyboard show/hide events",
+      "You want to adjust UI when keyboard appears",
+      "You need keyboard size for layout calculations"
+    ],
+    "avoid_when": [
+      "You only need a simple focus change listener",
+      "You are building a non-Flutter platform",
+      "You prefer a different method of detecting keyboard (e.g., MediaQuery)"
+    ],
+    "strengths": [
+      "Simple API, no extra dependencies",
+      "Supports callbacks, streams, and boolean helpers",
+      "Works across all supported platforms",
+      "Handles transitional states"
+    ],
+    "weaknesses": [
+      "Does not support floating keyboards",
+      "Relies on bottom inset, may be inaccurate on some devices"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dependency and wrap Scaffold with KeyboardDetection widget",
+    "alternatives": [],
+    "minimal_example": "```dart\nKeyboardDetection(\n  controller: KeyboardDetectionController(\n    onChanged: (state) => print('Keyboard: $state'),\n  ),\n  child: Scaffold(\n    appBar: AppBar(title: const Text('Demo')),\n    body: const Center(child: TextField()),\n  ),\n);\n```",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "5.2.0",
+  "generatedAt": "2026-11-10T13:05:03.187Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Memory storage extension for the stash API to store vaults and caches in-memory.",
+    "what_it_does": "Provides an in-memory storage backend for the stash caching and vault API. Allows creating stores to hold typed data objects with support for capacities and event listeners.",
+    "use_when": [
+      "You need fast in-memory caching or vault storage using the stash API",
+      "You want temporary data storage that does not persist across application restarts"
+    ],
+    "avoid_when": [
+      "You need data to persist on the device across app restarts",
+      "You are looking for persistent key-value or SQL storage solutions"
+    ],
+    "strengths": [
+      "Fast in-memory performance",
+      "Integrates with the stash ecosystem and event listeners",
+      "Supports generics for typed data vaults and caches"
+    ],
+    "weaknesses": [
+      "Data is lost when the app closes (in-memory only)",
+      "Requires learning the stash API semantics"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:stash/stash_api.dart';\nimport 'package:stash_memory/stash_memory.dart';\n\nvoid main() async {\n  final store = await newMemoryVaultStore();\n  final vault = await store.vault<String>(name: 'vault');\n  await vault.put('key1', 'value1');\n  print(await vault.get('key1'));\n}",
+    "confidence": 1
+  }
+}

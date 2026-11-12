@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.2.0",
+  "generatedAt": "2026-11-09T11:44:46.810Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Set a device into BLE peripheral mode and advertise custom services.",
+    "what_it_does": "Enables a mobile or desktop device to act as a Bluetooth Low Energy peripheral, broadcasting service UUIDs, manufacturer data, and service data. It also supports serving a local GATT server with characteristics for notifying and writing.",
+    "use_when": [
+      "You need your Flutter app to act as a Bluetooth beacon or peripheral.",
+      "You want to host a GATT server to communicate with nearby central devices."
+    ],
+    "avoid_when": [
+      "You only need to scan or connect to peripherals as a central device.",
+      "You need complex multi-service GATT hosting on platforms that restrict it."
+    ],
+    "strengths": [
+      "Cross-platform support for Android, iOS, macOS, and Windows.",
+      "Includes GATT server capabilities with custom characteristics.",
+      "Handles background advertising on supported platforms."
+    ],
+    "weaknesses": [
+      "Platform limitations restrict certain advertisement fields on iOS and macOS.",
+      "Requires native permission configurations for Bluetooth and location."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires permissions in AndroidManifest.xml, usage descriptions in Info.plist for iOS/macOS, and Bluetooth entitlements on macOS.",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter_ble_peripheral/flutter_ble_peripheral.dart';\n\nfinal peripheral = FlutterBlePeripheral();\nawait peripheral.start(\n  advertiseData: AdvertiseDataCore(\n    serviceUuid: 'bf27730d-860a-4e09-889c-2d8b6a9e0fe7',\n    localName: 'My peripheral',\n    manufacturerId: 1234,\n    manufacturerData: Uint8List.fromList([1, 2, 3]),\n  ),\n);",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.2.2",
+  "generatedAt": "2026-11-09T11:25:47.102Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Vimeo and YouTube video player for Flutter with customizable controls.",
+    "what_it_does": "Provides a video player widget and controller that supports playing videos from YouTube and Vimeo, including private videos and live streams, with a YouTube-like overlay interface and customizable progress bars and controls.",
+    "use_when": [
+      "You need to play YouTube or Vimeo videos inside your Flutter app.",
+      "You want customizable video player controls and overlays similar to YouTube.",
+      "You need cross-platform video playback supporting Android, iOS, and Web."
+    ],
+    "avoid_when": [
+      "You need a simple raw video player without YouTube/Vimeo parsing dependencies.",
+      "You require advanced production-level web CORS support natively without external workarounds."
+    ],
+    "strengths": [
+      "Supports playing YouTube and Vimeo videos via URL or ID",
+      "Customizable controls, progress bars, and labels",
+      "Built-in support for changing video quality and playback speed"
+    ],
+    "weaknesses": [
+      "Web usage requires CORS configuration or workarounds",
+      "Video playlists are still marked as a TODO"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires INTERNET permission on Android and NSAppTransportSecurity configuration on iOS. Web setup may require CORS handling.",
+    "alternatives": [
+      {
+        "name": "chewie",
+        "why_pick_it": "A mature video player controller built on top of video_player with customizable controls and support for multiple data sources."
+      }
+    ],
+    "minimal_example": "import 'package:pod_player/pod_player.dart';\nimport 'package:flutter/material.dart';\n\nclass PlayVideoFromNetwork extends StatefulWidget {\n  const PlayVideoFromNetwork({Key? key}) : super(key: key);\n\n  @override\n  State<PlayVideoFromNetwork> createState() => _PlayVideoFromNetworkState();\n}\n\nclass _PlayVideoFromNetworkState extends State<PlayVideoFromNetwork> {\n  late final PodPlayerController controller;\n\n  @override\n  void initState() {\n    controller = PodPlayerController(\n      playVideoFrom: PlayVideoFrom.network(\n        'https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerFun.mp4',\n      ),\n    )..initialise();\n    super.initState();\n  }\n\n  @override\n  void dispose() {\n    controller.dispose();\n    super.dispose();\n  }\n\n  @override\n  Widget build(BuildContext context) {\n    return Scaffold(\n      body: PodVideoPlayer(controller: controller),\n    );\n  }\n}",
+    "confidence": 0.95
+  }
+}

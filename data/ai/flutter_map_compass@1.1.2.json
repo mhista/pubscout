@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.1.2",
+  "generatedAt": "2026-11-12T11:53:10.613Z",
+  "data": {
+    "primary_category": "maps",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A simple compass widget for flutter_map displaying rotation and resetting it when tapped.",
+    "what_it_does": "It shows the current rotation of a flutter_map instance using a compass indicator. When the compass is tapped, it resets the map rotation back to 0. It also offers options to customize the icon or hide itself when the map is already rotated north.",
+    "use_when": [
+      "You are using flutter_map and need a compass indicator widget",
+      "You want a quick way for users to reset map rotation back to north with a tap"
+    ],
+    "avoid_when": [
+      "You are using Google Maps instead of flutter_map",
+      "You do not need map rotation or compass features in your application"
+    ],
+    "strengths": [
+      "Easy to drop into existing flutter_map projects",
+      "Supports custom icons or a built-in cupertino style",
+      "Includes a feature to automatically hide when rotated north"
+    ],
+    "weaknesses": [
+      "Strictly limited to flutter_map"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Just add the dependency to pubspec.yaml and include the widget as a child in your FlutterMap.",
+    "alternatives": [
+      {
+        "name": "flutter_map",
+        "why_pick_it": "The core map package, though it requires custom implementation for a compass since this plugin provides it separately."
+      }
+    ],
+    "minimal_example": "FlutterMap(\n  options: MapOptions(),\n  children: [\n    TileLayer(\n      urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',\n    ),\n    const MapCompass.cupertino(\n      hideIfRotatedNorth: true,\n    ),\n  ],\n)",
+    "confidence": 1
+  }
+}

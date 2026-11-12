@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.1.4",
+  "generatedAt": "2026-11-10T12:52:50.840Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "auth"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Detects root, jailbreak, emulators, and debugging environments on Android and iOS.",
+    "what_it_does": "A Flutter plugin that checks if the host device is compromised by being rooted on Android or jailbroken on iOS. It also detects if the app is running in an emulator or being debugged.",
+    "use_when": [
+      "You are building a high-security app (banking, enterprise) that needs to block rooted or jailbroken devices",
+      "You need to detect emulator environments or active debugging sessions"
+    ],
+    "avoid_when": [
+      "Your application does not require device security or anti-tamper checks"
+    ],
+    "strengths": [
+      "Combines root, jailbreak, emulator, and debugging checks into a single plugin",
+      "Uses established underlying native libraries like RootBeer and IOSSecuritySuite"
+    ],
+    "weaknesses": [
+      "Root and jailbreak detection can sometimes produce false positives or be bypassed by advanced users"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Android requires no special configurations. iOS requires adding specific application query schemes to the Info.plist file.",
+    "alternatives": [],
+    "minimal_example": "import 'package:root_jailbreak_sniffer/rjsniffer.dart';\n\nbool amICompromised = await Rjsniffer.amICompromised() ?? false;\nbool amIEmulator = await Rjsniffer.amIEmulator() ?? false;\nbool amIDebugged = await Rjsniffer.amIDebugged() ?? false;",
+    "confidence": 0.95
+  }
+}

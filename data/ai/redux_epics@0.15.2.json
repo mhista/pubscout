@@ -1,0 +1,46 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.15.2",
+  "generatedAt": "2026-11-09T11:17:56.788Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [],
+    "approach": [
+      "stream-based"
+    ],
+    "one_liner": "Middleware for Redux that handles async side effects using Dart Streams",
+    "what_it_does": "redux_epics lets you write Epics—functions that transform streams of actions into new actions—making complex async logic like debouncing, cancellation, and combining streams easier. It integrates with RxDart for advanced stream operators.",
+    "use_when": [
+      "complex async flows needing debouncing or cancellation",
+      "combining multiple independent async streams",
+      "you already use Redux and want a typed, stream‑based middleware"
+    ],
+    "avoid_when": [
+      "simple async calls that fit a thunk",
+      "you prefer a different state‑management solution like Bloc or Riverpod"
+    ],
+    "strengths": [
+      "stream‑based API for powerful async patterns",
+      "TypedEpic and RxDart helpers reduce boilerplate",
+      "combineEpics makes large epics modular",
+      "null‑safety and recent RxDart support"
+    ],
+    "weaknesses": [
+      "requires Redux, which is less common in Flutter",
+      "learning curve for Streams and RxDart",
+      "not as feature‑rich as Bloc for UI state"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add dependency, import redux_epics, create EpicMiddleware, add to Store middleware list. No special permissions or build_runner needed.",
+    "alternatives": [
+      {
+        "name": "redux_thunk",
+        "why_pick_it": "Handles simple async actions without Streams; easier for straightforward async logic"
+      }
+    ],
+    "minimal_example": "import 'package:redux_epics/redux_epics.dart';\n\nStream<dynamic> exampleEpic(Stream<dynamic> actions, EpicStore<State> store) {\n  return actions\n    .where((action) => action is PerformSearchAction)\n    .asyncMap((action) => api.search((action as PerformSearchAction).searchTerm)\n      .then((results) => SearchResultsAction(results))\n      .catchError((error) => SearchErrorAction(error)));\n}\n\nvar epicMiddleware = EpicMiddleware(exampleEpic);\nvar store = Store<State>(reducer, middleware: [epicMiddleware]);",
+    "confidence": 0.85
+  }
+}

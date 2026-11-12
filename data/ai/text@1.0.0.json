@@ -1,0 +1,37 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.0",
+  "generatedAt": "2026-11-10T13:08:07.734Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Get detailed text metrics like lines, character positions, and locations.",
+    "what_it_does": "Allows you to get detailed information about text, such as the number of lines, lines at positions, characters at locations, and mapping between positions and locations. It uses sparse lists for high performance.",
+    "use_when": [
+      "You need to map character positions to line and column locations.",
+      "You need fast text analysis and indexing utilities."
+    ],
+    "avoid_when": [
+      "You are looking for complex text parsing or regex matching libraries.",
+      "You only need standard Dart String manipulation methods."
+    ],
+    "strengths": [
+      "Fast performance using sparse lists.",
+      "Bidirectional mapping between positions, locations, and lines."
+    ],
+    "weaknesses": [
+      "Very narrow scope focused only on text metrics and indexing.",
+      "Not documented for complex text manipulation or editing."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:text/text.dart';\n\nvoid main() {\n  final text = Text('Hello\\nWorld');\n  var position = 0;\n  var location = text.locationAt(position);\n  print('pos: $position => loc: ${location.line}:${location.column}');\n}",
+    "confidence": 1
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.8-flash",
+  "version": "0.7.0",
+  "generatedAt": "2026-11-11T11:09:37.628Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "web-desktop",
+      "device"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Rust-to-Dart bridge mimicking Flutter's platform channel via FFI without code generation.",
+    "what_it_does": "Provides a platform-channel-like interface for bi-directional communication between Dart and Rust code. It uses Dart FFI to allow high-performance message passing with zero-copy binary transfers from Rust to Dart. It handles thread affinity, async calls, and Dart garbage collection finalizers without requiring code generators.",
+    "use_when": [
+      "Building a Flutter application backed by custom Rust native code.",
+      "Seeking a platform-channel style API for Rust interop instead of manual low-level FFI bindings.",
+      "Transferring binary data between Rust and Dart where zero-copy or minimal-copy performance is critical."
+    ],
+    "avoid_when": [
+      "Not using Rust in your project.",
+      "Needing web platform support (limited to native desktop and mobile platforms via FFI).",
+      "Projects that prefer automated Dart/Rust binding generation like flutter_rust_bridge."
+    ],
+    "strengths": [
+      "Zero-copy transfers for binary data from Rust to Dart.",
+      "Familiar platform channel API on the Dart side.",
+      "No Dart code generation required to set up communication."
+    ],
+    "weaknesses": [
+      "Requires manual Rust setup and companion Rust crate configuration.",
+      "Background thread channels require managing a custom RunLoop in Rust."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires compiling a companion Rust dynamic library (.so, .dll, or process) and setting up an FFI initialization function entry point.",
+    "alternatives": [
+      {
+        "name": "ffi",
+        "why_pick_it": "Pick ffi when you want direct C-level foreign function bindings without platform-channel abstractions or Rust-specific crates."
+      }
+    ],
+    "minimal_example": "final nativeContext = _initNativeContext();\nfinal channel = NativeMethodChannel('my_method_channel', context: nativeContext);\n\nchannel.setMessageHandler((call) async {\n  if (call.method == 'myMethod') {\n    return 'myResult';\n  }\n  return null;\n});\n\nfinal res = await channel.invokeMethod('someMethod', 'someArg');",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.2.3",
+  "generatedAt": "2026-11-10T12:39:59.329Z",
+  "data": {
+    "primary_category": "testing",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "HTTP requests mocking library for Dart and Flutter.",
+    "what_it_does": "Allows you to intercept and mock HTTP requests in your Dart and Flutter applications. It enables testing of modules that perform HTTP requests in isolation by defining expected routes, request bodies, query parameters, headers, and responses.",
+    "use_when": [
+      "You want to unit or widget test code that makes HTTP requests without hitting real servers.",
+      "You need to test different HTTP response statuses, headers, bodies, and delays."
+    ],
+    "avoid_when": [
+      "You are running integration tests against a real staging or production backend."
+    ],
+    "strengths": [
+      "Supports multiple HTTP methods (GET, POST, PUT, DELETE, PATCH, HEAD).",
+      "Allows custom matchers for URLs, query parameters, and request bodies.",
+      "Supports persistent mocks and response delays."
+    ],
+    "weaknesses": [
+      "Throws `NetConnectionNotAllowed` if a request is not explicitly mocked, which might require careful setup in complex tests."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Initialize nock in `setUpAll` and clean mocks in `setUp` using `nock.init()` and `nock.cleanAll()`.",
+    "alternatives": [],
+    "minimal_example": "import 'package:test/test.dart';\nimport 'package:http/http.dart' as http;\nimport 'package:nock/nock.dart';\n\nvoid main() {\n  setUpAll(() {\n    nock.init();\n  });\n\n  setUp(() {\n    nock.cleanAll();\n  });\n\n  test(\"example\", () async {\n    final interceptor = nock(\"http://localhost/api\").get(\"/users\")\n      ..reply(\n        200,\n        \"result\",\n      );\n\n    final response = await http.get(\"http://localhost/api/users\");\n\n    expect(interceptor.isDone, true);\n    expect(response.statusCode, 200);\n    expect(response.body, \"result\");\n  });\n}",
+    "confidence": 1
+  }
+}

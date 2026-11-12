@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "4.2.1",
+  "generatedAt": "2026-11-10T12:19:25.086Z",
+  "data": {
+    "primary_category": "files",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Web implementation of file_picker for selecting, streaming, and saving files in browsers.",
+    "what_it_does": "Provides a browser file selection dialog, streams file contents in chunks, and supports saving files via the browser's save dialog. It integrates with the generic file_picker API as the web platform implementation.",
+    "use_when": [
+      "You need file picking or saving functionality in a Flutter web app",
+      "You require streaming large files to avoid loading them fully into memory"
+    ],
+    "avoid_when": [
+      "Your app targets mobile or desktop only (use the main file_picker package)",
+      "You need advanced file system access beyond what browsers expose"
+    ],
+    "strengths": [
+      "Handles file selection, streaming, and saving on web",
+      "Fixes common edge cases like cancellation and empty files",
+      "Exposes save dialog support detection"
+    ],
+    "weaknesses": [
+      "Only works on web platforms",
+      "Limited to browser capabilities, no native file system access"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:file_picker/file_picker.dart';\n\nvoid pickFile() async {\n  final result = await FilePicker.platform.pickFiles();\n  if (result != null) {\n    // Use result.files.first\n  }\n}",
+    "confidence": 0.98
+  }
+}

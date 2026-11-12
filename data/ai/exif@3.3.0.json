@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "3.3.0",
+  "generatedAt": "2026-11-10T12:32:17.935Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Decode EXIF metadata from TIFF, JPEG, HEIC, PNG and WebP files in Dart.",
+    "what_it_does": "The package reads binary image data and extracts EXIF tags into a map. It supports multiple image formats and works on all major platforms. It provides helper functions to read from bytes or files.",
+    "use_when": [
+      "You need to read camera or image metadata in a pure‑Dart app",
+      "You want a lightweight, platform‑agnostic solution without native plugins"
+    ],
+    "avoid_when": [
+      "You need full image manipulation (resize, crop, etc.)",
+      "You require real‑time streaming of EXIF data"
+    ],
+    "strengths": [
+      "Supports many image formats including WebP and HEIC",
+      "Pure Dart, works on mobile, desktop and web",
+      "No native code or permissions required"
+    ],
+    "weaknesses": [
+      "Only extracts metadata, no image processing features",
+      "API is relatively low‑level, manual map handling"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "image",
+        "why_pick_it": "Provides both image manipulation and EXIF extraction in one package"
+      }
+    ],
+    "minimal_example": "final bytes = File('photo.jpg').readAsBytesSync();\nfinal exif = await readExifFromBytes(bytes);\nexif.forEach((k,v)=>print('$k: $v'));",
+    "confidence": 0.9
+  }
+}

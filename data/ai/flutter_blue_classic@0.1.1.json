@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.1.1",
+  "generatedAt": "2026-11-12T11:54:53.319Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "A flutter plugin for communicating with bluetooth classic devices.",
+    "what_it_does": "Flutter_blue_classic is a flutter plugin that allows applications to communicate with bluetooth classic devices. It provides functions to check adapter states, scan for devices, bond, and manage connections.",
+    "use_when": [
+      "You need to communicate with Bluetooth Classic devices on Android",
+      "You want to discover, pair, and connect to non-BLE Bluetooth hardware"
+    ],
+    "avoid_when": [
+      "You are targeting iOS (requires MFi certification and custom native code)",
+      "You need Bluetooth Low Energy (BLE) support (use flutter_blue_plus instead)"
+    ],
+    "strengths": [
+      "Dedicated support for Bluetooth Classic on Android",
+      "Provides stream-based connection handling and adapter states",
+      "Includes helper functions for UTF-8 string transmission"
+    ],
+    "weaknesses": [
+      "Android only; iOS does not provide a similar Bluetooth Classic interface",
+      "Requires manual permission configuration in the Android manifest"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires setting the minSdkVersion to 21 or higher and manually adding BLUETOOTH permissions to your AndroidManifest.xml.",
+    "alternatives": [],
+    "minimal_example": "final blueClassic = FlutterBlueClassic(usesFineLocation: true);\nfinal isSupported = await blueClassic.isSupported;\nfinal bondedDevices = await blueClassic.bondedDevices;",
+    "confidence": 0.95
+  }
+}

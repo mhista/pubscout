@@ -1,0 +1,50 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.0.2",
+  "generatedAt": "2026-11-09T11:52:18.179Z",
+  "data": {
+    "primary_category": "images",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "Build widgets depending on image dimensions and pixel colors.",
+    "what_it_does": "Allows you to extend the background color of an image to match its edges, or build custom widgets depending on an image's width, height, and pixel colors.",
+    "use_when": [
+      "You need to dynamically match a container's background color to an image's edge pixels.",
+      "You need to read pixel colors or dimensions of an image within a widget builder.",
+      "You want to detect tapped pixel colors on an image using a GestureDetector."
+    ],
+    "avoid_when": [
+      "You only need basic image loading and caching without pixel manipulation.",
+      "You are performing heavy real-time image processing operations on large video streams."
+    ],
+    "strengths": [
+      "Provides direct access to image pixel colors and dimensions via an easy builder pattern.",
+      "Supports multiple platforms including Android, iOS, Web, Windows, macOS, and Linux."
+    ],
+    "weaknesses": [
+      "Not documented for heavy, performant off-screen image manipulation at scale.",
+      "Dependent on image loading availability."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "No special native permissions or build steps required.",
+    "alternatives": [
+      {
+        "name": "cached_network_image",
+        "why_pick_it": "If you primarily need to load and cache network images with placeholders and error handling rather than inspecting pixel colors."
+      },
+      {
+        "name": "image",
+        "why_pick_it": "If you need a comprehensive Dart library for image decoding, encoding, and heavy image manipulation outside of the widget tree."
+      }
+    ],
+    "minimal_example": "ImagePixels(\n    imageProvider: imageProvider,\n    defaultColor: Colors.grey,\n    builder: (context, img) => Text(\"Img size is: ${img.width} × ${img.height}\"),\n)",
+    "confidence": 1
+  }
+}

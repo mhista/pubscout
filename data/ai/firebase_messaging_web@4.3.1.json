@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "4.3.1",
+  "generatedAt": "2026-11-10T12:15:39.115Z",
+  "data": {
+    "primary_category": "notifications",
+    "secondary_categories": [
+      "backend"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Web implementation of Firebase Cloud Messaging for push notifications.",
+    "what_it_does": "Provides the web side of Firebase Messaging, allowing Flutter web apps to receive push notifications via Firebase Cloud Messaging. It registers service workers and handles token management and message callbacks.",
+    "use_when": [
+      "You need push notifications in a Flutter web app using Firebase",
+      "You already use other Firebase services like firebase_core",
+      "You want a simple integration without custom native code"
+    ],
+    "avoid_when": [
+      "You target only mobile platforms",
+      "You need a non‑Firebase push solution"
+    ],
+    "strengths": [
+      "Official Firebase support",
+      "Works seamlessly with other FlutterFire packages",
+      "Handles service‑worker registration and token retrieval"
+    ],
+    "weaknesses": [
+      "Web‑only; no mobile support",
+      "Limited to Firebase ecosystem"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add firebase_core and firebase_core_web, configure Firebase project, ensure a service worker file is present as described in Firebase docs",
+    "alternatives": [],
+    "minimal_example": "import 'package:firebase_messaging_web/firebase_messaging_web.dart';\n\nvoid main() async {\n  FirebaseMessaging messaging = FirebaseMessaging.instance;\n  String? token = await messaging.getToken();\n  print('FCM token: $token');\n  FirebaseMessaging.onMessage.listen((RemoteMessage message) {\n    print('Received message: ${message.notification?.title}');\n  });\n}",
+    "confidence": 0.95
+  }
+}

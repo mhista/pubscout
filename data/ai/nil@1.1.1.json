@@ -1,0 +1,35 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.1.1",
+  "generatedAt": "2026-11-11T11:32:27.290Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A simple widget to add in the widget tree when you want to show nothing.",
+    "what_it_does": "Provides a minimal Nil widget that can be used when you need to display nothing conditionally in the widget tree. Unlike `SizedBox`, it does not create a RenderObject, resulting in better performance.",
+    "use_when": [
+      "You need to conditionally return nothing in a widget build method where returning null is not allowed",
+      "You want a lighter alternative to `const SizedBox()` to avoid creating unneeded RenderObjects"
+    ],
+    "avoid_when": [
+      "You are using widgets that accept multiple children like Rows or Columns"
+    ],
+    "strengths": [
+      "Better performance than `SizedBox()` because it creates no RenderObject",
+      "Comes with a convenient `nil` constant"
+    ],
+    "weaknesses": [
+      "Can cause unexpected results if used inside multi-child widgets like Rows or Columns"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:nil/nil.dart';\n\nreturn Builder(\n  builder: (_) {\n    if (condition) {\n      return const MyWidget();\n    } else {\n      return nil;\n    }\n  },\n);",
+    "confidence": 1
+  }
+}

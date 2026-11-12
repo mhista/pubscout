@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.0.2",
+  "generatedAt": "2026-11-10T13:00:01.793Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Query device for installed email apps and open them or present a picker.",
+    "what_it_does": "Provides the ability to query a device for installed email applications and open them. On iOS where multiple mail apps might be installed, it allows showing a picker dialog since there is no native default app intent system.",
+    "use_when": [
+      "You need to let users choose which installed email app to open on iOS or Android.",
+      "url_launcher's default behavior of only opening the default mail app is insufficient."
+    ],
+    "avoid_when": [
+      "You only need to compose a standard email or open a mailto link using the system default app.",
+      "You are not willing to configure iOS Info.plist application queries schemes."
+    ],
+    "strengths": [
+      "Allows querying available email apps on the device.",
+      "Provides a built-in mail app picker dialog helper.",
+      "Solves iOS limitation regarding non-default email apps."
+    ],
+    "weaknesses": [
+      "Requires manual configuration of URL schemes in iOS Info.plist.",
+      "New email apps must be added to both the app's Info.plist and the library source."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "iOS requires you to list the URL schemes you would like to query in the Info.plist file under LSApplicationQueriesSchemes.",
+    "alternatives": [
+      {
+        "name": "url_launcher",
+        "why_pick_it": "If you just want to compose an email or open any app with a mailto link without querying or picking specific installed clients."
+      }
+    ],
+    "minimal_example": "var result = await OpenMailApp.openMailApp();\nif (!result.didOpen && result.canOpen) {\n  showDialog(\n    context: context,\n    builder: (_) => MailAppPickerDialog(mailApps: result.options),\n  );\n}",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.3.4",
+  "generatedAt": "2026-11-11T11:20:14.406Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "OpenType text shaping for Dart and Flutter, returning glyph ids with offsets.",
+    "what_it_does": "It runs HarfRust to perform GSUB substitutions and GPOS mark positioning, producing glyph ids, advances and offsets in font units. The API exposes a ShaperFont that can be registered, shaped, and disposed, and supports isolate attachment.",
+    "use_when": [
+      "You need accurate mark positioning for scripts like Hebrew or Arabic.",
+      "You are generating PDFs or custom renderers that require glyph ids and positioning data.",
+      "You want to subset fonts for PDF by glyph id.",
+      "You need a pure Dart/Flutter solution without C/C++ dependencies."
+    ],
+    "avoid_when": [
+      "You only need basic text rendering handled by Flutter’s Text widget.",
+      "You are targeting only Latin scripts without complex shaping.",
+      "You need a high-level layout engine that also handles line breaking and shaping together."
+    ],
+    "strengths": [
+      "Pure Dart API with no C/C++ runtime; uses precompiled Rust library.",
+      "Supports isolate attachment and background shaping.",
+      "Provides glyph ids and offsets suitable for PDF and custom rendering.",
+      "Offers font subsetting by glyph id for PDFs."
+    ],
+    "weaknesses": [
+      "Requires Rust toolchain if building from source; otherwise precompiled binaries needed.",
+      "No built-in line breaking or full layout engine; only shaping.",
+      "Limited to shaping; does not handle text layout or rendering.",
+      "Requires manual disposal of fonts and buffers."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add dependency, run `flutter pub get`. If building from source, Rust must be installed. No special permissions. No build_runner needed.",
+    "alternatives": [],
+    "minimal_example": "import 'package:opentype_shaper/opentype_shaper.dart';\nfinal font = ShaperFont.register(fontBytes);\ntry {\n  final run = font.shape('שָׁלוֹם', rtl: true, script: 'hebr');\n  for (var i = 0; i < run.glyphCount; i++) {\n    // run.glyphId(i), run.xAdvance(i), run.xOffset(i), run.yOffset(i)\n  }\n} finally {\n  font.dispose();\n}",
+    "confidence": 0.85
+  }
+}

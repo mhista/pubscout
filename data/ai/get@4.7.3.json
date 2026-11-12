@@ -1,0 +1,59 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.8-flash",
+  "version": "4.7.3",
+  "generatedAt": "2026-11-09T11:06:47.324Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [
+      "navigation",
+      "dependency-injection",
+      "localization",
+      "theming"
+    ],
+    "approach": [
+      "declarative",
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "All-in-one framework for reactive state management, context-less routing, and dependency injection.",
+    "what_it_does": "Provides a comprehensive Flutter framework uniting reactive and simple state management, dependency lookup, and route management without requiring BuildContext. It also includes built-in utilities for internationalization, theme toggling, and network requests via GetConnect. Developers can observe state changes using .obs extensions and Obx widgets without code generation or boilerplate.",
+    "use_when": [
+      "You want a unified framework for state management, navigation, and dependency injection without BuildContext dependency",
+      "You need rapid prototyping with minimal boilerplate and simple reactive state hooks (.obs)",
+      "You want automatic memory management and disposal of controllers as routes change"
+    ],
+    "avoid_when": [
+      "You prefer idiomatic Flutter architecture adhering strictly to Flutter's standard widget tree and BuildContext lifecycle",
+      "You want modular, decoupled libraries focused exclusively on single responsibilities rather than a monolithic framework"
+    ],
+    "strengths": [
+      "Combines state management, navigation, and dependency injection in a single package",
+      "Zero boilerplate reactive programming without code generation or StreamControllers",
+      "Removes controllers from memory automatically when unused by default"
+    ],
+    "weaknesses": [
+      "Monolithic approach tightly couples core app architecture (routing, DI, state) to a single third-party package",
+      "Bypassing Flutter's native BuildContext and Navigator can cause compatibility friction across major Flutter SDK updates"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Wrapping your root app in GetMaterialApp is required for context-less navigation, snackbars, and dialogs.",
+    "alternatives": [
+      {
+        "name": "flutter_riverpod",
+        "why_pick_it": "Offers compile-safe dependency injection and state management that aligns cleanly with Flutter's widget lifecycle without bypassing BuildContext."
+      },
+      {
+        "name": "flutter_bloc",
+        "why_pick_it": "Provides structured, predictable event-driven state management with strong separation of concerns."
+      },
+      {
+        "name": "provider",
+        "why_pick_it": "Lightweight, officially recommended DI and state sharing library built directly on Flutter's InheritedWidget system."
+      }
+    ],
+    "minimal_example": "class Controller extends GetxController {\n  var count = 0.obs;\n  increment() => count++;\n}\n\nclass Home extends StatelessWidget {\n  final Controller c = Get.put(Controller());\n  @override\n  Widget build(BuildContext context) {\n    return Scaffold(\n      appBar: AppBar(title: Obx(() => Text('Clicks: ${c.count}'))),\n      floatingActionButton: FloatingActionButton(child: Icon(Icons.add), onPressed: c.increment),\n    );\n  }\n}",
+    "confidence": 1
+  }
+}

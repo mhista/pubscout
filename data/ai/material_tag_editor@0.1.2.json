@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.1.2",
+  "generatedAt": "2026-11-09T11:29:14.694Z",
+  "data": {
+    "primary_category": "forms",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A simple tag editor widget designed to act and feel similar to the standard Material TextField.",
+    "what_it_does": "Allows users to input tags dynamically using a Material-styled text field with delimiters. It supports custom chip builders and exposes properties like controllers, focus nodes, and input formatters.",
+    "use_when": [
+      "You need a Material-style tag input or chip entry field in your form.",
+      "You want to split tags automatically using delimiters like spaces or commas."
+    ],
+    "avoid_when": [
+      "You need a complex multi-select dropdown that is not tag-based.",
+      "You are using a non-Material design system."
+    ],
+    "strengths": [
+      "Feels similar to the standard Material TextField.",
+      "Supports custom tag builders (e.g., using Chip).",
+      "Exposes useful properties like TextEditingController and FocusNode."
+    ],
+    "weaknesses": [
+      "Limited to tag input functionality.",
+      "No documentation on topics or advanced use cases beyond basic setup."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "TagEditor(\n  length: values.length,\n  delimiters: [',', ' '],\n  hasAddButton: true,\n  inputDecoration: const InputDecoration(\n    border: InputBorder.none,\n    hintText: 'Hint Text...',\n  ),\n  onTagChanged: (newValue) {\n    setState(() {\n      values.add(newValue);\n    });\n  },\n  tagBuilder: (context, index) => Chip(\n    label: Text(values[index]),\n    onDeleted: () {},\n  ),\n)",
+    "confidence": 0.95
+  }
+}

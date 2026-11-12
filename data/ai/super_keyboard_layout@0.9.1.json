@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.9.1",
+  "generatedAt": "2026-11-12T11:13:26.501Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "utils",
+      "web-desktop"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Keyboard layout mapping and layout change notifications for Flutter applications.",
+    "what_it_does": "Maps between physical keys, logical keys, and platform-specific key codes based on the current keyboard layout. It also provides notifications when the keyboard layout changes on supported desktop platforms.",
+    "use_when": [
+      "You need to handle keyboard layout mapping in a desktop application.",
+      "You need to detect keyboard layout changes dynamically at runtime."
+    ],
+    "avoid_when": [
+      "You are building a mobile-first app that does not require complex physical/logical key mappings.",
+      "You want to avoid external native dependencies like Rust."
+    ],
+    "strengths": [
+      "Supports mapping between physical keys, logical keys, and platform-specific key codes.",
+      "Provides layout change notifications.",
+      "Supports macOS, Windows, and Linux."
+    ],
+    "weaknesses": [
+      "Uses Rust internally, requiring toolchain handling or automatic binary downloads.",
+      "Plugin is in a very early stage of development and experimental."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Uses Rust internally. If Rust is not installed, precompiled binaries are downloaded automatically, or rustup can be used to build from source.",
+    "alternatives": [],
+    "minimal_example": "final manager = await KeyboardLayoutManager.instance();\nif (manager.supported) {\n  manager.onLayoutChanged.addListener(() {\n    print('Keyboard layout changed');\n  });\n}\nfinal layout = manager.currentLayout;\nfinal logicalKey = layout.getLogicalKeyForPhysicalKey(PhysicalKeyboardKey.digit1, shift: true);",
+    "confidence": 0.95
+  }
+}

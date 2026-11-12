@@ -1,0 +1,55 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.3.9",
+  "generatedAt": "2026-11-12T11:40:40.995Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [
+      "codegen"
+    ],
+    "approach": [
+      "code generation",
+      "asynchronous"
+    ],
+    "one_liner": "An enhanced fully async NoSQL database for Flutter and Dart applications.",
+    "what_it_does": "Isar Plus is an enhanced fork of the original Isar NoSQL database providing high-speed storage, composite and multi-entry indexes, query modifiers, and JSON support. It features cross-platform capabilities including Android, iOS, web, Windows, macOS, and Linux with persistent web storage via IndexedDB.",
+    "use_when": [
+      "You need a fast, fully async NoSQL database for Flutter supporting multiple platforms including the web.",
+      "Your application requires complex queries, composite indexes, and multi-isolate support.",
+      "You want real-time inspection of database instances and collections using the Isar Inspector."
+    ],
+    "avoid_when": [
+      "Your project relies on standard relational SQL features without needing a NoSQL approach.",
+      "You want to avoid code generation steps in your build pipeline."
+    ],
+    "strengths": [
+      "Extremely fast performance and high scalability.",
+      "Fully asynchronous with parallel query operations and multi-isolate support.",
+      "Persistent web storage through IndexedDB integration for Flutter Web."
+    ],
+    "weaknesses": [
+      "Requires code generation to build data models.",
+      "Unit tests require explicit initialization and single-threaded execution (`flutter test -j 1`)."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires running build_runner for code generation and initializing Isar Core for native platforms or tests using `await Isar.initializeIsarCore(download: true)`.",
+    "alternatives": [
+      {
+        "name": "drift",
+        "why_pick_it": "If you prefer a robust, reactive SQL database for Flutter with type-safe queries."
+      },
+      {
+        "name": "sqflite",
+        "why_pick_it": "If you need a traditional, lightweight SQLite database interface for mobile platforms."
+      },
+      {
+        "name": "hive",
+        "why_pick_it": "If you want a lightweight key-value NoSQL database without complex indexing requirements."
+      }
+    ],
+    "minimal_example": "Future<void> main() async {\n  final dir = await getApplicationDocumentsDirectory();\n  final isar = await Isar.open(\n    [UserSchema],\n    directory: dir.path,\n  );\n}",
+    "confidence": 0.95
+  }
+}

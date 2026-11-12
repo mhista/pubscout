@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.1.2",
+  "generatedAt": "2026-11-10T13:11:21.518Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "A simple DLNA client in pure Dart for discovering and interacting with media devices.",
+    "what_it_does": "It provides a DLNA client implementation in pure Dart that allows applications to search for DLNA devices on the network, listen to device discovery streams, and control playback parameters like streaming media to compatible devices.",
+    "use_when": [
+      "You need to discover and interact with DLNA media renderers or servers from a Dart or Flutter application.",
+      "You want a lightweight, pure-Dart DLNA client implementation."
+    ],
+    "avoid_when": [
+      "You require a full-fledged UPnP control point framework beyond basic DLNA media client operations.",
+      "You need platform-specific media casting APIs like Chromecast or AirPlay."
+    ],
+    "strengths": [
+      "Written in pure Dart and works fine in Flutter across multiple platforms.",
+      "Small codebase under 500 lines.",
+      "Supports device streaming, active time tracking, and SSDP handling."
+    ],
+    "weaknesses": [
+      "Limited documentation and examples.",
+      "Relies entirely on community maintenance with minimal built-in advanced features."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [],
+    "minimal_example": "import 'dart:async';\nimport 'package:dlna_dart/dlna.dart';\n\nmain(List<String> args) async {\n  final searcher = DLNAManager();\n  final m = await searcher.start();\n  m.devices.stream.listen((deviceList) {\n    deviceList.forEach((key, value) async {\n      print(value.info.friendlyName);\n    });\n  });\n}",
+    "confidence": 0.9
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "1.0.4",
+  "generatedAt": "2026-11-12T11:18:23.364Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Simple Flutter plugin to add events to the device's default calendar.",
+    "what_it_does": "It launches the native calendar UI to create a new event on iOS and Android. The plugin supports recurrence, reminders, and platform‑specific parameters. It works by invoking the platform's calendar intent or view.",
+    "use_when": [
+      "You need to let users add events to their personal calendar with minimal code.",
+      "You want a quick way to open the native calendar UI for event creation on both Android and iOS."
+    ],
+    "avoid_when": [
+      "You require full programmatic control over calendar data without user interaction.",
+      "You need advanced calendar management, syncing, or offline storage."
+    ],
+    "strengths": [
+      "Very easy to integrate and use.",
+      "Supports both Android and iOS with platform‑specific options.",
+      "Allows recurrence and reminders out of the box."
+    ],
+    "weaknesses": [
+      "Only launches the native UI; cannot add events silently.",
+      "Limited customization beyond provided parameters.",
+      "Requires manual permission setup on each platform."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add READ_CALENDAR and WRITE_CALENDAR permissions and a <queries> element to AndroidManifest.xml. Add NSContactsUsageDescription (and optional CFBundleLocalizations) to iOS Info.plist.",
+    "alternatives": [],
+    "minimal_example": "import 'package:add_2_calendar_new/add_2_calendar_new.dart';\n\nfinal event = Event(\n  title: 'Event title',\n  description: 'Event description',\n  location: 'Event location',\n  startDate: DateTime.now(),\n  endDate: DateTime.now().add(Duration(hours: 2)),\n  iosParams: IOSParams(reminder: Duration(hours: 1), url: 'https://example.com'),\n  androidParams: AndroidParams(emailInvites: []),\n);\nAdd2Calendar.addEvent2Cal(event);",
+    "confidence": 0.9
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "7.5.1",
+  "generatedAt": "2026-11-11T11:25:01.235Z",
+  "data": {
+    "primary_category": "theming",
+    "secondary_categories": [
+      "codegen"
+    ],
+    "approach": [
+      "code generation"
+    ],
+    "one_liner": "Code generator for Flutter ThemeExtension classes to minimize boilerplate code.",
+    "what_it_does": "Generates copyWith, lerp, merge, ==, hashCode methods, and BuildContext extensions for Flutter ThemeExtension and custom theme classes via annotations.",
+    "use_when": [
+      "You are implementing Flutter 3 ThemeExtension classes and want to eliminate boilerplate.",
+      "You want automatic BuildContext extensions for convenient access to your custom themes."
+    ],
+    "avoid_when": [
+      "You prefer writing all theme extension methods and boilerplate manually.",
+      "You cannot use build_runner or code generation in your workflow."
+    ],
+    "strengths": [
+      "Eliminates repetitive boilerplate for copyWith, lerp, merge, equality, and hash code.",
+      "Provides convenient BuildContext extensions for theme access.",
+      "Supports complex types like EdgeInsets, TextStyles, Durations, and custom types."
+    ],
+    "weaknesses": [
+      "Requires running build_runner for code generation.",
+      "copyWith cannot set a nullable field to null."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires adding build_runner and theme_extensions_builder as dev dependencies and running build_runner to generate files.",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:theme_extensions_builder_annotation/theme_extensions_builder_annotation.dart';\n\npart 'app_theme.g.theme.dart';\n\n@ThemeExtensions()\nclass AppTheme extends ThemeExtension<AppTheme> with _$AppTheme {\n  const AppTheme({required this.primaryColor});\n  final Color primaryColor;\n}",
+    "confidence": 1
+  }
+}

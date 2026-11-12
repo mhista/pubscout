@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.11.1",
+  "generatedAt": "2026-11-12T11:29:12.453Z",
+  "data": {
+    "primary_category": "codegen",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "code generation"
+    ],
+    "one_liner": "Pure Dart OpenAPI 3.0/3.1 code generator for type-safe API client packages.",
+    "what_it_does": "Generates type-safe API client packages for Dart and Flutter from OpenAPI specifications. It produces idiomatic code with sealed classes for oneOf variants, exhaustive pattern matching for status codes, and support for multiple HTTP backends.",
+    "use_when": [
+      "You want to generate a type-safe API client package from an OpenAPI specification without JVM or Docker dependencies.",
+      "You need strict status-code and content-type response handling using sealed classes and pattern matching."
+    ],
+    "avoid_when": [
+      "You prefer hand-written API clients or runtime reflection instead of generated code."
+    ],
+    "strengths": [
+      "Generates distinct types for every status code and content type combination.",
+      "Pure Dart implementation with no JVM or Docker requirement.",
+      "Supports all OpenAPI parameter encoding styles and advanced composition features like oneOf and allOf."
+    ],
+    "weaknesses": [
+      "Requires code regeneration whenever the OpenAPI specification changes."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Activate the package globally using `dart pub global activate tonik` and run generation from the command line.",
+    "alternatives": [],
+    "minimal_example": "import 'package:my_api/my_api.dart';\nimport 'package:tonik_util/tonik_util.dart';\n\nfinal api = PetApi(CustomServer(baseUrl: 'https://api.example.com'));\n\nfinal response = await api.getPetById(petId: 1);\nswitch (response) {\n  case TonikSuccess(:final value):\n    print('Response: $value');\n  case TonikError(:final error):\n    print('Failed: $error');\n}",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.13.0",
+  "generatedAt": "2026-11-11T11:41:56.867Z",
+  "data": {
+    "primary_category": "codegen",
+    "secondary_categories": [],
+    "approach": [
+      "code generation"
+    ],
+    "one_liner": "Allows Dart reflection and method proxies using code generation across all platforms.",
+    "what_it_does": "Enables reflection capabilities for local and third-party classes through code generation and bridge annotations. It also supports class proxies to intercept method calls and tools for JSON decoding into entities.",
+    "use_when": [
+      "You need reflection features in Dart where native dart:mirrors is not supported.",
+      "You need to reflect on third-party classes using bridge annotations.",
+      "You want to create class proxies that intercept method calls."
+    ],
+    "avoid_when": [
+      "You want to avoid code generation steps during development.",
+      "You do not need runtime reflection or dynamic method invocation."
+    ],
+    "strengths": [
+      "Works across all Dart platforms where native mirrors are unavailable.",
+      "Supports third-party classes through reflection bridges.",
+      "Provides class proxies for intercepting method calls."
+    ],
+    "weaknesses": [
+      "Requires maintaining a build_runner code generation step.",
+      "Requires proper part directives in files where reflection is enabled."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add reflection_factory to dependencies and build_runner to dev_dependencies, then run dart run build_runner build.",
+    "alternatives": [],
+    "minimal_example": "import 'package:reflection_factory/reflection_factory.dart';\n\npart 'some_source_file.reflection.g.dart';\n\n@EnableReflection()\nclass User {\n  String? email;\n  User(this.email);\n}\n\nvoid main() {\n  var user = User('joe@mail.com');\n  var userReflection = user.reflection;\n  print('email: ${userReflection.field('email')?.get()}');\n}",
+    "confidence": 1
+  }
+}

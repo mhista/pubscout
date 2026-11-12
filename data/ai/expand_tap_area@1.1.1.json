@@ -1,0 +1,37 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.1.1",
+  "generatedAt": "2026-11-10T13:05:51.385Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Manually expand the tap area of a widget without changing its size or layout.",
+    "what_it_does": "Provides a widget called ExpandTapWidget that allows developers to increase the touch target size of a small widget using padding. It adheres to guidelines like Apple's 44x44px and Android's 48x48dp minimum targets without modifying the layout size.",
+    "use_when": [
+      "You need to make a small icon or button easier to tap without increasing its visual layout size",
+      "You want to meet minimum touch target guidelines (like Apple or Material Design) for small widgets"
+    ],
+    "avoid_when": [
+      "The expanded area exceeds the boundary of the Parent Box unexpectedly",
+      "You already handle gestures at multiple conflicting parent/child levels without careful arrangement"
+    ],
+    "strengths": [
+      "Does not change the widget's size or layout",
+      "Includes a debug flag (debugPaintExpandAreaEnabled) to display the actual expanded area"
+    ],
+    "weaknesses": [
+      "Expanded area cannot exceed the boundary of the Parent Box",
+      "Requires careful placement to avoid gesture conflicts when wrapped inside or outside other GestureDetectors"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [],
+    "minimal_example": "ExpandTapWidget(\n  onTap: () {},\n  tapPadding: EdgeInsets.all(25.0),\n  child: smallWidget(),\n)",
+    "confidence": 1
+  }
+}

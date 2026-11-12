@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.7.0",
+  "generatedAt": "2026-11-12T11:10:27.572Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "auth",
+      "utils"
+    ],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "Core token refresh library for managing authentication token lifecycles.",
+    "what_it_does": "Exposes core components common to various token refresh implementations such as REST or GraphQL. Provides token lifecycle management, single-flight refresh coordination, and stream-based authentication state tracking.",
+    "use_when": [
+      "You are building a custom HTTP client integration that requires token refresh logic.",
+      "You need to coordinate concurrent refresh attempts to share a single in-flight operation."
+    ],
+    "avoid_when": [
+      "You are using standard clients like Dio or the http package (use fresh_dio or fresh_http integration packages instead).",
+      "You do not need token refresh functionality."
+    ],
+    "strengths": [
+      "Single-flight refresh coordination prevents duplicate concurrent refresh requests.",
+      "Stream-based authentication status tracking.",
+      "Extensible token base class and custom storage support."
+    ],
+    "weaknesses": [
+      "Most users must rely on separate integration packages for standard clients.",
+      "Requires writing custom boilerplate if building a non-standard integration."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Not documented",
+    "alternatives": [],
+    "minimal_example": "class MyHttpFresh extends MyHttpClient with FreshMixin<OAuth2Token> {\n  MyHttpFresh({required TokenStorage<OAuth2Token> tokenStorage}) {\n    this.tokenStorage = tokenStorage;\n  }\n\n  @override\n  Future<OAuth2Token> performTokenRefresh(OAuth2Token? token) async {\n    final response = await post('/auth/refresh', body: {'refresh_token': token?.refreshToken});\n    return OAuth2Token(\n      accessToken: response['access_token'],\n      refreshToken: response['refresh_token'],\n    );\n  }\n}",
+    "confidence": 0.95
+  }
+}

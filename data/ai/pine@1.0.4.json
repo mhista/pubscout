@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.4",
+  "generatedAt": "2026-11-12T11:37:13.829Z",
+  "data": {
+    "primary_category": "dependency-injection",
+    "secondary_categories": [
+      "state-management"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A lightweight architecture helper for Flutter projects using Provider and BLoC.",
+    "what_it_does": "Provides a DependencyInjectorHelper widget to inject mappers, services, repositories, and global BLoCs down the widget tree in a structured layered architecture.",
+    "use_when": [
+      "You want a structured layered architecture using Provider and BLoC.",
+      "You want to organize global dependencies like mappers, services, and repositories cleanly."
+    ],
+    "avoid_when": [
+      "You are not using Provider or Flutter BLoC in your project.",
+      "You prefer a different state management library like Riverpod."
+    ],
+    "strengths": [
+      "Simplifies wiring up layered architectures with BLoC and Provider.",
+      "Makes testing easier by allowing mock dependency injection via DependencyInjectorHelper."
+    ],
+    "weaknesses": [
+      "Tight coupling to Provider and Flutter BLoC.",
+      "Limited feature set beyond basic dependency organization."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Not documented",
+    "alternatives": [
+      {
+        "name": "provider",
+        "why_pick_it": "If you want pure state and dependency injection without a specialized architecture wrapper."
+      }
+    ],
+    "minimal_example": "class App extends StatelessWidget {\n  const App({Key? key}) : super(key: key);\n\n  @override\n  Widget build(BuildContext context) => DependencyInjectorHelper(\n    blocs: [\n      BlocProvider<NewsBloc>(\n        create: (context) => NewsBloc(\n          newsRepository: context.read(),\n        )..fetchNews(),\n      ),\n    ],\n    child: MaterialApp(\n      home: const HomePage(),\n    ),\n  );\n}",
+    "confidence": 0.95
+  }
+}

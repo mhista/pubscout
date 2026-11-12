@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "1.1.2",
+  "generatedAt": "2026-11-12T11:25:27.986Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [],
+    "approach": [
+      "stream-based"
+    ],
+    "one_liner": "Client for ASP.NET Core SignalR, supports WebSocket and SSE across Dart platforms",
+    "what_it_does": "Provides a Dart implementation of the SignalR protocol, enabling real‑time communication with ASP.NET Core servers. It handles connection negotiation, message sending, and receiving via WebSocket or SSE.",
+    "use_when": [
+      "Implementing real‑time chat or live data feeds",
+      "Integrating with ASP.NET Core backends that use SignalR",
+      "Building cross‑platform apps needing server push"
+    ],
+    "avoid_when": [
+      "You only need simple HTTP requests",
+      "You prefer a higher‑level abstraction like gRPC or GraphQL"
+    ],
+    "strengths": [
+      "Platform‑independent, works on mobile, web, and desktop",
+      "Null safety support since 1.1.0",
+      "Handles both WebSocket and SSE transports",
+      "Active maintenance with recent bug fixes"
+    ],
+    "weaknesses": [
+      "Limited documentation beyond README",
+      "No advanced features like automatic reconnection strategies",
+      "Relies on external packages (http, web_socket_channel)"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "final connection = HubConnectionBuilder()\n    .withUrl('http://localhost:5000/chatHub',\n        HttpConnectionOptions(logging: (level, message) => print(message)))\n    .build();\n\nawait connection.start();\n\nconnection.on('ReceiveMessage', (message) {\n  print(message.toString());\n});\n\nawait connection.invoke('SendMessage', args: ['Bob', 'Says hi!']);",
+    "confidence": 0.8
+  }
+}

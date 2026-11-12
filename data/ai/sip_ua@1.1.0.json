@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.1.0",
+  "generatedAt": "2026-11-09T11:34:15.334Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "SIP UA stack for Flutter and Dart, supporting audio/video calls and instant messaging.",
+    "what_it_does": "A pure Dart implementation of a SIP UA stack ported from JsSIP. It enables SIP over WebSocket and TCP, allowing Flutter mobile, desktop, and web apps to handle audio/video calls and instant messaging using standard SIP servers like Asterisk, FreeSWITCH, and OpenSIPS.",
+    "use_when": [
+      "You need to build a VoIP client or softphone in Flutter with audio and video call support.",
+      "You are connecting to standard SIP servers like Asterisk, FreeSWITCH, or OpenSIPS.",
+      "You need cross-platform SIP support including iOS, Android, Web, macOS, Windows, and Linux."
+    ],
+    "avoid_when": [
+      "Your SIP infrastructure strictly requires UDP for the signaling process.",
+      "You only need basic push notifications for incoming VoIP calls without a full SIP stack."
+    ],
+    "strengths": [
+      "Supports multiple platforms: iOS, Android, Web, macOS, Windows, and Linux.",
+      "Integrates with standard SIP servers (OpenSIPS, Kamailio, Asterisk, 3CX, FreeSWITCH).",
+      "Supports SIP over WebSocket and TCP as well as WebRTC-based audio/video streams."
+    ],
+    "weaknesses": [
+      "Does not support UDP connection options for signaling out of the box.",
+      "Requires proper PBX configuration for DTLS/SRTP and matching codecs to avoid WebRTC setup errors."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires Proguard rules on Android and proper PBX server configuration for WebRTC (DTLS/SRTP and matching codecs like Opus or G.722).",
+    "alternatives": [],
+    "minimal_example": "// Register with SIP server example\nSIPUAHelper _sipUaHelper = SIPUAHelper();\nUaSettings settings = UaSettings();\nsettings.webSocketUrl = 'wss://sip.server.com';\nsettings.uri = 'sip:alice@sip.server.com';\nsettings.password = 'password';\n_sipUaHelper.start(settings);",
+    "confidence": 0.95
+  }
+}

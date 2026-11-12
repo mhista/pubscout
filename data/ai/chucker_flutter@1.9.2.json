@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.9.2",
+  "generatedAt": "2026-11-10T13:01:04.619Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "devtools"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Inspect HTTP(S) requests, responses, and network traffic with a built-in UI and local storage.",
+    "what_it_does": "Chucker Flutter acts as an interceptor for Dio, Http, and Chopper clients. It saves network requests and responses locally and provides an in-app UI and notification system for inspecting, searching, and sharing network traffic.",
+    "use_when": [
+      "You need to debug and inspect network calls directly inside your Flutter app during development.",
+      "You want an easy way to view pretty JSON, trees, and image previews for API requests and responses."
+    ],
+    "avoid_when": [
+      "You are running in a strict production environment where network traffic inspection tools should be completely disabled (unless explicitly enabled via showOnRelease).",
+      "You use a networking library that is not supported by Chucker's built-in interceptors or clients."
+    ],
+    "strengths": [
+      "Supports multiple popular HTTP libraries including Dio, Http, and Chopper.",
+      "Provides an in-app UI, notifications, search, and sharing capabilities.",
+      "Works across Android, iOS, Web, Windows, macOS, and Linux."
+    ],
+    "weaknesses": [
+      "Requires manual integration of interceptors or client wrappers for every network request.",
+      "Requires setting a minimum SDK version of 22 for Android."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "For Android, you need to make minSdkVersion 22 in your build.gradle file. Wire ChuckerFlutter.navigatorKey into your root MaterialApp or router configuration.",
+    "alternatives": [],
+    "minimal_example": "Dio().interceptors.add(ChuckerDioInterceptor());",
+    "confidence": 1
+  }
+}

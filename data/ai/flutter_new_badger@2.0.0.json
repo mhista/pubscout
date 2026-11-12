@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.0",
+  "generatedAt": "2026-11-10T13:05:24.649Z",
+  "data": {
+    "primary_category": "notifications",
+    "secondary_categories": [
+      "device"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Handle app icon badges for iOS, macOS, and Android",
+    "what_it_does": "A Flutter plugin to set, get, increment, decrement, and remove app icon badges on iOS, macOS, and supported Android devices. It provides an imperative API for interacting with native badge counts.",
+    "use_when": [
+      "You need to display unread message counts or alerts on your app icon on iOS and macOS.",
+      "You want to manage badge numbers using simple asynchronous Dart methods."
+    ],
+    "avoid_when": [
+      "Your target audience primarily uses stock Android or Xiaomi devices where arbitrary numeric badges are not supported by the OS.",
+      "You require complex notification rendering beyond simple app icon badge updates."
+    ],
+    "strengths": [
+      "Supports iOS, macOS, and several Android launchers.",
+      "Provides simple utility methods like increment and decrement for badge management.",
+      "Supports Swift Package Manager and CocoaPods on Apple platforms."
+    ],
+    "weaknesses": [
+      "Android support depends heavily on the device manufacturer's launcher and has many unsupported environments (like Pixel stock Android and Xiaomi).",
+      "Requires platform-specific permissions and manual manifest/Info.plist configuration."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding notification permissions for iOS and specific broadcast/provider permissions in AndroidManifest.xml depending on target launcher requirements.",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter_new_badger/flutter_new_badger.dart';\n\n// Set a badge\nFlutterNewBadger.setBadge(1);\n\n// Get current badge\nint? badge = await FlutterNewBadger.getBadge();",
+    "confidence": 1
+  }
+}

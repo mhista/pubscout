@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.3.3",
+  "generatedAt": "2026-11-11T11:25:13.261Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "Tizen implementation of the connectivity_plus plugin for checking network status.",
+    "what_it_does": "Provides the Tizen platform implementation for the connectivity_plus plugin, allowing Flutter apps to discover network connectivity status on Tizen devices. It surfaces whether the device is connected via wifi, mobile, ethernet, or has no connection.",
+    "use_when": [
+      "You are building a Flutter application targeting Tizen devices and need to check network connectivity.",
+      "You are already using connectivity_plus and need to add Tizen OS support."
+    ],
+    "avoid_when": [
+      "Your Flutter app does not target Tizen.",
+      "You require multiple network connection types simultaneously or specifically need vpn/satellite distinction on Tizen."
+    ],
+    "strengths": [
+      "Enables connectivity_plus support on Tizen devices.",
+      "Straightforward integration alongside connectivity_plus."
+    ],
+    "weaknesses": [
+      "Not an endorsed implementation, so it must be added manually alongside connectivity_plus.",
+      "Multiple connections are not supported; only the currently connected type is returned.",
+      "VPN and satellite connection types are not supported by the underlying Tizen API."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add both connectivity_plus and connectivity_plus_tizen to pubspec.yaml, and add the http://tizen.org/privilege/network.get privilege under the <manifest> section in tizen-manifest.xml.",
+    "alternatives": [
+      {
+        "name": "connectivity_plus",
+        "why_pick_it": "The core plugin interface that this package implements for cross-platform connectivity checks."
+      }
+    ],
+    "minimal_example": "import 'package:connectivity_plus/connectivity_plus.dart';\n\n// For detailed usage, see https://pub.dev/packages/connectivity_plus#usage.",
+    "confidence": 1
+  }
+}

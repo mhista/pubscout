@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.0",
+  "generatedAt": "2026-11-09T11:47:45.661Z",
+  "data": {
+    "primary_category": "files",
+    "secondary_categories": [
+      "device"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Convert supported URIs, including Android content URIs, into local File objects.",
+    "what_it_does": "Provides a Flutter plugin to convert URI strings into dart:io File instances. It supports Android content:// URIs by copying them to a temporary file in the app directory, alongside standard URIs handled by File.fromUri.",
+    "use_when": [
+      "You need to handle Android content:// URIs from intents or deep links and convert them to readable files.",
+      "You are working with deep linking packages like uni_links and need to process incoming URI strings as files."
+    ],
+    "avoid_when": [
+      "You pass Uri objects converted via uri.toString(), which transforms strings to lowercase and breaks functionality.",
+      "You only need standard path manipulation without resolving custom URI schemas."
+    ],
+    "strengths": [
+      "Simplifies handling of Android content URIs in Flutter.",
+      "Supports standard URIs handled natively by File.fromUri.",
+      "Easy-to-use asynchronous API."
+    ],
+    "weaknesses": [
+      "Requires passing raw URI strings rather than standard Uri objects due to lowercase conversion issues.",
+      "Limited to Android and iOS platforms."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Not documented",
+    "alternatives": [],
+    "minimal_example": "import 'dart:io';\nimport 'package:uri_to_file/uri_to_file.dart';\n\nFuture<void> convertUriToFile() async {\n  try {\n    String uriString = 'content://sample.txt';\n    File file = await toFile(uriString);\n  } catch (e) {\n    print(e);\n  }\n}",
+    "confidence": 0.95
+  }
+}

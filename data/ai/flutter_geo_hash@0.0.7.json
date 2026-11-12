@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.0.7",
+  "generatedAt": "2026-11-12T11:56:20.737Z",
+  "data": {
+    "primary_category": "maps",
+    "secondary_categories": [
+      "utils",
+      "backend"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Geohash encoding, decoding, neighbors, and distance helpers for Dart and Flutter.",
+    "what_it_does": "Provides utilities to encode and decode locations to and from geohashes, find neighboring cells, calculate distances, and query Cloud Firestore databases by radius using string range queries.",
+    "use_when": [
+      "You need to query location-based data within a radius in Cloud Firestore.",
+      "You want to encode and decode geohashes compatible with Firebase's geofire-common.",
+      "You need a pure Dart solution that works across all platforms including the web."
+    ],
+    "avoid_when": [
+      "You require complex spatial queries that only a native database backend can provide.",
+      "You need an entire out-of-the-box maps UI component instead of raw geolocation math."
+    ],
+    "strengths": [
+      "Compatible with Firebase geofire-common for cross-platform web and mobile queries.",
+      "Pure Dart implementation with no dependencies, running on all platforms.",
+      "No class name collisions with cloud_firestore or popular map packages."
+    ],
+    "weaknesses": [
+      "Geohash range queries can produce false positives that must be filtered out manually by distance.",
+      "Query performance degrades for very large radii or near polar regions."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter_geo_hash/flutter_geo_hash.dart';\n\nvoid main() {\n  final geoHash = GeoHashUtils();\n  const london = GeoHashPoint(51.5074, -0.1278);\n  geoHash.geoHashForLocation(london, precision: 5);\n}",
+    "confidence": 1
+  }
+}

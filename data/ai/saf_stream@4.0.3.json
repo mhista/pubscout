@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.0.3",
+  "generatedAt": "2026-11-10T12:53:42.635Z",
+  "data": {
+    "primary_category": "files",
+    "secondary_categories": [
+      "storage"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Read and write Android Storage Access Framework (SAF) documents.",
+    "what_it_does": "Allows Flutter applications to read and write Android SAF DocumentFiles using byte-based APIs, file streams, or custom file streams with skip capabilities. It also supports copying between SAF documents and local files.",
+    "use_when": [
+      "You need to read or write files via the Android Storage Access Framework (SAF).",
+      "You need to handle large files using streams on Android.",
+      "You need to copy files between SAF documents and local storage."
+    ],
+    "avoid_when": [
+      "You are building for iOS, macOS, Windows, Linux, or Web (Android-only plugin).",
+      "You only need standard local file paths without SAF requirements."
+    ],
+    "strengths": [
+      "Supports both byte-based operations and streaming for large files.",
+      "Provides custom file stream options to skip bytes natively and reduce memory usage.",
+      "Performance improvements via JNI calls."
+    ],
+    "weaknesses": [
+      "Platform-specific to Android.",
+      "Minimum Android API version 21 required."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires Android API 21 or higher.",
+    "alternatives": [],
+    "minimal_example": "import 'dart:convert';\nimport 'dart:typed_data';\nimport 'package:saf_stream/saf_stream.dart';\n\nfinal _safStreamPlugin = SafStream();\n\nFuture<void> readFile() async {\n  Uint8List fileBytes = await _safStreamPlugin.readFileBytes('<SAF file URI>');\n}",
+    "confidence": 0.95
+  }
+}

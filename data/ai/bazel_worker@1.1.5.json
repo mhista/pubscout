@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "1.1.5",
+  "generatedAt": "2026-11-10T12:29:45.840Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Protocol and utilities to implement or invoke persistent Bazel workers",
+    "what_it_does": "Provides abstract classes for synchronous and asynchronous worker loops, generated protobuf messages, and testing helpers for building Bazel worker processes in Dart.",
+    "use_when": [
+      "You need to write a Bazel worker in Dart",
+      "You want to test worker logic locally",
+      "You need a lightweight, no‑extra‑dependency worker framework"
+    ],
+    "avoid_when": [
+      "You are building a UI widget library",
+      "You need a high‑level networking client"
+    ],
+    "strengths": [
+      "Simple API with clear sync/async separation",
+      "Built‑in protobuf support and generated messages",
+      "Includes testing utilities for unit tests"
+    ],
+    "weaknesses": [
+      "Only supports Bazel workers, not general IPC",
+      "Requires protobuf dependency",
+      "No code generation beyond protobuf"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dependency, import package, extend AsyncWorkerLoop or SyncWorkerLoop",
+    "alternatives": [],
+    "minimal_example": "import 'dart:io';\nimport 'package:bazel_worker/bazel_worker.dart';\n\nvoid main() {\n  SyncSimpleWorker().run();\n}\n\nclass SyncSimpleWorker extends SyncWorkerLoop {\n  WorkResponse performRequest(WorkRequest request) {\n    File('hello.txt').writeAsStringSync('hello world!');\n    return WorkResponse()..exitCode = EXIT_CODE_OK;\n  }\n}",
+    "confidence": 0.85
+  }
+}

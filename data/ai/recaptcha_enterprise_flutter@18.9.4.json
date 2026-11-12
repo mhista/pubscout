@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "18.9.4",
+  "generatedAt": "2026-11-09T11:07:06.072Z",
+  "data": {
+    "primary_category": "auth",
+    "secondary_categories": [
+      "devtools"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "A Flutter plugin for reCAPTCHA Enterprise security protection.",
+    "what_it_does": "Integrates Google reCAPTCHA Enterprise into Flutter applications for iOS and Android. It allows fetching a client via site keys and executing actions like login or registration to obtain a verification token.",
+    "use_when": [
+      "You need to protect your mobile app actions against bots and fraudulent traffic using reCAPTCHA Enterprise.",
+      "You are building an app for Android and iOS that requires security token verification on user actions."
+    ],
+    "avoid_when": [
+      "You are targeting platforms other than Android and iOS.",
+      "You do not use Google Cloud reCAPTCHA Enterprise backend services."
+    ],
+    "strengths": [
+      "Official plugin supporting reCAPTCHA Enterprise for Flutter.",
+      "Simple client initialization and action execution flow."
+    ],
+    "weaknesses": [
+      "Limited to Android and iOS platforms.",
+      "Requires platform-specific site keys and configuration setup."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires obtaining reCAPTCHA Enterprise site keys for both Android and iOS from the Google Cloud Console, and setting them up in native app configurations.",
+    "alternatives": [],
+    "minimal_example": "void main() async {\n  WidgetsFlutterBinding.ensureInitialized();\n  final siteKey = Platform.isAndroid ? '<ANDROID_SITE_KEY>' : '<IOS_SITE_KEY>';\n  RecaptchaClient client = await Recaptcha.fetchClient(siteKey);\n  runApp(MyApp(client: client));\n}",
+    "confidence": 1
+  }
+}

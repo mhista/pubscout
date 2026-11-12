@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.3.0",
+  "generatedAt": "2026-11-09T11:24:53.949Z",
+  "data": {
+    "primary_category": "animation",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A widget which implicitly launches a hero animation when its position changes within the same route.",
+    "what_it_does": "Provides a LocalHero widget and LocalHeroScope that enables implicit hero animations when a widget changes its position or layout inside the same route. It tracks elements with unique tags and animates transitions smoothly based on the scope duration and curve.",
+    "use_when": [
+      "You need to animate a widget's position change within the same screen or route.",
+      "You want a declarative way to create hero-like animations without navigating between different routes."
+    ],
+    "avoid_when": [
+      "You are performing traditional page-to-page Hero transitions (Flutter's built-in Hero widget handles that).",
+      "You need multiple widgets with the same tag under the same LocalHeroScope at the same frame."
+    ],
+    "strengths": [
+      "Brings hero-style animations to position changes within a single route.",
+      "Simple integration using a LocalHeroScope and LocalHero widgets."
+    ],
+    "weaknesses": [
+      "Strict requirement to have only one LocalHero per tag per LocalHeroScope at each frame.",
+      "Limited documentation outside of basic playground examples."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "LocalHeroScope(\n  duration: const Duration(milliseconds: 300),\n  curve: Curves.easeInOut,\n  child: LocalHero(\n    tag: 'my_widget_tag',\n    child: MyWidget(),\n  ),\n)",
+    "confidence": 0.95
+  }
+}

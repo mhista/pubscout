@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.13.1",
+  "generatedAt": "2026-11-10T13:04:57.272Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter plugin to call native FingerprintJS Pro libraries for device identification.",
+    "what_it_does": "Allows your Flutter application to call native Fingerprint Pro agents on Android, iOS, and Web to identify devices. Provides methods for initializing the plugin, retrieving visitor IDs, and fetching identification data.",
+    "use_when": [
+      "You need accurate visitor identification or device intelligence across mobile and web.",
+      "You are already using Fingerprint Pro as your device intelligence platform."
+    ],
+    "avoid_when": [
+      "You do not need paid or advanced device fingerprinting services.",
+      "You require pure Dart device info implementations without native platform dependencies."
+    ],
+    "strengths": [
+      "Official integration with Fingerprint Pro native agents.",
+      "Supports Android, iOS, and Web platforms.",
+      "Supports linking and tagging information for user sessions."
+    ],
+    "weaknesses": [
+      "Relies on a commercial third-party backend service (Fingerprint).",
+      "Requires platform-specific configuration and native SDK requirements."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires a Fingerprint Pro account and Public API key, plus optional HTML script injection for Web and minimum versions for Android and iOS.",
+    "alternatives": [],
+    "minimal_example": "import 'package:fpjs_pro_plugin/fpjs_pro_plugin.dart';\nimport 'package:fpjs_pro_plugin/region.dart';\n\nvoid doInit() async {\n  await FpjsProPlugin.initFpjs(\n    '<PUBLIC_API_KEY>',\n    region: Region.us,\n  );\n  var visitorId = await FpjsProPlugin.getVisitorId();\n}",
+    "confidence": 1
+  }
+}

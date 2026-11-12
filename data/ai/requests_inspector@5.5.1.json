@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "5.5.1",
+  "generatedAt": "2026-11-11T11:36:54.208Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "devtools",
+      "device"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Log, inspect, and share REST and GraphQL requests by shaking your phone.",
+    "what_it_does": "A Flutter package for logging REST APIs and GraphQL requests. It provides an inspector widget that can be opened by shaking the phone or long-pressing the screen, letting developers view request details, copy cURL commands, and export HAR files.",
+    "use_when": [
+      "You need an on-device UI to debug and inspect network traffic during development.",
+      "You want to easily share request details, cURL commands, or HAR files with team members."
+    ],
+    "avoid_when": [
+      "You are running a production app where network payload logging and request interception tools should be disabled."
+    ],
+    "strengths": [
+      "Supports both REST (via Dio or manual controller entry) and GraphQL.",
+      "Can trigger the inspector view by shaking the phone or long-pressing the screen.",
+      "Allows sharing requests as JSON, cURL, or HAR files."
+    ],
+    "weaknesses": [
+      "Relies on specific interceptors or manual logging if not using Dio or graphql_flutter."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Wrap your MaterialApp or root widget with RequestsInspector and add the RequestsInspectorInterceptor to Dio.",
+    "alternatives": [
+      {
+        "name": "dio",
+        "why_pick_it": "Dio is an alternative powerful HTTP client that features its own interceptor system and ecosystem plugins."
+      }
+    ],
+    "minimal_example": "void main() {\n  runApp(const RequestsInspector(\n    child: MyApp(),\n  ));\n}\n\nfinal dio = Dio()..interceptors.add(RequestsInspectorInterceptor());",
+    "confidence": 0.95
+  }
+}

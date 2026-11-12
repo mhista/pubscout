@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.1.1",
+  "generatedAt": "2026-11-09T11:41:58.099Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "animation"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Flutter plugin for building custom pull-to-refresh effects quickly.",
+    "what_it_does": "Provides PullToRefreshNotification and PullToRefreshContainer widgets to build customized pull-to-refresh headers, appbars, and animations in scrollable lists.",
+    "use_when": [
+      "You want custom pull-to-refresh animations or headers beyond standard Material and Cupertino indicators",
+      "You need to handle pull-to-refresh states in a reverse list or custom scroll view"
+    ],
+    "avoid_when": [
+      "You only need standard, out-of-the-box Material or Cupertino refresh indicators",
+      "You do not use scrollable widgets"
+    ],
+    "strengths": [
+      "Highly customizable refresh headers and UI states",
+      "Supports reverse lists and custom scroll views",
+      "Cross-platform support including web and desktop"
+    ],
+    "weaknesses": [
+      "Requires manual implementation of custom header UI instead of a plug-and-play indicator"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "Widget build(BuildContext context) {\n  return PullToRefreshNotification(\n    color: Colors.blue,\n    onRefresh: onRefresh,\n    child: CustomScrollView(\n      slivers: <Widget>[\n        PullToRefreshContainer(buildPulltoRefreshHeader),\n        SliverList(\n          delegate: SliverChildBuilderDelegate((BuildContext context, int index) {\n            return Text(\"Item $index\");\n          }, childCount: 10),\n        ),\n      ],\n    ),\n  );\n}",
+    "confidence": 0.95
+  }
+}

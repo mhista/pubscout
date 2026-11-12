@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "1.2.1",
+  "generatedAt": "2026-11-10T12:35:32.905Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "HTTP client using Fetch API with WASM support, cancelable and streamable requests",
+    "what_it_does": "Provides a drop‑in replacement for the http package that uses the Fetch API under the hood. It supports request cancellation, streaming responses, and WASM‑ready internals for web extensions.",
+    "use_when": [
+      "Web or Flutter web projects needing cancelable HTTP requests",
+      "Applications that require streaming request bodies or responses",
+      "Projects targeting Manifest V3 Chrome extensions"
+    ],
+    "avoid_when": [
+      "Non‑web Dart or Flutter mobile projects",
+      "Environments that do not support WASM or Fetch API",
+      "Projects that already use a fully featured HTTP client like dio"
+    ],
+    "strengths": [
+      "Cancelable requests via Abortable",
+      "Streaming support for responses and request bodies",
+      "WASM‑ready for web extensions",
+      "Access to redirect URLs and status codes"
+    ],
+    "weaknesses": [
+      "Only works on web (requires Dart 3.4+ and Chromium 105+ for streaming)",
+      "Limited to Fetch API features, not a full HTTP client replacement",
+      "Requires newer Dart SDK"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:fetch_client/fetch_client.dart';\n\nfinal client = FetchClient();\nfinal response = await client.get(Uri.parse('https://example.com'));\nprint(response.body);",
+    "confidence": 0.8
+  }
+}

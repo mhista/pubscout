@@ -1,0 +1,56 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "3.3.1",
+  "generatedAt": "2026-11-09T11:17:13.618Z",
+  "data": {
+    "primary_category": "layout",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Provides responsive helpers for width, height, font size and unit conversions in Flutter.",
+    "what_it_does": "It wraps the app to expose extension methods like .w, .h, .sp, .dp and absolute units. These calculate values as percentages of screen size or physical units, enabling responsive UI design.",
+    "use_when": [
+      "You need quick, percentage‑based sizing without custom layout code.",
+      "You want to support multiple screen types (mobile, tablet, desktop) with a single API.",
+      "You prefer extension methods over manual MediaQuery calculations."
+    ],
+    "avoid_when": [
+      "You need fine‑grained control over layout beyond simple percentages.",
+      "You are building a highly custom widget tree that requires manual constraints."
+    ],
+    "strengths": [
+      "Simple API via extensions",
+      "Supports many units (cm, mm, inches, etc.)",
+      "Handles orientation and screen type automatically",
+      "Works on all Flutter platforms"
+    ],
+    "weaknesses": [
+      "Relies on extension methods, which may not auto‑import in IDEs",
+      "No built‑in theming or advanced layout widgets",
+      "May add runtime overhead for every call"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dependency and wrap MaterialApp with ResponsiveSizer widget.",
+    "alternatives": [
+      {
+        "name": "sizer",
+        "why_pick_it": "Similar API but older and less maintained"
+      },
+      {
+        "name": "responsive_framework",
+        "why_pick_it": "Provides responsive breakpoints and widget wrappers"
+      },
+      {
+        "name": "responsive_builder",
+        "why_pick_it": "Offers responsive widgets and layout builders"
+      }
+    ],
+    "minimal_example": "import 'package:responsive_sizer/responsive_sizer.dart';\n\nResponsiveSizer(\n  builder: (context, orientation, screenType) {\n    return MaterialApp(home: HomePage());\n  },\n);",
+    "confidence": 0.92
+  }
+}

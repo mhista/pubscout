@@ -1,0 +1,54 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "2.3.2",
+  "generatedAt": "2026-11-09T11:13:43.973Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "A Dart package for building interactive console applications with widgets, input handling, and progress indicators.",
+    "what_it_does": "Capp provides a set of console widgets such as tables, progress bars, spinners, and input prompts. It also manages command-line arguments, options, and automatic help generation, allowing developers to create rich CLI tools in Dart.",
+    "use_when": [
+      "Need to build a command-line tool with interactive prompts",
+      "Want built-in progress indicators and table output",
+      "Require automatic help generation for commands",
+      "Need to capture or hook into console output for logging or testing"
+    ],
+    "avoid_when": [
+      "Building a GUI or web application",
+      "Requiring cross-platform mobile UI",
+      "Working in environments without a terminal"
+    ],
+    "strengths": [
+      "Rich set of console widgets out of the box",
+      "Built-in argument and option management",
+      "Automatic help generation",
+      "Support for capturing console output via hooks"
+    ],
+    "weaknesses": [
+      "Limited to console environments",
+      "No support for graphical UI",
+      "Not a state-management or networking library"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add \"capp: ^2.3.2\" to pubspec and import package:capp/capp.dart",
+    "alternatives": [
+      {
+        "name": "yaml",
+        "why_pick_it": "For parsing YAML configuration files, not a direct replacement for console widgets"
+      },
+      {
+        "name": "clock",
+        "why_pick_it": "For time utilities, not a replacement for console UI"
+      }
+    ],
+    "minimal_example": "import \"package:capp/capp.dart\";\n\nvoid main() {\n  var app = CappManager(\n    main: CappController(\n      '',\n      options: [CappOption(name: 'help', shortName: 'h', description: 'Show help')],\n      run: (c) async {\n        if (c.existsOption('help')) {\n          return CappConsole(c.manager.getHelp());\n        }\n        return CappConsole('Hello, world!');\n      },\n    ),\n    args: [],\n    controllers: [],\n  );\n  app.process();\n}",
+    "confidence": 0.95
+  }
+}

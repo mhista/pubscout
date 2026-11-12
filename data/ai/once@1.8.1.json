@@ -1,0 +1,47 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.8.1",
+  "generatedAt": "2026-11-09T11:54:44.018Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "declarative"
+    ],
+    "one_liner": "Run code or show widgets once, daily, weekly, monthly, or on new app versions.",
+    "what_it_does": "Provides utility methods and widgets to execute code blocks or render specific UI elements based on time intervals, version changes, build counts, or until explicitly dismissed. It persists execution state locally using shared preferences.",
+    "use_when": [
+      "You need to show a guided tour or onboarding tutorial exactly once.",
+      "You want to display release notes or changelogs only when a new app version launches.",
+      "You need to prompt users for app ratings periodically on a weekly or monthly basis."
+    ],
+    "avoid_when": [
+      "You need a full-featured local database or secure storage solution.",
+      "You require complex relational queries or large-scale document storage."
+    ],
+    "strengths": [
+      "Supports a wide range of scheduling and recurrence rules (daily, weekly, monthly, custom durations).",
+      "Provides both imperative runner functions and declarative widgets (`OnceWidget`).",
+      "Includes dismissal tracking via `runUntilDone` and `showUntilDone`."
+    ],
+    "weaknesses": [
+      "Relies entirely on device local time and `shared_preferences`, which can be manipulated or cleared by users.",
+      "Not suited for complex state management beyond execution tracking."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "No native platform steps or build_runner required; depends on shared_preferences and package_info_plus.",
+    "alternatives": [
+      {
+        "name": "shared_preferences",
+        "why_pick_it": "If you want to manually track timestamps and check execution states yourself without using a dedicated helper library."
+      }
+    ],
+    "minimal_example": "Once.runOnEveryNewVersion(\n  callback: () {\n    /* What's new dialog */\n  },\n  fallback: () {\n    /* Fallback action */\n  },\n);",
+    "confidence": 1
+  }
+}

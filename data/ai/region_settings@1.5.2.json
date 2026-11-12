@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.5.2",
+  "generatedAt": "2026-11-11T11:22:02.098Z",
+  "data": {
+    "primary_category": "localization",
+    "secondary_categories": [
+      "device"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Get device region settings like measurement system, temperature units, and date/number formats.",
+    "what_it_does": "A Flutter plugin that retrieves native device region and locale settings, including custom user preferences for temperature units, measurement systems, first day of the week, and date, time, and number formatting. It also provides convenience formatters for dates, numbers, and times using these regional settings.",
+    "use_when": [
+      "You need to format dates, times, or numbers according to the user's specific native device region settings.",
+      "Your app needs to check whether the user prefers metric or US measurement systems and Celsius or Fahrenheit."
+    ],
+    "avoid_when": [
+      "You only need basic Dart localization via the intl package without inspecting native OS-level region customizations."
+    ],
+    "strengths": [
+      "Honors user customizations that deviate from regional defaults on both Android and iOS.",
+      "Provides built-in convenience formatters for dates, numbers, and times.",
+      "Supports forcing specific locales for formatting when overriding system settings in-app."
+    ],
+    "weaknesses": [
+      "Platform support is currently limited to Android and iOS.",
+      "Certain settings like temperature units or regional preferences depend on newer OS versions (e.g. Android 14/16, iOS 16) and will fall back to locale guessing on older versions."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Standard Flutter plugin installation with no special permissions required.",
+    "alternatives": [
+      {
+        "name": "intl",
+        "why_pick_it": "If you need internationalization and localization using standard locale definitions without querying native device region settings."
+      },
+      {
+        "name": "easy_localization",
+        "why_pick_it": "If you need a complete asset-based translation and localization management solution for your app."
+      }
+    ],
+    "minimal_example": "import 'package:region_settings/region_settings.dart';\n\nfinal RegionSettings regionSettings = await RegionSettings.getSettings();\n\nTemperatureUnit temperatureUnits = regionSettings.temperatureUnits;\nbool usesMetricSystem = regionSettings.usesMetricSystem;\nString todayFormattedAsLongDate = regionSettings.formatDate(DateTime.now(), dateStyle: DateStyle.long);",
+    "confidence": 0.95
+  }
+}

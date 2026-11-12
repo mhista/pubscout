@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.1.0",
+  "generatedAt": "2026-11-12T11:20:33.850Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "List installed Android apps, get icons, check status, launch apps, and monitor app changes.",
+    "what_it_does": "A Flutter plugin to list installed Android apps, retrieve app icons, check installation status, launch apps, and monitor app changes. It can also detect packaged app frameworks like Flutter, React Native, Unity, and others.",
+    "use_when": [
+      "You need to list installed Android applications in your Flutter app.",
+      "You want to launch other apps, check installation status, or open app settings.",
+      "You need to listen to app install, update, and uninstall events."
+    ],
+    "avoid_when": [
+      "You are building for iOS (the plugin targets Android API 24+).",
+      "You only need generic device info unrelated to installed application packages."
+    ],
+    "strengths": [
+      "Provides comprehensive APIs for querying and managing Android app packages.",
+      "Supports batch lookups and app change streams.",
+      "Includes framework detection for packaged app indicators."
+    ],
+    "weaknesses": [
+      "Android-specific functionality only.",
+      "Requires proper Android manifest visibility configuration (e.g. QUERY_ALL_PACKAGES permission)."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires Android API 24+, Flutter 3.44+, and Dart 3.12+. Requires configuring package visibility and permissions in AndroidManifest.xml.",
+    "alternatives": [],
+    "minimal_example": "final apps = await FlutterDeviceApps.listApps(\n  includeSystem: false,\n  onlyLaunchable: true,\n  includeIcons: false,\n);",
+    "confidence": 1
+  }
+}

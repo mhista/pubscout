@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.1",
+  "generatedAt": "2026-11-11T11:17:04.499Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Dart implementation of JMESPath, a query language for JSON documents.",
+    "what_it_does": "It takes a JSON document and transforms it into another JSON document through a JMESPath expression. It supports runtime searches as well as pre-compiled queries and custom exception handling.",
+    "use_when": [
+      "You need to query or extract specific data from complex JSON documents using JMESPath expressions.",
+      "You want to run multiple searches with a pre-compiled query for better efficiency."
+    ],
+    "avoid_when": [
+      "You only need basic key lookups that can be easily handled natively in Dart without a query language.",
+      "You are looking for code-generation-based JSON serialization helpers."
+    ],
+    "strengths": [
+      "Implements the standard JMESPath query language for JSON.",
+      "Supports pre-compiling queries for repeated searches.",
+      "Provides custom exception handling with JmesException."
+    ],
+    "weaknesses": [
+      "License is unknown.",
+      "Derived package with limited scope beyond JMESPath execution."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:jmespath/jmespath.dart';\nimport 'dart:convert';\n\nvoid main() {\n  var jsondata = r'{\"foo\": {\"bar\": {\"baz\": [0, 1, 2, 3, 4]}}}';\n  var data = json.decode(jsondata);\n  var search_string = 'foo.bar.baz[2]';\n  var result = search(search_string, data);\n  print(result); // 2\n}",
+    "confidence": 1
+  }
+}

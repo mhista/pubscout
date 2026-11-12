@@ -1,0 +1,53 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.7.0",
+  "generatedAt": "2026-11-11T11:14:10.795Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "A Redux store wrapper that records state history for time‑travel debugging.",
+    "what_it_does": "DevToolsStore behaves like a normal Redux Store but keeps a history of states. It lets you move backward and forward through that history during development. No UI is provided; you connect your own UI if needed.",
+    "use_when": [
+      "You need time‑travel debugging for a Redux‑based app",
+      "You want a drop‑in replacement for Store in dev mode"
+    ],
+    "avoid_when": [
+      "Your app does not use Redux",
+      "You need built‑in UI for dev tools"
+    ],
+    "strengths": [
+      "Works as a drop‑in replacement for Store",
+      "Null‑safe and lightweight",
+      "Integrates with existing Redux middleware"
+    ],
+    "weaknesses": [
+      "Only works with Redux, not other state solutions",
+      "Provides no UI out of the box",
+      "Adds runtime overhead in dev mode"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Replace Store with DevToolsStore in dev builds; no extra permissions or build steps required.",
+    "alternatives": [
+      {
+        "name": "riverpod",
+        "why_pick_it": "Provides a modern, compile‑time safe state‑management solution with built‑in devtools support"
+      },
+      {
+        "name": "bloc",
+        "why_pick_it": "Offers a structured state‑management pattern with a visual devtools extension"
+      },
+      {
+        "name": "provider",
+        "why_pick_it": "Simple dependency‑injection style state management with Flutter DevTools integration"
+      }
+    ],
+    "minimal_example": "final store = DevToolsStore<int>((state, action) => state + 1, initialState: 0);",
+    "confidence": 0.95
+  }
+}

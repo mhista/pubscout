@@ -1,0 +1,36 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.2.0",
+  "generatedAt": "2026-11-09T11:12:04.474Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A widget that wraps buttons and disables taps while the tap callback is in progress.",
+    "what_it_does": "TapDebounce disables button taps automatically while an asynchronous callback is executing. It prevents accidental double-taps and allows configuring a cooldown duration or custom busy UI states.",
+    "use_when": [
+      "You want to prevent users from rapidly tapping buttons multiple times",
+      "You need to disable navigation pop buttons during asynchronous operations"
+    ],
+    "avoid_when": [
+      "You need global state management instead of widget-level debouncing"
+    ],
+    "strengths": [
+      "Simplifies preventing double-taps on buttons",
+      "Supports custom cooldown durations and exception handling",
+      "Provides builder callbacks to alter widget appearance during busy states"
+    ],
+    "weaknesses": [
+      "Limited to tap debouncing on a per-widget basis"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [],
+    "minimal_example": "TapDebouncer(\n  onTap: () async => await someLongOperation(),\n  builder: (BuildContext context, TapDebouncerFunc? onTap) {\n    return RaisedButton(\n      onPressed: onTap,\n      child: const Text('Short'),\n    );\n  },\n)",
+    "confidence": 1
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "14.0.2",
+  "generatedAt": "2026-11-11T11:47:27.862Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "API to store data securely using native device storage like Keychain and KeyStore.",
+    "what_it_does": "flutter_secure_storage_x provides an API to store data in secure storage on Android, iOS, Windows, Linux, macOS, and Web. It uses Keychain on iOS and KeyStore based solutions on Android.",
+    "use_when": [
+      "You need to store sensitive information like auth tokens or passwords securely on the device.",
+      "You require cross-platform secure key-value storage backed by OS primitives."
+    ],
+    "avoid_when": [
+      "You need built-in biometric authentication wrapped inside the package, which requires custom native implementation.",
+      "You are dealing with extremely large datasets where a SQL or NoSQL database is more appropriate."
+    ],
+    "strengths": [
+      "Leverages native security primitives like Apple Keychain and Android KeyStore.",
+      "Supports multiple platforms including mobile, desktop, and web."
+    ],
+    "weaknesses": [
+      "Background access requires explicit configuration for secure storage when the device is locked.",
+      "Breaking changes between major versions require careful migration steps for stored data."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Set minSdk to >= 24 on Android and configure data extraction rules if necessary to prevent backing up secure datastore files.",
+    "alternatives": [
+      {
+        "name": "shared_preferences",
+        "why_pick_it": "If you only need non-sensitive key-value persistence without encryption overhead."
+      }
+    ],
+    "minimal_example": "final storage = FlutterSecureStorage();\nString? value = await storage.read(key: key);\nawait storage.write(key: key, value: value);",
+    "confidence": 1
+  }
+}

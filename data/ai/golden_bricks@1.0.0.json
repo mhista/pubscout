@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "1.0.0",
+  "generatedAt": "2026-11-11T11:23:21.946Z",
+  "data": {
+    "primary_category": "testing",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A font that renders each character as a rectangle for consistent golden tests",
+    "what_it_does": "Provides a custom font that replaces anti‑aliased text with uniform rectangles, making golden test screenshots stable. The font is exported as a constant and can be loaded in tests via golden_toolkit.",
+    "use_when": [
+      "You need stable text rendering in golden tests",
+      "You want to avoid anti‑aliasing artifacts in screenshots",
+      "You want a font that mimics regular text size but is deterministic"
+    ],
+    "avoid_when": [
+      "You are not running golden tests",
+      "You need a full-featured font with typographic nuances"
+    ],
+    "strengths": [
+      "Stable, deterministic rendering",
+      "Easy to load in tests",
+      "Matches regular text size"
+    ],
+    "weaknesses": [
+      "Only useful for golden tests",
+      "No typographic features",
+      "Requires golden_toolkit for loading"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add golden_bricks to pubspec, import goldenBricks constant, load fonts with golden_toolkit's loadAppFonts() in test config",
+    "alternatives": [],
+    "minimal_example": "Text(\n  \"Some text\",\n  style: const TextStyle(\n    fontFamily: goldenBricks,\n  ),\n);",
+    "confidence": 0.85
+  }
+}

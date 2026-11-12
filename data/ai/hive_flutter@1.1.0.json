@@ -1,0 +1,53 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "1.1.0",
+  "generatedAt": "2026-11-10T12:23:33.412Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Flutter extension for Hive providing easy initialization and adapters for common types.",
+    "what_it_does": "Adds Flutter-specific helpers to Hive, such as Hive.initFlutter() and adapters for Color and TimeOfDay. It also exports the core Hive API for seamless use in Flutter apps.",
+    "use_when": [
+      "You need a lightweight, NoSQL key‑value store in a Flutter app",
+      "You want to store simple objects with minimal boilerplate",
+      "You need platform‑agnostic storage across mobile, web, and desktop"
+    ],
+    "avoid_when": [
+      "You require relational queries or complex joins",
+      "You need encrypted storage out of the box"
+    ],
+    "strengths": [
+      "Fast pure‑Dart performance",
+      "Works on all Flutter platforms",
+      "Provides ready‑made adapters for common Flutter types"
+    ],
+    "weaknesses": [
+      "No built‑in encryption (needs extra package)",
+      "Limited query capabilities compared to SQL databases"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "shared_preferences",
+        "why_pick_it": "For simple primitive key‑value storage without needing Hive's box system"
+      },
+      {
+        "name": "flutter_secure_storage",
+        "why_pick_it": "When you need encrypted key‑value storage"
+      },
+      {
+        "name": "sqflite",
+        "why_pick_it": "If you need relational SQL queries"
+      }
+    ],
+    "minimal_example": "import 'package:hive_flutter/hive_flutter.dart';\n\nFuture<void> main() async {\n  await Hive.initFlutter();\n  var box = await Hive.openBox('myBox');\n  await box.put('key', 'value');\n  print(box.get('key'));\n}",
+    "confidence": 0.95
+  }
+}

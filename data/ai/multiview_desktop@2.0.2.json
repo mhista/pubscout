@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.2",
+  "generatedAt": "2026-11-12T11:29:45.578Z",
+  "data": {
+    "primary_category": "web-desktop",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "declarative"
+    ],
+    "one_liner": "Flutter desktop library for managing multiple OS windows from a single engine and isolate.",
+    "what_it_does": "Allows managing multiple OS windows for macOS, Windows, and Linux from a single Flutter engine and Dart isolate using the multi-view API. Inter-window communication uses plain Dart objects without serialization or native bridges.",
+    "use_when": [
+      "Building a multi-window desktop application in Flutter",
+      "Sharing state and Dart objects directly between different app windows without IPC",
+      "Optimizing resource usage by avoiding multiple Flutter engine instances"
+    ],
+    "avoid_when": [
+      "Developing for mobile or web platforms",
+      "Needing separate isolates or engines per window"
+    ],
+    "strengths": [
+      "Windows share a single engine, isolate, and memory space",
+      "Direct Dart object sharing without serialization or isolate ports",
+      "Synchronous FFI-based native window chrome calls in 2.0"
+    ],
+    "weaknesses": [
+      "Requires manual modifications to native runner code for Linux and Windows",
+      "Popup positioning has limitations on Wayland Linux compositors"
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Requires manual platform-specific setup inside C++ files for Linux and Windows (e.g., updating application activation, dart project preparation, and window creation code).",
+    "alternatives": [],
+    "minimal_example": "final win = MultiViewDesktop.of(context);\nwin.setTitle('Settings');\nwin.setAlwaysOnTop(true);\nwin.focus();",
+    "confidence": 1
+  }
+}

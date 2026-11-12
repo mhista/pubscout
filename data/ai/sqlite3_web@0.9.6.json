@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.9.6",
+  "generatedAt": "2026-11-11T11:08:05.707Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Async SQLite access on the web via workers with automatic storage detection",
+    "what_it_does": "Provides a Dart API to run SQLite in web workers, handling async communication, feature detection, and storage backend selection. It exposes a WebSqlite class that opens databases, runs queries, and manages locks.",
+    "use_when": [
+      "You need SQLite on the web and prefer async worker-based access",
+      "You want automatic detection of the best persistence API (IndexedDB, OPFS, etc.)",
+      "You are building a higher-level library that requires a worker‑based SQLite backend"
+    ],
+    "avoid_when": [
+      "You are building a simple web app that can use localStorage or IndexedDB directly",
+      "You need a pure synchronous API",
+      "You are targeting non‑web platforms"
+    ],
+    "strengths": [
+      "Worker‑based async access avoids blocking the UI",
+      "Automatic detection of available storage backends",
+      "Built for integration with higher‑level libraries like sqlite_async or drift",
+      "Supports lock management for transactions"
+    ],
+    "weaknesses": [
+      "Requires a wasm binary and worker setup",
+      "Limited to web platform only",
+      "Setup can be complex for beginners",
+      "No direct support for non‑web platforms"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add sqlite3.wasm to your web assets, compile worker with dart compile js, and provide WorkerConnector to WebSqlite.open",
+    "alternatives": [],
+    "minimal_example": "```dart\nimport 'package:sqlite3_web/sqlite3_web.dart';\n\nFuture<void> main() async {\n  final sqlite = await WebSqlite.open(\n    workers: WorkerConnector.defaultWorkers('worker.dart.js'),\n    wasmModule: 'sqlite3.wasm',\n  );\n  final features = await sqlite.runFeatureDetection();\n  final conn = await sqlite.connectToRecommended('my_database');\n  print(await conn.database.select('select sqlite_version()'));\n}\n```",
+    "confidence": 0.85
+  }
+}

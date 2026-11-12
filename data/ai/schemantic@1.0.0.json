@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.0",
+  "generatedAt": "2026-11-10T12:50:15.527Z",
+  "data": {
+    "primary_category": "codegen",
+    "secondary_categories": [],
+    "approach": [
+      "code generation"
+    ],
+    "one_liner": "Generate type-safe data classes and runtime JSON Schemas from abstract class definitions.",
+    "what_it_does": "Schemantic is a library that generates fully-typed Dart data classes and runtime-accessible JSON Schemas from simple abstract class definitions. It features built-in JSON serialization, runtime data validation against schemas, and support for recursive structures, union types, and custom types.",
+    "use_when": [
+      "You need to generate runtime JSON Schemas alongside immutable-style data classes from code definitions.",
+      "You want built-in runtime validation of JSON payloads against generated schemas.",
+      "You work with AI tools or structured output requirements that depend on strict JSON schemas."
+    ],
+    "avoid_when": [
+      "You are looking for state management solutions or UI widget component libraries.",
+      "You do not want to use code generation and build_runner in your workflow."
+    ],
+    "strengths": [
+      "First-class runtime JSON schemas accessible from generated data classes.",
+      "Built-in serialization and runtime validation.",
+      "Supports recursive schemas and union types (AnyOf)."
+    ],
+    "weaknesses": [
+      "Requires build_runner and a separate builder package for code generation.",
+      "Adds an extra step to the development workflow for schema modifications."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add schemantic, schemantic_builder, and build_runner as dependencies, then run build_runner to generate part files.",
+    "alternatives": [
+      {
+        "name": "freezed_annotation",
+        "why_pick_it": "Choose freezed if you primarily want advanced union types, deep copying, and immutable data classes rather than runtime JSON schema generation."
+      }
+    ],
+    "minimal_example": "import 'package:schemantic/schemantic.dart';\n\npart 'user.g.dart';\n\n@Schema()\nabstract class $User {\n  String get name;\n  int? get age;\n  bool get isAdmin;\n}",
+    "confidence": 0.95
+  }
+}

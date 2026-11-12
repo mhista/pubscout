@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "14.7.0",
+  "generatedAt": "2026-11-10T12:14:00.501Z",
+  "data": {
+    "primary_category": "testing",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Performs static analysis of Dart code for tool integration and embedding.",
+    "what_it_does": "Provides a library for performing static analysis on Dart code. It allows developers to configure analysis options, examine elements, and build custom IDE tools, formatters, or documentation generators.",
+    "use_when": [
+      "You are building a custom Dart tool or editor integration",
+      "You need to programmatically analyze Dart source code and inspect elements"
+    ],
+    "avoid_when": [
+      "You just want to run standard linting on your project (use the built-in `dart analyze` command instead)",
+      "You are an end-user looking for a command-line analysis tool"
+    ],
+    "strengths": [
+      "Powers major Dart tooling like dart format and dart doc",
+      "Supports fine-grained analysis options and custom lint rules"
+    ],
+    "weaknesses": [
+      "APIs were originally machine generated from a Java implementation and may not feel like clean Dart APIs",
+      "No clean distinction currently between public and internal APIs, leading to potential breaking changes"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the dependency to pubspec.yaml and optionally configure an analysis_options.yaml file in your project root.",
+    "alternatives": [],
+    "minimal_example": "import 'package:analyzer/dart/analysis/analysis_context_collection.dart';\n\n// Basic usage example outline\nvoid analyzePath(String path) {\n  final collection = AnalysisContextCollection(includedPaths: [path]);\n  for (final context in collection.contexts) {\n    // process context...\n  }\n}",
+    "confidence": 1
+  }
+}

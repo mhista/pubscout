@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.2.0",
+  "generatedAt": "2026-11-11T11:11:01.681Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [
+      "images",
+      "files"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Create thumbnail images from local video files or URLs as bytes or files.",
+    "what_it_does": "A Flutter plugin that generates thumbnail images from local video files or remote URLs. It can return the thumbnail as in-memory bytes or save it to a temporary directory, supporting multiple file processing at once.",
+    "use_when": [
+      "You need to generate video previews or thumbnails locally on device or web.",
+      "You want to extract thumbnails as in-memory bytes or XFiles."
+    ],
+    "avoid_when": [
+      "You need video playback features rather than just frame extraction.",
+      "You are targeting Windows N/KN editions without the Media Feature Pack."
+    ],
+    "strengths": [
+      "Supports Android, iOS, web, macOS, Windows, and Linux.",
+      "Can output either in-memory bytes or XFiles.",
+      "Supports batch processing of multiple videos."
+    ],
+    "weaknesses": [
+      "Linux requires FFmpeg and libwebp development packages at build time.",
+      "Windows has limitations with WebP format and authentication headers."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Linux requires build-time development packages for FFmpeg and libwebp. Windows requires the Media Feature Pack on N/KN editions.",
+    "alternatives": [],
+    "minimal_example": "final bytes = await StreamThumbnail.thumbnailData(\n  video: 'https://example.com/video.mp4',\n  imageFormat: StreamThumbnailFormat.jpeg,\n  maxWidth: 128,\n  quality: 25,\n);",
+    "confidence": 1
+  }
+}

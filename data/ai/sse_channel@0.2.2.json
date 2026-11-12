@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.2.2",
+  "generatedAt": "2026-11-11T11:10:14.837Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [],
+    "approach": [
+      "stream-based"
+    ],
+    "one_liner": "Wraps Server‑Sent Events as a StreamChannel for Dart IO and web",
+    "what_it_does": "Provides a spec‑aligned SSE client that exposes events as MessageEvent objects and a unified StreamChannel API. It handles reconnection, retry hints, and Last‑Event‑ID automatically.",
+    "use_when": [
+      "You need to consume an SSE endpoint in a Flutter or Dart app",
+      "You want event metadata (id, event name) in addition to payload",
+      "You need a testable, mockable SSE client",
+      "You prefer a single API for both VM and web platforms"
+    ],
+    "avoid_when": [
+      "You only need simple HTTP requests or WebSocket communication",
+      "Your server uses a different push protocol (e.g., MQTT, gRPC)"
+    ],
+    "strengths": [
+      "Spec‑compliant IO implementation with automatic reconnection",
+      "Unified StreamChannel API for both VM and web",
+      "Built‑in test support via HtmlSseChannel.test and injectable IO channel",
+      "Rich event objects with data, event name, and id"
+    ],
+    "weaknesses": [
+      "Only supports SSE, not other push protocols",
+      "Requires awaiting channel.ready before use",
+      "No custom header configuration exposed"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'dart:convert';\nimport 'package:sse_channel/sse_channel.dart';\n\nFuture<void> main() async {\n  final channel = SseChannel.connect(Uri.parse('https://sse.dev/test'));\n  await channel.ready;\n  channel.stream.listen((event) {\n    print('[${event.event}] ${event.data} (id: ${event.id})');\n  });\n  channel.sink.add(jsonEncode({'type': 'ping'}));\n  await channel.sink.close();\n}",
+    "confidence": 0.9
+  }
+}

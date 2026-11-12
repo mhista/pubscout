@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "5.1.1",
+  "generatedAt": "2026-11-10T12:37:41.859Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "notifications"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Official Flutter plugin for Customer.io messaging platform",
+    "what_it_does": "Provides a Flutter wrapper around the Customer.io SDK, enabling push notifications, live activities, deep linking and in-app messaging. It handles native initialization, token registration and routing of URLs to the Flutter app.",
+    "use_when": [
+      "You need to send automated messages or in-app notifications via Customer.io",
+      "You want to use Customer.io live activities on iOS",
+      "You need deep link handling integrated with Customer.io events"
+    ],
+    "avoid_when": [
+      "You are not using Customer.io as your messaging backend",
+      "You prefer a different push notification service like Firebase or OneSignal"
+    ],
+    "strengths": [
+      "Officially maintained by Customer.io",
+      "Supports iOS live activities and deep linking",
+      "Handles native token registration and routing automatically",
+      "Compatible with Flutter 3.44+ and uses Kotlin for Android"
+    ],
+    "weaknesses": [
+      "Requires Flutter 3.44+ and native setup steps",
+      "Only works with Customer.io, no alternative messaging services",
+      "Setup involves native iOS/Android configuration"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add the plugin to pubspec, run pod install or Gradle sync, add NSSupportsLiveActivities to Info.plist, configure Android gradle.properties for live activities, initialize CustomerIOConfig in Dart, and register the plugin in main.dart. No build_runner needed.",
+    "alternatives": [],
+    "minimal_example": "import 'package:customer_io/customer_io.dart';\n\nvoid main() async {\n  WidgetsFlutterBinding.ensureInitialized();\n  await CustomerIO.initialize(\n    config: CustomerIOConfig(\n      siteId: 'your_site_id',\n      apiKey: 'your_api_key',\n    ),\n  );\n  runApp(MyApp());\n}",
+    "confidence": 0.8
+  }
+}

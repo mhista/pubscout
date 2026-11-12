@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "5.1.0",
+  "generatedAt": "2026-11-11T11:16:59.481Z",
+  "data": {
+    "primary_category": "backend",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "hooks"
+    ],
+    "one_liner": "Dart and Flutter SDK for the ConfigCat hosted feature flag and toggle service.",
+    "what_it_does": "Allows managing feature toggles across apps by fetching configuration and evaluating feature flags with user-specific targeting and caching support.",
+    "use_when": [
+      "You use ConfigCat as a hosted feature flag management service in your Flutter or Dart app.",
+      "You need targeted rollouts or percentage-based rollouts based on user attributes."
+    ],
+    "avoid_when": [
+      "You prefer managing your remote configurations using Firebase Remote Config.",
+      "You do not need a third-party hosted feature flagging service."
+    ],
+    "strengths": [
+      "Supports multiple polling modes and external caching mechanisms like shared preferences.",
+      "Provides built-in support for user targeting and snapshots."
+    ],
+    "weaknesses": [
+      "Requires a paid or hosted third-party service (ConfigCat) to function.",
+      "Breaking changes in recent minor versions (e.g., Hooks parameter changes in 5.1.0)."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires an SDK Key from the ConfigCat dashboard and optional setup for caching.",
+    "alternatives": [
+      {
+        "name": "firebase_remote_config",
+        "why_pick_it": "Choose this if you prefer using Firebase for managing your remote configurations and feature flags."
+      }
+    ],
+    "minimal_example": "final client = ConfigCatClient.get(sdkKey: '#YOUR-SDK-KEY#');\nfinal isMyAwesomeFeatureEnabled = await client.getValue(key: 'isMyAwesomeFeatureEnabled', defaultValue: false);\nclient.close();",
+    "confidence": 0.95
+  }
+}

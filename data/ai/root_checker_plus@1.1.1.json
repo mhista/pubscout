@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.1.1",
+  "generatedAt": "2026-11-10T13:08:31.747Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "auth"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Flutter plugin for Android root detection and iOS jailbreak detection.",
+    "what_it_does": "Provides methods to check whether an Android device is rooted or has developer mode enabled, and whether an iOS device is jailbroken. Uses native libraries like RootBeer and DTTJailbreakDetection underneath.",
+    "use_when": [
+      "You need to detect rooted Android devices or jailbroken iOS devices for security-sensitive apps.",
+      "You want to check if developer options are enabled on Android."
+    ],
+    "avoid_when": [
+      "You require foolproof security, as these checks are best-effort and can be bypassed by hiding tools.",
+      "Your app targets platforms other than Android and iOS."
+    ],
+    "strengths": [
+      "Easy-to-use asynchronous API.",
+      "Supports Swift Package Manager alongside CocoaPods on iOS.",
+      "Migrated to built-in Kotlin for Android."
+    ],
+    "weaknesses": [
+      "Can produce false negatives due to root/jailbreak hiding tools, or false positives on custom ROMs.",
+      "Requires handling PlatformException for unsupported states."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires Android minSdk 24 or later, iOS 13.0 or later, Flutter 3.44.0 or later, and Dart 3.12.0 or later.",
+    "alternatives": [],
+    "minimal_example": "Future<void> androidRootChecker() async {\n  try {\n    bool rooted = (await RootCheckerPlus.isRootChecker()) ?? false;\n  } on PlatformException {\n    // handle exception\n  }\n}",
+    "confidence": 1
+  }
+}

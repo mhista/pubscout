@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.9.0",
+  "generatedAt": "2026-11-10T12:54:56.610Z",
+  "data": {
+    "primary_category": "testing",
+    "secondary_categories": [
+      "backend"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Mocks for Firebase Storage to write unit tests.",
+    "what_it_does": "Provides mock implementations for Firebase Storage, allowing developers to write unit tests that involve Firebase Storage without connecting to a real backend. It supports functionalities like putting data, getting download URLs, listing files, and updating metadata.",
+    "use_when": [
+      "You are writing unit tests for code that uses Firebase Storage",
+      "You need to test file upload, download, or deletion logic without a live Firebase connection"
+    ],
+    "avoid_when": [
+      "You are performing integration or end-to-end testing with a real backend",
+      "Your project does not use Firebase Storage"
+    ],
+    "strengths": [
+      "Enables unit testing for Firebase Storage features",
+      "Maintains compatibility with official firebase_storage package versions",
+      "Implements many core features including putData, getDownloadURL, and listAll"
+    ],
+    "weaknesses": [
+      "Mock behavior may not cover 100% of edge cases present in the real Firebase Storage backend"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:firebase_storage_mocks/firebase_storage_mocks.dart';\n\nmain() async {\n  final storage = MockFirebaseStorage();\n  const filename = 'someimage.png';\n  final storageRef = storage.ref().child(filename);\n  // Use storageRef in tests\n}",
+    "confidence": 1
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.2.0",
+  "generatedAt": "2026-11-12T11:42:54.651Z",
+  "data": {
+    "primary_category": "navigation",
+    "secondary_categories": [
+      "ui-kits"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A Flutter plugin that renders the native iOS Liquid Glass style navigation bar.",
+    "what_it_does": "It uses platform views and method channels to render the actual native iOS UITabBar for an authentic look and feel. It supports dark mode, themes, action buttons, tab badges, and SF Symbols.",
+    "use_when": [
+      "You are building an iOS app and want a truly native navigation bar style.",
+      "You need tab items with native iOS badges and SF Symbols."
+    ],
+    "avoid_when": [
+      "You need a cross-platform custom widget navigation bar that looks identical on Android and iOS.",
+      "You are targeting environments older than the required Xcode/iOS constraints without a fallback widget."
+    ],
+    "strengths": [
+      "Provides a genuine native iOS look without custom Flutter layout approximations.",
+      "Supports SF Symbols, dark mode, action buttons, and native tab badges.",
+      "Zero third-party dependencies."
+    ],
+    "weaknesses": [
+      "Only provides native rendering on iOS, requiring a fallback widget for other platforms.",
+      "Requires specific iOS build tooling constraints like Xcode 27 or later."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires Xcode 27 or later for iOS builds. Provide a fallback widget for Android or unsupported platforms.",
+    "alternatives": [],
+    "minimal_example": "NativeGlassNavBar(\n  currentIndex: _currentIndex,\n  onTap: (index) {\n    setState(() {\n      _currentIndex = index;\n    });\n  },\n  tabs: const [\n    NativeGlassNavBarItem(\n      label: 'Home',\n      symbol: 'house',\n      selectedSymbol: 'house.fill',\n    ),\n    NativeGlassNavBarItem(label: 'Search', symbol: 'magnifyingglass'),\n    NativeGlassNavBarItem(label: 'Settings', symbol: 'gear'),\n  ],\n)",
+    "confidence": 1
+  }
+}

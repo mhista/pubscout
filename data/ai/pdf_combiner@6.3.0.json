@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "6.3.0",
+  "generatedAt": "2026-11-09T11:34:15.782Z",
+  "data": {
+    "primary_category": "files",
+    "secondary_categories": [
+      "images"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Merge multiple PDF documents and images into a single file or extract images from PDFs.",
+    "what_it_does": "Allows developers to combine various PDF documents and images from local paths, raw bytes, or remote URLs into a single PDF file. It also supports extracting images from existing PDF documents with customizable scaling and compression settings.",
+    "use_when": [
+      "You need to merge multiple PDF files or images into a single PDF document.",
+      "You need to extract images from a PDF file on supported platforms.",
+      "You work with mixed input sources such as local paths, bytes, and remote URLs."
+    ],
+    "avoid_when": [
+      "You need advanced PDF editing capabilities like form filling, digital signatures, or text annotations.",
+      "You are targeting platforms not supported by the plugin."
+    ],
+    "strengths": [
+      "Supports multiple input source types including paths, bytes, and URLs via sealed classes.",
+      "Cross-platform support covering Android, iOS, Linux, macOS, Windows, and web.",
+      "Provides configuration for image compression and scaling when creating or extracting images."
+    ],
+    "weaknesses": [
+      "Web platform requires proper CORS configuration on remote servers when using remote URLs.",
+      "Specific setup such as installing `libheif-dev` is required to use HEIF images on Linux."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "No additional setup required for directly supported platforms besides handling file permissions or installing `libheif-dev` on Linux if using HEIF images.",
+    "alternatives": [],
+    "minimal_example": "final inputs = [\n  MergeInput.path(\"path/to/local_file1.pdf\"),\n  MergeInput.path(\"path/to/local_file2.pdf\"),\n];\ntry {\n  String response = await PdfCombiner.mergeMultiplePDFs(\n    inputs: inputs,\n    outputPath: \"path/to/output.pdf\",\n  );\n} catch (e) {\n  print(\"Error: $e\");\n}",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.2.1",
+  "generatedAt": "2026-11-10T13:19:07.961Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "A simple flutter plugin to call a phone number directly without opening the dialer.",
+    "what_it_does": "Allows your Flutter application to initiate phone calls directly from the app code without navigating the user away to the native phone dialer. It also handles the necessary permission requests automatically on supported platforms.",
+    "use_when": [
+      "You need to make direct phone calls from within your app.",
+      "You want to bypass the native phone dialer app for calling numbers."
+    ],
+    "avoid_when": [
+      "You only need to open the standard phone dialer with a pre-filled number.",
+      "Your target platform does not support direct calling features."
+    ],
+    "strengths": [
+      "Calls numbers directly without going to the phone dialer",
+      "Handles permission requests automatically",
+      "Simple and straightforward API"
+    ],
+    "weaknesses": [
+      "Requires extra configuration in iOS info.plist",
+      "Limited platform support (Android and iOS only)"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "No additional configuration is needed on Android. For iOS, you must add the 'tel' scheme to LSApplicationQueriesSchemes in your Info.plist file.",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:flutter_phone_direct_caller/flutter_phone_direct_caller.dart';\n\n_callNumber() async {\n  const number = '08592119XXXX';\n  bool res = await FlutterPhoneDirectCaller.callNumber(number);\n}",
+    "confidence": 0.95
+  }
+}

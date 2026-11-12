@@ -1,0 +1,48 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.1.2",
+  "generatedAt": "2026-11-10T12:30:24.142Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Dart API client for Mason CLI",
+    "what_it_does": "Provides methods to login, logout, query current user, search, and publish templates to a Mason server. It handles authentication and HTTP communication.",
+    "use_when": [
+      "You need programmatic access to a Mason server from Dart code",
+      "You want to integrate Mason template publishing into a build or CI pipeline",
+      "You need custom hosted URI support"
+    ],
+    "avoid_when": [
+      "You only need the Mason CLI and no custom Dart integration",
+      "You are building a UI that does not interact with Mason server"
+    ],
+    "strengths": [
+      "Simple API, no code generation required",
+      "Supports custom hosted URI",
+      "Built on stable http package",
+      "Lightweight"
+    ],
+    "weaknesses": [
+      "Limited to Mason server features",
+      "No advanced networking features like retries or interceptors",
+      "No built-in error handling beyond basic exceptions"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "http",
+        "why_pick_it": "Provides lower-level HTTP client that can be used directly if you need more control"
+      }
+    ],
+    "minimal_example": "import 'package:mason_api/mason_api.dart';\n\nconst email = 'my@email.com';\nconst password = 'top-secret!';\n\nFuture<void> main() async {\n  final masonApi = MasonApi();\n  final user = await masonApi.login(email: email, password: password);\n  print('Logged in as ${user.email}!');\n  masonApi.logout();\n  print('Logged out!');\n  masonApi.close();\n}",
+    "confidence": 0.9
+  }
+}

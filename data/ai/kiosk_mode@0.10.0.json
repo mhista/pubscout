@@ -1,0 +1,36 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.10.0",
+  "generatedAt": "2026-11-09T11:51:13.872Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Plugin for working with Lock Task and Guided Access modes on Android and iOS.",
+    "what_it_does": "Provides helper methods to check, start, stop, and stream changes to device kiosk modes such as Lock Task mode on Android and Guided Access mode on iOS.",
+    "use_when": [
+      "You are building a single-purpose kiosk or point-of-sale application",
+      "You need to restrict users to a single application or a restricted set of applications"
+    ],
+    "avoid_when": [
+      "You do not need system-level app pinning or lock down"
+    ],
+    "strengths": [
+      "Supports both Android and iOS platform restrictions",
+      "Provides a stream to monitor kiosk mode state changes"
+    ],
+    "weaknesses": [
+      "Android requires polling with a configurable interval to watch mode changes because the platform does not provide a direct subscription"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires platform configuration for Lock Task / Guided Access as detailed in native documentation.",
+    "alternatives": [],
+    "minimal_example": "final mode = await getKioskMode();\nwatchKioskMode().listen((mode) => print(mode));\nawait startKioskMode();\nawait stopKioskMode();",
+    "confidence": 1
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "2.0.2",
+  "generatedAt": "2026-11-10T12:15:19.633Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Provides a node.js preamble for dart2js output to improve compatibility with Node, Webpack and Electron.",
+    "what_it_does": "The package supplies a JavaScript preamble that replaces the default d8.js preamble used by dart2js. It fixes timer, event‑loop and environment detection issues for Node.js, Webpack, and Electron runtimes.",
+    "use_when": [
+      "Running dart2js‑compiled code in a Node.js environment",
+      "Needing better Electron or Webpack compatibility than the default preamble provides"
+    ],
+    "avoid_when": [
+      "Targeting pure browsers where the default preamble works",
+      "When you don’t need custom environment detection"
+    ],
+    "strengths": [
+      "Fixes crashes in browser and Electron environments",
+      "Keeps Uri.base and location.href in sync with the working directory",
+      "Null‑safety and recent Dart compatibility"
+    ],
+    "weaknesses": [
+      "Only provides a preamble, no other runtime utilities",
+      "Limited to the specific use‑case of dart2js output",
+      "May become outdated if Node or Dart internals change"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the package, import preamble.dart, and call preamble.getPreamble() where needed.",
+    "alternatives": [],
+    "minimal_example": "import 'package:node_preamble/preamble.dart' as preamble;\n\nvoid main() {\n  print(preamble.getPreamble());\n}",
+    "confidence": 0.9
+  }
+}

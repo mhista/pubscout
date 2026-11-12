@@ -1,0 +1,46 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.3.4",
+  "generatedAt": "2026-11-09T11:32:09.972Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Check device internet connection and listen to status changes.",
+    "what_it_does": "Simple Connection Checker allows developers to verify if a device is connected to the internet. It provides both a static method for a one-time check and a stream-based method to listen for connection status changes over time.",
+    "use_when": [
+      "You need to quickly check if the device has an active internet connection.",
+      "You want to listen to real-time changes in internet connectivity status."
+    ],
+    "avoid_when": [
+      "You need detailed network interface information (like Wi-Fi vs cellular details), which is not documented as a feature.",
+      "You require a well-established official connectivity library without custom lookup mechanisms."
+    ],
+    "strengths": [
+      "Provides a simple static method to check internet connection instantly.",
+      "Includes a stream to listen for connection changes.",
+      "Allows specifying a custom lookup address."
+    ],
+    "weaknesses": [
+      "Relies on HTTP lookups which might introduce slight latency or battery overhead compared to native connectivity hooks.",
+      "Limited documentation regarding comprehensive platform-specific nuances."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [
+      {
+        "name": "connectivity_plus",
+        "why_pick_it": "It is a more comprehensive and widely-used alternative for checking network connectivity status across platforms."
+      }
+    ],
+    "minimal_example": "bool isConnected = await SimpleConnectionChecker.isConnectedToInternet();",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.9.20",
+  "generatedAt": "2026-11-09T11:19:18.304Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Dart FFI bindings for Linux peripheral I/O (GPIO, I2C, SPI, etc.).",
+    "what_it_does": "Provides Dart wrappers around the c‑periphery library to control hardware peripherals on Linux platforms. It exposes classes for GPIO, LED, PWM, SPI, I2C, MMIO, ADC and serial communication via FFI.",
+    "use_when": [
+      "You need direct access to Linux GPIO, I2C, SPI, PWM, or serial ports from Dart code",
+      "Running on a Raspberry Pi or similar SBC and want a Dart‑native API instead of shell commands"
+    ],
+    "avoid_when": [
+      "Your app must run on non‑Linux platforms (Windows, macOS, web)",
+      "You prefer a pure‑Dart implementation without native dependencies"
+    ],
+    "strengths": [
+      "Thin, close mapping to the well‑tested c‑periphery library",
+      "Supports a wide range of peripheral interfaces",
+      "Works on popular SBCs like Raspberry Pi, NanoPi, Banana Pi"
+    ],
+    "weaknesses": [
+      "Linux‑only; cannot be used on other OSes",
+      "Requires native library and proper permissions to access /dev devices",
+      "Setup can be tricky for beginners unfamiliar with FFI"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add the package, ensure the c‑periphery shared library is available on the target device, and grant appropriate permissions to access /dev/* devices (e.g., run as root or adjust udev rules).",
+    "alternatives": [
+      {
+        "name": "posix",
+        "why_pick_it": "Provides low‑level POSIX system calls for Linux but lacks the high‑level peripheral abstractions of dart_periphery"
+      }
+    ],
+    "minimal_example": "import 'package:dart_periphery/dart_periphery.dart';\n\nvoid main() {\n  var gpio = GPIO(18, GPIOdirection.gpioDirOut);\n  gpio.write(true);\n  gpio.dispose();\n}",
+    "confidence": 0.95
+  }
+}

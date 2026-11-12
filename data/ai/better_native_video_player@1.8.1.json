@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.8.1",
+  "generatedAt": "2026-11-12T11:42:55.262Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "declarative"
+    ],
+    "one_liner": "Native AVPlayer and ExoPlayer video player for iOS and Android with custom Flutter overlays.",
+    "what_it_does": "Plays HLS, MP4, and local video files using true native decoders (AVPlayer on iOS and ExoPlayer on Android) while allowing custom Flutter UI overlays. It supports features like PiP, Chromecast, AirPlay, background audio, DRM, and offline downloads.",
+    "use_when": [
+      "You need robust native video playback (HLS, DRM, adaptive streaming) on iOS and Android.",
+      "You want to build custom video controls or overlays entirely in Flutter.",
+      "You require advanced features like Picture-in-Picture, AirPlay, Chromecast, and background audio."
+    ],
+    "avoid_when": [
+      "You need web or desktop video playback capabilities.",
+      "You want a completely pre-styled, zero-config default video UI out of the box."
+    ],
+    "strengths": [
+      "Leverages true native players (AVPlayer and ExoPlayer) for decoding and buffering.",
+      "Comprehensive feature set including HLS, DRM, Chromecast, AirPlay, PiP, and background playback.",
+      "Allows complete customization of the controls and overlay via Flutter widgets."
+    ],
+    "weaknesses": [
+      "Playback is limited to iOS and Android only (not supported on web or desktop).",
+      "Requires platform-specific configuration for background modes and permissions."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires iOS background mode configuration (audio, picture-in-picture) and optional local network permissions for Chromecast discovery in Info.plist.",
+    "alternatives": [
+      {
+        "name": "video_player",
+        "why_pick_it": "You prefer the official Flutter team's standard video plugin with simpler setup."
+      },
+      {
+        "name": "just_audio",
+        "why_pick_it": "You are building an audio-first app rather than a video player."
+      }
+    ],
+    "minimal_example": "import 'package:better_native_video_player/better_native_video_player.dart';\nimport 'package:flutter/material.dart';\n\nclass VideoPage extends StatefulWidget {\n  const VideoPage({super.key});\n\n  @override\n  State<VideoPage> createState() => _VideoPageState();\n}\n\nclass _VideoPageState extends State<VideoPage> {\n  final _controller = NativeVideoPlayerController(id: 1, autoPlay: true);\n\n  @override\n  void initState() {\n    super.initState();\n    _start();\n  }\n\n  Future<void> _start() async {\n    await _controller.initialize();\n    await _controller.load(\n      url: 'https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8',\n    );\n  }\n\n  @override\n  void dispose() {\n    _controller.dispose();\n    super.dispose();\n  }\n\n  @override\n  Widget build(BuildContext context) {\n    return AspectRatio(\n      aspectRatio: 16 / 9,\n      child: NativeVideoPlayer(controller: _controller),\n    );\n  }\n}",
+    "confidence": 1
+  }
+}

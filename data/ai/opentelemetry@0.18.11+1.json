@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.18.11+1",
+  "generatedAt": "2026-11-10T12:29:32.013Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "no codegen",
+      "imperative"
+    ],
+    "one_liner": "Deprecated wrapper that re‑exports opentelemetry_wk for backward compatibility.",
+    "what_it_does": "The package does nothing on its own; it simply forwards all symbols to the opentelemetry_wk package. It exists so existing imports continue to work while migration to opentelemetry_wk is performed.",
+    "use_when": [
+      "You have existing code that imports package:opentelemetry and want a quick migration path",
+      "You need a temporary shim while updating dependencies"
+    ],
+    "avoid_when": [
+      "You are starting a new project – depend on opentelemetry_wk directly",
+      "You need any functionality beyond what opentelemetry_wk provides"
+    ],
+    "strengths": [
+      "Zero‑runtime overhead – just re‑exports",
+      "Simplifies migration from the old package name"
+    ],
+    "weaknesses": [
+      "Deprecated and will receive no new features",
+      "Adds an extra dependency layer that may cause confusion"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "// In pubspec.yaml\ndependencies:\n  opentelemetry: ^0.18.11+1\n\n// In code (still works)\nimport 'package:opentelemetry/opentelemetry.dart';\n\n// After migration switch to:\nimport 'package:opentelemetry_wk/opentelemetry_wk.dart';",
+    "confidence": 0.87
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "12.0.0",
+  "generatedAt": "2026-11-09T11:10:40.552Z",
+  "data": {
+    "primary_category": "ai-ml",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Dart client for OpenAI REST APIs and realtime WebSocket/WebRTC workflows.",
+    "what_it_does": "Provides type-safe Dart and Flutter access to OpenAI APIs including the Responses API, chat completions, images, audio, embeddings, and realtime WebSocket sessions. Supports custom tools, structured JSON output, Google Vertex, and regional endpoints.",
+    "use_when": [
+      "You need to integrate OpenAI models and APIs into a Dart or Flutter application.",
+      "You require real-time streaming, voice, or structured output workflows using OpenAI.",
+      "You want a typed client that works consistently across mobile, desktop, web, and servers."
+    ],
+    "avoid_when": [
+      "You are using on-device models and cannot send data to hosted APIs.",
+      "You need a backend wrapper rather than exposing API keys or handling requests directly on client devices (production apps should route via a backend)."
+    ],
+    "strengths": [
+      "Comprehensive coverage of OpenAI REST APIs and realtime WebSocket/WebRTC workflows.",
+      "Works across pure Dart and Flutter on mobile, desktop, web, and servers.",
+      "Type-safe requests and responses with support for streaming, retries, and interceptors."
+    ],
+    "weaknesses": [
+      "Requires managing API keys and usage costs securely.",
+      "Frequent breaking changes across major semantic version bumps."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires Dart 3.12 or later and an OpenAI API key set via OPENAI_API_KEY environment variable or explicit configuration.",
+    "alternatives": [
+      {
+        "name": "firebase_ai",
+        "why_pick_it": "If you want to use Google's generative AI models through Firebase instead of OpenAI."
+      },
+      {
+        "name": "llamadart",
+        "why_pick_it": "If you want to run LLaMA models locally on-device rather than using a remote API client."
+      }
+    ],
+    "minimal_example": "import 'package:openai_dart/openai_dart.dart';\n\nFuture<void> main() async {\n  final client = OpenAIClient.fromEnvironment();\n\n  try {\n    final response = await client.responses.create(\n      const CreateResponseRequest(\n        model: 'gpt-5.5',\n        input: ResponseInput.text('What is the capital of France?'),\n      ),\n    );\n    print(response.outputText);\n  } finally {\n    client.close();\n  }\n}",
+    "confidence": 0.95
+  }
+}

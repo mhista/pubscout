@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.1.5",
+  "generatedAt": "2026-11-10T13:03:32.700Z",
+  "data": {
+    "primary_category": "codegen",
+    "secondary_categories": [
+      "backend"
+    ],
+    "approach": [
+      "code generation"
+    ],
+    "one_liner": "Generate request routers for the shelf web-framework using source annotations.",
+    "what_it_does": "It provides a builder compatible with package:build that automatically generates request routers for the Shelf web framework based on annotations in code. It allows developers to define routes cleanly inside service classes rather than manually wiring handlers together.",
+    "use_when": [
+      "Building web applications or servers using the shelf framework",
+      "You prefer annotation-driven route generation over manual configuration"
+    ],
+    "avoid_when": [
+      "Not using the shelf web framework",
+      "You prefer manual router configuration without build_runner steps"
+    ],
+    "strengths": [
+      "Keeps routing logic organized inside respective service classes",
+      "Integrates seamlessly with build_runner and source_gen"
+    ],
+    "weaknesses": [
+      "Requires running a build step via build_runner",
+      "Adds code generation boilerplate to the project"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add shelf_router_generator and build_runner to dev_dependencies, then run build_runner to generate routing code.",
+    "alternatives": [],
+    "minimal_example": "class UserService {\n  @Route.get('/users/')\n  Future<Response> listUsers(Request request) async {\n    return Response.ok('[\"user1\"]');\n  }\n\n  Router get router => _$UserServiceRouter(this);\n}",
+    "confidence": 0.95
+  }
+}

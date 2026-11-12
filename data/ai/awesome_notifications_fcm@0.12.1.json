@@ -1,0 +1,50 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.12.1",
+  "generatedAt": "2026-11-12T11:13:56.242Z",
+  "data": {
+    "primary_category": "notifications",
+    "secondary_categories": [
+      "backend"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Firebase Cloud Messaging integration for awesome_notifications push features",
+    "what_it_does": "Enables sending rich push notifications via Firebase Cloud Messaging using all of the awesome_notifications layout features, images, and sounds. It serves as a replacement for the standard firebase_messaging plugin.",
+    "use_when": [
+      "You want to use Firebase Cloud Messaging to send rich push notifications with custom layouts, buttons, and sounds via awesome_notifications.",
+      "You are replacing firebase_messaging with awesome_notifications_fcm to unify your push and local notification handling."
+    ],
+    "avoid_when": [
+      "You are already using the standard firebase_messaging plugin alongside this one (they conflict and you must not use both).",
+      "You do not need Firebase and only require local notifications."
+    ],
+    "strengths": [
+      "Integrates full awesome_notifications feature set (images, layouts, buttons, sounds) with Firebase Cloud Messaging.",
+      "Allows dismissing and cancelling notifications remotely by ID, Group ID, or Channel ID.",
+      "Supports silent push notifications for background instructions and topic subscriptions."
+    ],
+    "weaknesses": [
+      "Requires complex native iOS configuration including a Notification Service Extension target and pod modifications.",
+      "Not compatible with firebase_messaging; requires migrating away from it if it was previously used.",
+      "Push notifications are not 100% reliable and can be impacted by battery saving modes."
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Requires flutterfire CLI configuration, Android setup, and advanced iOS setup including adding a Notification Service Extension target in Xcode, modifying the Podfile, and configuring specific build settings.",
+    "alternatives": [
+      {
+        "name": "firebase_messaging",
+        "why_pick_it": "If you prefer the official, standard Firebase messaging plugin without the added features and native setup complexity of awesome_notifications."
+      },
+      {
+        "name": "onesignal_flutter",
+        "why_pick_it": "If you want a dedicated third-party push notification platform with advanced targeting and built-in dashboard analytics rather than raw FCM."
+      }
+    ],
+    "minimal_example": "import 'package:awesome_notifications_fcm/awesome_notifications_fcm.dart';\n\n// Initialize and handle FCM with Awesome Notifications\n",
+    "confidence": 0.95
+  }
+}

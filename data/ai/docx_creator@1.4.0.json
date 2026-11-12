@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "1.4.0",
+  "generatedAt": "2026-11-11T11:15:21.279Z",
+  "data": {
+    "primary_category": "files",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Create, read, edit, and convert DOCX files to PDF, HTML, and Markdown in pure Dart.",
+    "what_it_does": "The library provides a fluent builder API to generate DOCX documents, parse existing DOCX files, and export them to PDF, HTML, or Markdown. It also includes readers for DOCX and PDF and supports embedding images, tables, shapes, and custom fonts.",
+    "use_when": [
+      "You need to generate or modify Word documents on any platform without native code",
+      "You want to export documents to PDF, HTML, or Markdown directly from Dart"
+    ],
+    "avoid_when": [
+      "Exact Word feature parity is required, especially for PDF export gaps",
+      "You need real‑time collaborative editing of documents"
+    ],
+    "strengths": [
+      "Pure‑Dart implementation works on all Flutter platforms",
+      "Comprehensive DOCX features and PDF export with fallback fonts",
+      "Fluent builder API makes document creation concise"
+    ],
+    "weaknesses": [
+      "PDF export has some feature gaps compared to DOCX",
+      "Package size may be large due to font and image handling"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:docx_creator/docx_creator.dart';\n\nvoid main(){\n  final doc = DocxBuilder()\n    .addParagraph('Hello World')\n    .addTable([\n      ['Header 1','Header 2'],\n      ['Cell 1','Cell 2']\n    ])\n    .build();\n  doc.saveAsDocx('example.docx');\n  doc.saveAsPdf('example.pdf');\n}",
+    "confidence": 0.93
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "1.2.0",
+  "generatedAt": "2026-11-10T12:24:59.992Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "HTTP link for executing GraphQL requests via JSON.",
+    "what_it_does": "Provides a terminating link that sends GraphQL operations over HTTP, handling JSON encoding/decoding and error mapping. It supports GET for queries, multipart uploads, and custom headers.",
+    "use_when": [
+      "You need a lightweight GraphQL client that talks to a standard HTTP endpoint.",
+      "You prefer a composable link architecture over a monolithic client.",
+      "You want fine‑grained control over request/response handling.",
+      "You need to integrate with existing gql_link pipelines."
+    ],
+    "avoid_when": [
+      "You already use a full‑featured HTTP client like dio and want to avoid extra dependencies.",
+      "You need advanced features like WebSocket subscriptions or gRPC support."
+    ],
+    "strengths": [
+      "Zero‑dependency on heavy HTTP clients; uses Dart's http package.",
+      "Fast JSON decoding via _JsonUtf8Decoder.",
+      "Composable with other gql_link links.",
+      "Supports multipart uploads and GET queries."
+    ],
+    "weaknesses": [
+      "Limited to HTTP; no WebSocket support.",
+      "No built‑in retry or caching logic.",
+      "Requires manual error handling for non‑200 responses."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dependency and import package; no build_runner needed.",
+    "alternatives": [
+      {
+        "name": "http",
+        "why_pick_it": "Standard HTTP client for simple requests, but lacks GraphQL link abstraction."
+      }
+    ],
+    "minimal_example": "import \"package:gql_link/gql_link.dart\";\nimport \"package:gql_http_link/gql_http_link.dart\";\n\nfinal link = Link.from([HttpLink(\"/graphql\")]);",
+    "confidence": 0.92
+  }
+}

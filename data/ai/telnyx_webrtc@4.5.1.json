@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.5.1",
+  "generatedAt": "2026-11-12T11:44:50.508Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [
+      "networking",
+      "device"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Enable real-time WebRTC voice communication and calls with Telnyx.",
+    "what_it_does": "The telnyx_webrtc package enables real-time communication on Android, iOS, and Web platforms using Telnyx services. It provides core classes to connect via SIP credentials or tokens, manage call state, place and receive calls, and handle WebRTC features like DTMF, audio codecs, and ICE candidate configuration.",
+    "use_when": [
+      "You need to integrate Telnyx voice calling and WebRTC into a Flutter app.",
+      "You want to handle incoming and outgoing calls with custom audio controls like hold, mute, and speaker toggle."
+    ],
+    "avoid_when": [
+      "You require a non-Telnyx WebRTC or SIP signaling infrastructure.",
+      "You only need simple HTTP REST networking."
+    ],
+    "strengths": [
+      "Supports cross-platform WebRTC communication across Android, iOS, and Web.",
+      "Provides built-in audio controls, logging configuration, and diagnostic tools."
+    ],
+    "weaknesses": [
+      "Requires specific native permissions and configuration for Android and iOS.",
+      "Tied directly to the Telnyx backend and infrastructure."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires native permission configurations: INTERNET, RECORD_AUDIO, and MODIFY_AUDIO_SETTINGS permissions in AndroidManifest.xml, and NSMicrophoneUsageDescription in iOS Info.plist.",
+    "alternatives": [],
+    "minimal_example": "TelnyxClient _telnyxClient = TelnyxClient();\nvar config = CredentialConfig(\n  sipUser: 'username',\n  sipPassword: 'password',\n  sipCallerIDName: 'Caller Name',\n  sipCallerIDNumber: '1234567890',\n  debug: true,\n  logLevel: LogLevel.debug,\n);\n_telnyxClient.connectWithCredential(config);",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.5.1",
+  "generatedAt": "2026-11-11T11:11:11.142Z",
+  "data": {
+    "primary_category": "devtools",
+    "secondary_categories": [
+      "utils",
+      "widgets"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Shared UI widgets, utilities and VM‑service helpers for Flutter DevTools extensions.",
+    "what_it_does": "Provides common DevTools‑styled widgets, global‑variable helpers, lifecycle mixins, and service‑manager APIs. It centralises UI and service logic used across DevTools and its extensions.",
+    "use_when": [
+      "You are building a DevTools plugin or extension and need the same UI components and service helpers as the main DevTools app.",
+      "You want consistent styling and utilities (globals, AutoDisposeMixin, service management) across multiple tooling surfaces."
+    ],
+    "avoid_when": [
+      "You are developing a regular consumer Flutter app that does not integrate with DevTools.",
+      "You need a full‑featured UI kit or theming system beyond DevTools styling."
+    ],
+    "strengths": [
+      "Ensures visual and functional consistency with official DevTools.",
+      "Reduces duplication of service‑manager and utility code across tooling projects.",
+      "Includes ready‑made DevTools‑styled widgets and mixins."
+    ],
+    "weaknesses": [
+      "Tailored to DevTools use‑case; may be overkill for general apps.",
+      "Adds a dependency on many DevTools‑specific packages.",
+      "Limited documentation beyond the README examples."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "devtools_shared",
+        "why_pick_it": "Provides core service and utility code without the extra UI components, useful if you only need non‑UI shared logic."
+      }
+    ],
+    "minimal_example": "import 'package:devtools_app_shared/utils.dart';\n\nMyCoolClass get coolClass => globals[MyCoolClass] as MyCoolClass;\n\nvoid main() {\n  setGlobal(MyCoolClass, MyCoolClass());\n  coolClass.foo();\n}",
+    "confidence": 0.9
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.1.4",
+  "generatedAt": "2026-11-11T11:27:26.390Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "files"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Read resource data and files in a portable way across VM, Web, and Flutter.",
+    "what_it_does": "Allows loading runtime resource data identified by a URI (including package: URIs) as bytes or text. Serves as a web-compatible fork of the original resource package, supporting various platforms including Android, iOS, Web, Windows, macOS, and Linux.",
+    "use_when": [
+      "You need to load static resource files or package assets consistently across VM and Web environments.",
+      "You are porting an existing codebase that relies on the classic 'resource' package to run on the web."
+    ],
+    "avoid_when": [
+      "You are already using Flutter's built-in rootBundle asset loading and do not need cross-platform Dart VM compatibility.",
+      "You require complex asset management features specific to mobile or desktop platforms not covered by basic URI loading."
+    ],
+    "strengths": [
+      "Cross-platform compatibility (VM, Web, Flutter, and native).",
+      "Familiar API identical to the original resource package."
+    ],
+    "weaknesses": [
+      "Relies on specific platform configurations and custom path resolvers that might fail if asset paths or package URIs cannot be resolved."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'dart:convert' show utf8;\n\nimport 'package:resource_portable/resource.dart' show Resource;\n\nmain() async {\n  var resource = Resource(\"package:foo/foo_data.txt\");\n  var content = await resource.readAsString(encoding: utf8);\n  print(content);\n}",
+    "confidence": 0.95
+  }
+}

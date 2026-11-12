@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.1.9",
+  "generatedAt": "2026-11-10T13:08:03.712Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "A lightweight Flutter plugin for video trimming using platform-native code without FFmpeg.",
+    "what_it_does": "Allows developers to load video files, trim them with millisecond precision, and clear cache using native Android Media3 and iOS AVFoundation implementations. It operates locally on the device without relying on heavy FFmpeg libraries.",
+    "use_when": [
+      "You need to trim videos directly on device without bundling heavy FFmpeg binaries.",
+      "You want lightweight native performance using Media3 on Android and AVFoundation on iOS."
+    ],
+    "avoid_when": [
+      "You need advanced video editing features like merging, cropping, or rotating multiple files.",
+      "You require web or desktop support since only Android and iOS are supported."
+    ],
+    "strengths": [
+      "No FFmpeg dependency, resulting in smaller app size and faster processing.",
+      "Memory-efficient processing without loading entire files into memory.",
+      "Precise millisecond trimming capabilities."
+    ],
+    "weaknesses": [
+      "Limited only to video trimming; lacks advanced editing tools.",
+      "Supports only Android and iOS platforms."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires minimum Android SDK 21 and minimum iOS 11.0.",
+    "alternatives": [
+      {
+        "name": "video_player",
+        "why_pick_it": "If you primarily need to play media rather than manipulate and trim video files."
+      }
+    ],
+    "minimal_example": "final videoTrimmer = VideoTrimmer();\nawait videoTrimmer.loadVideo('/path/to/video.mp4');\nfinal trimmedPath = await videoTrimmer.trimVideo(\n  startTimeMs: 0,\n  endTimeMs: 5000,\n  includeAudio: true,\n);",
+    "confidence": 1
+  }
+}

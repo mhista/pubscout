@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.1.6",
+  "generatedAt": "2026-11-10T12:26:32.696Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "Detects whether the on-screen keyboard is visible on Android and iOS.",
+    "what_it_does": "Provides a stream and utilities to know when the soft keyboard appears or disappears. It works as a drop‑in replacement for flutter_keyboard_visibility with a few temporary fixes.",
+    "use_when": [
+      "You need to react to keyboard show/hide events in a Flutter app.",
+      "You are using flutter_quill and need a quick temporary fix for keyboard detection."
+    ],
+    "avoid_when": [
+      "You require a stable, long‑term solution.",
+      "You need keyboard visibility on web, desktop, or other platforms."
+    ],
+    "strengths": [
+      "Simple drop‑in API compatible with the original package",
+      "Fixes compile‑SDK and WASM issues",
+      "Supports Swift Package Manager"
+    ],
+    "weaknesses": [
+      "Only Android and iOS are supported",
+      "Temporary fork that may break soon",
+      "No web or desktop support"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter_keyboard_visibility_temp_fork/flutter_keyboard_visibility_temp_fork.dart';\n\nvoid main() {\n  WidgetsFlutterBinding.ensureInitialized();\n  KeyboardVisibilityController().onChange.listen((bool visible) {\n    print('Keyboard is ${visible ? 'visible' : 'hidden'}');\n  });\n  runApp(MyApp());\n}",
+    "confidence": 0.9
+  }
+}

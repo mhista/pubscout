@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.6.0",
+  "generatedAt": "2026-11-09T11:15:28.515Z",
+  "data": {
+    "primary_category": "animation",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A Flutter ListView that implicitly animates list changes and supports reordering.",
+    "what_it_does": "It provides ImplicitlyAnimatedList, SliverImplicitlyAnimatedList, and ImplicitlyAnimatedReorderableList widgets that automatically calculate differences between lists using the MyersDiff algorithm and animate insertions, removals, updates, and reorders.",
+    "use_when": [
+      "You need a ListView or Sliver that automatically animates item insertions, removals, and updates.",
+      "You need to allow users to reorder list items with custom drag animations."
+    ],
+    "avoid_when": [
+      "You are dealing with extremely large lists where diff calculations might impact performance.",
+      "You need standard non-animated list views."
+    ],
+    "strengths": [
+      "Implicitly calculates changes between two lists using the MyersDiff algorithm.",
+      "Supports reordering with customizable drag animations and handles.",
+      "Computes differences on a background isolate by default."
+    ],
+    "weaknesses": [
+      "May take significant time when computing diffs for very large lists.",
+      "Implicit animations like AnimatedContainer inside Reorderables are not yet supported."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "ImplicitlyAnimatedReorderableList<MyGenericType>(\n  items: items,\n  areItemsTheSame: (oldItem, newItem) => oldItem.id == newItem.id,\n  onReorderFinished: (item, from, to, newItems) {\n    setState(() {\n      items\n        ..clear()\n        ..addAll(newItems);\n    });\n  },\n  itemBuilder: (context, itemAnimation, item, index) {\n    return Reorderable(\n      key: ValueKey(item),\n      builder: (context, dragAnimation, inDrag) {\n        return SizeFadeTransition(\n          sizeFraction: 0.7,\n          curve: Curves.easeInOut,\n          animation: itemAnimation,\n          child: ListTile(\n            title: Text(item.name),\n          ),\n        );\n      },\n    );\n  },\n)",
+    "confidence": 1
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.2.1",
+  "generatedAt": "2026-11-11T11:09:55.767Z",
+  "data": {
+    "primary_category": "dependency-injection",
+    "secondary_categories": [
+      "codegen"
+    ],
+    "approach": [
+      "code generation",
+      "declarative"
+    ],
+    "one_liner": "Source code generator for compile-time dependency injection using annotations.",
+    "what_it_does": "Reads @inject, @component, and @module annotations to generate fully wired, type-safe dependency components at build time. It eliminates runtime reflection and global state, supporting constructor injection and Flutter view-model factories.",
+    "use_when": [
+      "You want compile-time safety and validation for your dependencies",
+      "You prefer explicit constructor injection over runtime service locators",
+      "You are building a Flutter application that can benefit from build_runner code generation"
+    ],
+    "avoid_when": [
+      "You cannot use build_runner or code generation in your workflow",
+      "You prefer runtime service locators like get_it"
+    ],
+    "strengths": [
+      "Zero runtime overhead and no reflection (no dart:mirrors)",
+      "Compile-time validation catches missing bindings and cycles early",
+      "Strong Flutter integration via inject_flutter and ViewModelFactory"
+    ],
+    "weaknesses": [
+      "Requires running build_runner after annotation changes",
+      "Generated code adds build artifacts to your project"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add inject_annotation, dev dependency inject_generator, and build_runner to your pubspec.yaml, then run build_runner.",
+    "alternatives": [],
+    "minimal_example": "@inject\nclass CounterViewModel extends ChangeNotifier {\n  int count = 0;\n\n  void increment() {\n    count++;\n    notifyListeners();\n  }\n}",
+    "confidence": 1
+  }
+}

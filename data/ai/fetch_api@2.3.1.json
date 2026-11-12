@@ -1,0 +1,52 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "2.3.1",
+  "generatedAt": "2026-11-10T12:35:27.200Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Dart bindings for the JavaScript Fetch API, enabling web‑only HTTP requests with streaming and abort support.",
+    "what_it_does": "Provides a Dart wrapper around the browser Fetch API, exposing full request options, AbortController cancellation, and response streaming as text, Blob or Uint8List streams. It also offers utilities to check streaming capability and handle redirects.",
+    "use_when": [
+      "You need fine‑grained control over fetch options on web platforms",
+      "You require streaming request or response bodies in a web app",
+      "You want to cancel in‑flight requests via AbortController"
+    ],
+    "avoid_when": [
+      "Running on mobile, desktop, or server where Fetch API isn’t available",
+      "You need a cross‑platform HTTP client with retries, interceptors, or advanced features"
+    ],
+    "strengths": [
+      "Full coverage of Fetch API options",
+      "Supports request and response streaming",
+      "WASM‑ready and works with JavaScript interop"
+    ],
+    "weaknesses": [
+      "Web‑only; no support for non‑web platforms",
+      "Limited higher‑level features like retries or interceptors",
+      "Breaking API changes between minor versions"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "http",
+        "why_pick_it": "Cross‑platform HTTP client with a simple API and no web‑only constraints"
+      },
+      {
+        "name": "dio",
+        "why_pick_it": "Feature‑rich HTTP client with interceptors, retries, and support for all Flutter platforms"
+      }
+    ],
+    "minimal_example": "import 'package:fetch_api/fetch_api.dart';\n\nFuture<void> main() async {\n  final response = await fetch('https://example.com');\n  final text = await response.text();\n  print(text);\n}",
+    "confidence": 0.9
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "3.2.0",
+  "generatedAt": "2026-11-09T11:18:45.635Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "stream-based",
+      "declarative"
+    ],
+    "one_liner": "Detects user inactivity or app background time and emits timeout events for redirection.",
+    "what_it_does": "Provides SessionConfig and SessionTimeoutManager widgets that monitor user activity and app focus. When configured durations are exceeded, a stream emits timeout states that can be used to navigate to an authentication page.",
+    "use_when": [
+      "The app contains confidential data and must auto‑logout after inactivity",
+      "You need an offline‑first solution that works on mobile, web and desktop",
+      "You want a simple, configurable timeout without adding a full auth framework"
+    ],
+    "avoid_when": [
+      "Precise keyboard activity detection is required",
+      "App‑focus timeout is needed on web or desktop (unsupported)",
+      "You need a complete authentication solution rather than just timeout detection"
+    ],
+    "strengths": [
+      "Works offline and on all major platforms",
+      "Simple API with configurable durations",
+      "Uses a stream so you can react anywhere in the app"
+    ],
+    "weaknesses": [
+      "App‑focus timeout only works on Android/iOS",
+      "Keyboard input isn’t counted as activity",
+      "Must be placed at the top of the widget tree"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:local_session_timeout/local_session_timeout.dart';\n\nfinal sessionConfig = SessionConfig(\n  invalidateSessionForAppLostFocus: const Duration(seconds: 15),\n  invalidateSessionForUserInactivity: const Duration(seconds: 30),\n);\n\nsessionConfig.stream.listen((event) {\n  if (event == SessionTimeoutState.userInactivityTimeout) {\n    Navigator.of(context).pushNamed('/auth');\n  } else if (event == SessionTimeoutState.appFocusTimeout) {\n    Navigator.of(context).pushNamed('/auth');\n  }\n});\n\nreturn SessionTimeoutManager(\n  sessionConfig: sessionConfig,\n  child: MaterialApp(...),\n);",
+    "confidence": 0.93
+  }
+}

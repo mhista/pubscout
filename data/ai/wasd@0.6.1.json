@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.6.1",
+  "generatedAt": "2026-11-12T11:47:49.977Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "backend",
+      "web-desktop"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Pure Dart WebAssembly runtime for executing Wasm modules, components, and WASI.",
+    "what_it_does": "WASD provides a Dart-native WebAssembly runtime that decodes, validates, compiles, and instantiates WebAssembly modules and components directly in Dart and Flutter. It includes built-in host runners for WASI Preview1, Preview2, and Preview3 environments without needing native runtime dependencies in the core library.",
+    "use_when": [
+      "You need to run WebAssembly modules or components natively within a pure Dart or Flutter application.",
+      "You want to execute WASI-compatible command or proxy components on the Dart VM.",
+      "You need explicit host function imports, import maps, and typed wrappers for WebAssembly integration."
+    ],
+    "avoid_when": [
+      "You require full Core, Component Model, or WASI conformance where edge-case spec parity is critical.",
+      "You are targeting platforms or scenarios with strict limitations on JIT or interpreter performance for heavy Wasm workloads."
+    ],
+    "strengths": [
+      "Pure Dart core runtime with no external native library dependencies for the core library.",
+      "Supports WASI Preview1, Preview2 (0.2.12), and Preview3 (0.3.0/0.3.1) command and service components.",
+      "Provides WebAssembly-style operations like compile, instantiate, and validate with custom import maps."
+    ],
+    "weaknesses": [
+      "Does not claim full Core, Component Model, or WASI conformance.",
+      "Certain TCP bind and network capabilities are platform-dependent or return not-supported on non-Linux/macOS platforms."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the dependency to pubspec.yaml using pub add wasd.",
+    "alternatives": [],
+    "minimal_example": "import 'dart:typed_data';\nimport 'package:wasd/wasd.dart';\n\nFuture<void> main() async {\n  final Uint8List wasmBytes = loadYourModuleBytes();\n  final runtime = await WebAssembly.instantiate(wasmBytes.buffer);\n  final addExport = runtime.instance.exports['add'];\n  if (addExport is! FunctionImportExportValue) {\n    throw StateError('Expected `add` export to be a function.');\n  }\n\n  final result = (addExport.ref([20, 22]) as num).toInt();\n  print(result); // 42\n}\n\nUint8List loadYourModuleBytes() => throw UnimplementedError();",
+    "confidence": 0.95
+  }
+}

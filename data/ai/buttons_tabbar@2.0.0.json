@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.0",
+  "generatedAt": "2026-11-09T11:26:44.566Z",
+  "data": {
+    "primary_category": "ui-kits",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A Flutter TabBar where each tab indicator is a toggle button.",
+    "what_it_does": "Implements a customizable TabBar widget where each tab acts as an interactive toggle button with individual styles, background colors, borders, and smooth transition animations. It integrates with TabController and DefaultTabController from the material_ui package.",
+    "use_when": [
+      "You want a tab bar styled as toggle buttons rather than standard underlined tabs",
+      "You need custom backgrounds, borders, or gradients per tab state"
+    ],
+    "avoid_when": [
+      "Your project relies strictly on package:flutter/material.dart and you cannot migrate to material_ui",
+      "You require the default platform-native tab styling without button wrappers"
+    ],
+    "strengths": [
+      "Highly customizable tab appearance with support for gradients, borders, and rounded corners",
+      "Smooth transition animations between states",
+      "Easy integration with standard TabBarView and TabController workflows"
+    ],
+    "weaknesses": [
+      "Requires the standalone material_ui package and Flutter 3.47.0+ in version 2.0.0",
+      "Not compatible out-of-the-box with apps using standard package:flutter/material.dart without staying on older versions"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dependencies for buttons_tabbar and material_ui to pubspec.yaml, and ensure your app meets the minimum Flutter version requirement of 3.47.0.",
+    "alternatives": [],
+    "minimal_example": "DefaultTabController(\n  length: 3,\n  child: Column(\n    children: <Widget>[\n      ButtonsTabBar(\n        backgroundColor: Colors.red,\n        tabs: [\n          Tab(text: \"Tab 1\"),\n          Tab(text: \"Tab 2\"),\n          Tab(text: \"Tab 3\"),\n        ],\n      ),\n      Expanded(\n        child: TabBarView(\n          children: [\n            Center(child: Text(\"1\")),\n            Center(child: Text(\"2\")),\n            Center(child: Text(\"3\")),\n          ],\n        ),\n      ),\n    ],\n  ),\n)",
+    "confidence": 1
+  }
+}

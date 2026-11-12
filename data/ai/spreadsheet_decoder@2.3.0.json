@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.3.0",
+  "generatedAt": "2026-11-10T13:11:06.693Z",
+  "data": {
+    "primary_category": "files",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "A lightweight library for parsing and updating ODS and XLSX spreadsheet documents.",
+    "what_it_does": "It allows developers to decode ODS and XLSX spreadsheet files into structured tables, access cell values, update specific cells, and encode them back into bytes. It supports both server-side and client-side environments.",
+    "use_when": [
+      "You need to read or update Excel (XLSX) or OpenDocument Spreadsheet (ODS) files in Dart.",
+      "You are working with spreadsheet data on either the client-side or server-side."
+    ],
+    "avoid_when": [
+      "You need to parse complex spreadsheet features like annotations, spanned rows or columns, and hidden rows or columns.",
+      "You rely on custom formatting for dates, times, or booleans exported from non-native tools like LibreOffice."
+    ],
+    "strengths": [
+      "Supports both ODS and XLSX file formats.",
+      "Enables reading and updating spreadsheet cells.",
+      "Works in both server-side and client-side Dart environments."
+    ],
+    "weaknesses": [
+      "Does not support annotations, spanned rows/columns, or hidden rows/columns.",
+      "Limited support for custom date, time, and boolean formats in XLSX files."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [],
+    "minimal_example": "import 'package:spreadsheet_decoder/spreadsheet_decoder.dart';\n\nmain() {\n  var decoder = SpreadsheetDecoder.decodeBytes(bytes);\n  var table = decoder.tables['Sheet1'];\n  var values = table.rows[0];\n  decoder.updateCell('Sheet1', 0, 0, 1337);\n  var encodedBytes = decoder.encode();\n}",
+    "confidence": 1
+  }
+}

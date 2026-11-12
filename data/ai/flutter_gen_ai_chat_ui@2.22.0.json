@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.22.0",
+  "generatedAt": "2026-11-09T11:55:43.014Z",
+  "data": {
+    "primary_category": "ui-kits",
+    "secondary_categories": [
+      "ai-ml",
+      "theming"
+    ],
+    "approach": [
+      "declarative",
+      "stream-based"
+    ],
+    "one_liner": "Flutter UI kit for AI chat applications with streaming markdown, LaTeX, and tool calls.",
+    "what_it_does": "Provides a customizable chat interface designed for LLMs like ChatGPT, Claude, and Gemini. Features built-in word-by-word streaming responses, markdown and syntax highlighting, LaTeX rendering, rich inline widgets, and RTL layout support.",
+    "use_when": [
+      "Building an AI chat or assistant application in Flutter",
+      "Needing out-of-the-box word-by-word text streaming and markdown code block rendering",
+      "Integrating AI function-calling or human-in-the-loop action surfaces"
+    ],
+    "avoid_when": [
+      "Building a general-purpose peer-to-peer messaging app with no AI features",
+      "Needing an ultra-lightweight text component without a full chat interface"
+    ],
+    "strengths": [
+      "Built-in word-by-word streaming animation for AI responses",
+      "Enhanced markdown and syntax highlighting without extra dependencies",
+      "RTL language support out of the box",
+      "Rich inline widget rendering and AI action/tool-use surfaces"
+    ],
+    "weaknesses": [
+      "Tightly scoped to AI chat use cases rather than general messaging",
+      "Requires managing your own model backend connection"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "flutter_chat_ui",
+        "why_pick_it": "Choose this instead if you are building general-purpose, peer-to-peer chat without AI-specific features."
+      }
+    ],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:flutter_gen_ai_chat_ui/flutter_gen_ai_chat_ui.dart';\n\nvoid main() => runApp(const MaterialApp(home: ChatScreen()));\n\nclass ChatScreen extends StatefulWidget {\n  const ChatScreen({super.key});\n\n  @override\n  State<ChatScreen> createState() => _ChatScreenState();\n}\n\nclass _ChatScreenState extends State<ChatScreen> {\n  final _controller = ChatMessagesController();\n  static const _user = ChatUser(id: 'user', name: 'You');\n  static const _ai = ChatUser(id: 'ai', name: 'Assistant');\n\n  @override\n  void dispose() {\n    _controller.dispose();\n    super.dispose();\n  }\n\n  @override\n  Widget build(BuildContext context) {\n    return Scaffold(\n      body: AiChatWidget(\n        currentUser: _user,\n        aiUser: _ai,\n        controller: _controller,\n        onSendMessage: (message) {\n          _controller.addMessage(message);\n          _controller.streamResponse(fakeLlmReply(message.text), user: _ai);\n        },\n        welcomeMessageConfig: const WelcomeMessageConfig(\n          title: 'Ask me anything',\n        ),\n      ),\n    );\n  }\n}\n\nStream<String> fakeLlmReply(String prompt) async* {\n  yield 'You asked: $prompt';\n}\n",
+    "confidence": 0.95
+  }
+}

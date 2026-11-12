@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.8.0",
+  "generatedAt": "2026-11-11T11:35:01.993Z",
+  "data": {
+    "primary_category": "maps",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter version of Uber's H3 core hexagon-based geographic grid system.",
+    "what_it_does": "Provides cross-platform access to Uber's H3 hexagon-based geographic grid system. It delegates to h3_ffi on native platforms and h3_web on the web.",
+    "use_when": [
+      "You need to work with Uber's H3 spatial index system in a Flutter application.",
+      "You need cross-platform support including Android, iOS, web, Windows, macOS, and Linux."
+    ],
+    "avoid_when": [
+      "You are building a pure Dart backend application (use a pure Dart alternative instead).",
+      "You do not need geospatial grid indexing."
+    ],
+    "strengths": [
+      "Supports all major platforms: Android, iOS, web, Windows, macOS, and Linux.",
+      "Supports WebAssembly (Wasm) builds on the web.",
+      "Includes helper methods ported from Geojson2H3."
+    ],
+    "weaknesses": [
+      "Requires manual static library building on iOS/macOS if cloned directly from git due to CMake requirements.",
+      "Web version requires awaiting library loading before making H3 calls."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "For mobile and desktop, simply add the package and load using H3Factory().load(). For web, it can automatically load h3-js or you can optionally add a script tag to web/index.html.",
+    "alternatives": [],
+    "minimal_example": "final h3Factory = const H3Factory();\nfinal h3 = await h3Factory.load();\nfinal hexagons = h3.polyfill(\n  resolution: 5,\n  coordinates: [\n    GeoCoord(20.4522, 54.7104),\n    GeoCoord(37.6173, 55.7558),\n    GeoCoord(39.7015, 47.2357),\n  ],\n);",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.6.0",
+  "generatedAt": "2026-11-09T11:42:57.474Z",
+  "data": {
+    "primary_category": "theming",
+    "secondary_categories": [
+      "storage",
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Easy to use and customizable Theme Provider with persistence and dynamic switching.",
+    "what_it_does": "Provides app color schemes throughout the widget tree, automatically rebuilds the UI dynamically when themes change, and optionally persists user theme preferences to disk using shared preferences.",
+    "use_when": [
+      "You want a straightforward way to manage and persist light/dark or custom themes in a Flutter app.",
+      "You need to provide theme-specific options alongside your theme data."
+    ],
+    "avoid_when": [
+      "You are already using a state management solution like Riverpod or Bloc that handles theme state directly.",
+      "You require complex reactive system theme listening out of the box without manual setup callbacks."
+    ],
+    "strengths": [
+      "Easy setup for multi-theme apps with custom theme IDs and descriptions",
+      "Built-in disk persistence via shared preferences",
+      "Includes helper widgets like theme cycling icon buttons and selection dialogs"
+    ],
+    "weaknesses": [
+      "Does not dynamically listen to system theme changes automatically out of the box on start without custom callbacks",
+      "Requires wrapping routes or the material app with specific consumer widgets"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "provider",
+        "why_pick_it": "If you prefer a general-purpose state management solution that can also handle theme state."
+      },
+      {
+        "name": "riverpod",
+        "why_pick_it": "For a robust, compile-safe state management approach to handle application themes."
+      },
+      {
+        "name": "bloc",
+        "why_pick_it": "If your app is already architected around BLoC and you want event-driven theme changes."
+      }
+    ],
+    "minimal_example": "ThemeProvider(\n  child: ThemeConsumer(\n    child: Builder(\n      builder: (themeContext) => MaterialApp(\n        theme: ThemeProvider.themeOf(themeContext).data,\n        title: 'Material App',\n        home: HomePage(),\n      ),\n    ),\n  ),\n);",
+    "confidence": 1
+  }
+}

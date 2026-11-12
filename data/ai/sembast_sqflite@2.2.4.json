@@ -1,0 +1,52 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.2.4",
+  "generatedAt": "2026-11-09T11:33:15.875Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "stream-based",
+      "no codegen"
+    ],
+    "one_liner": "Sembast NoSQL database support built on top of sqflite for cross-process safety.",
+    "what_it_does": "Provides a NoSQL document database API backed by an SQLite journaling layer. It enables fast in-memory access combined with cross-process safe database storage and transactions.",
+    "use_when": [
+      "You need a NoSQL Sembast database interface that is cross-process safe.",
+      "You want fast in-memory NoSQL access backed by SQLite storage."
+    ],
+    "avoid_when": [
+      "You are using multiple isolates to access the same sembast_sqflite database (it should be used from the main isolate only).",
+      "You want standard raw SQLite queries without a NoSQL abstraction layer."
+    ],
+    "strengths": [
+      "Cross-process safe database storage and transaction mechanism.",
+      "Familiar Sembast NoSQL API backed by sqflite."
+    ],
+    "weaknesses": [
+      "Should be used from the main isolate only.",
+      "Can encounter locked access if multiple transactions are in progress concurrently."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Follow setup instructions for platform-specific dependencies required by sqflite.",
+    "alternatives": [
+      {
+        "name": "sqflite",
+        "why_pick_it": "If you want traditional relational SQL storage instead of a NoSQL document API."
+      },
+      {
+        "name": "drift",
+        "why_pick_it": "If you prefer a robust, type-safe reactive SQL database library for Flutter."
+      },
+      {
+        "name": "hive_ce",
+        "why_pick_it": "If you need a pure key-value NoSQL database without relying on an SQLite engine."
+      }
+    ],
+    "minimal_example": "import 'package:sembast_sqflite/sembast_sqflite.dart';\nimport 'package:sqflite/sqflite.dart' as sqflite;\n\nFuture main() async {\n  final factory = getDatabaseFactorySqflite(sqflite.databaseFactory);\n  var store = StoreRef<String, String>.main();\n  var record = store.record('my_key');\n  var db = await factory.openDatabase('test.db');\n  await record.put(db, 'my_value');\n  print(await store.stream(db).first);\n  await db.close();\n}",
+    "confidence": 0.95
+  }
+}

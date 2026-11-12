@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "5.1.0",
+  "generatedAt": "2026-11-11T11:07:25.691Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "devtools"
+    ],
+    "approach": [
+      "no codegen",
+      "hooks"
+    ],
+    "one_liner": "Validates missing, under‑promoted, over‑promoted and unused dependencies in a Dart package.",
+    "what_it_does": "The tool scans a package's source files and pubspec to find dependencies that are missing, declared only as dev_dependencies, over‑declared, or never used. It supports hook scripts, workspaces and configurable ignore/exclude rules.",
+    "use_when": [
+      "You want to keep pubspec.yaml accurate and avoid bloated or broken dependencies",
+      "Running CI checks for dependency hygiene in monorepos or single packages",
+      "Before publishing a package to ensure all dependencies are correctly declared"
+    ],
+    "avoid_when": [
+      "You need runtime dependency management inside the app",
+      "You prefer IDE‑integrated linting over a separate CLI tool"
+    ],
+    "strengths": [
+      "Detects multiple dependency issues in one run",
+      "Supports Pub Workspaces and hook directories",
+      "Configurable ignore and exclude patterns"
+    ],
+    "weaknesses": [
+      "CLI‑only, no IDE integration",
+      "May miss dynamically loaded packages",
+      "Limited to Dart packages, not a Flutter widget library"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Run `dart pub global activate dependency_validator` and then `dart pub global run dependency_validator`",
+    "alternatives": [],
+    "minimal_example": "dart pub global activate dependency_validator\ndart pub global run dependency_validator",
+    "confidence": 0.97
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "1.4.4",
+  "generatedAt": "2026-11-10T12:35:01.526Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "backend"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Flutter client for ASP.NET Core SignalR supporting WebSocket, SSE, LongPolling and MessagePack.",
+    "what_it_does": "Provides a SignalR client that can invoke hub methods and receive server callbacks. Supports automatic reconnect, multiple transport protocols and optional MessagePack serialization.",
+    "use_when": [
+      "Real‑time communication with an ASP.NET Core SignalR server",
+      "Need client‑side streaming or auto‑reconnect",
+      "Cross‑platform apps (mobile, desktop, web) requiring SignalR"
+    ],
+    "avoid_when": [
+      "Only simple REST/HTTP calls are needed",
+      "Targeting platforms where SignalR headers aren’t supported without work‑arounds"
+    ],
+    "strengths": [
+      "Multiple transports (WebSocket, SSE, LongPolling)",
+      "Automatic reconnect and streaming support",
+      "MessagePack protocol for efficient payloads",
+      "Works on Android, iOS, Windows, macOS, Linux, and Web"
+    ],
+    "weaknesses": [
+      "Limited to ASP.NET Core SignalR servers",
+      "Web platform header handling can be tricky",
+      "Documentation focuses on basic usage, advanced scenarios sparse"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add the package, import signalr_client, configure HubConnectionBuilder with URL and optional HttpConnectionOptions (e.g., logging, token).",
+    "alternatives": [
+      {
+        "name": "web_socket_channel",
+        "why_pick_it": "Provides raw WebSocket connectivity without SignalR protocol overhead."
+      }
+    ],
+    "minimal_example": "import 'package:signalr_netcore/signalr_client.dart';\n\nfinal hubConnection = HubConnectionBuilder()\n    .withUrl('https://example.com/hub')\n    .configureLogging(Logger('SignalR'))\n    .build();\nawait hubConnection.start();\nhubConnection.on('receiveMessage', (args) => print(args));",
+    "confidence": 0.9
+  }
+}

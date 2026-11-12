@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.8",
+  "generatedAt": "2026-11-11T11:42:06.038Z",
+  "data": {
+    "primary_category": "backend",
+    "secondary_categories": [
+      "utils",
+      "web-desktop"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Let's Encrypt support and automatic HTTPS certificate management for the shelf package.",
+    "what_it_does": "Brings Let's Encrypt automated HTTPS certificate support to the shelf web package. It handles ACME challenges, stores certificates securely with appropriate permissions, and provides tools for domain certificate renewals.",
+    "use_when": [
+      "You are building a Dart backend using shelf and need free automated HTTPS certificates.",
+      "You want built-in certificate generation, storage management, and automatic renewals."
+    ],
+    "avoid_when": [
+      "You are not using the shelf package for your server.",
+      "Your deployment environment terminates SSL at a reverse proxy or load balancer rather than the application server."
+    ],
+    "strengths": [
+      "Automatic Let's Encrypt certificate issuing and renewal for shelf servers.",
+      "Supports multi-domain configurations on the same HTTPS port.",
+      "Includes a robust command-line tool for inspecting, requesting, and renewing certificates."
+    ],
+    "weaknesses": [
+      "Requires proper NAT and DNS configurations in development environments.",
+      "Requires root privileges on Linux to open ports 80 and 443."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires domain names, email addresses, and appropriate permissions (root privileges to bind to standard ports 80 and 443 on Linux).",
+    "alternatives": [],
+    "minimal_example": "import 'dart:io';\nimport 'package:shelf/shelf.dart';\nimport 'package:shelf_letsencrypt/shelf_letsencrypt.dart';\n\nvoid main(List<String> args) async {\n  final domains = Domain.fromDomainsNamesAndEmailsArgs('www.domain.com', 'info@domain.com');\n  final certificatesHandler = CertificatesHandlerIO(Directory('/var/lib/myapp/certs'));\n  final letsEncrypt = LetsEncrypt(certificatesHandler, production: false);\n  final pipeline = const Pipeline().addMiddleware(logRequests());\n  final handler = pipeline.addHandler((request) => Response.ok('OK'));\n  await letsEncrypt.startServer(handler, domains, loadAllHandledDomains: true);\n}",
+    "confidence": 0.95
+  }
+}

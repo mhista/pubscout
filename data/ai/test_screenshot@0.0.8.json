@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.0.8",
+  "generatedAt": "2026-11-12T11:17:16.218Z",
+  "data": {
+    "primary_category": "testing",
+    "secondary_categories": [
+      "images"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Take screenshots during your flutter unit tests for debugging",
+    "what_it_does": "It allows developers to capture screenshots of widget trees during Flutter unit tests by wrapping the widget tree in a Screenshotter widget and calling a tester extension method. It also supports capturing screenshots that include custom fonts and network images.",
+    "use_when": [
+      "You want to visually debug Flutter unit tests using screenshots",
+      "You need to capture images of rendered widgets during automated testing"
+    ],
+    "avoid_when": [
+      "You are looking for golden file testing infrastructure to compare pixels against baseline images",
+      "You are not writing Flutter unit or widget tests"
+    ],
+    "strengths": [
+      "Simple API with a Screenshotter widget and tester extension method",
+      "Supports capturing screenshots with fonts and network images"
+    ],
+    "weaknesses": [
+      "Limited to debugging purposes during unit tests",
+      "Not documented for pixel-by-pixel golden test matching"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Wrap the widget tree with a Screenshotter widget and call tester.screenshot() inside your testWidgets.",
+    "alternatives": [],
+    "minimal_example": "testWidgets('should create a screenshot', (tester) async {\n  await tester.pumpWidget(\n    Screenshotter(\n      child: MaterialApp(\n        home: Scaffold(body: Center(child: Icon(Icons.home))),\n      ),\n    ),\n  );\n\n  await tester.screenshot(path: 'screenshot.png');\n});",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.3.0",
+  "generatedAt": "2026-11-11T11:16:14.356Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "ai-ml"
+    ],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "Dart SDK for AG-UI protocol supporting event-based communication and SSE streaming.",
+    "what_it_does": "Provides strongly-typed client implementations for connecting to AG-UI compatible agent servers. It enables real-time event streaming, state management, tool interactions, and multimodal input.",
+    "use_when": [
+      "You need to connect Dart apps to AG-UI compatible agent servers",
+      "You require server-sent event (SSE) streaming for LLM or AI agent interactions"
+    ],
+    "avoid_when": [
+      "You are building standard REST or GraphQL applications without AI agent protocols",
+      "You need an on-device machine learning model instead of a remote protocol client"
+    ],
+    "strengths": [
+      "Dart-native with full type safety and null safety",
+      "Comprehensive support for tool calls, state snapshots, activity, and reasoning events",
+      "Efficient event decoding with backpressure handling"
+    ],
+    "weaknesses": [
+      "Requires specific AG-UI compliant server architecture on the backend",
+      "Narrow domain focus limited entirely to the AG-UI protocol"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the package to pubspec.yaml and initialize AgUiClient with a base URL.",
+    "alternatives": [],
+    "minimal_example": "import 'package:ag_ui/ag_ui.dart';\n\nfinal client = AgUiClient(\n  config: AgUiClientConfig(\n    baseUrl: 'https://api.example.com',\n  ),\n);\n\nfinal input = SimpleRunAgentInput(\n  messages: [\n    UserMessage(id: 'msg_123', content: 'Hello from Dart!'),\n  ],\n);\n\nawait for (final event in client.runAgent('agentic_chat', input)) {\n  if (event is TextMessageContentEvent) {\n    print('Assistant: ${event.delta}');\n  }\n}",
+    "confidence": 0.95
+  }
+}

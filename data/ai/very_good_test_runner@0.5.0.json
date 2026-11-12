@@ -1,0 +1,47 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.5.0",
+  "generatedAt": "2026-11-10T12:28:15.381Z",
+  "data": {
+    "primary_category": "testing",
+    "secondary_categories": [
+      "devtools"
+    ],
+    "approach": [
+      "stream-based"
+    ],
+    "one_liner": "A Dart/Flutter test runner that streams TestEvent objects from dart test or flutter test.",
+    "what_it_does": "It launches a dart test or flutter test process and emits a stream of TestEvent instances that describe test progress, results, and process exit. The events can be consumed by custom tooling or dashboards.",
+    "use_when": [
+      "building custom test tooling that needs real-time test events",
+      "integrating test output into CI dashboards",
+      "generating coverage reports from test streams"
+    ],
+    "avoid_when": [
+      "running tests from the command line without needing a stream",
+      "using a standard test runner like flutter test directly"
+    ],
+    "strengths": [
+      "Provides a clean stream of structured test events",
+      "Supports both Dart and Flutter test commands",
+      "Handles stdout/stderr chunks and drains streams on exit"
+    ],
+    "weaknesses": [
+      "Only useful for tooling that consumes TestEvent streams",
+      "No built‑in UI or reporting features",
+      "Requires Dart 3.13+"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "test_api",
+        "why_pick_it": "Offers lower‑level access to test events and can be used directly in custom test runners"
+      }
+    ],
+    "minimal_example": "import 'package:very_good_test_runner/very_good_test_runner.dart';\n\nvoid main() {\n  const arguments = ['--coverage'];\n  const workingDirectory = 'path/to/project';\n  dartTest(arguments: arguments, workingDirectory: workingDirectory)\n      .listen((event) => print(event));\n}",
+    "confidence": 0.9
+  }
+}

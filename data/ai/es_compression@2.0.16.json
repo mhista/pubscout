@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.16",
+  "generatedAt": "2026-11-09T11:37:02.604Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "files"
+    ],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "Compression framework providing FFI implementations for Brotli, Lz4, and Zstd.",
+    "what_it_does": "Provides a compression framework in Dart with FFI implementations for Brotli, Lz4, and Zstd (Zstandard), along with ready-to-use prebuilt binaries for Windows, Linux, and macOS. It also includes an executable tool 'escompress' for command-line file compression.",
+    "use_when": [
+      "You need Brotli, Lz4, or Zstd compression algorithms in your Dart or Flutter application.",
+      "You want FFI-based performance for compression tasks on desktop or mobile platforms.",
+      "You need a command-line tool to encode/decode compressed files."
+    ],
+    "avoid_when": [
+      "You are running heavily on the web where native FFI shared libraries are unavailable and require pure Dart solutions.",
+      "You only require basic GZip compression which is already built into the standard Dart SDK (`dart:io`)."
+    ],
+    "strengths": [
+      "Supports multiple efficient compression algorithms (Brotli, Lz4, Zstd).",
+      "Comes with ready-to-use prebuilt binaries for major desktop and mobile environments.",
+      "Flexible library loader supporting custom paths and environment variables."
+    ],
+    "weaknesses": [
+      "Requires managing and bundling native shared libraries (.dll, .so, .dylib) for target platforms.",
+      "Mac OS binaries require manual security allowance unless signed."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "FFI-based implementations require access to native shared libraries (.dll, .so, .dylib). Android projects require placing prebuilt .so files in jniLibs and updating build.gradle.",
+    "alternatives": [],
+    "minimal_example": "import 'dart:convert';\nimport 'package:es_compression/brotli.dart';\nimport 'package:es_compression/lz4.dart';\nimport 'package:es_compression/zstd.dart';\n\nvoid main() {\n  final bytes = utf8.encode('Hello Dart');\n  for (final codec in [brotli, lz4, zstd]) {\n    final encoded = codec.encode(bytes);\n    final decoded = codec.decode(encoded);\n    print(utf8.decode(decoded));\n  }\n}",
+    "confidence": 0.95
+  }
+}

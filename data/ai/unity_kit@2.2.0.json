@@ -1,0 +1,47 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.2.0",
+  "generatedAt": "2026-11-11T11:40:33.660Z",
+  "data": {
+    "primary_category": "games",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Embed Unity 3D in Flutter with a typed bridge and binary protocol.",
+    "what_it_does": "Allows embedding Unity 3D as a platform view widget inside Flutter applications. Provides a two-way typed bridge, binary protocol, performance monitoring, AR Foundation integration, and asset streaming across Android, iOS, and Web.",
+    "use_when": [
+      "You need to embed an interactive Unity 3D game or scene directly inside a Flutter layout",
+      "You require bi-directional typed messaging or high-frequency binary data exchange between Flutter and Unity",
+      "You are building cross-platform AR applications leveraging Unity AR Foundation from Flutter"
+    ],
+    "avoid_when": [
+      "You are building a 2D game in Flutter where pure Dart game engines like Flame are sufficient",
+      "You want a fully working out-of-the-box desktop embedded Unity player view (desktop embedding is currently work in progress)"
+    ],
+    "strengths": [
+      "Provides both JSON message routing and a high-performance binary protocol",
+      "Robust lifecycle state machine with automatic readiness guards and message queuing",
+      "Supports AR Foundation and live performance statistics streaming"
+    ],
+    "weaknesses": [
+      "Complex native setup steps required on both Android and iOS",
+      "Embedded Unity view is not yet fully implemented for desktop platforms (macOS, Windows, Linux)"
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Requires Android Gradle and settings modifications for the Unity library, iOS Podfile configuration, exporting and including the Unity project build files, and adding a FlutterBridge GameObject in Unity.",
+    "alternatives": [
+      {
+        "name": "flame",
+        "why_pick_it": "Choose Flame if you want a pure Dart 2D game engine that does not require heavy native Unity setup or exporting."
+      }
+    ],
+    "minimal_example": "import 'package:unity_kit/unity_kit.dart';\n\nfinal bridge = UnityBridgeImpl(platform: UnityKitPlatform.instance);\nawait bridge.initialize();\n\nUnityView(\n  bridge: bridge,\n  config: const UnityConfig(sceneName: 'MainScene'),\n  placeholder: const UnityPlaceholder(message: 'Loading 3D...'),\n  onReady: (bridge) {\n    bridge.send(UnityMessage.command('StartGame'));\n  },\n);",
+    "confidence": 0.95
+  }
+}

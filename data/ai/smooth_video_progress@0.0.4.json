@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.0.4",
+  "generatedAt": "2026-11-12T11:37:26.035Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [
+      "widgets",
+      "animation"
+    ],
+    "approach": [
+      "hooks",
+      "declarative"
+    ],
+    "one_liner": "Interpolated progress builder for video_player controllers to make progress bars smooth.",
+    "what_it_does": "Provides a SmoothVideoProgress widget that interpolates video progress for video_player controllers, eliminating the choppy UX of infrequent default progress updates. It is completely unopinionated regarding UI design.",
+    "use_when": [
+      "You are using the official video_player package and want a smooth, high-framerate progress bar or slider",
+      "You need more accurate time displays or animations tied to video playback position"
+    ],
+    "avoid_when": [
+      "You are using an alternative video player library that is not video_player",
+      "You do not want a dependency on flutter_hooks"
+    ],
+    "strengths": [
+      "Eliminates choppy video progress UI updates",
+      "Completely unopinionated design-wise",
+      "Simple and lightweight widget API"
+    ],
+    "weaknesses": [
+      "Depends on flutter_hooks",
+      "Only works with the standard video_player controller"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires video_player setup steps for your target platforms.",
+    "alternatives": [],
+    "minimal_example": "SmoothVideoProgress(\n  controller: controller,\n  builder: (context, position, duration, child) => Slider(\n    onChangeStart: (_) => controller.pause(),\n    onChangeEnd: (_) => controller.play(),\n    onChanged: (value) =>\n        controller.seekTo(Duration(milliseconds: value.toInt())),\n    value: position.inMilliseconds.toDouble(),\n    min: 0,\n    max: duration.inMilliseconds.toDouble(),\n  ),\n);",
+    "confidence": 0.95
+  }
+}

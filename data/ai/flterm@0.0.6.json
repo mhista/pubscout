@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.0.6",
+  "generatedAt": "2026-11-12T11:56:25.051Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "web-desktop",
+      "device"
+    ],
+    "approach": [
+      "declarative",
+      "imperative"
+    ],
+    "one_liner": "Flutter terminal widget backed by Ghostty's libghostty-vt engine.",
+    "what_it_does": "Provides a Flutter terminal widget and controller powered by Ghostty's libghostty-vt engine. It adapts to host platforms for mouse, keyboard, touch, and soft keyboards, offering features like selection, copy/paste, customizable themes, and hyperlinks.",
+    "use_when": [
+      "You need to embed a fully-featured terminal emulator inside a Flutter cross-platform app.",
+      "You want support for wide characters, themes, and selection matching top-tier terminal standards."
+    ],
+    "avoid_when": [
+      "You require an alternative terminal implementation that does not depend on native/wasm Ghostty binaries."
+    ],
+    "strengths": [
+      "Built on top of Ghostty's robust libghostty-vt terminal engine.",
+      "Cross-platform support including mobile, desktop, and web.",
+      "Extensive feature set including search, touch selection handles, snapshots, and customizable color themes."
+    ],
+    "weaknesses": [
+      "Requires platform-specific setup or web wasm initialization before use.",
+      "Idle link styling and custom rules scanning can impact performance if overused."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "On web, you must initialize the wasm module once before mounting any terminal using initializeForWeb.",
+    "alternatives": [],
+    "minimal_example": "import 'package:flterm/flterm.dart';\n\nfinal controller = TerminalController()\n  ..onOutput = (bytes) => pty.write(bytes)\n  ..onResize = (cols, rows) => pty.resize(cols, rows);\n\nTerminalView(\n  controller: controller,\n  theme: TerminalTheme.dark(),\n);",
+    "confidence": 0.95
+  }
+}

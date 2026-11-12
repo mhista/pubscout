@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.3.1",
+  "generatedAt": "2026-11-11T11:48:16.004Z",
+  "data": {
+    "primary_category": "files",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Parses text out of PDF documents on Android and iOS.",
+    "what_it_does": "A plugin that parses strings out of PDF documents using Apache PDFBox on Android and PDFKit on iOS. It provides simple functions to extract text, get paginated text, and check the length of the document.",
+    "use_when": [
+      "You need to extract raw text content from local PDF files in Flutter.",
+      "You need to read the total page count of a PDF file."
+    ],
+    "avoid_when": [
+      "You need advanced PDF manipulation like editing, filling forms, or rendering pages to images.",
+      "You are targeting platforms other than Android and iOS."
+    ],
+    "strengths": [
+      "Simple API with only three main functions.",
+      "Supports paginated text extraction."
+    ],
+    "weaknesses": [
+      "Limited only to reading text and page count.",
+      "Only supports Android and iOS platforms."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires iOS version 11 or higher.",
+    "alternatives": [],
+    "minimal_example": "Future<String> getPDFtext(String path) async {\n  String text = \"\";\n  try {\n    text = await ReadPdfText.getPDFtext(path);\n  } on PlatformException {\n    print('Failed to get PDF text.');\n  }\n  return text;\n}",
+    "confidence": 0.95
+  }
+}

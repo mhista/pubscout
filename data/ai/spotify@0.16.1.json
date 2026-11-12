@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.16.1",
+  "generatedAt": "2026-11-09T11:42:50.670Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "auth"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "A Dart library for interfacing with the Spotify Web API.",
+    "what_it_does": "Provides comprehensive access to Spotify's Web API including artists, tracks, albums, playlists, podcasts, user profiles, and playback control. Supports multiple authorization flows like Client Credentials and Authorization Code Grant with PKCE.",
+    "use_when": [
+      "You need to fetch music metadata, artist details, or playlist information from Spotify.",
+      "You are building a Dart or Flutter client that needs to control Spotify playback or access user library data."
+    ],
+    "avoid_when": [
+      "You need to embed an official Spotify audio player directly into your app UI.",
+      "You require an official or fully feature-complete and guaranteed up-to-date wrapper for every experimental Spotify API endpoint."
+    ],
+    "strengths": [
+      "Comprehensive coverage of Spotify's Web API core content and user endpoints.",
+      "Built-in support for multiple auth flows, including PKCE for public clients.",
+      "Efficient handling of large result sets using pages and cursor pages."
+    ],
+    "weaknesses": [
+      "Library is noted by its author as incomplete.",
+      "Some Spotify-deprecated endpoints are still included and may cease to function depending on Spotify's API roadmap."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Register a developer application on Spotify to obtain a client ID and client secret, or use PKCE configuration.",
+    "alternatives": [],
+    "minimal_example": "import 'package:spotify/spotify.dart';\n\nvoid main() async {\n  final credentials = SpotifyApiCredentials(clientId, clientSecret);\n  final spotify = SpotifyApi(credentials);\n\n  final artist = await spotify.artists.get('0OdUWJ0sBjDrqHygGUXeCF');\n  print(artist.name);\n}",
+    "confidence": 0.95
+  }
+}

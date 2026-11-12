@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.5.2+1",
+  "generatedAt": "2026-11-12T11:37:36.170Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "audio-video"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Connect to external displays via wired or wireless connections and exchange data.",
+    "what_it_does": "Allows Flutter apps to connect to wired or wireless external displays and present a secondary view. It provides bidirectional parameter transfer between the main view and the external display view, as well as screen status monitoring.",
+    "use_when": [
+      "You need to project your Flutter app content onto a secondary monitor or TV screen.",
+      "The main app and external display view need to exchange data or parameters."
+    ],
+    "avoid_when": [
+      "You are targeting Windows, Linux, or Web platforms, which are not supported.",
+      "You only need basic web viewing or device info."
+    ],
+    "strengths": [
+      "Supports wired and wireless external displays across Android, iOS, and macOS.",
+      "Enables bidirectional parameter passing between main view and external view.",
+      "Includes platform-specific lifecycle handling like iOS UIScene support and macOS window management."
+    ],
+    "weaknesses": [
+      "Windows, Linux, and Web are not supported.",
+      "Requires manual native configuration on iOS (UIScene lifecycle) and macOS (AppDelegate setup) for full plugin compatibility."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires native configuration in Info.plist / AppDelegate for iOS (UIScene support) and AppDelegate for macOS if using other plugins on the external display.",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:external_display/external_display.dart';\n\nvoid main() {\n  runApp(const MyApp());\n}\n\n@pragma('vm:entry-point')\nvoid externalDisplayMain() {\n  runApp(const MaterialApp(home: ExternalView()));\n}\n\nclass MyApp extends StatelessWidget {\n  const MyApp({super.key});\n\n  @override\n  Widget build(BuildContext context) {\n    return const MaterialApp(home: Home());\n  }\n}\n\nclass ExternalView extends StatelessWidget {\n  const ExternalView({super.key});\n\n  @override\n  Widget build(BuildContext context) {\n    return const Scaffold(\n      body: Center(child: Text('This is the external view.')),\n    );\n  }\n}\n\nclass Home extends StatefulWidget {\n  const Home({super.key});\n\n  @override\n  State<Home> createState() => _HomeState();\n}\n\nclass _HomeState extends State<Home> {\n  @override\n  Widget build(BuildContext context) {\n    return Scaffold(\n      appBar: AppBar(title: const Text('External Display Example')),\n      body: Center(\n        child: TextButton(\n          onPressed: () async {\n            await externalDisplay.connect();\n          },\n          child: const Text('Connect'),\n        ),\n      ),\n    );\n  }\n}",
+    "confidence": 0.95
+  }
+}

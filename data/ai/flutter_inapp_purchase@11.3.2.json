@@ -1,0 +1,48 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "11.3.2",
+  "generatedAt": "2026-11-11T11:24:16.068Z",
+  "data": {
+    "primary_category": "payments",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Flutter plugin for implementing in-app purchases and subscriptions.",
+    "what_it_does": "A comprehensive plugin for handling in-app purchases across mobile platforms. It implements the OpenIAP Client Protocol to provide standard purchase flows and product fetching.",
+    "use_when": [
+      "You need to sell digital goods, in-app products, or subscriptions in your Flutter app.",
+      "You want cross-platform IAP consistency using the OpenIAP protocol."
+    ],
+    "avoid_when": [
+      "You prefer using the official Flutter `in_app_purchase` package without third-party protocol wrappers.",
+      "Your app does not require any monetization or billing features."
+    ],
+    "strengths": [
+      "Conforms to the OpenIAP Client Protocol for shared purchase behaviors.",
+      "Supports multiple stores (Google Play, Apple App Store, Amazon, Horizon).",
+      "Active maintenance and clear developer documentation."
+    ],
+    "weaknesses": [
+      "Requires platform-specific configuration and native dependency resolution for Apple and Android targets.",
+      "Android store SDK behavior depends on gradle property configurations."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires native Apple platform targets of iOS 15.0+ or macOS 14.0+. On older Flutter versions or when SPM is disabled, run pod install in the ios/macos directories.",
+    "alternatives": [
+      {
+        "name": "in_app_purchase",
+        "why_pick_it": "Official Flutter package for in-app purchases maintained by the Flutter team."
+      },
+      {
+        "name": "adapty_flutter",
+        "why_pick_it": "Focuses on paywall management and subscription analytics alongside IAP."
+      }
+    ],
+    "minimal_example": "import 'package:flutter_inapp_purchase/flutter_inapp_purchase.dart';\n\nfinal iap = FlutterInappPurchase.instance;\nawait iap.initConnection();\n\nfinal products = await iap.fetchProducts<Product>(\n  skus: ['product_id'],\n  type: ProductQueryType.InApp,\n);",
+    "confidence": 0.95
+  }
+}

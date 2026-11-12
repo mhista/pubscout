@@ -1,0 +1,50 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.2.3",
+  "generatedAt": "2026-11-11T11:12:01.217Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "backend"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Typed VModal API client for Flutter to upload videos and search moments by meaning.",
+    "what_it_does": "Provides a typed Dart and Flutter client for the VModal API, enabling semantic video search, streamed signed uploads with progress tracking, and per-operation cancellation. It manages project, collection, and stream scopes for Android and iOS applications.",
+    "use_when": [
+      "Your application needs to upload videos and search them semantically by meaning, speech, text, or imagery using VModal.",
+      "You require streamed uploads with live progress updates and cancellation support."
+    ],
+    "avoid_when": [
+      "You need a general-purpose HTTP client or a REST client not tied to the VModal backend.",
+      "Your app targets environments where the VModal API is unavailable."
+    ],
+    "strengths": [
+      "Typed API client with request models, responses, and preserved raw JSON.",
+      "Supports upload progress tracking via broadcast Dart streams and per-operation cancellation tokens.",
+      "Handles scoped project, collection, and stream organization cleanly."
+    ],
+    "weaknesses": [
+      "Tied strictly to a proprietary backend service (VModal).",
+      "Requires managing API keys and runtime credentials manually in the parent application."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the package dependency, obtain a VModal API key, and configure your project scopes in code.",
+    "alternatives": [
+      {
+        "name": "http",
+        "why_pick_it": "If you prefer making low-level HTTP requests directly instead of using a dedicated typed SDK."
+      },
+      {
+        "name": "dio",
+        "why_pick_it": "If you need an advanced general-purpose HTTP client with interceptors, global configuration, and custom transformers."
+      }
+    ],
+    "minimal_example": "import 'package:vmodal_sdk_flutter/vmodal_sdk_flutter.dart';\n\nfinal keys = MutableApiKeyProvider(runtimeApiKey);\nfinal project = VModal.configure(\n  projectId: 'food_app',\n  apiKeyProvider: keys,\n);\nfinal favorites = project.scope(\n  collectionName: 'user_123',\n  streamName: 'favorites',\n);\n\nfinal results = await favorites.search(\n  'the cyclist crossing the bridge at sunset',\n  options: const ScopedSearchOptions(\n    searchSources: ['image'],\n    limit: 20,\n  ),\n);",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "4.6.0",
+  "generatedAt": "2026-11-10T12:19:10.475Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [],
+    "approach": [
+      "no codegen"
+    ],
+    "one_liner": "A platform interface for the just_audio plugin, defining the contract for platform-specific implementations.",
+    "what_it_does": "Provides a common API that all just_audio platform implementations must follow, ensuring consistency across Android, iOS, web, and desktop. It exposes methods for audio playback control, configuration, and event streams.",
+    "use_when": [
+      "You need to create a custom platform implementation for just_audio.",
+      "You want to ensure your plugin stays compatible with future just_audio releases."
+    ],
+    "avoid_when": [
+      "You only need to use just_audio itself without custom platform code."
+    ],
+    "strengths": [
+      "Guarantees interface compatibility across platforms.",
+      "Simplifies plugin development by centralizing API definitions.",
+      "Supports future feature extensions via interface updates."
+    ],
+    "weaknesses": [
+      "Only an interface; no functionality on its own.",
+      "Requires a separate implementation to be useful."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dependency to pubspec and implement JustAudioPlatform subclass.",
+    "alternatives": [],
+    "minimal_example": "```dart\nimport 'package:just_audio_platform_interface/just_audio_platform_interface.dart';\n\nclass MyPlatformJustAudio extends JustAudioPlatform {\n  @override\n  Future<void> initialize() async {\n    // platform-specific init\n  }\n}\n\nvoid register() {\n  JustAudioPlatform.instance = MyPlatformJustAudio();\n}\n```",
+    "confidence": 0.95
+  }
+}

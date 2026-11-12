@@ -1,0 +1,54 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.2",
+  "generatedAt": "2026-11-09T11:44:53.003Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [],
+    "approach": [
+      "stream-based",
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "A state management library for Dart and Flutter applications.",
+    "what_it_does": "Provides a StateManager class to handle application state transitions, handle asynchronous operations with automatic error reporting, and monitor changes using state observers and global overrides.",
+    "use_when": [
+      "You need a structured state management solution for Dart or Flutter.",
+      "You want built-in support for error handling and global state change observation.",
+      "You want a lightweight state manager without code generation requirements."
+    ],
+    "avoid_when": [
+      "You prefer compile-time safe immutable models generated via build_runner.",
+      "You are already deeply invested in an alternative state management library like Bloc or Riverpod."
+    ],
+    "strengths": [
+      "Built-in error handling and error reporting mechanisms.",
+      "State observers allow easy monitoring for debugging and analytics.",
+      "Global overrides for customizing state emission behavior."
+    ],
+    "weaknesses": [
+      "Limited community and ecosystem compared to older, dominant alternatives like Bloc or Riverpod.",
+      "Relies on manual state class definitions and equality overrides."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "bloc",
+        "why_pick_it": "If you want a heavily battle-tested, event-driven state management library with extensive tooling and community support."
+      },
+      {
+        "name": "riverpod",
+        "why_pick_it": "If you want compile-time safe, provider-based state management that prevents scoping bugs."
+      },
+      {
+        "name": "provider",
+        "why_pick_it": "If you prefer a lightweight, inherited-widget-based dependency injection and state management approach."
+      }
+    ],
+    "minimal_example": "import 'package:yx_state/yx_state.dart';\n\nclass CounterState {\n    final int count;\n    const CounterState(this.count);\n}\n\nclass CounterManager extends StateManager<CounterState> {\n    CounterManager() : super(const CounterState(0));\n\n    void increment() => handle((emit) async {\n        emit(CounterState(state.count + 1));\n      });\n}",
+    "confidence": 0.95
+  }
+}

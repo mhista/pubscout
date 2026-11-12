@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "1.8.2",
+  "generatedAt": "2026-11-10T12:23:46.950Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "WebRTC API wrapper for Dart, enabling browser-based audio/video communication.",
+    "what_it_does": "Provides a Dart-friendly interface to the browser's WebRTC API, exposing peer connections, media streams, data channels, and E2EE support. It wraps the native JS objects using dart/js for cross-browser compatibility.",
+    "use_when": [
+      "You need real-time audio/video or data communication in a Flutter web app.",
+      "You want to use WebRTC without writing JavaScript interop yourself.",
+      "You need E2EE or advanced media stream handling in the browser."
+    ],
+    "avoid_when": [
+      "You are targeting mobile or desktop platforms only; this package is web-only.",
+      "You need a native WebRTC implementation for iOS/Android; use flutter-webrtc instead."
+    ],
+    "strengths": [
+      "Pure Dart wrapper, no native plugins required.",
+      "Supports E2EE and advanced WebRTC features like priority control and data channel buffering.",
+      "Regularly updated with bug fixes and new browser support."
+    ],
+    "weaknesses": [
+      "Web-only; not usable on mobile or desktop.",
+      "Requires manual compilation of the E2EE worker for wasm compatibility.",
+      "Relies on dart/js, so no type safety for all JS interop."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dependency in pubspec, import package, no additional build steps needed.",
+    "alternatives": [],
+    "minimal_example": "import 'package:dart_webrtc/dart_webrtc.dart';\n\nfinal pc = RTCPeerConnection();\nawait pc.createOffer();\nawait pc.setLocalDescription();",
+    "confidence": 0.85
+  }
+}

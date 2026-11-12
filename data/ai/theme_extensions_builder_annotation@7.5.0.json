@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "7.5.0",
+  "generatedAt": "2026-11-11T11:08:58.367Z",
+  "data": {
+    "primary_category": "theming",
+    "secondary_categories": [
+      "codegen"
+    ],
+    "approach": [
+      "code generation"
+    ],
+    "one_liner": "Annotations for generating boilerplate code for Flutter ThemeExtension classes.",
+    "what_it_does": "Provides annotations like @ThemeExtensions and @ThemeGen that work with the theme_extensions_builder package to automatically generate code for Flutter theme extensions. It handles things like lerping, copyWith, and context accessors.",
+    "use_when": [
+      "You are using theme_extensions_builder to create custom Flutter theme extensions.",
+      "You want to automatically generate boilerplate like copyWith and lerp for theme classes."
+    ],
+    "avoid_when": [
+      "You are not using theme_extensions_builder.",
+      "You prefer writing your ThemeExtension boilerplate manually."
+    ],
+    "strengths": [
+      "Reduces boilerplate code for custom Flutter theme extensions.",
+      "Provides convenient annotations and field-level exclusions like @ignore."
+    ],
+    "weaknesses": [
+      "Does nothing without the theme_extensions_builder package.",
+      "Requires build_runner and code generation setup."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add theme_extensions_builder_annotation to dependencies, theme_extensions_builder and build_runner to dev dependencies, and run build_runner.",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:theme_extensions_builder_annotation/theme_extensions_builder_annotation.dart';\n\npart 'my_theme.g.theme.dart';\n\n@ThemeExtensions()\nclass MyTheme extends ThemeExtension<MyTheme> with _$MyTheme {\n  const MyTheme({\n    required this.primaryColor,\n    required this.spacing,\n  });\n\n  final Color primaryColor;\n  final double spacing;\n}",
+    "confidence": 1
+  }
+}

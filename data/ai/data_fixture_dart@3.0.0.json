@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "3.0.0",
+  "generatedAt": "2026-11-12T11:14:20.165Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Generate fake data models and JSON fixtures easily in Dart.",
+    "what_it_does": "Provides a FixtureFactory API to define how to create model instances using Faker. It can produce single objects, lists, and corresponding JSON representations, with optional custom Faker instances.",
+    "use_when": [
+      "Need quick mock data for unit or integration tests",
+      "Need JSON fixtures for API mocking or prototyping"
+    ],
+    "avoid_when": [
+      "Require large‑scale or relational data generation",
+      "Prefer compile‑time code generation of models"
+    ],
+    "strengths": [
+      "Simple, declarative‑style API",
+      "Works in pure Dart (no Flutter dependency)",
+      "Supports custom Faker instances and JSON output"
+    ],
+    "weaknesses": [
+      "Manual definition of each model",
+      "No code‑generation or schema inference",
+      "Limited to basic fixture scenarios"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:data_fixture_dart/data_fixture_dart.dart';\n\nclass Company {final String name;final List<Person> employees;Company({this.name,this.employees});}\n\nextension CompanyFixture on Company {static _CompanyFixtureFactory factory()=>_CompanyFixtureFactory();}\n\nclass _CompanyFixtureFactory extends FixtureFactory<Company>{\n  @override\n  FixtureDefinition<Company> definition()=>define((faker, [i=0])=>Company(name: faker.company.name(),employees: []));\n}\n\nvoid main(){\n  final company = CompanyFixture.factory().makeSingle();\n  print(company.name);\n}",
+    "confidence": 0.9
+  }
+}

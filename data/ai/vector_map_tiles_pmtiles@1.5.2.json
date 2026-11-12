@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.5.2",
+  "generatedAt": "2026-11-11T11:37:46.693Z",
+  "data": {
+    "primary_category": "maps",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "PMTiles tile provider for vector_map_tiles using HTTP Range Requests.",
+    "what_it_does": "Provides a tile provider for vector_map_tiles and flutter_map to support PMTiles. It enables requesting vector tiles from a single local file or a hosted remote file using HTTP Range Requests.",
+    "use_when": [
+      "You are using flutter_map and vector_map_tiles in your application",
+      "You need to render vector map tiles from local or hosted PMTiles files"
+    ],
+    "avoid_when": [
+      "You are not using flutter_map or vector_map_tiles",
+      "Your map tiles are served through standard raster tile URLs instead of PMTiles archives"
+    ],
+    "strengths": [
+      "Supports loading tiles from both local file system paths and remote URLs",
+      "Integrates seamlessly with flutter_map and vector_map_tiles",
+      "Includes Protomaps basemap themes out of the box"
+    ],
+    "weaknesses": [
+      "Mapbox, OpenMapTiles, and standard raster map styles are not compatible with Protomaps styles",
+      "Requires awaiting a future to initialize the tile provider"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add flutter_map and vector_map_tiles_pmtiles to your pubspec.yaml and initialize the tile provider from a source URL or local path.",
+    "alternatives": [
+      {
+        "name": "flutter_map",
+        "why_pick_it": "If you only need standard map layers and markers without vector tile or PMTiles support."
+      }
+    ],
+    "minimal_example": "final _futureTileProvider = PmTilesVectorTileProvider.fromSource('https://example.com/useYourOwnHostedPMTilesFile.pmtiles');",
+    "confidence": 1
+  }
+}

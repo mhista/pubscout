@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.9.8",
+  "generatedAt": "2026-11-10T12:51:30.274Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "A client for integrating Unleash feature management and evaluating feature flags in Flutter applications.",
+    "what_it_does": "Allows Flutter applications to connect with Unleash, Unleash Edge, or the Unleash Frontend API to fetch and evaluate feature toggle states, variants, and context attributes. It supports background polling, caching via local storage, metrics reporting, and event-based updates.",
+    "use_when": [
+      "You use Unleash as your feature management platform and need to evaluate feature flags in a Flutter application.",
+      "You need support for user context evaluation, feature variants, and usage metrics reporting."
+    ],
+    "avoid_when": [
+      "You do not use Unleash or a compatible Unleash Frontend API endpoint.",
+      "You only require basic remote config managed through another service like Firebase."
+    ],
+    "strengths": [
+      "Supports local caching and bootstrapping for offline or immediate initial state.",
+      "Provides event listeners for SDK states such as ready and update.",
+      "Allows custom fetchers, posters, and storage providers."
+    ],
+    "weaknesses": [
+      "Tied specifically to the Unleash ecosystem.",
+      "Requires managing frontend API tokens and connection configurations."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires adding the package via pub add and initializing the client with your Unleash frontend API URL and client token.",
+    "alternatives": [],
+    "minimal_example": "import 'package:unleash_proxy_client_flutter/unleash_proxy_client_flutter.dart';\n\nfinal unleash = UnleashClient(\n    url: Uri.parse('https://<your-unleash-instance>/api/frontend'),\n    clientKey: '<your-client-side-token>',\n    appName: 'my-app');\nunleash.start();",
+    "confidence": 1
+  }
+}

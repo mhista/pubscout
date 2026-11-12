@@ -1,0 +1,47 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.4.4",
+  "generatedAt": "2026-11-10T13:09:04.733Z",
+  "data": {
+    "primary_category": "maps",
+    "secondary_categories": [],
+    "approach": [
+      "declarative",
+      "imperative"
+    ],
+    "one_liner": "Naver Map plugin for Flutter providing map services for South Korea.",
+    "what_it_does": "Integrates Naver Map services into Flutter applications on Android and iOS. Allows displaying maps, adding markers, managing camera positions, and handling custom overlays.",
+    "use_when": [
+      "You need detailed map services and location features specifically for South Korea.",
+      "Your application requires Naver Map integration."
+    ],
+    "avoid_when": [
+      "You need global map coverage utilizing standard providers like Google Maps instead of Naver.",
+      "You want a pure Dart map solution without native platform SDK dependencies."
+    ],
+    "strengths": [
+      "Provides official Naver Map integration for Flutter.",
+      "Supports custom overlays, markers, and camera position streaming."
+    ],
+    "weaknesses": [
+      "Requires manual setup and client ID configuration through the Naver Cloud Platform console.",
+      "Dependent on native Naver Map SDK versions and platform-specific minimum SDK requirements."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires registering an application on the Naver Cloud Platform console, setting a Client ID, updating minimum Android SDK to 6.0 (SDK 23) and iOS to 12.0, and executing an initialization function before runApp.",
+    "alternatives": [
+      {
+        "name": "google_maps_flutter",
+        "why_pick_it": "If you require global map support powered by Google Maps instead of Naver Map."
+      },
+      {
+        "name": "flutter_map",
+        "why_pick_it": "If you prefer a pure Dart map widget using OpenStreetMap tiles without native SDK setup."
+      }
+    ],
+    "minimal_example": "NaverMap(\n  options: NaverMapViewOptions(\n    initialCameraPosition: NCameraPosition(target: NLatLng(37.5666, 126.979), zoom: 14),\n  ),\n  onMapReady: (controller) {\n    final marker = NMarker(id: \"city_hall\", position: NLatLng(37.5666, 126.979));\n    controller.addOverlay(marker);\n  },\n)",
+    "confidence": 0.95
+  }
+}

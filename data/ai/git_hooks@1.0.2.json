@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.2",
+  "generatedAt": "2026-11-10T13:12:16.797Z",
+  "data": {
+    "primary_category": "testing",
+    "secondary_categories": [],
+    "approach": [
+      "hooks",
+      "imperative"
+    ],
+    "one_liner": "Prevent bad git commit or push using Dart and Flutter, similar to Husky.",
+    "what_it_does": "It allows developers to set up git hooks using Dart code to run checks like tests or static analysis before a commit or push is made. If the script returns false, the git operation is interrupted.",
+    "use_when": [
+      "You want to enforce pre-commit static analysis or code formatting in Dart/Flutter projects",
+      "You prefer writing your git hooks in Dart instead of shell scripts"
+    ],
+    "avoid_when": [
+      "Your project does not use Dart or Flutter",
+      "You prefer traditional native shell-based git hooks"
+    ],
+    "strengths": [
+      "Write git hooks using familiar Dart code",
+      "Supports a wide range of git hooks via an enum",
+      "Easy initialization using shell commands or Dart code"
+    ],
+    "weaknesses": [
+      "Relies on Dart environment setup for git hooks execution"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add to dev_dependencies, run pub get, and initialize via the CLI tool or Dart code.",
+    "alternatives": [],
+    "minimal_example": "import \"package:git_hooks/git_hooks.dart\";\nimport \"dart:io\";\n\nvoid main(List arguments) {\n  Map<Git, UserBackFun> params = {\n    Git.commitMsg: commitMsg,\n    Git.preCommit: preCommit\n  };\n  GitHooks.call(arguments, params);\n}\n\nFuture<bool> commitMsg() async {\n  String commitMsg = Utils.getCommitEditMsg();\n  if (commitMsg.startsWith('fix:')) {\n    return true;\n  } else\n    return false;\n}",
+    "confidence": 0.95
+  }
+}

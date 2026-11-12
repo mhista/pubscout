@@ -1,0 +1,54 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "7.0.0",
+  "generatedAt": "2026-11-11T11:11:00.787Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [],
+    "approach": [
+      "declarative",
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Dart port of Preact.js Signals for fine-grained reactive state management.",
+    "what_it_does": "Provides core reactive primitives like signals, computed values, and effects for managing application state. Automatically tracks dependencies and updates UI or business logic precisely without manual listeners.",
+    "use_when": [
+      "You want fine-grained reactivity without boilerplate.",
+      "You prefer signals over traditional widget-tree state management.",
+      "You are porting or matching an architecture that uses Preact signals."
+    ],
+    "avoid_when": [
+      "Your project standardizes entirely around Riverpod, Bloc, or Provider.",
+      "You want automatic widget-tree rebuilding integrated directly out of the box without additional bindings."
+    ],
+    "strengths": [
+      "Fine-grained updates without rebuilding entire widget subtrees",
+      "Zero codegen required",
+      "Direct Dart port of a mature and proven JS signals library"
+    ],
+    "weaknesses": [
+      "Relatively niche ecosystem in Flutter compared to Riverpod or Bloc",
+      "Not documented with explicit built-in Flutter widget binding helpers in the provided text"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [
+      {
+        "name": "riverpod",
+        "why_pick_it": "More robust ecosystem and standard for Flutter state management."
+      },
+      {
+        "name": "bloc",
+        "why_pick_it": "Predictable event-driven architecture with strong testing utilities."
+      },
+      {
+        "name": "provider",
+        "why_pick_it": "Simpler context-based inheritance model built into the Flutter ecosystem."
+      }
+    ],
+    "minimal_example": "import 'package:preact_signals/preact_signals.dart';\n\nfinal counter = signal(0);\n\nvoid main() {\n  print(counter.value); // 0\n  counter.value = 1;\n  print(counter.value); // 1\n}",
+    "confidence": 0.95
+  }
+}

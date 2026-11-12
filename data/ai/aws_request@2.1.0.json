@@ -1,0 +1,50 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.1.0",
+  "generatedAt": "2026-11-12T11:29:44.239Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "backend",
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Create, sign, and send API requests to AWS services with Signature Version 4.",
+    "what_it_does": "Allows Dart and Flutter applications to communicate with AWS services by automatically handling Signature Version 4 signing for HTTP requests. Supports custom endpoints, query parameters, headers, and mock requests for testing.",
+    "use_when": [
+      "You need to call AWS REST APIs directly without bringing in the full official AWS SDK.",
+      "You need to handle AWS Signature Version 4 signing manually for custom or lightweight API calls."
+    ],
+    "avoid_when": [
+      "You require automatic retries, exponential backoff, or persistent connection pooling out of the box.",
+      "You want a fully-featured official AWS SDK with generated models for all AWS services."
+    ],
+    "strengths": [
+      "Simple API to create, sign, and send requests using AWS SigV4.",
+      "Supports custom endpoints, LocalStack, and mock requests for testing.",
+      "Lightweight with minimal dependencies (crypto, http)."
+    ],
+    "weaknesses": [
+      "Does not implement automatic retries or built-in connection pooling.",
+      "Lacks full high-level service client wrappers compared to complete AWS SDKs."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "On Android, add the internet permission `<uses-permission android:name=\"android.permission.INTERNET\" />` to AndroidManifest.xml.",
+    "alternatives": [
+      {
+        "name": "http",
+        "why_pick_it": "If you only need a standard HTTP client without built-in AWS Signature Version 4 request signing."
+      },
+      {
+        "name": "dio",
+        "why_pick_it": "If you need interceptors, global configuration, and advanced HTTP client features."
+      }
+    ],
+    "minimal_example": "import 'package:aws_request/aws_request.dart';\n\nvoid main() {\n  final AwsRequest request = AwsRequest(\n    awsAccessKey: 'awsAccessKey',\n    awsSecretKey: 'awsSecretKey',\n    region: 'region',\n  );\n  request.send(type: AwsRequestType.post, service: 'logs');\n}",
+    "confidence": 1
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "1.1.3",
+  "generatedAt": "2026-11-12T11:13:05.436Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "layout"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Grouped list with sticky headers and expandable sections for CustomScrollView",
+    "what_it_does": "Provides a sliver‑compatible list that groups items into sections, each section can be expanded or collapsed and the header sticks while scrolling. It supports custom section widgets, dividers, overlap content, pull‑to‑refresh, load more and scrolling to a specific index.",
+    "use_when": [
+      "You need a scrollable list with sticky headers and expandable sections in a CustomScrollView",
+      "You want to avoid multiple list widgets for large data sets",
+      "You need to customize section appearance or animation"
+    ],
+    "avoid_when": [
+      "You only need a simple ListView without grouping or sticky headers",
+      "You are targeting a platform that does not support slivers (e.g., web without CustomScrollView)"
+    ],
+    "strengths": [
+      "Efficient memory usage by using a single list widget",
+      "Built‑in support for slivers, pull‑to‑refresh, load more and scroll‑to‑index",
+      "Highly customizable section builder and animation",
+      "No external dependencies beyond Flutter"
+    ],
+    "weaknesses": [
+      "No support for nested lists beyond a limited feature set",
+      "Limited documentation on advanced customization",
+      "No built‑in theming or styling beyond basic widgets"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dependency in pubspec.yaml and import the package. No additional permissions or build_runner needed.",
+    "alternatives": [],
+    "minimal_example": "```dart\nimport 'package:sticky_and_expandable_list/sticky_and_expandable_list.dart';\n\nclass ExampleSection implements ExpandableListSection<String> {\n  final String title;\n  final List<String> items;\n  bool _expanded = false;\n  ExampleSection(this.title, this.items);\n  @override\n  bool get isExpanded => _expanded;\n  @override\n  set isExpanded(bool value) => _expanded = value;\n}\n\nfinal sections = [\n  ExampleSection('Fruits', ['Apple', 'Banana']),\n  ExampleSection('Vegetables', ['Carrot', 'Lettuce']),\n];\n\nExpandableListView(\n  builder: SliverExpandableChildDelegate<String, ExampleSection>(\n    sectionList: sections,\n    headerBuilder: (ctx, sectionIndex, _) => Text(sections[sectionIndex].title),\n    itemBuilder: (ctx, sectionIndex, itemIndex, _) {\n      final item = sections[sectionIndex].items[itemIndex];\n      return ListTile(title: Text(item));\n    },\n  ),\n);\n```",
+    "confidence": 0.85
+  }
+}

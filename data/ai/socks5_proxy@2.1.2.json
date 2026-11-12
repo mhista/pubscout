@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.1.2",
+  "generatedAt": "2026-11-10T13:00:08.618Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "SOCKS5 proxy server and client for Dart with support for authentication and chaining.",
+    "what_it_does": "Provides a SOCKS5 proxy server (TCP and UDP) and client (TCP) implementation. It enables developers to run local proxy servers, chain multiple proxies together, authenticate connections with passwords, and route HttpClient traffic through SOCKS5 proxies.",
+    "use_when": [
+      "You need to route HTTP traffic through a SOCKS5 proxy in your Dart or Flutter app.",
+      "You want to build your own SOCKS5 proxy server within a Dart environment.",
+      "You require proxy authentication or proxy chaining."
+    ],
+    "avoid_when": [
+      "You only need standard HTTP/HTTPS proxy support without SOCKS5 functionality.",
+      "You are looking for high-level REST API clients."
+    ],
+    "strengths": [
+      "Supports both TCP and UDP for servers and TCP for clients.",
+      "Includes features for server/client password authentication and proxy chaining.",
+      "Easily integrates with standard Dart HttpClient."
+    ],
+    "weaknesses": [
+      "SOCKS5 clients only support TCP.",
+      "Limited documentation outside of README and basic code examples."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'dart:convert';\nimport 'dart:io';\nimport 'package:socks_proxy/socks_client.dart';\n\nvoid main() async {\n    final client = HttpClient();\n    SocksTCPClient.assignToHttpClient(client, [\n      ProxySettings(InternetAddress.loopbackIPv4, 1080),\n    ]);\n    final request = await client.getUrl(Uri.parse('https://example.com/'));\n    final response = await request.close();\n    print(await utf8.decodeStream(response));\n    client.close();\n}",
+    "confidence": 0.95
+  }
+}

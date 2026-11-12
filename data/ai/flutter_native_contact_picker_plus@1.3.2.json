@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.3.2",
+  "generatedAt": "2026-11-11T11:25:13.071Z",
+  "data": {
+    "primary_category": "forms",
+    "secondary_categories": [
+      "device"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Select contacts from the device address book with extended fields and native UI.",
+    "what_it_does": "Provides a plugin for Android and iOS to open the native contact picker UI. Allows selecting single or multiple contacts and retrieving extended fields such as email addresses, avatars, organization info, and notes.",
+    "use_when": [
+      "You need to let users pick a contact from their device address book.",
+      "You require extended contact details like email addresses, avatars, or postal addresses."
+    ],
+    "avoid_when": [
+      "You need to programmatically query and search the entire contacts database without opening a picker UI.",
+      "You are targeting platforms other than Android and iOS."
+    ],
+    "strengths": [
+      "Supports extended contact fields like avatars, emails, and organization details.",
+      "Graceful fallback to basic fields when permissions are denied without crashing.",
+      "Supports multiple contact selection on iOS and specific phone number selection."
+    ],
+    "weaknesses": [
+      "Requires platform-specific configuration for permissions (Android Manifest, iOS Info.plist).",
+      "Multiple contact selection is limited to iOS only."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires adding the READ_CONTACTS permission to AndroidManifest.xml and NSContactsUsageDescription to iOS Info.plist.",
+    "alternatives": [],
+    "minimal_example": "final FlutterContactPickerPlus _contactPicker = FlutterContactPickerPlus();\nContact? contact = await _contactPicker.selectContact();",
+    "confidence": 0.95
+  }
+}

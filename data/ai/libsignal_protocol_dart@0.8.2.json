@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.8.2",
+  "generatedAt": "2026-11-09T11:12:43.424Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Pure Dart implementation of the Signal Protocol for end‑to‑end encrypted messaging.",
+    "what_it_does": "Provides Signal Protocol primitives such as identity key generation, pre‑key bundles, session building, and group messaging. Includes in‑memory stores and helpers to encrypt/decrypt messages across platforms.",
+    "use_when": [
+      "You need end‑to‑end encryption in a pure‑Dart/Flutter app without native dependencies",
+      "Cross‑platform support (mobile, web, desktop) is required",
+      "You want to implement custom key stores or session management"
+    ],
+    "avoid_when": [
+      "A GPL‑3.0 license is unacceptable for your project",
+      "You need a highly‑optimized native cryptography library",
+      "You already use a different secure messaging protocol"
+    ],
+    "strengths": [
+      "Pure Dart, works on all Flutter platforms",
+      "No native code or platform channels required",
+      "Supports both one‑to‑one and group sessions"
+    ],
+    "weaknesses": [
+      "GPL‑3.0 license may limit commercial use",
+      "Documentation is minimal",
+      "No code‑generation or high‑level abstractions"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "Future<void> install() async {\n  final identityKeyPair = generateIdentityKeyPair();\n  final registrationId = generateRegistrationId(false);\n  final preKeys = generatePreKeys(0, 110);\n  final signedPreKey = generateSignedPreKey(identityKeyPair, 0);\n  final sessionStore = InMemorySessionStore();\n  final preKeyStore = InMemoryPreKeyStore();\n  final signedPreKeyStore = InMemorySignedPreKeyStore();\n  final identityStore = InMemoryIdentityKeyStore(identityKeyPair, registrationId);\n  for (var p in preKeys) {\n    await preKeyStore.storePreKey(p.id, p);\n  }\n  await signedPreKeyStore.storeSignedPreKey(signedPreKey.id, signedPreKey);\n}",
+    "confidence": 0.9
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.0.1",
+  "generatedAt": "2026-11-10T13:16:43.142Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [
+      "backend"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based",
+      "no codegen"
+    ],
+    "one_liner": "Native MySQL and MariaDB client written in Dart.",
+    "what_it_does": "Connects directly to MySQL and MariaDB databases without external runtime dependencies. Supports connection pooling, transactions, TLS encryption, prepared statements, and result-set streaming.",
+    "use_when": [
+      "You need a pure Dart MySQL or MariaDB client for backend or client-side use",
+      "You require connection pooling and real prepared statements",
+      "You need TLS support and modern authentication plugins like caching_sha2_password"
+    ],
+    "avoid_when": [
+      "You are using a different database engine such as PostgreSQL or SQLite",
+      "Exposing database credentials directly in client applications is insecure"
+    ],
+    "strengths": [
+      "Zero external runtime dependencies",
+      "Supports connection pooling, transactions, and result streaming with backpressure",
+      "High performance AOT-compiled query execution"
+    ],
+    "weaknesses": [
+      "Older database servers might require TLS configuration adjustments or `secure: false` on trusted networks",
+      "Exposing direct database ports to the internet is dangerous"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires network access to a MySQL or MariaDB server and proper connection credentials.",
+    "alternatives": [],
+    "minimal_example": "final pool = MySQLConnectionPool(\n  host: '127.0.0.1',\n  port: 3306,\n  userName: 'your_user',\n  password: 'your_password',\n  maxConnections: 10,\n);\nvar result = await pool.execute('SELECT * FROM book WHERE id = :id', {'id': 1});",
+    "confidence": 1
+  }
+}

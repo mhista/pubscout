@@ -1,0 +1,50 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.1.11",
+  "generatedAt": "2026-11-12T11:15:23.031Z",
+  "data": {
+    "primary_category": "devtools",
+    "secondary_categories": [
+      "widgets",
+      "networking"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A debug overlay for Flutter to view logs, inspect HTTP requests, and trigger custom widgets in-app.",
+    "what_it_does": "Implements a global overlay in your Flutter application for debugging purposes directly on device. It provides a log viewer, an HTTP request inspector with a JSON viewer, and supports custom global action widgets. It integrates easily via builders and works with packages like dio, http, and logger.",
+    "use_when": [
+      "You need to inspect logs and HTTP requests directly on physical mobile or desktop devices without a computer.",
+      "You want a global overlay above app navigation for quick debugging actions."
+    ],
+    "avoid_when": [
+      "You only require a simple console logger without in-app UI overlays.",
+      "You are shipping to production and want zero debug UI footprint (though it can be conditionally disabled)."
+    ],
+    "strengths": [
+      "Global overlay works above app navigation and across platforms.",
+      "Includes built-in support and middlewares for Dio, http, and dart:io clients.",
+      "Allows custom widgets for global app actions."
+    ],
+    "weaknesses": [
+      "Requires manual setup of buckets and integration with loggers or HTTP clients.",
+      "May consume extra device resources if not disabled in production builds."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Insert the DebugOverlay widget into your app's builder method and optionally configure log and HTTP buckets.",
+    "alternatives": [
+      {
+        "name": "talker",
+        "why_pick_it": "Alternative advanced logging and error handling package with its own UI and extensions."
+      },
+      {
+        "name": "pretty_dio_logger",
+        "why_pick_it": "If you specifically only need pretty-printed Dio logs in the console rather than an in-app overlay UI."
+      }
+    ],
+    "minimal_example": "import 'package:flutter_debug_overlay/flutter_debug_overlay.dart';\n\nclass MyApp extends StatelessWidget {\n  const MyApp({super.key});\n\n  @override\n  Widget build(BuildContext context) {\n    return MaterialApp(\n      builder: DebugOverlay.builder(),\n      home: const MyHomePage(),\n    );\n  }\n}",
+    "confidence": 1
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "6.0.0",
+  "generatedAt": "2026-11-09T11:34:59.765Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [
+      "device"
+    ],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "A Flutter plugin for collecting noise and decibel levels from the phone's microphone.",
+    "what_it_does": "A Flutter plugin that records PCM audio data using the device microphone and provides a stream of NoiseReading objects containing mean and maximum decibel levels. It supports both iOS and Android platforms.",
+    "use_when": [
+      "You need to measure ambient noise or decibel levels in your Flutter application.",
+      "You want to stream real-time noise readings from the device microphone."
+    ],
+    "avoid_when": [
+      "You need a full-featured audio recording and playback solution for music or voice memos.",
+      "Your project targets Flutter or platform versions older than the specified requirements."
+    ],
+    "strengths": [
+      "Provides a simple stream-based API for noise readings.",
+      "Computes both mean and max decibel levels out of the box."
+    ],
+    "weaknesses": [
+      "Requires platform-specific permission configuration for Android and iOS.",
+      "Strict platform and Flutter version requirements."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding RECORD_AUDIO permission on Android, and Info.plist/Background Modes configuration on iOS.",
+    "alternatives": [
+      {
+        "name": "record",
+        "why_pick_it": "Choose record if you need to record and save audio files to disk rather than streaming live decibel meters."
+      },
+      {
+        "name": "audioplayers",
+        "why_pick_it": "Choose audioplayers if your primary need is playing audio files or streams instead of analyzing microphone decibels."
+      }
+    ],
+    "minimal_example": "NoiseMeter().noise.listen(\n  (NoiseReading noiseReading) {\n    print('Noise: ${noiseReading.meanDecibel} dB');\n    print('Max amp: ${noiseReading.maxDecibel} dB');\n  },\n  onError: (Object error) {\n    print(error);\n  },\n  cancelOnError: true,\n);",
+    "confidence": 1
+  }
+}

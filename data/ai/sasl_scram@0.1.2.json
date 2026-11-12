@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.1.2",
+  "generatedAt": "2026-11-11T11:10:03.443Z",
+  "data": {
+    "primary_category": "auth",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "SASL SCRAM authentication implementation in Dart supporting scram-1 and scram-256.",
+    "what_it_does": "Provides Salted Challenge Response Authentication Mechanism (SCRAM) authentication. Manages both scram-1 and scram-256 mechanisms for secure credential handling.",
+    "use_when": [
+      "You need to authenticate against a backend or database using SASL SCRAM.",
+      "You are implementing MongoDB or similar database connections requiring SCRAM-SHA-256."
+    ],
+    "avoid_when": [
+      "You are using OAuth or social sign-ins.",
+      "Your backend relies entirely on standard HTTP bearer tokens or Firebase Auth."
+    ],
+    "strengths": [
+      "Supports both scram-1 and scram-256.",
+      "Pure Dart implementation works across multiple platforms including web, mobile, and desktop."
+    ],
+    "weaknesses": [
+      "Niche functionality limited to SASL SCRAM protocol.",
+      "Minimal documentation and usage examples beyond basic README."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Not documented",
+    "alternatives": [],
+    "minimal_example": "import 'dart:typed_data';\nimport 'package:crypto/crypto.dart';\nimport 'package:sasl_scram/sasl_scram.dart';\n\nvoid main() {\n  final bytesReceivedFromServer = Uint8List(0);\n  final authenticator = ScramAuthenticator(\n    'SCRAM-SHA-256',\n    sha256,\n    UsernamePasswordCredential(username: 'dart', password: 'dart'),\n  );\n  final bytesToSentToServer = authenticator.handleMessage(\n    SaslMessageType.AuthenticationSASL,\n    bytesReceivedFromServer,\n  );\n  print(bytesToSentToServer);\n}",
+    "confidence": 0.95
+  }
+}

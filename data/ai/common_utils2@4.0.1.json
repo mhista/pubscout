@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.0.1",
+  "generatedAt": "2026-11-10T12:14:55.732Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "storage",
+      "notifications",
+      "device",
+      "images"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based",
+      "no codegen"
+    ],
+    "one_liner": "Production-focused Flutter utilities for notifications, storage, connectivity, and media.",
+    "what_it_does": "A comprehensive utility package providing pre-configured services for push and local notifications, secure storage, Hive CE, connectivity checking, validation, and media/file pickers. It bundles common everyday extensions and helpers for production apps.",
+    "use_when": [
+      "You are building a production Flutter app and want a pre-packaged set of utilities for notifications, storage, and common validations.",
+      "You need an integrated solution for push/local notifications with deep-link handling and per-category mute preferences."
+    ],
+    "avoid_when": [
+      "You only need a single lightweight utility (like url_launcher or crypto) and want to avoid pulling in a large dependency graph.",
+      "Your project does not use Flutter 3.47+ or Dart 3.13+."
+    ],
+    "strengths": [
+      "Combines many essential production utilities into a single, cohesive package.",
+      "Built-in support for per-category notification mute, cold-start taps, and in-app notification overlays.",
+      "Type-safe Result and AsyncState types for robust error handling."
+    ],
+    "weaknesses": [
+      "Large dependency footprint due to covering multiple domains (storage, media, notifications, location).",
+      "Strict minimum requirement of Flutter 3.47 and Dart 3.13."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires initialisation in main() before runApp and specific platform configurations for Firebase, permissions, and minimum SDK versions (Android minSdk 24, compileSdk 37).",
+    "alternatives": [],
+    "minimal_example": "Future<void> main() async {\n  WidgetsFlutterBinding.ensureInitialized();\n  await StorageService.init();\n  await SecureStorageService.init(namespace: 'myapp');\n  await HiveStorageService.init();\n  runApp(const MyApp());\n}",
+    "confidence": 0.95
+  }
+}

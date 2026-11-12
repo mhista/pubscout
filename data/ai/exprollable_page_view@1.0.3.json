@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.3",
+  "generatedAt": "2026-11-12T11:45:08.624Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "animation",
+      "layout"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A PageView widget that expands or shrinks its pages dynamically while scrolling vertically.",
+    "what_it_does": "Provides an alternative PageView widget that clones the modal sheet UI found in the Apple Books app. As users scroll vertically inside a page, the viewport dynamically scales and shrinks or expands, allowing for full-screen transitions and fluid page swiping.",
+    "use_when": [
+      "You want to replicate the Apple Books details modal sheet UI in your Flutter app.",
+      "You need a PageView where individual pages expand and collapse based on vertical scroll position.",
+      "You want smooth page transitions combined with custom snap insets and overshoot effects."
+    ],
+    "avoid_when": [
+      "You need standard horizontal page-flipping without any vertical sizing behavior.",
+      "You require robust mouse wheel scrolling support on web for this specific widget."
+    ],
+    "strengths": [
+      "Provides a unique and polished UI experience similar to native iOS Apple Books.",
+      "Highly customizable viewport fractions, insets, and snap points through ViewportConfiguration.",
+      "Supports custom scroll controllers and hero animations."
+    ],
+    "weaknesses": [
+      "Mouse wheel scrolling is not currently supported on the web platform.",
+      "Requires specific usage of `PageContentScrollController.of(context)` for inner scrollables."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "ExprollablePageView(\n  itemCount: 5,\n  itemBuilder: (context, page) {\n    return ListView.builder(\n      controller: PageContentScrollController.of(context),\n      itemBuilder: (context, index) {\n        return ListTile(title: Text('Item#$index'));\n      },\n    );\n  },\n)",
+    "confidence": 1
+  }
+}

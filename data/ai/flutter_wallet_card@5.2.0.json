@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "5.2.0",
+  "generatedAt": "2026-11-09T11:31:19.218Z",
+  "data": {
+    "primary_category": "payments",
+    "secondary_categories": [
+      "device"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Generate and manage Apple Wallet passes and Google Wallet cards in Flutter.",
+    "what_it_does": "A cross-platform plugin providing a unified API for generating, adding, and managing wallet passes for Apple Wallet on iOS and Google Wallet on Android. It supports multiple card types, custom styling, location relevance, and loading from local files or web URLs.",
+    "use_when": [
+      "You need to integrate Apple Wallet and Google Wallet passes into your Flutter app.",
+      "You want to generate or parse wallet card files from data or web URLs."
+    ],
+    "avoid_when": [
+      "You only need in-app purchases or traditional payment gateway integrations.",
+      "Your target platform does not support Apple Wallet or Google Wallet."
+    ],
+    "strengths": [
+      "Unified cross-platform API for both iOS and Android wallets.",
+      "Supports multiple card types including generic, boarding passes, coupons, event tickets, and store cards.",
+      "Handles network downloads, local file parsing, and custom visuals."
+    ],
+    "weaknesses": [
+      "Requires platform-specific developer accounts and configurations (Apple Developer Console, Google Cloud Console).",
+      "Requires manual setup of native wallet capabilities and dependencies."
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Requires enabling the Wallet capability in Xcode for iOS with a Pass Type ID and certificates, and enabling the Google Wallet API with OAuth 2.0 credentials for Android.",
+    "alternatives": [],
+    "minimal_example": "bool isAvailable = await FlutterWalletCard.isWalletAvailable;\nif (isAvailable) {\n  final card = WalletCard(\n    id: 'my-card-123',\n    type: WalletCardType.generic,\n    platformData: {\n      'passTypeIdentifier': 'pass.com.yourcompany.yourpass',\n      'teamIdentifier': 'YOUR_TEAM_ID',\n      'issuerId': 'your-issuer-id',\n      'classId': 'your-class-id',\n    },\n    metadata: WalletCardMetadata(\n      title: 'My Awesome Card',\n      organizationName: 'Your Company',\n      serialNumber: 'CARD123',\n    ),\n  );\n  await FlutterWalletCard.addToWallet(card);\n}",
+    "confidence": 0.95
+  }
+}

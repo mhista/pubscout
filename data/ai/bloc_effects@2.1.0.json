@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.1.0",
+  "generatedAt": "2026-11-12T11:21:00.588Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [],
+    "approach": [
+      "stream-based",
+      "declarative"
+    ],
+    "one_liner": "SingleLiveEvent pattern implementation for BLoC and Cubit to dispatch transient UI effects.",
+    "what_it_does": "Adds UI effects (such as bottom sheets, navigation, and dialogs) to the BLoC state management pattern using mixins like `Effects` or classes like `CubitWithEffects`. Provides widgets like `BlocEffectListener` and `BlocEffectConsumer` to listen and react to these transient events.",
+    "use_when": [
+      "You are using the bloc package and need to trigger one-time UI actions like showing dialogs or navigation.",
+      "You want to separate transient event emission from your persistent BLoC state."
+    ],
+    "avoid_when": [
+      "You are not using the bloc or flutter_bloc packages.",
+      "State persistence across configuration changes is required for your UI events."
+    ],
+    "strengths": [
+      "Seamless integration with flutter_bloc.",
+      "Prevents UI effects from being re-emitted on widget rebuilds or configuration changes."
+    ],
+    "weaknesses": [
+      "Tied directly to the ecosystem of package:bloc.",
+      "Transient events are discarded if there are no active listeners."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "bloc",
+        "why_pick_it": "Provides the foundational BLoC state management architecture without dedicated single-live-event effect abstractions."
+      }
+    ],
+    "minimal_example": "class CounterCubit extends Cubit<int> with Effects<UiEffect> {\n  CounterCubit() : super(0);\n  void onButtonPressed() => emitEffect(ShowBottomSheet(counterValue: state));\n}",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.9",
+  "generatedAt": "2026-11-12T11:35:47.026Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "web-desktop"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "A Flutter plugin designed to handle secondary presentation displays.",
+    "what_it_does": "It provides methods to interact with connected displays, show and hide secondary presentation screens, listen to display connection changes, and transfer data between the main and secondary displays.",
+    "use_when": [
+      "You need to display a separate presentation screen on an external monitor or secondary device display.",
+      "You need to pass data back and forth between the main display and a secondary presentation screen."
+    ],
+    "avoid_when": [
+      "You only need standard single-screen navigation inside your app.",
+      "You are building for platforms that do not support secondary presentation displays (only Android is explicitly mentioned/tested)."
+    ],
+    "strengths": [
+      "Enables multi-display presentation setups easily.",
+      "Includes stream listeners for connection changes and data transfer between displays.",
+      "Supports fullscreen mode to hide system bars on secondary displays."
+    ],
+    "weaknesses": [
+      "Limited platform documentation and testing details (explicitly tested on SUNMI T2s).",
+      "Requires manual entry-point setup with specific pragmas for the secondary display."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires defining a secondary entry point in main.dart annotated with @pragma('vm:entry-point').",
+    "alternatives": [],
+    "minimal_example": "final display = FlutterPresentationDisplay();\nList<Display>? displays = await display.getDisplays();\nbool? result = await display.showSecondaryDisplay(\n  displayId: 1,\n  routerName: \"presentation\",\n  fullscreen: true,\n);",
+    "confidence": 0.95
+  }
+}

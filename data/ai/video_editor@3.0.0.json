@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "3.0.0",
+  "generatedAt": "2026-11-12T11:20:40.310Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [
+      "ui-kits",
+      "widgets"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "A Flutter package for trimming, cropping, rotating, and exporting videos with a customizable UI.",
+    "what_it_does": "Provides a controller‑based API to load a video file, adjust trim and crop regions, rotate the clip, and select cover frames. It generates FFmpeg command strings for you to run the actual export yourself.",
+    "use_when": [
+      "You need on‑device video editing (trim, crop, rotate) with a flexible UI",
+      "You want full control over the export command (FFmpeg)",
+      "Your app targets Android and iOS"
+    ],
+    "avoid_when": [
+      "You require web or desktop video editing support (currently mobile only)",
+      "You need automatic export handling without writing your own FFmpeg integration"
+    ],
+    "strengths": [
+      "Highly customizable UI and command generation",
+      "Supports both video and cover thumbnail selection",
+      "No native FFmpeg dependency in the package itself"
+    ],
+    "weaknesses": [
+      "Export must be handled manually with another FFmpeg library",
+      "Limited to mobile platforms for now"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add video_editor to pubspec, ensure video_thumbnail and video_player are included, and integrate an FFmpeg runner (e.g., ffmpeg_kit_flutter) for export; requires Android/iOS permissions for file access.",
+    "alternatives": [],
+    "minimal_example": "final controller = VideoEditorController.file(File('path/video.mp4'));\nawait controller.initialize();\nfinal config = VideoFFmpegVideoEditorConfig(controller);\nfinal execute = await config.getExecuteConfig(); // run execute.command with ffmpeg_kit_flutter",
+    "confidence": 0.85
+  }
+}

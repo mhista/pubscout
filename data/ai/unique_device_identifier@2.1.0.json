@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.1.0",
+  "generatedAt": "2026-11-12T11:45:23.980Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Provides a unique device identifier across Android, iOS, Windows, macOS, Linux, and Web.",
+    "what_it_does": "Fetches a unique device identifier string using native platform APIs on Android, iOS, Windows, macOS, and Linux, and localStorage or fingerprinting on the Web. It provides a consistent static method interface across all supported platforms.",
+    "use_when": [
+      "You need a unique hardware or installation identifier for analytics or device tracking.",
+      "You are targeting multiple platforms including desktop, mobile, and web with a single API."
+    ],
+    "avoid_when": [
+      "You require an identifier that strictly survives app uninstalls on iOS and Android.",
+      "You need secure unique IDs that cannot be reset or modified via local storage or browser settings on the web."
+    ],
+    "strengths": [
+      "Supports all major platforms: Android, iOS, Windows, macOS, Linux, and Web.",
+      "No external dependencies required beyond Flutter.",
+      "Clean static method interface for easy calling."
+    ],
+    "weaknesses": [
+      "UUID may change after uninstalling and reinstalling the app on iOS and Android.",
+      "Web implementation relies on localStorage which can be cleared by the user."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the dependency to pubspec.yaml and call the static method asynchronously.",
+    "alternatives": [],
+    "minimal_example": "import 'package:unique_device_identifier/unique_device_identifier.dart';\n\nvoid main() async {\n  final String? deviceId = await UniqueDeviceIdentifier.getUniqueIdentifier();\n  print(\"Device ID: $deviceId\");\n}",
+    "confidence": 1
+  }
+}

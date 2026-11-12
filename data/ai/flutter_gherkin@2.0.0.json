@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.0",
+  "generatedAt": "2026-11-11T11:34:12.039Z",
+  "data": {
+    "primary_category": "testing",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Gherkin parser and test runner for Dart and Flutter behavior-driven development.",
+    "what_it_does": "A Gherkin parser and test runner that lets developers write behavior-driven development (BDD) feature files and test scenarios for Flutter applications. It integrates with Flutter Driver to automate user interactions and check states across various devices.",
+    "use_when": [
+      "You want to practice Behavior-Driven Development (BDD) using Gherkin syntax in Flutter",
+      "You need to run feature files and scenarios against a running Flutter application via Flutter Driver"
+    ],
+    "avoid_when": [
+      "You prefer standard unit and widget testing without BDD syntax",
+      "You require packages that rely on reflection for step definitions"
+    ],
+    "strengths": [
+      "Full Gherkin syntax and Cucumber-like test runner support",
+      "Built-in step definitions and helper utilities for Flutter Driver",
+      "Supports custom step parameters, hooks, and multiple reporting formats"
+    ],
+    "weaknesses": [
+      "Does not use reflection, so custom classes like steps, hooks, and reporters must be explicitly registered",
+      "Requires manual configuration and test driver setup"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires creating a test_driver file to enable the Flutter driver extension, configuring feature files, and manually wiring step definitions.",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter_gherkin/flutter_gherkin.dart';\nimport 'package:gherkin/gherkin.dart';\n\nFuture<void> main() {\n  final config = FlutterTestConfiguration()\n    ..features = [RegExp('features/*.*.feature')]\n    ..reporters = [StdoutReporter()]\n    ..targetAppPath = \"test_driver/app.dart\";\n  return GherkinRunner().execute(config);\n}",
+    "confidence": 0.95
+  }
+}

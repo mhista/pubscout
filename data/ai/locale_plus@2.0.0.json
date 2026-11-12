@@ -1,0 +1,47 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.0",
+  "generatedAt": "2026-11-11T11:39:36.935Z",
+  "data": {
+    "primary_category": "localization",
+    "secondary_categories": [
+      "device"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Access native device locale data like language, country code, time zone, and number formats.",
+    "what_it_does": "LocalePlus provides easy access to native device locale settings and data in Flutter apps. It exposes methods to retrieve information such as language code, region code, time zone identifier, first day of the week, number formatting preferences, and date format patterns. It also allows patching Flutter locales with device-specific number separators.",
+    "use_when": [
+      "You need to read native device locale settings beyond what standard Flutter localization provides.",
+      "You need to retrieve native number grouping/decimal separators or date format patterns.",
+      "You need to check device preferences like the metric system or 24-hour time usage."
+    ],
+    "avoid_when": [
+      "You only need cross-platform translation management without native locale data access.",
+      "Your target platform requires unsupported legacy Flutter versions below 3.38.0."
+    ],
+    "strengths": [
+      "Provides direct access to native device settings for time zones, separators, and date formats.",
+      "Includes utilities for patching Flutter locale data with native number separators.",
+      "Supports Swift Package Manager and CocoaPods on iOS."
+    ],
+    "weaknesses": [
+      "Requires high minimum versions for Dart (>=3.10.0) and Flutter (>=3.38.0).",
+      "Patching behaviors for specific keyboards like Samsung are limited to Android and iOS."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the dependency to pubspec.yaml. Requires Flutter >=3.38.0 and Dart >=3.10.0.",
+    "alternatives": [
+      {
+        "name": "devicelocale",
+        "why_pick_it": "If you need a simpler package specifically for reading raw device locales without extensive number/date formatting overrides."
+      }
+    ],
+    "minimal_example": "import 'package:locale_plus/locale_plus.dart';\n\nFuture<void> main() async {\n  WidgetsFlutterBinding.ensureInitialized();\n  final decimalSeparator = await LocalePlus().getDecimalSeparator();\n  runApp(const MyApp());\n}",
+    "confidence": 0.95
+  }
+}

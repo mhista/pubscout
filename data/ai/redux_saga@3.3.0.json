@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.3.0",
+  "generatedAt": "2026-11-11T11:44:35.595Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Redux saga middleware for Dart and Flutter to manage side effects.",
+    "what_it_does": "Helps manage application side effects like data fetching and asynchronous tasks using synchronous generator functions. Acts as a middleware for Redux to start, pause, and cancel tasks via normal actions.",
+    "use_when": [
+      "You are using Redux in your Flutter or Dart application and need to manage complex side effects",
+      "You want to handle asynchronous flows cleanly using generator functions without callback hell",
+      "You need advanced concurrency control like debouncing, throttling, or taking latest actions"
+    ],
+    "avoid_when": [
+      "You are not using Redux in your project",
+      "You prefer simpler state management solutions like Provider or Riverpod"
+    ],
+    "strengths": [
+      "Separates side effects cleanly from UI and reducers",
+      "Easy to test asynchronous workflows",
+      "Advanced concurrency patterns built-in (race, parallel, cancellation)"
+    ],
+    "weaknesses": [
+      "Steep learning curve compared to basic async/await or thunks",
+      "Requires using Redux"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires setting up the saga middleware and connecting it to your Redux store.",
+    "alternatives": [],
+    "minimal_example": "var sagaMiddleware = createSagaMiddleware();\nfinal store = Store(\n    counterReducer,\n    initialState: 0,\n    middleware: [applyMiddleware(sagaMiddleware)],\n);\nsagaMiddleware.setStore(store);\nsagaMiddleware.run(mySaga);",
+    "confidence": 0.95
+  }
+}

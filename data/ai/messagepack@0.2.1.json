@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.2.1",
+  "generatedAt": "2026-11-11T11:18:14.470Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "Streaming API for MessagePack binary serialization in Dart.",
+    "what_it_does": "Provides Packer and Unpacker classes to pack and unpack data using the MessagePack format. Supports automatic unpacking of lists and maps via a streaming interface.",
+    "use_when": [
+      "Need efficient binary serialization for custom protocols",
+      "Cross‑platform apps requiring MessagePack support"
+    ],
+    "avoid_when": [
+      "Prefer JSON or other text formats",
+      "Require code‑generated models or schema validation"
+    ],
+    "strengths": [
+      "Zero external dependencies",
+      "Works on all major Flutter platforms",
+      "Streaming API allows incremental processing"
+    ],
+    "weaknesses": [
+      "Manual packing can be error‑prone",
+      "Only supports MessagePack, no other formats",
+      "No code‑generation or schema tools"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:messagepack/messagepack.dart';\n\nfinal p = Packer();\n p.packInt(1);\n p.packString('hi');\nfinal bytes = p.takeBytes();\nfinal u = Unpacker(bytes);\nfinal version = u.unpackInt();\nfinal message = u.unpackString();",
+    "confidence": 0.93
+  }
+}

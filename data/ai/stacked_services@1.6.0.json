@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.6.0",
+  "generatedAt": "2026-11-11T11:14:11.904Z",
+  "data": {
+    "primary_category": "navigation",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Provides default implementations of services for the Stacked architecture.",
+    "what_it_does": "It contains essential services like NavigationService, DialogService, SnackbarService, and BottomSheetService to aid in implementing the Stacked architecture. These services reduce boilerplate code and allow handling navigation and UI popups directly from ViewModels without needing a BuildContext.",
+    "use_when": [
+      "You are building an application using the Stacked architecture.",
+      "You want to handle navigation, dialogs, and snackbars directly from your ViewModels."
+    ],
+    "avoid_when": [
+      "You are using a different state management architecture like Bloc, Provider, or Riverpod without Stacked.",
+      "You prefer a purely declarative routing approach."
+    ],
+    "strengths": [
+      "Reduces boilerplate code for Stacked architecture users.",
+      "Allows navigation and UI popups without passing BuildContext."
+    ],
+    "weaknesses": [
+      "Tightly coupled with the Stacked architecture ecosystem.",
+      "Relies heavily on the Get package for its underlying implementations."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Assign StackedService.navigatorKey to your MaterialApp and register the services with get_it or Injectable.",
+    "alternatives": [
+      {
+        "name": "auto_route",
+        "why_pick_it": "If you need a robust declarative routing and deep-linking solution with code generation."
+      },
+      {
+        "name": "go_router",
+        "why_pick_it": "If you prefer Flutter's official declarative routing package."
+      }
+    ],
+    "minimal_example": "final NavigationService _navigationService = locator<NavigationService>();\n\n_navigationService.navigateTo(Routes.startupViewRoute);",
+    "confidence": 0.95
+  }
+}

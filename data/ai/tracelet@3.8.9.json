@@ -1,0 +1,50 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.8.9",
+  "generatedAt": "2026-11-09T11:41:00.106Z",
+  "data": {
+    "primary_category": "maps",
+    "secondary_categories": [
+      "storage",
+      "networking"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Production-grade background geolocation and tracking plugin for Flutter.",
+    "what_it_does": "Provides battery-conscious background location tracking, motion detection, geofencing, SQLite persistence, and HTTP synchronization for iOS and Android.",
+    "use_when": [
+      "You need reliable background or continuous GPS location tracking.",
+      "You require geofencing with local SQLite persistence and automated HTTP sync."
+    ],
+    "avoid_when": [
+      "You only need simple, foreground-only one-off location lookups.",
+      "You want a pure Dart implementation without native platform dependencies."
+    ],
+    "strengths": [
+      "Extensive battery-saving features like motion-detection intelligence and adaptive sampling.",
+      "Robust offline capabilities with SQLite persistence and automated HTTP sync queues."
+    ],
+    "weaknesses": [
+      "Requires complex native permission setups and platform-specific configurations.",
+      "Heavy package size and scope if only basic location retrieval is needed."
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Requires configuring permissions in AndroidManifest.xml and iOS Info.plist, plus native handling for background capabilities.",
+    "alternatives": [
+      {
+        "name": "geolocator",
+        "why_pick_it": "If you need a simpler, lightweight geolocation plugin without the advanced background telemetry and SQLite sync features."
+      },
+      {
+        "name": "location",
+        "why_pick_it": "If you want a straightforward alternative for basic location tracking and permissions."
+      }
+    ],
+    "minimal_example": "import 'package:tracelet/tracelet.dart' as tl;\n\ntl.Tracelet.onLocation((tl.Location location) {\n  print('${location.coords.latitude}, ${location.coords.longitude}');\n});\n\nfinal state = await tl.Tracelet.ready(tl.Config.balanced());\nawait tl.Tracelet.start();",
+    "confidence": 0.95
+  }
+}

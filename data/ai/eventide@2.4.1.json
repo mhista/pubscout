@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.4.1",
+  "generatedAt": "2026-11-09T11:20:24.319Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Access and modify native device calendars and events on iOS and Android.",
+    "what_it_does": "Provides a Flutter interface to interact with native device calendars. It allows you to create, retrieve, edit, and delete calendars, events, reminders, and attendees, alongside automatic permission handling.",
+    "use_when": [
+      "You need to read or write calendar events inside a Flutter mobile app.",
+      "You want automatic permission handling for accessing device calendars.",
+      "You need to create events using native platform UI or ICS format on Android."
+    ],
+    "avoid_when": [
+      "You are targeting web or desktop platforms where native calendar APIs are not supported.",
+      "You only need local database storage without native calendar sync."
+    ],
+    "strengths": [
+      "Automatic permission handling out of the box",
+      "Supports both iOS and Android native calendars",
+      "Comprehensive management of calendars, events, reminders, and attendees"
+    ],
+    "weaknesses": [
+      "Event recurrence is currently under development",
+      "Limited to mobile platforms (iOS and Android)"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires platform-specific configuration for Android and iOS as detailed in PLATFORM_SETUP.md.",
+    "alternatives": [],
+    "minimal_example": "import 'package:eventide/eventide.dart';\n\nfinal eventide = Eventide();\n\nfinal calendars = await eventide.retrieveCalendars();\n\nawait eventide.createEvent(\n  calendarId: calendars.first.id,\n  title: 'Important Meeting',\n  startDate: DateTime.now().add(Duration(days: 1)),\n  endDate: DateTime.now().add(Duration(days: 1, hours: 1)),\n  reminders: [const Duration(minutes: 15)],\n);",
+    "confidence": 0.9
+  }
+}

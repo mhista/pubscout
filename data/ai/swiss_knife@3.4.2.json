@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.4.2",
+  "generatedAt": "2026-11-11T11:28:46.094Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Collection of Dart utility tools for collections, math, date, URI, JSON, events, and resources.",
+    "what_it_does": "Provides general-purpose Dart helper utilities including collections, math, date, IO, JSON parsing, event streams, MIME types, and URI handling.",
+    "use_when": [
+      "You need helper functions for collections, math, and date manipulation.",
+      "You want a lightweight event stream system for notifications."
+    ],
+    "avoid_when": [
+      "You only need standard core library features.",
+      "You require a specialized package for complex tasks like cryptography or advanced date manipulation."
+    ],
+    "strengths": [
+      "Comprehensive collection of utility functions in a single package.",
+      "Includes helpful structures like EventStream."
+    ],
+    "weaknesses": [
+      "Broad scope can pull in unnecessary utility functions.",
+      "Limited documentation on individual utility methods."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:swiss_knife/swiss_knife.dart';\n\nclass User {\n  final EventStream<String> onNotification = new EventStream();\n\n  void notify(String msg) {\n    onNotification.add(msg);\n  }\n}\n\nvoid main() {\n  User user = new User();\n  user.onNotification.listen((msg) {\n    print(\"NOTIFICATION> $msg\");\n  });\n}",
+    "confidence": 0.9
+  }
+}

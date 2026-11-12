@@ -1,0 +1,52 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.2.0",
+  "generatedAt": "2026-11-12T11:54:01.378Z",
+  "data": {
+    "primary_category": "ui-kits",
+    "secondary_categories": [
+      "theming",
+      "widgets"
+    ],
+    "approach": [
+      "declarative",
+      "code generation"
+    ],
+    "one_liner": "A modern design system component library built on Naked UI and Mix.",
+    "what_it_does": "Remix combines headless UI behavior with a chainable styling system to provide customizable widgets and the prebuilt Fortal design system. It handles complex component states like hover, focus, and press alongside layout and overlays.",
+    "use_when": [
+      "You need custom design system components with complete styling freedom.",
+      "You want built-in interaction states like hover, focus, and press without boilerplate.",
+      "You want to use prebuilt design tokens and components based on Radix principles."
+    ],
+    "avoid_when": [
+      "You prefer standard Material or Cupertino widgets without custom styling engines.",
+      "You do not want additional styling dependencies like Mix in your project."
+    ],
+    "strengths": [
+      "Comprehensive set of production-ready components and input elements.",
+      "Chainable, expressive styling API with robust state handling.",
+      "Includes the prebuilt Fortal Design System based on Radix tokens."
+    ],
+    "weaknesses": [
+      "Requires learning a custom styling API built on top of Mix.",
+      "Adds extra architectural complexity compared to standard Flutter widgets."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Not documented",
+    "alternatives": [
+      {
+        "name": "material_ui",
+        "why_pick_it": "If you prefer standard Google Material Design components instead of a custom styling engine library."
+      },
+      {
+        "name": "cupertino_ui",
+        "why_pick_it": "If you are building an iOS-styled app using native Cupertino widgets."
+      }
+    ],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:remix/remix.dart';\n\nclass MyApp extends StatelessWidget {\n  final button = RemixButtonStyle()\n    .paddingX(16)\n    .paddingY(10)\n    .color(Colors.blue)\n    .borderRadiusAll(const Radius.circular(8))\n    .label(TextStyler().color(Colors.white));\n\n  @override\n  Widget build(BuildContext context) {\n    return MaterialApp(\n      home: Scaffold(\n        body: Center(\n          child: button(\n            label: 'Click Me',\n            onPressed: () => print('Button pressed!'),\n          ),\n        ),\n      ),\n    );\n  }\n}",
+    "confidence": 0.95
+  }
+}

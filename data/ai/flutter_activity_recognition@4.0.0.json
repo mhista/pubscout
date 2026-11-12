@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.0.0",
+  "generatedAt": "2026-11-11T11:41:43.194Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "maps"
+    ],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "Recognize user activity on Android and iOS platforms.",
+    "what_it_does": "Recognizes user physical activity on Android and iOS using native platform APIs (ActivityRecognitionClient and CMMotionActivityManager). Provides permission handling and a real-time activity stream.",
+    "use_when": [
+      "You need to detect user movement types like walking, running, or vehicle transport.",
+      "You are building fitness, tracking, or location-aware apps on Android and iOS."
+    ],
+    "avoid_when": [
+      "You do not need native activity recognition capabilities."
+    ],
+    "strengths": [
+      "Supports both Android and iOS platforms",
+      "Provides a real-time activity stream"
+    ],
+    "weaknesses": [
+      "Requires manual platform-specific configuration and permissions setup",
+      "Background usage requires an additional foreground task plugin"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding permissions to AndroidManifest.xml and NSMotionUsageDescription to Info.plist.",
+    "alternatives": [],
+    "minimal_example": "Future<void> _subscribeActivityStream() async {\n  if (await _checkAndRequestPermission()) {\n    _activitySubscription = FlutterActivityRecognition.instance.activityStream\n        .handleError(_onError)\n        .listen(_onActivity);\n  }\n}",
+    "confidence": 0.95
+  }
+}

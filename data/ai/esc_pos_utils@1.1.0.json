@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.1.0",
+  "generatedAt": "2026-11-11T11:30:30.031Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "images"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Generate ESC/POS commands to send to thermal printers.",
+    "what_it_does": "Provides core Dart classes to generate ESC/POS command byte arrays for thermal printers. It allows you to format text, tables, images, barcodes, and QR codes into standard printer commands.",
+    "use_when": [
+      "You need to build a custom printing pipeline for thermal printers.",
+      "You are creating a receipt printing module using ESC/POS commands."
+    ],
+    "avoid_when": [
+      "You are looking for pre-built Bluetooth or Network printer connection wrappers (this package only generates bytes).",
+      "You need standard PDF or document printing."
+    ],
+    "strengths": [
+      "Supports multiple printer profiles and code tables.",
+      "Generates raw byte commands for text, tables, images, and barcodes.",
+      "Null-safe and supports multiple platforms."
+    ],
+    "weaknesses": [
+      "Does not handle network or Bluetooth connectivity directly.",
+      "Hardware support varies by thermal printer model."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Not documented",
+    "alternatives": [],
+    "minimal_example": "final profile = await CapabilityProfile.load();\nfinal generator = Generator(PaperSize.mm80, profile);\nList<int> bytes = [];\nbytes += generator.text('Hello World');\nbytes += generator.cut();",
+    "confidence": 0.95
+  }
+}

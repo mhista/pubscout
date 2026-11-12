@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.9.7",
+  "generatedAt": "2026-11-09T11:18:30.202Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "layout"
+    ],
+    "approach": [
+      "declarative",
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Widget that presents a view below a movable floating widget.",
+    "what_it_does": "Provides a floating widget that can be dragged to screen corners and lets you present another widget underneath it. The floating view can avoid the keyboard and its size can be configured.",
+    "use_when": [
+      "You need a picture‑in‑picture style overlay in your UI",
+      "You want a simple way to show content below a draggable floating widget"
+    ],
+    "avoid_when": [
+      "You require complex multi‑window management or platform‑specific video pipelines",
+      "You need extensive customization beyond the provided corner‑stick behavior"
+    ],
+    "strengths": [
+      "Very small, only depends on flutter",
+      "Supports drag‑to‑corner and keyboard avoidance",
+      "Declarative RawPIPView API added"
+    ],
+    "weaknesses": [
+      "Limited styling and animation options",
+      "No built‑in support for multiple floating windows"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "PIPView(\n  builder: (context, isFloating) => Scaffold(\n    body: Column(\n      children: [\n        Text('This is the screen that will float!'),\n        MaterialButton(\n          child: Text('Start floating'),\n          onPressed: () => PIPView.of(context).presentBelow(MyBackgroundScreen()),\n        ),\n      ],\n    ),\n  ),\n);",
+    "confidence": 0.9
+  }
+}

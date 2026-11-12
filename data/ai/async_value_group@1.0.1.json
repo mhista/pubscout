@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.1",
+  "generatedAt": "2026-11-12T11:40:41.827Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "Group multiple Riverpod AsyncValues into a single AsyncValue",
+    "what_it_does": "It groups several Riverpod AsyncValues together into a single AsyncValue, allowing you to retrieve all data values as a tuple. This enables calling AsyncValue.when only once when multiple asynchronous providers are needed in a widget.",
+    "use_when": [
+      "You need to consume multiple Riverpod AsyncValues in a single widget and want to avoid nesting multiple .when() calls.",
+      "You want to wait for multiple asynchronous processes together and handle their states cleanly."
+    ],
+    "avoid_when": [
+      "You are not using Riverpod for state management.",
+      "You only need to watch a single AsyncValue."
+    ],
+    "strengths": [
+      "Simplifies widget build methods by reducing multiple AsyncValue.when calls down to one.",
+      "Easily handles grouping of multiple providers into tuples."
+    ],
+    "weaknesses": [
+      "Limited to Riverpod AsyncValues.",
+      "No topics documented in the package metadata."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [],
+    "minimal_example": "return AsyncValueGroup.group2(\n  ref.watch(tweetsProvider),\n  ref.watch(userProvider),\n).when(\n  data: (t) => TweetsBody(tweets: t.$1, user: t.$2),\n  error: (error, st) => ErrorPage(error: error),\n  loading: () => const Loading(),\n);",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.1.29",
+  "generatedAt": "2026-11-11T11:21:02.641Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Enhanced list view with jump to index, keep position, and sticky headers.",
+    "what_it_does": "Provides an enhanced Flutter list view capable of jumping or scrolling to specific indices, keeping scroll positions when inserting items on top, supporting sticky headers, and reusing list items for performance.",
+    "use_when": [
+      "You need to jump or scroll directly to a specific list index.",
+      "You require sticky headers within a list view.",
+      "You need to insert items at the top without causing the scroll position to jump."
+    ],
+    "avoid_when": [
+      "You need horizontal scroll support (currently listed as a TODO in the package).",
+      "Your list items contain local state and you cannot make them stateless or use permanent items."
+    ],
+    "strengths": [
+      "Supports jump to index, animate to index, and ensure visible index.",
+      "Built-in sticky header support with reverse mode compatibility.",
+      "Item reuse optimizations and option to keep specific items permanent."
+    ],
+    "weaknesses": [
+      "Item widgets must not have internal state unless marked as permanent because invisible items are destroyed and reused.",
+      "Horizontal scroll support is not yet documented or supported."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "FlutterListView(\n      delegate: FlutterListViewDelegate(\n    (BuildContext context, int index) =>\n        ListTile(title: Text('List Item ${data[index]}')),\n    childCount: data.length,\n  ))",
+    "confidence": 1
+  }
+}

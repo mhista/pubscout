@@ -1,0 +1,52 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.3.1",
+  "generatedAt": "2026-11-11T11:39:24.877Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [
+      "testing"
+    ],
+    "approach": [
+      "declarative",
+      "stream-based",
+      "no codegen"
+    ],
+    "one_liner": "A package for implementing finite state machines in Dart with a DSL and side effect handling.",
+    "what_it_does": "Allows defining states, actions, and transitions using a graph builder DSL. It automates state transitions, supports side effects before or after transitions, and provides a Given-When-Then testing tool.",
+    "use_when": [
+      "You want to manage application state predictably using a finite state machine.",
+      "Your state transitions involve complex logic or require automated side effects like API calls.",
+      "You need comprehensive testing tools to verify state transitions and side effects."
+    ],
+    "avoid_when": [
+      "Your application has extremely simple state management needs where a state machine adds unnecessary overhead.",
+      "You prefer UI-integrated state management solutions like Riverpod or Bloc for Flutter widget rebuilding."
+    ],
+    "strengths": [
+      "Clear DSL for defining states and transition graphs.",
+      "Built-in handling for side effects and stream subscriptions.",
+      "Exhaustive test runner DSL for Given-When-Then state transition testing."
+    ],
+    "weaknesses": [
+      "Requires manual setup of states, actions, and transition graphs compared to simpler state containers.",
+      "Limited to finite state machine patterns."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "bloc",
+        "why_pick_it": "If you want a more common, event-driven state management library designed for Flutter with extensive community support."
+      },
+      {
+        "name": "riverpod",
+        "why_pick_it": "If you prefer a robust dependency injection and reactive state management approach without explicitly designing state transition graphs."
+      }
+    ],
+    "minimal_example": "final stateMachineGraph = GraphBuilder<SampleState, SampleAction>()\n  ..state<SampleStateA>(\n    (b) => b\n      ..on<SampleActionA>(\n        (state, action) => b.transitionTo(const SampleStateB()),\n      ),\n  );\n\nfinal stateMachine = createStateMachine(\n  initialState: const SampleStateA(),\n  graphBuilder: stateMachineGraph,\n);\n\nstateMachine.dispatch(const SampleActionA());",
+    "confidence": 1
+  }
+}

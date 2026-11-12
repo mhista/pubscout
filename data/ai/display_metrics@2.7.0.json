@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.7.0",
+  "generatedAt": "2026-11-12T11:54:38.788Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "layout"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Retrieve physical display size, resolution, and PPI, and convert inches and mm to logical pixels.",
+    "what_it_does": "A Flutter plugin that retrieves physical display metrics such as resolution, size in inches, diagonal, and PPI across multiple platforms. It provides a widget and BuildContext extensions to convert physical units like inches and millimeters into Flutter logical pixels.",
+    "use_when": [
+      "You need physical display dimensions like inches or millimeters for accurate scaling or UI creation.",
+      "You need to convert physical measurements (inches, mm) directly into Flutter logical pixels."
+    ],
+    "avoid_when": [
+      "You are targeting web platforms where physical dimensions cannot be accurately determined due to browser limitations."
+    ],
+    "strengths": [
+      "Supports multiple platforms including Android, iOS, Windows, macOS, Linux, and Web.",
+      "Provides convenient BuildContext extension methods for unit conversion.",
+      "Handles unknown or new devices via an onUnknownDisplay callback."
+    ],
+    "weaknesses": [
+      "Physical dimensions and DPI cannot be accurately determined on the web platform due to browser restrictions.",
+      "Requires placing DisplayMetricsWidget above MaterialApp in the widget tree."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add DisplayMetricsWidget above MaterialApp in your widget tree to enable DisplayMetrics.of(context) and BuildContext extensions.",
+    "alternatives": [],
+    "minimal_example": "DisplayMetricsWidget(\n  child: MaterialApp(\n    home: Scaffold(\n      body: const BodyWidget(),\n    ),\n  ),\n);",
+    "confidence": 1
+  }
+}

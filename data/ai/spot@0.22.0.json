@@ -1,0 +1,36 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.22.0",
+  "generatedAt": "2026-11-11T11:27:08.748Z",
+  "data": {
+    "primary_category": "testing",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Toolkit for Flutter widget tests with chainable selectors and automatic timeline reports.",
+    "what_it_does": "Spot simplifies queries and assertions against the widget tree using a chainable selector API called spot. It visualizes test steps and assertions as an HTML timeline report complete with automatic screenshots.",
+    "use_when": [
+      "You want more readable and chainable widget queries in Flutter widget tests",
+      "You need automatic screenshots and HTML timeline reports for failing tests"
+    ],
+    "avoid_when": [
+      "You prefer using standard flutter_test finders and matchers exclusively"
+    ],
+    "strengths": [
+      "Chainable selectors for precise widget queries",
+      "Automatic HTML timeline generation with screenshots on test failure",
+      "Clearer error messages and full widget tree dumps"
+    ],
+    "weaknesses": [
+      "Adds an opinionated testing wrapper over the built-in flutter_test package"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add spot to dev_dependencies in pubspec.yaml and optionally load app fonts in tests using loadAppFonts().",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:flutter_test/flutter_test.dart';\nimport 'package:spot/spot.dart';\n\nvoid main() {\n  testWidgets('existing Widget test', (tester) async {\n     await tester.pumpWidget(MyApp());\n     await act.tap(spot<ElevatedButton>());\n     spot<Scaffold>().spotText('monde').existsOnce();\n  });\n}",
+    "confidence": 1
+  }
+}

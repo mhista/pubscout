@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.2.2",
+  "generatedAt": "2026-11-10T13:01:05.393Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "files"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "A simple WebDAV client for Dart and Flutter supporting common file operations.",
+    "what_it_does": "Provides a WebDAV client implementation supporting basic and digest authentication, directory listing, file uploads, downloads, and other standard WebDAV methods using Dio as the HTTP client.",
+    "use_when": [
+      "You need to interact with a WebDAV server from your Dart or Flutter application.",
+      "You need to upload, download, copy, or manage files and directories on remote WebDAV storage."
+    ],
+    "avoid_when": [
+      "You require a full cloud storage abstraction layer beyond basic WebDAV protocol features.",
+      "You are dealing with complex WebDAV extensions not covered by common methods."
+    ],
+    "strengths": [
+      "Supports Basic and Digest authentication out of the box.",
+      "Provides stream-based file uploading and downloading with progress tracking.",
+      "Supports request cancellation via CancelToken."
+    ],
+    "weaknesses": [
+      "Web platform support requires handling CORS issues manually.",
+      "Limited to common WebDAV methods as documented."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [
+      {
+        "name": "dio",
+        "why_pick_it": "If you want a powerful HTTP client for custom REST APIs instead of a dedicated WebDAV protocol client."
+      },
+      {
+        "name": "http",
+        "why_pick_it": "If you prefer the standard lightweight Dart HTTP package for basic networking needs."
+      }
+    ],
+    "minimal_example": "var client = newClient(\n    'http://localhost:6688/',\n    user: 'flyzero',\n    password: '123456',\n    debug: true,\n  );\nvar list = await client.readDir('/');",
+    "confidence": 0.9
+  }
+}

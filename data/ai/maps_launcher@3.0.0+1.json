@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.0.0+1",
+  "generatedAt": "2026-11-09T11:19:20.697Z",
+  "data": {
+    "primary_category": "maps",
+    "secondary_categories": [
+      "device"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Simple plugin to open the native maps application or browser with coordinates or queries.",
+    "what_it_does": "It uses url_launcher under the hood to open the platform's native map application or browser. On iOS it uses Apple Maps scheme, on Android the geo intent, and on web and other platforms it launches Google Maps.",
+    "use_when": [
+      "You want to launch the external maps app instead of embedding a map widget inside your UI.",
+      "You need a quick way to open maps using an address query or latitude and longitude coordinates."
+    ],
+    "avoid_when": [
+      "You need to embed an interactive map directly within your own app's widget tree.",
+      "You require advanced mapping features like custom markers, polygons, or real-time geolocation tracking."
+    ],
+    "strengths": [
+      "Supports multiple platforms including Android, iOS, web, Windows, macOS, and Linux.",
+      "Extremely simple API with static methods for queries and coordinates."
+    ],
+    "weaknesses": [
+      "Leaves your app entirely to open an external application.",
+      "Lacks any in-app map UI or customization options."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Relies on url_launcher; consult its documentation for any platform-specific configuration.",
+    "alternatives": [
+      {
+        "name": "map_launcher",
+        "why_pick_it": "Allows launching specific map applications chosen by the user (like Waze, Google Maps, Apple Maps) rather than relying on the platform default."
+      },
+      {
+        "name": "google_maps_flutter",
+        "why_pick_it": "If you need an embedded interactive map widget inside your own Flutter app instead of launching an external app."
+      }
+    ],
+    "minimal_example": "import 'package:maps_launcher/maps_launcher.dart';\n\nMapsLauncher.launchQuery('1600 Amphitheatre Pkwy, Mountain View, CA 94043, USA');\n\nMapsLauncher.launchCoordinates(37.4220041, -122.0862462);",
+    "confidence": 1
+  }
+}

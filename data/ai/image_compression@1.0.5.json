@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.5",
+  "generatedAt": "2026-11-10T13:11:29.824Z",
+  "data": {
+    "primary_category": "images",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "A Dart extension for the image package to compress and resize images.",
+    "what_it_does": "Provides sync and async compression methods for images using an ImageFile configuration. Allows resizing and reducing image file sizes in pure Dart.",
+    "use_when": [
+      "You need to compress and resize images in Dart",
+      "You want a sync or queued async image compression solution"
+    ],
+    "avoid_when": [
+      "You want to build for Flutter using native compression and WEBP format conversion (use image_compression_flutter instead)"
+    ],
+    "strengths": [
+      "Supports both synchronous and queued asynchronous compression",
+      "Works across multiple platforms including Android, iOS, web, Windows, macOS, and Linux"
+    ],
+    "weaknesses": [
+      "Native compression and WEBP format conversion are not supported for Android and iOS in this package",
+      "License is unknown"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [
+      {
+        "name": "flutter_image_compress",
+        "why_pick_it": "Provides native image compression optimized for Flutter applications on Android and iOS."
+      }
+    ],
+    "minimal_example": "import 'dart:io';\n\nimport 'package:image_compression/image_compression.dart';\n\nvoid main() {\n  final file = File('/path/to/image/file.jpg');\n\n  final input = ImageFile(\n    rawBytes: file.readAsBytesSync(),\n    filePath: file.path,\n  );\n  final output = compress(ImageFileConfiguration(input: input));\n\n  print('Input size = ${file.lengthSync()}');\n  print('Output size = ${output.sizeInBytes}');\n}",
+    "confidence": 0.95
+  }
+}

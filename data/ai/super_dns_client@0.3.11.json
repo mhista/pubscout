@@ -1,0 +1,52 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.3.11",
+  "generatedAt": "2026-11-12T11:45:15.104Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "device",
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "A DNS resolver for Dart and Flutter supporting DoH and traditional UDP/TCP lookups.",
+    "what_it_does": "Performs DNS-over-HTTPS and traditional UDP/TCP lookups with system-aware DNS discovery across Android, iOS, macOS, Linux, and other platforms. It supports querying A, AAAA, CNAME, SRV, and TXT records with built-in public resolver fallbacks and caching.",
+    "use_when": [
+      "You need to perform custom DNS queries (A, AAAA, TXT, SRV, CNAME) inside a Flutter or Dart application.",
+      "You want to query DNS-over-HTTPS (DoH) using providers like Cloudflare or Google.",
+      "You need native system DNS discovery on Android and iOS."
+    ],
+    "avoid_when": [
+      "You need custom DoH resolvers that strictly require HTTP/2 (such as Quad9 or Mullvad), as this library uses HTTP/1.1.",
+      "You are running on the Web where browsers restrict raw DNS queries."
+    ],
+    "strengths": [
+      "Supports both DoH and traditional UDP/TCP DNS lookups.",
+      "Native system DNS detection across Android, iOS, macOS, and Linux.",
+      "Includes public resolver fallbacks and TTL-based SRV caching."
+    ],
+    "weaknesses": [
+      "Custom DoH resolvers must accept HTTP/1.1 because HTTP/2 is not supported.",
+      "Not supported on the Web due to browser limitations on raw DNS queries."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Android requires ACCESS_NETWORK_STATE permission for system DNS detection.",
+    "alternatives": [
+      {
+        "name": "http",
+        "why_pick_it": "If you only need standard HTTP client functionality without low-level DNS resolution controls."
+      },
+      {
+        "name": "dio",
+        "why_pick_it": "If you need a robust HTTP client featuring interceptors, global configuration, and form data support."
+      }
+    ],
+    "minimal_example": "import 'package:super_dns_client/super_dns_client.dart';\n\nvoid main() async {\n  final doh = DnsOverHttps.cloudflare();\n  final records = await doh.lookup('google.com');\n  for (var ip in records) {\n    print('DoH → ${ip.address}');\n  }\n}",
+    "confidence": 0.95
+  }
+}

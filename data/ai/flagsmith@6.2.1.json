@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "6.2.1",
+  "generatedAt": "2026-11-10T12:50:40.596Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "backend"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Flutter Client SDK for Flagsmith feature flags and remote config.",
+    "what_it_does": "Allows you to manage feature flags and remote config across multiple projects, environments, and organisations. It supports experiments, tracking conversions, and local caching.",
+    "use_when": [
+      "You need to manage feature flags in your Flutter application using Flagsmith.",
+      "You want to run experiments and track user exposure or conversion events."
+    ],
+    "avoid_when": [
+      "you are using a different feature flag provider instead of Flagsmith.",
+      "You do not need remote configuration or feature flagging capabilities."
+    ],
+    "strengths": [
+      "Supports experiments with automatic variation serving and event tracking.",
+      "Provides local caching using shared preferences for offline resilience."
+    ],
+    "weaknesses": [
+      "Tied specifically to the Flagsmith backend service.",
+      "Network failures for event tracking are dropped after a single retry."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Initialize with a client-side environment API key using FlagsmithClient.init.",
+    "alternatives": [],
+    "minimal_example": "final flagsmith = await FlagsmithClient.init(\n  apiKey: 'YOUR_CLIENT_SIDE_ENVIRONMENT_KEY',\n  config: const FlagsmithConfig(enableEvents: true),\n);\nfinal user = Identity(identifier: 'user_42');\nawait flagsmith.getFeatureFlags(user: user);",
+    "confidence": 0.95
+  }
+}

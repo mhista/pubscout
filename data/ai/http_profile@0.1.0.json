@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.8-flash",
+  "version": "0.1.0",
+  "generatedAt": "2026-11-11T11:08:05.725Z",
+  "data": {
+    "primary_category": "devtools",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Allows custom HTTP client authors to integrate requests with the DevTools Network View.",
+    "what_it_does": "Provides an interface for custom HTTP clients implemented outside the Dart SDK to send profiling data to the Flutter DevTools Network View. Client authors populate request and response properties on a profile object when profiling is enabled. This surfaces network activity, headers, and connection details in standard Dart debugging tools.",
+    "use_when": [
+      "You are implementing an HTTP client package or adapter and want DevTools Network View integration",
+      "You need to expose custom networking protocol metadata and timings to Flutter DevTools"
+    ],
+    "avoid_when": [
+      "You are an end user consuming existing HTTP clients (like http or dio)",
+      "You want a ready-to-use HTTP client for making API requests"
+    ],
+    "strengths": [
+      "Enables seamless integration with Flutter DevTools Network View for custom clients",
+      "Lightweight package with zero external dependencies",
+      "Maintained under the official dart-lang repository ecosystem"
+    ],
+    "weaknesses": [
+      "Targeted exclusively at client library implementers, not general app developers",
+      "Pre-1.0 experimental status with potential for breaking API changes"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "None beyond adding as a dependency in your HTTP client package.",
+    "alternatives": [],
+    "minimal_example": "import 'package:http_profile/http_profile.dart';\n\nfinal profile = HttpClientRequestProfile.profile(\n  requestStartTime: DateTime.now(),\n  requestMethod: 'GET',\n  requestUri: 'https://example.com',\n);\n\nprofile?.connectionInfo = {\n  'localPort': 1285,\n  'remotePort': 443,\n};\n\nprofile?.responseData.headersListValues = {\n  'content-type': ['application/json; charset=utf-8'],\n};",
+    "confidence": 0.95
+  }
+}

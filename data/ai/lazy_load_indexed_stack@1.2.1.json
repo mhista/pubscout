@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.2.1",
+  "generatedAt": "2026-11-09T11:20:18.213Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "An extended IndexedStack widget that supports lazy loading, preloading, and auto-disposal.",
+    "what_it_does": "Extends IndexedStack to build child widgets only when needed instead of initializing all children simultaneously. It supports custom preloading of specific indexes and automatically disposing unused children.",
+    "use_when": [
+      "You use bottom navigation bars with multiple tabs backed by an IndexedStack.",
+      "Your IndexedStack children perform heavy API requests or database access on initialization.",
+      "You need to optimize initial load times by deferring the creation of hidden views."
+    ],
+    "avoid_when": [
+      "You need to preserve the exact UI state of every tab instantly without ever rebuilding them.",
+      "Your stack contains only a couple of very lightweight widgets."
+    ],
+    "strengths": [
+      "Reduces initial build time by lazily loading child widgets.",
+      "Allows fine-grained control via preloading and auto-disposal parameters.",
+      "Drop-in replacement style usage similar to standard IndexedStack."
+    ],
+    "weaknesses": [
+      "Auto-disposing children means their state will be lost when they are no longer visible unless managed externally."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "LazyLoadIndexedStack(\n  index: _index,\n  preloadIndexes: [1, 2],\n  autoDisposeIndexes: [2, 3],\n  children: [\n    Page1(),\n    Page2(),\n    Page3(),\n    Page4(),\n  ],\n)",
+    "confidence": 1
+  }
+}

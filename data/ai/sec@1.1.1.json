@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.1.1",
+  "generatedAt": "2026-11-11T11:12:00.853Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "web3"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Standards for Efficient Cryptography implementation including SECP256K1 and SECP256R1.",
+    "what_it_does": "Implements Standards for Efficient Cryptography (SEC) curves, including SECP256K1, SECP256R1, and many others. Provides functionality for public key recovery ID calculation and public key compression and decompression.",
+    "use_when": [
+      "You need to work with SECP256K1 or SECP256R1 curves for cryptography or cryptocurrency tasks.",
+      "You need to calculate public key recovery IDs or compress and decompress public keys."
+    ],
+    "avoid_when": [
+      "You only need basic hashing algorithms not related to elliptic curve cryptography.",
+      "You do not require specific elliptic curve cryptography implementations."
+    ],
+    "strengths": [
+      "Supports a wide variety of elliptic curve algorithms including numerous SEC, Brainpool, and GOST curves.",
+      "Provides public key compression, decompression, and recovery ID calculation."
+    ],
+    "weaknesses": [
+      "Limited documentation beyond the basic README usage example.",
+      "Relies entirely on external dependencies like pointycastle for underlying cryptographic features."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternates": [],
+    "minimal_example": "import 'package:sec/sec.dart';\nimport 'package:convert/convert.dart';\n\nfinal privateKey = BigInt.parse(\n  'c57304b3a53051600d7035fc593083810a8fa250e6a7a2803cf6a0f3c2750503',\n  radix: 16,\n);\n\nfinal publicKey = Secp256k1.createPublicKey(privateKey, true);\nfinal pkHex = hex.encode(publicKey);",
+    "confidence": 0.95,
+    "alternatives": []
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "8.0.3",
+  "generatedAt": "2026-11-10T12:56:59.100Z",
+  "data": {
+    "primary_category": "maps",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A draggable marker layer for flutter_map",
+    "what_it_does": "Provides a DragMarkers layer and DragMarker class for flutter_map, allowing users to drag map markers around. It supports features like long-press to drag, map scrolling near edges, and marker rotation settings.",
+    "use_when": [
+      "You are using flutter_map and need interactive markers that users can drag across the map.",
+      "You need features like map auto-scrolling when dragging near the edge of the map."
+    ],
+    "avoid_when": [
+      "you are not using flutter_map (e.g. using Google Maps instead).",
+      "Markers only need to be tapped rather than dragged."
+    ],
+    "strengths": [
+      "Integrates seamlessly with flutter_map.",
+      "Supports long-press activation and edge-scrolling."
+    ],
+    "weaknesses": [
+      "Tied strictly to the flutter_map ecosystem.",
+      "Documentation outside the basic README example is minimal."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires adding the dependency and setting up flutter_map and latlong2.",
+    "alternatives": [],
+    "minimal_example": "FlutterMap(\n    options: MapOptions(center: LatLng(45.5231, -122.6765), zoom: 9),\n    children: [\n      TileLayer(\n        urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',\n      ),\n      DragMarkers(\n        markers: [\n          DragMarker(\n            point: LatLng(45.535, -122.675),\n            offset: const Offset(0.0, -8.0),\n            builder: (ctx) => const Icon(Icons.location_on, size: 50),\n            onDragUpdate: (details, latLng) => print(latLng),\n          ),\n        ],\n      ),\n    ],\n  )",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "1.1.1",
+  "generatedAt": "2026-11-12T11:20:10.134Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Check the status of an atRoot server and its atServer for a given @sign.",
+    "what_it_does": "Provides methods to retrieve AtStatus objects containing root and server status, an overall AtSignStatus, and corresponding HTTP status codes. It abstracts the lookup logic using the at_lookup dependency.",
+    "use_when": [
+      "You need to know whether an atSign's server is provisioned, running, or activated",
+      "You want to display status or handle errors based on server availability"
+    ],
+    "avoid_when": [
+      "You require real‑time streaming of status changes",
+      "You need a full backend client beyond simple status checks"
+    ],
+    "strengths": [
+      "Simple API for common status queries",
+      "Encapsulates enum mappings to HTTP codes",
+      "Works with at_lookup proxy services"
+    ],
+    "weaknesses": [
+      "Limited to status checking only, no deeper server interaction",
+      "Depends on at_lookup, adding an extra dependency"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "await AtStatusImpl().get('@example');",
+    "confidence": 0.78
+  }
+}

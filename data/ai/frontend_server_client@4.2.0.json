@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "4.2.0",
+  "generatedAt": "2026-11-10T12:13:58.503Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Client to interact with Dart SDK's frontend_server compiler.",
+    "what_it_does": "Provides a programmatic interface to start and communicate with the frontend_server compiler bundled with the Dart SDK. It supports compiling Dart code, hot reload, hot restart, and expression compilation for DDC apps.",
+    "use_when": [
+      "Building tools that need to compile Dart code via the SDK",
+      "Implementing custom development servers or IDE integrations",
+      "Enabling hot reload or restart in DDC-based workflows"
+    ],
+    "avoid_when": [
+      "Developing general Flutter or Dart applications that don't require compiler interaction",
+      "Using it outside the Dart SDK environment"
+    ],
+    "strengths": [
+      "Supports DDC library bundle format and hot reload",
+      "Provides helpers for app bootstrapping",
+      "Handles SDK version constraints automatically",
+      "Offers native asset and source inclusion"
+    ],
+    "weaknesses": [
+      "Highly dependent on the Dart SDK version",
+      "Not suitable for general app development",
+      "Requires same SDK build for all artifacts"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "```dart\nimport 'package:frontend_server_client/frontend_server_client.dart';\n\nfinal client = await FrontendServerClient.start();\nfinal result = await client.compile('main.dart');\nprint(result.dillOutput);\n```",
+    "confidence": 0.9
+  }
+}

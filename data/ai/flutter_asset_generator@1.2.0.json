@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.2.0",
+  "generatedAt": "2026-11-12T11:23:43.943Z",
+  "data": {
+    "primary_category": "codegen",
+    "secondary_categories": [
+      "utils",
+      "theming"
+    ],
+    "approach": [
+      "code generation"
+    ],
+    "one_liner": "Generates Dart constant files for pubspec.yaml assets to avoid manual string paths.",
+    "what_it_does": "Scans assets defined in pubspec.yaml and automatically generates a Dart resource file containing static constants for each asset path. Supports customization via configuration files, include/exclude rules, and preview comments.",
+    "use_when": [
+      "You want to avoid hardcoding asset strings throughout your Flutter app",
+      "You prefer auto-generated resource classes (similar to R files in Android)"
+    ],
+    "avoid_when": [
+      "You prefer manually managing asset paths as strings",
+      "You need dynamic runtime asset loading without code generation"
+    ],
+    "strengths": [
+      "Automates asset path constants generation",
+      "Supports custom include/exclude rules and replacement rules via fgen.yaml",
+      "Provides file preview comments in generated code"
+    ],
+    "weaknesses": [
+      "Requires running a CLI tool or watching changes",
+      "Naming conflicts can occur if different directories contain files with identical generated field names"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Install globally via pub or run from source, then use the fgen command or configure fgen.yaml in the project root.",
+    "alternatives": [],
+    "minimal_example": "class R {\n  const R._();\n  static const String ASSETS_CAMERA_PNG = 'assets/camera.png';\n}",
+    "confidence": 1
+  }
+}

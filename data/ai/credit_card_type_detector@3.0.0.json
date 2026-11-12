@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.0.0",
+  "generatedAt": "2026-11-10T12:50:24.407Z",
+  "data": {
+    "primary_category": "forms",
+    "secondary_categories": [
+      "payments"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Detects credit card types based on number patterns and IIN ranges.",
+    "what_it_does": "Detects credit card providers like Visa, Mastercard, and American Express by inspecting the current card number string. It supports custom card types and partial matches suitable for reactive text inputs.",
+    "use_when": [
+      "You are building a credit card input form that needs to display the card brand dynamically as the user types.",
+      "You need to detect multiple potential card types for overlapping prefixes."
+    ],
+    "avoid_when": [
+      "You need to fully validate credit card numbers (e.g., using the Luhn algorithm) rather than just detecting the brand.",
+      "You are processing payments directly rather than handling UI input detection."
+    ],
+    "strengths": [
+      "No external dependencies.",
+      "Supports partial matches for real-time UI updates while typing.",
+      "Allows creating and defining custom card types."
+    ],
+    "weaknesses": [
+      "Limited only to card type detection based on patterns without built-in payment processing or full validation logic."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:credit_card_type_detector/credit_card_type_detector.dart';\n\nString visaStr = '4647 7200 6779 1032';\nvar types = detectCCType(visaStr);\nassert(types.contains(CreditCardType.visa()));",
+    "confidence": 1
+  }
+}

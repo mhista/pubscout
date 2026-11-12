@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "3.0.0",
+  "generatedAt": "2026-11-09T11:17:20.522Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Formats numbers to fit a fixed character length with optional locale separators and units.",
+    "what_it_does": "Provides a configurable display function that converts numbers into a compact, length‑limited string, adding units like k, M, G, etc. Handles null, NaN, Infinity and supports locale‑specific separators and rounding options.",
+    "use_when": [
+      "You need to show large numbers in a UI with a strict width constraint",
+      "You want automatic unit suffixes (k, M, G…) and locale‑aware formatting"
+    ],
+    "avoid_when": [
+      "Precise scientific calculations are required",
+      "You need advanced charting or visualization of numeric data"
+    ],
+    "strengths": [
+      "Highly configurable (length, decimal, separator, rounding)",
+      "Handles edge cases like null, NaN, Infinity gracefully",
+      "No external dependencies, pure Dart"
+    ],
+    "weaknesses": [
+      "Limited to number formatting; no charting or UI widgets",
+      "May throw exceptions for extremely short lengths (<5)"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:number_display/number_display.dart';\n\nfinal display = createDisplay(length: 8, decimal: 0);\nprint(display(123456789)); // e.g., 123.46M",
+    "confidence": 0.97
+  }
+}

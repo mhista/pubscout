@@ -1,0 +1,51 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.2.0",
+  "generatedAt": "2026-11-09T11:50:01.565Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "A simple, fast and global in-memory cache with CRUD features.",
+    "what_it_does": "Memory Cache allows developers to create, read, update, delete, and invalidate cache entries directly in memory. It supports expirable cache entries with custom durations and allows creating local MemoryCache instances alongside the global instance.",
+    "use_when": [
+      "You need a fast, temporary in-memory key-value store.",
+      "You want to cache data with an optional expiration duration.",
+      "You need either a global cache or local cache instances."
+    ],
+    "avoid_when": [
+      "You need data to persist across app restarts (use local storage instead).",
+      "You need complex querying capabilities like SQL databases."
+    ],
+    "strengths": [
+      "Simple and fast CRUD operations",
+      "Supports expirable cache entries using Durations",
+      "Supports both global instance and local instances"
+    ],
+    "weaknesses": [
+      "Data is lost when the app restarts since it is strictly in-memory",
+      "Lacks advanced querying or indexing features"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [
+      {
+        "name": "shared_preferences",
+        "why_pick_it": "Pick shared_preferences if you need key-value storage that persists across app restarts."
+      },
+      {
+        "name": "hive_ce",
+        "why_pick_it": "Pick hive_ce if you need a fast NoSQL database solution for local data persistence."
+      }
+    ],
+    "minimal_example": "MemoryCache.instance.create('myKey', 'myValue', expiry: const Duration(seconds: 5));\nfinal myValue = MemoryCache.instance.read<String>('myKey');",
+    "confidence": 1
+  }
+}

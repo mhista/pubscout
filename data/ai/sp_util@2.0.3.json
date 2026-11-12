@@ -1,0 +1,46 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.3",
+  "generatedAt": "2026-11-09T11:50:13.505Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter shared_preferences plugin utility supporting default values and objects.",
+    "what_it_does": "It wraps the shared_preferences plugin to make it easier to store and retrieve primitive data types, objects, and object lists. It provides helper methods for key management, defaults, and saving custom serializable objects.",
+    "use_when": [
+      "You want a simpler utility wrapper around shared_preferences",
+      "You need to easily serialize and store custom objects or lists of objects into key-value storage"
+    ],
+    "avoid_when": [
+      "You require secure encrypted local storage",
+      "You need complex relational queries or high-performance local databases"
+    ],
+    "strengths": [
+      "Simplifies working with shared_preferences",
+      "Supports saving and retrieving custom objects and object lists directly"
+    ],
+    "weaknesses": [
+      "Relies on global static initialization which may require careful app startup flow",
+      "Shared preferences is not suitable for large or secure datasets"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Must call await SpUtil.getInstance() before running the app.",
+    "alternatives": [
+      {
+        "name": "shared_preferences",
+        "why_pick_it": "Official plugin without the extra wrapper methods provided by sp_util."
+      },
+      {
+        "name": "hive_ce",
+        "why_pick_it": "Offers a faster NoSQL key-value storage alternative with built-in object adapters."
+      }
+    ],
+    "minimal_example": "void main() async {\n  await SpUtil.getInstance();\n  SpUtil.putString(\"username\", \"sky24\");\n  String userName = SpUtil.getString(\"username\", defValue: \"\");\n}",
+    "confidence": 0.95
+  }
+}

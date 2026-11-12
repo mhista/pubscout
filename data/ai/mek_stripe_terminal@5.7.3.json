@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "5.7.3",
+  "generatedAt": "2026-11-09T11:21:16.101Z",
+  "data": {
+    "primary_category": "payments",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "A StripeTerminal plugin to discover readers, connect to them and process payments.",
+    "what_it_does": "A Flutter plugin that wraps the Stripe Terminal SDK for Android and iOS. It enables apps to discover nearby card readers, connect to them via Bluetooth, and process in-person payments, including Tap to Pay.",
+    "use_when": [
+      "You need to accept in-person card payments using Stripe hardware or Tap to Pay on mobile devices.",
+      "You want an API that maps closely to the native Stripe Terminal SDKs while exposing streams for listeners."
+    ],
+    "avoid_when": [
+      "You only need in-app digital purchases or subscriptions without physical terminal readers.",
+      "You require offline mode for payments, which is not supported by this plugin."
+    ],
+    "strengths": [
+      "Supports all features of Android and iOS native SDKs, including Tap to Pay.",
+      "Uses streams instead of callbacks for listeners to offer a simpler Dart API."
+    ],
+    "weaknesses": [
+      "Offline mode is not supported.",
+      "Requires native configuration on Android and iOS (such as Bluetooth permissions and Info.plist modifications)."
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Requires native setup including configuring compileOptions/Kotlin target on Android, and adding Bluetooth permissions, background modes, and Tap to Pay entitlements to Info.plist on iOS.",
+    "alternatives": [
+      {
+        "name": "flutter_stripe",
+        "why_pick_it": "Pick flutter_stripe if you want standard online Stripe payments or Apple/Google Pay rather than physical hardware card readers and Stripe Terminal."
+      }
+    ],
+    "minimal_example": "StripeTerminal.initTerminal(\n  fetchToken: () async {\n    const token = \"pst_test_XXXXXXXXXX....\";\n    return token;\n  },\n);\n\nTerminal.instance\n    .discoverReaders(BluetoothDiscoveryConfiguration(isSimulated: true))\n    .listen((List<StripeReader> readers) {\n        print(readers);\n    });",
+    "confidence": 0.95
+  }
+}

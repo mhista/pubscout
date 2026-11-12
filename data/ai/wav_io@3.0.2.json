@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.0.2",
+  "generatedAt": "2026-11-12T11:13:07.813Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [
+      "files"
+    ],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "Pure Dart library for reading, writing, streaming, and manipulating RIFF-WAV audio files.",
+    "what_it_does": "wav_io allows developers to read, write, stream, and manipulate RIFF-WAV audio files directly in pure Dart without native dependencies. It supports broad audio formats, sample conversions, multichannel layouts, and metadata management.",
+    "use_when": [
+      "You need to parse or generate WAV files in a pure Dart environment.",
+      "You want to stream large WAV files sequentially to minimize memory usage.",
+      "You need to convert audio sample formats or mix channels down to mono."
+    ],
+    "avoid_when": [
+      "You need to play or record live audio streams from a microphone or speaker hardware.",
+      "You need to handle compressed audio formats like MP3, AAC, or FLAC."
+    ],
+    "strengths": [
+      "Pure Dart implementation with no native dependencies.",
+      "Supports both streaming reads and writes for low memory footprint.",
+      "Broad support for various PCM and IEEE floating-point bit depths and channel masks."
+    ],
+    "weaknesses": [
+      "Limited strictly to the WAV audio file format.",
+      "Does not handle audio playback or device recording."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'dart:io';\nimport 'package:wav_io/wav_io.dart';\n\nvoid main() {\n  final bytes = File('input.wav').readAsBytesSync();\n  final result = loadWav(bytes.buffer.asByteData());\n\n  result.match(\n    onOk: (wav) {\n      print(\"Channels: ${wav.numChannels}\");\n      print(\"Sample Rate: ${wav.sampleRate} Hz\");\n    },\n    onError: (error) {\n      print(\"Error loading WAV: $error\");\n    },\n  );\n}",
+    "confidence": 1
+  }
+}

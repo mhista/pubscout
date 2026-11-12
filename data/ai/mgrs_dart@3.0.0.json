@@ -1,0 +1,37 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.0.0",
+  "generatedAt": "2026-11-10T12:20:58.366Z",
+  "data": {
+    "primary_category": "maps",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Utility for converting between WGS84 lat/lng and MGRS coordinates.",
+    "what_it_does": "Converts geographic coordinates between WGS84 latitude/longitude and Military Grid Reference System (MGRS) strings. It provides methods for forward conversion, reverse conversion to a point, and inverse conversion to a bounding box.",
+    "use_when": [
+      "You need to work with MGRS coordinates in a Dart or Flutter application",
+      "You are porting functionality that relies on the proj4js/mgrs library"
+    ],
+    "avoid_when": [
+      "You need a full-featured mapping SDK with UI components and tile rendering"
+    ],
+    "strengths": [
+      "Simple API with three core methods: toPoint, forward, and inverse",
+      "Pure Dart implementation supporting multiple platforms including web and mobile"
+    ],
+    "weaknesses": [
+      "Limited scope restricted strictly to MGRS and WGS84 conversions"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Simply add the dependency to pubspec.yml and import the package.",
+    "alternatives": [],
+    "minimal_example": "import 'package:mgrs_dart/mgrs_dart.dart';\n\nvoid main() {\n  var point = [-115.08209766323476, 36.236123461597515];\n  var mgrsString = '11SPA7234911844';\n  var accuracy = 5;\n\n  var calculatedPoint = Mgrs.toPoint(mgrsString);\n  var calculatedMgrsString = Mgrs.forward(point, accuracy);\n  var calculatedBox = Mgrs.inverse(mgrsString);\n}",
+    "confidence": 1
+  }
+}

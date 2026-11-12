@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.1",
+  "generatedAt": "2026-11-12T11:42:55.059Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "animation",
+      "devtools"
+    ],
+    "approach": [
+      "imperative",
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "Request display refresh rates and measure Flutter frame cadence, benchmarks, and performance telemetry.",
+    "what_it_does": "Allows requesting high refresh rates on Android and provides multi-platform diagnostics, live overlays, and benchmark reporting. It captures frame cadences, phase overruns, and session statistics.",
+    "use_when": [
+      "You need to request higher refresh rates (e.g. 120 Hz) on Android devices for smoother animations or games.",
+      "You want to measure frame cadence, UI/raster budget overruns, and export performance benchmark reports."
+    ],
+    "avoid_when": [
+      "You are relying on it to directly control refresh rates on iOS, macOS, Windows, Linux, or Web where engine control is unsupported.",
+      "You are looking for general state management or standard widget libraries."
+    ],
+    "strengths": [
+      "Supports fine-grained preference management via leases, declarative scopes, and automatic policies.",
+      "Provides comprehensive session benchmarks, threshold evaluations, and diagnostic exports."
+    ],
+    "weaknesses": [
+      "Native refresh rate control is platform-dependent and primarily effective on Android.",
+      "Physical presentation FPS cannot be directly measured on certain platforms."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "For iOS ProMotion devices, you may add the CADisableMinimumFrameDurationOnPhone boolean to your Info.plist dictionary.",
+    "alternatives": [],
+    "minimal_example": "void main() {\n  WidgetsFlutterBinding.ensureInitialized();\n  runApp(const MyApp());\n  WidgetsBinding.instance.addPostFrameCallback((_) async {\n    await RefreshRate.enable();\n  });\n}",
+    "confidence": 1
+  }
+}

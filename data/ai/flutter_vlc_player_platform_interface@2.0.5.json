@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "2.0.5",
+  "generatedAt": "2026-11-11T11:22:20.053Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [],
+    "approach": [
+      "no codegen"
+    ],
+    "one_liner": "Defines the platform interface for the Flutter VLC player plugin.",
+    "what_it_does": "Provides an abstract VlcPlatform class that platform implementations must extend. Ensures consistent API across Android, iOS, Windows, macOS, and Linux implementations.",
+    "use_when": [
+      "You need to create or use a custom platform implementation for VLC playback.",
+      "You want a stable contract for a Flutter VLC plugin across multiple platforms."
+    ],
+    "avoid_when": [
+      "You only need a ready‑made video player without writing platform code."
+    ],
+    "strengths": [
+      "Clear separation between interface and implementation",
+      "Supports all major desktop and mobile platforms",
+      "Versioned API with breaking‑change guidance"
+    ],
+    "weaknesses": [
+      "Contains no actual playback logic – requires a separate implementation",
+      "Limited to VLC features; not a full‑featured player on its own"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "video_player",
+        "why_pick_it": "Provides a ready‑to‑use video player without needing a separate platform interface."
+      }
+    ],
+    "minimal_example": "import 'package:flutter_vlc_player_platform_interface/flutter_vlc_player_platform_interface.dart';\n\nclass MyVlcPlatform extends VlcPlatform {\n  // implement required methods here\n}\n\nvoid registerMyPlatform() {\n  VlcPlatform.instance = MyVlcPlatform();\n}",
+    "confidence": 0.9
+  }
+}

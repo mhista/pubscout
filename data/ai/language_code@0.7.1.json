@@ -1,0 +1,50 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.7.1",
+  "generatedAt": "2026-11-11T11:25:25.355Z",
+  "data": {
+    "primary_category": "localization",
+    "secondary_categories": [
+      "device"
+    ],
+    "approach": [
+      "no codegen"
+    ],
+    "one_liner": "Get current device language code and locale with full ISO 639-1 and ISO 639-2 dictionaries.",
+    "what_it_does": "Provides current device language codes and localized names (English and native). Allows converting between Locales and ISO language codes, resolving matching variants, and overriding locales during unit testing.",
+    "use_when": [
+      "You need to detect the current device language or locale.",
+      "You want a complete catalog of ISO 639-1 and ISO 639-2 codes with native names.",
+      "You need robust locale matching and fallback strategies in tests."
+    ],
+    "avoid_when": [
+      "You are building a complex multi-language translation and pluralization management system.",
+      "You only need standard Flutter Localization without extra language metadata."
+    ],
+    "strengths": [
+      "Includes almost all ISO 639 language codes with English and native names.",
+      "Provides test-friendly overrides for device language and locale.",
+      "Robust fallback and resolution logic for complex locale variants."
+    ],
+    "weaknesses": [
+      "Throws a StateError if a lookup fails unless an orElse is specified.",
+      "Relies on automatic scrapers which may occasionally require community updates for new language codes."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "intl",
+        "why_pick_it": "If you need comprehensive internationalization, date/number formatting, and message translation support."
+      },
+      {
+        "name": "devicelocale",
+        "why_pick_it": "If you only need raw device locale retrieval without the extensive ISO language database."
+      }
+    ],
+    "minimal_example": "final languageCode = LanguageCode.code;\nfinal locale = LanguageCode.locale;",
+    "confidence": 0.95
+  }
+}

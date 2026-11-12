@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.5.1",
+  "generatedAt": "2026-11-11T11:45:35.091Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "backend"
+    ],
+    "approach": [
+      "stream-based",
+      "imperative",
+      "code generation"
+    ],
+    "one_liner": "Comprehensive client library for the AT Protocol supporting records, identity, and the firehose.",
+    "what_it_does": "Provides complete coverage of the com.atproto namespace for Dart and Flutter. Enables repository management, session-based and OAuth authentication, and real-time data streaming via the Firehose API.",
+    "use_when": [
+      "Building decentralized social applications or clients for Bluesky",
+      "Interacting with AT Protocol services, repositories, and identity management",
+      "Consuming real-time data streams from the AT Protocol firehose"
+    ],
+    "avoid_when": [
+      "Working with other backend ecosystems like Firebase or Supabase instead of AT Protocol",
+      "Needing general-purpose HTTP requests without AT Protocol semantics"
+    ],
+    "strengths": [
+      "Complete coverage of all com.atproto endpoints and services",
+      "Built-in robust retry logic, exponential backoff, and durable cursor management",
+      "Supports both session-based authentication and OAuth DPoP"
+    ],
+    "weaknesses": [
+      "Tied strictly to the AT Protocol ecosystem",
+      "Requires careful state management of cursor storage for high-throughput firehose consumers"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Not documented",
+    "alternatives": [],
+    "minimal_example": "import 'package:atproto/atproto.dart';\n\nFuture<void> main() async {\n  final session = await createSession(\n    service: 'bsky.social',\n    identifier: 'your.handle.bsky.social',\n    password: 'your-app-password',\n  );\n\n  final atproto = ATProto.fromSession(session.data);\n}",
+    "confidence": 0.95
+  }
+}

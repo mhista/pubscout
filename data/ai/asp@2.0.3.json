@@ -1,0 +1,54 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.3",
+  "generatedAt": "2026-11-12T12:01:28.672Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [],
+    "approach": [
+      "declarative",
+      "hooks",
+      "no codegen"
+    ],
+    "one_liner": "Atomic state management solution for Flutter apps.",
+    "what_it_does": "ASP (Atomic State Pattern) offers a state management system for Flutter based on atoms, actions, and selectors. It uses hook_state for state distribution and provides tracking for state changes.",
+    "use_when": [
+      "You want a functional, atomic approach to state management in Flutter",
+      "You want to track which actions modified specific atoms for debugging",
+      "You prefer hooks for state distribution over traditional builders"
+    ],
+    "avoid_when": [
+      "You prefer class-based state management patterns like Bloc",
+      "You rely on pre-built reactive collections like RxList or RxMap which were removed in v2"
+    ],
+    "strengths": [
+      "Simplified and predictable state management API",
+      "Detailed observability on state changes and triggering actions",
+      "Functional approach with lowercase atom creation"
+    ],
+    "weaknesses": [
+      "Removed built-in reactive collections (RxList, RxSet, RxMap) in v2",
+      "Breaking changes between v1 and v2 require migration effort"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Not documented",
+    "alternatives": [
+      {
+        "name": "provider",
+        "why_pick_it": "Alternative traditional state management solution in the ecosystem."
+      },
+      {
+        "name": "riverpod",
+        "why_pick_it": "Alternative provider-based and atomic-like state management for Flutter."
+      },
+      {
+        "name": "bloc",
+        "why_pick_it": "Alternative predictable state management using events and states."
+      }
+    ],
+    "minimal_example": "final counter = atom(0);\n\nAtomObserver.changes((status) {\n  print(status.atom);\n  print(status.action);\n});",
+    "confidence": 0.95
+  }
+}

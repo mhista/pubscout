@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "1.1.2",
+  "generatedAt": "2026-11-12T11:25:07.764Z",
+  "data": {
+    "primary_category": "images",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Compare two images for visual differences using multiple algorithms",
+    "what_it_does": "image_compare lets you compare two image sources (URL, file, bytes, or Image object) and returns a percentage difference. It supports several algorithms such as pixel matching, Euclidean color distance, histogram methods, and perceptual hashing. The package handles resizing, optional alpha channel handling, and works on all major platforms.",
+    "use_when": [
+      "You need to detect visual differences between images in tests or CI pipelines",
+      "You want to compare images for similarity or exactness in a Dart/Flutter app",
+      "You need a pure Dart solution without native dependencies"
+    ],
+    "avoid_when": [
+      "You only need a simple equality check of image bytes",
+      "You require high-performance GPU-accelerated comparison",
+      "You are building a UI component that displays image differences"
+    ],
+    "strengths": [
+      "Multiple comparison algorithms with configurable options",
+      "Pure Dart implementation, no native code required",
+      "Supports all major platforms via universal_io",
+      "Handles transparency with ignoreAlpha option"
+    ],
+    "weaknesses": [
+      "No built‑in UI for visualizing differences",
+      "Performance may be slower for large images",
+      "Limited to image comparison, no other image processing features"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dependency to pubspec and import 'package:image_compare/image_compare.dart'; no special permissions needed",
+    "alternatives": [],
+    "minimal_example": "var a = Uri.parse('https://example.com/image1.png');\nvar b = File('assets/image2.png');\nvar result = await compareImages(src1: a, src2: b, algorithm: PixelMatching());",
+    "confidence": 0.9
+  }
+}

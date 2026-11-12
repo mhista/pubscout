@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.2.8",
+  "generatedAt": "2026-11-10T12:40:31.257Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Get free and total disk space in megabytes on Android and iOS.",
+    "what_it_does": "The plugin exposes methods to read the amount of free and total storage on a device. Results are returned in megabytes (MB). It works as a simple Flutter plugin for Android and iOS.",
+    "use_when": [
+      "You need to show available storage to the user",
+      "You want to decide whether to download large assets based on free space",
+      "You need a quick check before performing cache‑clearing operations"
+    ],
+    "avoid_when": [
+      "You require real‑time storage monitoring",
+      "You need support for platforms other than Android or iOS",
+      "You need detailed file‑system browsing or management"
+    ],
+    "strengths": [
+      "Very small and easy to use",
+      "Works with the latest Flutter SDK",
+      "Returns values in a convenient MB unit"
+    ],
+    "weaknesses": [
+      "Only Android and iOS are supported",
+      "Requires manual initialization before use",
+      "No streaming or continuous updates"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Instantiate DiskSpacePlus and await getFreeDiskSpace / getTotalDiskSpace; no extra permissions required",
+    "alternatives": [
+      {
+        "name": "device_info_plus",
+        "why_pick_it": "Provides broader device information, including storage details, in a single package"
+      }
+    ],
+    "minimal_example": "final disk = DiskSpacePlus();\nfinal free = await disk.getFreeDiskSpace ?? 0;\nfinal total = await disk.getTotalDiskSpace ?? 0;\nprint('Free: $free MB, Total: $total MB');",
+    "confidence": 0.93
+  }
+}

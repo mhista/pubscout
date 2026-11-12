@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.7.1",
+  "generatedAt": "2026-11-12T11:44:59.024Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Access Android's native PackageManager API to fetch installed apps, packages, and permissions.",
+    "what_it_does": "Provides access to Android's native PackageManager API, allowing developers to fetch information about installed applications, packages, permissions, and app icons. It exposes methods for querying package details and inspecting signing certificates.",
+    "use_when": [
+      "You need to list installed applications on an Android device.",
+      "You need to query package info, permissions, and metadata from Android's native PackageManager."
+    ],
+    "avoid_when": [
+      "You need a cross-platform solution, as this plugin is exclusively for Android.",
+      "You only need basic application version or installer info available in generic packages."
+    ],
+    "strengths": [
+      "Exposes a broad range of native Android PackageManager methods.",
+      "Supports fetching application icons, including AdaptiveIconDrawable.",
+      "Maintains compatibility with recent Android SDK targets."
+    ],
+    "weaknesses": [
+      "Android-only plugin; does not work on iOS or other platforms.",
+      "Requires manual configuration of Android-specific queries and permissions like QUERY_ALL_PACKAGES.",
+      "Documentation and DartDocs are noted as incomplete in the package to-dos."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the required permissions (such as QUERY_ALL_PACKAGES in AndroidManifest.xml) depending on your target Android API level and visibility requirements.",
+    "alternatives": [
+      {
+        "name": "package_info_plus",
+        "why_pick_it": "If you only need basic information about the current application package rather than querying all installed apps on the device."
+      },
+      {
+        "name": "device_info_plus",
+        "why_pick_it": "If you need general device and OS information rather than deep PackageManager queries."
+      }
+    ],
+    "minimal_example": "import 'package:android_package_manager/android_package_manager.dart';\n\nfinal pm = AndroidPackageManager();",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.5.0",
+  "generatedAt": "2026-11-12T11:10:21.356Z",
+  "data": {
+    "primary_category": "backend",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Utilities for running Dart code correctly on the Google Cloud Platform.",
+    "what_it_does": "Provides core utilities for Google Cloud Platform integration in Dart, including automatic project ID discovery via environment variables, configuration, and metadata server, as well as metadata API access.",
+    "use_when": [
+      "You are running a Dart application on Google Cloud Platform and need to discover the current project ID.",
+      "You need to access the Google Cloud Metadata Server from within a running Dart service."
+    ],
+    "avoid_when": [
+      "You are building a client application unrelated to Google Cloud Platform infrastructure.",
+      "You need logging or HTTP serving features (which have been split into separate packages like google_cloud_logging and google_cloud_shelf)."
+    ],
+    "strengths": [
+      "Automatic project discovery using multiple fallback strategies.",
+      "Built-in caching for metadata server responses."
+    ],
+    "weaknesses": [
+      "Community-supported project with no official SLA or deprecation policy.",
+      "Recent breaking changes have spun off logging and HTTP serving into separate packages."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires appropriate Google Cloud environment variables or credentials depending on your deployment environment.",
+    "alternatives": [],
+    "minimal_example": "import 'package:google_cloud/google_cloud.dart';\n\nvoid main() async {\n  final projectId = await computeProjectId();\n  print('Running in project: $projectId');\n}",
+    "confidence": 0.95
+  }
+}

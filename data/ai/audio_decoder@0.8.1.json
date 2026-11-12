@@ -1,0 +1,56 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.8.1",
+  "generatedAt": "2026-11-11T11:43:17.130Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [
+      "utils",
+      "files"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Convert, trim, and analyze audio formats to WAV/PCM using native platform APIs without FFmpeg.",
+    "what_it_does": "A Flutter plugin that converts various audio formats (MP3, M4A, AAC, FLAC, OGG, etc.) to WAV or M4A, extracts audio metadata, trims files, and extracts waveform amplitude data. It relies purely on native platform APIs rather than bundled codecs.",
+    "use_when": [
+      "You need to convert or trim audio files natively without bundling heavy FFmpeg binaries.",
+      "You want to extract waveform amplitude data for audio visualization.",
+      "You need to work with in-memory audio bytes directly."
+    ],
+    "avoid_when": [
+      "You need advanced audio playback functionality (use just_audio or audioplayers instead).",
+      "You need built-in audio recording capabilities (use record instead)."
+    ],
+    "strengths": [
+      "No FFmpeg dependency required, keeping app size impact minimal.",
+      "Supports multiple platforms including Android, iOS, macOS, Windows, Linux, and Web.",
+      "Provides a flexible Bytes API for working with in-memory audio."
+    ],
+    "weaknesses": [
+      "File-based methods are not available on the web and require the bytes-based API.",
+      "M4A encoding is not supported on the web platform."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "No additional setup is needed for most platforms. Linux requires GStreamer development packages.",
+    "alternatives": [
+      {
+        "name": "just_audio",
+        "why_pick_it": "If your primary goal is robust audio playback alongside simple format handling."
+      },
+      {
+        "name": "audioplayers",
+        "why_pick_it": "If you need an all-in-one simple audio player plugin."
+      },
+      {
+        "name": "record",
+        "why_pick_it": "If you need to record audio in addition to processing it."
+      }
+    ],
+    "minimal_example": "import 'package:audio_decoder/audio_decoder.dart';\n\nfinal wavPath = await AudioDecoder.convertToWav(\n  '/path/to/song.mp3',\n  '/path/to/output.wav',\n);",
+    "confidence": 0.95
+  }
+}

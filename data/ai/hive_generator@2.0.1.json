@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "2.0.1",
+  "generatedAt": "2026-11-11T11:09:05.383Z",
+  "data": {
+    "primary_category": "codegen",
+    "secondary_categories": [
+      "storage"
+    ],
+    "approach": [
+      "code generation"
+    ],
+    "one_liner": "Generates Hive TypeAdapter code for Dart classes automatically.",
+    "what_it_does": "The package scans annotated classes and creates the boiler‑plate TypeAdapter needed by Hive to serialize and deserialize objects. It integrates with build_runner to produce Dart files during build time.",
+    "use_when": [
+      "You need type‑safe, performant local storage with Hive and want to avoid writing adapters manually",
+      "You are already using Hive and want a zero‑maintenance way to keep adapters in sync with model changes"
+    ],
+    "avoid_when": [
+      "You prefer a runtime reflection‑based solution instead of code generation",
+      "Your project does not use Hive for storage"
+    ],
+    "strengths": [
+      "Eliminates manual adapter boiler‑plate",
+      "Supports null‑safety, inheritance, default values, and various field types",
+      "Works with build_runner and stays up‑to‑date with Hive versions"
+    ],
+    "weaknesses": [
+      "Requires build_runner step in CI/build process",
+      "Only works with Hive; not a generic serialization solution"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add hive_generator and build_runner to dev_dependencies, annotate classes with @HiveType/@HiveField, then run `flutter pub run build_runner build`.",
+    "alternatives": [],
+    "minimal_example": "import 'package:hive/hive.dart';\nimport 'package:hive_generator/hive_generator.dart';\n\npart 'person.g.dart';\n\n@HiveType(typeId: 0)\nclass Person {\n  @HiveField(0)\n  final String name;\n  @HiveField(1)\n  final int age;\n\n  Person(this.name, this.age);\n}\n// Run build_runner to generate person.g.dart with the adapter",
+    "confidence": 0.92
+  }
+}

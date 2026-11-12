@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.0.0",
+  "generatedAt": "2026-11-10T12:37:28.550Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Returns cached result of function call when inputs were not changed from previous invocation.",
+    "what_it_does": "Provides memoization functions (memo0 through memo10, imemo0 through imemo10) to cache the results of function calls based on whether their input arguments have changed. Supports comparison via the equality operator or the identical function.",
+    "use_when": [
+      "You need to cache expensive function calculations based on input parameters.",
+      "You want a simple lazy cache for zero-argument function calls."
+    ],
+    "avoid_when": [
+      "You need persistent caching across app restarts.",
+      "Your functions have side effects that must run on every invocation."
+    ],
+    "strengths": [
+      "Simple and lightweight with no external dependencies.",
+      "Supports multiple argument counts up to 10."
+    ],
+    "weaknesses": [
+      "In-memory caching only, does not persist data.",
+      "Limited to a maximum of 10 arguments per function."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'dart:math';\nimport 'package:memoize/memoize.dart';\n\nvoid main() {\n  var rect1 = new Rectangle<int>(0, 0, 10, 10);\n  var rect2 = new Rectangle<int>(0, 0, 10, 10);\n\n  var func = memo1((Rectangle<int> a) => a.width * a.height);\n\n  print(func(rect1));\n  print(func(rect2)); // cached result is returned\n}",
+    "confidence": 1
+  }
+}

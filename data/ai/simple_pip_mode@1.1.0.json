@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.1.0",
+  "generatedAt": "2026-11-09T11:39:24.066Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [
+      "device"
+    ],
+    "approach": [
+      "imperative",
+      "declarative"
+    ],
+    "one_liner": "Android Picture-in-Picture mode plugin with callbacks, widgets and actions",
+    "what_it_does": "Provides methods to check if Picture-in-Picture (PiP) is available, enter PiP mode programmatically, handle mode change callbacks, and build PiP-dependent layouts using a specialized widget with media action presets.",
+    "use_when": [
+      "You need to support Android Picture-in-Picture mode for video playback or continuous tasks",
+      "You want to display different UI layouts depending on whether PiP mode is active"
+    ],
+    "avoid_when": [
+      "You are building for iOS, web, or desktop platforms (Android only)",
+      "You do not need native PiP capabilities"
+    ],
+    "strengths": [
+      "Easy activity wrapper for enabling callbacks",
+      "Includes ready-to-use PiP actions and layouts for media playback",
+      "Provides a dedicated PipWidget for switching UI trees based on PiP state"
+    ],
+    "weaknesses": [
+      "Android support only",
+      "Requires manual configuration in AndroidManifest.xml and modifying the main activity"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add android:supportsPictureInPicture=\"true\" to the activity in AndroidManifest.xml and inherit from PipCallbackHelperActivityWrapper in Kotlin or Java.",
+    "alternatives": [],
+    "minimal_example": "import 'package:simple_pip_mode/simple_pip.dart';\n\nclass MyWidget extends StatelessWidget {\n  Widget build(BuildContext context) {\n    return IconButton(\n      icon: Icon(Icons.picture_in_picture),\n      onPressed: () => SimplePip().enterPipMode(),\n    );\n  }\n}",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.6.1",
+  "generatedAt": "2026-11-11T11:44:43.837Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [
+      "ai-ml",
+      "networking"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Flutter SDK for ElevenLabs Agent Platform to build conversational AI applications.",
+    "what_it_does": "Provides real-time bidirectional audio communication powered by WebRTC via LiveKit, allowing developers to build voice-enabled AI applications. It supports text messaging, client-side tools, reactive state management via ChangeNotifier, and a comprehensive callback system for conversation events.",
+    "use_when": [
+      "Building conversational AI voice assistants using the ElevenLabs Agent platform",
+      "Needing real-time full-duplex audio streaming with low latency in Flutter",
+      "Registering device-side client tools that an AI agent can invoke"
+    ],
+    "avoid_when": [
+      "You just need basic audio playback or recording without conversational AI agents",
+      "You are building a general-purpose WebRTC application without ElevenLabs integration"
+    ],
+    "strengths": [
+      "Full-duplex audio streaming with low latency via WebRTC and LiveKit",
+      "Rich callback and event system for conversation lifecycle and transcripts",
+      "Built-in support for client-side tool execution and session overrides"
+    ],
+    "weaknesses": [
+      "Requires platform-specific configuration such as microphone permissions and minimum SDK versions",
+      "Depends on external backend setup for secure private agent token generation"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding microphone permissions to iOS Info.plist (and setting platform to 13.0+) and Android AndroidManifest.xml, along with configuring minimum SDK version 21.",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:elevenlabs_agents/elevenlabs_agents.dart';\n\nvoid main() {\n  WidgetsFlutterBinding.ensureInitialized();\n  runApp(const MaterialApp(home: VoiceAssistant()));\n}\n\nclass VoiceAssistant extends StatefulWidget {\n  const VoiceAssistant({super.key});\n\n  @override\n  State<VoiceAssistant> createState() => _VoiceAssistantState();\n}\n\nclass _VoiceAssistantState extends State<VoiceAssistant> {\n  late final _client = ConversationClient();\n\n  Future<void> _startConversation() async {\n    await _client.startSession(\n      agentId: 'your-agent-id-here',\n      userId: 'user-123',\n    );\n  }\n\n  @override\n  Widget build(BuildContext context) {\n    return Scaffold(\n      body: Center(\n        child: ElevatedButton(\n          onPressed: _startConversation,\n          child: const Text('Start Conversation'),\n        ),\n      ),\n    );\n  }\n}",
+    "confidence": 0.95
+  }
+}

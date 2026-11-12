@@ -1,0 +1,53 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.4.0",
+  "generatedAt": "2026-11-12T11:37:08.386Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "JSON file-based storage package providing a persistent repository for a simple NoSQL database.",
+    "what_it_does": "Localstore provides a persistent key-value or document-based NoSQL database using JSON files on the device. It supports collections, documents, fetching by ID, deleting, and streams to track collection changes across multiple platforms including Android, iOS, Web, Windows, macOS, and Linux.",
+    "use_when": [
+      "You need a simple NoSQL database using JSON files.",
+      "You want schema-less local persistence that works across mobile, web, and desktop.",
+      "You need streams to listen to collection updates."
+    ],
+    "avoid_when": [
+      "You require complex relational queries, foreign keys, and SQL joins.",
+      "You need advanced high-performance indexing and querying beyond basic CRUD."
+    ],
+    "strengths": [
+      "Cross-platform support (Android, iOS, Web, Windows, macOS, Linux)",
+      "Schema-less JSON document model",
+      "Stream support for collections"
+    ],
+    "weaknesses": [
+      "Query functionality (like where clauses) is noted as not fully implemented in the changelog",
+      "File-based storage may scale poorly for very large datasets compared to a proper SQL database"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires calling WidgetsFlutterBinding.ensureInitialized() in main() before using Localstore.",
+    "alternatives": [
+      {
+        "name": "shared_preferences",
+        "why_pick_it": "If you only need simple key-value configuration storage rather than a document-based NoSQL structure."
+      },
+      {
+        "name": "sqflite",
+        "why_pick_it": "If you need a robust relational SQL database with complex querying capabilities."
+      },
+      {
+        "name": "drift",
+        "why_pick_it": "If you want a type-safe SQL database builder with reactive streams for Flutter."
+      }
+    ],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:localstore/localstore.dart';\n\nvoid main() {\n  WidgetsFlutterBinding.ensureInitialized();\n  runApp(MyApp());\n}\n\nfinal db = Localstore.instance;\n\n// Creates new item\nFuture<void> addItem() async {\n  final id = db.collection('todos').doc().id;\n  db.collection('todos').doc(id).set({\n    'title': 'Todo title',\n    'done': false\n  });\n}",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.26.0",
+  "generatedAt": "2026-11-12T11:13:18.016Z",
+  "data": {
+    "primary_category": "backend",
+    "secondary_categories": [
+      "auth"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Multi-platform Dart SDK for PocketBase open-source backend",
+    "what_it_does": "Provides a client SDK to communicate with the PocketBase backend, supporting authentication, CRUD record operations, file uploads, realtime subscriptions, and custom SQL/collection administration tools.",
+    "use_when": [
+      "You are using PocketBase as your application's backend",
+      "You need real-time data synchronization with your database",
+      "You want built-in authentication and file upload handling"
+    ],
+    "avoid_when": [
+      "You are using a different BaaS such as Firebase or Supabase",
+      "You do not use PocketBase or need a relational client like standard SQL/ORM drivers"
+    ],
+    "strengths": [
+      "Official multi-platform SDK supporting Android, iOS, web, Windows, macOS, and Linux",
+      "Built-in support for realtime updates and robust authentication options including OAuth2 and OTP",
+      "Convenient helpers for filtering, file uploads, and optional HTTP client connection reuse"
+    ],
+    "weaknesses": [
+      "Tied strictly to the PocketBase backend server implementation",
+      "Requires careful setup on Android 15+ or dual-stack networks for certain OAuth2 flows due to OS restrictions"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the dependency with 'dart pub add pocketbase' or 'flutter pub add pocketbase', and initialize the client instance with your PocketBase server URL.",
+    "alternatives": [
+      {
+        "name": "supabase",
+        "why_pick_it": "Choose this if you prefer Supabase over PocketBase as your open-source backend."
+      },
+      {
+        "name": "gotrue",
+        "why_pick_it": "Choose this if you only need GoTrue authentication without the full PocketBase ecosystem."
+      }
+    ],
+    "minimal_example": "import 'package:pocketbase/pocketbase.dart';\n\nfinal pb = PocketBase('http://127.0.0.1:8090');\n\nfinal userData = await pb.collection('users').authWithPassword('test@example.com', '123456');",
+    "confidence": 1
+  }
+}

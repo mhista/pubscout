@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.1.2",
+  "generatedAt": "2026-11-11T11:38:40.398Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "An asynchronous audio capture library for real-time speech audio processing.",
+    "what_it_does": "Captures raw audio data from the device microphone and delivers 16-bit mono PCM frames to registered listeners. It is designed specifically for real-time speech processing use cases on mobile devices.",
+    "use_when": [
+      "You need real-time streaming of raw audio frames for speech processing or recognition.",
+      "You want a singleton voice processor with support for multiple frame listeners."
+    ],
+    "avoid_when": [
+      "You want to record compressed audio files to disk (like MP3 or AAC).",
+      "You need complex media playback features."
+    ],
+    "strengths": [
+      "Delivers raw audio frames (16-bit, mono PCM) suitable for real-time speech engines.",
+      "Supports multiple listeners on a single recording session."
+    ],
+    "weaknesses": [
+      "Limited to raw PCM audio capture and specific configurations.",
+      "Requires manual platform permission configuration for microphone access."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires adding NSMicrophoneUsageDescription in Info.plist for iOS and RECORD_AUDIO permission in AndroidManifest.xml for Android.",
+    "alternatives": [
+      {
+        "name": "record",
+        "why_pick_it": "If you need a general-purpose audio recorder that can output to files or stream amplitude/data."
+      }
+    ],
+    "minimal_example": "import 'package:flutter_voice_processor/flutter_voice_processor.dart';\n\nVoiceProcessor? _voiceProcessor = VoiceProcessor.instance;\n\nVoiceProcessorFrameListener frameListener = (List<int> frame) {\n    // use audio\n};\n\n_voiceProcessor?.addFrameListener(frameListener);\nawait _voiceProcessor?.start(512, 16000);",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.2.0",
+  "generatedAt": "2026-11-09T11:43:55.325Z",
+  "data": {
+    "primary_category": "ui-kits",
+    "secondary_categories": [
+      "widgets",
+      "theming"
+    ],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "A faithful Flutter implementation of the Material 3 Expressive component set.",
+    "what_it_does": "Provides 44 M3E widget components across Actions, Selection, Containment, Navigation, and Feedback with spring physics and shape morphing. Exposes design tokens and themes through M3ETheme and M3EMaterialApp.",
+    "use_when": [
+      "You want to build an app using the Material 3 Expressive component set and guidelines",
+      "You need ready-to-use widgets with spring-driven press feedback, shape morphing, and state layers"
+    ],
+    "avoid_when": [
+      "You must use standard package:flutter/material.dart directly without importing material_ui",
+      "You require a non-Material custom design system or Cupertino styling"
+    ],
+    "strengths": [
+      "Comprehensive coverage of 44 widgets across 39 component modules",
+      "Expressive motion and interaction with spring physics and per-destination selection indicators",
+      "Built-in support for dynamic color, seed colors, and custom typography scales"
+    ],
+    "weaknesses": [
+      "Requires switching from package:flutter/material.dart to package:material_ui/material_ui.dart",
+      "Potential name clashes for RoundedPolygon and CornerRounding requiring import hiding"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the dependency to pubspec.yaml and import package:material_3_expressive/material_3_expressive.dart along with material_ui instead of standard material.dart.",
+    "alternatives": [
+      {
+        "name": "material_ui",
+        "why_pick_it": "If you prefer standard Material components rather than the Material 3 Expressive set."
+      },
+      {
+        "name": "cupertino_ui",
+        "why_pick_it": "If you want iOS-style Cupertino components instead of Material Design."
+      }
+    ],
+    "minimal_example": "import 'package:material_ui/material_ui.dart';\nimport 'package:material_3_expressive/material_3_expressive.dart';\n\nvoid main() => runApp(const MyApp());\n\nclass MyApp extends StatelessWidget {\n  const MyApp({super.key});\n\n  @override\n  Widget build(BuildContext context) {\n    return M3EMaterialApp(\n      title: 'My App',\n      data: M3EThemeData.light(seedColor: const Color(0xFF6750A4)),\n      home: const Scaffold(body: Center(child: Text('Hello Expressive'))),\n    );\n  }\n}",
+    "confidence": 1
+  }
+}

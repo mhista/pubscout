@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.4.6",
+  "generatedAt": "2026-11-12T11:19:16.929Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "Riverpod‑style state management for Jaspr with BuildContext extensions and server‑client sync.",
+    "what_it_does": "Provides the full Riverpod API for Jaspr components, letting you read, watch, and listen to providers via BuildContext. Includes a sync feature to transfer provider state from server‑side pre‑rendering to the client.",
+    "use_when": [
+      "You are building a Jaspr web or multi‑platform app and need reactive state management.",
+      "You want Riverpod’s API without extra Consumer widgets.",
+      "You need to share provider state between server‑side rendering and the client."
+    ],
+    "avoid_when": [
+      "You are developing a Flutter app (use flutter_riverpod).",
+      "You require code‑generation based providers or advanced DI features."
+    ],
+    "strengths": [
+      "Feature‑parity with Riverpod 3.",
+      "Simple context‑based access eliminates Consumer boilerplate.",
+      "Built‑in sync of provider state between server and client."
+    ],
+    "weaknesses": [
+      "Works only with Jaspr, not Flutter or other frameworks.",
+      "No code‑generation support; manual provider definitions required."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add jaspr_riverpod to pubspec, import the package, and wrap the root component with ProviderScope.",
+    "alternatives": [
+      {
+        "name": "riverpod",
+        "why_pick_it": "Core Riverpod library for Dart; works in any Dart environment but lacks Jaspr‑specific extensions."
+      }
+    ],
+    "minimal_example": "ProviderScope(\n  sync: [myProvider.syncWith('key')],\n  child: MyComponent(),\n);\n\nclass MyComponent extends StatelessComponent {\n  @override\n  Component build(BuildContext context) {\n    final value = context.watch(myProvider);\n    return Text(value);\n  }\n}",
+    "confidence": 0.93
+  }
+}

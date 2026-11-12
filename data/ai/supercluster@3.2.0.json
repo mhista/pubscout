@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.2.0",
+  "generatedAt": "2026-11-11T11:16:08.675Z",
+  "data": {
+    "primary_category": "maps",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Fast point clustering library for maps supporting immutable and mutable indices.",
+    "what_it_does": "Provides fast point clustering algorithms ported from MapBox's supercluster library. It supports both immutable clustering and a mutable clustering variant for adding or removing points dynamically.",
+    "use_when": [
+      "You need to cluster large sets of geographical points on a map efficiently",
+      "You require support for dynamically adding and removing points from clusters"
+    ],
+    "avoid_when": [
+      "You do not need geospatial clustering functionality"
+    ],
+    "strengths": [
+      "Extremely fast point clustering algorithms",
+      "Supports both immutable and mutable indexing approaches",
+      "Allows efficient batch operations like addAll and removeAll"
+    ],
+    "weaknesses": [
+      "Mutable clustering has performance costs compared to immutable loading",
+      "Limited to point clustering functionality"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "void main() {\n  final points = [\n    MapPoint(name: 'first', lat: 46, lon: 1.5),\n    MapPoint(name: 'second', lat: 46.4, lon: 0.9),\n    MapPoint(name: 'third', lat: 45, lon: 19),\n  ];\n  final supercluster = SuperclusterImmutable<MapPoint>(\n    getX: (p) => p.lon,\n    getY: (p) => p.lat,\n  )\n    ..load(points);\n\n  final clustersAndPoints = supercluster.search(0, 40, 20, 50, 5);\n}",
+    "confidence": 0.95
+  }
+}

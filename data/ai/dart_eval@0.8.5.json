@@ -1,0 +1,47 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.8.5",
+  "generatedAt": "2026-11-12T11:49:47.795Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "devtools",
+      "codegen"
+    ],
+    "approach": [
+      "code generation",
+      "interpreter"
+    ],
+    "one_liner": "A flexible Dart bytecode compiler and interpreter for dynamic execution and code push.",
+    "what_it_does": "Compiles and interprets Dart bytecode at runtime, allowing dynamic code execution and hot updating (code push) for AOT-compiled Dart and Flutter apps. It includes automated interop and binding generation systems so native Dart code can be used inside the interpreter and vice versa.",
+    "use_when": [
+      "You need code push capabilities for Flutter AOT apps.",
+      "You want to execute arbitrary or user-submitted Dart code safely via a sandbox with granular permissions."
+    ],
+    "avoid_when": [
+      "You require 100% of the standard library and all advanced language features immediately supported out of the box.",
+      "Maximum execution performance is critical, as interpreted bytecode is slower than native AOT/JIT execution."
+    ],
+    "strengths": [
+      "Enables code push and dynamic execution in AOT Flutter apps.",
+      "Automated interop and binding generator for seamlessly using native classes in the interpreter.",
+      "Built-in sandboxing and permission system for secure execution."
+    ],
+    "weaknesses": [
+      "Does not yet implement certain language features (e.g., generators, extension methods) and parts of the standard library.",
+      "Runtime performance of interpreted code is lower than native execution."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add dart_eval to dependencies, optionally use the CLI for pre-compiling EVC bytecode or generating interop bindings via eval_annotation.",
+    "alternatives": [
+      {
+        "name": "shorebird_code_push",
+        "why_pick_it": "If you need full native binary updates via a hosted code push service rather than bytecode interpretation."
+      }
+    ],
+    "minimal_example": "import 'package:dart_eval/dart_eval.dart';\n\nvoid main() {\n  print(eval('2 + 2')); // -> 4\n}",
+    "confidence": 0.95
+  }
+}

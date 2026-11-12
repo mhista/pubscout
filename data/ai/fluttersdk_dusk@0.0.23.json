@@ -1,0 +1,47 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.0.23",
+  "generatedAt": "2026-11-11T11:14:19.232Z",
+  "data": {
+    "primary_category": "testing",
+    "secondary_categories": [
+      "devtools",
+      "ai-ml"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Flutter E2E test driver for LLM agents and CLI via VM Service extensions without a test harness.",
+    "what_it_does": "Provides 41 CLI commands and 39 MCP tools to drive a running Flutter application over VM Service extensions. It snapshots semantics trees, captures screenshots, and performs gestures without needing a traditional flutter_test harness.",
+    "use_when": [
+      "You want AI agents to interact with and test your running Flutter application.",
+      "You need unscripted end-to-end automation via CLI commands or Model Context Protocol tools."
+    ],
+    "avoid_when": [
+      "You are writing traditional unit or widget tests using the flutter_test harness.",
+      "You are running production builds (dusk is debug-only and tree-shaked in release)."
+    ],
+    "strengths": [
+      "Hot-restart safe and does not require separate test files.",
+      "Bridges human CLI workflows and AI agent MCP tool calls using the same contracts.",
+      "Features a 6-step actionability gate and stable ref system for reliable element targeting."
+    ],
+    "weaknesses": [
+      "Debug-only tool that must be explicitly guarded against release builds.",
+      "Requires proper lifecycle and platform setup (like VM Service extension wiring)."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Run flutter pub add fluttersdk_dusk followed by dart run fluttersdk_dusk dusk:install, then wrap DuskPlugin.install() in !kReleaseMode in lib/main.dart.",
+    "alternatives": [
+      {
+        "name": "test",
+        "why_pick_it": "Choose the standard test package when you want to write traditional unit, widget, or integration tests with standard test runners."
+      }
+    ],
+    "minimal_example": "flutter pub add fluttersdk_dusk\ndart run fluttersdk_dusk dusk:install",
+    "confidence": 1
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.5.2",
+  "generatedAt": "2026-11-09T11:23:06.276Z",
+  "data": {
+    "primary_category": "maps",
+    "secondary_categories": [
+      "utils",
+      "networking"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Implements the Google Geocoding API with default and reverse geosearch.",
+    "what_it_does": "Provides a Dart client for the Google Geocoding API, supporting latitude/longitude lookup, reverse geocoding for address lookups, and place geocoding. It includes an experimental utility method to map results into simplified pretty address objects.",
+    "use_when": [
+      "You need to query Google's Geocoding API in a pure Dart or Flutter environment",
+      "You want to convert addresses to coordinates or coordinates to addresses via Google"
+    ],
+    "avoid_when": [
+      "You are looking for an on-device geocoding or general mapping solution without depending on Google's API services",
+      "You require offline geocoding capabilities"
+    ],
+    "strengths": [
+      "Pure Dart dependency with no mandatory Flutter constraints",
+      "Easy to use API for standard geocoding, reverse geocoding, and place geocoding",
+      "Built-in pretty address mapper for easier data extraction"
+    ],
+    "weaknesses": [
+      "Requires a valid Google Developer Console API key and relies on a paid external web service",
+      "The pretty address mapping feature is marked as experimental"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires obtaining an API key from the Google Developer Console.",
+    "alternatives": [
+      {
+        "name": "geocoding",
+        "why_pick_it": "If you prefer using platform native geocoding services instead of relying on the Google Geocoding web API."
+      },
+      {
+        "name": "geolocator",
+        "why_pick_it": "If your primary requirement is obtaining the current device location rather than querying a geocoding database."
+      }
+    ],
+    "minimal_example": "import 'package:google_geocoding_api/google_geocoding_api.dart';\n\nFuture<void> main() async {\n  const String googelApiKey = 'YOUR_API_KEY';\n  final bool isDebugMode = true;  \n  final api = GoogleGeocodingApi(googelApiKey, isLogged: isDebugMode);  \n  final searchResults = await api.search(\n    'Boston',\n    language: 'en',\n  );\n}",
+    "confidence": 0.95
+  }
+}

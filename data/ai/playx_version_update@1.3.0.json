@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.3.0",
+  "generatedAt": "2026-11-12T11:13:39.648Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "declarative"
+    ],
+    "one_liner": "Easily show material update dialogs or Cupertino dialogs with native Android in-app update support.",
+    "what_it_does": "Allows developers to intelligently detect new app versions on Google Play and the Apple App Store. Provides native in-app updates for Android (immediate or flexible) and customizable Flutter dialogs or full-screen update pages for iOS or cross-platform usage.",
+    "use_when": [
+      "You want to prompt users to update their app from Google Play or Apple App Store.",
+      "You need native Android in-app updates (immediate or flexible flows).",
+      "You want to enforce minimum app versions using store descriptions."
+    ],
+    "avoid_when": [
+      "Your app targets platforms other than Android and iOS.",
+      "You do not publish your app to official app stores."
+    ],
+    "strengths": [
+      "Supports both native Android in-app updates and custom cross-platform Flutter UI.",
+      "Detailed error handling mapping to platform update and network error types.",
+      "Minimum version enforcement via store descriptions."
+    ],
+    "weaknesses": [
+      "Limited to Android and iOS platforms only.",
+      "Requires proper store configuration and published store IDs to function fully."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires Android compileSdkVersion 36, minSdkVersion 23, and Java JVM target 17.",
+    "alternatives": [],
+    "minimal_example": "Future<void> showInAppUpdateFlow(BuildContext context) async {\n  final result = await PlayxVersionUpdate.showInAppUpdateDialog(\n    context: context,\n    type: PlayxAppUpdateType.flexible,\n  );\n}",
+    "confidence": 0.95
+  }
+}

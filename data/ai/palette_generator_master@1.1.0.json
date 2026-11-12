@@ -1,0 +1,48 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.1.0",
+  "generatedAt": "2026-11-09T11:23:12.293Z",
+  "data": {
+    "primary_category": "images",
+    "secondary_categories": [
+      "ui-kits",
+      "theming",
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Extracts prominent colors, color harmonies, and checks accessibility contrast from images in Flutter.",
+    "what_it_does": "Analyzes images from various sources (providers, bytes, or ui.Image) to extract prominent colors like vibrant, muted, and dominant tones. It also computes color harmonies and verifies WCAG contrast compliance for accessibility.",
+    "use_when": [
+      "You need to dynamically theme your app UI based on a loaded image.",
+      "You want to ensure accessible text color choices against dynamic image backgrounds.",
+      "You need color quantization and harmony generation from artwork or user-uploaded photos."
+    ],
+    "avoid_when": [
+      "You only need basic image loading and display without color analysis.",
+      "You require complex image manipulation like cropping, resizing, or filtering for display."
+    ],
+    "strengths": [
+      "Supports multiple color spaces (RGB, HSV, LAB).",
+      "Built-in accessibility checking for WCAG compliance.",
+      "Generates color harmonies (complementary, triadic, analogous)."
+    ],
+    "weaknesses": [
+      "Heavy image processing operations can impact performance if run excessively on the main thread.",
+      "Relies on the availability of image decoding capabilities."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "image",
+        "why_pick_it": "Choose this if you need low-level image decoding, manipulation, and pixel processing rather than high-level palette generation."
+      }
+    ],
+    "minimal_example": "final PaletteGeneratorMaster paletteGenerator = await PaletteGeneratorMaster.fromImageProvider(AssetImage('assets/my_image.jpg'), generateHarmony: true);\nfinal Color? dominantColor = paletteGenerator.dominantColor?.color;",
+    "confidence": 0.95
+  }
+}

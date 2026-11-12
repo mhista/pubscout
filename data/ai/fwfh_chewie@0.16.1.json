@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.16.1",
+  "generatedAt": "2026-11-10T12:29:01.320Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Render VIDEO tags using Chewie inside HtmlWidget",
+    "what_it_does": "It extends HtmlWidget to replace <video> tags with a Chewie video player. It supports flutter_widget_from_html_core and video_player dependencies. It works on Android, iOS, web, macOS.",
+    "use_when": [
+      "You need to display video content from HTML in a Flutter app",
+      "You already use flutter_widget_from_html_core and want a ready‑made video player"
+    ],
+    "avoid_when": [
+      "You prefer a different video player like just_audio or audioplayers",
+      "You need advanced custom controls not provided by Chewie"
+    ],
+    "strengths": [
+      "Easy integration with HtmlWidget",
+      "Supports multiple platforms",
+      "Keeps video logic separate from HTML parsing"
+    ],
+    "weaknesses": [
+      "Depends on Chewie, so inherits its limitations",
+      "No custom control overrides beyond Chewie defaults"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add fwfh_chewie and flutter_widget_from_html_core to pubspec, then mix in ChewieFactory into your WidgetFactory",
+    "alternatives": [],
+    "minimal_example": "```dart\nimport 'package:flutter_widget_from_html_core/flutter_widget_from_html_core.dart';\nimport 'package:fwfh_chewie/fwfh_chewie.dart';\n\nHtmlWidget(\n  html,\n  factoryBuilder: () => MyWidgetFactory(),\n)\n\nclass MyWidgetFactory extends WidgetFactory with ChewieFactory {}\n```",
+    "confidence": 0.9
+  }
+}

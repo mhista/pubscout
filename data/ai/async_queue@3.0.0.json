@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.0.0",
+  "generatedAt": "2026-11-11T11:29:31.672Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Ensure async tasks execute sequentially in order, one after the other.",
+    "what_it_does": "Ensures that a pack of asynchronous tasks executes in order, one after the other. It supports features like auto-start, priority ordering, job timeouts, retry with delay, and pause/resume functionality.",
+    "use_when": [
+      "You need multiple asynchronous tasks or network requests to execute strictly in sequence.",
+      "You want to prevent multiple requests from hitting your backend simultaneously in a short time frame."
+    ],
+    "avoid_when": [
+      "You need parallel execution of independent asynchronous tasks.",
+      "You are looking for complex state management solutions."
+    ],
+    "strengths": [
+      "Easy to use with support for both manual and auto-start queues.",
+      "Provides advanced features such as priorities, job timeouts, and automatic retries.",
+      "Allows awaiting individual job results via Futures."
+    ],
+    "weaknesses": [
+      "Limited to sequential execution, which may slow down independent tasks if queued together."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "async",
+        "why_pick_it": "Provides core Dart asynchronous utilities and primitives like StreamGroup and RestartableTimer if you need lower-level stream or future manipulation."
+      }
+    ],
+    "minimal_example": "final asyncQ = AsyncQueue.autoStart();\nasyncQ.addJob((_) => Future.delayed(const Duration(seconds: 1), () => print('Task 1')));\nasyncQ.addJob((_) => Future.delayed(const Duration(seconds: 2), () => print('Task 2')));",
+    "confidence": 1
+  }
+}

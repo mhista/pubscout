@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "2.2.2",
+  "generatedAt": "2026-11-10T12:31:13.370Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Access CPU and memory usage, container-aware, pure Dart on Linux, FFI on macOS",
+    "what_it_does": "Provides APIs to read CPU load, CPU limits, memory usage and limits, and detect container environments. It uses cgroup files on Linux and native dylibs on macOS.",
+    "use_when": [
+      "Need to monitor system resources in a Dart/Flutter app",
+      "Running in containers and want metrics relative to limits",
+      "Cross-platform (Linux/macOS) resource monitoring without native dependencies on Linux"
+    ],
+    "avoid_when": [
+      "Running on Windows or unsupported platforms",
+      "You need advanced profiling or GPU metrics",
+      "You need to run on iOS/Android"
+    ],
+    "strengths": [
+      "Pure Dart on Linux eliminates native binaries",
+      "Container-aware with cgroup v1/v2 support",
+      "No external dependencies beyond ffi",
+      "Supports gVisor environments"
+    ],
+    "weaknesses": [
+      "Not supported on Windows, iOS, Android",
+      "Requires macOS dylib for macOS",
+      "No support for other platforms like web or mobile"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dependency, call SystemResources.init() on macOS, no special permissions needed",
+    "alternatives": [],
+    "minimal_example": "import 'package:system_resources_2/system_resources_2.dart';\n\nvoid main() async {\n  await SystemResources.init();\n  print('CPU Load: ${(SystemResources.cpuLoadAvg()*100).toInt()}%');\n  print('Memory Usage: ${(SystemResources.memUsage()*100).toInt()}%');\n}",
+    "confidence": 0.92
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "2.9.0",
+  "generatedAt": "2026-11-10T12:19:44.752Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Cross‑platform cryptographic algorithms for Dart and Flutter.",
+    "what_it_does": "Provides implementations of encryption, signatures, key exchange, hashing and more. Uses platform‑native APIs when available and falls back to pure‑Dart or WASM otherwise. Supports Android, iOS, web, desktop, and WASM.",
+    "use_when": [
+      "You need cryptographic primitives (AES, ChaCha20, Ed25519, etc.) in a Flutter/Dart app",
+      "You want a single package that works on all target platforms without writing platform‑specific code"
+    ],
+    "avoid_when": [
+      "You require a higher‑level authentication flow (OAuth, social sign‑in)",
+      "You need a storage‑focused solution rather than crypto primitives"
+    ],
+    "strengths": [
+      "Platform‑native implementations give best performance",
+      "Pure‑Dart fallback ensures it works everywhere",
+      "Wide algorithm coverage and easy API"
+    ],
+    "weaknesses": [
+      "Not a full authentication framework, only low‑level crypto",
+      "Requires ffi on some platforms for Argon2id"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:cryptography/cryptography.dart';\n\nfinal algorithm = AesGcm.with256bits();\nfinal secretKey = await algorithm.newSecretKey();\nfinal nonce = algorithm.nonceLength;\nfinal secretMessage = [1,2,3];\nfinal encrypted = await algorithm.encrypt(secretMessage, secretKey: secretKey);\nfinal decrypted = await algorithm.decrypt(encrypted, secretKey: secretKey);\nprint('Decrypted: $decrypted');",
+    "confidence": 0.97
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.0.2",
+  "generatedAt": "2026-11-09T11:55:42.699Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "forms"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A highly customizable slide-to-perform-action widget for Flutter.",
+    "what_it_does": "Provides a slide action widget allowing users to swipe or slide to execute a callback action. It supports smooth thumb movement, RTL layouts, and asynchronous operations with loading indicators.",
+    "use_when": [
+      "You need a slide-to-unlock or slide-to-confirm pattern in your UI.",
+      "You want to handle asynchronous operations triggered by a sliding gesture with loading states."
+    ],
+    "avoid_when": [
+      "You need standard buttons or switches rather than a swipe gesture.",
+      "You are looking for complex navigation or state management solutions."
+    ],
+    "strengths": [
+      "Highly customizable track and thumb builders",
+      "Built-in support for async operations and loading states",
+      "RTL and multi-platform support"
+    ],
+    "weaknesses": [
+      "The disabledColorTint property does not work properly on web due to color blend mode bugs",
+      "Very niche widget with limited scope"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "SlideAction(\n    trackBuilder: (context, state) {\n        return Container(\n            decoration: BoxDecoration(\n                borderRadius: BorderRadius.circular(16),\n                color: Colors.white,\n            ),\n            child: Center(\n                child: Text(\"Slide me\"),\n            );\n        );\n    },\n    thumbBuilder: (context, state) {\n        return Container(\n            margin: const EdgeInsets.all(4),\n            decoration: BoxDecoration(\n                color: Colors.orange,\n                borderRadius: BorderRadius.circular(16),\n            ),\n            child: const Icon(Icons.chevron_right, color: Colors.white),\n        );\n    },\n    action: () {\n        debugPrint(\"Action performed\");\n    },\n)",
+    "confidence": 0.95
+  }
+}

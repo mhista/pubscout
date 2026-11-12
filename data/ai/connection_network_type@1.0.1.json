@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "1.0.1",
+  "generatedAt": "2026-11-12T11:16:35.968Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "Detects current network type and listens for connectivity changes on iOS and Android.",
+    "what_it_does": "Provides a method to get the current network status, distinguishing Wi‑Fi, various mobile generations (2G‑5G) and other connections. Emits a stream that notifies listeners whenever the network state changes.",
+    "use_when": [
+      "You need to know whether the user is on Wi‑Fi or a specific mobile generation",
+      "You want to react in real time to connectivity changes in a Flutter app"
+    ],
+    "avoid_when": [
+      "Your app must run on web, desktop, or platforms other than Android/iOS",
+      "You only need basic online/offline detection without detailed network types"
+    ],
+    "strengths": [
+      "Detailed mobile network classification (2G‑5G, TD‑SCDMA)",
+      "Real‑time stream of network changes",
+      "Works on both Android and iOS"
+    ],
+    "weaknesses": [
+      "Limited to Android and iOS only",
+      "Requires READ_PHONE_STATE permission on Android",
+      "Does not provide HTTP/network request capabilities"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add READ_PHONE_STATE permission to AndroidManifest and request it at runtime on Android; no extra build steps required",
+    "alternatives": [
+      {
+        "name": "connectivity_plus",
+        "why_pick_it": "Provides basic online/offline and Wi‑Fi vs mobile status across more platforms, including web and desktop"
+      }
+    ],
+    "minimal_example": "await Permission.phone.request();\nNetworkStatus status = await ConnectionNetworkType().currentNetworkStatus();\nConnectionNetworkType().onNetworkStateChanged.listen((NetworkStatus s) { /* handle change */ });",
+    "confidence": 0.92
+  }
+}

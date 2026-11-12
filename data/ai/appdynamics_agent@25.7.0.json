@@ -1,0 +1,56 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "25.7.0",
+  "generatedAt": "2026-11-12T11:14:39.914Z",
+  "data": {
+    "primary_category": "devtools",
+    "secondary_categories": [
+      "networking",
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter plugin for AppDynamics mobile real‑user monitoring and analytics.",
+    "what_it_does": "Wraps the native AppDynamics SDK to capture network requests, crashes, screen views, custom metrics and user interactions. Provides APIs for manual instrumentation and automatic data collection.",
+    "use_when": [
+      "You need AppDynamics RUM in a Flutter app",
+      "You want automatic crash and ANR reporting",
+      "You require network request tracking integrated with AppDynamics"
+    ],
+    "avoid_when": [
+      "You prefer a free/open‑source analytics solution",
+      "You only need basic logging without a commercial backend"
+    ],
+    "strengths": [
+      "Deep integration with AppDynamics platform",
+      "Comprehensive coverage: network, crashes, screens, custom metrics",
+      "Supports both Android and iOS with native permissions"
+    ],
+    "weaknesses": [
+      "Requires a valid AppDynamics license",
+      "Limited to AppDynamics; not a generic analytics library",
+      "Setup involves native Gradle and manifest changes"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add AppDynamics Gradle plugin and apply 'adeum' in android/app/build.gradle; add INTERNET and ACCESS_NETWORK_STATE permissions; configure AgentConfiguration in Dart before runApp.",
+    "alternatives": [
+      {
+        "name": "sentry",
+        "why_pick_it": "Open‑source crash reporting and performance monitoring without a commercial license"
+      },
+      {
+        "name": "sentry_flutter",
+        "why_pick_it": "Flutter‑specific Sentry integration offering similar crash and performance features"
+      },
+      {
+        "name": "pretty_dio_logger",
+        "why_pick_it": "If you only need network request logging without full RUM capabilities"
+      }
+    ],
+    "minimal_example": "import 'package:appdynamics_agent/appdynamics_agent.dart';\nimport 'package:flutter/material.dart';\n\nFuture<void> main() async {\n  WidgetsFlutterBinding.ensureInitialized();\n  await Instrumentation.start(AgentConfiguration(appKey: '<EUM_APP_KEY>'));\n  runApp(const MyApp());\n}",
+    "confidence": 0.93
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.1.14",
+  "generatedAt": "2026-11-11T11:34:12.303Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [
+      "codegen"
+    ],
+    "approach": [
+      "code generation",
+      "declarative"
+    ],
+    "one_liner": "Type-safe SQL queries and schema definitions using code generation.",
+    "what_it_does": "Provides a type-safe API for interacting with SQL databases like SQLite and Postgres in Dart. It uses build_runner code generation to map tables and rows, allowing you to build queries using a fluent API with strong null-safety guarantees.",
+    "use_when": [
+      "You want compile-time type safety for your SQL queries in Dart",
+      "You are targeting SQLite or Postgres and want a fluent query builder",
+      "You prefer generating Dart classes from schema definitions"
+    ],
+    "avoid_when": [
+      "You need support for databases other than SQLite and Postgres",
+      "You prefer writing raw SQL strings without code generation",
+      "You need a production-ready and fully stable database ORM"
+    ],
+    "strengths": [
+      "Strict type and null-safety matching database constraints",
+      "Fluent extension-method based query builder",
+      "Supports SQLite and Postgres natively"
+    ],
+    "weaknesses": [
+      "Under active development with potential breaking changes",
+      "Requires setup with build_runner code generation",
+      "Limited database backend support"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding typed_sql and dev:build_runner, then executing 'dart run build_runner build' to generate model part-files.",
+    "alternatives": [
+      {
+        "name": "drift",
+        "why_pick_it": "Drift is a more mature and widely used reactive SQLite database library for Dart and Flutter with robust tooling."
+      },
+      {
+        "name": "sqflite",
+        "why_pick_it": "Sqflite gives you direct, lightweight control over raw SQLite queries without code generation overhead."
+      }
+    ],
+    "minimal_example": "abstract final class Bookstore extends Schema {\n  Table<Author> get authors;\n  Table<Book> get books;\n}\n\n@PrimaryKey(['authorId'])\nabstract final class Author extends Row {\n  @AutoIncrement()\n  int get authorId;\n\n  @Unique.field()\n  String get name;\n}",
+    "confidence": 0.95
+  }
+}

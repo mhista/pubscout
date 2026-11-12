@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.2.8",
+  "generatedAt": "2026-11-11T11:22:01.849Z",
+  "data": {
+    "primary_category": "devtools",
+    "secondary_categories": [
+      "files"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "File-based logging framework for Flutter with ELK Stack and MQTT support.",
+    "what_it_does": "Flutter Logs provides an advanced file-based logging solution that automatically creates new log files on disk at hourly intervals. It supports log filtering, custom log files, encryption, PII redaction, and optional export to zip files or real-time streaming via MQTT.",
+    "use_when": [
+      "You need persistent file-based logging on Android and iOS devices",
+      "You want to sync application logs remotely via ELK stack or MQTT",
+      "You need features like log encryption, retention limits, and automatic error exporting"
+    ],
+    "avoid_when": [
+      "You only require basic console print logging during development",
+      "You need complete feature parity on iOS, as some features are still in progress or unsupported"
+    ],
+    "strengths": [
+      "Extensive configuration options for log rotation, retention, and formatting",
+      "Built-in support for ELK stack and MQTT for real-time log streaming",
+      "Includes PII redaction, backpressure, and file encryption"
+    ],
+    "weaknesses": [
+      "iOS feature set is currently more limited than Android",
+      "Requires manual initialization before runApp and platform-specific path handling"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Call FlutterLogs.initLogs before runApp with required directory structure, timestamp format, and log file extension parameters.",
+    "alternatives": [],
+    "minimal_example": "Future<void> main() async {\n  WidgetsFlutterBinding.ensureInitialized();\n  await FlutterLogs.initLogs(\n    directoryStructure: DirectoryStructure.FOR_DATE,\n    timeStampFormat: TimeStampFormat.TIME_FORMAT_READABLE,\n    logFileExtension: LogFileExtension.LOG,\n  );\n  runApp(MyApp());\n}",
+    "confidence": 0.95
+  }
+}

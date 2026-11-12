@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.3.4",
+  "generatedAt": "2026-11-11T11:04:16.321Z",
+  "data": {
+    "primary_category": "codegen",
+    "secondary_categories": [],
+    "approach": [
+      "code generation"
+    ],
+    "one_liner": "Helper for code generators to write code with import prefixes and default values",
+    "what_it_does": "AnalyzerBuffer provides a buffer that understands import prefixes, default values, and type writing for code generators. It offers a template‑based syntax to reference types and constants from other files and automatically manages imports.",
+    "use_when": [
+      "Writing source_gen generators that need to reference types or constants from other packages",
+      "Generating code that must preserve import prefixes or copy default values",
+      "Creating boilerplate code that requires type or constant conversion to source",
+      "Automating import management in generated files"
+    ],
+    "avoid_when": [
+      "Runtime code that does not involve code generation",
+      "Scenarios where manual string concatenation is simpler than a buffer",
+      "Projects that do not use the analyzer or source_gen"
+    ],
+    "strengths": [
+      "Supports import prefixes and automatic import insertion",
+      "Copies default values and constants preserving prefixes",
+      "Provides writeType and DartType.toCode for type conversion",
+      "Custom string interpolation for dynamic content"
+    ],
+    "weaknesses": [
+      "Only useful for code generation, not runtime",
+      "Depends on analyzer and source_gen, so not suitable for pure Dart projects",
+      "Requires understanding of analyzer APIs"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add analyzer_buffer to pubspec, import it in your generator, and use AnalyzerBuffer.part(library.element) to start writing.",
+    "alternatives": [],
+    "minimal_example": "```dart\nfinal buffer = AnalyzerBuffer.part(library.element);\nbuffer.write('''\nclass Example {\n  final #{{dart:async|StreamController}} controller;\n  final #{{riverpod|Provider}} provider;\n}\n''');\nreturn buffer.toString();\n```",
+    "confidence": 0.9
+  }
+}

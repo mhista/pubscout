@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.2.2",
+  "generatedAt": "2026-11-09T11:39:11.867Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "maps"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Get public IP addresses and associated geolocation data like country, city, timezone, and ISP.",
+    "what_it_does": "The public_ip_address package allows you to retrieve the user's public IP address (both IPv4 and IPv6) as well as a wide range of geo-location and network details including country, region, city, latitude, longitude, timezone, and internet service provider (ASN). It also provides methods to query specific IP addresses instead of the current user's IP.",
+    "use_when": [
+      "You need to display the user's public IP address in your app.",
+      "You need geolocation information derived from an IP address such as country, city, or time zone."
+    ],
+    "avoid_when": [
+      "You require precise device GPS coordinates rather than IP-based geolocation.",
+      "You need offline IP lookup capabilities."
+    ],
+    "strengths": [
+      "Provides comprehensive IP metadata including location, timezone, and ISP details.",
+      "Supports fetching data for specific IP addresses as well as the current user's IP.",
+      "Cross-platform support covering Android, iOS, Web, Windows, macOS, and Linux."
+    ],
+    "weaknesses": [
+      "Relies on an external API endpoint which requires an active internet connection.",
+      "Region, city, and postal code data may be missing for certain non-US or non-Canadian IP addresses."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "No native setup or special permissions are documented as required, other than standard internet connectivity via the http package.",
+    "alternatives": [],
+    "minimal_example": "import 'package:public_ip_address/public_ip_address.dart';\n\nvoid main() async {\n  IpAddress _ipAddress = IpAddress();\n  var ip = await _ipAddress.getIp();\n  print(ip);\n}",
+    "confidence": 1
+  }
+}

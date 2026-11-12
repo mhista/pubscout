@@ -1,0 +1,37 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.3.3",
+  "generatedAt": "2026-11-10T13:09:16.943Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Extensible NMEA0183 parser with checksum validation support for GPS devices and sensors.",
+    "what_it_does": "Decodes NMEA0183 sentences from string data or streams. Supports custom sentence registration, checksum validation, and multipart messages.",
+    "use_when": [
+      "Reading and parsing GPS or marine sensor data in Dart or Flutter",
+      "Processing NMEA sentences from text streams using stream transformers"
+    ],
+    "avoid_when": [
+      "You need high-level mapping or geolocation abstractions rather than raw NMEA sentence parsing"
+    ],
+    "strengths": [
+      "Extensible sentence definitions with custom parsers",
+      "Built-in checksum validation",
+      "Can be used as a StreamTransformer"
+    ],
+    "weaknesses": [
+      "Requires manual implementation of custom sentence types for proprietary or unhandled NMEA formats"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "final decoder = NmeaDecoder()\n  ..registerTalkerSentence('ABC', (line) => AbcSentence(raw: line));\nfinal sentence = decoder.decode(r'$--ABC,123456789*5D');",
+    "confidence": 1
+  }
+}

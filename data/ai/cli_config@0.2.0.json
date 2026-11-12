@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.2.0",
+  "generatedAt": "2026-11-11T11:03:08.839Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Library to read config from CLI args, env vars, and JSON/YAML files",
+    "what_it_does": "It provides a uniform API to access configuration values from command‑line arguments, environment variables, and configuration files. The library handles precedence, hierarchical keys, and optional list merging.",
+    "use_when": [
+      "You need a single source of truth for configuration across CLI, env, and files",
+      "You want hierarchical configuration with dot or double‑underscore separators",
+      "You need both sync and async configuration loading"
+    ],
+    "avoid_when": [
+      "You only need a single configuration source",
+      "You require code generation for config models"
+    ],
+    "strengths": [
+      "Simple API with clear precedence rules",
+      "Supports hierarchical keys and list merging",
+      "Provides both async and sync loading"
+    ],
+    "weaknesses": [
+      "No code generation or type safety for config models",
+      "Limited to CLI, env, and file sources only",
+      "No built‑in validation or schema support"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "final config = await Config.fromArguments(arguments: arguments);\nfinal pathValue = config.optionalPath('my_path', resolveUri: true, mustExist: false);\nprint(pathValue?.toFilePath());",
+    "confidence": 0.95
+  }
+}

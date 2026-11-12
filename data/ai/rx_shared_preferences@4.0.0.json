@@ -1,0 +1,47 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.0.0",
+  "generatedAt": "2026-11-09T11:46:47.519Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [],
+    "approach": [
+      "stream-based"
+    ],
+    "one_liner": "Reactive stream wrapper around SharedPreferences for key-value storage.",
+    "what_it_does": "Wraps SharedPreferences with RxDart streams, allowing developers to observe changes to keys reactively. It supports standard data types, objects with decoders, and provides methods to read, write, update, and listen to streams of stored values.",
+    "use_when": [
+      "You want to reactively listen to changes in SharedPreferences using RxDart streams",
+      "You need a lightweight key-value storage solution with stream observation capabilities"
+    ],
+    "avoid_when": [
+      "You require complex relational queries or large-scale offline databases",
+      "You are not using RxDart or reactive programming paradigms"
+    ],
+    "strengths": [
+      "Provides clean stream-based observation of SharedPreferences keys",
+      "Requires very little code to integrate",
+      "Supports custom objects via decoders and encoders"
+    ],
+    "weaknesses": [
+      "Returns single-subscription streams that must be handled accordingly",
+      "Dependent on SharedPreferences performance characteristics"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Wrap your SharedPreferences instance in RxSharedPreferences before usage.",
+    "alternatives": [
+      {
+        "name": "shared_preferences",
+        "why_pick_it": "If you prefer standard asynchronous Future-based calls without RxDart dependencies."
+      },
+      {
+        "name": "hive_ce",
+        "why_pick_it": "If you need a faster, feature-rich NoSQL key-value database instead of standard shared preferences."
+      }
+    ],
+    "minimal_example": "final rxPrefs = RxSharedPreferences(await SharedPreferences.getInstance());\nrxPrefs.getStringListStream('KEY_LIST').listen(print);\nawait rxPrefs.setStringList('KEY_LIST', ['Cool']);",
+    "confidence": 1
+  }
+}

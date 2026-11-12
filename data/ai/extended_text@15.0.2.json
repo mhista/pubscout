@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "15.0.2",
+  "generatedAt": "2026-11-10T12:30:24.485Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "ui-kits"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "An extension of Flutter's official Text widget for special inline content and custom overflow.",
+    "what_it_does": "ExtendedText builds special text features quickly like inline images, mentions, or tags. It also supports custom background, overflow effects, gradients, and custom selection toolbars and handles.",
+    "use_when": [
+      "You need inline images inside your text (e.g. emojis or badges).",
+      "You require custom text overflow handling or positions like before, middle, or after.",
+      "You want custom background or gradients applied to specific spans of text."
+    ],
+    "avoid_when": [
+      "Standard Flutter Text and RichText widgets already fully cover your project requirements."
+    ],
+    "strengths": [
+      "Enables quick construction of rich text based on text formats and special text spans.",
+      "Supports copying the actual value of special text instead of widget placeholder values.",
+      "Provides custom text overflow widget and control over overflow positions."
+    ],
+    "weaknesses": [
+      "Third-party extension library that relies on keeping up with upstream Flutter changes.",
+      "Requires writing custom builders for specialized text types."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add extended_text to your pubspec.yaml dependencies.",
+    "alternatives": [],
+    "minimal_example": "class MySpecialTextSpanBuilder extends SpecialTextSpanBuilder {\n  @override\n  SpecialText createSpecialText(String flag, {TextStyle textStyle, SpecialTextGestureTapCallback onTap, int index}) {\n    if (isStart(flag, AtText.flag)) {\n      return AtText(textStyle, onTap, start: index - (AtText.flag.length - 1));\n    }\n    return null;\n  }\n}",
+    "confidence": 0.95
+  }
+}

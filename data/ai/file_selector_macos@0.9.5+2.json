@@ -1,0 +1,46 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.9.5+2",
+  "generatedAt": "2026-11-10T12:16:06.681Z",
+  "data": {
+    "primary_category": "files",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "macOS implementation of the file_selector plugin",
+    "what_it_does": "Provides APIs to pick files, directories, and save locations on macOS. It implements the platform interface required by file_selector.",
+    "use_when": [
+      "Need to select files or directories on macOS",
+      "Need to save a file location on macOS",
+      "Using file_selector in a Flutter app targeting macOS"
+    ],
+    "avoid_when": [
+      "Using only iOS or Android platforms",
+      "You already have a custom native implementation"
+    ],
+    "strengths": [
+      "Native macOS integration",
+      "Supports entitlements for read/write access",
+      "Keeps up with latest Flutter SDKs",
+      "No extra pubspec dependency needed when using file_selector"
+    ],
+    "weaknesses": [
+      "Only works on macOS",
+      "Requires adding entitlements to the app bundle",
+      "No support for other platforms"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the entitlement for read-only or read/write access in the macOS project’s Info.plist. No build_runner or codegen required.",
+    "alternatives": [
+      {
+        "name": "file_selector",
+        "why_pick_it": "Cross‑platform plugin that automatically pulls in the macOS implementation when used"
+      }
+    ],
+    "minimal_example": "import 'package:file_selector/file_selector.dart';\n\nFuture<void> pickFile() async {\n  final XFile? file = await openFile();\n  if (file != null) {\n    print('Picked file: ${file.path}');\n  }\n}",
+    "confidence": 0.9
+  }
+}

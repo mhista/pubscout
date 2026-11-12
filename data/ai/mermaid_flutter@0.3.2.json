@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.3.2",
+  "generatedAt": "2026-11-11T11:22:07.868Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "ui-kits",
+      "charts"
+    ],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "Native Flutter renderer for Mermaid diagrams using CustomPainter and TextPainter.",
+    "what_it_does": "Parses and renders Mermaid diagrams natively in Flutter without relying on SVGs, WebViews, or platform views. Provides interactive view controls like pan and zoom, node overrides, headless PNG export, and Material theme integration.",
+    "use_when": [
+      "You need to render Mermaid diagrams natively inside a Flutter application.",
+      "You require interactive diagram exploration with pan, zoom, and node focus capabilities.",
+      "You want to generate PNG exports of diagrams in headless Flutter test environments."
+    ],
+    "avoid_when": [
+      "You need features from mermaid.js that rely on HTML/DOM or unsupported theme-token references.",
+      "You are running in a pure Dart VM process where headless rendering runners are unavailable."
+    ],
+    "strengths": [
+      "Renders entirely native via CustomPainter without webviews or external web dependencies.",
+      "Supports interactive panning, zooming, node hover tooltips, and accessibility semantics.",
+      "Integrates smoothly with Material themes and ColorSchemes."
+    ],
+    "weaknesses": [
+      "Theme-token references inside source styles are not currently supported.",
+      "Headless PNG export requires a Flutter runner like `flutter test` or `flutter_tester`."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:mermaid_flutter/mermaid_flutter.dart';\n\nclass Example extends StatelessWidget {\n  const Example({super.key});\n\n  @override\n  Widget build(BuildContext context) {\n    return const MermaidDiagram(\n      source: '''\ngraph TD\n  A[Start] --> B{Works?}\n  B -->|yes| C[Ship it]\n  B -->|no| A\n''',\n    );\n  }\n}",
+    "confidence": 0.95
+  }
+}

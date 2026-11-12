@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.2.0",
+  "generatedAt": "2026-11-10T12:47:59.730Z",
+  "data": {
+    "primary_category": "testing",
+    "secondary_categories": [
+      "state-management"
+    ],
+    "approach": [
+      "stream-based"
+    ],
+    "one_liner": "A testing library for Blocs and Cubits utilizing BlocPresentationMixin.",
+    "what_it_does": "Provides utility functions and mock classes to test presentation streams in Blocs and Cubits that use the BlocPresentationMixin. It offers approaches like whenListenPresentation and MockPresentationBloc to facilitate stream testing.",
+    "use_when": [
+      "You are testing Blocs or Cubits that use the bloc_presentation package",
+      "You need to verify presentation events emitted by your state management components"
+    ],
+    "avoid_when": [
+      "You are not using the bloc_presentation package in your app",
+      "You are using a different state management approach like Riverpod or Provider"
+    ],
+    "strengths": [
+      "Simplifies testing of presentation streams with mock utilities",
+      "Integrates well with mocktail and bloc testing workflows"
+    ],
+    "weaknesses": [
+      "Strictly tied to the bloc_presentation package ecosystem",
+      "Limited usefulness outside of specific mixin-based Bloc architectures"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the package as a dev dependency in pubspec.yaml.",
+    "alternatives": [
+      {
+        "name": "bloc_test",
+        "why_pick_it": "Standard testing library for the bloc ecosystem covering core bloc and cubit testing."
+      }
+    ],
+    "minimal_example": "final mockCubit = MockCommentCubit();\nfinal controller = whenListenPresentation(mockCubit);\ncontroller.add(const FailedToUpvote());",
+    "confidence": 1
+  }
+}

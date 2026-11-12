@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.0.0",
+  "generatedAt": "2026-11-12T11:21:57.324Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "ui-kits",
+      "animation",
+      "utils"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Elm-style terminal UI framework for Dart with Model–Update–View architecture.",
+    "what_it_does": "Builds interactive CLI applications and terminal user interfaces using an Elm-style Model–Update–View architecture. Includes async commands, over 27 ready-made components, spring animations, and Lipgloss-inspired styling.",
+    "use_when": [
+      "You want to build a rich, interactive command-line or terminal application in Dart",
+      "You prefer an Elm-style state management and rendering flow for your CLI app"
+    ],
+    "avoid_when": [
+      "You are building a traditional graphical user interface for mobile, web, or desktop",
+      "You only need to print basic console output without an interactive event loop"
+    ],
+    "strengths": [
+      "Clean, testable Model–Update–View architecture",
+      "Rich set of 27+ ready-made components and Lipgloss-inspired styling utilities",
+      "Cell-level diff renderer for zero-flicker updates"
+    ],
+    "weaknesses": [
+      "Limited to terminal and CLI environments",
+      "Requires handling terminal control keys and raw mode specifics"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:dart_tui/dart_tui.dart';\n\nvoid main() async {\n  await Program(\n    options: [withAltScreen()],\n  ).run(CounterModel());\n}\n\nfinal class CounterModel extends Model {\n  CounterModel({this.count = 0});\n  final int count;\n\n  @override\n  Cmd? init() => tick(const Duration(seconds: 1), (_) => _TickMsg());\n\n  @override\n  (Model, Cmd?) update(Msg msg) {\n    if (msg is _TickMsg) {\n      if (count >= 5) return (this, () => quit());\n      return (CounterModel(count: count + 1),\n          tick(const Duration(seconds: 1), (_) => _TickMsg()));\n    }\n    if (msg is KeyMsg && (msg.key == 'q' || msg.key == 'ctrl+c')) {\n      return (this, () => quit());\n    }\n    return (this, null);\n  }\n\n  @override\n  View view() => newView('Count: $count\\n\\nPress q to quit.');\n}\n\nfinal class _TickMsg extends Msg {}",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.1.2",
+  "generatedAt": "2026-11-12T11:35:53.048Z",
+  "data": {
+    "primary_category": "files",
+    "secondary_categories": [
+      "device"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Access and manage files and folders via Android Storage Access Framework",
+    "what_it_does": "Leverages the Android Storage Access Framework (SAF) API to pick directories, persist permissions, perform file management operations, stream large files, and handle file descriptors or thumbnails. It bridges scoped storage restrictions on Android into a unified API.",
+    "use_when": [
+      "You need to access external storage or user-selected folders on Android past scoped storage restrictions.",
+      "You want to stream large files or read thumbnails directly from Android storage providers.",
+      "You need to persist user file permissions across app restarts."
+    ],
+    "avoid_when": [
+      "You are building a cross-platform app requiring uniform file pickers on iOS or desktop (Android specific).",
+      "You only need simple media picking like images or videos (use image_picker instead)."
+    ],
+    "strengths": [
+      "Provides a single class facade for complex Android SAF APIs.",
+      "Supports persisted permissions, recursive walks, and file descriptors.",
+      "Typed exceptions for clear error handling."
+    ],
+    "weaknesses": [
+      "Android platform specific.",
+      "Requires managing URI-based permissions and user prompts."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires Android configuration since it interacts directly with the Android Storage Access Framework.",
+    "alternatives": [],
+    "minimal_example": "import 'package:saf/saf.dart';\n\nfinal saf = Saf();\nfinal dir = await saf.pickDirectory();\nif (dir != null) {\n  final files = await saf.list(dir.uri);\n}",
+    "confidence": 0.95
+  }
+}

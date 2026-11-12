@@ -1,0 +1,47 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.0",
+  "generatedAt": "2026-11-11T11:24:15.804Z",
+  "data": {
+    "primary_category": "testing",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Defines rules to restrict imports and perform static analysis in Dart code.",
+    "what_it_does": "The import_lint package enforces custom import restrictions and rules via static analysis and a CLI tool. It integrates with the Dart analysis server to report unauthorized imports directly in your IDE.",
+    "use_when": [
+      "You want to enforce architectural boundaries and restrict specific imports between layers or packages.",
+      "You need CLI or IDE warnings for prohibited import paths."
+    ],
+    "avoid_when": [
+      "Your project uses a Dart SDK older than 3.10.0.",
+      "You do not need strict architectural layering rules for imports."
+    ],
+    "strengths": [
+      "Integrates directly into the IDE via analysis server plugins.",
+      "Provides both CLI support and IDE lint warnings.",
+      "Customizable glob patterns for targets, sources, and exceptions."
+    ],
+    "weaknesses": [
+      "Requires manual restart of the Dart Analysis Server after updating configuration plugins.",
+      "Strict Dart SDK version requirement (>=3.10.0 <4.0.0)."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add import_lint as a dev_dependency, configure rules in analysis_options.yaml, and restart the Dart Analysis Server.",
+    "alternatives": [
+      {
+        "name": "lints",
+        "why_pick_it": "Official recommended lints from the Dart team for standard stylistic and correctness rules."
+      },
+      {
+        "name": "flutter_lints",
+        "why_pick_it": "Official recommended lints specifically tailored for Flutter applications."
+      }
+    ],
+    "minimal_example": "plugins:\n  import_lint: <version number>\n\nimport_lint:\n  rules:\n    example_rule:\n      target: \"package:example/target/*.dart\"\n      from: \"package:example/from/*.dart\"\n      except: [\"package:example/from/except.dart\"]",
+    "confidence": 1
+  }
+}

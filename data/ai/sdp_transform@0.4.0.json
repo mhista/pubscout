@@ -1,0 +1,37 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.4.0",
+  "generatedAt": "2026-11-11T11:07:05.473Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Parse and write SDP strings in Dart.",
+    "what_it_does": "Provides functions to parse Session Description Protocol (SDP) text into JSON-like maps and to serialize those structures back to SDP. Includes helpers for parsing specific SDP attributes like payloads and simulcast.",
+    "use_when": [
+      "You need to handle WebRTC signaling data in a Flutter app.",
+      "You require a pure‑Dart SDP parser/writer without native dependencies."
+    ],
+    "avoid_when": [
+      "You only need high‑level WebRTC APIs that abstract SDP handling.",
+      "You need a full‑featured media negotiation library rather than just parsing."
+    ],
+    "strengths": [
+      "Zero dependencies and pure Dart implementation.",
+      "Supports RFC‑compliant parsing and writing, including recent grammar updates."
+    ],
+    "weaknesses": [
+      "Limited to SDP parsing/writing; no higher‑level WebRTC utilities.",
+      "No built‑in validation beyond basic parsing."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'dart:io';\nimport 'dart:convert';\nimport 'package:sdp_transform/sdp_transform.dart';\n\nvoid main() async {\n  final contents = await File('./test/ssrc.sdp').readAsString();\n  final session = parse(contents);\n  print(json.encode(session));\n  final sdp = write(session, null);\n  print(sdp);\n}",
+    "confidence": 0.9
+  }
+}

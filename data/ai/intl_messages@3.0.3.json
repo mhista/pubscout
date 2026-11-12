@@ -1,0 +1,54 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.0.3",
+  "generatedAt": "2026-11-12T11:19:42.969Z",
+  "data": {
+    "primary_category": "localization",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Message internationalization and localization framework with OpenAI translation tools integration.",
+    "what_it_does": "Provides a framework for message internationalization and localization with support for package-based message structures, dynamic asset loading, plurals, and CLI tools integrated with OpenAI for fixing translations.",
+    "use_when": [
+      "You want to load localization messages dynamically from assets using custom .intl files.",
+      "You need built-in pluralization support with custom condition blocks.",
+      "You want to integrate CLI tools with OpenAI to check and format translations."
+    ],
+    "avoid_when": [
+      "You prefer standard arb-based localization or static code generation for translations.",
+      "You need a comprehensive Flutter-specific widget library with built-in context extensions."
+    ],
+    "strengths": [
+      "Built-in support for plural rules and custom variable substitution.",
+      "Includes a CLI tool for checking, formatting, and fixing localization files using OpenAI.",
+      "Dynamic loading of localization assets."
+    ],
+    "weaknesses": [
+      "Relies on custom .intl file formats rather than standard ARB formats.",
+      "Limited ecosystem documentation compared to larger localization packages."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "intl",
+        "why_pick_it": "Official Dart internationalization library for standard formatting and messages."
+      },
+      {
+        "name": "slang",
+        "why_pick_it": "Type-safe localization through code generation."
+      },
+      {
+        "name": "easy_localization",
+        "why_pick_it": "Easy translation management for Flutter with JSON, CSV, and YAML support."
+      }
+    ],
+    "minimal_example": "import 'package:intl_messages/intl_messages.dart';\n\nmain() async {\n    var messages = IntlMessages.package(\"demo\");\n    IntlResourceDiscover discover = IntlResourceDiscover(\"assets/msgs-\", \".intl\");\n    await messages.registerResourceDiscover(discover);\n    MessageBuilder msgHello = messages.msg(\"hello\");\n    print(msgHello.build());\n}",
+    "confidence": 0.95
+  }
+}

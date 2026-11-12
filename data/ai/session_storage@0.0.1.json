@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.0.1",
+  "generatedAt": "2026-11-12T11:13:45.309Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "SessionStorage wrapper for web using an in-memory map fallback for other platforms.",
+    "what_it_does": "Allows manipulation of browser SessionStorage on the web platform while falling back to an in-memory map for other platforms. It uses a singleton pattern where instances share the same state.",
+    "use_when": [
+      "You need a cross-platform interface that talks to window.sessionStorage on the web",
+      "You want temporary key-value storage that acts like a Map and does not persist past the browser session on non-web platforms"
+    ],
+    "avoid_when": [
+      "You need persistent local storage across app restarts on mobile or desktop platforms",
+      "You require complex querying or relational database features"
+    ],
+    "strengths": [
+      "Provides a unified Map-like API across web and non-web platforms",
+      "Shared static instance ensures state consistency across constructor calls",
+      "Extremely simple setup"
+    ],
+    "weaknesses": [
+      "Non-web platforms only use an in-memory map, meaning data is lost when the app restarts",
+      "Very minimal feature set with no persistence support outside of the web's session storage"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "shared_preferences",
+        "why_pick_it": "Provides persistent key-value storage across all platforms instead of just an in-memory map fallback on non-web platforms."
+      }
+    ],
+    "minimal_example": "import 'package:session_storage/session_storage.dart';\n\nfinal session = SessionStorage();\nsession['language'] = 'english';\n\nfinal newSession = SessionStorage();\nprint(newSession['language']); // english",
+    "confidence": 0.95
+  }
+}

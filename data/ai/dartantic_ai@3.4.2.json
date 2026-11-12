@@ -1,0 +1,46 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.4.2",
+  "generatedAt": "2026-11-09T11:31:18.790Z",
+  "data": {
+    "primary_category": "ai-ml",
+    "secondary_categories": [],
+    "approach": [
+      "stream-based",
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Agent framework for building client and server-side apps in Dart with generative AI.",
+    "what_it_does": "Dartantic provides an agent framework that simplifies building client and server applications using generative AI. It supports multi-step tool calling, streaming output, typed outputs, multimedia input, media generation, embeddings, and model reasoning across multiple AI providers.",
+    "use_when": [
+      "You want to build AI agents with multi-step tool calling in Dart or Flutter.",
+      "You need to switch between multiple LLM providers like OpenAI, Anthropic, Google, and Ollama.",
+      "You need MCP (Model Context Protocol) server integration in your Dart project."
+    ],
+    "avoid_when": [
+      "You only need basic text-to-speech or simple device-side ML tasks handled by ML Kit.",
+      "You are not using generative AI models in your application."
+    ],
+    "strengths": [
+      "Supports multiple AI providers out of the box including OpenAI, Google, Anthropic, Mistral, Ollama, and more.",
+      "Built-in agentic behavior with autonomous multi-step tool calling.",
+      "Supports streaming output, typed outputs, and Model Context Protocol (MCP) servers."
+    ],
+    "weaknesses": [
+      "Depends on a large number of underlying provider SDKs.",
+      "Requires active API keys and internet connectivity for remote model calls."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires adding the package and configuring API keys for your chosen AI providers.",
+    "alternatives": [
+      {
+        "name": "firebase_ai",
+        "why_pick_it": "Choose this if you specifically want to integrate Gemini models through Firebase services."
+      }
+    ],
+    "minimal_example": "import 'package:dartantic_ai/dartantic_ai.dart';\n\nvoid main() async {\n  final agent = Agent.forProvider(OpenAIProvider(apiKey: apiKey));\n  final result = await agent.send(\n    'Explain quantum computing in simple terms',\n    history: [ChatMessage.system('You are a helpful assistant.')],\n  );\n  print(result.output);\n}",
+    "confidence": 1
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.0.0",
+  "generatedAt": "2026-11-09T11:36:48.244Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "web-desktop"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "A SerialPort library using win32 API for connecting real devices via serial port on Windows.",
+    "what_it_does": "Provides an interface to list available COM ports, open serial connections with specific configurations like baud rate and stop bits, and perform read and write operations using the Win32 API.",
+    "use_when": [
+      "You need to communicate with hardware connected via a serial port on Windows.",
+      "You are building a desktop application targeting Windows that talks to microcontrollers, sensors, or serial devices."
+    ],
+    "avoid_when": [
+      "You need cross-platform serial port support (this package only supports Windows).",
+      "You require high-level reactive streams for continuous reading without imperative buffer management."
+    ],
+    "strengths": [
+      "Allows querying detailed port metadata including friendly names, hardware IDs, and manufacturer names.",
+      "Provides flexible read options including timeout-based reads, exact size reads, and delimiter reads."
+    ],
+    "weaknesses": [
+      "Platform support is strictly limited to Windows.",
+      "Port instances use a singleton pattern, requiring care when managing multiple connections or instances."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires Windows. Only supports Windows platform.",
+    "alternatives": [],
+    "minimal_example": "import 'package:serial_port_win32/src/serial_port.dart';\n\nvoid main() {\n  var ports = SerialPort.getAvailablePorts();\n  print(ports);\n  if (ports.isNotEmpty) {\n    var port = SerialPort(ports[0]);\n    port.BaudRate = CBR_115200;\n    port.StopBits = ONESTOPBIT;\n    port.close();\n  }\n}",
+    "confidence": 0.95
+  }
+}

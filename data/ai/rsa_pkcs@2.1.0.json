@@ -1,0 +1,34 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.1.0",
+  "generatedAt": "2026-11-11T11:10:48.305Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [],
+    "one_liner": "Privacy-Enhanced Mail (PEM) parser for RSA, PKCS#1, PKCS#8, and X.509 formats",
+    "what_it_does": "Parses PEM-encoded files to extract RSA public keys, private keys, and X.509 certificates. It supports PKCS#1 and PKCS#8 formats without requiring the pointycastle package.",
+    "use_when": [
+      "You need to parse RSA public or private keys in PEM, PKCS#1, or PKCS#8 formats",
+      "You need to read X.509 certificates in a Dart application"
+    ],
+    "avoid_when": [
+      "You need full cryptographic operations like encryption, decryption, or signing (this package only parses the keys)"
+    ],
+    "strengths": [
+      "Supports multiple standards (PEM, PKCS#1, PKCS#8, X.509)",
+      "Uses built-in BigInt from dart:core"
+    ],
+    "weaknesses": [
+      "Does not provide cryptographic functions out of the box",
+      "Limited to RSA keys and X.509 certificates"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "final parser = RSAPKCSParser();\nfinal pair = parser.parsePEM(pemString);\nfinal privateKey = pair.private;",
+    "confidence": 1
+  }
+}

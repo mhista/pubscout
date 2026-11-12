@@ -1,0 +1,37 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.2.0",
+  "generatedAt": "2026-11-10T12:32:04.541Z",
+  "data": {
+    "primary_category": "codegen",
+    "secondary_categories": [],
+    "approach": [
+      "code generation"
+    ],
+    "one_liner": "Annotations and helper lenses for generating boilerplate for immutable data types.",
+    "what_it_does": "Generates mixins providing operator==, hashCode, copyWith, toString, and lenses for data classes via build_runner. Lenses allow viewing and modifying nested data structures immutably.",
+    "use_when": [
+      "You want immutable data classes with equality, copying, and string representations without writing boilerplate.",
+      "You need to deeply update nested data structures using lenses."
+    ],
+    "avoid_when": [
+      "You prefer writing data classes and copy methods by hand.",
+      "You want an alternative code generator like Freezed that handles unions and pattern matching."
+    ],
+    "strengths": [
+      "Minimally intrusive on class design by using mixins.",
+      "Powerful lens support for manipulating nested objects and collections."
+    ],
+    "weaknesses": [
+      "Requires running build_runner for code generation.",
+      "Limited feature set compared to broader generators like Freezed."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add build_runner and functional_data_generator to dev_dependencies and run build_runner.",
+    "alternatives": [],
+    "minimal_example": "@FunctionalData()\nclass Person extends _$Person {\n  final String name;\n  final int age;\n  const Person({this.name, this.age});\n}",
+    "confidence": 0.95
+  }
+}

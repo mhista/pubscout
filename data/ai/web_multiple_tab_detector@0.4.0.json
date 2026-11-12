@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.4.0",
+  "generatedAt": "2026-11-12T11:37:34.989Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "web-desktop"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Detects how many browser tabs your Flutter web app is running in.",
+    "what_it_does": "This package allows you to track and detect the number of browser tabs currently running your Flutter web application. It provides an asynchronous check to determine if the app is running in a single tab or multiple tabs. If not running in a web browser, it always returns 0.",
+    "use_when": [
+      "You want to restrict your Flutter web app to only run in a single browser tab",
+      "You need to detect multiple concurrent browser sessions of your app"
+    ],
+    "avoid_when": [
+      "Your app does not target the web platform",
+      "You need state synchronization across tabs rather than just a tab count detector"
+    ],
+    "strengths": [
+      "Simple registration and checking API",
+      "WASM compatible"
+    ],
+    "weaknesses": [
+      "Returns 0 when not running in a web browser",
+      "Limited to counting browser tabs without built-in multi-tab state syncing features"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Call WebMultipleTabDetector.register() before checking tab status.",
+    "alternatives": [],
+    "minimal_example": "import 'package:web_multiple_tab_detector/web_multiple_tab_detector.dart';\n\nvoid main() async {\n  WebMultipleTabDetector.register();\n\n  if (await WebMultipleTabDetector.isSingleTab()) {\n    // only one open tab allowed!\n  } else {\n    // launch app normally\n  }\n}",
+    "confidence": 0.95
+  }
+}

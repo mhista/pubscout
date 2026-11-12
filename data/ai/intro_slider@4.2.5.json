@@ -1,0 +1,47 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.2.5",
+  "generatedAt": "2026-11-09T11:41:58.466Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "animation",
+      "ui-kits"
+    ],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "A Flutter plugin that helps you create introductory slides and walkthroughs for apps.",
+    "what_it_does": "It provides a customizable slider widget specifically designed for app intros and walkthroughs. Developers can configure pages using built-in content options (titles, descriptions, images, background colors) or custom widgets.",
+    "use_when": [
+      "You need to build a first-run walkthrough or onboarding intro for your Flutter app.",
+      "You want customized navigation buttons, indicators, and animations for slides out of the box."
+    ],
+    "avoid_when": [
+      "You are building complex page-view workflows that are not standard app intros or onboarding flows.",
+      "You require a general-purpose carousel for content delivery rather than a linear intro screen."
+    ],
+    "strengths": [
+      "Easy to configure with pre-built content configs or fully custom tabs.",
+      "Supports custom indicators, navigation buttons, and scroll behaviors.",
+      "Cross-platform support including Android, iOS, Web, Windows, macOS, and Linux."
+    ],
+    "weaknesses": [
+      "Limited to intro slider and onboarding use cases.",
+      "Advanced layout customizations may require writing custom tabs manually."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add intro_slider to pubspec.yaml and import package:intro_slider/intro_slider.dart.",
+    "alternatives": [
+      {
+        "name": "carousel_slider",
+        "why_pick_it": "Pick carousel_slider if you need a general-purpose image or card carousel rather than a dedicated onboarding intro flow."
+      }
+    ],
+    "minimal_example": "class IntroScreenDefaultState extends State<IntroScreenDefault> {\n  List<ContentConfig> listContentConfig = [];\n\n  @override\n  void initState() {\n    super.initState();\n    listContentConfig.add(\n      const ContentConfig(\n        title: \"ERASER\",\n        description: \"Allow miles wound place the leave had.\",\n        backgroundColor: Color(0xfff5a623),\n      ),\n    );\n  }\n\n  void onDonePress() {}\n\n  @override\n  Widget build(BuildContext context) {\n    return IntroSlider(\n      listContentConfig: listContentConfig,\n      onDonePress: onDonePress,\n    );\n  }\n}",
+    "confidence": 0.95
+  }
+}

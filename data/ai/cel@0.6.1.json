@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.8-flash",
+  "version": "0.6.1",
+  "generatedAt": "2026-11-11T11:09:34.890Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Parses and evaluates Common Expression Language (CEL) expressions in Dart.",
+    "what_it_does": "Parses and compiles Common Expression Language (CEL) code into an abstract syntax tree and evaluates it against runtime input maps. It allows running expressions and rules similar to those used in Firebase Security Rules and Google Cloud policies. The implementation acts as a simplified Dart port of cel-go.",
+    "use_when": [
+      "You need to evaluate CEL rules, filters, or expressions dynamically on client or backend Dart applications.",
+      "You are building local emulation or evaluation of security rules compatible with Google CEL or Firebase rules."
+    ],
+    "avoid_when": [
+      "You need complete CEL spec coverage, specifically protobuf timestamps, durations, or explicit type conversions.",
+      "You need compile-time static type checking rather than evaluation-time runtime errors."
+    ],
+    "strengths": [
+      "Supports core CEL operators, ternary conditions, regex matching, and map/list lookups.",
+      "Simple API to compile expressions once into programs and evaluate repeatedly with different inputs.",
+      "Pure Dart implementation compatible across all Flutter and Dart platforms."
+    ],
+    "weaknesses": [
+      "Lacks support for timestamps, durations, bytes manipulation, and protobuf type conversions.",
+      "No compile-time type checking compared to cel-go (errors occur at runtime evaluation)."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:cel/cel.dart';\n\nvoid main() {\n  final input = \"request.auth.claims.group == 'admin'\";\n  final e = Environment.standard();\n  final ast = e.compile(input);\n  final p = e.makeProgram(ast);\n  final result = p.evaluate({\n    'request': {\n      'auth': {\n        'claims': {'group': 'admin'}\n      }\n    }\n  });\n  print(result); // true\n}",
+    "confidence": 0.95
+  }
+}

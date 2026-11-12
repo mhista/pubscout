@@ -1,0 +1,48 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "5.2.3",
+  "generatedAt": "2026-11-09T11:16:30.670Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "codegen"
+    ],
+    "approach": [
+      "code generation"
+    ],
+    "one_liner": "Provides runtime reflection via code generation with configurable capabilities.",
+    "what_it_does": "The package generates code that enables reflective operations such as invoking methods, accessing fields, and inspecting types, limited to the capabilities you declare. It works together with a builder that runs during build time.",
+    "use_when": [
+      "You need reflection but want to avoid the heavy runtime cost of dart:mirrors.",
+      "You want fine‑grained control over which reflective features are available.",
+      "You are building a CLI or server app where code generation is acceptable."
+    ],
+    "avoid_when": [
+      "You target Flutter web or mobile where code generation adds build complexity and size.",
+      "You need dynamic reflection that cannot be statically constrained.",
+      "You prefer a zero‑config, runtime‑only solution."
+    ],
+    "strengths": [
+      "Fine‑grained capability control reduces runtime footprint.",
+      "Supports all Dart platforms (android, ios, web, windows, macos, linux).",
+      "No need for dart:mirrors which is not available on all platforms."
+    ],
+    "weaknesses": [
+      "Requires build_runner and a separate builder package.",
+      "Generated code must be imported and initialized manually.",
+      "Not suitable for packages that will be published with generated files."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add reflectable to dependencies and reflectable_builder to dev_dependencies. Create build.yaml to configure the generator. Run `dart run build_runner build` and import the generated .reflectable.dart file. Call initializeReflectable() before using reflection.",
+    "alternatives": [
+      {
+        "name": "source_gen",
+        "why_pick_it": "General code generation, but not specifically for reflection."
+      }
+    ],
+    "minimal_example": "```dart\nimport 'package:reflectable/reflectable.dart';\nimport 'main.reflectable.dart';\n\nclass Reflector extends Reflectable {\n  const Reflector() : super(invokingCapability);\n}\n\nconst reflector = const Reflector();\n\n@reflector\nclass A {\n  final int a;\n  A(this.a);\n  bool greater(int x) => x > a;\n}\n\nvoid main() {\n  initializeReflectable();\n  var x = A(10);\n  var m = reflector.reflect(x);\n  print(m.invoke('greater', [3]));\n}\n```",
+    "confidence": 0.9
+  }
+}

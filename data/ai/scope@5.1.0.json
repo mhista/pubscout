@@ -1,0 +1,55 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "5.1.0",
+  "generatedAt": "2026-11-10T12:29:52.361Z",
+  "data": {
+    "primary_category": "dependency-injection",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "A Dart library for dependency injection using scopes and call‑stack based values.",
+    "what_it_does": "Scope lets you inject values into a runtime scope and retrieve them anywhere within that call stack. It supports nested scopes, singletons, sequences and async execution.",
+    "use_when": [
+      "You need call‑stack based DI without widget‑tree coupling",
+      "You want nested scopes or temporary overrides for testing",
+      "You prefer a lightweight, code‑generation‑free solution"
+    ],
+    "avoid_when": [
+      "You rely heavily on Flutter's BuildContext for DI",
+      "You need compile‑time code‑gen for type‑safe factories",
+      "You require platform‑specific integrations like permissions"
+    ],
+    "strengths": [
+      "Simple, zero‑boilerplate API",
+      "Supports nested scopes and temporary overrides",
+      "Works with pure Dart, no Flutter dependency"
+    ],
+    "weaknesses": [
+      "No code‑gen or compile‑time safety",
+      "Not integrated with Flutter widget tree like Provider",
+      "Async run change may break existing code"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "get_it",
+        "why_pick_it": "Popular, simple service locator with optional code‑gen support"
+      },
+      {
+        "name": "injector",
+        "why_pick_it": "Lightweight DI container with similar API"
+      },
+      {
+        "name": "scoped_deps",
+        "why_pick_it": "Provides scoped dependency management with a different API"
+      }
+    ],
+    "minimal_example": "import 'package:scope/scope.dart';\n\nfinal ageKey = ScopeKey<int>();\n\nvoid main() async {\n  await Scope()\n    ..value<int>(ageKey, 30)\n    ..run(() => print('Age: ${use(ageKey)}'));\n}",
+    "confidence": 0.93
+  }
+}

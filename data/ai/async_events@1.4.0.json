@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.4.0",
+  "generatedAt": "2026-11-11T11:41:21.291Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "storage"
+    ],
+    "approach": [
+      "stream-based",
+      "imperative",
+      "code generation"
+    ],
+    "one_liner": "A portable asynchronous event hub supporting multiple storage types.",
+    "what_it_does": "Provides an asynchronous event hub with channels to submit, subscribe to, and persist events using different storage backends. Supports event replay from the beginning of channels and configurable polling.",
+    "use_when": [
+      "You need an event hub or pub-sub mechanism with persistent storage support in Dart.",
+      "You want to replay historical events when subscribing to a channel."
+    ],
+    "avoid_when": [
+      "You need complex state management libraries like BLoC or Riverpod for UI widget rebuilding.",
+      "You do not require event persistence or channels."
+    ],
+    "strengths": [
+      "Supports multiple storage types for events.",
+      "Allows replaying past events on subscription using fromBegin: true.",
+      "Portable and works across Dart and Flutter platforms."
+    ],
+    "weaknesses": [
+      "Limited documentation beyond the basic example in the README.",
+      "Requires reflection_factory and code generation setup."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires code generation via build_runner due to the reflection_factory dependency.",
+    "alternatives": [],
+    "minimal_example": "import 'package:async_events/async_events.dart';\n\nvoid main() async {\n  var storage = AsyncEventStorageMemory('test');\n  var hub = AsyncEventHub('test', storage);\n  var c1 = hub.channel('c1');\n  var sub1 = await c1.subscribe((event) {\n    print('C1 EVENT> $event');\n  });\n  await c1.submit('t', {'name': 't1'});\n  sub1.cancel();\n}",
+    "confidence": 0.9
+  }
+}

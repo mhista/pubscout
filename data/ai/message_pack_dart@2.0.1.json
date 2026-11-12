@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "2.0.1",
+  "generatedAt": "2026-11-11T11:10:25.470Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Binary MessagePack serializer/deserializer for Dart and Flutter.",
+    "what_it_does": "Provides functions to encode Dart objects to MessagePack binary format and decode MessagePack data back to Dart objects. Supports common types, iterables, ByteData, and returns Uint8List.",
+    "use_when": [
+      "You need compact binary serialization for network or storage",
+      "Cross‑language data exchange with other MessagePack implementations"
+    ],
+    "avoid_when": [
+      "You require JSON‑style human readable data",
+      "You need schema‑based validation or code‑generated models"
+    ],
+    "strengths": [
+      "Very small payload size",
+      "Fast binary encoding/decoding",
+      "No external dependencies"
+    ],
+    "weaknesses": [
+      "Limited to MessagePack format only",
+      "No code‑gen for typed models",
+      "No built‑in schema validation"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "built_value",
+        "why_pick_it": "Provides typed, immutable models with code‑gen and can serialize to JSON or binary formats"
+      },
+      {
+        "name": "json_annotation",
+        "why_pick_it": "Standard JSON serialization with code‑gen, easier for human‑readable data"
+      }
+    ],
+    "minimal_example": "import 'package:message_pack_dart/message_pack_dart.dart';\n\nvoid main() {\n  var data = {'key': 'value', 'list': [1, 2, 3]};\n  Uint8List packed = MessagePack.encode(data);\n  var unpacked = MessagePack.decode(packed);\n  print(unpacked);\n}",
+    "confidence": 0.97
+  }
+}

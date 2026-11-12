@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.10.1",
+  "generatedAt": "2026-11-12T12:03:26.081Z",
+  "data": {
+    "primary_category": "images",
+    "secondary_categories": [
+      "storage",
+      "backend"
+    ],
+    "approach": [
+      "declarative",
+      "imperative"
+    ],
+    "one_liner": "Cache Manager and Cached ImageProvider for Firebase Cloud Storage Objects.",
+    "what_it_does": "Provides a Flutter ImageProvider and a cache manager to download, cache, pre-cache, and manage files and images from Firebase Cloud Storage. It supports local device storage on mobile/desktop and IndexedDB on the web.",
+    "use_when": [
+      "You need to display images directly from Firebase Cloud Storage with caching.",
+      "You need to download, cache, and manage non-image files stored in Firebase Storage.",
+      "You want configurable caching policies like expiration times or server check intervals."
+    ],
+    "avoid_when": [
+      "You are loading images from general URLs rather than Firebase Cloud Storage.",
+      "You do not use Firebase in your application."
+    ],
+    "strengths": [
+      "Seamless integration with Firebase Cloud Storage via gs://, HTTP URLs, or Storage References.",
+      "Includes both an ImageProvider for widgets and a cache manager for generic files and bytes.",
+      "Web support using IndexedDB."
+    ],
+    "weaknesses": [
+      "Some cache clearing methods and file copying features are not supported on the web.",
+      "Checking for server file updates incurs Class B Google Cloud Storage metadata operations which may cost money after free tiers."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires setting up Firebase in your Flutter project. Web support requires setting FirebaseCacheManagerConfig.webSupport = true.",
+    "alternatives": [],
+    "minimal_example": "Image(\n  image: FirebaseImageProvider(\n    FirebaseUrl(\"gs://bucket_f233/logo.jpg\"),\n  ),\n)",
+    "confidence": 1
+  }
+}

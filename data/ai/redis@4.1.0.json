@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "4.1.0",
+  "generatedAt": "2026-11-10T12:29:12.884Z",
+  "data": {
+    "primary_category": "backend",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Redis client for Dart to send commands and parse responses.",
+    "what_it_does": "Provides a pure‑Dart implementation of the Redis protocol, allowing you to connect to a Redis server, execute commands, and handle responses. Supports transactions, pub/sub, TLS, and binary data handling.",
+    "use_when": [
+      "You need direct communication with a Redis server from a Dart/Flutter app",
+      "High‑performance command execution is required",
+      "You want built‑in support for transactions, pub/sub, or TLS"
+    ],
+    "avoid_when": [
+      "You need offline local storage",
+      "You are looking for a UI‑focused package",
+      "You require a managed backend service like Firebase"
+    ],
+    "strengths": [
+      "Fast and simple implementation",
+      "Supports transactions, pub/sub, TLS, and binary data",
+      "No external native dependencies"
+    ],
+    "weaknesses": [
+      "Only works with a reachable Redis server",
+      "No built‑in reconnection or offline caching",
+      "Limited to backend communication, no UI utilities"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:redis/redis.dart';\n\nfinal conn = RedisConnection();\nconn.connect('localhost', 6379).then((Command command) {\n  command.send_object(['SET', 'key', '0']).then((_) {\n    return command.send_object(['GET', 'key']);\n  }).then((value) => print(value)); // prints 0\n});",
+    "confidence": 0.9
+  }
+}

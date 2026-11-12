@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.0.21",
+  "generatedAt": "2026-11-12T11:29:38.909Z",
+  "data": {
+    "primary_category": "ui-kits",
+    "secondary_categories": [
+      "widgets",
+      "audio-video"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Complete chat UI widget for Flutter with customizable components and messaging features.",
+    "what_it_does": "Provides a comprehensive chat user interface for Flutter applications, handling message lists, text inputs, avatars, quick replies, and markdown text parsing out of the box. It allows developers to easily plug in backend messaging services via callback parameters like `onSend`.",
+    "use_when": [
+      "You need to build a messaging or chat screen quickly without building message bubbles and input toolbars from scratch.",
+      "Your app requires features like markdown support, link parsing, user mentions, and quick replies."
+    ],
+    "avoid_when": [
+      "You only need to display a single static chat bubble rather than a full interactive chat interface.",
+      "You require a fully built-in backend database client; this package focuses strictly on the UI layer."
+    ],
+    "strengths": [
+      "Highly customizable components and options for messages, inputs, and lists.",
+      "Built-in support for markdown, touchable links, media previews, and user mentions."
+    ],
+    "weaknesses": [
+      "Some advanced features like message statuses and replies are marked as work-in-progress (WIP).",
+      "Audio support is marked as work-in-progress."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [],
+    "minimal_example": "class Basic extends StatefulWidget {\n  @override\n  _BasicState createState() => _BasicState();\n}\n\nclass _BasicState extends State<Basic> {\n  ChatUser user = ChatUser(\n    id: '1',\n    firstName: 'Charles',\n    lastName: 'Leclerc',\n  );\n\n  List<ChatMessage> messages = <ChatMessage>[\n    ChatMessage(\n      text: 'Hey!',\n      user: user,\n      createdAt: DateTime.now(),\n    ),\n  ];\n\n  @override\n  Widget build(BuildContext context) {\n    return Scaffold(\n      appBar: AppBar(\n        title: const Text('Basic example'),\n      ),\n      body: DashChat(\n        currentUser: user,\n        onSend: (ChatMessage m) {\n          setState(() {\n            messages.insert(0, m);\n          });\n        },\n        messages: messages,\n      ),\n    );\n  }\n}",
+    "confidence": 0.95
+  }
+}

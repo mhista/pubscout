@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.4.0",
+  "generatedAt": "2026-11-12T11:45:14.057Z",
+  "data": {
+    "primary_category": "web-desktop",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Plugin that allows Flutter to communicate with a native WebView.",
+    "what_it_does": "Allows embedding native WebViews into Flutter apps on Android and iOS. Provides a singleton instance to control navigation, execute JavaScript, manage cookies, and listen to webview events.",
+    "use_when": [
+      "You need to display web content inside your mobile Flutter application",
+      "You need programmatic control over web navigation, cookies, and JavaScript injection"
+    ],
+    "avoid_when": [
+      "You need the WebView to integrate seamlessly within the Flutter widget tree without blocking overlapping widgets",
+      "You want to use the actively maintained official WebView plugin instead of a deprecated community plugin"
+    ],
+    "strengths": [
+      "Provides a rich set of APIs for controlling navigation, cookies, and resizing",
+      "Supports event streams for URL changes, state changes, and scrolling"
+    ],
+    "weaknesses": [
+      "The WebView is a native view rendered on top of the Flutter view, preventing overlapping widgets like snackbars or dialogs",
+      "The community plugin is deprecated in favor of the official WebView plugin"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires adding NSAppTransportSecurity keys to ios/Runner/Info.plist for iOS.",
+    "alternatives": [
+      {
+        "name": "webview_flutter",
+        "why_pick_it": "It is the official and actively maintained WebView plugin supported by the Flutter Team."
+      }
+    ],
+    "minimal_example": "new MaterialApp(\n  routes: {\n    \"/\": (_) => new WebviewScaffold(\n      url: \"https://www.google.com\",\n      appBar: new AppBar(\n        title: new Text(\"Widget webview\"),\n      ),\n    ),\n  },\n);",
+    "confidence": 0.95
+  }
+}

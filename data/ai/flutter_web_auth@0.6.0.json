@@ -1,0 +1,53 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.6.0",
+  "generatedAt": "2026-11-12T11:20:54.158Z",
+  "data": {
+    "primary_category": "auth",
+    "secondary_categories": [
+      "device"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Authenticate users with web services and OAuth2 via native web authentication sessions.",
+    "what_it_does": "A Flutter plugin that opens a web browser view to authenticate users with third-party web services or OAuth2 providers and handles custom scheme redirects back to the app. It uses ASWebAuthenticationSession on iOS/macOS and Chrome Custom Tabs on Android.",
+    "use_when": [
+      "You need to implement OAuth2 authentication flows in your Flutter app.",
+      "You want to authenticate users using external web services via custom URL schemes."
+    ],
+    "avoid_when": [
+      "You are looking for built-in Firebase Authentication flows.",
+      "You only want standard Google Sign-In helper packages without manual OAuth HTTP token exchanges."
+    ],
+    "strengths": [
+      "Uses native platform authentication sessions (ASWebAuthenticationSession and Chrome Custom Tabs)",
+      "Supports iOS, Android, macOS, and Web platforms",
+      "Works well with standard OAuth2 providers"
+    ],
+    "weaknesses": [
+      "Requires manual configuration of intent filters on Android and custom HTML landing pages on Web",
+      "Known minor issues with keyboard accessibility or Chrome default browser bugs on macOS"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding a custom CallbackActivity intent filter in AndroidManifest.xml and setting up a callback HTML file for web platforms.",
+    "alternatives": [
+      {
+        "name": "google_sign_in",
+        "why_pick_it": "If you specifically need a dedicated, out-of-the-box wrapper for Google Sign-In instead of a generic web auth flow."
+      },
+      {
+        "name": "firebase_auth",
+        "why_pick_it": "If your backend is Firebase and you prefer using their integrated authentication suite."
+      },
+      {
+        "name": "sign_in_with_apple",
+        "why_pick_it": "If you specifically need dedicated Sign in with Apple integration."
+      }
+    ],
+    "minimal_example": "import 'package:flutter_web_auth/flutter_web_auth.dart';\n\nfinal result = await FlutterWebAuth.authenticate(\n  url: \"https://my-custom-app.com/connect\",\n  callbackUrlScheme: \"my-custom-app\",\n);\nfinal token = Uri.parse(result).queryParameters['token'];",
+    "confidence": 0.95
+  }
+}

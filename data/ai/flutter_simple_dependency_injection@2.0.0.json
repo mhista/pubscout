@@ -1,0 +1,48 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.0",
+  "generatedAt": "2026-11-09T11:50:13.337Z",
+  "data": {
+    "primary_category": "dependency-injection",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "A simple dependency injection and service locator implementation that avoids mirrors.",
+    "what_it_does": "Allows registering types, singletons, and simple values using factory functions. It supports multiple isolated injectors, named types, and passing parameters during instance retrieval without relying on code generation or dart:mirrors.",
+    "use_when": [
+      "You want a straightforward dependency injection container without code generation overhead.",
+      "You need support for multiple isolated injector instances for testing or isolates."
+    ],
+    "avoid_when": [
+      "You prefer compile-time safe dependency injection via code generation like injectable.",
+      "You want a fully-featured reactive scope manager."
+    ],
+    "strengths": [
+      "No code generation or mirrors required, leading to high performance.",
+      "Supports multiple named injectors and isolated containers.",
+      "Allows passing additional parameters when retrieving instances."
+    ],
+    "weaknesses": [
+      "Manual mapping of every type and dependency is required.",
+      "No compile-time safety or verification of dependencies."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the dependency to pubspec.yaml and import the injector.",
+    "alternatives": [
+      {
+        "name": "get_it",
+        "why_pick_it": "It is widely used, highly mature, and provides a similar lightweight service locator approach."
+      },
+      {
+        "name": "injectable",
+        "why_pick_it": "It uses code generation to automatically wire up dependencies, saving manual mapping effort."
+      }
+    ],
+    "minimal_example": "import 'package:flutter_simple_dependency_injection/injector.dart';\n\nvoid main() {\n  final injector = Injector();\n  injector.map<Logger>((i) => Logger(), isSingleton: true);\n  final logger = injector.get<Logger>();\n}",
+    "confidence": 1
+  }
+}

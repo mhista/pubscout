@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.1.0",
+  "generatedAt": "2026-11-09T11:25:40.171Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "animation"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A sheet widget that snaps to different vertical and horizontal positions.",
+    "what_it_does": "Provides a highly customizable sheet widget that can snap to various vertical or horizontal positions. It adapts to scrollable widgets inside the sheet and is not limited to the bottom part of the app.",
+    "use_when": [
+      "You need a bottom sheet (or top/left/right sheet) that snaps to specific positions.",
+      "You want a sheet that integrates cleanly with scrollable widgets like ListView.",
+      "You need horizontal snapping sheet capabilities."
+    ],
+    "avoid_when": [
+      "You only need standard Flutter modal bottom sheets without custom snapping mechanics.",
+      "You require a complex navigation-based sheet layout that isn't suited for a custom widget."
+    ],
+    "strengths": [
+      "Supports both vertical and horizontal snapping directions.",
+      "Can adapt to scrollable widgets inside the sheet.",
+      "Fully customizable animations, content, and snapping positions."
+    ],
+    "weaknesses": [
+      "Scrollable widgets inside the sheet require specific reverse configurations depending on their position."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:snapping_sheet/snapping_sheet.dart';\n\nclass GettingStartedExample extends StatelessWidget {\n    @override\n    Widget build(BuildContext context) {\n        return Scaffold(\n            body: SnappingSheet(\n                child: MyOwnPageContent(), \n                grabbingHeight: 75,\n                grabbing: MyOwnGrabbingWidget(),\n                sheetBelow: SnappingSheetContent(\n                    draggable: true,\n                    child: MyOwnSheetContent(),\n                ),\n            ),\n        );\n    }\n}",
+    "confidence": 1
+  }
+}

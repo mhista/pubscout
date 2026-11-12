@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.1.0",
+  "generatedAt": "2026-11-09T11:37:34.045Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [
+      "files"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Read, write, and edit audio file metadata across multiple platforms.",
+    "what_it_does": "hAudiotagger allows you to read, write, update, and transform audio metadata across formats like MP3, FLAC, M4A, OGG, WAV, and AIFF. Powered by Rust, it supports batch processing, remote URL fetching, artwork management, and perceptual audio fingerprinting.",
+    "use_when": [
+      "You need to read or modify audio tags in a Flutter music player or tag editor.",
+      "You want to process audio metadata in batch operations across local files or remote URLs."
+    ],
+    "avoid_when": [
+      "You only need to play, record, or stream audio rather than handle tags and metadata."
+    ],
+    "strengths": [
+      "High performance through Rust bindings and parallel batch processing.",
+      "Broad cross-platform support including Android, iOS, Linux, macOS, Windows, and Web.",
+      "Supports a wide array of formats (MP3, FLAC, MP4, OGG, WAV, AIFF, etc.)."
+    ],
+    "weaknesses": [
+      "Depends on FFI and Rust integration which increases build complexity.",
+      "Advanced fingerprinting features require an additional package (`haudiotagger_fingerprint`)."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the dependency to pubspec.yaml. Web setup may require serving WASM correctly as detailed in the wiki guides.",
+    "alternatives": [],
+    "minimal_example": "import 'package:haudiotagger/haudiotagger.dart';\n\nfinal tag = await Haudiotagger.read('/path/to/song.mp3');\n\nprint(tag?.title);\nprint(tag?.artist);\nprint(tag?.album);",
+    "confidence": 1
+  }
+}

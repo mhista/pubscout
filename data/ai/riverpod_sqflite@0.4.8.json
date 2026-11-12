@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.4.8",
+  "generatedAt": "2026-11-11T11:23:45.303Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [
+      "state-management",
+      "utils"
+    ],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "Adapter to persist Riverpod provider state in a local SQLite database via sqflite.",
+    "what_it_does": "It supplies a storage provider and a Persistable mix‑in that automatically reads from and writes to an SQLite DB for Riverpod AsyncNotifier state. The package handles caching and decoding of JSON data.",
+    "use_when": [
+      "You need offline persistence of Riverpod state without writing manual DB code",
+      "You prefer SQLite over key‑value stores for structured data"
+    ],
+    "avoid_when": [
+      "You require remote synchronization or cloud storage",
+      "You use a different state‑management solution",
+      "You need a NoSQL or secure storage solution"
+    ],
+    "strengths": [
+      "Seamless integration with Riverpod’s AsyncNotifier",
+      "Automatic read/write and caching logic",
+      "Leverages the widely‑used sqflite plugin"
+    ],
+    "weaknesses": [
+      "Tied exclusively to Riverpod; not usable with other state managers",
+      "Adds SQLite dependency and associated native setup",
+      "Limited to SQLite – cannot switch to other storage backends easily"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add sqflite to pubspec, ensure Android/iOS permissions for file storage, call getDatabasesPath() to locate DB file",
+    "alternatives": [],
+    "minimal_example": "final storageProvider = FutureProvider<JsonSqFliteStorage>((ref) async => JsonSqFliteStorage.open(join(await getDatabasesPath(),'riverpod.db')));\n\nclass TodosNotifier extends AsyncNotifier<List<Todo>> {\n  @override\n  FutureOr<List<Todo>> build() async {\n    await persist(\n      ref.watch(storageProvider.future),\n      key: 'todos',\n      options: const StorageOptions(cacheTime: StorageCacheTime.unsafe_forever),\n      encode: jsonEncode,\n      decode: (json) => (jsonDecode(json) as List).map((e)=>Todo.fromJson(e as Map<String,Object?>)).toList(),\n    ).future;\n    return state.value ?? [];\n  }\n}",
+    "confidence": 0.93
+  }
+}

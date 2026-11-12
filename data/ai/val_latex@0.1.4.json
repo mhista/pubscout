@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.1.4",
+  "generatedAt": "2026-11-10T12:42:20.102Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "utils",
+      "ai-ml"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "LaTeX math parser and layout engine in pure Dart with OpenType fonts.",
+    "what_it_does": "Parses and lays out LaTeX mathematical formulas in pure Dart without native code or web views. Supports line breaking, right-to-left math, speech output, and OpenType math fonts.",
+    "use_when": [
+      "You need to render LaTeX math formulas in pure Dart or across all Flutter platforms without WebViews.",
+      "You are building an LLM streaming chat interface that needs to render incomplete mathematical formulas safely.",
+      "You need formula layout measurements or speech output in non-Flutter or Flutter environments."
+    ],
+    "avoid_when": [
+      "You need full, general-purpose HTML/CSS document rendering rather than math typesetting."
+    ],
+    "strengths": [
+      "Pure Dart implementation runs anywhere Dart runs (VM, Flutter, server, web).",
+      "Never throws on bad input, gracefully handling unfinished LLM streams or diagnostics.",
+      "Supports broad LaTeX coverage including amsmath, physics, and chemistry packages."
+    ],
+    "weaknesses": [
+      "Requires an additional companion package (`val_latex_flutter`) to get Flutter widgets like `Math` and `MathText`."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add val_latex to your pubspec.yaml via dart pub add val_latex.",
+    "alternatives": [],
+    "minimal_example": "import 'package:val_latex/val_latex.dart';\n\nfinal result = parseLatex(r'x = \\frac{-b \\pm \\sqrt{b^2-4ac}}{2a}');\nfinal layout = layoutFormula(result);",
+    "confidence": 1
+  }
+}

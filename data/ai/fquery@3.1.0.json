@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "3.1.0",
+  "generatedAt": "2026-11-12T11:27:14.176Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [],
+    "approach": [
+      "hooks",
+      "declarative"
+    ],
+    "one_liner": "Async state management with automatic caching and refetching for Flutter.",
+    "what_it_does": "fquery provides widgets and hooks to fetch, cache, and invalidate asynchronous data. It handles loading, error, and stale states, and supports infinite queries and mutations.",
+    "use_when": [
+      "Fetching data from REST/GraphQL APIs",
+      "Managing local async data like SQLite queries",
+      "Implementing infinite scroll or paginated lists",
+      "Using hooks for functional widget trees"
+    ],
+    "avoid_when": [
+      "Replacing complex synchronous state logic that requires custom reducers",
+      "Projects that need extensive code generation or custom serialization"
+    ],
+    "strengths": [
+      "Built-in caching and garbage collection",
+      "Automatic refetching and stale handling",
+      "Hooks and widget APIs for declarative usage",
+      "Supports infinite queries and mutations"
+    ],
+    "weaknesses": [
+      "Relatively new, limited third‑party integrations",
+      "Documentation still evolving",
+      "No code generation support"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Wrap the root widget with CacheProvider and provide a QueryCache instance.",
+    "alternatives": [],
+    "minimal_example": "```dart\nclass TodoWidget extends StatelessWidget {\n  const TodoWidget({super.key});\n  @override\n  Widget build(BuildContext context) {\n    return QueryBuilder<List<Todo>, Exception>(\n      options: QueryOptions(\n        queryKey: QueryKey(['todos']),\n        queryFn: TodosAPI.getInstance().getAll,\n      ),\n      builder: (context, todos) {\n        if (todos.isLoading) return const Center(child: CircularProgressIndicator());\n        if (todos.isError) return Center(child: Text(todos.error!.toString()));\n        return ListView.builder(\n          itemCount: todos.data!.length,\n          itemBuilder: (context, index) => ListTile(title: Text(todos.data![index].text)),\n        );\n      },\n    );\n  }\n}\n```",
+    "confidence": 0.8
+  }
+}

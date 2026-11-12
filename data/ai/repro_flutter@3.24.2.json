@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.24.2",
+  "generatedAt": "2026-11-11T11:34:30.000Z",
+  "data": {
+    "primary_category": "devtools",
+    "secondary_categories": [
+      "notifications"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "A plugin for using the Repro Android/iOS SDK in Flutter applications.",
+    "what_it_does": "Integrates the Repro native SDK into Flutter applications for tracking and push notifications. Allows initializing the Repro SDK and forwarding device tokens for push notifications.",
+    "use_when": [
+      "You need to integrate the Repro analytics and push notification SDK into your Flutter app",
+      "You are using Repro services for campaign management or user tracking on Android and iOS"
+    ],
+    "avoid_when": [
+      "You are not using the Repro platform for analytics or engagement",
+      "You only need standard push notifications without the Repro SDK"
+    ],
+    "strengths": [
+      "Official plugin for Repro Android and iOS SDKs",
+      "Supports push notifications setup with Firebase and APNs"
+    ],
+    "weaknesses": [
+      "Requires manual native setup in Android and iOS projects",
+      "License is unknown"
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Requires adding Gradle dependencies and a custom Application class on Android, running pod install and updating AppDelegate on iOS, and optionally setting up Firebase for push notifications.",
+    "alternatives": [
+      {
+        "name": "onesignal_flutter",
+        "why_pick_it": "Alternative platform for push notifications and engagement."
+      }
+    ],
+    "minimal_example": "void main() async {\n  WidgetsFlutterBinding.ensureInitialized();\n  await Firebase.initializeApp();\n  FirebaseMessaging messaging = FirebaseMessaging.instance;\n  messaging.onTokenRefresh.listen((token) async {\n    await Repro.setPushRegistrationID(token);\n  });\n  runApp(MyApp());\n}",
+    "confidence": 0.95
+  }
+}

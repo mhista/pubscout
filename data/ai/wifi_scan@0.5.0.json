@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.5.0",
+  "generatedAt": "2026-11-09T11:42:50.010Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Flutter plugin to scan for nearby visible WiFi access points.",
+    "what_it_does": "Allows Flutter apps to trigger full WiFi scans, retrieve the latest scanned access point results, and listen to a stream of new scan results.",
+    "use_when": [
+      "You need to scan for nearby visible WiFi access points on Android.",
+      "You want to listen to a stream of newly available WiFi scan results."
+    ],
+    "avoid_when": [
+      "You need robust iOS support, as iOS requires special entitlements and has limited public APIs (stub implementation).",
+      "You want to manage network connectivity status or connect to WiFi networks."
+    ],
+    "strengths": [
+      "Provides APIs to check platform support and request necessary permissions before scanning.",
+      "Supports streaming new scan results via `onScannedResultsAvailable`."
+    ],
+    "weaknesses": [
+      "iOS implementation is largely a stub with sane returns and requires special Apple entitlements.",
+      "Android scans are subject to system throttling on SDK >= 26."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires platform-specific configuration and permissions, plus handling special entitlements on iOS if applicable.",
+    "alternatives": [],
+    "minimal_example": "final can = await WiFiScan.instance.canStartScan(askPermissions: true);\nif (can == CanStartScan.yes) {\n  final isScanning = await WiFiScan.instance.startScan();\n}",
+    "confidence": 0.95
+  }
+}

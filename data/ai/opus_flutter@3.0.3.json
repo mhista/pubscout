@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "3.0.3",
+  "generatedAt": "2026-11-11T11:16:05.546Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Provides a DynamicLibrary loader for the Opus codec on Flutter platforms.",
+    "what_it_does": "It loads the native Opus library (libopus 1.3.1) for use with opus_dart. The package itself does not expose Opus functions; it only supplies the library handle.",
+    "use_when": [
+      "You need Opus audio encoding/decoding in a Flutter app",
+      "You prefer a null‑safe, cross‑platform loader rather than bundling the library yourself"
+    ],
+    "avoid_when": [
+      "You are not using Opus or opus_dart",
+      "You need a higher‑level Opus API rather than just the library"
+    ],
+    "strengths": [
+      "Cross‑platform support (Android, iOS, Web, Windows)",
+      "Null‑safe and up‑to‑date with opus_dart",
+      "Simple dependency, no build scripts"
+    ],
+    "weaknesses": [
+      "Only a loader – requires opus_dart for actual usage",
+      "No direct API, just a DynamicLibrary"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add opus_flutter to pubspec and import; no native configuration required.",
+    "alternatives": [],
+    "minimal_example": "// Add to pubspec\n// dependencies:\n//   opus_flutter: ^3.0.3\n\nimport 'package:opus_flutter/opus_flutter.dart';\n\nfinal lib = await OpusFlutter.load();",
+    "confidence": 0.95
+  }
+}

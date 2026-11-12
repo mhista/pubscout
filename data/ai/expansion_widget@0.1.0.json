@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.1.0",
+  "generatedAt": "2026-11-09T11:41:45.438Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "animation"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "An edited version of Expansion Tile that allows you customize tile widget and animation.",
+    "what_it_does": "Provides a customizable expansion tile widget with configurable animations, builders, and state saving capabilities. It allows developers to define custom title widgets and control the expansion state programmatically or automatically.",
+    "use_when": [
+      "You need a customized expansion tile with bespoke animations and custom title layouts.",
+      "You want to automatically save and restore the expansion state of a tile."
+    ],
+    "avoid_when": [
+      "The standard Material ExpansionTile meets all your design and animation requirements without modifications."
+    ],
+    "strengths": [
+      "Customizable tile widget builder and animation parameters",
+      "Supports auto-saving and restoring expansion states",
+      "Allows programmatic control via GlobalKey"
+    ],
+    "weaknesses": [
+      "Limited documentation beyond basic parameters and a single README example"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Not documented",
+    "alternatives": [],
+    "minimal_example": "ExpansionWidget(\n    initiallyExpanded: true,\n    titleBuilder: (double animationValue, _, bool isExpaned, toogleFunction) {\n      return InkWell(\n          onTap: () => toogleFunction(animated: true),\n          child: Padding(\n            padding: EdgeInsets.all(8),\n            child: Row(\n              crossAxisAlignment: CrossAxisAlignment.center,\n              children: [\n                Expanded(child: Text('Expansion Widget Title 1')),\n                Transform.rotate(\n                  angle: math.pi * animationValue / 2,\n                  child: Icon(Icons.arrow_right, size: 40),\n                  alignment: Alignment.center,\n                )\n              ],\n            ),\n          ));\n    },\n    content: Container(\n      width: double.infinity,\n      color: Colors.grey.shade100,\n      padding: EdgeInsets.all(20),\n      child: Text('Expaned Content'),\n    ))",
+    "confidence": 0.95
+  }
+}

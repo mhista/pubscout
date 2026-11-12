@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.2.3",
+  "generatedAt": "2026-11-11T11:29:08.007Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [
+      "dependency-injection"
+    ],
+    "approach": [
+      "declarative",
+      "hooks"
+    ],
+    "one_liner": "Provide and retrieve values scoped to a BuildContext with automatic disposal.",
+    "what_it_does": "Allows scoping, binding, and retrieving objects directly to a BuildContext without boilerplate. Values can be automatically initialized, lazily loaded, and disposed when the context is removed from the widget tree.",
+    "use_when": [
+      "You want a hassle-free way to scope state or objects to a BuildContext",
+      "You need automatic cleanup and disposal of bound resources with the widget lifecycle",
+      "You prefer extension-based hooks or context-based object access instead of traditional InheritedWidgets"
+    ],
+    "avoid_when": [
+      "You need global application state independent of any BuildContext",
+      "You are using a state management pattern that strictly forbids context lookups"
+    ],
+    "strengths": [
+      "Automatic disposal of bound objects tied to the widget lifecycle",
+      "Minimal boilerplate compared to traditional InheritedWidget setup",
+      "Supports lazy initialization and pre-existing value binding"
+    ],
+    "weaknesses": [
+      "Requires a root widget wrapper (`ContextRef.root`)",
+      "Tightly coupled to the widget tree via BuildContext"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Wrap your app in a `ContextRef.root` widget and optionally wrap error handlers for better hot reload error messages.",
+    "alternatives": [],
+    "minimal_example": "final _stream = Ref<Stream>();\n\nclass Example extends StatelessWidget {\n  @override\n  Widget build(BuildContext context) {\n    final stream = _stream.bind(context, () => Stream.periodic(const Duration(seconds: 1)));\n    return const _Child();\n  }\n}",
+    "confidence": 1
+  }
+}

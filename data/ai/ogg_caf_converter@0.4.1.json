@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.4.1",
+  "generatedAt": "2026-11-12T11:23:50.697Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [
+      "utils",
+      "files"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Converts OPUS audio files between OGG and CAF container formats using pure Dart.",
+    "what_it_does": "It converts OPUS audio files between standard OGG containers and Apple CAF container formats in either direction. It also supports repackaging and repairing OGG Opus container files without re-encoding the audio.",
+    "use_when": [
+      "You need to make OGG Opus recordings playable on iOS devices by converting them to CAF.",
+      "You need to convert Apple CAF audio files into standard OGG format for cross-platform support.",
+      "You need to sanitize and repair OGG Opus container framing and granule positions."
+    ],
+    "avoid_when": [
+      "Your app requires web platform support, as the package relies on `dart:io` and 64-bit integer bitmasks incompatible with Dart2JS.",
+      "You need to transcode or encode audio from scratch using native codecs."
+    ],
+    "strengths": [
+      "Zero external dependencies and pure Dart implementation.",
+      "Fast conversion speeds because audio is not re-encoded, only repackaged.",
+      "Supports both file-system operations and in-memory byte arrays (`Uint8List`)."
+    ],
+    "weaknesses": [
+      "Not supported on the web platform.",
+      "Limited specifically to OGG and CAF container formats for the OPUS codec."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "No native setup or dependencies required. Just add the package to pubspec.yaml.",
+    "alternatives": [],
+    "minimal_example": "import 'package:ogg_caf_converter/ogg_caf_converter.dart';\n\nvoid main() async {\n  final OggCafConverter converter = OggCafConverter();\n  await converter.convertOggToCaf(\n    input: 'path/to/input.ogg',\n    output: 'path/to/output.caf',\n    deleteInput: false,\n  );\n}",
+    "confidence": 0.95
+  }
+}

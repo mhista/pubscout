@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.0.4",
+  "generatedAt": "2026-11-12T11:36:03.555Z",
+  "data": {
+    "primary_category": "devtools",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "cli"
+    ],
+    "one_liner": "A CLI and library to refactor Flutter enum usages into dot-shorthand form.",
+    "what_it_does": "It automatically refactors common Flutter enum usages like MainAxisAlignment.start into the new dot-shorthand form (.start). It can be run as a CLI command or used programmatically as a library.",
+    "use_when": [
+      "You want to modernize a Flutter codebase to use the new dot-shorthand enum syntax.",
+      "You need a quick way to batch-replace 100+ common Flutter enums across your files."
+    ],
+    "avoid_when": [
+      "You require an AST-based analyzer for precise type checking before transforming code.",
+      "You are working with custom enums that are not matched by regex and you don't want to specify them manually."
+    ],
+    "strengths": [
+      "Supports 100+ common Flutter enums out of the box.",
+      "Zero dependencies and fast text-based transformation.",
+      "Can be used both as a CLI tool and programmatically as a library."
+    ],
+    "weaknesses": [
+      "Text-based transformer rather than a full AST analyzer, which may be aggressive in unusual contexts.",
+      "May require manual review of the diff to ensure safety."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dot_shorthand_converter to your dev_dependencies in pubspec.yaml and run dart pub get.",
+    "alternatives": [],
+    "minimal_example": "import 'package:dot_shorthand_converter/dot_shorthand_converter.dart';\n\nvoid main() {\n  const before = 'mainAxisAlignment: MainAxisAlignment.start,';\n  final after = convertToDotShorthand(before);\n  print(after); // 'mainAxisAlignment: .start,'\n}",
+    "confidence": 0.95
+  }
+}

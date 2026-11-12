@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.1",
+  "generatedAt": "2026-11-10T13:17:09.954Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "stream-based",
+      "no codegen"
+    ],
+    "one_liner": "Convert Flutter Listenable and ValueListenable objects into Dart Streams and ValueStreams.",
+    "what_it_does": "Extends Flutter's Listenable and ValueListenable classes to easily convert them into Dart Streams or RxDart ValueStreams. It enables reactive programming patterns directly from standard change notifiers.",
+    "use_when": [
+      "You want to combine ChangeNotifier or ValueNotifier with RxDart stream operators.",
+      "You need to bridge standard Flutter listeners into a stream-based architecture."
+    ],
+    "avoid_when": [
+      "You already use a comprehensive state management framework like Riverpod or Bloc that handles reactivity internally.",
+      "You prefer direct widget rebuilding via AnimatedBuilder rather than stream subscriptions."
+    ],
+    "strengths": [
+      "Seamless integration between Flutter's built-in Listenable types and RxDart.",
+      "Supports replay value options for ValueListenable streams."
+    ],
+    "weaknesses": [
+      "Returned streams are single-subscription only.",
+      "Adds an explicit dependency on rxdart."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "bloc",
+        "why_pick_it": "Provides a robust, stream-based state management architecture out of the box."
+      },
+      {
+        "name": "riverpod",
+        "why_pick_it": "Offers modern, compile-safe reactive state management without relying on ChangeNotifier."
+      }
+    ],
+    "minimal_example": "final ValueNotifier<int> valueNotifier = ValueNotifier(0);\nfinal ValueListenableStream<int> stream = valueNotifier.toValueStream();\nstream.listen(print);",
+    "confidence": 0.95
+  }
+}

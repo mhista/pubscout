@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.3.1",
+  "generatedAt": "2026-11-12T11:39:33.679Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "layout"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A widget that provides dimensions and offset of a child returned from a builder callback.",
+    "what_it_does": "It measures the width, height, and start offset of a widget rendered inside its builder callback by utilizing render boxes after the first frame. It offers options to rebuild on every frame or listen to dimension updates without rebuilding.",
+    "use_when": [
+      "You need to know the dynamic dimensions or offset of a widget to draw dependent UI elements like lines.",
+      "You want to react to size and position changes caused by OS settings."
+    ],
+    "avoid_when": [
+      "Standard layout constraints and flexible widgets can already achieve your layout goals without measuring.",
+      "You require complex multi-pass layout algorithms where simpler layout widgets would suffice."
+    ],
+    "strengths": [
+      "Provides direct access to width, height, and start offset of rendered child widgets.",
+      "Includes a listener option to perform actions based on dimensions without interfering with rebuilds.",
+      "Supports rebuilding on every frame for tracking dynamic changes."
+    ],
+    "weaknesses": [
+      "Relies on measuring after the initial frame, which might introduce layout passes.",
+      "Limited to a single specific measurement use case."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "IntrinsicDimension(\n  listener: (context, width, height, startOffset) {\n    print('WIDTH: $width');\n  },\n  builder: (context, width, height, startOffset) {\n    return Text('Measured text');\n  },\n)",
+    "confidence": 0.9
+  }
+}

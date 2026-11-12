@@ -1,0 +1,51 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "1.2.2",
+  "generatedAt": "2026-11-11T11:05:33.486Z",
+  "data": {
+    "primary_category": "codegen",
+    "secondary_categories": [],
+    "approach": [
+      "declarative",
+      "code generation"
+    ],
+    "one_liner": "Lean Builder: a fast, efficient Dart build system for code generation",
+    "what_it_does": "Lean Builder provides a streamlined alternative to the Dart build system, enabling fast incremental builds and hot reload for generators. It offers declarative builder configuration via annotations and supports shared part, library, and standard builders.",
+    "use_when": [
+      "You need to create code generators with fast incremental builds",
+      "You want a simpler, more performant alternative to build_runner",
+      "You need watch mode with hot reload for generator development"
+    ],
+    "avoid_when": [
+      "You require the full feature set of the official Dart build system",
+      "Your project is already heavily dependent on build_runner and source_gen"
+    ],
+    "strengths": [
+      "Fast incremental builds",
+      "Parallel processing for maximum efficiency",
+      "Hot reload support in watch mode",
+      "Simple declarative configuration using annotations"
+    ],
+    "weaknesses": [
+      "Not fully tested, active development",
+      "Limited ecosystem compared to build_runner",
+      "May lack some advanced features of the official build system"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add lean_builder as a dev_dependency in pubspec.yaml. Run commands like `dart run lean_builder build` or `dart run lean_builder watch`. No additional build_runner setup required.",
+    "alternatives": [
+      {
+        "name": "build_runner",
+        "why_pick_it": "Standard, widely adopted build system with extensive ecosystem"
+      },
+      {
+        "name": "source_gen",
+        "why_pick_it": "Popular code generation library that works with build_runner"
+      }
+    ],
+    "minimal_example": "```dart\n@LeanGenerator({'.lib.dart'})\nclass MyGenerator extends GeneratorForAnnotatedClass<MyAnnotation> {\n  @override\n  Future<String> generateForClass(buildStep, element, annotation) async {\n    return '// Generated code for ${element.name}';\n  }\n}\n```",
+    "confidence": 0.8
+  }
+}

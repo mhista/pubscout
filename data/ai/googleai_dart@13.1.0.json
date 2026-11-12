@@ -1,0 +1,47 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "13.1.0",
+  "generatedAt": "2026-11-09T11:14:30.859Z",
+  "data": {
+    "primary_category": "ai-ml",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "stream-based",
+      "declarative"
+    ],
+    "one_liner": "Unofficial Dart client for Google AI Gemini, Vertex AI Gemini, and Live API WebSockets.",
+    "what_it_does": "Provides a pure Dart, type-safe API client for Google AI Gemini and Vertex AI Gemini REST APIs, supporting text generation, image generation, audio, tool calling, embeddings, and Live API WebSocket sessions.",
+    "use_when": [
+      "You need a pure Dart Gemini client for backend services, CLIs, or cross-platform Flutter apps.",
+      "You want to connect to both Google AI and Vertex AI using a single unified API client.",
+      "You require advanced Gemini features like streaming, tool calling, grounding tools, and WebSocket Live API sessions."
+    ],
+    "avoid_when": [
+      "You are using Firebase AI and prefer the official Firebase package ecosystem.",
+      "You only need on-device machine learning models rather than cloud-hosted LLM APIs."
+    ],
+    "strengths": [
+      "Pure Dart with no Flutter dependency, working across mobile, web, desktop, and server.",
+      "Comprehensive coverage of Gemini features including Live API WebSockets, tool calling, and structured outputs.",
+      "Unified interface for both Google AI API keys and Vertex AI project routing."
+    ],
+    "weaknesses": [
+      "It is an unofficial client, meaning it is not directly maintained or supported by Google.",
+      "Requires managing API keys or GCP OAuth credentials manually."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires Dart 3.12 or later and a valid Google AI API key or Vertex AI project configuration.",
+    "alternatives": [
+      {
+        "name": "firebase_ai",
+        "why_pick_it": "Official Firebase SDK for generative AI integration in Flutter applications."
+      }
+    ],
+    "minimal_example": "import 'package:googleai_dart/googleai_dart.dart';\n\nFuture<void> main() async {\n  final client = GoogleAIClient.fromEnvironment();\n\n  try {\n    final response = await client.models.generateContent(\n      model: 'gemini-3.5-flash',\n      request: GenerateContentRequest(\n        contents: [Content.text('Explain why Dart works well for APIs.')],\n      ),\n    );\n\n    print(response.text);\n  } finally {\n    client.close();\n  }\n}",
+    "confidence": 1
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.1",
+  "generatedAt": "2026-11-10T12:44:01.788Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Fast base encoding and decoding of any given alphabet using bitcoin style leading zero compression.",
+    "what_it_does": "Provides a BaseXCodec class to encode byte data and decode strings using custom or standard variable-length alphabets. It is a direct derivation of the base58 implementation from bitcoin/bitcoin, generalized for variable lengths.",
+    "use_when": [
+      "You need custom base encoding or decoding like Base58 for cryptocurrencies",
+      "You need to encode and decode data using non-standard variable-length alphabets"
+    ],
+    "avoid_when": [
+      "You require RFC3548 compliant standard base16, base32, or base64 encoding",
+      "You are looking for UI widgets or state management"
+    ],
+    "strengths": [
+      "Fast implementation of base encoding and decoding",
+      "Supports custom alphabets of any length",
+      "Supports null safety"
+    ],
+    "weaknesses": [
+      "Not RFC3548 compliant for standard bases like base16, base32, or base64",
+      "Limited documentation outside of the basic README examples"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "No native setup required.",
+    "alternatives": [],
+    "minimal_example": "import 'package:base_x/base_x.dart';\n\nvar base58 = BaseXCodec('123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz');\nvar hash = Uint8List.fromList([14, 251, 24, 220, 202, 235, 97, 232, 85, 229, 109, 188, 53, 146, 43, 36, 246, 238, 110, 55, 202, 163, 160, 123, 169, 35]);\n\nprint(base58.encode(hash));\nprint(base58.decode('TcASfmyoFiNobNaCHeiPMkWgGmovoxk1sqk'));",
+    "confidence": 1
+  }
+}

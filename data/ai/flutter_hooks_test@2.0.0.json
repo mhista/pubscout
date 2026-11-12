@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.0",
+  "generatedAt": "2026-11-10T13:09:33.144Z",
+  "data": {
+    "primary_category": "testing",
+    "secondary_categories": [],
+    "approach": [
+      "hooks",
+      "declarative"
+    ],
+    "one_liner": "Testing utilities for Flutter hooks that avoid writing wrapper widgets.",
+    "what_it_does": "Allows developers to test custom Flutter hooks directly without having to construct a dedicated test widget. It provides utilities for updating inputs, retrieving outputs, and handling asynchronous updates.",
+    "use_when": [
+      "You are writing a library with one or more custom hooks not directly tied to a widget",
+      "You have a complex hook that is difficult to test through widget interactions"
+    ],
+    "avoid_when": [
+      "Your hook is defined alongside a widget and is only used there",
+      "Your hook is easy to test by just testing the widgets using it"
+    ],
+    "strengths": [
+      "Simplifies custom hook testing without requiring manual widget boilerplate",
+      "Provides async waiting utilities like waitFor and waitForNextUpdate",
+      "Supports wrappers to supply providers to hooks"
+    ],
+    "weaknesses": [
+      "Not necessary if your hooks are simple and tested purely via widget tests"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add flutter_hooks_test to your dev_dependencies.",
+    "alternatives": [
+      {
+        "name": "test",
+        "why_pack_it": "Standard Dart unit testing framework if you are not testing Flutter-specific UI/hooks."
+      }
+    ],
+    "minimal_example": "testWidgets('should rebuild widget each time returned function is called', (tester) async {\n  var buildCount = 0;\n  final result = await buildHook(\n    () {\n      buildCount++;\n      return useUpdate();\n    },\n    wrapper: (child) => Container(child: child),\n  );\n\n  expect(buildCount, 1);\n  final update = result.current;\n  await act(() => update());\n  expect(buildCount, 2);\n});",
+    "confidence": 1
+  }
+}

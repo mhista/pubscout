@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.1-62",
+  "generatedAt": "2026-11-12T11:41:57.337Z",
+  "data": {
+    "primary_category": "files",
+    "secondary_categories": [
+      "ui-kits"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "A wrapper for the PDFTron mobile SDK to view and annotate PDF documents.",
+    "what_it_does": "It provides a convenience wrapper around the native PDFTron SDKs for Flutter apps to handle document viewing and annotating. Developers can present documents using either a plugin or a dedicated DocumentView widget.",
+    "use_when": [
+      "You need robust out-of-the-box PDF viewing and annotation capabilities inside your Flutter app.",
+      "You want to leverage the native PDFTron (Apryse) SDK functionality via a Flutter plugin or widget."
+    ],
+    "avoid_when": [
+      "You require deep and complex custom modifications to the lower-level functionality of the native SDK.",
+      "You want a pure Dart-based PDF rendering engine without relying on large native wrapper binaries."
+    ],
+    "strengths": [
+      "Smooth and flexible stand-alone document viewing.",
+      "Supports both Android and iOS platforms with options for Swift Package Manager or CocoaPods.",
+      "Comes with built-in features for handling annotations and document configuration."
+    ],
+    "weaknesses": [
+      "Exposes only a limited set of APIs from the native SDKs.",
+      "Requires platform-specific setup steps (such as modifying Android build files or iOS deployment targets)."
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Requires native configuration including setting a PDFTRON_LICENSE_KEY, configuring Android permissions/MainActivity, and setting the minimum iOS deployment target to 13.0.",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:pdftron_flutter/pdftron_flutter.dart';\n\nvoid main() => runApp(MyApp());\n\nclass MyApp extends StatelessWidget {\n  @override\n  Widget build(BuildContext context) {\n    return MaterialApp(\n      home: Viewer(),\n    );\n  }\n}\n\nclass Viewer extends StatefulWidget {\n  @override\n  _ViewerState createState() => _ViewerState();\n}\n\nclass _ViewerState extends State<Viewer> {\n  String _document = \"https://pdftron.s3.amazonaws.com/downloads/pl/PDFTRON_mobile_about.pdf\";\n\n  @override\n  void initState() {\n    super.initState();\n    PdftronFlutter.initialize(\"your_pdftron_license_key\");\n    PdftronFlutter.openDocument(_document);\n  }\n\n  @override\n  Widget build(BuildContext context) {\n    return Scaffold(\n      appBar: AppBar(title: Text('PDF Viewer')),\n      body: Center(child: Text('Opening PDF...')),\n    );\n  }\n}",
+    "confidence": 0.95
+  }
+}

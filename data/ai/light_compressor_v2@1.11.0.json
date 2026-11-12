@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.11.0",
+  "generatedAt": "2026-11-10T13:18:58.717Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [
+      "files"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Native video compression and editing for Flutter without FFmpeg",
+    "what_it_does": "Compresses single or batch videos using platform hardware codecs (MediaCodec, AVFoundation). It supports target file sizes, trimming, rotating, colour adjustments, live progress tracking, and cancellation.",
+    "use_when": [
+      "You need to reduce video file sizes before uploading or storing them locally.",
+      "You want native video compression without bundling large FFmpeg binaries.",
+      "You need live progress monitoring, background compression, or batch processing."
+    ],
+    "avoid_when": [
+      "You are targeting web, Windows, or Linux platforms.",
+      "You require complex non-standard media format transcoding that hardware codecs do not support."
+    ],
+    "strengths": [
+      "Zero third-party dependencies and no FFmpeg binaries to bloat app size.",
+      "Hardware-accelerated native compression on Android, iOS, and macOS.",
+      "Includes batch support, background execution, cancellation, and live progress streams."
+    ],
+    "weaknesses": [
+      "Limited platform support (excludes web, Windows, and Linux).",
+      "Android re-encodes audio at the source sample rate without a resampler."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires minimum SDK 24 on Android. Add storage permissions to AndroidManifest.xml and photo library usage description to iOS Info.plist if saving to gallery.",
+    "alternatives": [],
+    "minimal_example": "final Result result = await LightCompressor().compressVideo(\n  path: '/path/to/source.mp4',\n  videoQuality: VideoQuality.medium,\n  video: Video(videoName: 'compressed.mp4'),\n  android: AndroidConfig(isSharedStorage: true, saveAt: SaveAt.Movies),\n  ios: IOSConfig(saveInGallery: true),\n);",
+    "confidence": 0.95
+  }
+}

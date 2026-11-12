@@ -1,0 +1,36 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.0",
+  "generatedAt": "2026-11-12T11:48:29.403Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Eliminates unnecessary characters from GraphQL queries to save bytes.",
+    "what_it_does": "It removes whitespace and unnecessary characters from GraphQL queries. It integrates with GQL link serializers like HttpLink and DioLink to compress queries before requests are sent.",
+    "use_when": [
+      "You want to reduce payload sizes for GraphQL requests",
+      "You are using GQL-based links such as HttpLink or DioLink"
+    ],
+    "avoid_when": [
+      "You are not using GraphQL in your application",
+      "Human-readable query logs on the network layer are strictly required for debugging"
+    ],
+    "strengths": [
+      "Reduces payload size for GraphQL requests",
+      "Easy integration with existing GQL request serializers"
+    ],
+    "weaknesses": [
+      "Limited utility outside of GraphQL workflows"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Replace the standard GQL RequestSerializer with RequestSerializerWithCompressor in your link configuration.",
+    "alternatives": [],
+    "minimal_example": "return GraphQLClient(\n  cache: GraphQLCache(store: null),\n  link: HttpLink(\n    _apiUrl,\n    serializer: const RequestSerializerWithCompressor(),\n  ),\n);",
+    "confidence": 1
+  }
+}

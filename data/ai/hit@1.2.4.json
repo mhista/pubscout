@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.2.4",
+  "generatedAt": "2026-11-09T11:49:02.042Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "layout"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Decouple Flutter layout size from hit-test size to deliver taps outside parent bounds.",
+    "what_it_does": "Separates paint and layout size from hit size in Flutter, allowing widgets to stay visually small while having a larger tap target. Delivers pointer events that fall outside a widget's layout box using a higher-level scope.",
+    "use_when": [
+      "You need a control to stay visually small like an icon or 1px edge but meet a comfortable touch target size.",
+      "You need to handle taps on elements that overflow their parent bounds without breaking neighboring layouts."
+    ],
+    "avoid_when": [
+      "You have hundreds of deferred targets nested under one huge root scope, which can impact performance.",
+      "Standard padding or sizing solutions are sufficient and do not cause layout crowding."
+    ],
+    "strengths": [
+      "Enables precise separation of paint/layout bounds from hit-test bounds.",
+      "Includes a built-in Dart DevTools extension for inspecting hit scopes and debugging missed taps.",
+      "Supports slivers via SliverHitScope for custom scroll views."
+    ],
+    "weaknesses": [
+      "Deferred hit-testing is O(n) over registered targets on a scope, meaning large numbers of targets can affect performance.",
+      "Requires careful scope placement so that the HitScope's layout box actually covers the expanded hit area."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [],
+    "minimal_example": "HitScope(\n  child: Padding(\n    padding: const EdgeInsets.all(12),\n    child: HitLayer(\n      alignment: Alignment.center,\n      behavior: HitTestBehavior.deferToChild,\n      hitChild: GestureDetector(\n        behavior: HitTestBehavior.opaque,\n        onTap: () {},\n        child: const SizedBox(width: 48, height: 48),\n      ),\n      paintChild: const IgnorePointer(\n        child: Icon(Icons.add, size: 24),\n      ),\n    ),\n  ),\n)",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.1",
+  "generatedAt": "2026-11-11T11:28:34.355Z",
+  "data": {
+    "primary_category": "images",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "no codegen"
+    ],
+    "one_liner": "Asset transformer for converting images into WebP files in Flutter apps",
+    "what_it_does": "It automatically converts image assets into WebP format during the Flutter build process using precompiled cwebp binaries. You can configure quality, compression methods, filtering, and target sizes directly in your pubspec.yaml.",
+    "use_when": [
+      "You want to optimize your app bundle size by converting asset images to WebP format automatically.",
+      "You want to use custom cwebp quality parameters for specific asset images in Flutter."
+    ],
+    "avoid_when": [
+      "You need to dynamically convert images downloaded from the network at runtime.",
+      "Your target architecture is not supported by the bundled binaries and you cannot provide cwebp in your PATH."
+    ],
+    "strengths": [
+      "Bundles precompiled cwebp binaries for multiple architectures (Windows, macOS, Linux).",
+      "Integrates seamlessly into the Flutter asset transformation pipeline.",
+      "Allows fine-tuning with cwebp parameters like quality, method, and filter strength."
+    ],
+    "weaknesses": [
+      "Limited to asset conversion during build time.",
+      "Relies on external cwebp binaries."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the package under asset transformers in your pubspec.yaml file.",
+    "alternatives": [],
+    "minimal_example": "flutter:\n  assets:\n    - path: assets/logo.jpg\n      transformers:\n        - package: webp\n          args: ['--quality=65', '--hint=graph']",
+    "confidence": 0.95
+  }
+}

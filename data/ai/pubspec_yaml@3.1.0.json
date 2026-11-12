@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.1.0",
+  "generatedAt": "2026-11-12T11:42:08.211Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Access and manipulate content of pubspec.yaml files in Dart.",
+    "what_it_does": "Provides a data type representing the contents of a pubspec.yaml file. Allows importing from YAML strings, inspecting fields and dependencies, manipulating data, and exporting back to YAML strings.",
+    "use_when": [
+      "You need to parse and analyze pubspec.yaml files programmatically in a Dart script or tool.",
+      "You want to inspect package dependencies, SDK constraints, or custom fields from a pubspec.yaml file."
+    ],
+    "avoid_when": [
+      "You are writing a standard Flutter application and do not need to parse project metadata files."
+    ],
+    "strengths": [
+      "Supports equality operations and lenses via functional_data.",
+      "Handles custom fields via a JSON-like Map structure."
+    ],
+    "weaknesses": [
+      "Limited to reading and manipulating pubspec.yaml file structures.",
+      "Relies on external packages like functional_data and json2yaml."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add pubspec_yaml to your dependencies.",
+    "alternatives": [
+      {
+        "name": "pubspec_parse",
+        "why_pick_it": "Alternative package for parsing pubspec.yaml files."
+      }
+    ],
+    "minimal_example": "void main() {\n  final pubspecYaml = File('pubspec.yaml').readAsStringSync().toPubspecYaml();\n  print(pubspecYaml.name);\n}",
+    "confidence": 1
+  }
+}

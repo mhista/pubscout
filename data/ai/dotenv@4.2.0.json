@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.2.0",
+  "generatedAt": "2026-11-10T12:32:50.228Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "files"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Load environment variables at runtime from a .env file.",
+    "what_it_does": "Parses a .env file to load configuration values into your application at runtime. It can optionally merge these values with the built-in Platform.environment map and supports variable substitution.",
+    "use_when": [
+      "You need to store configuration in environment variables per the twelve-factor app methodology.",
+      "You want to mimic a production environment during local development using a .env file."
+    ],
+    "avoid_when": [
+      "You require compile-time environment configuration injected via dart --define.",
+      "You need secure persistent key-value device storage for user data."
+    ],
+    "strengths": [
+      "Easy to configure with support for multiple file paths and variable substitution.",
+      "Includes a command-line interface helper to initialize and test .env files."
+    ],
+    "weaknesses": [
+      "Does not expose the underlying map directly since version 4.0.0, requiring forwarding methods.",
+      "Does not inject variables at compile time."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Create a .env file in your project and optionally add it to your .gitignore.",
+    "alternatives": [
+      {
+        "name": "cli_config",
+        "why_pick_it": "Alternative approach for loading CLI configuration and settings."
+      }
+    ],
+    "minimal_example": "import 'package:dotenv/dotenv.dart';\n\nvoid main() {\n  var dotEnv = DotEnv(includePlatformEnvironment: true)..load();\n  var apiKey = dotEnv['API_KEY'];\n}",
+    "confidence": 0.95
+  }
+}

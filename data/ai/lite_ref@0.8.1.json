@@ -1,0 +1,53 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.8.1",
+  "generatedAt": "2026-11-09T11:35:17.742Z",
+  "data": {
+    "primary_category": "dependency-injection",
+    "secondary_categories": [
+      "state-management"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen",
+      "declarative"
+    ],
+    "one_liner": "Lightweight dependency injection and scoping library for Dart and Flutter.",
+    "what_it_does": "Lite Ref provides a simple mechanism for dependency injection using top-level references. It supports global singletons, transients, asynchronous initialization, and widget-scoped instances with testing overrides and automatic disposal.",
+    "use_when": [
+      "You want a lightweight dependency injection system without code generation.",
+      "You need scoped service instances for specific widget subtrees.",
+      "You need easy overriding of services and singletons for unit and widget testing."
+    ],
+    "avoid_when": [
+      "You prefer a heavily annotation-driven injection system like injectable.",
+      "Your architecture strictly requires a reactive state-management library like Bloc or Riverpod for all app logic."
+    ],
+    "strengths": [
+      "Fast lookup performance without using hashmaps.",
+      "Top-level variables prevent 'not found' errors.",
+      "Automatic disposal for ChangeNotifiers and Disposable classes when widgets unmount.",
+      "Built-in support for scoping and testing overrides."
+    ],
+    "weaknesses": [
+      "Relies on top-level state variables which some architectural styles try to avoid.",
+      "Smaller ecosystem and community compared to established alternatives like get_it or provider."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add lite_ref to pubspec.yaml. Wrap your app or subtree with LiteRefScope when using scoped references.",
+    "alternatives": [
+      {
+        "name": "get_it",
+        "why_pick_it": "If you want a more mature, service-locator based DI package with widespread community adoption."
+      },
+      {
+        "name": "injectable",
+        "why_pick_it": "If you prefer code-generation to automatically wire up your dependency injection setup."
+      }
+    ],
+    "minimal_example": "final settingsServiceRef = Ref.scoped((ctx) => SettingsService());\n\nLiteRefScope(\n  child: MyApp(),\n);",
+    "confidence": 0.95
+  }
+}

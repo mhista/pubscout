@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.2.0",
+  "generatedAt": "2026-11-10T12:31:18.351Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "codegen"
+    ],
+    "approach": [
+      "code generation",
+      "no codegen"
+    ],
+    "one_liner": "Extracts open source license information from Dart packages using pubspec.yaml",
+    "what_it_does": "Reads the project's pubspec.lock to gather and assemble open source software license details. Generates a Dart file or a JSON file containing all package metadata and licenses.",
+    "use_when": [
+      "You need to display an open source licenses page in your mobile, desktop, or web application",
+      "You want to automate license information collection during your build or release process"
+    ],
+    "avoid_when": [
+      "You need runtime dynamic extraction of licenses without pre-generating a file"
+    ],
+    "strengths": [
+      "Supports generating either a Dart constant file or a JSON file",
+      "Detects SPDX license identifiers automatically",
+      "Handles complex workspaces and package directories"
+    ],
+    "weaknesses": [
+      "Requires pub get / pub upgrade to be run before generating licenses",
+      "Does nothing at runtime as it is purely a build-time tool"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the package to dev_dependencies in pubspec.yaml and run dart run dart_pubspec_licenses:generate",
+    "alternatives": [],
+    "minimal_example": "dev_dependencies:\n  dart_pubspec_licenses: ^3.2.0\n\n# Run command:\ndart run dart_pubspec_licenses:generate",
+    "confidence": 1
+  }
+}

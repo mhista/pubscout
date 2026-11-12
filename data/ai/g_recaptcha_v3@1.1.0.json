@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.1.0",
+  "generatedAt": "2026-11-10T13:05:30.794Z",
+  "data": {
+    "primary_category": "auth",
+    "secondary_categories": [
+      "utils",
+      "web-desktop"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Google reCAPTCHA v3 plugin for Flutter Web.",
+    "what_it_does": "Allows Flutter web apps to initialize Google reCAPTCHA v3 and generate tokens to protect websites from spam and abuse. It automatically injects the necessary script tag and provides methods for handling execution tokens, badge visibility, and error management.",
+    "use_when": [
+      "You are building a Flutter web application",
+      "You need to protect web forms or user actions against spam and bots using reCAPTCHA v3",
+      "You require reCAPTCHA Enterprise or recaptcha.net fallback support on the web"
+    ],
+    "avoid_when": [
+      "You are targeting non-web platforms primarily (iOS, Android)",
+      "You need reCAPTCHA v2 checkbox widgets instead of invisible v3 tokens"
+    ],
+    "strengths": [
+      "Automatically injects the reCAPTCHA script tag without requiring manual index.html modifications",
+      "Supports WebAssembly (WASM) builds and reCAPTCHA Enterprise",
+      "Provides advanced options like badge hiding, custom badge languages, and CSP nonces"
+    ],
+    "weaknesses": [
+      "Platform support is strictly limited to Flutter Web",
+      "Requires manual configuration and site keys set up in the Google reCAPTCHA admin console"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Create keys in the Google reCAPTCHA console, add the package to pubspec.yaml, and call GRecaptchaV3.ready with your site key.",
+    "alternatives": [],
+    "minimal_example": "import 'package:g_recaptcha_v3/g_recaptcha_v3.dart';\n\nvoid main() async {\n  WidgetsFlutterBinding.ensureInitialized();\n  if (kIsWeb) {\n    bool ready = await GRecaptchaV3.ready(\"<your Recaptcha site key>\");\n  }\n  runApp(const MyApp());\n}",
+    "confidence": 1
+  }
+}

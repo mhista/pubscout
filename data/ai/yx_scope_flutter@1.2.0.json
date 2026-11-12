@@ -1,0 +1,51 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.2.0",
+  "generatedAt": "2026-11-09T11:46:53.707Z",
+  "data": {
+    "primary_category": "dependency-injection",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "An adapter package that provides yx_scope widgets for Flutter UI integration.",
+    "what_it_does": "Provides Flutter widgets such as ScopeProvider, ScopeBuilder, ScopeListener, and ScopeConsumer to integrate yx_scope dependency management into the widget tree. It passes scopes down the tree and rebuilds widgets or triggers side effects in response to scope changes.",
+    "use_when": [
+      "You are already using yx_scope for dependency management in your application",
+      "You need to provide scopes down the Flutter widget tree using InheritedWidget",
+      "You want to rebuild widgets or trigger side effects based on scope state changes"
+    ],
+    "avoid_when": [
+      "You are not using the yx_scope package",
+      "You prefer a different dependency injection solution like get_it or provider"
+    ],
+    "strengths": [
+      "Seamless integration between yx_scope and Flutter UI",
+      "Reduces boilerplate using widgets like ScopeConsumer",
+      "Supports fine-grained widget rebuilding and lifecycle listening"
+    ],
+    "weaknesses": [
+      "Tightly coupled to the yx_scope ecosystem",
+      "Limited documentation outside of the repository introduction"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires adding yx_scope and yx_scope_flutter to dependencies and wrapping your app or subtree with ScopeProvider.",
+    "alternatives": [
+      {
+        "name": "get_it",
+        "why_pick_it": "A popular standalone service locator for Dart and Flutter without scoping widgets."
+      },
+      {
+        "name": "flutter_modular",
+        "why_pick_it": "Provides a complete modular architecture with built-in dependency injection and routing."
+      }
+    ],
+    "minimal_example": "ScopeProvider<RootScopeContainer>(\n  holder: scopeHolder,\n  child: MaterialApp(\n    home: ScopeBuilder<RootScopeContainer>.withPlaceholder(\n      builder: (context, rootScope) => SomeWidget(rootScope),\n      placeholder: const SizedBox.shrink(),\n    ),\n  ),\n)",
+    "confidence": 0.9
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.1.0",
+  "generatedAt": "2026-11-11T11:19:59.745Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "maps"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Retrieves public IP address and country location using no-key third-party providers.",
+    "what_it_does": "Retrieves a user's public IPv4 or IPv6 address and performs country and ISP lookups. It automatically falls back between multiple no-key third-party providers when services fail or time out.",
+    "use_when": [
+      "You need to detect the user's country based on their public IP address.",
+      "You want automatic fallback between multiple free IP geolocation services."
+    ],
+    "avoid_when": [
+      "You require absolute accuracy, as geolocation via public IP can be obscured by VPNs or proxies.",
+      "You need built-in caching for IP lookup results."
+    ],
+    "strengths": [
+      "Automatic fallback between multiple public IP and location providers.",
+      "IPv4 and IPv6 support.",
+      "Requires no API keys."
+    ],
+    "weaknesses": [
+      "Results are not cached, so multiple calls trigger independent requests.",
+      "Depending on timeouts across failed services, lookups can take several seconds to complete.",
+      "Public IP geolocation is approximate and prone to interference from VPNs and mobile networks."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Android release builds require the INTERNET permission in AndroidManifest.xml.",
+    "alternatives": [
+      {
+        "name": "dio",
+        "why_pick_it": "If you prefer making custom REST requests to a dedicated geolocation API instead of using a specialized package."
+      },
+      {
+        "name": "http",
+        "why_pick_it": "If you want to implement your own lightweight IP lookup logic using standard HTTP requests."
+      }
+    ],
+    "minimal_example": "import 'package:ip_country_lookup/ip_country_lookup.dart';\n\nfinal IpCountryLookup lookup = IpCountryLookup();\nfinal IpCountryData data = await lookup.getIpLocationData();\n\nif (data.responseCode == '200') {\n  print('${data.countryName} (${data.countryCode})');\n  print(data.isp);\n}",
+    "confidence": 1
+  }
+}

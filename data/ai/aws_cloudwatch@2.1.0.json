@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.1.0",
+  "generatedAt": "2026-11-12T11:26:33.707Z",
+  "data": {
+    "primary_category": "devtools",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Lightweight client for logging to AWS CloudWatch with automatic log group and stream creation.",
+    "what_it_does": "Allows Flutter and Dart applications to send logs and error messages directly to AWS CloudWatch. It automatically handles log group and stream creation, supports temporary credentials, and provides configurable batching and error retries.",
+    "use_when": [
+      "You need to centralize application logs and error reporting in AWS CloudWatch.",
+      "You want automatic creation of log groups and streams without manual AWS console setup."
+    ],
+    "avoid_when": [
+      "You require a backend crash reporting tool like Sentry or Firebase Crashlytics instead of raw log storage.",
+      "You are not using AWS CloudWatch for log management."
+    ],
+    "strengths": [
+      "Automatically creates missing log groups and log streams on the fly.",
+      "Supports multiple log groups and streams via CloudWatchHandler.",
+      "Handles temporary credentials and supports runtime credential updates."
+    ],
+    "weaknesses": [
+      "Exposes AWS access and secret keys directly in client code if temporary credentials or secure stores are not used.",
+      "Lacks native rich UI crash reporting dashboards compared to dedicated crash-reporting platforms."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires AWS credentials with CloudWatch Logs permissions. On Android, you must add the internet permission to AndroidManifest.xml.",
+    "alternatives": [],
+    "minimal_example": "import 'package:aws_cloudwatch/aws_cloudwatch.dart';\n\nCloudWatch cloudWatch = CloudWatch(\n  awsAccessKey: 'YOUR_ACCESS_KEY',\n  awsSecretKey: 'YOUR_SECRET_KEY',\n  region: 'us-west-2',\n  groupName: 'MyLogGroup',\n  streamName: 'MyLogStream',\n);\n\nvoid logHelloWorld() {\n  cloudWatch.log('Hello World!');\n}",
+    "confidence": 0.95
+  }
+}

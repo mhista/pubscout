@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.2.0",
+  "generatedAt": "2026-11-09T11:50:01.657Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "declarative"
+    ],
+    "one_liner": "A command pattern implementation for Dart and Flutter using result_dart.",
+    "what_it_does": "Encapsulates actions into commands with built-in state management for idle, running, success, failure, and cancellation states. It integrates with result_dart to handle operations and supports listening via ValueListenableBuilder or listeners.",
+    "use_when": [
+      "You want to encapsulate asynchronous actions and manage their execution lifecycle.",
+      "You need built-in state tracking (running, success, failure, cancelled) for UI buttons or components.",
+      "You use result_dart and want structured command handling."
+    ],
+    "avoid_when": [
+      "You prefer global state architectures like BLoC or Riverpod for complex application-wide state.",
+      "Your project does not use the result_dart package."
+    ],
+    "strengths": [
+      "Clean encapsulation of command lifecycle and state.",
+      "Built-in support for cancellation and timeouts.",
+      "Cached success and failure states to prevent unnecessary UI flickering."
+    ],
+    "weaknesses": [
+      "Tied specifically to the result_dart package.",
+      "Not a full architectural framework on its own for complex global states."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add result_command and result_dart to pubspec.yaml dependencies.",
+    "alternatives": [],
+    "minimal_example": "final fetchGreetingCommand = Command0<String>(\n  () async {\n    await Future.delayed(Duration(seconds: 2));\n    return Success('Hello, World!');\n  },\n);\n\nfetchGreetingCommand.execute();",
+    "confidence": 0.95
+  }
+}

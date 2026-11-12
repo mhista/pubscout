@@ -1,0 +1,48 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.1",
+  "generatedAt": "2026-11-10T12:44:23.429Z",
+  "data": {
+    "primary_category": "navigation",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Routing abstraction over Flutter navigator with nested navigation and deep links",
+    "what_it_does": "Nuvigator provides a routing abstraction over Flutter's native navigators to model complex navigation flows using a declarative approach. It helps with large modular apps, nested navigation, deep links, and managing route relationships.",
+    "use_when": [
+      "You need nested navigators with self-contained flows and proper back button handling",
+      "You are building large or modular apps requiring a unified API to register routes",
+      "You want deep linking support with path and query parameters"
+    ],
+    "avoid_when": [
+      "You prefer standard Flutter Navigator 2.0 or go_router without additional routing abstractions",
+      "You want a zero-configuration simple navigator for tiny apps"
+    ],
+    "strengths": [
+      "Handles nested navigation, Hero animations, and Android back button for children navigators",
+      "Declarative and concise API for defining routers and routes",
+      "Supports deep links with path and query parameters out of the box"
+    ],
+    "weaknesses": [
+      "Adds a custom abstraction layer over Flutter's navigation system",
+      "Requires learning its own router and route definition paradigms"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "go_router",
+        "why_pick_it": "It is the official declarative routing package backed by the Flutter team with built-in deep linking."
+      },
+      {
+        "name": "auto_route",
+        "why_pick_it": "You prefer code generation for strongly typed arguments and automatic route generation."
+      }
+    ],
+    "minimal_example": "class MyApp extends StatelessWidget {\n  @override\n  Widget build(BuildContext context) {\n    return MaterialApp(\n      title: 'Nuvigator App',\n      builder: Nuvigator.routes(\n        initialRoute: 'home',\n        screenType: materialScreenType,\n        routes: [\n          NuRouteBuilder(path: 'home', builder: (_, __, ___) => HomeScreen()),\n          NuRouteBuilder(path: 'second', builder: (_, __, ___) => SecondScreen()),\n        ],\n      ),\n    );\n  }\n}",
+    "confidence": 0.95
+  }
+}

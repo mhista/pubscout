@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.0",
+  "generatedAt": "2026-11-09T11:54:43.928Z",
+  "data": {
+    "primary_category": "notifications",
+    "secondary_categories": [],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "Flutter plugin to listen to incoming Android notifications and reply to them.",
+    "what_it_does": "Allows Flutter applications to listen to incoming and removed notifications on Android via a stream. It also provides capabilities to read notification details (such as title, content, icons) and send direct replies.",
+    "use_when": [
+      "You need to read incoming notifications from other apps on Android",
+      "You want to build an automation app that reacts to notifications",
+      "You need to send direct replies to notifications from Flutter"
+    ],
+    "avoid_when": [
+      "You only need to send local or push notifications for your own app",
+      "You are targeting iOS (plugin is focused on Android Notification Service)"
+    ],
+    "strengths": [
+      "Provides a stream of incoming and removed notifications",
+      "Supports sending direct replies to notifications",
+      "Exposes rich notification data including icons, images, and content"
+    ],
+    "weaknesses": [
+      "Android-specific platform limitations and configuration required",
+      "Requires manual user permission via system settings"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding a service tag with BIND_NOTIFICATION_LISTENER_SERVICE permission inside the AndroidManifest.xml and requesting runtime permission from the user.",
+    "alternatives": [
+      {
+        "name": "flutter_local_notifications",
+        "why_pick_it": "Pick flutter_local_notifications if you primarily need to display local notifications rather than listening to system-wide notifications from other apps."
+      }
+    ],
+    "minimal_example": "final bool status = await NotificationListenerService.isPermissionGranted();\nif (status) {\n  NotificationListenerService.notificationsStream.listen((event) {\n    print(\"Current notification: $event\");\n  });\n}",
+    "confidence": 0.95
+  }
+}

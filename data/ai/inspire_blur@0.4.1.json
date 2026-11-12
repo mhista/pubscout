@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.4.1",
+  "generatedAt": "2026-11-09T11:36:50.338Z",
+  "data": {
+    "primary_category": "ui-kits",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "GPU-powered progressive and variable blur effects for Flutter.",
+    "what_it_does": "Provides modern progressive blur effects using custom GPU shaders. It includes both backdrop blur and child blur widgets supporting directional fades, geometric shapes, custom masks, and color adjustments.",
+    "use_when": [
+      "You need variable or progressive blur intensities (e.g. fading gradients) that Flutter does not natively support.",
+      "You want to build glassmorphic UI elements like iOS-style system bars or blurred cards.",
+      "You are targeting platforms that support custom shaders and Impeller."
+    ],
+    "avoid_when": [
+      "You only require a simple uniform blur that can be handled out-of-the-box by standard Flutter widgets without custom shaders.",
+      "Your target environment lacks proper GPU shader support."
+    ],
+    "strengths": [
+      "GPU-accelerated custom shader implementation optimized for Impeller.",
+      "Supports both backdrop-level and child-level blur modes.",
+      "Extensive customization options including shapes, custom masks, color tinting, and color adjustments."
+    ],
+    "weaknesses": [
+      "Relies on custom shaders and rendering pipelines, which may behave differently depending on device capabilities and fallback modes.",
+      "Complex layered layouts may require careful selection between imageFilter and animatedSampler modes."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "It is recommended to call Inspire.warmUp() during app startup to pre-load shaders.",
+    "alternatives": [],
+    "minimal_example": "Inspire.childBlur(\n  config: InspireBlurConfig.topToBottom(sigma: 8),\n  child: MyWidget(),\n)",
+    "confidence": 0.95
+  }
+}

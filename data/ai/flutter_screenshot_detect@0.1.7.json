@@ -1,0 +1,37 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.1.7",
+  "generatedAt": "2026-11-11T11:39:42.805Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "Detects screenshots on Android and iOS devices in real-time.",
+    "what_it_does": "Detects when a user takes a screenshot on Android and iOS devices. It offers real-time event listening through an EventChannel, supporting both modern Android screen capture callbacks and legacy content observers.",
+    "use_when": [
+      "You need to know when a user takes a screenshot of your app.",
+      "You want to handle screenshot events on both Android and iOS."
+    ],
+    "avoid_when": [
+      "You need to programmatically prevent screenshots rather than just detect them."
+    ],
+    "strengths": [
+      "Supports both Android and iOS.",
+      "Provides real-time event listening using streams.",
+      "Handles modern Android 14+ screen capture callbacks and older content observers."
+    ],
+    "weaknesses": [
+      "Requires platform-specific permissions (like READ_EXTERNAL_STORAGE) for older Android versions."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add READ_EXTERNAL_STORAGE permission in AndroidManifest.xml for Android versions below 14 if targeting older devices.",
+    "alternatives": [],
+    "minimal_example": "final FlutterScreenshotDetect _detector = FlutterScreenshotDetect();\n\n@override\nvoid initState() {\n  super.initState();\n  _detector.startListening((event) {\n    print('Screenshot Taken');\n  });\n}\n\n@override\nvoid dispose() {\n  _detector.stopListening();\n  super.dispose();\n}",
+    "confidence": 1
+  }
+}

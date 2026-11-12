@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.1.6",
+  "generatedAt": "2026-11-12T11:43:13.252Z",
+  "data": {
+    "primary_category": "ai-ml",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "A Dart and Flutter SDK for OpenAI APIs including GPT-4, GPT-5, o1, and assistants.",
+    "what_it_does": "Connects your Flutter app to OpenAI's advanced AI models, supporting chat completions, streaming SSE, image generation, audio transcription, embeddings, and fine-tuning.",
+    "use_when": [
+      "You want to integrate ChatGPT, DALL-E, or other OpenAI models into a Flutter app.",
+      "You need support for server-sent event (SSE) streaming responses from AI models."
+    ],
+    "avoid_when": [
+      "You want an on-device machine learning solution instead of a cloud-based API.",
+      "You are building an app with Firebase-based AI features and prefer using the official Firebase AI SDK."
+    ],
+    "strengths": [
+      "Comprehensive coverage of OpenAI APIs including chat completions, assistants, files, audio, and fine-tuning.",
+      "Supports modern features such as reasoning models (o1, o3-mini), developer roles, and prompt caching."
+    ],
+    "weaknesses": [
+      "Community-maintained and unofficial SDK.",
+      "Requires managing API keys and handling network communication costs."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires an OpenAI API token passed during initialization.",
+    "alternatives": [
+      {
+        "name": "firebase_ai",
+        "why_pick_it": "If you prefer using Firebase as the gateway for your generative AI models."
+      },
+      {
+        "name": "llamadart",
+        "why_pick_it": "If you want to run local language models instead of relying on a cloud OpenAI API."
+      }
+    ],
+    "minimal_example": "final openAI = OpenAI.instance.build(token: 'YOUR_TOKEN', baseOption: HttpSetup(receiveTimeout: const Duration(seconds: 5)), enableLog: true);\nfinal request = ChatCompleteText(messages: [Map.of({\"role\": \"user\", \"content\": 'Hello!'})], maxToken: 200, model: Gpt4oMiniChatModel());\nfinal response = await openAI.onChatCompletion(request: request);",
+    "confidence": 0.95
+  }
+}

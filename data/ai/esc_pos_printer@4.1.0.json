@@ -1,0 +1,37 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.1.0",
+  "generatedAt": "2026-11-12T11:41:50.400Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Print receipts using an ESC/POS thermal WiFi or Ethernet printer in Flutter and Dart projects.",
+    "what_it_does": "Allows connecting to thermal printers via IP addresses and ports to print styled text, images, barcodes, and manage printer cutting and cash drawers.",
+    "use_when": [
+      "You need to print receipts or tickets to a network-connected ESC/POS thermal printer.",
+      "You are working on a Flutter or pure Dart project requiring local receipt printing over WiFi/Ethernet."
+    ],
+    "avoid_when": [
+      "You are trying to print using Bluetooth printers (use esc_pos_bluetooth instead).",
+      "You need complex document layout generation like multi-page PDF generation."
+    ],
+    "strengths": [
+      "Simple API to connect via host and port to thermal printers.",
+      "Supports text styling, code tables, images, and receipt cutting out of the box."
+    ],
+    "weaknesses": [
+      "Bluetooth support was moved to a separate library.",
+      "Does not include built-in network scanning (requires external packages like ping_discover_network)."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [],
+    "minimal_example": "import 'package:esc_pos_printer/esc_pos_printer.dart';\n\nconst PaperSize paper = PaperSize.mm80;\nfinal profile = await CapabilityProfile.load();\nfinal printer = NetworkPrinter(paper, profile);\n\nfinal PosPrintResult res = await printer.connect('192.168.0.123', port: 9100);\n\nif (res == PosPrintResult.success) {\n  printer.text('Hello World');\n  printer.cut();\n  printer.disconnect();\n}",
+    "confidence": 0.95
+  }
+}

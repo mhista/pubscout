@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "1.7.1",
+  "generatedAt": "2026-11-09T11:12:09.271Z",
+  "data": {
+    "primary_category": "codegen",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "code generation"
+    ],
+    "one_liner": "Generates Dart code that embeds arbitrary file contents as literals.",
+    "what_it_does": "The package reads non‑Dart files at build time and creates Dart constants (strings, binary, or structured records) containing their contents. It updates the generated code whenever the source files change.",
+    "use_when": [
+      "You need compile‑time access to configuration files, test fixtures, or other assets without runtime I/O.",
+      "You want type‑safe access to embedded structured data like YAML, JSON, or TOML."
+    ],
+    "avoid_when": [
+      "You require dynamic loading of files at runtime.",
+      "The project targets platforms where build_runner is unavailable or undesirable."
+    ],
+    "strengths": [
+      "Eliminates runtime file I/O and async handling",
+      "Supports multiple formats (text, binary, YAML, JSON, TOML)",
+      "Works with Dart records for structured data"
+    ],
+    "weaknesses": [
+      "Requires build_runner and code generation step",
+      "Only works for compile‑time known files",
+      "Limited to Dart‑only projects"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add embed_annotation, embed, and build_runner as dev dependencies; run build_runner to generate code.",
+    "alternatives": [],
+    "minimal_example": "import 'package:embed_annotation/embed_annotation.dart';\npart 'example.g.dart';\n\n@EmbedLiteral('assets/config.yaml')\nconst config = _$config;",
+    "confidence": 0.86
+  }
+}

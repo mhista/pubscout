@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "1.10.1",
+  "generatedAt": "2026-11-09T11:14:32.045Z",
+  "data": {
+    "primary_category": "devtools",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Tool to rename package identifiers across all platform files in a Flutter project",
+    "what_it_does": "Updates package names, app names, bundle identifiers, and related fields in Android, iOS, Linux, macOS, Web, and Windows files. It scans and replaces 37 fields across 19 files to make a project production‑ready.",
+    "use_when": [
+      "You need to change the package name or bundle identifier for a new release",
+      "You want to rename the app name or organization across all platforms",
+      "You are migrating a project to a new namespace or company"
+    ],
+    "avoid_when": [
+      "You only need to change a single file manually",
+      "You are working on a non‑Flutter project"
+    ],
+    "strengths": [
+      "Fast, handles many files automatically",
+      "Supports all major platforms",
+      "Configurable via a single YAML file or pubspec section",
+      "No code generation required"
+    ],
+    "weaknesses": [
+      "Only a dev dependency, not usable at runtime",
+      "May not cover custom or non‑standard project templates",
+      "Requires manual configuration of fields"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add to dev_dependencies in pubspec.yaml and run `dart run package_rename` (or with --flavour or --path). No build_runner or permissions needed.",
+    "alternatives": [],
+    "minimal_example": "```yaml\n# pubspec.yaml\n\ndev_dependencies:\n  package_rename: ^1.10.1\n\n# package_rename_config:\n#   android:\n#     app_name: \"My App\"\n#     package_name: \"com.example.myapp\"\n#   ios:\n#     app_name: \"My App\"\n#     bundle_name: \"My App\"\n#     package_name: \"com.example.myapp\"\n```\n```bash\ndart run package_rename\n```",
+    "confidence": 0.9
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "7.3.4",
+  "generatedAt": "2026-11-12T11:31:05.102Z",
+  "data": {
+    "primary_category": "navigation",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Intent-based router for Flutter with deep linking and nested navigation.",
+    "what_it_does": "DuckRouter lets you define routes as intent classes, providing type-safe navigation and interceptors for pre-navigation logic. It supports dynamic route registration, deep linking, and nested navigation out of the box.",
+    "use_when": [
+      "You need type-safe, intent-based routing with deep linking support",
+      "You want to add authentication or feature-flag interceptors",
+      "You require nested navigation without boilerplate"
+    ],
+    "avoid_when": [
+      "You prefer a code-generation based router like auto_route",
+      "You need extensive custom page transition animations not covered by DuckRouter"
+    ],
+    "strengths": [
+      "Type-safe intent classes reduce navigation errors",
+      "Built-in interceptors simplify auth and feature-flag flows",
+      "Dynamic registry allows routes to be added at runtime",
+      "Supports deep linking and nested navigation"
+    ],
+    "weaknesses": [
+      "No code generation support",
+      "Documentation is limited compared to go_router",
+      "Custom page transitions may require extra work"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add DuckRouter to MaterialApp.router and call DuckRouter.of(context).navigate()",
+    "alternatives": [
+      {
+        "name": "go_router",
+        "why_pick_it": "Popular, well-documented, supports code generation and extensive customizations"
+      }
+    ],
+    "minimal_example": "final router = DuckRouter(initialLocation: const HomeLocation());\nreturn MaterialApp.router(routerConfig: router);\n\nclass HomeLocation extends Location {\n  const HomeLocation();\n  @override\n  String get path => '/home';\n  @override\n  LocationBuilder get builder => (context) => const HomeScreen();\n}\n",
+    "confidence": 0.9
+  }
+}

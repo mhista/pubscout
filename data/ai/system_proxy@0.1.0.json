@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.1.0",
+  "generatedAt": "2026-11-11T11:28:52.394Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "device"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "A Flutter plugin to retrieve system proxy settings for Dart HttpClient.",
+    "what_it_does": "Retrieves the device's system proxy settings so you can configure Dart's HttpClient to route traffic through a proxy. This makes it easier to inspect and grab HTTP requests for testing.",
+    "use_when": [
+      "You need to grab and test Dart HttpClient requests using a network proxy tool",
+      "You want to automatically adapt to system proxy settings on Android and iOS"
+    ],
+    "avoid_when": [
+      "Targeting Android versions below 23",
+      "You are not using Dart's HttpClient or need a completely custom proxy solution without system lookup"
+    ],
+    "strengths": [
+      "Solves the specific problem of Dart HttpClient ignoring system proxy settings by default",
+      "Simple API to get host and port settings"
+    ],
+    "weaknesses": [
+      "Limited to Android >= 23 and iOS",
+      "Basic features with no extensive configuration options documented"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Useful for Android >= 23.",
+    "alternatives": [],
+    "minimal_example": "Map<String, String> proxy = await SystemProxy.getProxySettings();\nif (proxy != null) {\n    print('proxy $proxy');\n}",
+    "confidence": 0.95
+  }
+}

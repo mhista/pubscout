@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "1.0.5",
+  "generatedAt": "2026-11-12T11:32:32.684Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Middleware logger for Dart's http package that prints requests and responses in a readable format.",
+    "what_it_does": "It wraps the http client with middleware support, allowing you to log request/response details, set timeouts, and customize behavior. You can also build your own middleware to modify data or handle errors.",
+    "use_when": [
+      "You need detailed logging of HTTP calls in a pure Dart project",
+      "You want a drop‑in replacement for http with middleware capabilities without adding Flutter dependencies"
+    ],
+    "avoid_when": [
+      "You require a full‑featured HTTP client with built‑in retry, caching, or advanced features",
+      "You are already using Dio or another client that provides its own logging"
+    ],
+    "strengths": [
+      "Simple integration with the standard http package",
+      "Supports custom middleware and request timeout",
+      "Pure Dart, no Flutter dependency"
+    ],
+    "weaknesses": [
+      "Limited to logging and basic middleware; no advanced features like retries or caching",
+      "Relies on http package, so switching clients requires code changes"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "dio",
+        "why_pick_it": "Provides a richer HTTP client with built‑in interceptors, retries, and extensive configuration"
+      }
+    ],
+    "minimal_example": "import 'package:pretty_http_logger/pretty_http_logger.dart';\n\nvoid main() async {\n  final http = HttpWithMiddleware.build(middlewares: [HttpLogger(logLevel: LogLevel.BODY)]);\n  final response = await http.get('https://jsonplaceholder.typicode.com/posts/');\n  print(response.body);\n}",
+    "confidence": 0.86
+  }
+}

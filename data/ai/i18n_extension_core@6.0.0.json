@@ -1,0 +1,58 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "6.0.0",
+  "generatedAt": "2026-11-11T11:11:37.185Z",
+  "data": {
+    "primary_category": "localization",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "no codegen",
+      "imperative"
+    ],
+    "one_liner": "Dart-only i18n library providing string extensions for translation, plural and gender handling.",
+    "what_it_does": "It adds extension methods to String for translating text based on locale maps. Supports pluralization, gender modifiers, and default locale setting without Flutter widgets.",
+    "use_when": [
+      "You need i18n in pure Dart or server-side code",
+      "You want lightweight translation without Flutter dependencies",
+      "You prefer extension‑method API over ARB files"
+    ],
+    "avoid_when": [
+      "You need Flutter widget integration like I18n widget",
+      "You rely on code‑generated localization (e.g., intl)",
+      "You need platform‑specific locale detection"
+    ],
+    "strengths": [
+      "Works in any Dart environment (Flutter or server)",
+      "Simple API using extensions",
+      "Supports gender and plural modifiers",
+      "No code generation required"
+    ],
+    "weaknesses": [
+      "No built‑in Flutter widget support",
+      "Limited tooling compared to intl (e.g., IDE extraction)",
+      "Documentation focuses on core usage; Flutter docs are separate"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "intl",
+        "why_pick_it": "Standard Flutter/Dart localization with ARB files and code generation"
+      },
+      {
+        "name": "easy_localization",
+        "why_pick_it": "Provides Flutter widgets and easy JSON/YAML based translations"
+      },
+      {
+        "name": "slang",
+        "why_pick_it": "Offers code generation for type‑safe translations and IDE support"
+      }
+    ],
+    "minimal_example": "import 'package:i18n_extension_core/i18n_extension_core.dart';\n\nextension Localization on String {\n  static var t = Translations.byText('en_us') + {'en_us':'Hello','pt_br':'Hola'};\n  String get i18n => localize(this, t);\n}\n\nvoid main(){\n  DefaultLocale.set('pt_br');\n  print('Hello'.i18n); // Hola\n}",
+    "confidence": 0.97
+  }
+}

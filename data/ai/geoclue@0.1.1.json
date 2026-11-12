@@ -1,0 +1,47 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.8-flash",
+  "version": "0.1.1",
+  "generatedAt": "2026-11-11T11:04:39.078Z",
+  "data": {
+    "primary_category": "maps",
+    "secondary_categories": [
+      "device",
+      "web-desktop"
+    ],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "Dart client for the GeoClue D-Bus geolocation service on Linux.",
+    "what_it_does": "Communicates with the GeoClue D-Bus service to provide geolocation data on Linux systems. It allows fetching current location information as well as listening to continuous location update streams. Geolocation can be derived from various sources including WiFi, GPS, 3G modems, and GeoIP.",
+    "use_when": [
+      "Building Linux desktop applications in Dart or Flutter that require location information",
+      "Accessing native Linux geolocation data through the GeoClue D-Bus daemon"
+    ],
+    "avoid_when": [
+      "Developing cross-platform applications targeting mobile (iOS/Android) or macOS/Windows",
+      "Running on Linux environments without the GeoClue D-Bus daemon available"
+    ],
+    "strengths": [
+      "Direct integration with the standard Linux desktop geolocation daemon via D-Bus",
+      "Supports both one-off location fetching and reactive location update streams",
+      "Leverages multiple Linux-supported location sources ranging from GPS to GeoIP"
+    ],
+    "weaknesses": [
+      "Strictly limited to Linux platforms",
+      "Requires the host Linux environment to have GeoClue configured and running"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires GeoClue and D-Bus installed and accessible on the Linux system, as well as specifying a desktopId.",
+    "alternatives": [
+      {
+        "name": "geolocator",
+        "why_pick_it": "Pick geolocator if you need a cross-platform location solution covering mobile, web, and desktop platforms."
+      }
+    ],
+    "minimal_example": "import 'package:geoclue/geoclue.dart';\n\nFuture<void> main() async {\n  final location = await GeoClue.getLocation(desktopId: 'my_app_id');\n  print('Current location: $location');\n}",
+    "confidence": 0.95
+  }
+}

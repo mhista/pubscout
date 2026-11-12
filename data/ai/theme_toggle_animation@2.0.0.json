@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.0",
+  "generatedAt": "2026-11-09T11:41:45.237Z",
+  "data": {
+    "primary_category": "theming",
+    "secondary_categories": [
+      "animation",
+      "ui-kits"
+    ],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "Smooth animated theme switching for Flutter with circle, line, and custom GIF mask effects.",
+    "what_it_does": "Provides animated transitions when switching between different themes in a Flutter application. It supports circle reveals, scanning lines, and custom GIF mask animations with configurable durations, curves, and blur effects.",
+    "use_when": [
+      "You want smooth visual transitions when toggling between light and dark modes.",
+      "You need custom reveal animations such as a scanning line or GIF mask for theme changes."
+    ],
+    "avoid_when": [
+      "You do not need animated theme transitions and prefer instantaneous switching.",
+      "Your project cannot use the `material_ui` package dependency."
+    ],
+    "strengths": [
+      "Offers multiple animation types including circle, line, and custom GIF masks.",
+      "State management agnostic (works with Provider, Riverpod, Bloc, GetX, or setState).",
+      "Optimized with RepaintBoundary and content caching for smooth performance."
+    ],
+    "weaknesses": [
+      "Depends on `material_ui` instead of standard `package:flutter/material.dart` in version 2.0.0.",
+      "Limited to theme transition visual effects."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add theme_toggle_animation to pubspec.yaml and update imports to use package:material_ui/material_ui.dart.",
+    "alternatives": [],
+    "minimal_example": "ThemeToggleAnimation(\n  currentTheme: _isDark ? ThemeData.dark() : ThemeData.light(),\n  onToggle: () => setState(() => _isDark = !_isDark),\n  builder: (context, toggle) => MaterialApp(\n    home: Scaffold(\n      appBar: AppBar(\n        actions: [\n          IconButton(\n            icon: Icon(_isDark ? Icons.light_mode : Icons.dark_mode),\n            onPressed: toggle,\n          ),\n        ],\n      ),\n      body: const Center(child: Text('Hello World')),\n    ),\n  ),\n  child: const SizedBox.expand(),\n)",
+    "confidence": 0.95
+  }
+}

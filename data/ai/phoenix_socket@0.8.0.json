@@ -1,0 +1,37 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.8.0",
+  "generatedAt": "2026-11-09T11:23:17.729Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [],
+    "approach": [
+      "stream-based"
+    ],
+    "one_liner": "Dart implementation of Phoenix Sockets and Channels over WebSockets.",
+    "what_it_does": "PhoenixSocket provides a feature-complete implementation of Phoenix Sockets using StreamChannels, allowing Dart and Flutter applications to interact with Phoenix Channels and Presence over WebSockets. It replicates the JavaScript Phoenix client API while leveraging Dart's native Streams and Futures.",
+    "use_when": [
+      "You need to connect a Flutter app to a Phoenix backend using Channels.",
+      "You want real-time bi-directional communication via WebSockets using a familiar Phoenix socket API."
+    ],
+    "avoid_when": [
+      "You are communicating with a standard REST or GraphQL backend instead of Phoenix Sockets.",
+      "You require a completely out-of-the-box solution for non-Phoenix WebSocket servers without adapting to the Phoenix protocol."
+    ],
+    "strengths": [
+      "Consistent API across web and native environments using web_socket_channel.",
+      "Built-in support for auto-reconnection and channel management."
+    ],
+    "weaknesses": [
+      "Presence support is currently experimental.",
+      "Limited specifically to the Phoenix framework's channel protocol."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the dependency to pubspec.yaml and import it.",
+    "alternatives": [],
+    "minimal_example": "import 'package:phoenix_socket/phoenix_socket.dart';\n\nfinal socket = PhoenixSocket('ws://localhost:4000/socket/websocket');\nawait socket.connect();",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.13.13",
+  "generatedAt": "2026-11-11T11:22:13.564Z",
+  "data": {
+    "primary_category": "backend",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Support for using Dart as a custom runtime on Google App Engine Flexible Environment.",
+    "what_it_does": "Provides utilities and request handlers to run server applications written in Dart on Google App Engine using custom runtimes with the Flexible Environment. It sets up integrations for logging, requests, and cloud services.",
+    "use_when": [
+      "You want to host a Dart server application on Google App Engine Flexible Environment",
+      "You need integration with Google Cloud services and standard App Engine environment variables"
+    ],
+    "avoid_when": [
+      "You are deploying to a different cloud provider or standard server hosting",
+      "You prefer stable packages since this package is experimental"
+    ],
+    "strengths": [
+      "Official integration for running Dart on Google App Engine Flexible Environment",
+      "Handles standard HttpRequest routing and runAppEngine setup"
+    ],
+    "weaknesses": [
+      "Currently experimental with a higher expected rate of API and breaking changes",
+      "Requires external setup with Google Cloud SDK and Docker"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires Google Cloud SDK, gcloud auth, Docker configuration, and app.yaml setup.",
+    "alternatives": [],
+    "minimal_example": "import 'dart:io';\nimport 'package:appengine/appengine.dart';\n\nrequestHandler(HttpRequest request) {\n  request.response\n      ..write('Hello, world!')\n      ..close();\n}\n\nmain() async {\n  await runAppEngine(requestHandler);\n}",
+    "confidence": 1
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.5",
+  "generatedAt": "2026-11-11T11:45:33.439Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "Flutter client library for receiving Server-Sent Events (SSE) over HTTP.",
+    "what_it_does": "Allows establishing Server-Sent Events connections using the HTTP package to receive real-time updates from servers. It supports custom request parameters, automatic reconnections with exponential backoff, and dynamic data deserialization.",
+    "use_when": [
+      "You need to stream real-time updates from a backend server via Server-Sent Events.",
+      "You want automatic retry logic and connection failure handling for SSE streams."
+    ],
+    "avoid_when": [
+      "You need bi-directional real-time communication via WebSockets instead of unidirectional SSE."
+    ],
+    "strengths": [
+      "Supports automatic reconnection with exponential backoff on connection failures",
+      "Allows custom headers and dynamic deserialization of received data",
+      "Handles both GET and POST requests for SSE streams"
+    ],
+    "weaknesses": [
+      "Limited to unidirectional server-sent event streams",
+      "Relies solely on the HTTP package for underlying network requests"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "web_socket_channel",
+        "why_pick_it": "Choose this if you require full bi-directional communication via WebSockets instead of unidirectional server-sent events."
+      },
+      {
+        "name": "http",
+        "why_pick_it": "Choose this if you only need standard request-response HTTP operations without built-in SSE stream handling."
+      }
+    ],
+    "minimal_example": "import 'package:flutter_http_sse/model/sse_request.dart';\nimport 'package:flutter_http_sse/service/sse_client.dart';\n\nfinal request = SSERequest(\n  requestType: RequestMethodType.GET,\n  url: \"https://your-sse-endpoint.com/stream\",\n  onData: (data) => print(\"Received: $data\"),\n  retry: true,\n);\n\nfinal sseClient = SSEClient();\nfinal Stream<SSEResponse> stream = sseClient.connect(\"connectionId\", request);",
+    "confidence": 0.95
+  }
+}

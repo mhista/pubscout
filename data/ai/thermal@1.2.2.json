@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.2.2",
+  "generatedAt": "2026-11-10T12:50:56.404Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Flutter plugin to access device thermal state and detect thermal throttling.",
+    "what_it_does": "It allows Flutter apps to access the current thermal state of the device and listen to thermal status changes. Additionally, it provides a stream to watch battery temperature changes on Android.",
+    "use_when": [
+      "You want to detect if the user's device is undergoing thermal throttling",
+      "You need to monitor battery or device temperature changes to adjust app workloads"
+    ],
+    "avoid_when": [
+      "You need detailed hardware diagnostics beyond thermal status and battery temperature"
+    ],
+    "strengths": [
+      "Simple API to query thermal status",
+      "Stream-based updates for thermal status changes and battery temperature"
+    ],
+    "weaknesses": [
+      "Limited documentation regarding platform-specific limitations or supported versions",
+      "Battery temperature tracking is Android-only based on changelog"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the dependency to pubspec.yaml and import the package. Follow standard platform configuration if required by native thermal APIs.",
+    "alternatives": [
+      {
+        "name": "device_info_plus",
+        "why_pick_it": "Provides general hardware and OS device information if thermal metrics are not strictly required."
+      }
+    ],
+    "minimal_example": "var _thermal = Thermal();\nprint(await _thermal.thermalStatus);\n\n_thermal.onThermalStatusChanged.listen((ThermalStatus state) {\n  // Do something with new status\n});",
+    "confidence": 0.95
+  }
+}

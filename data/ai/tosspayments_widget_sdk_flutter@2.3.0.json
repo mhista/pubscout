@@ -1,0 +1,48 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.3.0",
+  "generatedAt": "2026-11-11T11:40:02.677Z",
+  "data": {
+    "primary_category": "payments",
+    "secondary_categories": [
+      "web-desktop"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Integrate Toss Payments widgets and payment flows into Flutter applications.",
+    "what_it_does": "Provides widget integration for the Toss Payments SDK on Flutter, allowing developers to render payment methods, handle agreements, request payments, and manage payment redirects.",
+    "use_when": [
+      "You need to integrate Toss Payments into an Android or iOS Flutter app.",
+      "You want to use Toss Payments checkout widgets and agreement components."
+    ],
+    "avoid_when": [
+      "You are using a payment gateway other than Toss Payments.",
+      "Your target platforms do not include Android or iOS."
+    ],
+    "strengths": [
+      "Official widget SDK support for Toss Payments in Flutter.",
+      "Handles payment methods, agreements, and app-to-app redirects (such as Alipay/Antom)."
+    ],
+    "weaknesses": [
+      "Requires platform-specific configuration (such as Android INTERNET permission and cleartext traffic settings).",
+      "Limited to a single payment gateway ecosystem."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires setting Android INTERNET permission and enabling usesCleartextTraffic in AndroidManifest.xml.",
+    "alternatives": [
+      {
+        "name": "flutter_stripe",
+        "why_pick_it": "If you are integrating Stripe instead of Toss Payments for your gateway."
+      },
+      {
+        "name": "in_app_purchase",
+        "why_pick_it": "If you need native app store in-app purchases rather than a third-party payment gateway."
+      }
+    ],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:tosspayments_widget_sdk_flutter/model/payment_info.dart';\nimport 'package:tosspayments_widget_sdk_flutter/model/payment_widget_options.dart';\nimport 'package:tosspayments_widget_sdk_flutter/payment_widget.dart';\nimport 'package:tosspayments_widget_sdk_flutter/widgets/agreement.dart';\nimport 'package:tosspayments_widget_sdk_flutter/widgets/payment_method.dart';\n\nvoid main() {\n  runApp(const MyApp());\n}\n\nclass MyApp extends StatelessWidget {\n  const MyApp({super.key});\n\n  @override\n  Widget build(BuildContext context) {\n    return const MaterialApp(\n      home: PaymentWidgetExamplePage(),\n    );\n  }\n}\n\nclass PaymentWidgetExamplePage extends StatefulWidget {\n  const PaymentWidgetExamplePage({super.key});\n\n  @override\n  State<PaymentWidgetExamplePage> createState() {\n    return _PaymentWidgetExamplePageState();\n  }\n}\n\nclass _PaymentWidgetExamplePageState extends State<PaymentWidgetExamplePage> {\n  late PaymentWidget _paymentWidget;\n\n  @override\n  void initState() {\n    super.initState();\n    _paymentWidget = PaymentWidget(clientKey: \"test_gck_docs_Ovk5rk1EwkEbP0W43n07xlzm\", customerKey: \"a1b2c3d4e5f67890\");\n  }\n\n  @override\n  Widget build(BuildContext context) {\n    return Scaffold(\n        body: SafeArea(\n            child: Column(children: [\n              Expanded(\n                  child: ListView(children: [\n                    PaymentMethodWidget(\n                      paymentWidget: _paymentWidget,\n                      selector: 'methods',\n                    ),\n                  ]))\n            ])));\n  }\n}",
+    "confidence": 1
+  }
+}

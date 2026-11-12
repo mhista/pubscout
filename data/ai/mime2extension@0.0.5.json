@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.0.5",
+  "generatedAt": "2026-11-12T11:19:42.232Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "files"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Convert between MIME types and file extensions and detect file types from base64 data.",
+    "what_it_does": "Provides bidirectional conversion between MIME types and file extensions with wildcard support. It also detects file extensions and MIME types from base64-encoded binary data using magic bytes and container inspection.",
+    "use_when": [
+      "You need to resolve file extensions to MIME types or vice versa.",
+      "You need to determine a file type from base64 string data or data URIs.",
+      "You want wildcard lookups for broad file categories like image/*."
+    ],
+    "avoid_when": [
+      "You need direct file system path manipulation utilities.",
+      "You are reading files directly from disk streams instead of handling strings/base64."
+    ],
+    "strengths": [
+      "Comprehensive database of MIME types and over 400 file signatures.",
+      "Supports wildcards for category-based extension queries.",
+      "Zero external dependencies except the Flutter SDK."
+    ],
+    "weaknesses": [
+      "Limited to string and base64 inputs rather than direct binary stream parsing."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:mime2extension/mime2extension.dart';\n\nString? mimeType = extension2Mime('pdf');\nList<String> pdfExts = mime2Extension(['application/pdf']);\nString? ext = base64ToExtension('iVBORw0KGgo...');",
+    "confidence": 1
+  }
+}

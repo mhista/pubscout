@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.1.0",
+  "generatedAt": "2026-11-12T11:39:33.454Z",
+  "data": {
+    "primary_category": "devtools",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Monitor your Flutter app's FPS and performance metrics in real time with an overlay badge.",
+    "what_it_does": "A Flutter widget that wraps your application to monitor and display real-time FPS, frame times, min/max values, and charts. It includes customizable alert thresholds, jank indicators, and interactive features like dragging and collapsing.",
+    "use_when": [
+      "You need to monitor and debug frame rendering performance during development.",
+      "You want a visual overlay showing real-time FPS, dropped frames, and jank indicators."
+    ],
+    "avoid_when": [
+      "You are running production builds where performance overlays should be completely hidden.",
+      "You need deep native profiling tools rather than a lightweight on-screen FPS badge."
+    ],
+    "strengths": [
+      "Provides real-time FPS monitoring with microsecond precision.",
+      "Includes interactive charts, jank detection, and customizable alert thresholds.",
+      "Supports dragging, collapsing, and temporary hiding features."
+    ],
+    "weaknesses": [
+      "Adds an overlay widget to the widget tree which may slightly impact rendering.",
+      "Limited to visual on-screen metrics rather than full memory or CPU profiling."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Simply wrap your main widget or MaterialApp with the ShowFPS widget.",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:show_fps/show_fps.dart';\n\nvoid main() {\n  runApp(const MyApp());\n}\n\nclass MyApp extends StatelessWidget {\n  const MyApp({super.key});\n\n  @override\n  Widget build(BuildContext context) {\n    return MaterialApp(\n      home: ShowFPS(\n        child: const Scaffold(\n          body: Center(child: Text('Hello World')),\n        ),\n      ),\n    );\n  }\n}",
+    "confidence": 0.95
+  }
+}

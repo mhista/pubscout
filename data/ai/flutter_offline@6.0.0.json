@@ -1,0 +1,48 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "6.0.0",
+  "generatedAt": "2026-11-12T11:17:44.353Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Widget to detect and display online/offline status in Flutter apps.",
+    "what_it_does": "Provides a widget that listens to connectivity changes and shows a UI banner indicating online or offline state. It wraps your content so you can react to network availability without writing boilerplate code.",
+    "use_when": [
+      "You need a quick visual indicator of network connectivity",
+      "You want to show different UI when the app is offline",
+      "You prefer a widget‑based solution over manual stream handling"
+    ],
+    "avoid_when": [
+      "You need fine‑grained network request retry logic",
+      "You require custom connectivity handling beyond a simple banner",
+      "You want a full‑featured networking stack"
+    ],
+    "strengths": [
+      "Very easy to drop into existing UI",
+      "Works on all major Flutter platforms",
+      "Handles permission and platform differences internally"
+    ],
+    "weaknesses": [
+      "Only provides UI feedback, not request queuing or caching",
+      "Limited customization of the offline widget",
+      "Relies on connectivity_plus which may have its own limitations"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add <uses-permission android:name=\"android.permission.INTERNET\"/> to AndroidManifest if not present",
+    "alternatives": [
+      {
+        "name": "connectivity_plus",
+        "why_pick_it": "Provides raw connectivity streams without UI, allowing custom handling"
+      }
+    ],
+    "minimal_example": "OfflineBuilder(\n  connectivityBuilder: (context, connectivity, child) {\n    final connected = !connectivity.contains(ConnectivityResult.none);\n    return Stack(\n      children: [\n        Positioned(\n          height: 24,\n          left: 0,\n          right: 0,\n          child: Container(\n            color: connected ? Color(0xFF00EE44) : Color(0xFFEE4400),\n            child: Center(child: Text(connected ? 'ONLINE' : 'OFFLINE')),\n          ),\n        ),\n        child,\n      ],\n    );\n  },\n  child: Center(child: Text('Content')),\n);",
+    "confidence": 0.9
+  }
+}

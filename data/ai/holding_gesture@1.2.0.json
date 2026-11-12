@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "1.2.0",
+  "generatedAt": "2026-11-09T11:16:48.565Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A widget that detects long presses and triggers callbacks after a hold timeout.",
+    "what_it_does": "HoldDetector extends GestureDetector to call a callback after a specified hold duration. HoldTimeoutDetector triggers callbacks when a hold reaches a timeout, with optional cancel and initiation callbacks.",
+    "use_when": [
+      "You need a button that reacts to long presses with a custom timeout.",
+      "You want haptic feedback on each hold tick.",
+      "You need to perform an action only after the user holds for a set duration.",
+      "You want to cancel the action if the user releases early."
+    ],
+    "avoid_when": [
+      "You only need a simple tap or long press without custom timeout logic.",
+      "You are building a complex gesture system that requires low-level gesture recognizers.",
+      "You need to support gestures on platforms that don't support haptic feedback."
+    ],
+    "strengths": [
+      "Simple API that mirrors GestureDetector.",
+      "Supports custom hold timeout and haptic feedback.",
+      "Provides both immediate hold and timeout-based callbacks.",
+      "No external dependencies beyond Flutter."
+    ],
+    "weaknesses": [
+      "Limited to hold gestures; no other gesture types.",
+      "No built-in visual feedback for the hold state.",
+      "Requires manual handling of onPressed conflicts.",
+      "No support for platform-specific gesture nuances."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "HoldDetector(\n  onHold: _incrementCounter,\n  holdTimeout: Duration(milliseconds: 200),\n  enableHapticFeedback: true,\n  child: ElevatedButton(\n    onPressed: _incrementCounter,\n    child: Text(\"onHold\"),\n  ),\n)",
+    "confidence": 0.95
+  }
+}

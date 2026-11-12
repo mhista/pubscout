@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "1.1.1",
+  "generatedAt": "2026-11-10T12:23:53.277Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Provides a list of IANA‑registered HTTP methods and helper functions to check them.",
+    "what_it_does": "Exports constants with all registered HTTP method names and metadata such as safety and idempotence. Includes utility functions like isHttpMethod to validate a method string.",
+    "use_when": [
+      "You need a reliable source of all standard HTTP methods",
+      "You want to validate or normalize method strings without pulling in a full HTTP client"
+    ],
+    "avoid_when": [
+      "You already have an HTTP client that supplies its own method list",
+      "You need advanced networking features beyond method validation"
+    ],
+    "strengths": [
+      "Zero dependencies",
+      "Small footprint",
+      "Accurate, up‑to‑date IANA data"
+    ],
+    "weaknesses": [
+      "Only provides method data, no networking capabilities",
+      "No runtime updates if IANA adds new methods"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "http",
+        "why_pick_it": "Provides a full HTTP client and already includes common method constants"
+      }
+    ],
+    "minimal_example": "import 'package:http_methods/http_methods.dart';\n\nvoid main() {\n  assert(isHttpMethod('GET'));\n  print(httpMethods);\n}",
+    "confidence": 0.97
+  }
+}

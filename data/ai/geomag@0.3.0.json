@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.3.0",
+  "generatedAt": "2026-11-11T11:48:25.413Z",
+  "data": {
+    "primary_category": "maps",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Translate GPS location data to geo-magnetic data such as magnetic declination.",
+    "what_it_does": "Processes GPS coordinates and time into geo-magnetic data like magnetic declination using World Magnetic Model coefficients. It calculates the difference between true north and magnetic north using bundled or custom data.",
+    "use_when": [
+      "You need to calculate magnetic declination from GPS coordinates in your app.",
+      "You are building navigation or compass features that require true north versus magnetic north adjustments."
+    ],
+    "avoid_when": [
+      "You just need standard map rendering or geocoding without magnetic calculations.",
+      "You require real-time hardware compass sensor streams rather than coordinate-based magnetic data."
+    ],
+    "strengths": [
+      "Includes bundled WMM coefficients data.",
+      "Supports multiple platforms including Android, iOS, Web, Windows, macOS, and Linux."
+    ],
+    "weaknesses": [
+      "Limited in scope to geo-magnetic calculations.",
+      "Relies on periodic coefficient updates for long-term accuracy."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [],
+    "minimal_example": "final geoMag = GeoMag();\nfinal result = geoMag.calculate(lat: 45.0, lon: -122.0, altitude: 0, date: DateTime.now());\nprint(result.declination);",
+    "confidence": 0.9
+  }
+}

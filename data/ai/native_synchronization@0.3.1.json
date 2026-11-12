@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.3.1",
+  "generatedAt": "2026-11-10T12:37:57.555Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Provides low‑level thread synchronization primitives (Mutex, ConditionVariable, Mailbox) via dart:ffi.",
+    "what_it_does": "The package exposes portable interfaces for native synchronization primitives such as Mutex and ConditionVariable. It also offers higher‑level constructs like Mailbox built on top of those primitives. All implementations rely on dart:ffi to call platform‑specific APIs.",
+    "use_when": [
+      "You need fine‑grained thread coordination across isolates on native platforms",
+      "You require a Mutex or ConditionVariable for shared‑memory synchronization in performance‑critical code"
+    ],
+    "avoid_when": [
+      "Running on the web or other non‑FFI platforms",
+      "You prefer higher‑level async abstractions like Future/Stream instead of manual locking",
+      "You need a stable API; this package is marked experimental"
+    ],
+    "strengths": [
+      "Very low‑level, minimal overhead via native calls",
+      "Works on all major desktop and mobile platforms (android, ios, windows, macos, linux)",
+      "Provides both primitive and slightly higher‑level sync constructs"
+    ],
+    "weaknesses": [
+      "Experimental status means frequent breaking changes",
+      "Only works where dart:ffi is available (no web support)",
+      "Requires native build setup and understanding of synchronization concepts"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add the ffi dependency (already declared) and ensure your project is configured to build native code for the target platforms. No additional permissions are required, but you must compile for a platform that supports dart:ffi.",
+    "alternatives": [],
+    "minimal_example": "import 'package:native_synchronization/native_synchronization.dart';\n\nvoid main() {\n  final mutex = Mutex();\n  mutex.lock();\n  // critical section\n  print('locked');\n  mutex.unlock();\n}",
+    "confidence": 0.9
+  }
+}

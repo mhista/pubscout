@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "4.0.6",
+  "generatedAt": "2026-11-10T12:26:52.159Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Read, create, edit and write XLSX Excel files in Dart/Flutter.",
+    "what_it_does": "Provides APIs to decode XLSX bytes into workbook objects, manipulate sheets, rows, cells and styles, and encode back to bytes. Supports both client and server environments.",
+    "use_when": [
+      "You need to import or export Excel spreadsheets without native platform code",
+      "You work with data tables that must be compatible with Microsoft Excel"
+    ],
+    "avoid_when": [
+      "You require advanced Excel features like macros, pivot tables, or complex chart generation"
+    ],
+    "strengths": [
+      "Pure Dart implementation works on all Flutter platforms",
+      "Strong typing for cell values with sealed classes",
+      "Supports custom number formats and date/time types"
+    ],
+    "weaknesses": [
+      "No support for Excel formulas evaluation or advanced features",
+      "Limited to XLSX; no XLS or CSV handling"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "archive",
+        "why_pick_it": "If you only need to unzip XLSX files manually without high‑level Excel API"
+      }
+    ],
+    "minimal_example": "import 'package:excel/excel.dart';\n\nvar bytes = File('test.xlsx').readAsBytesSync();\nvar excel = Excel.decodeBytes(bytes);\nvar sheet = excel['Sheet1'];\nsheet.cell(CellIndex.indexByString('A1')).value = TextCellValue('Hello');\nFile('out.xlsx').writeAsBytesSync(excel.encode()!);",
+    "confidence": 0.93
+  }
+}

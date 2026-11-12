@@ -1,0 +1,53 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.8.0",
+  "generatedAt": "2026-11-12T11:42:02.737Z",
+  "data": {
+    "primary_category": "ai-ml",
+    "secondary_categories": [
+      "audio-video"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Genkit Dart plugin for local AI through llamadart: GGUF, LiteRT-LM, chat, tool calling, and embeddings",
+    "what_it_does": "Runs local LLMs and on-device AI in Genkit Dart and Flutter applications. Supports GGUF and LiteRT-LM models for offline chat, token streaming, tool calling, structured JSON output, embeddings, batch transcription, speech synthesis, and image generation.",
+    "use_when": [
+      "You need offline, on-device AI capabilities in a Dart or Flutter application.",
+      "You want to use Genkit with local GGUF models or LiteRT-LM bundles via llamadart."
+    ],
+    "avoid_when": [
+      "You rely entirely on cloud-based LLM APIs and have no need for local on-device inference.",
+      "Your target environment lacks support for native runtimes and companions."
+    ],
+    "strengths": [
+      "Enables completely offline local AI inference in application processes.",
+      "Supports chat, streaming, tool calling, structured JSON output, embeddings, and media tasks."
+    ],
+    "weaknesses": [
+      "Requires platform-specific companion runtimes and configuration (e.g., Apple companions for iOS/macOS).",
+      "Feature support heavily depends on the loaded model and backend runtime."
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Requires Dart 3.12+, Genkit 1.x, and llamadart 0.19.x. Flutter apps need runtime companion packages like llamadart_llama_cpp_flutter or llamadart_litert_lm_flutter, with specific OS version requirements.",
+    "alternatives": [
+      {
+        "name": "firebase_ai",
+        "why_pick_it": "Choose firebase_ai if you prefer using cloud-hosted Gemini models via Firebase rather than running local models on-device."
+      },
+      {
+        "name": "tflite_flutter",
+        "why_pick_it": "Choose tflite_flutter if you want to run custom TensorFlow Lite models directly without Genkit overhead."
+      },
+      {
+        "name": "llamadart",
+        "why_pick_it": "Choose llamadart directly if you want raw llama.cpp bindings without the Genkit abstraction layer."
+      }
+    ],
+    "minimal_example": "import 'package:genkit/genkit.dart';\nimport 'package:genkit_llamadart/genkit_llamadart.dart';\n\nFuture<void> main(List<String> args) async {\n  final prepared = await llamaDart.prepareModel(\n    name: 'local-chat',\n    source: ModelSource.parse('hf://unsloth/Qwen3.5-0.8B-GGUF/Qwen3.5-0.8B-Q4_K_M.gguf?revision=6ab461498e2023f6e3c1baea90a8f0fe38ab64d0'),\n    modelParams: const ModelParams(contextSize: 4096, device: ComputeDevice.cpu),\n  );\n  final ai = prepared.createGenkit();\n  try {\n    final response = await ai.generate(prompt: 'Say hello in one sentence.');\n    print(response.text);\n  } finally {\n    await prepared.dispose();\n    await ai.shutdown();\n  }\n}",
+    "confidence": 0.95
+  }
+}

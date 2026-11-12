@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.0.0",
+  "generatedAt": "2026-11-09T11:19:27.130Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [
+      "files"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Flutter plugin for video compression and thumbnail generation using native APIs.",
+    "what_it_does": "V Video Compressor compresses video files using native platform APIs (Media3 on Android and AVFoundation on iOS) without relying on FFmpeg. It provides real-time progress tracking, batch processing, thumbnail generation, cancellation support, and advanced configuration parameters like resolution, bitrate, cropping, and trimming.",
+    "use_when": [
+      "You need to compress videos on Android and iOS before uploading or storing them.",
+      "You want native performance and hardware acceleration without bloating app size with FFmpeg.",
+      "You need real-time progress tracking or global progress streams during compression."
+    ],
+    "avoid_when": [
+      "You need to play media back within the app instead of compressing it.",
+      "You need web or desktop support, as this package is limited to Android and iOS."
+    ],
+    "strengths": [
+      "Uses native APIs (Media3 and AVFoundation) for optimal performance and smaller binary size.",
+      "Provides a strongly typed global progress stream for tracking operations anywhere in the app.",
+      "Offers rich advanced configuration options including custom cropping, trimming, codecs, and batch processing."
+    ],
+    "weaknesses": [
+      "Limited platform support restricted only to Android and iOS.",
+      "Requires native permission configurations for storage and photo libraries."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding storage and photo library permissions to AndroidManifest.xml and Info.plist, and targets minimum API 21 for Android and iOS 15 (SwiftPM) or iOS 12 (CocoaPods).",
+    "alternatives": [],
+    "minimal_example": "final VVideoCompressor _compressor = VVideoCompressor();\nfinal compressionResult = await _compressor.compressVideo(\n  videoPath,\n  const VVideoCompressionConfig.medium(),\n  onProgress: (progress) {\n    print('Progress: $progress');\n  },\n);",
+    "confidence": 1
+  }
+}

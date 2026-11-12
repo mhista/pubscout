@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.0.3",
+  "generatedAt": "2026-11-11T11:40:40.233Z",
+  "data": {
+    "primary_category": "forms",
+    "secondary_categories": [
+      "theming"
+    ],
+    "approach": [
+      "code generation",
+      "imperative"
+    ],
+    "one_liner": "A dialog to pick single or multiple icons with search and customizable icon packs.",
+    "what_it_does": "Provides a dialog widget allowing users to search and select icons from various packs like Material, Cupertino, and FontAwesome. Includes methods to serialize and deserialize selected icons for local or remote storage.",
+    "use_when": [
+      "You need to let users choose icons dynamically within your application.",
+      "You want support for standard Material, Cupertino, or custom icon sets with search capabilities."
+    ],
+    "avoid_when": [
+      "You do not require user-facing icon selection features.",
+      "You want to avoid running a CLI command to generate icon packs on demand."
+    ],
+    "strengths": [
+      "Supports multiple icon packs including Material, Cupertino, and FontAwesome.",
+      "Provides built-in full-text search and single or multiple icon selection modes.",
+      "Includes serialization helpers for database or backend storage."
+    ],
+    "weaknesses": [
+      "Requires generating icon packs via a CLI command to keep app sizes small.",
+      "Potential for codePoint breakages when updating Flutter versions if using default icons."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires running a dart CLI command to generate the necessary icon packs on demand, and adding the `--no-tree-shake-icons` flag when building the app.",
+    "alternatives": [],
+    "minimal_example": "IconPickerIcon? icon = await showIconPicker(context, configuration: SinglePickerConfiguration(iconPackModes: [IconPack.cupertino]));",
+    "confidence": 0.95
+  }
+}

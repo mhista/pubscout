@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.0.12",
+  "generatedAt": "2026-11-11T11:22:07.841Z",
+  "data": {
+    "primary_category": "devtools",
+    "secondary_categories": [
+      "ai-ml"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Passive runtime inspector for Flutter capturing HTTP, logs, exceptions, and DB queries.",
+    "what_it_does": "Captures runtime data like HTTP requests, logs, exceptions, database queries, and Magic framework events via VM Service extensions. Exposes this data through CLI commands and MCP tools for AI assistants like Claude Code.",
+    "use_when": [
+      "You want AI coding assistants to directly query runtime application state, logs, and network traffic.",
+      "You need passive inspection of HTTP traffic, database queries, and exceptions during development."
+    ],
+    "avoid_when": [
+      "You are building release builds where debugging instrumentation should be absent.",
+      "You are not using VM Service extensions or local debugging tools."
+    ],
+    "strengths": [
+      "Provides MCP tools for AI agents to inspect running apps without manual copy-pasting.",
+      "Tree-shakes out entirely in release builds using standard debug mode guards.",
+      "Includes credential redaction and rotating file sinks."
+    ],
+    "weaknesses": [
+      "Requires a running Flutter app and VM Service connection.",
+      "Heavily tailored towards the Magic framework ecosystem for model/cache/gate/event watchers."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Install dependency, run telescope:install to scaffold artisan harness, and wrap initialization in a kDebugMode guard.",
+    "alternatives": [],
+    "minimal_example": "if (!kReleaseMode) {\n  TelescopePlugin.install();\n  TelescopePlugin.registerWatcher(ExceptionWatcher());\n}",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "7.4.4",
+  "generatedAt": "2026-11-11T11:25:31.985Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "A VLC-powered video player alternative for Flutter, supporting multiple players.",
+    "what_it_does": "Provides a VLC-powered widget and controller for playing audio and video streams or files on Android and iOS. Supports multiple players on a single screen and features like video recording and external display casting.",
+    "use_when": [
+      "You need a robust video player with extensive format support via VLC.",
+      "You need to display multiple video players simultaneously on one screen.",
+      "Flutter's default video_player lacks necessary features or format support."
+    ],
+    "avoid_when": [
+      "You need web or desktop support (the package supports Android and iOS only).",
+      "You want a lightweight alternative and the full libVLC binary footprint is too large for your app."
+    ],
+    "strengths": [
+      "Supports multiple players on a single screen.",
+      "Works fully on iOS simulators, unlike Flutter's default video_player.",
+      "Built-in video recording and chromecast external display support."
+    ],
+    "weaknesses": [
+      "Limited platform support (Android and iOS only).",
+      "Video recording has known issues if the video reaches its end while recording.",
+      "Requires manual configuration for network security policies and permissions on Android and iOS."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires platform configuration: internet/storage permissions and cleartext traffic flags on Android, and AppTransportSecurity or local network/Bonjour keys on iOS.",
+    "alternatives": [
+      {
+        "name": "video_player",
+        "why_pick_it": "You want the official Flutter team's video player plugin using native platform primitives."
+      },
+      {
+        "name": "just_audio",
+        "why_pick_it": "You need a feature-rich, highly customizable audio player rather than a video player."
+      }
+    ],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:flutter_vlc_player/vlc_player_flutter.dart';\n\nclass MyHomePage extends StatefulWidget {\n  @override\n  _MyHomePageState createState() => _MyHomePageState();\n}\n\nclass _MyHomePageState extends State<MyHomePage> {\n  late VlcPlayerController _videoPlayerController;\n\n  @override\n  void initState() {\n    super.initState();\n    _videoPlayerController = VlcPlayerController.network(\n      'https://media.w3.org/2010/05/sintel/trailer.mp4',\n      hwAcc: HwAcc.FULL,\n      autoPlay: false,\n      options: VlcPlayerOptions(),\n    );\n  }\n\n  @override\n  void dispose() async {\n    super.dispose();\n    await _videoPlayerController.stopRendererScanning();\n    await _videoPlayerController.dispose();\n  }\n\n  @override\n  Widget build(BuildContext context) {\n    return Scaffold(\n      body: Center(\n        child: VlcPlayer(\n          controller: _videoPlayerController,\n          aspectRatio: 16 / 9,\n          placeholder: Center(child: CircularProgressIndicator()),\n        ),\n      ),\n    );\n  }\n}",
+    "confidence": 1
+  }
+}

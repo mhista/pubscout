@@ -1,0 +1,52 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.0.2",
+  "generatedAt": "2026-11-11T11:07:05.762Z",
+  "data": {
+    "primary_category": "devtools",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "A lightweight Flutter logger with configurable levels, build‑mode control and custom printer.",
+    "what_it_does": "EasyLogger lets you log messages with optional levels and stack traces. You can enable or disable logging per Flutter build mode and customize the output printer. It provides helper methods like debug, info, warning, and error.",
+    "use_when": [
+      "You need quick, in‑app logging without external services",
+      "You want to control logging per build mode (debug/profile/release)",
+      "You need simple stack‑trace logging"
+    ],
+    "avoid_when": [
+      "You require structured or remote logging (e.g., to Sentry)",
+      "You need log persistence to files or databases",
+      "You need advanced formatting or log aggregation"
+    ],
+    "strengths": [
+      "Very easy to add and configure",
+      "Fine‑grained control over build modes and levels",
+      "Custom printer allows any output format"
+    ],
+    "weaknesses": [
+      "No built‑in support for file or network sinks",
+      "Limited formatting and no structured logging",
+      "No code‑generation or advanced features"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "logger",
+        "why_pick_it": "Provides similar simple logging with pretty output and optional file sinks"
+      },
+      {
+        "name": "talker_logger",
+        "why_pick_it": "Offers richer log formatting and integrates with the Talker ecosystem"
+      }
+    ],
+    "minimal_example": "import 'package:easy_logger/easy_logger.dart';\n\nfinal EasyLogger logger = EasyLogger(\n  name: 'MyApp',\n  defaultLevel: LevelMessages.debug,\n  enableBuildModes: [BuildMode.debug, BuildMode.profile, BuildMode.release],\n);\n\nvoid main() {\n  logger('App started');\n  logger.debug('Debug message');\n  logger.error('Error occurred', stackTrace: StackTrace.current);\n}",
+    "confidence": 0.9
+  }
+}

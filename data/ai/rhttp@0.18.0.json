@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.18.0",
+  "generatedAt": "2026-11-09T11:43:02.943Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "code generation"
+    ],
+    "one_liner": "Make HTTP requests using Rust and reqwest via FFI for Flutter apps",
+    "what_it_does": "Allows Flutter apps to make HTTP requests using a Rust backend through FFI. It provides support for HTTP/1, HTTP/2, HTTP/3, TLS 1.2/1.3, connection pooling, interceptors, and compatibility with standard dart:io, http, and dio APIs.",
+    "use_when": [
+      "You need high-performance HTTP/2 or HTTP/3 support across Android, iOS, Windows, macOS, and Linux",
+      "You want a unified API for HTTP requests that also supports Windows and Linux",
+      "You need advanced networking features like certificate pinning, custom DNS resolution, and connection pooling"
+    ],
+    "avoid_when": [
+      "You are building for the web platform, which is currently not supported",
+      "You want to avoid the build complexity and size overhead of adding a Rust toolchain and FFI bindings to your Flutter project"
+    ],
+    "strengths": [
+      "Supports HTTP/2 and HTTP/3 with reliable performance powered by Rust's reqwest crate",
+      "Cross-platform support including desktop operating systems like Windows and Linux",
+      "Compatible with existing http and dio client patterns"
+    ],
+    "weaknesses": [
+      "Requires Rust toolchain installed and increases APK/app size",
+      "Web platform is not supported"
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Requires installing Rust via rustup (1.80.0 or later), Android NDK / Command-line tools, and calling Rhttp.init() during app start.",
+    "alternatives": [
+      {
+        "name": "http",
+        "why_pick_it": "You want a pure Dart, lightweight HTTP package without Rust dependencies or complex native setup."
+      },
+      {
+        "name": "dio",
+        "why_pick_it": "You prefer a feature-rich, pure Dart HTTP client with interceptors, global configuration, and FormData support."
+      }
+    ],
+    "minimal_example": "import 'package:rhttp/rhttp.dart';\n\nvoid main() async {\n  await Rhttp.init();\n  HttpTextResponse response = await Rhttp.get('https://example.com');\n  String body = response.body;\n}",
+    "confidence": 0.95
+  }
+}

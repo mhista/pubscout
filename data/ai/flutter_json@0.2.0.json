@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.2.0",
+  "generatedAt": "2026-11-11T11:29:20.964Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "devtools"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Renders valid JSON as an interactive hierarchical tree structure with lazy loading.",
+    "what_it_does": "Flutter JSON allows you to beautifully render any valid JSON as an interactive hierarchical tree structure in your app. It supports lazy rendering of children for improved performance and offers extensive customization options for styling and appearance.",
+    "use_when": [
+      "You need to inspect or display JSON data hierarchically within your Flutter app UI.",
+      "You are dealing with large JSON structures up to 25 MB and require lazy rendering for performance."
+    ],
+    "avoid_when": [
+      "You do not have a bounded height available for the widget.",
+      "You need custom non-fixed-width horizontal scrolling constraints."
+    ],
+    "strengths": [
+      "Supports rendering any valid JSON data structures.",
+      "Lazily renders tree structures for improved performance with large JSON payloads.",
+      "Offers extensive customization for styling, appearance, icons, and hidden keys."
+    ],
+    "weaknesses": [
+      "Requires a bounded height due to lazy loading limitations.",
+      "Forces fixed-width constraints for nodes to allow horizontal scrolling."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter_json/flutter_json.dart';\n\nconst String jsonString = '{ \"foo\": \"bar\", \"baz\": [1, 2, 3] }';\n\nclass MyPage extends StatelessWidget {\n  const MyPage({super.key});\n\n  @override\n  Widget build(BuildContext context) {\n    return Scaffold(\n      appBar: AppBar(\n        title: const Text(\"JSON Example\"),\n      ),\n      body: JsonWidget(\n        json: json.decode(jsonString),\n        initialExpandDepth: 2,\n        hiddenKeys: const [\"foo\"],\n      ),\n    );\n  }\n}",
+    "confidence": 0.95
+  }
+}

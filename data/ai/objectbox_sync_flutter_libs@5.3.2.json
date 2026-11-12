@@ -1,0 +1,52 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "5.3.2",
+  "generatedAt": "2026-11-12T11:26:47.681Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [],
+    "approach": [
+      "no codegen"
+    ],
+    "one_liner": "Flutter plugin providing the native ObjectBox NoSQL database with built‑in Sync support.",
+    "what_it_does": "It bundles the ObjectBox engine and its Sync client as a Flutter plugin for Android, iOS, macOS, Windows and Linux. The library lets you store Dart objects locally and keep them synchronized with a remote ObjectBox Sync server.",
+    "use_when": [
+      "You need a high‑performance local NoSQL database with automatic sync to a server",
+      "You target multiple desktop and mobile platforms and want a single Dart API"
+    ],
+    "avoid_when": [
+      "You require a relational SQL database or need full SQL query support",
+      "You prefer a pure‑Dart solution without native binaries"
+    ],
+    "strengths": [
+      "Very fast object‑oriented storage",
+      "Built‑in data synchronization across devices",
+      "Cross‑platform native implementation"
+    ],
+    "weaknesses": [
+      "Adds native binaries, increasing app size",
+      "Limited to ObjectBox ecosystem; no SQL support",
+      "Requires native build setup"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add objectbox_sync_flutter_libs (and objectbox) to pubspec.yaml, run flutter pub get, and ensure platform‑specific native dependencies are available (e.g., C++ toolchain for desktop). No additional code‑generation required.",
+    "alternatives": [
+      {
+        "name": "sqflite",
+        "why_pick_it": "Pure SQLite wrapper, good for relational data and smaller binary size"
+      },
+      {
+        "name": "drift",
+        "why_pick_it": "SQL‑based ORM with code generation, supports complex queries"
+      },
+      {
+        "name": "sqlite3",
+        "why_pick_it": "Low‑level SQLite bindings for custom use cases"
+      }
+    ],
+    "minimal_example": "import 'package:objectbox/objectbox.dart';\n\nvoid main() async {\n  final store = await openStore(); // provided by objectbox package\n  final box = store.box<MyEntity>();\n  box.put(MyEntity(id: 0, name: 'example'));\n}\n",
+    "confidence": 0.9
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "2.9.0",
+  "generatedAt": "2026-11-10T12:32:34.365Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "HTTP/2 adapter for Dio with connection reuse and header compression",
+    "what_it_does": "Provides an HTTP/2 client adapter for the Dio HTTP client. It manages connection pooling, header compression, and supports fallbacks to HTTP/1.1 when necessary. It also offers configuration for timeouts, proxies, and bad certificate handling.",
+    "use_when": [
+      "You need HTTP/2 support in a Dio-based app",
+      "You want connection reuse and header compression for performance",
+      "You need to customize TLS or proxy settings for Dio"
+    ],
+    "avoid_when": [
+      "You are not using Dio as your HTTP client",
+      "You only need basic HTTP/1.1 functionality",
+      "You prefer a pure Dart HTTP client like http"
+    ],
+    "strengths": [
+      "Built on top of Dio, so integrates seamlessly with existing Dio code",
+      "Supports connection reuse and header compression for efficient traffic",
+      "Provides fallback to HTTP/1.1 and configurable protocols",
+      "Offers detailed configuration for timeouts, proxies, and bad certificates"
+    ],
+    "weaknesses": [
+      "Only works with Dio, not a standalone HTTP client",
+      "Requires Dio dependency",
+      "Limited to HTTP/2 and HTTP/1.1, no other protocols"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add to pubspec dependencies and set `dio.httpClientAdapter = Http2Adapter(...)` in code",
+    "alternatives": [
+      {
+        "name": "dio",
+        "why_pick_it": "Dio itself supports HTTP/1.1 and can be used without the adapter if HTTP/2 is not required"
+      }
+    ],
+    "minimal_example": "import 'package:dio/dio.dart';\nimport 'package:dio_http2_adapter/dio_http2_adapter.dart';\n\nfinal dio = Dio()..httpClientAdapter = Http2Adapter();\n\nFuture<void> main() async {\n  final response = await dio.get('https://example.com');\n  print(response.data);\n}\n",
+    "confidence": 0.95
+  }
+}

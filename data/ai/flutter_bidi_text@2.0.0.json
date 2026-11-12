@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.0",
+  "generatedAt": "2026-11-12T11:46:36.445Z",
+  "data": {
+    "primary_category": "localization",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Text widgets with automatic bidirectional text direction detection for multilingual apps.",
+    "what_it_does": "Provides drop-in replacements for standard Flutter text widgets (Text, RichText, TextField, etc.) that automatically detect and apply the correct text direction (LTR or RTL) based on the content. It also includes helper utilities to estimate text direction programmatically.",
+    "use_when": [
+      "Your application handles multilingual text content where users mix right-to-left and left-to-right languages.",
+      "You want drop-in text input and display widgets that handle text direction automatically without manual intervention."
+    ],
+    "avoid_when": [
+      "Your application only supports a single left-to-right or right-to-left language.",
+      "You rely heavily on `is Text` or `is TextField` type checks on these specific widgets."
+    ],
+    "strengths": [
+      "Automatic detection of RTL/LTR content including mixed text.",
+      "Drop-in replacements for standard Flutter text and input widgets.",
+      "Includes helper utilities for standalone direction estimation."
+    ],
+    "weaknesses": [
+      "Widgets use composition instead of inheritance in v2.0.0, breaking existing `is Text` type checks.",
+      "Performance might be impacted on very long text if sampling length is set to analyze the entire string."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter_bidi_text/flutter_bidi_text.dart';\n\nBidiText('مرحبا بالعالم');\n\nBidiTextField(\n  decoration: InputDecoration(hintText: 'Enter text'),\n  onDirectionChanged: (TextDirection direction) {\n    print('Text direction changed to: $direction');\n  },\n);",
+    "confidence": 1
+  }
+}

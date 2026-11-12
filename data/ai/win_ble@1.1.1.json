@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "1.1.1",
+  "generatedAt": "2026-11-09T11:08:18.390Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Bluetooth Low Energy plugin for Windows Flutter and pure‑Dart projects",
+    "what_it_does": "Provides APIs to scan, connect, read, write and subscribe to BLE devices on Windows. It wraps a native BLE server executable and exposes streams for events and radio state.",
+    "use_when": [
+      "You need BLE functionality on Windows only",
+      "You are building a Flutter Windows app or a pure‑Dart Windows tool"
+    ],
+    "avoid_when": [
+      "You need cross‑platform BLE (iOS/Android/macOS)",
+      "You prefer a pure‑Dart implementation without native executables"
+    ],
+    "strengths": [
+      "First‑class Windows BLE support",
+      "Stream‑based event handling",
+      "Supports both Flutter and pure‑Dart projects"
+    ],
+    "weaknesses": [
+      "Windows‑only, no mobile support",
+      "Requires external BLEServer.exe and path setup",
+      "Breaking API changes in recent versions"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Place BLEServer.exe in the app folder (or use WinServer.path()), add path_provider, may need to edit /windows/runner/main.cpp to hide console window",
+    "alternatives": [],
+    "minimal_example": "await WinBle.initialize(serverPath: await WinServer.path());\nWinBle.startScanning();\nfinal sub = WinBle.scanStream.listen((event) { /* handle devices */ });",
+    "confidence": 0.9
+  }
+}

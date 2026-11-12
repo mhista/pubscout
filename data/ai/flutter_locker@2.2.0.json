@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.2.0",
+  "generatedAt": "2026-11-09T11:52:48.073Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [
+      "auth"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Secures secrets in device keychain using biometric authentication.",
+    "what_it_does": "Allows saving, retrieving, and deleting secrets in the device's secure storage (keychain/keystore) protected by biometric authentication like Fingerprint, Touch ID, or Face ID. It provides check methods for biometric capabilities and maps common errors to LockerException.",
+    "use_when": [
+      "You need to store sensitive information like auth tokens or credentials securely on the device.",
+      "You want access to stored secrets to be guarded by biometric prompts (Face ID, Touch ID, Fingerprint)."
+    ],
+    "avoid_when": [
+      "You need non-secure standard key-value storage without biometrics.",
+      "You are targeting platforms other than Android and iOS."
+    ],
+    "strengths": [
+      "Combines secure storage and biometric authentication in a single plugin.",
+      "Exposes specific error reasons via LockerException.",
+      "Supports Swift Package Manager."
+    ],
+    "weaknesses": [
+      "Requires manual native setup (modifying MainActivity on Android and adding usage descriptions in Info.plist for iOS).",
+      "Limited to Android and iOS platforms."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "On iOS, add NSFaceIDUsageDescription to Info.plist. On Android, ensure MainActivity extends FlutterFragmentActivity.",
+    "alternatives": [
+      {
+        "name": "local_auth",
+        "why_pick_it": "If you only need local biometric authentication without integrated secure key-value secret storage."
+      }
+    ],
+    "minimal_example": "await FlutterLocker.save(SaveSecretRequest(\n  key: 'key',\n  secret: 'secret',\n  androidPrompt: AndroidPrompt(title: 'Authenticate', cancelLabel: 'Cancel'),\n));",
+    "confidence": 1
+  }
+}

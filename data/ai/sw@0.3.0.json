@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.3.0",
+  "generatedAt": "2026-11-11T11:41:51.273Z",
+  "data": {
+    "primary_category": "codegen",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "code generation",
+      "cli"
+    ],
+    "one_liner": "CLI tool to generate optimized service workers and bootstrap for Flutter Web",
+    "what_it_does": "A command-line tool that replaces Flutter's default web bootstrap and service worker with a customizable loading pipeline, progress tracking, intelligent caching, and CanvasKit CDN loading. It analyzes the build directory, scans files, and creates an optimized resource manifest.",
+    "use_when": [
+      "You are building a Flutter Web application and need advanced service worker caching and offline capabilities",
+      "You want a custom loading experience with progress tracking and stall detection for Flutter Web"
+    ],
+    "avoid_when": [
+      "You are running local development with `flutter run` (which handles its own bootstrap)",
+      "Your project does not target Flutter Web"
+    ],
+    "strengths": [
+      "Replaces default Flutter web bootstrap with a controlled initialization pipeline",
+      "Smart resource categorization and hash-based cache busting",
+      "Automatic file scanning and version management"
+    ],
+    "weaknesses": [
+      "Requires manual configuration of server Cache-Control headers",
+      "Needs two separate index.html templates for dev and production workflows"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Activate via dart pub global activate sw, add production index.html template, and configure web server headers for no-cache.",
+    "alternatives": [],
+    "minimal_example": "dart run sw:generate --input=build/web --prefix=my-app --version=\"$(git rev-parse --short=8 HEAD)\"",
+    "confidence": 1
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "4.0.0",
+  "generatedAt": "2026-11-09T11:24:16.264Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Utilities for binary data and bit manipulation in Dart.",
+    "what_it_does": "Provides fixed‑width integer types and extension‑type based APIs for binary operations, shifting, and overflow‑controlled arithmetic. Includes helpers like BitList and byte‑view utilities.",
+    "use_when": [
+      "You need precise bit‑level manipulation of integers up to 32 bits.",
+      "You want deterministic overflow handling across debug and release builds.",
+      "You require a pure‑Dart solution that works on all Flutter and web platforms."
+    ],
+    "avoid_when": [
+      "You need 64‑bit or larger integer support.",
+      "You prefer a stable API without recent breaking changes.",
+      "You rely on code‑generation‑based binary serializers."
+    ],
+    "strengths": [
+      "Works on all Dart/Flutter platforms without native code.",
+      "Offers explicit overflow‑control methods (tryAdd, wrappedAdd, clampedAdd).",
+      "Leverages modern extension types for a clean API."
+    ],
+    "weaknesses": [
+      "Limited to 32‑bit integers; no built‑in larger types.",
+      "Version 4 introduced breaking changes, removing many older extensions.",
+      "Requires Dart 3.5+ for extension‑type support."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:binary/binary.dart';\n\nvoid main() {\n  final fixInt = Uint8(0x0C);\n  print(fixInt.toBinaryString()); // 00001100\n  final shifted = fixInt.signedRightShift(5);\n  print(shifted.toBinaryString()); // 00000011\n}",
+    "confidence": 0.9
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.0.0",
+  "generatedAt": "2026-11-11T11:22:02.127Z",
+  "data": {
+    "primary_category": "devtools",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "declarative",
+      "imperative"
+    ],
+    "one_liner": "HTTP inspector tool to capture, store, and view requests and responses.",
+    "what_it_does": "Alice is an HTTP Inspector tool that captures, stores, and displays HTTP requests and responses via a user-friendly UI. It supports multiple Dart HTTP clients including Dio, HttpClient, and the standard http package, providing search, statistics, and floating overlay features.",
+    "use_when": [
+      "You need to inspect and debug HTTP network traffic during Flutter app development.",
+      "You want a floating overlay or UI to view request headers, bodies, and error logs inside your app."
+    ],
+    "avoid_when": [
+      "You are running a backend-only Dart application without a Flutter UI context.",
+      "You do not use HTTP network requests in your application."
+    ],
+    "strengths": [
+      "Supports multiple HTTP clients like Dio, HttpClient, and the http package.",
+      "Includes a floating inspector bubble, JSON viewer, search filters, and statistics dashboard."
+    ],
+    "weaknesses": [
+      "Increases application size and includes debugging tooling that should be managed for production releases.",
+      "Requires proper navigator key or widget wrapper setup across the application."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dependency to pubspec.yaml, then wrap your app with AliceInspector or manually configure with a navigator key and interceptors.",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter_alice/alice.dart';\n\nfinal alice = Alice();\nfinal navigatorKey = GlobalKey<NavigatorState>();\nfinal dio = Dio();\n\nvoid main() {\n  runApp(MyApp());\n}\n\nclass MyApp extends StatelessWidget {\n  @override\n  Widget build(BuildContext context) {\n    return AliceInspector(\n      debug: true,\n      dios: [dio],\n      navigatorKey: navigatorKey,\n      child: MaterialApp(\n        navigatorKey: navigatorKey,\n        home: HomePage(),\n      ),\n    );\n  }\n}",
+    "confidence": 1
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.3",
+  "generatedAt": "2026-11-11T11:45:21.347Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Run multiple future-returning and async functions with limited concurrency.",
+    "what_it_does": "It provides a mechanism to limit the concurrency of asynchronous operations in Dart. You can wrap future-returning functions with a limiter to ensure only a specified number of them run simultaneously.",
+    "use_when": [
+      "You need to process a large list of async tasks without overwhelming system resources or rate limits.",
+      "You want a direct Dart port of the popular JavaScript p-limit library."
+    ],
+    "avoid_when": [
+      "You need a fully featured thread pool or complex task queue implementation.",
+      "You require passing arguments directly into the queue wrapper function without wrapping them in closures."
+    ],
+    "strengths": [
+      "Simple and lightweight API.",
+      "Tracks active and pending counts.",
+      "Allows clearing the pending queue."
+    ],
+    "weaknesses": [
+      "Lacks advanced queue options like task priorities or thread pools.",
+      "Does not inherently support passing separate arguments to functions without closures."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "async",
+        "why_pick_it": "Provides core utility functions and collections for asynchronous programming in Dart, including some queuing primitives."
+      }
+    ],
+    "minimal_example": "import 'package:p_limit/p_limit.dart';\n\nvoid main() async {\n  final limit = PLimit(1);\n  final input = [\n    limit(() => Future.value('foo')),\n    limit(() => Future.value('bar'))\n  ];\n  final results = await Future.wait(input);\n  print(results);\n}",
+    "confidence": 0.95
+  }
+}

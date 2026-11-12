@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.1.2",
+  "generatedAt": "2026-11-12T11:34:52.451Z",
+  "data": {
+    "primary_category": "localization",
+    "secondary_categories": [
+      "utils",
+      "devtools"
+    ],
+    "approach": [
+      "no codegen"
+    ],
+    "one_liner": "Detects and removes unused localization keys from .arb files.",
+    "what_it_does": "Scans Dart files in project directories to detect used localization keys, then automatically removes unused keys from .arb files or reports them.",
+    "use_when": [
+      "You want to clean up unused localization keys across multi-language .arb files",
+      "You work in a monorepo or standard project and need to scan custom directories for localization usage"
+    ],
+    "avoid_when": [
+      "You dynamically construct localization keys at runtime that static analysis cannot detect"
+    ],
+    "strengths": [
+      "Supports multiple languages and global localization variables",
+      "Configurable dart scan directories for monorepos",
+      "Prevents false deletions by safely excluding core localization files"
+    ],
+    "weaknesses": [
+      "Relies on static regex analysis which might miss heavily obfuscated dynamic key lookups"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add to dev_dependencies and run via dart run remove_unused_localizations.",
+    "alternatives": [],
+    "minimal_example": "dart run remove_unused_localizations",
+    "confidence": 1
+  }
+}

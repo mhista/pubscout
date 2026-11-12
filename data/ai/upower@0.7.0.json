@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.7.0",
+  "generatedAt": "2026-11-10T12:24:23.527Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "web-desktop"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Provides a client to connect to UPower for Linux power management.",
+    "what_it_does": "Provides a Dart client to connect to UPower, the Linux service responsible for power management. It allows developers to query daemon version, system state, devices, and power statistics.",
+    "use_when": [
+      "You need to read battery levels and power states in a Flutter or Dart application on Linux.",
+      "You want to interact with the UPower DBus service without writing raw DBus queries."
+    ],
+    "avoid_when": [
+      "Your application targets non-Linux platforms like Windows, macOS, iOS, or Android.",
+      "You only need general platform info not related to power management."
+    ],
+    "strengths": [
+      "Direct integration with the native Linux UPower service.",
+      "Simple API to query devices, percentages, and display state."
+    ],
+    "weaknesses": [
+      "Only supports Linux.",
+      "Requires the UPower service to be present on the host system."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires the UPower D-Bus service to be available on the Linux host.",
+    "alternatives": [],
+    "minimal_example": "import 'package:upower/upower.dart';\n\nvar client = UPowerClient();\nawait client.connect();\nprint('Running UPower ${client.daemonVersion}');\nprint('System state: ${client.displayDevice.state}');\nprint('Devices:');\nfor (var device in client.devices) {\n  print('  ${device.type} ${device.percentage}%');\n}\nawait client.close();",
+    "confidence": 1
+  }
+}

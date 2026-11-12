@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.1.0",
+  "generatedAt": "2026-11-10T12:56:21.824Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [
+      "devtools"
+    ],
+    "approach": [
+      "no codegen"
+    ],
+    "one_liner": "View and filter your drift database directly inside your Flutter application.",
+    "what_it_does": "A debugging tool that displays your drift database contents inside a dedicated screen in your app. It provides filtering at the database level without requiring you to export the database file.",
+    "use_when": [
+      "You are using drift for local storage in your Flutter app and need to inspect data during development",
+      "You want to filter and view database contents quickly without exporting files"
+    ],
+    "avoid_when": [
+      "You are running a production build and want to exclude developer inspection tools",
+      "You are using a storage solution other than drift"
+    ],
+    "strengths": [
+      "Allows viewing and filtering the database directly inside the app",
+      "Eliminates the need to export database files for inspection"
+    ],
+    "weaknesses": [
+      "Requires special handling (@JsonKey) when using named columns",
+      "Dependent on the drift package"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Simply push the DriftDbViewer widget onto your navigator passing your database instance.",
+    "alternatives": [],
+    "minimal_example": "final db = MyDatabase();\nNavigator.of(context).push(MaterialPageRoute(builder: (context) => DriftDbViewer(db)));",
+    "confidence": 0.95
+  }
+}

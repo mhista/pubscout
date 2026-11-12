@@ -1,0 +1,55 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.7.0",
+  "generatedAt": "2026-11-09T11:31:01.402Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [
+      "dependency-injection"
+    ],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "A state management and dependency injection library inspired by Riverpod and async_redux.",
+    "what_it_does": "Provides a notifier-focused state management system that handles app state and services via providers. Supports synchronous and asynchronous states, Redux-style actions, and high-traceability debugging tools.",
+    "use_when": [
+      "You want Riverpod-like type-safe providers without custom widget consumers",
+      "You need Redux-style action dispatching combined with standard state notifiers",
+      "You want built-in support for debugging observers, event tracing, and an inspector"
+    ],
+    "avoid_when": [
+      "You prefer automatic provider disposal (autodispose) without manual ref.dispose calls",
+      "You already rely heavily on Riverpod or Bloc and do not wish to introduce a new paradigm"
+    ],
+    "strengths": [
+      "Supports multiple paradigms including Notifier, AsyncNotifier, and ReduxNotifiers",
+      "Native Flutter integration using BuildContext extensions without custom widget wrappers",
+      "Extensive tracing, debugging, and testing capabilities"
+    ],
+    "weaknesses": [
+      "Providers are not disposed automatically and require explicit management or view models",
+      "Smaller ecosystem and community compared to Riverpod or Bloc"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Wrap your root app widget with RefenaScope.",
+    "alternatives": [
+      {
+        "name": "riverpod",
+        "why_pick_it": "If you prefer auto-dispose behavior and a larger ecosystem of official extensions."
+      },
+      {
+        "name": "bloc",
+        "why_pick_it": "If you want a strictly event-driven state machine with a massive community and extensive tooling."
+      },
+      {
+        "name": "provider",
+        "why_pick_it": "If you need a simpler, battle-tested InheritedWidget wrapper for dependency injection and state sharing."
+      }
+    ],
+    "minimal_example": "final counterProvider = NotifierProvider<Counter, int>((ref) => Counter());\n\nclass Counter extends Notifier<int> {\n  @override\n  int init() => 10;\n\n  void increment() => state++;\n}\n\nclass MyPage extends StatelessWidget {\n  @override\n  Widget build(BuildContext context) {\n    int counterState = context.watch(counterProvider);\n    return Scaffold(\n      body: Center(\n        child: Text('Counter state: $counterState'),\n      ),\n      floatingActionButton: FloatingActionButton(\n        onPressed: () => context.notifier(counterProvider).increment(),\n        child: const Icon(Icons.add),\n      ),\n    );\n  }\n}",
+    "confidence": 0.95
+  }
+}

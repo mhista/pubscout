@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.0.4",
+  "generatedAt": "2026-11-10T12:41:29.682Z",
+  "data": {
+    "primary_category": "web-desktop",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "imperative",
+      "declarative"
+    ],
+    "one_liner": "Create and set custom mouse cursors directly from a memory buffer on desktop platforms.",
+    "what_it_does": "Allows developers to register and set custom mouse cursors dynamically using raw memory buffers (PNG or raw BGRA). It integrates with Flutter's MouseRegion via a custom MouseCursor subclass.",
+    "use_when": [
+      "You are building a desktop application for macOS, Windows, or Linux.",
+      "You need to create custom mouse cursors dynamically from image memory buffers."
+    ],
+    "avoid_when": [
+      "You are targeting mobile or web platforms.",
+      "You only need standard system cursors provided by Flutter."
+    ],
+    "strengths": [
+      "Enables dynamic custom cursors from raw memory buffers.",
+      "Provides a simple wrapper subclass of MouseCursor for easy integration."
+    ],
+    "weaknesses": [
+      "Limited platform support to desktop operating systems (macOS, Windows, Linux).",
+      "Windows platform may have specific Flutter engine branch or version requirements depending on the engine PR status."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires registering the cursor data using CursorManager before applying it to a MouseRegion.",
+    "alternatives": [],
+    "minimal_example": "cursorName = await CursorManager.instance.registerCursor(CursorData()\n  ..name = \"test\"\n  ..buffer = memoryCursorDataRawPNG\n  ..height = img.height\n  ..width = img.width\n  ..hotX = 0\n  ..hotY = 0);\n\nMouseRegion(\n  cursor: FlutterCustomMemoryImageCursor(key: cursorName),\n  child: Text(\"Custom cursor region\"),\n)",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.1",
+  "generatedAt": "2026-11-09T11:22:08.956Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Auxiliary classes for reliably running periodic tasks in long-running processes.",
+    "what_it_does": "Provides a framework to run periodic maintenance tasks on a loop with a long delay in background processes like a web server. It handles limits on run-times, retries failed executions, catches exceptions, and can optionally prevent concurrent tasks using storage services.",
+    "use_when": [
+      "You need to run background maintenance operations inside a long-running Dart process like a web server",
+      "You want to limit task run-time, retry failed executions, and log periodic task statuses reliably"
+    ],
+    "avoid_when": [
+      "You are running client-side Flutter UI applications without long-running background server processes",
+      "You need complex out-of-band cloud scheduling managed entirely outside of your application codebase"
+    ],
+    "strengths": [
+      "Retries failed task executions automatically after a timeout",
+      "Limits maximum run-time to prevent hanging loops",
+      "Catches and logs all exceptions and errors from tasks"
+    ],
+    "weaknesses": [
+      "Relies on the application process staying alive continuously",
+      "Lacks built-in cloud cron UI configuration out of the box"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Not documented",
+    "alternatives": [],
+    "minimal_example": "import 'dart:io';\nimport 'package:neat_periodic_task/neat_periodic_task.dart';\n\nvoid main() async {\n  final scheduler = NeatPeriodicTaskScheduler(\n    interval: Duration(seconds: 30),\n    name: 'hello-world',\n    timeout: Duration(seconds: 5),\n    task: () async => print('Hello World'),\n    minCycle: Duration(seconds: 5),\n  );\n\n  scheduler.start();\n  await ProcessSignal.sigterm.watch().first;\n  await scheduler.stop();\n}",
+    "confidence": 0.95
+  }
+}

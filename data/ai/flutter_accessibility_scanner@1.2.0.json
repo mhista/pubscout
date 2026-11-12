@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.2.0",
+  "generatedAt": "2026-11-11T11:25:37.468Z",
+  "data": {
+    "primary_category": "testing",
+    "secondary_categories": [
+      "devtools"
+    ],
+    "approach": [
+      "imperative",
+      "declarative"
+    ],
+    "one_liner": "Scan Flutter widget trees for WCAG 2.1 accessibility issues with fix hints.",
+    "what_it_does": "Walks the live render tree to report accessibility issues against WCAG 2.1, including missing labels, low contrast, small tap targets, and focus problems. It provides fix hints, in-app dev overlays, widget test integrations, and JSON/Markdown CI reports.",
+    "use_when": [
+      "You need to audit your Flutter app for WCAG 2.1 accessibility compliance.",
+      "You want to catch accessibility issues automatically in widget tests and CI pipelines."
+    ],
+    "avoid_when": [
+      "Your app does not use standard Flutter widgets or render trees."
+    ],
+    "strengths": [
+      "Covers multiple detection types such as contrast, tap targets, focus, and labels.",
+      "Integrates seamlessly into widget tests and CI workflows with JSON and Markdown reports.",
+      "Provides an in-app overlay for quick interactive debugging."
+    ],
+    "weaknesses": [
+      "Automated scans cannot catch all accessibility problems, manual testing with screen readers is still necessary.",
+      "Text over complex images or gradients falls back to assumptions and cannot always be accurately measured."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add to dev_dependencies and use the AccessibilityScanner in widget tests or wrap your MaterialApp with AccessibilityScannerWidget.",
+    "alternatives": [],
+    "minimal_example": "testWidgets('checkout screen is accessible', (tester) async {\n  await tester.pumpWidget(const MaterialApp(home: CheckoutScreen()));\n  await tester.pumpAndSettle();\n\n  final report = await AccessibilityScanner().scan(\n    tester.element(find.byType(CheckoutScreen)),\n  );\n\n  expect(report.issues, isEmpty);\n});",
+    "confidence": 1
+  }
+}

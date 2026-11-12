@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.6.0",
+  "generatedAt": "2026-11-11T11:32:09.783Z",
+  "data": {
+    "primary_category": "theming",
+    "secondary_categories": [
+      "device"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Programmatically change status bar and navigation bar colors in Flutter apps.",
+    "what_it_does": "This plugin allows developers to dynamically change or retrieve the color and foreground brightness (white or dark) of the device's status bar and navigation bar programmatically on Android and iOS.",
+    "use_when": [
+      "You need to imperatively change the status bar or navigation bar color based on the current screen or theme.",
+      "You need to control the foreground icon/text brightness of the status bar or navigation bar."
+    ],
+    "avoid_when": [
+      "You prefer using Flutter's built-in SystemChrome configurations for status bars (though this plugin allows fetching and more direct color modifications).",
+      "You are targeting platforms other than Android and iOS."
+    ],
+    "strengths": [
+      "Supports getting and setting both status bar and navigation bar colors.",
+      "Provides helper functions like useWhiteForeground to determine contrast.",
+      "Supports Android v2 embedding and null-safety."
+    ],
+    "weaknesses": [
+      "Foreground brightness may sometimes revert after app lifecycle changes, requiring manual handling via WidgetsBindingObserver.",
+      "Limited to Android and iOS platforms."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "No extra permissions or configuration required beyond standard Flutter plugin integration.",
+    "alternatives": [],
+    "minimal_example": "await FlutterStatusbarcolor.setStatusBarColor(Colors.green[400]);\nif (useWhiteForeground(Colors.green[400])) {\n  FlutterStatusbarcolor.setStatusBarWhiteForeground(true);\n} else {\n  FlutterStatusbarcolor.setStatusBarWhiteForeground(false);\n}",
+    "confidence": 0.9
+  }
+}

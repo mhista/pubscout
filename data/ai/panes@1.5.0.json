@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.5.0",
+  "generatedAt": "2026-11-09T11:49:01.836Z",
+  "data": {
+    "primary_category": "layout",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Create complex, resizable, multi-pane layouts for IDE-like and desktop interfaces.",
+    "what_it_does": "Provides resizable horizontal and vertical multi-pane layouts, pre-built IDE-like structures with sidebars and bottom panels, and tabbed interfaces. Allows programmatic control, dynamic pane management, state serialization, and custom theming.",
+    "use_when": [
+      "Building a desktop-style application or complex dashboard with resizable panels",
+      "Creating an IDE-like interface with customizable sidebars and bottom terminals",
+      "Needing to save and restore complex user-adjusted layout states"
+    ],
+    "avoid_when": [
+      "Building simple mobile applications with standard navigation and scrolling lists",
+      "Needing standard Material or Cupertino layout scaffolds without split views"
+    ],
+    "strengths": [
+      "Flexible layout configurations with nested horizontal and vertical panes",
+      "Supports dynamic runtime pane management, serialization, and keyboard accessibility",
+      "Pre-configured IDE layout with multiple bottom panel positioning modes"
+    ],
+    "weaknesses": [
+      "Limited primarily to multi-pane and split-view design patterns",
+      "Relies entirely on package-specific controllers for programmatic mutations"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "final controller = PaneController(\n  entries: [\n    PaneEntry(id: 'sidebar', initialSize: PaneSize.pixel(250)),\n    PaneEntry(id: 'content', initialSize: PaneSize.fraction(1.0)),\n  ],\n);\n\nMultiPane(\n  direction: Axis.horizontal,\n  controller: controller,\n  paneBuilder: (context, id) => switch (id) {\n    'sidebar' => Sidebar(),\n    'content' => Content(),\n    _ => const SizedBox(),\n  },\n)",
+    "confidence": 1
+  }
+}

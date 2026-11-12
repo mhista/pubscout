@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.2.0",
+  "generatedAt": "2026-11-12T11:39:43.038Z",
+  "data": {
+    "primary_category": "animation",
+    "secondary_categories": [
+      "images"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Renders SVGA animations in Flutter natively using CustomPainter.",
+    "what_it_does": "Decodes and renders SVGA animation files natively within Flutter using CustomPainter. It supports loading from local assets or remote URLs with controllable animation playback and dynamic element modification.",
+    "use_when": [
+      "You need to render SVGA animation formats inside your Flutter application.",
+      "You require high-performance, low-cost native rendering using CustomPainter."
+    ],
+    "avoid_when": [
+      "You need built-in caching for remote resource files (the library suggests using dio or other libraries for this).",
+      "You are using SVGA format versions newer than 2.0."
+    ],
+    "strengths": [
+      "Renders animations natively via CustomPainter for high performance.",
+      "Supports dynamic elements like replacing bitmaps, adding text, and hiding elements dynamically."
+    ],
+    "weaknesses": [
+      "Does not manage any file or resource caches out of the box.",
+      "Supports 2.0 format only."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the dependency to pubspec.yaml and optionally configure local assets if loading local SVGA files.",
+    "alternatives": [],
+    "minimal_example": "class MyWidget extends Widget {\n  @override\n  Widget build(BuildContext context) {\n    return Container(\n      child: SVGASimpleImage(\n          resUrl: \"https://github.com/yyued/SVGA-Samples/blob/master/angel.svga?raw=true\"),\n    );\n  }\n}",
+    "confidence": 0.95
+  }
+}

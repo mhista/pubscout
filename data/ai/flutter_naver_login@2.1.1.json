@@ -1,0 +1,36 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.1.1",
+  "generatedAt": "2026-11-09T11:32:03.172Z",
+  "data": {
+    "primary_category": "auth",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter plugin for native Naver Login SDKs on Android and iOS.",
+    "what_it_does": "A Flutter plugin that integrates native Naver Login SDKs for Android and iOS. It allows users to sign in and out using Naver accounts and fetch user profile details and tokens.",
+    "use_when": [
+      "You need Naver social authentication in a Flutter application.",
+      "Targeting platforms like Android and iOS where native Naver Login SDKs are used."
+    ],
+    "avoid_when": [
+      "You do not require Naver authentication.",
+      "Building for desktop or web where native SDK integration is not supported."
+    ],
+    "strengths": [
+      "Supports native Naver Login SDKs on Android and iOS.",
+      "Provides helper methods for user account data and token management."
+    ],
+    "weaknesses": [
+      "Requires manual native platform setup for Android (strings.xml, AndroidManifest) and iOS (Info.plist, AppDelegate)."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires client IDs and secrets configured in Android strings.xml and iOS Info.plist, alongside updates to MainActivity and AppDelegate.",
+    "alternatives": [],
+    "minimal_example": "try {\n  final NaverLoginResult res = await FlutterNaverLogin.logIn();\n  if (res.status == NaverLoginStatus.loggedIn) {\n    final account = res.account;\n    print('User name: ${account?.name}');\n  }\n} catch (error) {\n  print('Login failed: $error');\n}",
+    "confidence": 1
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.8.4",
+  "generatedAt": "2026-11-09T11:35:06.362Z",
+  "data": {
+    "primary_category": "navigation",
+    "secondary_categories": [
+      "animation"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Create, combine and apply custom page transitions to routes with GoRouter and Navigator.",
+    "what_it_does": "Provides an easy way to create, combine, and apply page transitions for GoRouter and standard Flutter navigators. It supports customizable transitions such as fade, slide, rotate, scale, size, and platform-specific defaults.",
+    "use_when": [
+      "You are using GoRouter and want custom or combined page transitions easily.",
+      "You need to apply standard or custom transitions using a fluent syntax-sugar API.",
+      "You want to use transitions outside the router using Navigator.push with GoTransitionRoute."
+    ],
+    "avoid_when": [
+      "You do not use GoRouter or standard navigation routes where this package applies.",
+      "You prefer writing custom TransitionBuilders manually from scratch without helper libraries."
+    ],
+    "strengths": [
+      "Simplifies complex route transition configurations into single-line or chained syntax.",
+      "Compatible with both GoRouter pageBuilder and standard Navigator pushes.",
+      "Provides built-in modifiers like withFade, withScale, and directional modifiers."
+    ],
+    "weaknesses": [
+      "Tied closely to GoRouter ecosystem conventions and dependencies.",
+      "Depends on specific GoRouter version ranges."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "No special native configuration or build_runner is required.",
+    "alternatives": [
+      {
+        "name": "go_router",
+        "why_pick_it": "GoRouter is the core routing package itself, which can handle standard page transitions natively without extra helper packages."
+      },
+      {
+        "name": "auto_route",
+        "why_pick_it": "Auto_route offers robust declarative routing and deep-linking out of the box with its own built-in transition management."
+      }
+    ],
+    "minimal_example": "GoRoute(\n  path: 'slide',\n  builder: (_, __) => const HomePage(),\n  pageBuilder: GoTransitions.slide.toRight.withFade,\n);",
+    "confidence": 0.95
+  }
+}

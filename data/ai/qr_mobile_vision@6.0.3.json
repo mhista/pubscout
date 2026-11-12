@@ -1,0 +1,53 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "6.0.3",
+  "generatedAt": "2026-11-09T11:54:43.808Z",
+  "data": {
+    "primary_category": "camera",
+    "secondary_categories": [
+      "ai-ml"
+    ],
+    "approach": [
+      "declarative",
+      "imperative"
+    ],
+    "one_liner": "Plugin for reading QR codes and barcodes using Mobile Vision APIs.",
+    "what_it_does": "Reads QR codes and barcodes using Android and iOS native APIs via Firebase's MLKit/Mobile Vision. It pipes camera images to the barcode detection API while outputting a preview image onto a Flutter texture.",
+    "use_when": [
+      "You need to scan QR codes or barcodes inside a Flutter widget",
+      "You want a camera preview combined with real-time barcode scanning"
+    ],
+    "avoid_when": [
+      "You need a general-purpose camera plugin without barcode scanning",
+      "You are using a very old version of iOS below 15.5 and cannot upgrade"
+    ],
+    "strengths": [
+      "Includes a ready-to-use widget that performs necessary camera output transformations",
+      "Supports multiple barcode formats including QR, Aztec, Code 128, and PDF417"
+    ],
+    "weaknesses": [
+      "Requires proper constrained sizing (like a SizedBox or Container) for the camera preview",
+      "Flash toggling and navigation handling have some known limitations documented in the README"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires ensuring compatible iOS version (15.5+) and handling native Android/iOS camera permissions.",
+    "alternatives": [
+      {
+        "name": "mobile_scanner",
+        "why_pick_it": "Often preferred for active maintenance, multi-platform support, and easier configuration for barcode scanning."
+      },
+      {
+        "name": "google_mlkit_barcode_scanning",
+        "why_pick_it": "Directly uses Google ML Kit without being tied to a specific camera preview widget implementation."
+      },
+      {
+        "name": "qr_code_scanner_plus",
+        "why_pick_it": "Provides another alternative specifically focused on QR code and barcode scanning widgets."
+      }
+    ],
+    "minimal_example": "new SizedBox(\n  width: 300.0,\n  height: 600.0,\n  child: new QrCamera(\n    qrCodeCallback: (code) {\n      // handle code\n    },\n  ),\n)",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.7.1",
+  "generatedAt": "2026-11-10T12:14:48.779Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "devtools"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Decode non-symbolic stack traces from AOT-compiled Dart apps using stored debugging info",
+    "what_it_does": "This package reads debugging information (DWARF, PDB, Mach‑O) and translates raw stack traces that contain only program counters into symbolic stack traces with file, function, and line numbers. It also provides a CLI tool to perform the translation on error logs.",
+    "use_when": [
+      "You ship an AOT‑compiled Dart app and want to debug crashes on production devices",
+      "You need to map stack traces back to source code after stripping debug info",
+      "You want a command‑line tool to translate logs offline"
+    ],
+    "avoid_when": [
+      "You are not using AOT compilation or your stack traces already contain symbols",
+      "You need a general-purpose stack‑trace library for runtime error handling"
+    ],
+    "strengths": [
+      "Supports multiple binary formats (PE/COFF, Mach‑O, ELF) and DWARF/PDB",
+      "CLI tool simplifies offline translation",
+      "No code generation required",
+      "Pure Dart implementation"
+    ],
+    "weaknesses": [
+      "Limited to non‑symbolic stack traces only",
+      "Requires access to the original debugging files",
+      "No runtime symbol resolution"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dependency and run `dart pub global activate native_stack_traces` for CLI, or import library in code",
+    "alternatives": [],
+    "minimal_example": "```dart\nimport 'package:native_stack_traces/native_stack_traces.dart';\n\nfinal translated = await NativeStackTraces.translate(\n  debugFile: 'app.debug',\n  stackTrace: rawStackTrace,\n);\nprint(translated);\n```",
+    "confidence": 0.8
+  }
+}

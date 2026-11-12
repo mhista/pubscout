@@ -1,0 +1,57 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "20.2.0",
+  "generatedAt": "2026-11-09T11:15:32.553Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [],
+    "approach": [
+      "code generation",
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "A local NoSQL database for Flutter/Dart with object‑oriented API and live query streams.",
+    "what_it_does": "Realm stores data on‑device using a schema‑based object model. It provides fast CRUD operations, live query change streams, and automatic synchronization (now deprecated). The SDK generates Dart model classes from annotated definitions.",
+    "use_when": [
+      "You need a high‑performance on‑device database with live updates",
+      "You prefer an object‑oriented API over raw SQL",
+      "You want automatic schema migrations and type safety"
+    ],
+    "avoid_when": [
+      "Device Sync is required (sync features are removed)",
+      "You need a pure key‑value store or minimal footprint",
+      "You target web only (no native support)"
+    ],
+    "strengths": [
+      "Fast native performance, often faster than SQLite",
+      "Live query change streams simplify reactive UI",
+      "Schema defined in Dart, code‑gen reduces boilerplate",
+      "Cross‑platform support including desktop"
+    ],
+    "weaknesses": [
+      "Requires native build steps (CMake, Cocoapods)",
+      "Sync functionality deprecated, future‑proofness uncertain",
+      "Larger binary size compared to simple key‑value packages"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Run `dart run realm install` to fetch native binaries; ensure CMake ≥ 3.21, Cocoapods ≥ 1.11, and Flutter ≥ 3.10.2. Add `realm` to pubspec and generate model code with `dart run realm generate`.",
+    "alternatives": [
+      {
+        "name": "sqflite",
+        "why_pick_it": "Lightweight SQLite wrapper, no native build steps, good for relational data"
+      },
+      {
+        "name": "hive_ce",
+        "why_pick_it": "Pure Dart key‑value store, zero native dependencies, simple API"
+      },
+      {
+        "name": "drift",
+        "why_pick_it": "Typed SQLite with code generation, supports complex queries and migrations"
+      }
+    ],
+    "minimal_example": "import 'package:realm/realm.dart';\n\npart 'app.realm.dart';\n\n@RealmModel()\nclass _Car {\n  late String make;\n  late String model;\n  int? kilometers = 500;\n}\n\nvoid main() {\n  var config = Configuration.local([Car.schema]);\n  var realm = Realm(config);\n  var car = Car('Tesla', 'Model Y', kilometers: 5);\n  realm.write(() => realm.add(car));\n  var cars = realm.all<Car>().query(r'make == $0', ['Tesla']);\n  cars.changes.listen((c) => print('Inserted: ${c.inserted}'));\n}",
+    "confidence": 0.93
+  }
+}

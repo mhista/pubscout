@@ -1,0 +1,47 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.5.2",
+  "generatedAt": "2026-11-10T12:38:16.537Z",
+  "data": {
+    "primary_category": "files",
+    "secondary_categories": [
+      "networking",
+      "storage"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Copy large assets or download network files to the device local file system.",
+    "what_it_does": "Efficiently copies large files from Flutter assets or downloads them from the network directly to the device's local file system. Provides optional progress tracking via streams across multiple platforms.",
+    "use_when": [
+      "You need to copy large bundled assets to the local file system for native access.",
+      "You need to download large files from the network with progress tracking."
+    ],
+    "avoid_when": [
+      "You are targeting web platforms where local file system writes are not supported.",
+      "You only need simple key-value storage or a lightweight database."
+    ],
+    "strengths": [
+      "Supports copying assets and downloading network files with progress tracking.",
+      "Cross-platform support including Android, iOS, macOS, Windows, and Linux.",
+      "Streams data efficiently without buffering entire files in memory on certain platforms."
+    ],
+    "weaknesses": [
+      "Throws an UnsupportedError on web platforms due to lack of local file system support.",
+      "Requires handling stream errors separately from standard try/catch blocks."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Register asset files in pubspec.yaml under flutter assets if you plan to copy them locally.",
+    "alternatives": [
+      {
+        "name": "path_provider",
+        "why_pick_it": "If you only need directory paths to write files manually using Dart's dart:io without extra wrapper logic."
+      }
+    ],
+    "minimal_example": "import 'package:large_file_handler/large_file_handler.dart';\n\nFuture<void> copyAssetToLocal() async {\n  const assetName = 'example.json';\n  const targetPath = 'example.json';\n  await LargeFileHandler().copyAssetToLocalStorage(assetName: assetName, targetPath: targetPath);\n}",
+    "confidence": 0.95
+  }
+}

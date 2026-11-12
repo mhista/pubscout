@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.0.2",
+  "generatedAt": "2026-11-12T11:25:41.042Z",
+  "data": {
+    "primary_category": "localization",
+    "secondary_categories": [
+      "ai-ml"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Detect the language of a given text using character-wise n-gram models.",
+    "what_it_does": "Detects the language of provided text supporting 55 languages out of the box. It provides functions to identify the most likely language or retrieve probabilities for multiple languages.",
+    "use_when": [
+      "You need to automatically detect the language of user input text in your app.",
+      "You want a lightweight and fast language detection solution ported from the Python langdetect library."
+    ],
+    "avoid_when": [
+      "You require robust support for languages outside of the supported 55 ISO 639-1 codes."
+    ],
+    "strengths": [
+      "Supports 55 languages out of the box.",
+      "Lightweight and fast character-wise n-gram model.",
+      "Simple API with direct detection and probability breakdown functions."
+    ],
+    "weaknesses": [
+      "Requires manual initialization via initLangDetect() before use.",
+      "License is stated as unknown in the metadata."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Must call await langdetect.initLangDetect() once in the application after WidgetsFlutterBinding.ensureInitialized().",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter/widgets.dart';\nimport 'package:flutter_langdetect/flutter_langdetect.dart' as langdetect;\n\nvoid main() async {\n  WidgetsFlutterBinding.ensureInitialized();\n  await langdetect.initLangDetect();\n  String text = 'Hello, world!';\n  final language = langdetect.detect(text);\n}",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.1.0",
+  "generatedAt": "2026-11-09T11:46:59.346Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "forms"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Fast Dart profanity and swear word filter with phone number detection for 80+ languages.",
+    "what_it_does": "Filters offensive language and detects phone numbers in text using the Aho-Corasick algorithm. Supports character substitutions, custom word lists, and multiple masking strategies across 80+ languages.",
+    "use_when": [
+      "You need to moderate user-generated text content like chat messages or comments",
+      "You want to detect phone numbers embedded in natural language or mixed formats",
+      "Performance on the UI thread is critical"
+    ],
+    "avoid_when": [
+      "You require complex contextual or semantic AI-based content moderation beyond dictionary lookups"
+    ],
+    "strengths": [
+      "High performance suitable for running on the UI thread",
+      "Supports 80+ languages and 55,000+ curated bad words",
+      "Detects various phone number formats including leet-speak and multipliers"
+    ],
+    "weaknesses": [
+      "Relies on keyword and pattern matching which can produce false positives or miss context-dependent slurs"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:safe_text/safe_text.dart';\n\nvoid main() async {\n  SafeTextFilter.init(language: Language.english);\n  final clean = SafeTextFilter.filterText(text: \"What the f@ck!\");\n  print(clean);\n}",
+    "confidence": 1
+  }
+}

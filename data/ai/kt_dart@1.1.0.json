@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.1.0",
+  "generatedAt": "2026-11-11T11:31:22.675Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Kotlin standard library port for Dart and Flutter with 150+ collection methods.",
+    "what_it_does": "It brings Kotlin-style standard library collections like KtList, KtMap, and KtSet to Dart, providing immutable-by-default collections, deep equals comparisons, and 150+ functional methods.",
+    "use_when": [
+      "You prefer Kotlin's collection API and want immutable collections by default",
+      "You need deep equals out-of-the-box for complex nested collections",
+      "You are porting Kotlin codebases or logic directly to Dart"
+    ],
+    "avoid_when": [
+      "You prefer sticking strictly to standard Dart core collections and syntax",
+      "You are sensitive to introducing third-party collection wrappers over native Lists and Maps"
+    ],
+    "strengths": [
+      "Comprehensive port of Kotlin standard library with 150+ methods",
+      "Immutable collections by default preventing accidental mutations",
+      "Deep equals comparison out of the box"
+    ],
+    "weaknesses": [
+      "Requires converting between native Dart collections and kt_dart collections",
+      "Collections do not directly implement standard Dart Iterable, requiring .iter or .asList"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Just add the dependency to pubspec.yaml and import 'package:kt_dart/kt.dart'.",
+    "alternatives": [],
+    "minimal_example": "import 'package:kt_dart/kt.dart';\n\nvoid main() {\n  final beatles = KtList.of(\"John\", \"Paul\", \"George\", \"Ringo\");\n  final partitions = beatles.partition((it) => it.contains(\"n\"));\n  print(partitions.first); // [John, Ringo]\n}",
+    "confidence": 1
+  }
+}

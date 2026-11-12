@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.3.4",
+  "generatedAt": "2026-11-09T11:54:26.033Z",
+  "data": {
+    "primary_category": "maps",
+    "secondary_categories": [
+      "animation"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Animate Google Maps markers smoothly between location updates in Flutter.",
+    "what_it_does": "Continuously interpolates position, bearing, alpha, and z-index for Google Maps markers to prevent sudden jumps or jerky movements between updates. It handles static vs animated partitioning, viewport culling, and adaptive performance tuning to maintain high frame rates.",
+    "use_when": [
+      "You are building a real-time fleet tracking or delivery app using Google Maps.",
+      "Marker positions update frequently and you want smooth animated transitions instead of sudden jumps."
+    ],
+    "avoid_when": [
+      "You are using a map provider other than Google Maps (e.g., flutter_map or Mapbox).",
+      "You do not need marker animations and only display static points of interest."
+    ],
+    "strengths": [
+      "Smooth spherical angle rotation and position interpolation.",
+      "Built against the platform interface to prevent native plugin conflicts.",
+      "Adaptive performance tuning automatically handles device load to preserve 60 FPS."
+    ],
+    "weaknesses": [
+      "Strictly tied to Google Maps for Flutter.",
+      "Requires proper handling of marker sets to distinguish static vs animated elements."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the package to pubspec.yaml and wrap your GoogleMap widget with the AnimatedMarker builder.",
+    "alternatives": [
+      {
+        "name": "google_maps_flutter",
+        "why_pick_it": "If you do not need built-in smooth marker animations and prefer to manage standard Google Maps markers manually."
+      }
+    ],
+    "minimal_example": "AnimatedMarker(\n  animatedMarkers: movingVehicles,\n  staticMarkers: staticDepots,\n  animationPolicy: const AnimationPolicy(\n    duration: Duration(seconds: 2),\n    curve: Curves.easeInOut,\n    maxFps: 30,\n  ),\n  builder: (BuildContext context, Set<Marker> markers) {\n    return GoogleMap(\n      initialCameraPosition: const CameraPosition(\n        target: LatLng(37.77483, -122.41942),\n        zoom: 14,\n      ),\n      markers: markers,\n    );\n  },\n)",
+    "confidence": 0.95
+  }
+}

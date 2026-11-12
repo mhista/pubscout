@@ -1,0 +1,48 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.4.0",
+  "generatedAt": "2026-11-09T11:54:49.850Z",
+  "data": {
+    "primary_category": "images",
+    "secondary_categories": [
+      "audio-video",
+      "forms"
+    ],
+    "approach": [
+      "declarative",
+      "stream-based"
+    ],
+    "one_liner": "An Instagram-inspired image and video picker with multi-picking and cropping support.",
+    "what_it_does": "Provides an Instagram-like UI for selecting and cropping multiple images and videos. It handles preview, selection, aspect ratio adjustment, and returns exported asset details with crop parameters.",
+    "use_when": [
+      "You want an Instagram-styled media picker experience in your app.",
+      "You need built-in multi-asset picking with custom crop ratios like 1:1 and 4:5.",
+      "You want to pick both images and videos using a custom picker delegate."
+    ],
+    "avoid_when": [
+      "You need built-in video processing capabilities out-of-the-box.",
+      "You need a simple default platform picker instead of a custom themed UI."
+    ],
+    "strengths": [
+      "Replicates the smooth UI and scroll behaviors of Instagram's picker.",
+      "Supports multiple asset selections and batch cropping.",
+      "Highly customizable themes, localizations, and crop aspect ratios."
+    ],
+    "weaknesses": [
+      "Video processing is not handled by the package and must be implemented manually.",
+      "Requires specific native setup steps and configuration from the underlying wechat assets picker."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires following the setup instructions of flutter_wechat_assets_picker for platform permissions and configurations.",
+    "alternatives": [
+      {
+        "name": "image_picker",
+        "why_pick_it": "If you need a simpler, default platform-native image and video picker instead of a custom Instagram-styled UI."
+      }
+    ],
+    "minimal_example": "Future<List<AssetEntity>?> callPicker() => InstaAssetPicker.pickAssets(\n    context,\n    pickerConfig: InstaAssetPickerConfig(\n      title: 'Select assets',\n    ),\n    maxAssets: 10,\n    onCompleted: (Stream<InstaAssetsExportDetails> stream) {},\n);",
+    "confidence": 0.95
+  }
+}

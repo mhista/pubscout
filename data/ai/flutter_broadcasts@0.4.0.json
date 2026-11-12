@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.4.0",
+  "generatedAt": "2026-11-11T11:32:14.588Z",
+  "data": {
+    "primary_category": "notifications",
+    "secondary_categories": [],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "A plugin for sending and receiving broadcasts with Android intents and iOS notifications.",
+    "what_it_does": "A plugin for sending and receiving broadcasts with Android intents and iOS notifications. The API is inspired by Android's BroadcastReceivers and uses the NotificationCenter internally on iOS.",
+    "use_when": [
+      "You need to handle Android broadcast intents inside a Flutter application",
+      "You want to subscribe to native message streams using a BroadcastReceiver-inspired API"
+    ],
+    "avoid_when": [
+      "You need full iOS NSNotificationCenter support immediately, as it is not yet implemented",
+      "You are looking for traditional push notifications via Firebase"
+    ],
+    "strengths": [
+      "Familiar API design for developers coming from Android's BroadcastReceiver",
+      "Stream-based messages integration for easy listening"
+    ],
+    "weaknesses": [
+      "iOS NSNotificationCenter subscriptions and notifications are not yet implemented",
+      "Package is currently under construction"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Install via pub.dev and instantiate BroadcastReceiver with desired names.",
+    "alternatives": [
+      {
+        "name": "firebase_messaging",
+        "why_pick_it": "If you need remote push notifications across platforms instead of local native broadcasts."
+      }
+    ],
+    "minimal_example": "BroadcastReceiver receiver = BroadcastReceiver(\n  names: <String>[\"de.kevlatus.broadcast\"],\n);\nreceiver.messages.listen(print);\nreceiver.start();",
+    "confidence": 0.9
+  }
+}

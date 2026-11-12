@@ -1,0 +1,47 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "5.0.0",
+  "generatedAt": "2026-11-10T12:58:22.395Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "ui-kits"
+    ],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "Flutter widget that automatically resizes text to fit perfectly within its bounds.",
+    "what_it_does": "AutoSizeText behaves like a standard Flutter Text widget but automatically adjusts its font size to fit within the given boundaries. It supports maxLines, custom minimum and maximum font sizes, group synchronization, and rich text via TextSpans.",
+    "use_when": [
+      "You need text to shrink down in order to fit inside constrained UI boundaries.",
+      "You want to synchronize the font size of multiple text widgets across the screen.",
+      "You want to display a fallback replacement widget when text overflows."
+    ],
+    "avoid_when": [
+      "The parent widget does not provide bounded constraints (e.g., inside an unconstrained Row without Expanded).",
+      "You require high-performance rendering with thousands of unconstrained text elements using massive font size ranges."
+    ],
+    "strengths": [
+      "Automatically scales font size based on available bounds and maxLines.",
+      "Supports synchronizing font sizes across multiple text widgets using AutoSizeGroup.",
+      "Supports rich text formatting via AutoSizeText.rich()."
+    ],
+    "weaknesses": [
+      "Requires proper bounded constraints from parent layout widgets to work correctly.",
+      "May have performance overhead if configured with an unreasonably high starting font size and large range."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [
+      {
+        "name": "auto_size_text",
+        "why_kludge": "This is the original/underlying package or direct alternative available in the ecosystem."
+      }
+    ],
+    "minimal_example": "AutoSizeText(\n  'The text to display',\n  style: TextStyle(fontSize: 20),\n  maxLines: 2,\n)",
+    "confidence": 1
+  }
+}

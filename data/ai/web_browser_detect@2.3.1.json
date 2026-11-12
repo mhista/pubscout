@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.3.1",
+  "generatedAt": "2026-11-10T13:08:07.686Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "web-desktop"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Detect which browser and version is in use on Flutter Web.",
+    "what_it_does": "Allows Flutter Web applications to detect the current browser name and version using the user agent string. It provides safe alternative methods for non-web platforms as well as a way to parse custom user agent strings.",
+    "use_when": [
+      "You need to conditionally adjust web application behavior based on the user's browser.",
+      "You need to log or display browser information in a Flutter web application."
+    ],
+    "avoid_when": [
+      "You have other, more reliable ways to handle platform or feature detection (like feature testing), as user agent detection is never completely reliable.",
+      "Your application primarily targets non-web platforms."
+    ],
+    "strengths": [
+      "Supports detection via `Browser.detectOrNull()` for cross-platform safety.",
+      "Supports custom user agent parsing via `Browser.detectFrom()`."
+    ],
+    "weaknesses": [
+      "Browser detection using UserAgent strings is never completely reliable.",
+      "Does not support all current or past browsers out of the box."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "No special native setup required.",
+    "alternatives": [],
+    "minimal_example": "import 'package:web_browser_detect/web_browser_detect.dart';\n\nvoid main() {\n  final browser = Browser.detectOrNull();\n  print('${browser?.browser ?? \\'Wrong platform\\'} ${browser?.version ?? \\'Wrong platform\\'}');\n}",
+    "confidence": 0.95
+  }
+}

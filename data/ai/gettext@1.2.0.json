@@ -1,0 +1,53 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.2.0",
+  "generatedAt": "2026-11-12T11:54:56.286Z",
+  "data": {
+    "primary_category": "localization",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Platform agnostic gettext localization framework for Dart and Flutter",
+    "what_it_does": "Provides a Dart implementation of the gettext localization framework, ported from node-gettext. It supports domains, contexts, and plurals with built-in plural forms for 136 languages, allowing you to change locale or domain on the fly.",
+    "use_when": [
+      "You need to localize your Dart or Flutter application using standard gettext files (.json, .po, .mo).",
+      "You require dynamic locale and domain switching at runtime.",
+      "You need robust pluralization rules across many languages."
+    ],
+    "avoid_when": [
+      "You prefer compile-time safe localization with code generation.",
+      "You rely entirely on the official Flutter intl package ecosystem."
+    ],
+    "strengths": [
+      "Supports domains, contexts, and plurals out of the box.",
+      "Ships with plural forms for 136 languages.",
+      "Platform agnostic implementation that also works with Flutter."
+    ],
+    "weaknesses": [
+      "Relies on manual translation loading and parsing rather than generated type-safe keys.",
+      "Requires external packages like gettext_parser to parse standard .po or .mo files."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "intl",
+        "why_pick_it": "Standard localization library provided by the Dart team with built-in date, number, and message formatting."
+      },
+      {
+        "name": "slang",
+        "why_pick_it": "Type-safe localization through code generation instead of dynamic runtime keys."
+      },
+      {
+        "name": "easy_localization",
+        "why_pick_it": "Easy-to-use JSON/YAML localization for Flutter with built-in widget extensions."
+      }
+    ],
+    "minimal_example": "import \"package:gettext/gettext.dart\";\n\nfinal gt = new Gettext(onWarning: print);\ngt.locale = \"en_US\";\ngt.gettext(\"Hello\");",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "10.14.0",
+  "generatedAt": "2026-11-09T11:09:34.231Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "A Dart MQTT client supporting TCP, WebSocket, secure connections and all QoS levels.",
+    "what_it_does": "It implements MQTT v3.1 and v3.1.1, handling connection, subscription, publishing and keep‑alive automatically. It works on Android, iOS, web, desktop and server platforms.",
+    "use_when": [
+      "Building IoT or chat apps that need MQTT communication",
+      "Integrating with cloud MQTT brokers like Google IoT Core, AWS IoT, Azure IoT Hub",
+      "Creating Flutter apps that require real‑time messaging over MQTT"
+    ],
+    "avoid_when": [
+      "You only need HTTP or WebSocket APIs",
+      "Your project already uses a different MQTT client that better fits your architecture"
+    ],
+    "strengths": [
+      "Supports TCP, secure TCP, WebSocket and secure WebSocket",
+      "Handles all QoS levels and keep‑alive automatically",
+      "Batch and multi‑unsubscriptions, making it efficient for many topics",
+      "Cross‑platform support (Android, iOS, web, desktop, server)"
+    ],
+    "weaknesses": [
+      "No native support for MQTT v5 (requires separate package)",
+      "Requires platform permissions for network access on mobile",
+      "Documentation is concise but may need digging for advanced use"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add INTERNET and ACCESS_NETWORK_STATE permissions on Android; add NSLocalNetworkUsageDescription and NSBonjourServices on iOS. No build_runner needed.",
+    "alternatives": [],
+    "minimal_example": "import 'package:mqtt_client/mqtt_client.dart';\n\nfinal client = MqttClient('broker.hivemq.com', 'testClient');\nawait client.connect();\nclient.subscribe('topic/test', MqttQos.atLeastOnce);\nclient.publishMessage('topic/test', MqttQos.atLeastOnce, 'Hello');",
+    "confidence": 0.8
+  }
+}

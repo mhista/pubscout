@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "1.0.13",
+  "generatedAt": "2026-11-09T11:19:31.544Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "layout"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Reorderable grid widget with drag‑and‑drop support",
+    "what_it_does": "Provides a drop‑in replacement for GridView that allows items to be reordered via drag and drop. It exposes callbacks for reorder start, completion, and optional locking of specific items.",
+    "use_when": [
+      "You need a grid where users can reorder items by dragging",
+      "You want a simple, declarative API without custom drag handles",
+      "You need callbacks to update your data model after reordering"
+    ],
+    "avoid_when": [
+      "You require highly custom drag handles or animations not supported by the package",
+      "You need a non‑grid reorderable list (use ReorderableListView instead)"
+    ],
+    "strengths": [
+      "Drop‑in replacement for GridView",
+      "Supports locking specific items from being dragged",
+      "Provides onReorderStart callback",
+      "Easy to integrate with existing state management"
+    ],
+    "weaknesses": [
+      "Only supports grid layouts, not list or custom slivers beyond provided ones",
+      "Limited customization of drag handles compared to building your own widget"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dependency to pubspec and import the package; no special permissions or build_runner needed",
+    "alternatives": [],
+    "minimal_example": "final items = List<int>.generate(40, (index) => index);\n\nvoid _onReorder(int oldIndex, int newIndex) {\n  setState(() {\n    final item = items.removeAt(oldIndex);\n    items.insert(newIndex, item);\n  });\n}\n\nReorderableGridView.extent(\n  maxCrossAxisExtent: 250,\n  onReorder: _onReorder,\n  childAspectRatio: 1,\n  children: items.map((item) => Card(\n    key: ValueKey(item),\n    child: Center(child: Text(item.toString())),\n  )).toList(),\n);",
+    "confidence": 0.9
+  }
+}

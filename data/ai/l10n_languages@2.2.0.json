@@ -1,0 +1,51 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.2.0",
+  "generatedAt": "2026-11-11T11:12:09.299Z",
+  "data": {
+    "primary_category": "localization",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Provides CLDR-like translations for language names across 157 locales.",
+    "what_it_does": "Provides localized names for languages using ISO codes across 157 different locales. It uses a single-use mapper design for memory efficiency and supports tree-shakability via dart define flags.",
+    "use_when": [
+      "You need to display localized language names in your UI.",
+      "You want dependency-free language translations with support for multiple locales and fallbacks."
+    ],
+    "avoid_when": [
+      "You need general app localization or asset string translation (use intl or easy_localization instead).",
+      "You need to reuse the same mapper instance across multiple calls."
+    ],
+    "strengths": [
+      "Dependency-free and lightweight.",
+      "Supports 157 locales out of the box.",
+      "Lazy initialization and single-use design reduce memory footprint."
+    ],
+    "weaknesses": [
+      "Mapper instances are single-use only and cannot be reused after calling localize()."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [
+      {
+        "name": "intl",
+        "why_pick_it": "Standard internationalization and localization support for Flutter and Dart."
+      },
+      {
+        "name": "easy_localization",
+        "why_pick_it": "Easy localization handling with JSON, CSV, and translation files."
+      },
+      {
+        "name": "slang",
+        "why_pick_it": "Type-safe internationalization through code generation."
+      }
+    ],
+    "minimal_example": "void main() {\n  final mapper = LanguagesLocaleMapper();\n  final isoCodes = {\"ENG\", \"RUS\", \"POL\"};\n  final localized = mapper.localize(isoCodes, mainLocale: \"sk\", fallbackLocale: \"cs\");\n  print(\"Names count: ${localized.length}\");\n}",
+    "confidence": 0.95
+  }
+}

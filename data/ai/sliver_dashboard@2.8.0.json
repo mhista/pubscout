@@ -1,0 +1,51 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.8.0",
+  "generatedAt": "2026-11-12T11:37:14.289Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "layout"
+    ],
+    "approach": [
+      "declarative",
+      "imperative"
+    ],
+    "one_liner": "Smooth, sliver-based drag and resize grid engine for Flutter dashboards.",
+    "what_it_does": "Provides a sliver-native layout engine for building interactive dashboards with drag-and-drop, resizing, nested grids, and viewport virtualization. It composes natively with Flutter's scrolling system and supports responsive layouts across platforms.",
+    "use_when": [
+      "Building user-configurable dashboards, analytics platforms, or IoT control panels",
+      "You need complex grid layouts with drag-and-drop and resizing inside a CustomScrollView",
+      "Managing nested grids with cross-sliver drag-and-drop support"
+    ],
+    "avoid_when": [
+      "Building standard static UI forms or simple lists that do not require grid repositioning",
+      "You need a simple non-scrollable table or layout"
+    ],
+    "strengths": [
+      "High performance virtualization and fast collision resolution",
+      "Rich set of features including nested grids, cross-sliver drag-and-drop, and minimap support",
+      "Fully customizable interaction policies, compaction, and responsive breakpoints"
+    ],
+    "weaknesses": [
+      "Large API surface with many configuration options which can take time to master",
+      "Custom implementation required if integrating external state management beyond the provided controller"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the dependency to pubspec.yaml and instantiate a DashboardController.",
+    "alternatives": [
+      {
+        "name": "responsive_framework",
+        "why_pick_it": "Choose responsive_framework for adaptive scaling and responsive breakpoints across generic app screens instead of a widget-level dashboard drag-and-drop grid."
+      },
+      {
+        "name": "responsive_builder",
+        "why_pick_it": "Choose responsive_builder for building different UI layouts based on screen size using simple builders rather than an interactive sliver dashboard engine."
+      }
+    ],
+    "minimal_example": "final controller = DashboardController(\n  initialSlotCount: 5,\n  initialLayout: [\n    const LayoutItem(id: 'a', x: 0, y: 0, w: 2, h: 2),\n  ],\n);\n\nDashboard(\n  controller: controller,\n  itemBuilder: (context, item) => Card(\n    child: Center(child: Text('Item ${item.id}')),\n  ),\n)",
+    "confidence": 0.95
+  }
+}

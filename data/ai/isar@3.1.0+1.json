@@ -1,0 +1,56 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.1.0+1",
+  "generatedAt": "2026-11-12T11:37:26.244Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [
+      "codegen",
+      "utils"
+    ],
+    "approach": [
+      "code generation",
+      "stream-based"
+    ],
+    "one_liner": "Extremely fast NoSQL database for Flutter with async support and static typing.",
+    "what_it_does": "Isar is a NoSQL database built for Flutter and desktop. It provides ACID semantics, compile-time checked queries, full-text search, and real-time database watchers.",
+    "use_when": [
+      "You need a fast, local NoSQL database with complex query capabilities in Flutter.",
+      "You require real-time data streaming via database watchers.",
+      "You want compile-time type-checked queries and auto-generated collection schemas."
+    ],
+    "avoid_when": [
+      "You require traditional relational SQL tables with complex joins.",
+      "You are targeting web platforms with this specific version (web support is not present in 3.0.0+)."
+    ],
+    "strengths": [
+      "Exceptional read and write performance.",
+      "Built-in support for embedded objects, multi-entry indexes, and full-text search.",
+      "Real-time database and query watchers."
+    ],
+    "weaknesses": [
+      "Requires code generation (`build_runner` and `isar_generator`).",
+      "Requires passing an explicit directory when opening instances (since 3.1.0)."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add isar, isar_flutter_libs, and isar_generator with build_runner to your pubspec.yaml, then annotate your models with @collection.",
+    "alternatives": [
+      {
+        "name": "sqflite",
+        "why_pick_it": "You prefer a traditional, lightweight SQLite relational database approach."
+      },
+      {
+        "name": "drift",
+        "why_pick_it": "You want a robust, type-safe SQL database builder for Dart and Flutter."
+      },
+      {
+        "name": "shared_preferences",
+        "why_pick_it": "You only need to store simple key-value pairs rather than complex object graphs."
+      }
+    ],
+    "minimal_example": "final dir = await getApplicationDocumentsDirectory();\nfinal isar = await Isar.open(\n  [EmailSchema],\n  directory: dir.path,\n);\n\nfinal emails = await isar.emails.filter()\n  .titleContains('awesome', caseSensitive: false)\n  .sortByStatusDesc()\n  .limit(10)\n  .findAll();",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.32.0",
+  "generatedAt": "2026-11-09T11:34:11.351Z",
+  "data": {
+    "primary_category": "charts",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Flexible node-based flow editor for Flutter to build visual diagrams and workflows.",
+    "what_it_does": "Provides a high-performance node-based flow editor for Flutter applications. It enables the creation of visual programming interfaces, workflow editors, interactive diagrams, and data pipelines with built-in support for pan, zoom, custom connections, and theming.",
+    "use_when": [
+      "You need to build a visual workflow or data pipeline editor in Flutter.",
+      "You require a canvas supporting nodes, ports, custom connections, and minimaps."
+    ],
+    "avoid_when": [
+      "You only need to display basic statistical charts like line, bar, or pie charts.",
+      "Your application does not involve node-graph or flowchart editing interfaces."
+    ],
+    "strengths": [
+      "High-performance rendering optimized for smooth interactions and large graphs.",
+      "Comprehensive theming system and connection effects like particles and gradients.",
+      "Extensible via extensions like minimaps, stats overlays, and level of detail rendering."
+    ],
+    "weaknesses": [
+      "Niche use-case focused primarily on node-based editors and diagrams.",
+      "Requires managing a custom controller state specific to node graphs."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "directed_graph",
+        "why_pick_it": "If you need automated layout of directed graphs rather than an interactive node editor canvas."
+      }
+    ],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:vyuh_node_flow/vyuh_node_flow.dart';\n\nclass FlowEditor extends StatefulWidget {\n  @override\n  State<FlowEditor> createState() => _FlowEditorState();\n}\n\nclass _FlowEditorState extends State<FlowEditor> {\n  late final controller = NodeFlowController<String, dynamic>(\n    nodes: [\n      Node<String>(\n        id: 'node-1',\n        type: 'input',\n        position: const Offset(100, 100),\n        data: 'Start',\n      ),\n    ],\n  );\n\n  @override\n  Widget build(BuildContext context) {\n    return NodeFlowEditor<String, dynamic>(\n      controller: controller,\n      theme: NodeFlowTheme.light,\n      nodeBuilder: (context, node) => Padding(\n        padding: const EdgeInsets.all(16),\n        child: Text(node.data),\n      ),\n    );\n  }\n}",
+    "confidence": 0.95
+  }
+}

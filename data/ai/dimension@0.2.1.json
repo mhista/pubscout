@@ -1,0 +1,51 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.2.1",
+  "generatedAt": "2026-11-11T11:40:47.150Z",
+  "data": {
+    "primary_category": "layout",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "Mimics CSS length units (px, percentage, vw, vh, vmin, vmax) for responsive Flutter layouts.",
+    "what_it_does": "Introduces a Dimension class that mimics CSS length units, allowing developers to calculate sizes based on parent constraints and screen dimensions. It includes DimensionSizedBox and AnimatedDimensionSizedBox widgets to simplify responsive design and animations.",
+    "use_when": [
+      "You want to use CSS-like length units such as vw, vh, percentage, or vmin/vmax in Flutter.",
+      "You need to easily tween or animate sizes across different units.",
+      "You want a SizedBox alternative that reacts to screen size and parent constraints using Dimension values."
+    ],
+    "avoid_when": [
+      "You are already using a comprehensive responsive layout framework that provides its own scaling mechanism.",
+      "You do not need CSS-style units and standard Flutter constraints are sufficient."
+    ],
+    "strengths": [
+      "Supports multiple CSS-like units including px, percentage, vw, vh, vmin, and vmax.",
+      "Supports serialization and deserialization of dimensions.",
+      "Provides built-in widgets like DimensionSizedBox and AnimatedDimensionSizedBox."
+    ],
+    "weaknesses": [
+      "Requires explicitly passing screen sizes or using its specific wrapper widgets.",
+      "Relies on manual context/constraint handling outside of the provided widgets."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "responsive_framework",
+        "why_pick_it": "If you need full-scale adaptive and responsive scaling across different screen sizes automatically."
+      },
+      {
+        "name": "sizer",
+        "why_pick_it": "If you prefer calculating sizes based on device screen width and height percentages via simple extensions."
+      }
+    ],
+    "minimal_example": "var length = 10.toPXLength;\ndouble px = length.toPX(constraint: 100, screenSize: MediaQuery.sizeOf(context));",
+    "confidence": 0.95
+  }
+}

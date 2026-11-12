@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "10.7.0",
+  "generatedAt": "2026-11-11T11:13:50.593Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Provides offline SQLite persistence for Stream Chat in Flutter.",
+    "what_it_does": "Stores chat data locally using Drift (SQLite) and syncs it with the Stream Chat backend. Enables offline access, optimistic UI updates, and faster reads by caching messages, members, reactions, and more.",
+    "use_when": [
+      "You need offline chat support with caching and sync for Stream Chat apps",
+      "You want faster local reads and optimistic UI updates",
+      "Your app targets multiple platforms including web, requiring a unified storage solution"
+    ],
+    "avoid_when": [
+      "Your app doesn't use Stream Chat or needs a generic storage solution",
+      "You prefer a NoSQL or key‑value store over SQLite",
+      "You want a zero‑dependency solution for tiny apps"
+    ],
+    "strengths": [
+      "Full offline cache for all chat entities",
+      "Built on Drift with indices for performance",
+      "Works across mobile, desktop, and web (with sql.js)"
+    ],
+    "weaknesses": [
+      "Adds SQLite dependency and native setup",
+      "Web requires manual inclusion of sql-wasm files",
+      "Only useful with Stream Chat, not a general storage library"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add the package to pubspec, run flutter pub get, and for web include sql-wasm.js and sql-wasm.wasm in the web folder",
+    "alternatives": [],
+    "minimal_example": "final chatPersistentClient = StreamChatPersistenceClient(logLevel: Level.INFO, connectionMode: ConnectionMode.regular);\nfinal client = StreamChatClient(apiKey, logLevel: Level.INFO)..chatPersistenceClient = chatPersistentClient;",
+    "confidence": 0.9
+  }
+}

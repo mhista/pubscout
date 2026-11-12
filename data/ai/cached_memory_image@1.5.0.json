@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "1.5.0",
+  "generatedAt": "2026-11-12T11:22:23.111Z",
+  "data": {
+    "primary_category": "images",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Cache Base64 or Uint8List images locally and display them with a widget or provider",
+    "what_it_does": "It stores images encoded as Base64 or raw bytes in the device cache directory and serves them via a widget or ImageProvider. It also provides utilities to check existence, remove, clear and dispose cache entries.",
+    "use_when": [
+      "You need to display images that are only available as Base64 or byte arrays and want them cached locally",
+      "You want a simple widget or provider that handles caching automatically without writing file I/O code"
+    ],
+    "avoid_when": [
+      "You need to stream large images from a network source",
+      "You require advanced image manipulation or decoding beyond simple caching"
+    ],
+    "strengths": [
+      "Easy to use widget/provider API",
+      "Supports both Base64 and Uint8List inputs",
+      "Built on flutter_cache_manager for reliable caching",
+      "Provides utility methods for cache management"
+    ],
+    "weaknesses": [
+      "Limited to Base64/Uint8List, not network images",
+      "No advanced image processing features",
+      "No support for SVG or vector graphics"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dependency in pubspec and import package",
+    "alternatives": [],
+    "minimal_example": "CachedMemoryImage(\n  uniqueKey: 'app://image/1',\n  base64: 'iVBORw0KGgoAAAANSUhEUgAA...',\n)",
+    "confidence": 0.9
+  }
+}

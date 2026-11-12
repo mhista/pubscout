@@ -1,0 +1,50 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "4.0.0",
+  "generatedAt": "2026-11-12T11:26:35.462Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "storage",
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "A Dio‑based cache manager that extends flutter_cache_manager for downloading and caching files.",
+    "what_it_does": "Provides a CacheManager implementation that uses Dio for network requests, allowing you to apply Dio interceptors while caching files locally. It works with cached_network_image and other file‑based widgets.",
+    "use_when": [
+      "You need to cache files while using Dio for HTTP requests",
+      "You want to add custom Dio interceptors (e.g., logging, auth) to cached downloads",
+      "You are already using flutter_cache_manager and want a drop‑in Dio replacement"
+    ],
+    "avoid_when": [
+      "You only need simple caching and prefer the default flutter_cache_manager implementation",
+      "You are not using Dio and don’t want to add it as a dependency",
+      "You require advanced storage backends like SQLite or secure storage"
+    ],
+    "strengths": [
+      "Integrates seamlessly with Dio interceptors",
+      "Supports null‑safety and recent Dio 5.x",
+      "Works with cached_network_image out of the box"
+    ],
+    "weaknesses": [
+      "Limited to Dio as the HTTP client",
+      "Smaller community than the core flutter_cache_manager",
+      "No additional features beyond basic caching"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "flutter_cache_manager",
+        "why_pick_it": "Provides similar caching functionality without requiring Dio, suitable for projects that use the default http client"
+      }
+    ],
+    "minimal_example": "var dio = Dio();\n dio.interceptors.add(LogInterceptor(responseBody: false));\n DioCacheManager.initialize(dio);\n var file = await DioCacheManager.instance.getSingleFile(url);",
+    "confidence": 0.9
+  }
+}

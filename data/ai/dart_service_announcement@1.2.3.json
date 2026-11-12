@@ -1,0 +1,36 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.2.3",
+  "generatedAt": "2026-11-12T11:44:08.056Z",
+  "data": {
+    "primary_category": "devtools",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Helper libraries for creating discoverable development services.",
+    "what_it_does": "Allows developers to create tooling announcement servers for development tools like niddler. It helps manage the lifecycle and announcement of discoverable development services.",
+    "use_when": [
+      "You are building custom development tooling or debug services that need to be discoverable.",
+      "You are using or extending tooling similar to niddler."
+    ],
+    "avoid_when": [
+      "You are building standard production features unrelated to local development tooling."
+    ],
+    "strengths": [
+      "Simplifies creation of discoverable development services.",
+      "Supports announcement via the VM service for web compatibility."
+    ],
+    "weaknesses": [
+      "Very niche use case focused solely on tooling developers.",
+      "Limited documentation outside of a basic usage example."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [],
+    "minimal_example": "import 'package:dart_service_announcement/dart_service_announcement.dart';\n\nclass DemoServer extends ToolingServer {\n  @override\n  int get port => 10290;\n\n  @override\n  int get protocolVersion => 4;\n}\n\nFuture<void> main() async {\n  final manager = ServerAnnouncementManager('com.example.test', 6394, DemoServer());\n  await manager.start();\n}",
+    "confidence": 0.9
+  }
+}

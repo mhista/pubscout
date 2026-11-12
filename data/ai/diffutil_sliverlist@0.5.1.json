@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.5.1",
+  "generatedAt": "2026-11-12T11:55:51.145Z",
+  "data": {
+    "primary_category": "animation",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A SliverList that implicitly animates changes using diffutil.",
+    "what_it_does": "Provides a SliverList widget that automatically calculates and implicitly animates changes when items are inserted, removed, or updated. It supports both a list of keyed widgets and data objects.",
+    "use_when": [
+      "You need an animated SliverList that reacts to list modifications automatically",
+      "You want to animate list items fading, sizing, or shifting using diff calculations"
+    ],
+    "avoid_when": [
+      "You are using a standard ListView instead of a Sliver-based list",
+      "You mutate the underlying list directly without creating a new copy for state updates"
+    ],
+    "strengths": [
+      "Supports custom insert and remove animations",
+      "Can build from a list of data items or a list of keyed widgets"
+    ],
+    "weaknesses": [
+      "Requires careful handling of list mutability to allow proper diffing",
+      "Items from data lists must implement equality comparison correctly"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "DiffUtilSliverList<int>(\n  items: list,\n  builder: (context, item) => Container(\n    color: colors[item % colors.length],\n    height: 48,\n    width: double.infinity,\n  ),\n  insertAnimationBuilder: (context, animation, child) => FadeTransition(\n    opacity: animation,\n    child: child,\n  ),\n  removeAnimationBuilder: (context, animation, child) => SizeTransition(\n    sizeFactor: animation,\n    child: child,\n  ),\n)",
+    "confidence": 1
+  }
+}

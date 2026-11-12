@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.5.1",
+  "generatedAt": "2026-11-12T11:28:53.784Z",
+  "data": {
+    "primary_category": "maps",
+    "secondary_categories": [
+      "storage"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Read and write Mapbox MBTiles v1.3 files with support for vector and raster tiles.",
+    "what_it_does": "Provides support for working with Mapbox MBTiles v1.3 database files to read metadata and retrieve vector or raster tiles. Allows opening files as read-only or writable, and supports in-memory databases.",
+    "use_when": [
+      "You need to read or write Mapbox MBTiles files in your app.",
+      "You want to bundle offline map tiles using raster (jpg, png, webp) or vector (pbf) formats."
+    ],
+    "avoid_when": [
+      "You are targeting Flutter Web, as SQLite is not supported on web.",
+      "You want to load the MBTiles file directly from Flutter assets without copying it to the file system first."
+    ],
+    "strengths": [
+      "Supports both vector and raster tiles from MBTiles files.",
+      "Allows working with file-based or in-memory databases."
+    ],
+    "weaknesses": [
+      "Not supported on the web platform due to missing SQLite support.",
+      "Requires manual file copying if the MBTiles file is bundled inside Flutter assets."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "For Flutter, store the MBTiles file in path_provider directories, copy it from assets if bundled, and request storage permissions if accessing internal device storage or SD cards.",
+    "alternatives": [],
+    "minimal_example": "final mbtiles = MbTiles(path: 'path/to/your/mbtiles-file.mbtiles');\nfinal metadata = mbtiles.getMetadata();\nfinal tile = mbtiles.getTile(z: 0, x: 0, y: 0);\nmbtiles.close();",
+    "confidence": 1
+  }
+}

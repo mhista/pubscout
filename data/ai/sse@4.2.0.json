@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "4.2.0",
+  "generatedAt": "2026-11-10T12:14:19.160Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [],
+    "approach": [
+      "stream-based"
+    ],
+    "one_liner": "Bidirectional Server Sent Events client and server for Dart.",
+    "what_it_does": "Provides a client and server implementation of a bidirectional protocol built on Server‑Sent Events. Both sides expose a sink and a stream so messages can be sent and received. Designed for scenarios where WebSockets are unavailable.",
+    "use_when": [
+      "You need real‑time, bidirectional communication in a Dart/Flutter app and WebSockets cannot be used",
+      "Both client and server are written in Dart and can share the same protocol",
+      "You want automatic reconnect and out‑of‑order handling for SSE connections"
+    ],
+    "avoid_when": [
+      "You need a general‑purpose SSE library that works with any server implementation",
+      "You can use WebSockets or other protocols that offer richer features",
+      "You require support for non‑Dart backends"
+    ],
+    "strengths": [
+      "Client and server are provided together, ensuring compatibility",
+      "Handles reconnects, out‑of‑order messages and provides logging",
+      "Works on web and server platforms"
+    ],
+    "weaknesses": [
+      "Only works with a matching server from the same package",
+      "Not a generic SSE client for arbitrary servers",
+      "Limited to Dart ecosystem"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:sse/sse.dart';\n\nvoid main() async {\n  final client = SseClient(Uri.parse('https://example.com/sse'));\n  client.stream.listen((event) => print('Received: $event'));\n  client.sink.add('Hello server');\n}\n",
+    "confidence": 0.85
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.3",
+  "generatedAt": "2026-11-11T11:14:30.745Z",
+  "data": {
+    "primary_category": "testing",
+    "secondary_categories": [
+      "images"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A testing library for finding and verifying flutter_svg images in widget tests.",
+    "what_it_does": "Provides custom finder methods for widget tests to easily locate and verify flutter_svg elements such as SvgPicture. You can match images either by their BytesLoader or specific attributes like the SVG asset path.",
+    "use_when": [
+      "You are writing widget tests for a Flutter app that uses flutter_svg.",
+      "You need to verify that specific SVG assets or pictures are rendered correctly in widget trees."
+    ],
+    "avoid_when": [
+      "Your project does not use flutter_svg.",
+      "You are performing standard unit testing without widget or UI testing requirements."
+    ],
+    "strengths": [
+      "Simplifies testing of SVG images in widget tests",
+      "Provides convenient finders for BytesLoader and SVG paths"
+    ],
+    "weaknesses": [
+      "Limited in scope strictly to testing flutter_svg components"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [],
+    "minimal_example": "testWidgets('asset svg with path', (WidgetTester widgetTester) async {\n  const String svgPath = 'test/flutter_logo.svg';\n  await widgetTester.pumpWidget(\n    DefaultAssetBundle(\n      bundle: _FakeAssetBundle(),\n      child: SvgPicture.asset(svgPath),\n    ),\n  );\n\n  expect(find.svgAssetWithPath(svgPath), findsOneWidget);\n});",
+    "confidence": 1
+  }
+}

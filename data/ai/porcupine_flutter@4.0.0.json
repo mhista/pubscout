@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.0.0",
+  "generatedAt": "2026-11-11T11:39:31.005Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [
+      "ai-ml",
+      "device"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter plugin for Picovoice's offline wake word engine.",
+    "what_it_does": "It provides bindings to the Porcupine wake word engine, enabling offline and private voice-activated applications on Android and iOS. It offers both a high-level manager that handles audio recording automatically and a low-level API for custom audio pipelines.",
+    "use_when": [
+      "You need offline, private wake-word detection in your Flutter app.",
+      "You want to use custom or built-in keyword `.ppn` files for voice commands."
+    ],
+    "avoid_when": [
+      "You need general-purpose speech-to-text transcription rather than specific wake word detection.",
+      "You are targeting platforms other than Android and iOS."
+    ],
+    "strengths": [
+      "Runs completely offline and privately.",
+      "Cross-platform support for Android and iOS.",
+      "Provides both high-level audio recording management and low-level processing."
+    ],
+    "weaknesses": [
+      "Requires a Picovoice AccessKey.",
+      "Custom wake words have restrictions on platforms and commercial usage depending on the Picovoice console tier."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires configuring a Picovoice AccessKey, adding microphone permissions in Info.plist (iOS) and AndroidManifest.xml (Android), and setting iOS deployment strip style if necessary.",
+    "alternatives": [],
+    "minimal_example": "import 'package:porcupine_flutter/porcupine_manager.dart';\nimport 'package:porcupine_flutter/porcupine_error.dart';\n\nfinal String accessKey = '{ACCESS_KEY}';\n\nvoid createPorcupineManager() async {\n    try {\n        var manager = await PorcupineManager.fromBuiltInKeywords(\n            accessKey,\n            [BuiltInKeyword.PICOVOICE, BuiltInKeyword.PORCUPINE],\n            (int keywordIndex) {});\n        await manager.start();\n    } on PorcupineException catch (err) {\n        // handle error\n    }\n}",
+    "confidence": 1
+  }
+}

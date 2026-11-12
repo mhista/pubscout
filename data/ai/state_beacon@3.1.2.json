@@ -1,0 +1,55 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.1.2",
+  "generatedAt": "2026-11-09T11:47:52.132Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [],
+    "approach": [
+      "declarative",
+      "reactive",
+      "stream-based",
+      "no codegen"
+    ],
+    "one_liner": "Reactive primitive and state management solution based on signals and node coloring.",
+    "what_it_does": "State_beacon provides reactive primitives like signals, derived values, effects, and asynchronous state handlers. It automatically tracks dependencies and updates dependent widgets or calculations when values change.",
+    "use_when": [
+      "You want signal-based reactivity for Dart and Flutter apps without code generation.",
+      "You need to handle complex asynchronous state transitions with automatic loading, error, and data states.",
+      "You want fine-grained widget rebuilding using .watch(context)."
+    ],
+    "avoid_when": [
+      "You prefer strict BLoC architectural patterns and event-driven architectures.",
+      "Your project standardizes entirely around Riverpod or Provider."
+    ],
+    "strengths": [
+      "Fine-grained reactivity without boilerplate or code generation.",
+      "Built-in support for asynchronous operations via FutureBeacon and StreamBeacon with AsyncValue states.",
+      "Extensive helper methods for debouncing, throttling, buffering, filtering, and undo/redo."
+    ],
+    "weaknesses": [
+      "Relatively new package with a smaller ecosystem compared to Riverpod or Provider.",
+      "Accidentally accessing dependencies after an async gap will fail to track them."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "No special native permissions or build_runner steps required.",
+    "alternatives": [
+      {
+        "name": "riverpod",
+        "why_pick_it": "If you prefer a compile-safe, provider-based dependency injection and state management solution."
+      },
+      {
+        "name": "bloc",
+        "why_pick_it": "If you require strict separation of concerns using events and states with predictable state transitions."
+      },
+      {
+        "name": "provider",
+        "why_pick_it": "If you want a simple, classic inherited widget wrapper for dependency injection and basic state changes."
+      }
+    ],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:state_beacon/state_beacon.dart';\n\nfinal name = Beacon.writable(\"Bob\");\n\nclass ProfileCard extends StatelessWidget {\n  const ProfileCard({super.key});\n\n  @override\n  Widget build(BuildContext context) {\n    return Text(name.watch(context));\n  }\n}",
+    "confidence": 0.95
+  }
+}

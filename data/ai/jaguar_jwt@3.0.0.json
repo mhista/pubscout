@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.0.0",
+  "generatedAt": "2026-11-10T13:08:14.779Z",
+  "data": {
+    "primary_category": "auth",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Provides JWT utilities for Dart including issuing, verifying, and parsing tokens.",
+    "what_it_does": "Generates and processes JSON Web Tokens (JWT) using the HMAC SHA-256 algorithm. It allows creating claim sets, issuing tokens, verifying signatures, and validating claims.",
+    "use_when": [
+      "You need to issue JSON Web Tokens (JWT) using HMAC SHA-256 in a Dart or Flutter app.",
+      "You need to verify JWT signatures and validate claim sets such as expiration, issuer, and audience."
+    ],
+    "avoid_when": [
+      "You require algorithms other than HMAC SHA-256 (e.g., RSA or elliptic curve algorithms) for signing.",
+      "You need complex token management features not covered by basic HS256 JWT issuing and verification."
+    ],
+    "strengths": [
+      "Simple API for issuing and verifying JWTs.",
+      "Supports registered and custom claims validation.",
+      "Null safe."
+    ],
+    "weaknesses": [
+      "Currently only supports the HMAC SHA-256 algorithm.",
+      "Limited active development status based on Travis CI badges and older ecosystem footprint."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "final key = 's3cr3t';\nfinal claimSet = JwtClaim(\n    subject: 'kleak',\n    issuer: 'teja',\n    maxAge: const Duration(minutes: 5));\nString token = issueJwtHS256(claimSet, key);",
+    "confidence": 0.95
+  }
+}

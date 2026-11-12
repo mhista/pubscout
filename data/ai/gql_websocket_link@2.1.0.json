@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.1.0",
+  "generatedAt": "2026-11-11T11:29:44.001Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "GraphQL WebSocket link for executing queries, mutations, and subscriptions.",
+    "what_it_does": "Provides a WebSocket link for GraphQL clients to execute operations and manage real-time subscriptions over web sockets. Supports auto-reconnection and multiple websocket sub-protocols like graphql-ws and graphql-transport-ws.",
+    "use_when": [
+      "You need GraphQL subscriptions in your Flutter or Dart app",
+      "You are using the gql ecosystem and need a WebSocket transport layer"
+    ],
+    "avoid_when": [
+      "You only need standard HTTP-based queries and mutations without real-time updates",
+      "You are not using the gql client architecture"
+    ],
+    "strengths": [
+      "Supports both graphql-ws and graphql-transport-ws protocols",
+      "Built-in autoReconnect and automatic resubscription handling",
+      "Exposes connection state streams"
+    ],
+    "weaknesses": [
+      "The WebSocketLink class has some known issues documented in the project repository",
+      "Requires using the broader gql link ecosystem"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import \"package:gql_link/gql_link.dart\";\nimport \"package:gql_websocket_link/gql_websocket_link.dart\";\n\nvoid main () {\n  final link = Link.from([\n    WebSocketLink(\"ws://<GRAPHQL_SERVER_ENDPOINT>/graphql\"),\n  ]);\n}",
+    "confidence": 0.95
+  }
+}

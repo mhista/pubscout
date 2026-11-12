@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.0.0",
+  "generatedAt": "2026-11-10T13:11:05.344Z",
+  "data": {
+    "primary_category": "auth",
+    "secondary_categories": [
+      "networking",
+      "storage",
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based",
+      "no codegen"
+    ],
+    "one_liner": "Client SDK for building apps on the atProtocol with end-to-end encryption.",
+    "what_it_does": "Talks to an atSign's personal atServer to transparently handle key management, end-to-end encryption, background sync, notifications, and onboarding/APKAM enrollment. It provides platform-neutral client methods for Dart and Flutter applications.",
+    "use_when": [
+      "Building a Dart CLI, server, or IoT program that connects to the atProtocol.",
+      "Handling secure peer-to-peer data synchronization and messaging through an atServer."
+    ],
+    "avoid_when": [
+      "Building a Flutter web application, as Flutter web is not supported by atSign onboarding and key storage plugins.",
+      "Working with standard REST or GraphQL backends that do not use the atProtocol."
+    ],
+    "strengths": [
+      "Provides end-to-end encryption and post-quantum cryptography support.",
+      "Handles complex device onboarding and APKAM enrollment natively."
+    ],
+    "weaknesses": [
+      "Flutter web is not supported due to platform storage and onboarding limitations.",
+      "Requires understanding of atProtocol concepts like atSigns, atServers, and namespaces."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires setting up keys (such as FileAtKeysIo or device keychain), local storage backends like Hive or SQLite, and an atDirectory secondary address finder.",
+    "alternatives": [],
+    "minimal_example": "import 'package:at_client/at_client_io.dart';\nimport 'package:at_client/hive.dart';\n\nfinal client = await Atsign('@alice').open(\n    keys: FileAtKeysIo(filePath: (_) => '/keys/@alice_key.atKeys'),\n    storage: HiveAtClientStorage(atSign: '@alice', storagePath: dir, closedByClient: true),\n    preference: AtClientPreference()..namespace = 'todos',\n    lookUps: secureSocketLookUps(),\n    secondaryAddressFinder: CacheableSecondaryAddressFinder('root.atsign.org', 64));",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "2.2.0",
+  "generatedAt": "2026-11-09T11:11:41.660Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "no codegen",
+      "imperative"
+    ],
+    "one_liner": "Lightweight parser that flattens and builds JSON:API structures.",
+    "what_it_does": "Provides functions to decode JSON:API responses into plain JSON maps and encode plain JSON maps back into JSON:API format. Handles relationships, meta, links and supports null attributes.",
+    "use_when": [
+      "You need to integrate a JSON:API backend without adding heavy dependencies",
+      "You want a simple way to convert between JSON:API and flat JSON for use with json_serializable"
+    ],
+    "avoid_when": [
+      "You require full JSON:API client features like networking or pagination handling",
+      "You need code generation for model classes"
+    ],
+    "strengths": [
+      "Zero Flutter dependency, works on all Dart platforms",
+      "Handles complex relationships and meta data",
+      "Supports Dart 3 and null safety"
+    ],
+    "weaknesses": [
+      "Only handles encoding/decoding, no networking utilities",
+      "Limited to Map<String,dynamic> transformations"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:japx/japx.dart';\n\nvoid main(){\n  final apiResponse = {\n    'data':{'id':'1','type':'users','attributes':{'email':'john@infinum.co','username':'john'}}\n  };\n  final flat = Japx.decode(apiResponse);\n  print(flat);\n}",
+    "confidence": 0.92
+  }
+}

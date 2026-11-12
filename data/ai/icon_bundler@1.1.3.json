@@ -1,0 +1,47 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.1.3",
+  "generatedAt": "2026-11-12T11:39:33.892Z",
+  "data": {
+    "primary_category": "images",
+    "secondary_categories": [
+      "codegen",
+      "theming"
+    ],
+    "approach": [
+      "code generation",
+      "cli"
+    ],
+    "one_liner": "Bundle collections of svg, png, and jpg files into a single spritesheet image with generated code.",
+    "what_it_does": "Processes a directory of icon files (SVG, PNG, JPG) to pack them into a single spritesheet image and generates Dart widgets and data classes for easy access. Handles multiple pixel ratios and optional sizing through a CLI tool.",
+    "use_when": [
+      "You want to reduce the number of individual asset files in your project.",
+      "You need to bundle mixed SVG, PNG, and JPG icon assets into spritesheets."
+    ],
+    "avoid_when": [
+      "You prefer runtime loading of individual asset files without a CLI build step.",
+      "You cannot install external CLI dependencies like resvg for SVG rendering."
+    ],
+    "strengths": [
+      "Reduces asset count by combining icons into a single spritesheet.",
+      "Supports multiple pixel ratios and custom sizing options.",
+      "Generates ready-to-use widgets and data access classes."
+    ],
+    "weaknesses": [
+      "Requires external tools like resvg installed locally for SVG rendering.",
+      "Relies on a separate CLI workflow rather than a build_runner integration."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires installing the resvg command-line tool and activating the package globally via pub global activate.",
+    "alternatives": [
+      {
+        "name": "flutter_svg",
+        "why_pick_it": "If you prefer rendering individual SVG files at runtime without generating spritesheets."
+      }
+    ],
+    "minimal_example": "@override\nWidget build(BuildContext context) {\n  return AppIcon(\n    AppIcons.magicFill,\n    color: Colors.blue,\n    size: 64,\n  );\n}",
+    "confidence": 0.95
+  }
+}

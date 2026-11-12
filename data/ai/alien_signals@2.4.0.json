@@ -1,0 +1,50 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.4.0",
+  "generatedAt": "2026-11-12T11:13:17.757Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "A reactive state management library bringing signals to Dart and Flutter applications.",
+    "what_it_does": "Alien Signals provides a reactive graph and propagation engine featuring signals, lazy computed values, and effects. It allows developers to track state changes automatically, optimize derived state with caching, and manage effect cleanup and scopes without code generation.",
+    "use_when": [
+      "You want fine-grained reactivity using signals in Dart or Flutter",
+      "You need lazy-evaluated computed state with minimal overhead"
+    ],
+    "avoid_when": [
+      "Your project already heavily relies on an established architectural state pattern like BLoC or Riverpod"
+    ],
+    "strengths": [
+      "Ultra lightweight with minimal overhead",
+      "Simple and intuitive API with signal, computed, and effect functions",
+      "Supports lazy computed values, effect cleanup, and batch operations"
+    ],
+    "weaknesses": [
+      "Requires Dart 3.13 or later"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "riverpod",
+        "why_pick_it": "If you prefer a more comprehensive, compile-safe state management solution designed specifically for Flutter."
+      },
+      {
+        "name": "bloc",
+        "why_pick_it": "If you require strict event-driven architecture with predictable state transitions."
+      },
+      {
+        "name": "provider",
+        "why_pick_it": "If you want a simpler inherited widget-based dependency injection and state approach."
+      }
+    ],
+    "minimal_example": "import 'package:alien_signals/alien_signals.dart';\n\nvoid main() {\n  final count = signal(0);\n  final doubled = computed((_) => count() * 2);\n  final stop = effect(() {\n    print('Count: ${count()}, Doubled: ${doubled()}');\n  });\n\n  count.set(1);\n  stop();\n}",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "3.3.1",
+  "generatedAt": "2026-11-12T11:32:59.701Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Dio interceptor that pretty‑prints HTTP requests and responses to the console.",
+    "what_it_does": "Adds an interceptor to a Dio client that logs request and response details in a readable format using the Logger package. Supports JSON, form‑urlencoded, HTML, and multipart bodies and allows filtering of logged entries.",
+    "use_when": [
+      "You need detailed console logs for debugging Dio network calls",
+      "You want configurable logging of request/response data without writing custom interceptors"
+    ],
+    "avoid_when": [
+      "You are not using Dio (e.g., using http or other client)",
+      "You require production‑grade logging to a file or remote service"
+    ],
+    "strengths": [
+      "Easy to add with a single line",
+      "Highly configurable (include/exclude headers, bodies, etc.)",
+      "Supports multiple content types and custom logging filters"
+    ],
+    "weaknesses": [
+      "Works only with Dio, not other HTTP clients",
+      "Adds overhead to each request due to formatting",
+      "Limited to console output; no built‑in file or remote logging"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "final dio = Dio();\ndio.interceptors.add(HttpFormatter());\nawait dio.get('https://example.com');",
+    "confidence": 0.92
+  }
+}

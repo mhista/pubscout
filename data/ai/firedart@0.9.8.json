@@ -1,0 +1,55 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.9.8",
+  "generatedAt": "2026-11-12T11:31:00.571Z",
+  "data": {
+    "primary_category": "backend",
+    "secondary_categories": [
+      "auth"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Dart-native client for Firebase Auth and Firestore without native SDKs.",
+    "what_it_does": "Provides Email/Password, anonymous and custom token authentication and basic Firestore CRUD operations. Works in pure Dart environments and Flutter on all platforms.",
+    "use_when": [
+      "You need Firebase Auth or Firestore in a pure‑Dart or non‑mobile environment",
+      "You want to avoid native Firebase SDKs and their platform setup"
+    ],
+    "avoid_when": [
+      "You require full Firestore query support (filters, ordering, etc.)",
+      "You need automatic token persistence or secure storage out of the box"
+    ],
+    "strengths": [
+      "Runs everywhere Dart runs, no native plugins",
+      "Small dependency footprint",
+      "Supports token stores via custom implementations"
+    ],
+    "weaknesses": [
+      "Limited Firestore query capabilities",
+      "No built‑in secure token storage",
+      "Streams are not auto‑recovered"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "firebase_core",
+        "why_pick_it": "Official Firebase core package with full platform support"
+      },
+      {
+        "name": "cloud_firestore",
+        "why_pick_it": "Official Firestore client with complete query features"
+      },
+      {
+        "name": "firebase_auth_web",
+        "why_pick_it": "Official Auth client for web, works with other firebase_core packages"
+      }
+    ],
+    "minimal_example": "import 'package:firedart/firedart.dart';\n\nFuture<void> main() async {\n  FirebaseAuth.initialize('YOUR_API_KEY', await HiveStore.create());\n  await FirebaseAuth.instance.signIn('email@example.com', 'password');\n  var user = await FirebaseAuth.instance.getUser();\n  print(user.uid);\n\n  Firestore.initialize('YOUR_PROJECT_ID');\n  var users = await Firestore.instance.collection('users').get();\n  print(users);\n}",
+    "confidence": 0.9
+  }
+}

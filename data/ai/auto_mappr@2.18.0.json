@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.18.0",
+  "generatedAt": "2026-11-09T11:26:56.653Z",
+  "data": {
+    "primary_category": "codegen",
+    "secondary_categories": [],
+    "approach": [
+      "code generation"
+    ],
+    "one_liner": "Code generation package for mapping between different objects with ease.",
+    "what_it_does": "AutoMappr generates object-to-object mapping code at pre-compile time, eliminating manual mapping boilerplate. It analyzes source and target classes to automatically map matching fields, and supports complex configurations like field renaming, custom mapping functions, ignored fields, default values, and iterable/map conversions.",
+    "use_when": [
+      "You frequently map objects between layers (e.g., DTOs to domain models and domain models to UI models).",
+      "You want pre-compile time safety and speed without writing tedious mapping boilerplate by hand."
+    ],
+    "avoid_when": [
+      "You prefer runtime reflection-based mapping without build steps.",
+      "Your project does not use code generation or build_runner."
+    ],
+    "strengths": [
+      "Moves mapping overhead from runtime to pre-compile time for fast execution.",
+      "Extensive customization options including custom mapping functions, field ignores, defaults, and reverse mapping.",
+      "Works well with packages like equatable and json_serializable."
+    ],
+    "weaknesses": [
+      "Requires running a build_runner step whenever mappings or models change.",
+      "Strict type inference must be handled carefully using explicit types or generics."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add auto_mappr, auto_mappr_annotation, and build_runner as dependencies, then run dart run build_runner build.",
+    "alternatives": [],
+    "minimal_example": "import 'package:auto_mappr_annotation/auto_mappr_annotation.dart';\n\nimport 'my_file.auto_mappr.dart';\n\n@AutoMappr([\n  MapType<UserDto, User>(),\n])\nclass Mappr extends $Mappr {}\n\nvoid main() {\n  final mappr = Mappr();\n  User user = mappr.convert(UserDto(...));\n}",
+    "confidence": 0.95
+  }
+}

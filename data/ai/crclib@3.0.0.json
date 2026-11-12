@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "3.0.0",
+  "generatedAt": "2026-11-10T12:31:54.671Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Provides CRC calculators as Dart converters and stream transformers.",
+    "what_it_does": "Implements many cyclic redundancy check algorithms, exposing them as Converter objects that can process byte lists or streams. Also includes a flipper utility to modify data to achieve a target CRC value.",
+    "use_when": [
+      "You need CRC checksums (e.g., CRC‑32, CRC‑64) for file integrity or protocol validation",
+      "You want a Dart‑native, null‑safe implementation without native code",
+      "You need to process data incrementally via streams"
+    ],
+    "avoid_when": [
+      "You require cryptographic hash functions (SHA, MD5) rather than error‑detecting CRCs",
+      "You need a checksum algorithm not covered by the library"
+    ],
+    "strengths": [
+      "Pure Dart, works on all Flutter platforms",
+      "Supports both one‑shot conversion and stream transformation",
+      "Provides a flexible ParametricCrc for custom CRC definitions",
+      "Includes a CrcFlipper for reverse‑engineering data to match a CRC"
+    ],
+    "weaknesses": [
+      "Only CRC algorithms; no other hash types",
+      "API is low‑level; no high‑level helper for common file‑checksum workflows",
+      "No code‑generation or declarative integration"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "final crc = Crc32Xz();\nfinal bytes = utf8.encode('123456789');\nprint(crc.convert(bytes)); // 0xCBF43926",
+    "confidence": 0.93
+  }
+}

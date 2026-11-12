@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.6.10",
+  "generatedAt": "2026-11-12T11:26:49.001Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "stream-based"
+    ],
+    "one_liner": "Flutter plugin for scanning and transmitting iBeacons on Android and iOS",
+    "what_it_does": "Provides APIs to range, monitor, and advertise iBeacon packets. Handles permission checks and platform-specific setup automatically.",
+    "use_when": [
+      "You need BLE beacon ranging or monitoring in a Flutter app",
+      "You want to advertise as an iBeacon from a Flutter device"
+    ],
+    "avoid_when": [
+      "You only need simple Bluetooth LE scanning without iBeacon support",
+      "You are targeting platforms other than Android/iOS"
+    ],
+    "strengths": [
+      "Automatic permission handling",
+      "Stream-based API for reactive ranging",
+      "Supports both scanning and advertising",
+      "Cross-platform with minimal code changes"
+    ],
+    "weaknesses": [
+      "Requires manual Android manifest permissions",
+      "Limited to iBeacon format",
+      "No support for other beacon types",
+      "Requires device location services enabled"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add required Android permissions to AndroidManifest.xml and iOS Info.plist, request runtime permissions via initializeAndCheckScanning, ensure location services enabled",
+    "alternatives": [],
+    "minimal_example": "final regions = [Region(identifier: 'all-beacons')];\nflutterBeacon.ranging(regions).listen((result) {\n  // handle ranging results\n});",
+    "confidence": 0.85
+  }
+}

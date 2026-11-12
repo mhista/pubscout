@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.1",
+  "generatedAt": "2026-11-09T11:38:25.769Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "animation",
+      "theming"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Create responsive shapes and morph between them in Flutter.",
+    "what_it_does": "Provides a collection of responsive shape borders (rectangles, circles, polygons, stars, etc.) that can be customized with gradient borders, shadows, and corner styles. It also includes algorithms to smoothly morph one shape into another using tweens.",
+    "use_when": [
+      "You need custom responsive shapes like rounded rectangles, polygons, or stars without manually calculating dimensions.",
+      "You want to animate transitions by morphing between different shapes.",
+      "You need gradient borders or inset shadows on shapes."
+    ],
+    "avoid_when": [
+      "You only need standard Flutter material shapes and simple borders.",
+      "You require complex SVG paths that cannot be approximated by straight lines and cubic Bezier curves."
+    ],
+    "strengths": [
+      "Supports multiple shape types including rectangles, circles, polygons, and stars with customizable corner styles.",
+      "Powerful shape morphing capabilities via ShapeBorderTween.",
+      "Supports serialization to and from JSON."
+    ],
+    "weaknesses": [
+      "Morphing between completely distinct shapes may look unnatural or require tweaking the morph method.",
+      "Only px and percent units from the dimension package are respected since ShapeBorder has no access to the build context."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "ShapeBorder rectangle = RectangleShapeBorder(\n    borderRadius: DynamicBorderRadius.only(\n    topLeft: DynamicRadius.circular(10.toPXLength),\n    bottomRight: DynamicRadius.elliptical(60.0.toPXLength, 10.0.toPercentLength))\n    );\n\nWidget widget = Material(\n    shape: rectangle,\n    clipBehavior: Clip.antiAlias,\n    child: Container()\n);",
+    "confidence": 0.95
+  }
+}

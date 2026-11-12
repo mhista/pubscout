@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.8-flash",
+  "version": "4.19.0",
+  "generatedAt": "2026-11-09T11:11:13.369Z",
+  "data": {
+    "primary_category": "localization",
+    "secondary_categories": [
+      "codegen"
+    ],
+    "approach": [
+      "code generation"
+    ],
+    "one_liner": "build_runner integration for slang translation generation",
+    "what_it_does": "Integrates the slang translation library into the standard Dart build_runner pipeline. It enables developers to generate type-safe localization files alongside other code generation tools. Configuration is handled through build.yaml instead of slang.yaml.",
+    "use_when": [
+      "You use slang for translations and already use build_runner for other code generators",
+      "You want a unified single-command build step for all project code generation"
+    ],
+    "avoid_when": [
+      "You do not use build_runner and prefer slang's standalone CLI tool",
+      "You are not using slang for localization"
+    ],
+    "strengths": [
+      "Combines translation generation into existing build_runner pipelines",
+      "Includes a legacy fallback builder if build_runner asset writer issues occur",
+      "Supports standard build.yaml builder configuration"
+    ],
+    "weaknesses": [
+      "The default builder has known issues with asset writing in some build configurations",
+      "The legacy builder does not support build_runner build --workspace"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires dev_dependencies on build_runner and slang_build_runner, configuration in build.yaml, and running build_runner build.",
+    "alternatives": [],
+    "minimal_example": "targets:\n  $default:\n    builders:\n      slang_build_runner:\n        options:\n          base_locale: en",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.2.1",
+  "generatedAt": "2026-11-11T11:25:25.209Z",
+  "data": {
+    "primary_category": "navigation",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Enables onWillPop callbacks on Cupertino page transitions and improves swipe-to-go-back feedback.",
+    "what_it_does": "Provides a modified Cupertino page route and a ConditionalWillPopScope widget that allow onWillPop callbacks to work during iOS-style page transitions. It adds visual feedback when a swipe-to-go-back gesture is rejected and snapped back into place.",
+    "use_when": [
+      "You need onWillPop callbacks to work properly with Cupertino page transitions and iOS swipe-to-go-back gestures.",
+      "You want to provide visual feedback when a user attempts to swipe back on a screen with unsaved changes."
+    ],
+    "avoid_when": [
+      "You are using the newer PopScope widget and Flutter's navigation system where custom route transitions aren't needed.",
+      "Your app does not use custom page transitions or iOS-style swipe gestures."
+    ],
+    "strengths": [
+      "Fixes limitations with onWillPop and swipe-to-go-back gestures on Cupertino transitions.",
+      "Includes a ConditionalWillPopScope widget to handle conditional route popping easily.",
+      "Works across multiple platforms."
+    ],
+    "weaknesses": [
+      "Relies on older WillPopScope/onWillPop patterns which may be deprecated or superseded in newer Flutter versions."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Configure CupertinoWillPopScopePageTransionsBuilder in your theme's pageTransitionsTheme.",
+    "alternatives": [],
+    "minimal_example": "return ConditionalWillPopScope(\n  child: _MyScreenContent(),\n  onWillPop: _onWillPop,\n  shouldAddCallback: _hasChanges,\n);",
+    "confidence": 0.95
+  }
+}

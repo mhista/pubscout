@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.7.5",
+  "generatedAt": "2026-11-09T11:10:09.146Z",
+  "data": {
+    "primary_category": "forms",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A Flutter widget for inputting international phone numbers with country code selectors.",
+    "what_it_does": "Provides a customizable phone number input field that formats input according to international standards using Google's libphonenumber. It includes country code selectors with dropdown, bottom sheet, and dialog modes.",
+    "use_when": [
+      "You need a form input specifically designed for international phone numbers.",
+      "You require automatic phone number formatting and validation."
+    ],
+    "avoid_when": [
+      "You are handling standard text fields without phone-specific requirements.",
+      "You want a zero-dependency solution for simple phone strings."
+    ],
+    "strengths": [
+      "Supports multiple country selector UI modes (dropdown, bottom sheet, dialog).",
+      "Real-time as-you-type formatting.",
+      "Supports custom lists of allowed countries."
+    ],
+    "weaknesses": [
+      "Relies on external platform-specific phone parsing libraries which can occasionally add maintenance overhead.",
+      "Potential exceptions if unformatted phone numbers are passed without an ISO code."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "intl_phone_field",
+        "why_pick_it": "A popular alternative form field package for international phone numbers with built-in validation."
+      }
+    ],
+    "minimal_example": "InternationalPhoneNumberInput(\n  onInputChanged: (PhoneNumber number) {\n    print(number.phoneNumber);\n  },\n  selectorConfig: SelectorConfig(\n    selectorType: PhoneInputSelectorType.DROPDOWN,\n  ),\n  ignoreBlank: false,\n  autoValidateMode: AutovalidateMode.disabled,\n  selectorTextStyle: TextStyle(color: Colors.black),\n  initialValue: PhoneNumber(isoCode: 'NG'),\n  textFieldController: TextEditingController(),\n  formatInput: false,\n)",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.1.0",
+  "generatedAt": "2026-11-12T12:02:26.363Z",
+  "data": {
+    "primary_category": "backend",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Runtime to build AWS Lambda functions in Dart with native AWS events.",
+    "what_it_does": "Allows building AWS Lambda functions using Dart by compiling to native machine code via AOT. It provides a lightweight custom runtime and handles multiple typed AWS event handlers like API Gateway, S3, SQS, and DynamoDB.",
+    "use_when": [
+      "You want to write AWS Lambda functions in Dart",
+      "You need low memory consumption and fast event processing (< 10ms)"
+    ],
+    "avoid_when": [
+      "You need JIT compilation support",
+      "You require cross-platform compilation directly from a non-Linux machine without Docker"
+    ],
+    "strengths": [
+      "Great performance (< 10ms event processing, < 50MB memory)",
+      "No need to ship the full Dart runtime",
+      "Supports multiple event handlers and typed native AWS events"
+    ],
+    "weaknesses": [
+      "Requires building on Linux or via Docker because dart2native does not support cross-compilation",
+      "No Just-in-time (JIT) support"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires building on a Linux machine or using Docker to compile the Dart program to a native executable named bootstrap, then zipping and uploading to AWS Lambda.",
+    "alternatives": [],
+    "minimal_example": "import 'package:aws_lambda_dart_runtime/aws_lambda_dart_runtime.dart';\n\nvoid main() async {\n  final Handler<AwsApiGatewayEvent> helloApiGateway = (context, event) async {\n    final response = {\"message\": \"hello ${context.requestId}\"};\n    return InvocationResult(\n        context.requestId, AwsApiGatewayResponse.fromJson(response));\n  };\n\n  Runtime()\n    ..registerHandler<AwsApiGatewayEvent>(\"hello.apigateway\", helloApiGateway)\n    ..invoke();\n}",
+    "confidence": 0.95
+  }
+}

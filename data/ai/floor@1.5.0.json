@@ -1,0 +1,55 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.5.0",
+  "generatedAt": "2026-11-11T11:13:03.403Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [
+      "codegen"
+    ],
+    "approach": [
+      "code generation",
+      "declarative",
+      "stream-based"
+    ],
+    "one_liner": "A SQLite abstraction library for Flutter inspired by Room.",
+    "what_it_does": "Floor provides automatic mapping between in-memory objects and SQLite database rows while offering full control via SQL. It uses code generation to create typesafe databases, DAOs, and entities, supporting both Futures and Streams for reactive queries.",
+    "use_when": [
+      "You want a Room-like ORM experience for SQLite in Flutter",
+      "You need typesafe database queries and reactive data streams"
+    ],
+    "avoid_when": [
+      "You do not know SQL or SQLite",
+      "You prefer a simple key-value store like SharedPreferences"
+    ],
+    "strengths": [
+      "Typesafe and reactive with Stream support",
+      "Familiar Room-like architectural pattern",
+      "Full control over underlying SQL"
+    ],
+    "weaknesses": [
+      "Requires understanding of SQL and SQLite",
+      "Relies on code generation via build_runner"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding floor, floor_generator, and build_runner to pubspec.yaml, and running build_runner to generate code.",
+    "alternatives": [
+      {
+        "name": "sqflite",
+        "why_pick_it": "If you prefer writing raw SQL without code generation and ORM boilerplate."
+      },
+      {
+        "name": "drift",
+        "why_pick_it": "If you want a more feature-rich reactive SQLite library with fluent query building."
+      },
+      {
+        "name": "sqlite3",
+        "why_pick_it": "If you want direct low-level bindings to SQLite."
+      }
+    ],
+    "minimal_example": "final database = await $FloorAppDatabase.databaseBuilder('app_database.db').build();\nfinal personDao = database.personDao;\nfinal person = Person(1, 'Frank');\nawait personDao.insertPerson(person);\nfinal result = await personDao.findPersonById(1);",
+    "confidence": 0.95
+  }
+}

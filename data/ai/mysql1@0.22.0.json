@@ -1,0 +1,52 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.22.0",
+  "generatedAt": "2026-11-09T11:25:40.551Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [
+      "backend"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "A MySQL and MariaDB database driver for Dart and Flutter.",
+    "what_it_does": "Allows connecting to MySQL and MariaDB databases to execute SQL queries, inserts, updates, and handle results. Works on both Flutter (non-web) and server-side Dart.",
+    "use_when": [
+      "You need to connect a Dart or Flutter application directly to a MySQL or MariaDB database",
+      "You want an API similar to package:postgres for MySQL"
+    ],
+    "avoid_when": [
+      "You are targeting Flutter Web, as sockets are not supported",
+      "You need an ORM or higher-level query builder like drift"
+    ],
+    "strengths": [
+      "Easy to use interface close to major MySQL drivers and package:postgres",
+      "Supports secure connections using SSL and modern authentication methods like caching_sha2_password"
+    ],
+    "weaknesses": [
+      "Does not work on Flutter Web because it opens raw sockets",
+      "Parameters are bound client-side as literals rather than using server-side prepared statements"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires a running MySQL or MariaDB database and proper network/socket access (not supported on Flutter Web).",
+    "alternatives": [
+      {
+        "name": "sqflite",
+        "why_pick_it": "Choose sqflite if you need embedded SQLite storage locally on mobile devices rather than a remote MySQL server."
+      },
+      {
+        "name": "sqlite3",
+        "why_pick_it": "Choose sqlite3 for raw SQLite database access in Dart and Flutter."
+      },
+      {
+        "name": "drift",
+        "why_pick_it": "Choose drift if you want a type-safe reactive ORM layer for SQLite databases."
+      }
+    ],
+    "minimal_example": "var settings = new ConnectionSettings(\n  host: 'localhost', \n  port: 3306,\n  user: 'bob',\n  password: 'wibble',\n  db: 'mydb'\n);\nvar conn = await MySqlConnection.connect(settings);\nvar results = await conn.query('select name, email from users where id = ?', [1]);\nfor (var row in results) {\n  print('Name: ${row[0]}, email: ${row[1]}');\n}",
+    "confidence": 0.95
+  }
+}

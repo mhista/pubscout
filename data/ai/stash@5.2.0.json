@@ -1,0 +1,50 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "5.2.0",
+  "generatedAt": "2026-11-10T13:02:38.228Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Key-value store abstraction with caching semantics and pluggable backends.",
+    "what_it_does": "Provides a key-value storage abstraction with plain vault semantics and advanced cache-driven semantics. It supports multiple eviction and expiration policies, binary serialization, events, and a pluggable backend architecture.",
+    "use_when": [
+      "You need advanced caching semantics like expiration and eviction policies.",
+      "You want a unified key-value abstraction that can swap storage backends easily.",
+      "You need tiered caching with an in-memory primary cache and secondary persistent storage."
+    ],
+    "avoid_when": [
+      "You need a full relational database with complex queries and joins.",
+      "You only want simple preferences without any caching features and prefer a lighter direct dependency."
+    ],
+    "strengths": [
+      "Rich caching features including multiple expiry and eviction policies (LRU, LFU, FIFO, etc.).",
+      "Pluggable backend architecture supporting memory, file, SQLite, Hive, and more.",
+      "Out-of-the-box binary serialization using msgpack."
+    ],
+    "weaknesses": [
+      "Requires adding both the core API package and a separate storage provider package.",
+      "API surface can be complex due to many configuration options and policies."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add stash and your chosen storage implementation (e.g., stash_memory) to pubspec.yaml.",
+    "alternatives": [
+      {
+        "name": "hive_ce",
+        "why_pick_it": "If you want a lightweight standalone NoSQL database without the abstraction layer overhead of Stash."
+      },
+      {
+        "name": "shared_preferences",
+        "why_pick_it": "If you only need simple key-value storage for basic app settings."
+      }
+    ],
+    "minimal_example": "import 'package:stash/stash_api.dart';\nimport 'package:stash/stash_memory.dart';\n\nvoid main() async {\n  final store = await newMemoryCacheStore();\n  final cache = await store.cache<String>(maxEntries: 10);\n  await cache.put('key1', 'value1');\n  final value = await cache.get('key1');\n}",
+    "confidence": 0.95
+  }
+}

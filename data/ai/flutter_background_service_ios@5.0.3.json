@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "5.0.3",
+  "generatedAt": "2026-11-11T11:10:05.430Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Runs Dart code continuously on iOS even when the app is closed.",
+    "what_it_does": "Provides an iOS implementation for the flutter_background_service plugin, allowing background execution of Dart code via BGTaskScheduler. It integrates with the federated plugin system so developers only need to depend on flutter_background_service.",
+    "use_when": [
+      "You need to run periodic or long‑running Dart tasks on iOS without the UI being active",
+      "You want a simple way to keep a service alive after the app is terminated"
+    ],
+    "avoid_when": [
+      "You require cross‑platform background execution and need Android support (use the main flutter_background_service package)",
+      "You need fine‑grained control over native background APIs beyond what the plugin offers"
+    ],
+    "strengths": [
+      "Easy integration via the endorsed federated plugin",
+      "Handles iOS background task scheduling and null‑safety",
+      "Minimal setup for basic use cases"
+    ],
+    "weaknesses": [
+      "iOS‑only; no Android implementation",
+      "Limited configurability compared to writing native code yourself"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter_background_service/flutter_background_service.dart';\n\nvoid main() async {\n  WidgetsFlutterBinding.ensureInitialized();\n  await FlutterBackgroundService().configure(\n    androidConfiguration: AndroidConfiguration(), // ignored on iOS\n    iosConfiguration: IosConfiguration(\n      onBackground: () async {\n        // your background task\n        return true;\n      },\n    ),\n  );\n  runApp(MyApp());\n}",
+    "confidence": 0.9
+  }
+}

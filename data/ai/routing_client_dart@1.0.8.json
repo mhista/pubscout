@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.8",
+  "generatedAt": "2026-11-11T11:46:34.597Z",
+  "data": {
+    "primary_category": "maps",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Dart client package for routing APIs like OSRM and Valhalla.",
+    "what_it_does": "Provides API clients and managers for routing, trip services, and navigation instructions using OSRM and Valhalla backends. It handles waypoints, geometries, polylines, and checks if a location is on a path.",
+    "use_when": [
+      "You need to fetch routes or travel paths from an OSRM or Valhalla backend in Dart.",
+      "You want to calculate trip optimizations or extract navigation instructions and check if a location is on a path."
+    ],
+    "avoid_when": [
+      "You are looking for a fully-featured interactive map widget (this package is for routing data only).",
+      "You use routing backends other than OSRM or Valhalla (unless supported via coming soon updates)."
+    ],
+    "strengths": [
+      "Supports multiple routing backends (OSRM and Valhalla).",
+      "Includes path checking and next-instruction navigation helpers."
+    ],
+    "weaknesses": [
+      "Documentation is sparse and requires checking code/README for details.",
+      "Certain instruction features may contain inaccurate information as noted by the author."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the dependency to pubspec.yaml and instantiate RoutingManager with your request configurations.",
+    "alternatives": [],
+    "minimal_example": "List<LngLat> waypoints = [\n  LngLat(lng: 13.388860, lat: 52.517037),\n  LngLat(lng: 13.397634, lat: 52.529407),\n];\nfinal manager = RoutingManager();\nfinal route = await manager.getRoute(\n  OSRMRequest.route(\n    waypoints: waypoints,\n    geometries: Geometries.polyline,\n    steps: true,\n    languages: Languages.en,\n  )\n);",
+    "confidence": 0.95
+  }
+}

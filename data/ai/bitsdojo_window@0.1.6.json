@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.1.6",
+  "generatedAt": "2026-11-10T12:57:15.538Z",
+  "data": {
+    "primary_category": "web-desktop",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Create custom desktop windows and handle window operations on Windows, macOS, and Linux.",
+    "what_it_does": "A Flutter desktop plugin that lets developers remove standard OS titlebars, build custom window frames, and control window position, size, state, and visibility across Windows, macOS, and Linux.",
+    "use_when": [
+      "You are building a Flutter desktop application for Windows, macOS, or Linux.",
+      "You need a custom window frame, titlebar, or custom window control buttons."
+    ],
+    "avoid_when": [
+      "You are building a mobile or web-only application.",
+      "You prefer sticking to the standard OS-provided window titlebars and native buttons."
+    ],
+    "strengths": [
+      "Cross-platform support for Windows, macOS, and Linux.",
+      "Provides widgets for moving and resizing the window easily from Flutter UI.",
+      "Supports hiding the window on startup to prevent flickering."
+    ],
+    "weaknesses": [
+      "Requires manual configuration changes in native project files (C++, Swift, or C) for each platform.",
+      "Limited to desktop targets."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires native code configuration changes in windows\\runner\\main.cpp, macos\\runner\\MainFlutterWindow.swift, and linux\\my_application.cc.",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:bitsdojo_window/bitsdojo_window.dart';\n\nvoid main() {\n  runApp(const MyApp());\n  doWhenWindowReady(() {\n    final win = appWindow;\n    const initialSize = Size(600, 450);\n    win.minSize = initialSize;\n    win.size = initialSize;\n    win.alignment = Alignment.center;\n    win.title = \"Custom window with Flutter\";\n    win.show();\n  });\n}\n\nclass MyApp extends StatelessWidget {\n  const MyApp({Key? key}) : super(key: key);\n\n  @override\n  Widget build(BuildContext context) {\n    return MaterialApp(\n      debugShowCheckedModeBanner: false,\n      home: Scaffold(\n        body: WindowBorder(\n          color: Colors.blue,\n          width: 1,\n          child: Row(\n            children: const [LeftSide(), RightSide()],\n          ),\n        ),\n      ),\n    );\n  }\n}\n\nclass LeftSide extends StatelessWidget {\n  const LeftSide({Key? key}) : super(key: key);\n  @override\n  Widget build(BuildContext context) {\n    return SizedBox(\n        width: 200,\n        child: Container(\n            color: Colors.orange,\n            child: Column(\n              children: [\n                WindowTitleBarBox(child: MoveWindow()),\n                Expanded(child: Container())\n              ],\n            )));\n  }\n}\n\nclass RightSide extends StatelessWidget {\n  const RightSide({Key? key}) : super(key: key);\n  @override\n  Widget build(BuildContext context) {\n    return Expanded(\n      child: Container(\n        child: Column(children: [\n          WindowTitleBarBox(\n            child: Row(\n              children: [Expanded(child: MoveWindow())],\n            ),\n          )\n        ]),\n      ),\n    );\n  }\n}",
+    "confidence": 1
+  }
+}

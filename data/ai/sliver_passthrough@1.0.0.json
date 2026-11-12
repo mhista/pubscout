@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "1.0.0",
+  "generatedAt": "2026-11-11T11:14:47.848Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "layout"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Widget to place box widgets between slivers in a CustomScrollView",
+    "what_it_does": "Provides two widgets, SliverPassthrough and BoxToSliverPassthrough, that convert between sliver and box layout protocols and expose the box scroll offset via a ValueListenable.",
+    "use_when": [
+      "Embedding a box widget inside a sliver list or grid",
+      "Needing the scroll offset of a box for CustomPaint or other effects",
+      "Simplifying CustomScrollView construction when mixing slivers and boxes"
+    ],
+    "avoid_when": [
+      "Using only slivers or only boxes",
+      "Needing advanced layout features beyond simple box-to-sliver conversion"
+    ],
+    "strengths": [
+      "Simple API, no external dependencies",
+      "Works across all Flutter platforms",
+      "Exposes scroll offset for custom painting"
+    ],
+    "weaknesses": [
+      "Limited to sliver/box conversion, no advanced layout options",
+      "Documentation is minimal",
+      "No examples for complex use cases"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "CustomScrollView(\n  slivers: [\n    SliverPassthrough(\n      minBoxExtent: 0.0,\n      child: ColoredBox(\n        color: Colors.red,\n        child: BoxToSliverPassthrough(\n          sliver: SliverList(\n            delegate: SliverChildBuilderDelegate(\n              (context, index) => SizedBox(),\n            ),\n          ),\n        ),\n      ),\n    ),\n  ],\n)",
+    "confidence": 0.9
+  }
+}

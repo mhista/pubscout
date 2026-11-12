@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.0",
+  "generatedAt": "2026-11-11T11:17:05.333Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "forms"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Dart port of Dropbox's zxcvbn password strength estimator library.",
+    "what_it_does": "Evaluates password strength and returns a score from 0 to 4 along with warnings and suggestions. It is a direct port of the original CoffeeScript zxcvbn library to maintain identical results.",
+    "use_when": [
+      "You need to estimate password strength in a Dart or Flutter app",
+      "You want results that match Dropbox's original zxcvbn implementation"
+    ],
+    "avoid_when": [
+      "You are looking for a clean-room, idiomatic Dart implementation without translated CoffeeScript patterns"
+    ],
+    "strengths": [
+      "Gives the exact same results as the official Dropbox CoffeeScript zxcvbn library",
+      "Ported all original tests",
+      "Supports null safety"
+    ],
+    "weaknesses": [
+      "Internal Dart code is somewhat ugly and non-standard due to being a direct port",
+      "Upstream zxcvbn has not been updated for several years"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [],
+    "minimal_example": "import 'package:zxcvbn/zxcvbn.dart';\n\nvoid main() {\n  final zxcvbn = Zxcvbn();\n  final result = zxcvbn.evaluate('P@ssw0rd');\n  print('Score: ${result.score}');\n}",
+    "confidence": 0.95
+  }
+}

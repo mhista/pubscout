@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.1.2",
+  "generatedAt": "2026-11-10T12:39:45.330Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "A map whose keys are weakly held, and cache functions for memoization.",
+    "what_it_does": "Provides a WeakMap where keys are held weakly to attach data to objects without preventing garbage collection. Also includes cache functions for memoizing expensive calculations over immutable state.",
+    "use_when": [
+      "You need to attach metadata or cached results to objects you don't control without causing memory leaks",
+      "You want to memoize expensive computations over immutable state that should be discarded when state changes or is no longer used"
+    ],
+    "avoid_when": [
+      "You need to iterate over entries or know the length of the map",
+      "You are using mutable state for caching computations"
+    ],
+    "strengths": [
+      "Prevents memory leaks by not keeping keys alive",
+      "Built-in memoization and cache functions for immutable states",
+      "Pure Dart with zero dependencies"
+    ],
+    "weaknesses": [
+      "No iteration, length, keys, or values methods on WeakMap by design",
+      "Requires immutable state objects for proper cache invalidation"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [],
+    "minimal_example": "var map = WeakMap<User, Avatar>();\nmap[user] = avatar;\nvar a = map[user];",
+    "confidence": 1
+  }
+}

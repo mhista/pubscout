@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.1.2",
+  "generatedAt": "2026-11-12T12:02:37.000Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "codegen"
+    ],
+    "approach": [
+      "code generation",
+      "cli tool"
+    ],
+    "one_liner": "Utility for generating and populating dart-define configuration files",
+    "what_it_does": "Generates Dart code and JSON configuration files for compile-time variables and flavors using pubspec.yaml configurations and environment variables.",
+    "use_when": [
+      "You need a structured way to handle secrets and compile-time variables across local development and CI/CD pipelines.",
+      "You want to generate Dart configuration classes and JSON files for Flutter's --dart-define-from-file option."
+    ],
+    "avoid_when": [
+      "You prefer managing your environment variables and launch arguments manually.",
+      "You are not using compile-time variables or flavors in your Flutter application."
+    ],
+    "strengths": [
+      "Integrates smoothly with CI/CD pipelines by reading from system environment variables.",
+      "Validates required configuration variables to prevent missing value runtime errors.",
+      "Supports multiple flavors and custom output paths."
+    ],
+    "weaknesses": [
+      "Requires CLI tool activation or adding as a dev dependency.",
+      "Must be careful with caching in CI/CD environments requiring the --force flag."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Activate the CLI tool globally or add as a dev dependency, then define variables in pubspec.yaml.",
+    "alternatives": [],
+    "minimal_example": "class DartDefine {\n    static const stringValue = String.fromEnvironment('STRING_VALUE');\n    static const intValue = int.fromEnvironment('INT_VALUE');\n    static const boolValue = bool.fromEnvironment('BOOL_VALUE');\n}",
+    "confidence": 1
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.3.0",
+  "generatedAt": "2026-11-11T11:22:02.611Z",
+  "data": {
+    "primary_category": "auth",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Pure‑Dart Google Sign‑In for Flutter, usable on mobile and desktop.",
+    "what_it_does": "Provides a GoogleSignIn implementation that works on all Flutter platforms, including desktop, by handling OAuth flows in Dart. It can register a client ID and optional code‑exchange endpoint, and stores credentials via a custom Store.",
+    "use_when": [
+      "Need Google Sign‑In on desktop or web‑like environments where native plugins are unavailable",
+      "Want a single package that works across all Flutter platforms without platform‑specific plugins"
+    ],
+    "avoid_when": [
+      "Using FirebaseAuth with the standard google_sign_in plugin",
+      "Running on older Flutter versions that lack desktop support"
+    ],
+    "strengths": [
+      "Pure Dart, no native platform code",
+      "Supports custom credential storage",
+      "Allows code‑exchange endpoint for long‑lived tokens",
+      "Compatible with existing google_sign_in API"
+    ],
+    "weaknesses": [
+      "Requires manual registration of client ID",
+      "Limited to OAuth flows; no support for other auth providers",
+      "Not as battle‑tested as the official plugin"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dependency, call GoogleSignInDart.register(clientId: …) before runApp, optionally provide exchangeEndpoint",
+    "alternatives": [
+      {
+        "name": "google_sign_in",
+        "why_pick_it": "Official plugin with native support and broader platform coverage"
+      }
+    ],
+    "minimal_example": "import 'package:google_sign_in/google_sign_in.dart';\nimport 'package:google_sign_in_dartio/google_sign_in_dartio.dart';\n\nvoid main() {\n  if (isDesktop) {\n    GoogleSignInDart.register(clientId: '<clientId>');\n  }\n  runApp(MyApp());\n}\n",
+    "confidence": 0.9
+  }
+}

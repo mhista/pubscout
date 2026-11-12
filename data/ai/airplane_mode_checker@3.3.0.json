@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.3.0",
+  "generatedAt": "2026-11-11T11:38:44.015Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Check and listen to the device airplane mode status on iOS and Android.",
+    "what_it_does": "Allows Flutter apps to check whether airplane mode is currently enabled on the device using AirplaneModeChecker.instance.checkAirplaneMode() or listen for real-time state changes using a stream.",
+    "use_when": [
+      "You need to detect if network connectivity is disabled due to airplane mode.",
+      "Your app needs to react dynamically when the user toggles airplane mode."
+    ],
+    "avoid_when": [
+      "You are targeting WiFi-only iOS devices where airplane mode cannot be reliably detected via public APIs.",
+      "You only need general internet connectivity checking without specifically targeting airplane mode."
+    ],
+    "strengths": [
+      "Supports both checking status once and streaming changes.",
+      "Provides optional fallback values for iOS devices with limited API support."
+    ],
+    "weaknesses": [
+      "Limited accuracy and support on WiFi-only iOS devices due to Apple platform constraints."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires iOS 12.0 or higher and Android API 16 or higher.",
+    "alternatives": [
+      {
+        "name": "connectivity_plus",
+        "why_pick_it": "If you need broader network connectivity types (wifi, cellular, ethernet) rather than exclusively checking airplane mode."
+      }
+    ],
+    "minimal_example": "final status = await AirplaneModeChecker.instance.checkAirplaneMode();\nif (status == AirplaneModeStatus.on) {\n  print('Airplane mode is ON');\n} else {\n  print('Airplane mode is OFF');\n}",
+    "confidence": 0.95
+  }
+}

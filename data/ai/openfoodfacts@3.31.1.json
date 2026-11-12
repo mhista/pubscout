@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "3.31.1",
+  "generatedAt": "2026-11-09T11:25:25.734Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "code generation",
+      "imperative"
+    ],
+    "one_liner": "Dart client for the Open Food Facts REST API.",
+    "what_it_does": "Provides typed objects and functions to read, search and edit food product data from the Open Food Facts database. Handles authentication, suggestions, and various product‑related endpoints.",
+    "use_when": [
+      "You need to fetch or submit food product information from Open Food Facts.",
+      "You want a cross‑platform Dart/Flutter solution with ready‑made models and API helpers."
+    ],
+    "avoid_when": [
+      "You require offline‑only storage without network calls.",
+      "You need a UI widget library rather than an API client."
+    ],
+    "strengths": [
+      "Comprehensive coverage of Open Food Facts endpoints (read, write, search, suggestions).",
+      "Typed models generated via json_annotation for easy use.",
+      "Works on all Flutter platforms (mobile, web, desktop)."
+    ],
+    "weaknesses": [
+      "No built‑in caching; you must add your own solution.",
+      "Relies on the public API – rate limits or downtime affect your app.",
+      "Only useful for Open Food Facts; not a generic networking client."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the package to pubspec.yaml; run `flutter pub get`. If you want generated JSON code, run `flutter pub run build_runner build`. No special permissions required.",
+    "alternatives": [],
+    "minimal_example": "import 'package:openfoodfacts/openfoodfacts.dart';\n\nvoid main() async {\n  OpenFoodAPIConfiguration.userAgent = UserAgent(name: 'MyApp', url: 'https://example.com');\n  final product = await OpenFoodAPIClient.getProductV3('1234567890123');\n  print(product?.product?.productName);\n}",
+    "confidence": 0.9
+  }
+}

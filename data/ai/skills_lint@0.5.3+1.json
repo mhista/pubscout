@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.8-flash",
+  "version": "0.5.3+1",
+  "generatedAt": "2026-11-11T11:08:04.831Z",
+  "data": {
+    "primary_category": "testing",
+    "secondary_categories": [
+      "devtools",
+      "ai-ml"
+    ],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "Static analysis linter and CLI tool for Agent Skills (SKILL.md) structure and metadata",
+    "what_it_does": "Validates Agent Skills directories and SKILL.md files against the Agent Skills specification. Checks YAML frontmatter, naming conventions, paths, and trailing whitespace. Supports auto-fixing violations, baseline generation, and SARIF/JSON reporting for CI pipelines.",
+    "use_when": [
+      "Developing AI agent skills that require compliance with the Agent Skills specification",
+      "Enforcing SKILL.md conventions and path validation in CI/CD pipelines or pre-commit hooks",
+      "Auditing agent skills before publishing packages or sharing skill folders"
+    ],
+    "avoid_when": [
+      "Linting standard Dart/Flutter code (use lints or flutter_lints instead)",
+      "Projects that do not author or maintain Agent Skills specifications"
+    ],
+    "strengths": [
+      "Supports multiple installation options including Dart pub, standalone binaries, shell scripts, and Homebrew",
+      "Provides automated multi-pass fixing with `--fix` and preview with `--dry-run`",
+      "Emits SARIF 2.1.0 output for seamless GitHub Code Scanning integration"
+    ],
+    "weaknesses": [
+      "macOS standalone binaries are unsigned, requiring manual Gatekeeper quarantine removal",
+      "Requires Dart 3.12 or later when used as a Dart package"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Can be installed via `dart pub add --dev skills_lint`, `dart install skills_lint`, or standalone binaries.",
+    "alternatives": [],
+    "minimal_example": "# Run directly from CLI to validate a skills directory:\ndart run skills_lint --skills-directory ./path/to/skills-root\n\n# Or run an automated fix:\ndart run skills_lint --skills-directory ./path/to/skills-root --fix",
+    "confidence": 0.95
+  }
+}

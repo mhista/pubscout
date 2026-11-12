@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.0",
+  "generatedAt": "2026-11-09T11:51:02.024Z",
+  "data": {
+    "primary_category": "navigation",
+    "secondary_categories": [
+      "widgets",
+      "state-management"
+    ],
+    "approach": [
+      "declarative",
+      "imperative"
+    ],
+    "one_liner": "Composable app, route, page, and viewport lifecycle for Flutter widgets.",
+    "what_it_does": "Combines app state, Navigator routes, paged containers, and scroll viewports into an immutable lifecycle snapshot. Emits deterministic transition events for descendants without global observers or event buses.",
+    "use_when": [
+      "You need fine-grained lifecycle awareness inside complex scroll views, tab views, or page views.",
+      "You want to react to specific widget visibility, activation, and route transitions."
+    ],
+    "avoid_when": [
+      "Your application is extremely simple and does not require custom visibility or lifecycle triggers beyond standard widget tree methods."
+    ],
+    "strengths": [
+      "Provides deterministic phase events in a tree hierarchy.",
+      "Supports nested navigators, PageView, TabBarView, and scrollable viewports out of the box."
+    ],
+    "weaknesses": [
+      "Requires explicit controller and scope setup for app and navigators.",
+      "Version 1.0 introduces a breaking API redesign from previous 0.x versions."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires wrapping your app with LifecycleApp and adding NavigatorLifecycleController for navigators.",
+    "alternatives": [],
+    "minimal_example": "LifecycleListener(\n  onTransition: (transition) {\n    debugPrint('${transition.previous.phase} → ${transition.current.phase}');\n  },\n  child: const Content(),\n)",
+    "confidence": 1
+  }
+}

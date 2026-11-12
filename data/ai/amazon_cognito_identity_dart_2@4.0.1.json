@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.0.1",
+  "generatedAt": "2026-11-10T12:30:27.012Z",
+  "data": {
+    "primary_category": "auth",
+    "secondary_categories": [
+      "backend"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Unofficial Amazon Cognito Identity Provider SDK for Dart and Flutter apps.",
+    "what_it_does": "Provides an unofficial client library for Amazon Cognito Identity to handle user sign-up, sign-in, sessions, and MFA in Dart and Flutter applications. It is based on amazon-cognito-identity-js.",
+    "use_when": [
+      "You need to authenticate users using AWS Cognito in a Flutter or Dart app.",
+      "You want an alternative to Amplify Flutter specifically for Cognito Identity management."
+    ],
+    "avoid_when": [
+      "You prefer using official and fully supported AWS plugins like Amplify Flutter.",
+      "Your project does not use Amazon Cognito as an identity provider."
+    ],
+    "strengths": [
+      "Supports a wide range of Cognito features including MFA, custom challenges, and refresh token rotation.",
+      "Works across multiple platforms including Android, iOS, Web, Windows, macOS, and Linux."
+    ],
+    "weaknesses": [
+      "It is an unofficial SDK, meaning it might lag behind official AWS updates.",
+      "Official AWS support recommends using Amplify Flutter instead."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires setting up an AWS Cognito User Pool and Client ID, then initializing the CognitoUserPool object.",
+    "alternatives": [
+      {
+        "name": "firebase_auth",
+        "why_pick_it": "Choose if you are using Firebase as your backend instead of AWS Cognito."
+      }
+    ],
+    "minimal_example": "import 'package:amazon_cognito_identity_dart_2/cognito.dart';\n\nfinal userPool = CognitoUserPool(\n  'ap-southeast-1_xxxxxxxxx',\n  'xxxxxxxxxxxxxxxxxxxxxxxxxx',\n);\nfinal userAttributes = [\n  AttributeArg(name: 'first_name', value: 'Jimmy'),\n  AttributeArg(name: 'last_name', value: 'Wong'),\n];\n\ntry {\n  var data = await userPool.signUp(\n    'email@inspire.my',\n    'Password001',\n    userAttributes: userAttributes,\n  );\n} catch (e) {\n  print(e);\n}",
+    "confidence": 1
+  }
+}

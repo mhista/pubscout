@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.5.1",
+  "generatedAt": "2026-11-10T13:05:30.202Z",
+  "data": {
+    "primary_category": "testing",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "hooks"
+    ],
+    "one_liner": "Run linters and custom commands on git staged files for Flutter and Dart projects",
+    "what_it_does": "Runs arbitrary shell commands and linters on a subset of git staged files matched by glob patterns before a commit. It supports backing up uncommitted changes via git stash and can be used as a pre-commit git hook or via Dart code.",
+    "use_when": [
+      "You want to automatically run code formatters or linters like dart format on staged files before committing",
+      "You want to prevent errors and ensure code style consistency in git commits"
+    ],
+    "avoid_when": [
+      "You want to lint the entire project repository instead of only staged files",
+      "You are not using git for version control"
+    ],
+    "strengths": [
+      "Speeds up linting by only checking files that are about to be committed",
+      "Supports custom glob pattern matching for file filtering",
+      "Provides built-in backup stashing and error recovery"
+    ],
+    "weaknesses": [
+      "Requires manual configuration of git hooks (such as using Husky)",
+      "Behavior depends on external git commands and local executable environments"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add as a dev dependency via pub add, configure rules in pubspec.yaml, and set up git hooks using a tool like husky.",
+    "alternatives": [],
+    "minimal_example": "import 'package:lint_staged/lint_staged.dart';\n\ntry {\n  final success = await lintStaged();\n  print(success ? 'Linting was successful!' : 'Linting failed!');\n} catch (e) {\n  print(e);\n}",
+    "confidence": 0.95
+  }
+}

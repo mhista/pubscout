@@ -1,0 +1,55 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.4.3",
+  "generatedAt": "2026-11-12T11:28:16.888Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Secure key‑value storage for Flutter with platform‑specific backends.",
+    "what_it_does": "Provides encrypted storage on Android, iOS, macOS, Windows, Linux and web. Supports optional caching for faster reads and a unified API across platforms.",
+    "use_when": [
+      "You need to store secrets or encryption keys securely on the device",
+      "You want a single API that works on mobile, desktop and web",
+      "You prefer a lightweight plugin over a full‑blown database"
+    ],
+    "avoid_when": [
+      "You only need plain, non‑encrypted preferences",
+      "You require complex relational queries or large data sets"
+    ],
+    "strengths": [
+      "True platform‑native encryption (Keychain, EncryptedSharedPreferences, wincred, Secret Service)",
+      "Cross‑platform support including web",
+      "Built‑in caching for performance"
+    ],
+    "weaknesses": [
+      "Requires native setup per platform (e.g., Keychain sharing, backup exclusions)",
+      "Limited to simple key‑value data",
+      "No built‑in migration or versioning tools"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add platform‑specific configuration: enable Keychain Sharing on iOS/macOS, disable Auto Backup or add backup rules on Android, ensure Secret Service is running on Linux, no extra steps for web beyond providing password and salt.",
+    "alternatives": [
+      {
+        "name": "flutter_secure_storage",
+        "why_pick_it": "Mature plugin with similar secure storage features and broader community support"
+      },
+      {
+        "name": "shared_preferences",
+        "why_pick_it": "Simpler API for non‑secure key‑value storage"
+      },
+      {
+        "name": "sqflite",
+        "why_pick_it": "When you need relational queries or larger data sets"
+      }
+    ],
+    "minimal_example": "await SimpleSecureStorage.initialize();\nawait SimpleSecureStorage.write('apiKey','12345');\nString? key = await SimpleSecureStorage.read('apiKey');",
+    "confidence": 0.87
+  }
+}

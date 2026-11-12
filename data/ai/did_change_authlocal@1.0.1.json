@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.1",
+  "generatedAt": "2026-11-11T11:48:39.507Z",
+  "data": {
+    "primary_category": "auth",
+    "secondary_categories": [
+      "device"
+    ],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "Detects biometric data changes like added fingerprints or Face ID to prevent unauthorized access.",
+    "what_it_does": "A Flutter plugin that monitors biometric enrollment changes on Android and iOS devices. It uses native event streams and lifecycle observers to alert your app if a user has added or removed a face or fingerprint since the last check.",
+    "use_when": [
+      "You want to protect high-security apps from unauthorized biometric enrollment.",
+      "You need real-time streams or one-shot checks for biometric modifications."
+    ],
+    "avoid_when": [
+      "You only need standard biometric authentication without tracking subsequent hardware configuration changes."
+    ],
+    "strengths": [
+      "Native monitoring via Kotlin Coroutines and Swift without Dart-side lifecycle hacks.",
+      "Persistent status tracking until explicitly acknowledged.",
+      "Cross-platform support for both iOS and Android."
+    ],
+    "weaknesses": [
+      "Android face recognition detection depends on manufacturer Class 3 Strong biometric implementation.",
+      "Requires platform-specific setup and configuration."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires minimum SDK API 23 for Android and iOS 12.0 deployment target.",
+    "alternatives": [
+      {
+        "name": "local_auth",
+        "why_pick_it": "Choose local_auth if you only need standard biometric authentication prompts rather than tracking underlying biometric data changes."
+      }
+    ],
+    "minimal_example": "import 'package:did_change_authlocal/did_change_authlocal.dart';\n\nfinal subscription = DidChangeAuthLocal.instance.onBiometricChanged.listen((status) {\n  if (status == AuthLocalStatus.changed) {\n    // Handle biometric change\n  }\n});",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.4.0",
+  "generatedAt": "2026-11-09T11:24:02.632Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter plugin to handle Wi-Fi connections and hotspot (AP, STA) on Android and iOS",
+    "what_it_does": "Allows Flutter apps to manage Wi-Fi connections, view network status, connect/disconnect from Wi-Fi networks in WPA/WEP, and handle Access Point (AP) features on supported platforms. Provides functions for reading SSID, BSSID, IP, signal strength, and forcing Wi-Fi traffic routing.",
+    "use_when": [
+      "You need to connect your Flutter app directly to specific Wi-Fi networks programmatically",
+      "You need to check current Wi-Fi connection info like SSID, BSSID, and IP address",
+      "You need to manage local-only hotspots or Wi-Fi access points on Android"
+    ],
+    "avoid_when": [
+      "You need robust, modern Wi-Fi network scanning (the scanning feature is discontinued; use wifi_scan instead)",
+      "You are building for iOS and require full control over Wi-Fi module enabling/disabling or advanced AP configurations (not supported on iOS)",
+      "You only need basic internet connectivity checks (use connectivity_plus instead)"
+    ],
+    "strengths": [
+      "Provides fine-grained control over Wi-Fi connections and network registration",
+      "Supports forcing traffic routing via connected access point (`forceWifiUsage`)",
+      "Cross-platform support for both Android and iOS with tailored capabilities"
+    ],
+    "weaknesses": [
+      "Many features have strong limitations, deprecations, or are completely unavailable on iOS due to Apple's platform restrictions",
+      "Android SDK updates (SDK >= 26 and >= 29) significantly restrict Wi-Fi AP and module management behaviors",
+      "Scanning functionality is discontinued in this package"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires specifying `use_frameworks!` in your iOS Podfile. Certain Android functions require explicit permissions (like CHANGE_WIFI_STATE or WRITE_SETTINGS) depending on usage.",
+    "alternatives": [],
+    "minimal_example": "bool result = await WiFiForIoTPlugin.connect('SSID', password: 'PASSWORD', security: NetworkSecurity.WPA);",
+    "confidence": 0.95
+  }
+}

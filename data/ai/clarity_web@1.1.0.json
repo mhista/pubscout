@@ -1,0 +1,50 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.1.0",
+  "generatedAt": "2026-11-12T11:20:45.852Z",
+  "data": {
+    "primary_category": "devtools",
+    "secondary_categories": [
+      "web-desktop"
+    ],
+    "approach": [
+      "imperative",
+      "declarative"
+    ],
+    "one_liner": "Integrates Microsoft Clarity Analytics into Flutter Web applications for session recording.",
+    "what_it_does": "Allows Flutter Web applications to integrate Microsoft Clarity Analytics. It includes a canvas capture workaround to visualize Flutter canvas content in recordings and provides masking widgets to hide sensitive data.",
+    "use_when": [
+      "You need to use Microsoft Clarity analytics and session recordings in a Flutter Web app.",
+      "You want to hide sensitive user data from session recordings using mask widgets."
+    ],
+    "avoid_when": [
+      "Your application is targeted entirely at native mobile or desktop platforms without web support.",
+      "You prefer a different analytics platform like Sentry."
+    ],
+    "strengths": [
+      "Provides an optimized canvas capture workaround for Flutter Web canvas elements.",
+      "Includes `ClarityMask` and `ClarityUnmask` widgets for privacy compliance.",
+      "Offers FPS and image quality controls."
+    ],
+    "weaknesses": [
+      "Canvas capture relies on a workaround since direct Flutter Web canvas recording is not supported natively.",
+      "Mandatory configuration required (`setIsCanvasMirrorActive(true)`) for visual recordings to work."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires getting a Project ID from Microsoft Clarity and calling initialization methods in code.",
+    "alternatives": [
+      {
+        "name": "sentry",
+        "why_pick_it": "If you want comprehensive error tracking and performance monitoring rather than visual session recordings."
+      },
+      {
+        "name": "sentry_flutter",
+        "why_pick_it": "If you need an established Flutter-focused monitoring and error reporting tool."
+      }
+    ],
+    "minimal_example": "import 'package:clarity_web/clarity_web.dart';\n\nfinal clarityService = ClarityWeb.instance;\nawait clarityService.initClarityWeb('your-project-id');\nclarityService.setIsCanvasMirrorActive(true);",
+    "confidence": 0.95
+  }
+}

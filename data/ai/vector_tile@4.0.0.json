@@ -1,0 +1,37 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "4.0.0",
+  "generatedAt": "2026-11-11T11:11:10.989Z",
+  "data": {
+    "primary_category": "maps",
+    "secondary_categories": [],
+    "approach": [
+      "no codegen"
+    ],
+    "one_liner": "Encode and decode Mapbox Vector Tile (MVT) files to/from raw and GeoJSON formats.",
+    "what_it_does": "The package parses .mvt/.pbf files into a raw vector tile structure and can convert features to GeoJSON. It also allows creating vector tiles from raw data and writing them as protobuf files.",
+    "use_when": [
+      "You need to read or write Mapbox Vector Tiles in a Flutter/Dart app",
+      "You want to convert vector tile features to GeoJSON for further processing"
+    ],
+    "avoid_when": [
+      "You require encoding from GeoJSON directly (not yet supported)",
+      "You need high‑level map rendering widgets (this package only handles data)"
+    ],
+    "strengths": [
+      "Supports both decoding and encoding of raw vector tiles",
+      "Works on all major platforms including web and desktop"
+    ],
+    "weaknesses": [
+      "No direct GeoJSON‑to‑tile encoding yet",
+      "Limited to raw tile manipulation, no map UI integration"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'vector_tile/vector_tile.dart';\n\nvoid main() async {\n  final data = await File('sample.pbf').readAsBytes();\n  final tile = await VectorTile.fromBytes(bytes: data);\n  final layer = tile.layers.first;\n  for (var f in layer.features) {\n    f.decodeGeometry();\n    var geo = f.toGeoJson<GeoJsonPoint>(x: 0, y: 0, z: 0);\n    print(geo?.geometry?.coordinates);\n  }\n}",
+    "confidence": 0.92
+  }
+}

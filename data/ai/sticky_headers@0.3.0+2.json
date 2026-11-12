@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.3.0+2",
+  "generatedAt": "2026-11-09T11:20:18.526Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "layout"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Lets you place headers on scrollable content that stick to the top.",
+    "what_it_does": "Provides StickyHeader and StickyHeaderBuilder widgets that can be placed inside scrollable content like ListView or GridView. Keeps headers visible at the top of the container while the user scrolls through the associated content.",
+    "use_when": [
+      "You need section headers that stick to the top of scrollable lists or grids.",
+      "You are building categorized scrollable views in Flutter."
+    ],
+    "avoid_when": [
+      "You need complex sliver-based sticky headers managed directly by a CustomScrollView rather than wrapper widgets.",
+      "You need features not provided by basic sticky headers."
+    ],
+    "strengths": [
+      "Works inside standard scrollables like ListView and GridView.",
+      "Supports custom layouts via StickyHeaderBuilder."
+    ],
+    "weaknesses": [
+      "Limited to the options provided by the wrapper-based widget approach."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "class Example extends StatelessWidget {\n  @override\n  Widget build(BuildContext context) {\n    return ListView.builder(itemBuilder: (context, index) {\n      return StickyHeader(\n        header: Container(\n          height: 50.0,\n          color: Colors.blueGrey[700],\n          padding: EdgeInsets.symmetric(horizontal: 16.0),\n          alignment: Alignment.centerLeft,\n          child: Text('Header #$index',\n            style: const TextStyle(color: Colors.white),\n          ),\n        ),\n        content: Container(\n          child: Image.network(\n            imageForIndex(index), \n            fit: BoxFit.cover,\n            width: double.infinity, \n            height: 200.0,\n          ),\n        );\n      );\n    });\n  }\n}",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.1",
+  "generatedAt": "2026-11-10T12:48:09.018Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Calculates a minimal list of operations to convert one list into another.",
+    "what_it_does": "The package offers a diff method that compares two lists and returns a list of insertions and deletions needed to transform the first list into the second. It includes extension methods to apply these operations directly and can automatically run calculations in a separate isolate for large datasets.",
+    "use_when": [
+      "You need to compute the minimal difference between two lists of items.",
+      "You are updating collections in animated lists or tracking list mutations."
+    ],
+    "avoid_when": [
+      "You require high-performance processing for massive datasets where an O(N*M) runtime is unacceptable.",
+      "You are looking for a state-management framework."
+    ],
+    "strengths": [
+      "Provides both asynchronous and synchronous diff calculation methods.",
+      "Automatically spawns an isolate for large datasets by default.",
+      "Allows custom equality and hash code functions."
+    ],
+    "weaknesses": [
+      "Runtime complexity is currently O(N*M).",
+      "Limited to insertions and deletions (no direct move/replacement operations mentioned)."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "var operations = await diff(\n  ['coconut', 'nut', 'peanut'],\n  ['kiwi', 'coconut', 'maracuja', 'nut', 'banana'],\n);\noperations.forEach(print);",
+    "confidence": 1
+  }
+}

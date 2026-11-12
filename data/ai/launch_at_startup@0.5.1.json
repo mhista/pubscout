@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.5.1",
+  "generatedAt": "2026-11-10T12:44:13.535Z",
+  "data": {
+    "primary_category": "web-desktop",
+    "secondary_categories": [
+      "device"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Allows Flutter desktop apps to automatically launch on startup or login.",
+    "what_it_does": "Provides an API to configure, enable, disable, and check the launch-at-startup status for Flutter desktop applications across Windows, macOS, and Linux.",
+    "use_when": [
+      "You are building a Flutter desktop application for Windows, macOS, or Linux.",
+      "Your app needs the capability to start automatically when the user logs in or boots the system."
+    ],
+    "avoid_when": [
+      "You are building for mobile or web platforms.",
+      "You do not want your app running in the background immediately upon user login."
+    ],
+    "strengths": [
+      "Supports multiple desktop platforms (Windows, macOS, Linux).",
+      "Simple API to enable, disable, and check launch status."
+    ],
+    "weaknesses": [
+      "Requires manual native setup on macOS (Swift package and build phase configuration).",
+      "Requires proper app info (such as app name and executable path) to function correctly."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires initialization code and platform-specific setup on macOS involving Xcode and Swift package dependencies.",
+    "alternatives": [],
+    "minimal_example": "void main() async {\n  WidgetsFlutterBinding.ensureInitialized();\n  PackageInfo packageInfo = await PackageInfo.fromPlatform();\n  launchAtStartup.setup(\n    appName: packageInfo.appName,\n    appPath: Platform.resolvedExecutable,\n    packageName: 'dev.leanflutter.examples.launchatstartupexample',\n  );\n  await launchAtStartup.enable();\n  bool isEnabled = await launchAtStartup.isEnabled();\n  runApp(const MyApp());\n}",
+    "confidence": 0.95
+  }
+}

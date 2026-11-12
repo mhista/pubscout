@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.3.1",
+  "generatedAt": "2026-11-09T11:33:21.395Z",
+  "data": {
+    "primary_category": "backend",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "A native Dart AMQP 0.9.1 client library supporting TLS and asynchronous API.",
+    "what_it_does": "Provides a native Dart client for AMQP 0.9.1 brokers like RabbitMQ. It features an asynchronous API with support for streams, pluggable authentication providers, TLS connections, publish confirmations, and heartbeats.",
+    "use_when": [
+      "You need to connect a Dart application to an AMQP 0.9.1 broker like RabbitMQ.",
+      "Your application requires consuming from queues or publishing messages via exchanges using an asynchronous API."
+    ],
+    "avoid_when": [
+      "You need automated recovery of client topologies when re-establishing dropped connections.",
+      "You require support for AMQP protocol versions other than 0.9.1."
+    ],
+    "strengths": [
+      "Implements almost the entire AMQP 0.9.1 specification natively in Dart.",
+      "Supports TLS, pluggable authentication, heartbeats, and publish confirmations."
+    ],
+    "weaknesses": [
+      "Does not currently support automatic recovery of client topologies upon reconnection.",
+      "Missing support for basic get and recover-async protocol features."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [],
+    "minimal_example": "import \"package:dart_amqp/dart_amqp.dart\";\n\nvoid main() async {\n  Client client = Client();\n  Channel channel = await client.channel();\n  Queue queue = await channel.queue(\"hello\");\n  Consumer consumer = await queue.consume();\n  consumer.listen((AmqpMessage message) {\n    print(\"Received: ${message.payloadAsString}\");\n    message.ack();\n  });\n}",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.5.1",
+  "generatedAt": "2026-11-10T12:44:01.791Z",
+  "data": {
+    "primary_category": "charts",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Display data in graph structures like trees, directed graphs, and layered layouts.",
+    "what_it_does": "GraphView is used to display data in various graph structures including tree layouts, directed graphs, and layered graphs. It supports multiple layout algorithms such as Balloon, Circular, Radial, Tidier Tree, and Mindmap, along with node animations and expand/collapse functionality.",
+    "use_when": [
+      "You need to display family trees, hierarchical views, or organization charts.",
+      "You want to render directed graphs using force-directed or multilayer layouts.",
+      "You require interactive graph navigation with node expand and collapse support."
+    ],
+    "avoid_when": [
+      "You are building standard data charts like line, bar, or pie charts.",
+      "You need to handle extremely large graph datasets with high performance demands."
+    ],
+    "strengths": [
+      "Multiple layout algorithms including Tree, Directed, Layered, Balloon, Circular, and Mindmap.",
+      "Includes node animations, expand/collapse functionality, and programmatic camera controls.",
+      "Works well with standard Flutter interactive widgets like InteractiveViewer."
+    ],
+    "weaknesses": [
+      "Designed primarily to work excellent with small graphs.",
+      "Requires manual setup with a zoom engine like InteractiveViewer for best experience."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "directed_graph",
+        "why_pick_it": "Alternative package specifically focused on directed graph visualizations."
+      }
+    ],
+    "minimal_example": "class TreeViewPage extends StatefulWidget {\n  @override\n  _TreeViewPageState createState() => _TreeViewPageState();\n}\n\nclass _TreeViewPageState extends State<TreeViewPage> {\n  final GraphViewController controller = GraphViewController();\n  final Graph graph = Graph()..isTree = true;\n  BuchheimWalkerConfiguration builder = BuchheimWalkerConfiguration();\n\n  @override\n  Widget build(BuildContext context) {\n    return Scaffold(\n      body: GraphView.builder(\n        graph: graph,\n        algorithm: BuchheimWalkerAlgorithm(builder, TreeEdgeRenderer(builder)),\n        controller: controller,\n        builder: (Node node) {\n          var a = node.key.value as int;\n          return Text('Node $a');\n        },\n      ),\n    );\n  }\n}",
+    "confidence": 0.95
+  }
+}

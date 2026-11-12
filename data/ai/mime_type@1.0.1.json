@@ -1,0 +1,48 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "1.0.1",
+  "generatedAt": "2026-11-10T12:24:01.769Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Library to map file names or extensions to MIME types and vice versa",
+    "what_it_does": "Provides three helper functions: mime, mimeFromExtension, and extensionFromMime. It is useful for setting Content-Type headers in HTTP servers and for determining file extensions from MIME types.",
+    "use_when": [
+      "You need to set the correct Content-Type header when serving files over HTTP",
+      "You need to determine a file extension from a MIME type in a server or CLI tool"
+    ],
+    "avoid_when": [
+      "You need a full HTTP client or server framework; this package only handles MIME type mapping",
+      "You require advanced media type handling beyond simple mapping"
+    ],
+    "strengths": [
+      "Simple API, no dependencies, null-safe",
+      "Supports a wide range of MIME types, including recent additions like mjs and woff2",
+      "Fast hashmap lookup",
+      "MIT license"
+    ],
+    "weaknesses": [
+      "No support for content negotiation or media type parameters",
+      "Limited to MIME type mapping only"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "http",
+        "why_pick_it": "Provides a full HTTP client/server stack, including MIME type handling via its own utilities"
+      },
+      {
+        "name": "dio",
+        "why_pick_it": "Offers advanced HTTP client features with built-in content-type handling"
+      }
+    ],
+    "minimal_example": "import 'package:mime_type/mime_type.dart';\n\nString mimeType = mime('image.png');\nString ext = extensionFromMime('image/png');",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.1.4",
+  "generatedAt": "2026-11-11T11:12:51.167Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "games"
+    ],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "Handle gamepad and joystick input across multiple platforms",
+    "what_it_does": "A Flutter plugin that enables applications to listen to gamepad inputs, track connection states of multiple controllers, and trigger controller vibration across Android, iOS, macOS, Windows, Linux, and Web.",
+    "use_when": [
+      "Building a game or app that needs to support physical controllers and joysticks",
+      "Handling controller connection and disconnection events dynamically",
+      "Triggering haptic feedback or rumble effects on supported gamepads"
+    ],
+    "avoid_when": [
+      "Building standard touch-only mobile apps with no need for hardware peripheral input",
+      "Needing advanced features like adaptive triggers or arbitrary force feedback"
+    ],
+    "strengths": [
+      "Supports multiple platforms including Android, iOS, macOS, Windows, Linux, and Web",
+      "Provides normalized events for consistent button and axis mappings across controllers",
+      "Includes cross-platform controller rumble/vibration support"
+    ],
+    "weaknesses": [
+      "Vendor ID and product ID are null on macOS and iOS because GCController does not expose them",
+      "Requires platform-specific boilerplate or configuration such as custom Android Activity implementation",
+      "Linux requires write access to the event device for rumble support"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires platform-specific setup on Android (custom MainActivity implementing GamepadsCompatibleActivity) and ensuring Windows SDK / C++ desktop development is installed for Windows targets.",
+    "alternatives": [],
+    "minimal_example": "final gamepads = await Gamepads.list();\n\nGamepads.normalizedEvents.listen((event) {\n  if (event.button == GamepadButton.a && event.value != 0) {\n    print('A button pressed!');\n  }\n});",
+    "confidence": 0.95
+  }
+}

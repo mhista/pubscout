@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.1",
+  "generatedAt": "2026-11-10T13:17:13.561Z",
+  "data": {
+    "primary_category": "forms",
+    "secondary_categories": [
+      "localization",
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Client-side offline spell checking for multiple languages using local dictionary files.",
+    "what_it_does": "Performs offline spell checks directly on the client using a hash-set comparison algorithm and local dictionary assets. It tokenizes strings, identifies words missing from the dictionary, and suggests similar words through operations like addition, deletion, swap, and replacement.",
+    "use_when": [
+      "You need offline spell checking to save cloud costs and reduce latency.",
+      "Your application supports multiple languages and uses local dictionary assets."
+    ],
+    "avoid_when": [
+      "You require real-time cloud-based dictionary synchronization or complex grammar checking."
+    ],
+    "strengths": [
+      "Works fully offline on the client side with fast response times.",
+      "Supports multiple languages via downloadable word list assets.",
+      "Provides word correction suggestions using multiple string operations."
+    ],
+    "weaknesses": [
+      "Requires bundling dictionary text file assets inside your application.",
+      "Limited to spell checking and basic word suggestions rather than full grammar checking."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the package dependency and include the desired language word text files as assets in your application.",
+    "alternatives": [],
+    "minimal_example": "void initSpellCheck() async {\n  const language = 'en';\n  final content = await rootBundle.loadString('assets/${language}_words.txt');\n  spellCheck = SpellCheck.fromWordsContent(\n    content,\n    letters: LanguageLetters.getLanguageForLanguage(language),\n  );\n}",
+    "confidence": 0.95
+  }
+}

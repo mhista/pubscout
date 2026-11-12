@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.12.24",
+  "generatedAt": "2026-11-09T11:40:01.288Z",
+  "data": {
+    "primary_category": "games",
+    "secondary_categories": [
+      "state-management"
+    ],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "Integration for the Bloc state management library to Flame games.",
+    "what_it_does": "Integration for the Bloc state management library to Flame games. It provides components and mixins like FlameBlocProvider, FlameBlocListener, and FlameBlocReader to bridge blocs and cubits with Flame game components.",
+    "use_when": [
+      "You are building a game using Flame and want to manage state using the Bloc library.",
+      "Your Flame components need to access, read, or listen to bloc and cubit states."
+    ],
+    "avoid_when": [
+      "You are not using the Flame game engine.",
+      "You prefer an entirely different state management approach inside your game."
+    ],
+    "strengths": [
+      "Natural integration mirroring flutter_bloc patterns inside Flame.",
+      "Provides providers, multi-providers, listeners, and readers for flexible component architecture."
+    ],
+    "weaknesses": [
+      "Mixins like FlameBlocReader are limited to accessing only a single bloc.",
+      "Tied strictly to the Flame game engine and Bloc library."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [],
+    "minimal_example": "class MyGame extends FlameGame {\n  @override\n  Future<void> onLoad() async {\n    await add(\n      FlameBlocProvider<PlayerInventoryBloc, PlayerInventoryState>(\n        create: () => PlayerInventoryBloc(),\n        children: [\n          Player(),\n        ],\n      ),\n    );\n  }\n}",
+    "confidence": 1
+  }
+}

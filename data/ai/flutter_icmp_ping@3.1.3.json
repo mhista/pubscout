@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.1.3",
+  "generatedAt": "2026-11-10T12:46:00.503Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "Flutter plugin that sends ICMP ECHO_REQUEST to network hosts.",
+    "what_it_does": "Allows Flutter apps to send ICMP echo requests (pings) to network hosts on Android and iOS. Provides a stream of ping response events for tracking network latency and reachability.",
+    "use_when": [
+      "You need to check host reachability via ICMP in a Flutter app",
+      "You want to measure network latency to a specific server"
+    ],
+    "avoid_when": [
+      "Targeting platforms other than Android and iOS",
+      "You only need HTTP/HTTPS connectivity checks"
+    ],
+    "strengths": [
+      "Enables ICMP ping functionality on mobile",
+      "Stream-based interface for easy subscription to events",
+      "Supports configurable count, timeout, interval, and TTL"
+    ],
+    "weaknesses": [
+      "Only supports Android and iOS platforms",
+      "Not documented for web or desktop platforms"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dependency to pubspec.yaml and import the package. See example directory for complete usage.",
+    "alternatives": [],
+    "minimal_example": "try {\n  final ping = Ping(\n    'google.com',\n    count: 3,\n    timeout: 1,\n    interval: 1,\n    ipv6: false,\n    ttl: 40,\n  );\n  ping.stream.listen((event) {\n    print(event);\n  });\n} catch (e) {\n  print('error $e');\n}",
+    "confidence": 0.95
+  }
+}

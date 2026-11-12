@@ -1,0 +1,48 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.6.2",
+  "generatedAt": "2026-11-12T11:26:18.099Z",
+  "data": {
+    "primary_category": "web-desktop",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Desktop WebView powered by Chromium Embedded Framework (CEF).",
+    "what_it_does": "Provides a Flutter widget that renders web content using a full Chromium engine on Windows, macOS, and Linux. It offers GPU zero‑copy rendering, JavaScript bridge, cookie management, and multi‑instance support.",
+    "use_when": [
+      "You need full desktop‑class web standards (WebGL, HTML5 video, etc.)",
+      "You want high‑performance rendering with zero‑copy GPU paths",
+      "You require a JavaScript‑to‑Dart bridge or custom user‑script injection"
+    ],
+    "avoid_when": [
+      "Targeting mobile platforms only",
+      "You need a minimal binary size or want to avoid native C++ toolchains",
+      "You prefer a plug‑and‑play webview without extra build steps"
+    ],
+    "strengths": [
+      "Full Chromium engine with modern web standards",
+      "GPU zero‑copy rendering on Windows/macOS",
+      "Adaptive frame‑rate and real‑time IME support",
+      "Multiple independent webview instances"
+    ],
+    "weaknesses": [
+      "Requires C++20 toolchain and large CEF download (~330 MB)",
+      "Complex native setup (modify runner code, podfile hooks)",
+      "Only works on desktop platforms"
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Add dependency, edit windows/runner/main.cpp to init CEF and forward messages, add macOS podfile post_install hook to embed CEF helpers, set WEBVIEW_CEF_MACOS_ARCH if needed, ensure C++20 compiler, download CEF binaries on first build.",
+    "alternatives": [
+      {
+        "name": "webview_flutter",
+        "why_pick_it": "Simpler setup, works on mobile and desktop with no native C++ requirements, but lacks full Chromium features and zero‑copy rendering."
+      }
+    ],
+    "minimal_example": "import 'package:webview_cef/webview_cef.dart';\n\nvoid main() => runApp(const MyApp());\n\nclass MyApp extends StatelessWidget {\n  const MyApp({super.key});\n  @override\n  Widget build(BuildContext context) {\n    return const MaterialApp(\n      home: Scaffold(\n        body: WebViewCef(\n          initialUrl: 'https://flutter.dev',\n        ),\n      ),\n    );\n  }\n}",
+    "confidence": 0.93
+  }
+}

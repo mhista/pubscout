@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.3.0",
+  "generatedAt": "2026-11-11T11:14:25.030Z",
+  "data": {
+    "primary_category": "web3",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "BIP-0032 like hierarchical deterministic key derivation for the ed25519 curve",
+    "what_it_does": "Derives cryptographic master keys, key paths, and public keys from seed bytes using the ed25519 curve and SLIP-0010 specification. It provides utilities to handle hierarchical deterministic (HD) wallet structures in Dart.",
+    "use_when": [
+      "Building a Web3 application that requires ed25519 hierarchical deterministic key derivation",
+      "Working with SLIP-0010 or BIP-0032 inspired cryptographic key generation in Dart or Flutter"
+    ],
+    "avoid_when": [
+      "You do not require ed25519 curve derivation or cryptocurrency wallet features"
+    ],
+    "strengths": [
+      "Supports multi-platform including web, mobile, and desktop",
+      "Implements standard SLIP-0010 key derivation procedures"
+    ],
+    "weaknesses": [
+      "Limited documentation outside of basic usage examples",
+      "Narrow niche targeted specifically at ed25519 key derivation"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:ed25519_hd_key/ed25519_hd_key.dart';\nimport 'package:convert/convert.dart';\n\nvoid main() async {\n  String hexSeed = 'fffcf9f6f3f0edeae7e4e1dedbd8d5d2cfccc9c6c3c0bdbab7b4b1aeaba8a5a29f9c999693908d8a8784817e7b7875726f6c696663605d5a5754514e4b484542';\n  List<int> seedBytes = hex.decode(hexSeed);\n  KeyData master = await ED25519_HD_KEY.getMasterKeyFromSeed(seedBytes);\n  KeyData data = await ED25519_HD_KEY.derivePath(\"m/0'/2147483647'\", seedBytes);\n  var pb = await ED25519_HD_KEY.getPublicKey(data.key);\n}",
+    "confidence": 0.95
+  }
+}

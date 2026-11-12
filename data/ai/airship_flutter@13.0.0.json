@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "13.0.0",
+  "generatedAt": "2026-11-11T11:36:48.544Z",
+  "data": {
+    "primary_category": "notifications",
+    "secondary_categories": [
+      "device"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Cross-platform plugin for native Airship iOS and Android SDKs.",
+    "what_it_does": "Provides cross-platform access to native Airship iOS and Android SDK features such as push notifications, live activities, in-app experiences, message centers, analytics, and feature flags. It simplifies integrating Airship services into Flutter applications.",
+    "use_when": [
+      "You need to integrate Airship push notifications and messaging into a Flutter app.",
+      "You require advanced user segmentation, feature flags, or message center capabilities provided by Airship."
+    ],
+    "avoid_when": [
+      "Your project targets iOS versions older than 16.0 or Android API levels lower than 26.",
+      "You are using CocoaPods on iOS, as Swift Package Manager is strictly required."
+    ],
+    "strengths": [
+      "Official Airship plugin supporting rich push notifications, live activities, and in-app experiences.",
+      "Keeps pace with native iOS and Android SDK updates.",
+      "Provides built-in analytics, contact management, and preference centers."
+    ],
+    "weaknesses": [
+      "Drops CocoaPods support in favor of Swift Package Manager on iOS.",
+      "Raises the minimum Android SDK requirement to 26 and minimum Flutter version to 3.44.0."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires enabling Swift Package Manager on iOS (flutter config --enable-swift-package-manager), minimum Android SDK 26, and initializing Airship in main() with your app credentials.",
+    "alternatives": [],
+    "minimal_example": "import 'package:airship_flutter/airship_flutter.dart';\n\nvoid main() async {\n  WidgetsFlutterBinding.ensureInitialized();\n\n  await Airship.takeOff(AirshipConfig(\n    defaultEnvironment: ConfigEnvironment(\n      appKey: \"YOUR_APP_KEY\",\n      appSecret: \"YOUR_APP_SECRET\",\n    ),\n  ));\n\n  await Airship.push.setUserNotificationsEnabled(true);\n\n  runApp(AirshipApp());\n}",
+    "confidence": 0.95
+  }
+}

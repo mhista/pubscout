@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.0",
+  "generatedAt": "2026-11-12T11:37:21.515Z",
+  "data": {
+    "primary_category": "files",
+    "secondary_categories": [
+      "device"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Save byte data into the Download folder on Android or show a save dialog on iOS.",
+    "what_it_does": "Saves single or multiple files from raw byte data directly to the device storage. Handles platform-specific actions such as accessing the Download folder on Android or opening the save dialog on iOS.",
+    "use_when": [
+      "You need to save generated files like PDFs, text documents, or images from bytes.",
+      "You want to target Android's Download folder or trigger iOS file save dialogs."
+    ],
+    "avoid_when": [
+      "You need a general file picker to read files rather than save them.",
+      "You require complex local file system management beyond saving binary payloads."
+    ],
+    "strengths": [
+      "Supports saving both single and multiple files at once.",
+      "No storage permissions required on Android Q and above."
+    ],
+    "weaknesses": [
+      "Requires manual configuration of WRITE_EXTERNAL_STORAGE permission for Android versions below Q.",
+      "Limited to saving byte arrays to downloads or showing save dialogs."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "For Android target below Q, add the WRITE_EXTERNAL_STORAGE permission in AndroidManifest.xml. No permissions needed for iOS.",
+    "alternatives": [],
+    "minimal_example": "import 'package:document_file_save_plus/document_file_save_plus.dart';\n\nList<int> textBytes = utf8.encode(\"Some data\");\nDocumentFileSave.saveFile(textBytes, \"my_sample_file.txt\", \"text/plain\");",
+    "confidence": 0.95
+  }
+}

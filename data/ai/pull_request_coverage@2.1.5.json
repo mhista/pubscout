@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "2.1.5",
+  "generatedAt": "2026-11-09T11:21:17.889Z",
+  "data": {
+    "primary_category": "devtools",
+    "secondary_categories": [
+      "testing"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "CLI tool that checks test coverage only on lines added in a pull request",
+    "what_it_does": "It parses an lcov.info file and a git diff, then reports how many new lines are uncovered and whether thresholds are met. The output can be plain CLI or Markdown for PR comments.",
+    "use_when": [
+      "You want to enforce coverage on new code in a PR",
+      "You need a CI step that fails when new lines are not tested",
+      "You prefer a diff‑based coverage metric over overall project coverage"
+    ],
+    "avoid_when": [
+      "You need coverage for the entire codebase, not just new lines",
+      "You are working on a non‑Dart project"
+    ],
+    "strengths": [
+      "Diff‑based coverage focuses on new code",
+      "Configurable thresholds and ignore patterns",
+      "Supports Markdown output for PR comments",
+      "Can be run as a global binary or in CI scripts"
+    ],
+    "weaknesses": [
+      "Only works with lcov.info from Flutter or coverage package",
+      "Requires manual generation of lcov.info",
+      "No integration with IDEs or test runners"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Run `flutter test --coverage` to generate lcov.info, then pipe `git diff` into the tool. No build_runner or permissions needed.",
+    "alternatives": [],
+    "minimal_example": "```bash\ngit diff origin/main | flutter pub run pull_request_coverage --maximum-uncovered-lines 5\n```",
+    "confidence": 0.85
+  }
+}

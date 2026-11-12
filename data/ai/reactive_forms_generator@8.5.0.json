@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "8.5.0",
+  "generatedAt": "2026-11-11T11:23:11.308Z",
+  "data": {
+    "primary_category": "forms",
+    "secondary_categories": [
+      "codegen"
+    ],
+    "approach": [
+      "code generation"
+    ],
+    "one_liner": "Generator for type-safe reactive forms based on data models.",
+    "what_it_does": "Generates type-safe form classes, controls, and builders based on annotated model classes to work with the reactive_forms package.",
+    "use_when": [
+      "You want to avoid boilerplate code when building forms with reactive_forms",
+      "You want compile-time safety and type-safe form values instead of handling dynamic maps"
+    ],
+    "avoid_when": [
+      "You prefer writing your forms manually without using code generation",
+      "You are not using the reactive_forms package"
+    ],
+    "strengths": [
+      "Eliminates boilerplate string identifiers and manual type casting for form values",
+      "Provides static type checks for form fields",
+      "Supports complex features like form arrays, nested form groups, and freezed models"
+    ],
+    "weaknesses": [
+      "Requires setting up build_runner and code generation steps",
+      "Tight coupling with the reactive_forms ecosystem"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding build_runner, reactive_forms, and reactive_forms_annotations to your pubspec, and executing code generation via build_runner.",
+    "alternatives": [],
+    "minimal_example": "import 'package:reactive_forms_annotations/reactive_forms_annotations.dart';\n\n@Rf()\nclass Basic {\n  final String email;\n  final String password;\n\n  Basic({\n    @RfControl(validators: const [RequiredValidator()]) this.email = '',\n    @RfControl(validators: const [RequiredValidator()]) this.password = '',\n  });\n}",
+    "confidence": 0.95
+  }
+}

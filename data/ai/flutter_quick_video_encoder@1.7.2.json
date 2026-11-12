@@ -1,0 +1,47 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.7.2",
+  "generatedAt": "2026-11-10T13:12:14.399Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [
+      "images",
+      "files"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Encode raw RGB images and PCM audio directly to MP4 using hardware h264 encoders.",
+    "what_it_does": "Encodes raw RGB pixel buffers and PCM audio frames into an MP4 video file using native hardware encoders (AVFoundation on iOS and MediaCodec on Android) without requiring FFmpeg.",
+    "use_when": [
+      "You need to generate video files programmatically from raw RGBA frames or widgets.",
+      "You want hardware-accelerated video encoding without bundled native libraries like FFmpeg."
+    ],
+    "avoid_when": [
+      "You need to playback existing video files or stream video over a network.",
+      "You are editing, trimming, or compressing pre-existing video container files rather than rendering from raw frames."
+    ],
+    "strengths": [
+      "Zero external dependencies besides Flutter and system libraries.",
+      "Uses native hardware encoders for fast performance.",
+      "Supports audio encoding (PCM to m4a/audio tracks)."
+    ],
+    "weaknesses": [
+      "Requires feeding raw frame buffers manually in a loop rather than processing existing video files.",
+      "Limited platform support (Android, iOS, macOS only)."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Enable the platform configurations for Android, iOS, or macOS as required by your app.",
+    "alternatives": [
+      {
+        "name": "video_player",
+        "why_pick_it": "Pick video_player if you need to play videos instead of encoding raw pixel data into a new video."
+      }
+    ],
+    "minimal_example": "await FlutterQuickVideoEncoder.setup(\n    width: 1920,\n    height: 1080,\n    fps: 60,\n    videoBitrate: 2500000,\n    audioChannels: 1,\n    audioBitrate: 64000,\n    sampleRate: 44100,\n    filepath: \"/documents/video.mp4\",\n);\nfor(int i = 0; i < frameCount; i++) {\n    Uint8List rgba = _renderVideoFrame(i);\n    await FlutterQuickVideoEncoder.appendVideoFrame(rgba);\n}\nawait FlutterQuickVideoEncoder.finish();",
+    "confidence": 0.95
+  }
+}

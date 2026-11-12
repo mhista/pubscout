@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.1.0",
+  "generatedAt": "2026-11-09T11:29:21.524Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "animation",
+      "ui-kits"
+    ],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "Instagram stories like UI with animations and customizability.",
+    "what_it_does": "Provides a StoryPageView widget that mimics Instagram stories UI, complete with progress indicators, image loading coordination, custom story lengths per page, and animation controllers.",
+    "use_when": [
+      "You need to implement Instagram-style stories in your app.",
+      "You want built-in indicators and gesture handling for timed story views."
+    ],
+    "avoid_when": [
+      "You need complex video streaming or multi-platform native story wrappers.",
+      "You want generic carousel or slider components without story behavior."
+    ],
+    "strengths": [
+      "Includes StoryImage widget that pauses indicators while images load.",
+      "Provides animation controllers to pause and resume indicators.",
+      "Supports gesture item builders for overlays like close buttons."
+    ],
+    "weaknesses": [
+      "Gesture widgets cannot be directly placed inside itemBuilder due to underlying default gestures.",
+      "Limited to custom story implementations via StoryPageView."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "Scaffold(\n  body: StoryPageView(\n    itemBuilder: (context, pageIndex, storyIndex) {\n      return Center(\n        child: Text(\"Index of PageView: $pageIndex Index of story: $storyIndex\"),\n      );\n    },\n    storyLength: (pageIndex) {\n      return 3;\n    },\n    pageLength: 4,\n  ),\n)",
+    "confidence": 1
+  }
+}

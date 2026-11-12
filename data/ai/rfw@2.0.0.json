@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.0",
+  "generatedAt": "2026-11-09T11:11:23.935Z",
+  "data": {
+    "primary_category": "ui-kits",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Renders declarative widget description files at runtime for Remote Flutter Widgets.",
+    "what_it_does": "Allows Flutter apps to render remote widget descriptions obtained dynamically at runtime. It combines a runtime engine, configuration data, and local widget libraries to build arbitrary widget trees.",
+    "use_when": [
+      "You need to display dynamic UI or search results that could not be known when the app was created.",
+      "You want to build database frontends with bespoke UIs for editing different types of objects."
+    ],
+    "avoid_when": [
+      "You want to create completely new custom widgets involving page transitions, drag and drop, or custom painters.",
+      "You want to update the core application look, feel, or navigation which should be shipped via normal updates."
+    ],
+    "strengths": [
+      "Keeps formats and supported widget sets backwards compatible.",
+      "Supports both text and binary formats for transporting remote widget libraries and data.",
+      "Can be used on the server or command-line for parts dealing only with formats."
+    ],
+    "weaknesses": [
+      "Cannot create complex custom widgets or custom painters from the remote descriptions.",
+      "Potential theoretical performance limitations depending on implementation scale."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "No special native permissions or build_runner steps required; simply include the package and initialize Runtime and DynamicContent.",
+    "alternatives": [],
+    "minimal_example": "class Example extends StatefulWidget {\n  const Example({super.key});\n\n  @override\n  State<Example> createState() => _ExampleState();\n}\n\nclass _ExampleState extends State<Example> {\n  final Runtime _runtime = Runtime();\n  final DynamicContent _data = DynamicContent();\n\n  static final RemoteWidgetLibrary _remoteWidgets = parseLibraryFile('''\n    import core.widgets;\n    widget root = Container(\n      color: 0xFF002211,\n      child: Center(\n        child: Text(text: [\"Hello, \", data.greet.name, \"!\"], textDirection: \"ltr\"),\n      );\n    );\n  ''');\n\n  static const LibraryName coreName = LibraryName(<String>['core', 'widgets']);\n  static const LibraryName mainName = LibraryName(<String>['main']);\n\n  @override\n  void initState() {\n    super.initState();\n    _runtime.update(coreName, createCoreWidgets());\n    _runtime.update(mainName, _remoteWidgets);\n    _data.update('greet', <String, Object>{'name': 'World'});\n  }\n\n  @override\n  Widget build(BuildContext context) {\n    return RemoteWidget(\n      runtime: _runtime,\n      data: _data,\n      widget: const FullyQualifiedWidgetName(mainName, 'root'),\n      onEvent: (String name, DynamicMap arguments) {\n        debugPrint('user triggered event \"$name\" with data: $arguments');\n      },\n    );\n  }\n}",
+    "confidence": 1
+  }
+}

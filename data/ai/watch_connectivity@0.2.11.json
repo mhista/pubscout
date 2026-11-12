@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.2.11",
+  "generatedAt": "2026-11-09T11:16:38.315Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Wrapper for WatchConnectivity on iOS and Wearable APIs on Android.",
+    "what_it_does": "Provides a cross-platform wrapper to communicate between mobile devices and smartwatches (Apple Watch, Wear OS). Allows sending messages, updating application contexts, and listening for updates via streams.",
+    "use_when": [
+      "You need to send messages or sync context data between a phone and an Apple Watch or Wear OS device.",
+      "You want to check if smartwatches are supported, paired, or reachable from your mobile app."
+    ],
+    "avoid_when": [
+      "You are targeting platforms other than iOS and Android.",
+      "You need complex health workout integrations that require the removed startWatchApp functionality."
+    ],
+    "strengths": [
+      "Supports both iOS WatchConnectivity and Android Wearable APIs in a unified API.",
+      "Provides stream-based listening for incoming messages and context updates."
+    ],
+    "weaknesses": [
+      "Android platform limitations mean it cannot natively verify if a watch is paired or reachable, relying instead on app installations and node connections.",
+      "Android and watch apps must share the same package name and be signed with the same key."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "On Android, the watch and phone apps must have the same package name and be signed with the same key.",
+    "alternatives": [],
+    "minimal_example": "import 'package:watch_connectivity/watch_connectivity.dart';\n\nvoid example() {\n  final watch = WatchConnectivity();\n  watch.isPaired;\n  watch.isReachable;\n  watch.sendMessage({'data': 'Hello'});\n}",
+    "confidence": 0.95
+  }
+}

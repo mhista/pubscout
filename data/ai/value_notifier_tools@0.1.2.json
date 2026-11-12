@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.1.2",
+  "generatedAt": "2026-11-11T11:25:07.242Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Lightweight tools like undo/redo, select, and where for ValueNotifiers",
+    "what_it_does": "Provides lightweight tools for working with ValueNotifiers, including HistoryValueNotifier for undo/redo functionality, SelectValueNotifier for selecting a subset of state, and WhereValueNotifier for filtering state changes with custom predicates.",
+    "use_when": [
+      "You want to add undo and redo functionality to a ValueNotifier in your app",
+      "You need to optimize widget rebuilds by selecting a subset of state or filtering changes with a custom predicate"
+    ],
+    "avoid_when": [
+      "You are using a full-featured state management solution like BLoC, Riverpod, or Provider that already includes these capabilities",
+      "You require complex dependency injection or global state architectures"
+    ],
+    "strengths": [
+      "No dependencies on other packages and super lightweight",
+      "Includes 100% test coverage",
+      "Provides both mixins and classes for custom ValueNotifiers"
+    ],
+    "weaknesses": [
+      "Limited to ValueNotifier use cases",
+      "Does not replace a complete state management framework for large applications"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Not documented",
+    "alternatives": [],
+    "minimal_example": "final notifier = HistoryValueNotifier<int>(0);\nnotifier.value = 1;\nnotifier.undo(); // 0\nnotifier.redo(); // 1",
+    "confidence": 1
+  }
+}

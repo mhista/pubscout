@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.3",
+  "generatedAt": "2026-11-09T11:40:40.444Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "stream-based",
+      "declarative"
+    ],
+    "one_liner": "Observe active internet connectivity changes via customizable strategies and stream/widget listeners.",
+    "what_it_does": "Checks for an actual internet connection by pinging addresses using sockets rather than just checking if WiFi or mobile data is turned on. Provides stream controllers, widget builders, and widget listeners to react to connectivity changes.",
+    "use_when": [
+      "You need to verify actual internet reachability rather than just interface status",
+      "You want to reactively update widgets or retry network requests when the connection is restored"
+    ],
+    "avoid_when": [
+      "You only need to know the raw network interface type without actual internet reachability checks"
+    ],
+    "strengths": [
+      "Provides multiple built-in observing strategies (default, first-connected, first-disconnected, duration-based)",
+      "Includes ready-to-use widgets like InternetConnectivityListener and InternetConnectivityBuilder",
+      "Supports custom observing strategies"
+    ],
+    "weaknesses": [
+      "Relies on socket pinging which might be blocked by certain firewalls or captive portals"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [
+      {
+        "name": "connectivity_plus",
+        "why_pick_it": "Pick connectivity_plus if you need raw network interface status (wifi, cellular, ethernet) rather than active internet reachability verification."
+      }
+    ],
+    "minimal_example": "final hasInternet = await InternetConnectivity().hasInternetConnection;\nif (hasInternet) {\n  // Connected\n} else {\n  // Offline\n}",
+    "confidence": 0.95
+  }
+}

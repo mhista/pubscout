@@ -1,0 +1,50 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "6.1.0",
+  "generatedAt": "2026-11-12T11:20:57.441Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A unified Flutter widget for playing videos from YouTube, Vimeo, network, and local files.",
+    "what_it_does": "omni_video_player is an all-in-one Flutter video solution wrapping specialized extractors and webviews into a single controller. It handles YouTube, Vimeo, HLS, local assets, and network sources with smart fallback options and built-in quality selectors.",
+    "use_when": [
+      "You need to play videos from multiple sources like YouTube, Vimeo, and HLS using a single controller.",
+      "You want built-in UI features like quality selection, playlists, and responsive video scaling."
+    ],
+    "avoid_when": [
+      "You only need basic local file playback and want to minimize dependency size.",
+      "You are building for platforms or formats unsupported by the underlying extractors (e.g. certain WebM constraints on iOS)."
+    ],
+    "strengths": [
+      "Unified API across YouTube, Vimeo, HLS, and local video sources.",
+      "Automatic WebView fallback for YouTube when primary extraction fails.",
+      "Built-in quality selection for YouTube and HLS streams.",
+      "Playlist support for queuing multiple videos."
+    ],
+    "weaknesses": [
+      "Quality selection for YouTube is limited or disabled on iOS due to native stream limitations.",
+      "WebM seeking is disabled on iOS due to WebKit limitations."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Optional configuration for Android INTERNET permission and cleartext traffic, or iOS arbitrary loads if using HTTP streams.",
+    "alternatives": [
+      {
+        "name": "video_player",
+        "why_pick_it": "If you only need basic official video playback without extra features like YouTube extraction, Vimeo support, or built-in quality selectors."
+      },
+      {
+        "name": "just_audio",
+        "why_pick_it": "If your primary focus is advanced audio playback or complex audio streaming rather than video."
+      }
+    ],
+    "minimal_example": "OmniVideoPlayer(\n  callbacks: VideoPlayerCallbacks(),\n  configuration: VideoPlayerConfiguration(\n    videoSourceConfiguration: VideoSourceConfiguration.youtube(\n      videoUrl: Uri.parse('https://www.youtube.com/watch?v=dQw4w9WgXcQ'),\n      preferredQualities: [OmniVideoQuality.high720],\n    ),\n  ),\n)",
+    "confidence": 1
+  }
+}

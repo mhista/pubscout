@@ -1,0 +1,55 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.4.1",
+  "generatedAt": "2026-11-10T13:18:06.186Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "declarative",
+      "stream-based"
+    ],
+    "one_liner": "Widgets and addons for Cached Query in Flutter including query and mutation builders.",
+    "what_it_does": "Provides Flutter-specific builders and configuration extensions for Cached Query. It allows refetching queries automatically on app resume or when connection is re-established, and supplies QueryBuilder, InfiniteQueryBuilder, and MutationBuilder widgets.",
+    "use_when": [
+      "You are already using Cached Query for server state management in Dart.",
+      "You need UI builders like QueryBuilder or MutationBuilder for your queries.",
+      "You want automatic query refetching on app resume and connectivity changes."
+    ],
+    "avoid_when": [
+      "You are not using Cached Query.",
+      "You want a general-purpose state management solution like Bloc or Riverpod without caching server data."
+    ],
+    "strengths": [
+      "Seamlessly integrates Cached Query with Flutter widgets.",
+      "Automatic refetching on resume and network change via connectivity_plus.",
+      "Works well alongside other state management patterns like the bloc pattern."
+    ],
+    "weaknesses": [
+      "Tight coupling to the Cached Query ecosystem.",
+      "Requires additional configuration compared to standalone state managers."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Configure CachedQuery with configFlutter instead of config, and optionally initialize CachedStorage.",
+    "alternatives": [
+      {
+        "name": "flutter_bloc",
+        "why_pick_it": "If you prefer a full-fledged event-driven state management architecture rather than dedicated query caching."
+      },
+      {
+        "name": "riverpod",
+        "why_pick_it": "If you want compile-safe global state management with built-in family and caching capabilities."
+      },
+      {
+        "name": "provider",
+        "why_pick_it": "If you need a simpler dependency injection and state propagation tool."
+      }
+    ],
+    "minimal_example": "CachedQuery.instance.configFlutter(\n    config: GlobalQueryConfigFlutter(\n        refetchOnConnection: true,\n        refetchOnResume: true,\n    ),\n    storage: await CachedStorage.ensureInitialized(),\n);",
+    "confidence": 0.95
+  }
+}

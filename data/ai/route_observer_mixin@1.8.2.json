@@ -1,0 +1,52 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "1.8.2",
+  "generatedAt": "2026-11-12T11:15:19.779Z",
+  "data": {
+    "primary_category": "navigation",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "stream-based",
+      "no codegen"
+    ],
+    "one_liner": "Mixin and provider that expose RouteObserver callbacks like didPush and didPop for easy use.",
+    "what_it_does": "It supplies a RouteObserverProvider and a RouteObserverMixin so widgets can listen to navigation events without boilerplate. The mixin forwards RouteAware callbacks and streams them via Provider/Riverpod.",
+    "use_when": [
+      "You need to react to navigation events (push/pop) in a widget",
+      "You already use Provider or Riverpod and want a lightweight solution",
+      "You prefer a mixin rather than manual RouteObserver handling"
+    ],
+    "avoid_when": [
+      "You need a full routing solution with deep linking or nested routes",
+      "You rely on code‑generated route classes",
+      "You don't use Provider/Riverpod and prefer a pure Navigator API"
+    ],
+    "strengths": [
+      "Very small and easy to add",
+      "Works with both Provider and Riverpod",
+      "Provides stream‑based access to route events"
+    ],
+    "weaknesses": [
+      "Only covers route‑observer callbacks, no routing features",
+      "May clash if multiple RouteObservers are added",
+      "Limited documentation beyond basic usage"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Wrap MaterialApp with RouteObserverProvider (or use RouteObserverProvider widget) and add the mixin to your State class.",
+    "alternatives": [
+      {
+        "name": "auto_route",
+        "why_pick_it": "Provides full routing with generated routes and also supports route‑aware callbacks"
+      },
+      {
+        "name": "go_router",
+        "why_pick_it": "Offers declarative routing, deep linking and navigation guard features"
+      }
+    ],
+    "minimal_example": "void main(){runApp(MultiProvider(providers:[RouteObserverProvider(),ChangeNotifierProvider(create:(_)=>Logger())],child:const App()));}\n\nclass App extends StatelessWidget{Widget build(BuildContext c){return MaterialApp(navigatorObservers:[RouteObserverProvider.of(c)],home:const APage());}}",
+    "confidence": 0.93
+  }
+}

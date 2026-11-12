@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "6.0.0",
+  "generatedAt": "2026-11-11T11:23:24.530Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "declarative",
+      "reactive"
+    ],
+    "one_liner": "ValueListenable operators and reactive collections for Flutter and Dart",
+    "what_it_does": "Provides observable collections (ListNotifier, MapNotifier, SetNotifier) and functional chainable operators for ValueListenables like map, select, where, debounce, and combineLatest. Chains automatically attach and detach from their sources based on listener count to prevent memory leaks.",
+    "use_when": [
+      "You want reactive state management using standard ValueListenables without heavy frameworks.",
+      "You need collections that automatically notify listeners when mutated.",
+      "You want to transform, filter, or debounce observables using a chainable API."
+    ],
+    "avoid_when": [
+      "You prefer full-fledged BloC, Riverpod, or Redux architectures for your application state.",
+      "Your transformation functions are not pure or cheap, as they may run on read while detached."
+    ],
+    "strengths": [
+      "Automatic lifecycle management with detach-on-last-listener to prevent memory leaks.",
+      "Reactive collections require no manual notifyListeners() calls on mutations.",
+      "Type-safe ValueListenable operators with stream-like patterns."
+    ],
+    "weaknesses": [
+      "Transformation functions must be pure and cheap since they can be invoked on read while the chain is unobserved.",
+      "Does not include built-in dependency injection or complex navigation."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "final todos = ListNotifier<String>();\nfinal searchTerm = ValueNotifier<String>('');\n\nsearchTerm\n    .debounce(const Duration(milliseconds: 300))\n    .where((term) => term.length >= 3)\n    .listen((term, _) => print(term));",
+    "confidence": 1
+  }
+}

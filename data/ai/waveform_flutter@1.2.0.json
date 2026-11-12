@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "1.2.0",
+  "generatedAt": "2026-11-09T11:10:32.333Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "animation"
+    ],
+    "approach": [
+      "stream-based"
+    ],
+    "one_liner": "Animated waveform widget for Flutter",
+    "what_it_does": "Displays animated waveform bars from a stream of amplitude data. It can be customized in color, height, and animation.",
+    "use_when": [
+      "Building real‑time audio visualizers",
+      "Creating voice‑chat UIs",
+      "Adding animated waveforms to existing widgets"
+    ],
+    "avoid_when": [
+      "When you need audio playback or recording",
+      "When you need a full audio processing pipeline"
+    ],
+    "strengths": [
+      "Easy to integrate via a single widget",
+      "Fully customizable appearance",
+      "Built on Flutter streams for real‑time updates"
+    ],
+    "weaknesses": [
+      "Does not provide audio source or playback",
+      "Requires an external package (e.g., record) for live audio"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add `waveform_flutter: ^1.2.0` to pubspec, import the package, and provide a Stream<Amplitude> to AnimatedWaveList",
+    "alternatives": [],
+    "minimal_example": "```dart\nimport 'package:flutter/material.dart';\nimport 'package:waveform_flutter/waveform_flutter.dart';\n\nclass WaveFormExample extends StatelessWidget {\n  final Stream<Amplitude> _amplitudeStream = createRandomAmplitudeStream();\n\n  @override\n  Widget build(BuildContext context) {\n    return AnimatedWaveList(stream: _amplitudeStream);\n  }\n}\n```",
+    "confidence": 0.9
+  }
+}

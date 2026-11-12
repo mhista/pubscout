@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.2.0",
+  "generatedAt": "2026-11-09T11:41:05.386Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "animation"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A toggle switch widget with an integrated loading state for asynchronous actions.",
+    "what_it_does": "A customizable toggle switch widget that handles asynchronous operations with a loading state. It supports both managed and controlled modes, various spinner styles from flutter_spinkit, and accessibility features.",
+    "use_when": [
+      "You need a toggle switch that waits for a remote API call or async operation to finish.",
+      "You want built-in loading animations inside the thumb of a switch.",
+      "You require extensive customization of switch decoration, thumb shapes, and animations."
+    ],
+    "avoid_when": [
+      "You only need a standard, non-loading Material or Cupertino switch."
+    ],
+    "strengths": [
+      "Supports both managed and controlled state modes.",
+      "Extensive customization options for shapes, colors, and animations.",
+      "Built-in accessibility support including semantics and keyboard navigation."
+    ],
+    "weaknesses": [
+      "Adds a dependency on flutter_spinkit for animations."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "bool value = false;\n\nFuture<bool> _toggle() async {\n  await Future.delayed(const Duration(seconds: 2));\n  return !value;\n}\n\nLoadSwitch.managed(\n  value: value,\n  onToggle: _toggle,\n  onChanged: (nextValue) {\n    setState(() {\n      value = nextValue;\n    });\n  },\n)",
+    "confidence": 1
+  }
+}

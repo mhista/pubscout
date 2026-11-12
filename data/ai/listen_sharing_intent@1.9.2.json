@@ -1,0 +1,47 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "1.9.2",
+  "generatedAt": "2026-11-11T11:18:10.133Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "stream-based"
+    ],
+    "one_liner": "Flutter plugin to receive shared photos, videos, text, URLs, or files from other apps.",
+    "what_it_does": "It listens for share intents on Android and iOS, exposing the received media as a stream and initial payload. It supports a wide range of MIME types and can be configured to auto‑redirect to the host app.",
+    "use_when": [
+      "Implementing a share extension to accept content from other apps",
+      "Handling incoming files or URLs in a Flutter app",
+      "Building a photo or document sharing feature"
+    ],
+    "avoid_when": [
+      "You only need to share content from your app",
+      "You are targeting a single platform without native intent handling"
+    ],
+    "strengths": [
+      "Supports Android and iOS with extensive MIME type coverage",
+      "Provides both initial payload and continuous stream of shared items",
+      "Allows disabling auto‑redirect for custom flow"
+    ],
+    "weaknesses": [
+      "Requires native configuration in AndroidManifest and iOS Share Extension",
+      "Setup is more involved than simple plugins",
+      "Documentation is limited to README and changelog"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add intent filters to AndroidManifest.xml, request READ_EXTERNAL_STORAGE permission, create an iOS Share Extension, configure Info.plist, and set AppGroupId.",
+    "alternatives": [
+      {
+        "name": "receive_sharing_intent",
+        "why_pick_it": "Original plugin providing the same functionality; this fork adds extra PRs and fixes."
+      }
+    ],
+    "minimal_example": "```dart\nimport 'package:listen_sharing_intent/listen_sharing_intent.dart';\n\nvoid main() async {\n  final initial = await ReceiveSharingIntent.instance.getInitialMedia();\n  ReceiveSharingIntent.instance.mediaStream.listen((media) {\n    // handle new shared items\n  });\n}\n```",
+    "confidence": 0.9
+  }
+}

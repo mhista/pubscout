@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.3.5",
+  "generatedAt": "2026-11-09T11:54:38.093Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [
+      "forms",
+      "ui-kits"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Discontinued Flutter plugin for building settings screens with pluggable storage.",
+    "what_it_does": "Provides a collection of settings tiles, screens, and modal widgets to quickly construct settings pages. Features a pluggable cache provider interface with default shared preferences support.",
+    "use_when": [
+      "You are maintaining an existing legacy app that already relies on this discontinued package."
+    ],
+    "avoid_when": [
+      "Starting a new project, as the package is explicitly discontinued and recommends using 'settings_ui' instead.",
+      "You need modern, actively maintained settings screen components."
+    ],
+    "strengths": [
+      "Pluggable storage layer allowing custom cache providers like Hive or SharedPreferences.",
+      "Comes with a rich set of built-in settings tiles (checkbox, switch, dropdown, radio, slider, color picker, etc.).",
+      "Supports conditional visibility of settings based on other inputs."
+    ],
+    "weaknesses": [
+      "Discontinued and no longer maintained.",
+      "Recommends migrating to another package (settings_ui) for UI components."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Must initialize the plugin with Settings.init() before navigating to the settings page.",
+    "alternatives": [
+      {
+        "name": "shared_preferences",
+        "why_pick_it": "Recommended for handling the underlying storage layer when migrating away from this package."
+      }
+    ],
+    "minimal_example": "await Settings.init(cacheProvider: _customCacheProvider);\n\nSimpleSettingsTile(\n  title: 'Advanced',\n  subtitle: 'More, advanced settings.'\n  screen: SettingsScreen(\n    title: 'Sub menu',\n    children: <Widget>[\n      CheckboxSettingsTile(\n        settingsKey: 'key-of-your-setting',\n        title: 'This is a simple Checkbox',\n      ),\n    ],\n  ),\n);",
+    "confidence": 0.95
+  }
+}

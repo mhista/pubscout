@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.1.0",
+  "generatedAt": "2026-11-09T11:49:01.982Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "audio-video"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Builds a ListView or CustomScrollView and notifies when widgets are on screen.",
+    "what_it_does": "It provides scroll views (`InViewNotifierList` and `InViewNotifierCustomScrollView`) along with `InViewNotifierWidget` to track and notify when child widgets enter or leave a specific viewport condition area. It is commonly used for features like auto-playing videos or conditional data loading as the user scrolls.",
+    "use_when": [
+      "You need to auto-play videos when they scroll into view.",
+      "You want to trigger real-time database listeners or data fetches only for visible items in a list."
+    ],
+    "avoid_when": [
+      "You are using a standard ListView and do not need visibility tracking for its items.",
+      "You need complex physics or non-scroll view visibility calculations."
+    ],
+    "strengths": [
+      "Supports both ListView and CustomScrollView implementations.",
+      "Configurable in-view viewport conditions and throttle duration.",
+      "Allows wrapping the internal scroll view with a pull-to-refresh or shimmer wrapper via `scrollViewWrapper`."
+    ],
+    "weaknesses": [
+      "Requires unique string IDs for every child widget that needs notifications."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "InViewNotifierList(\n  isInViewPortCondition: (\n    double deltaTop,\n    double deltaBottom,\n    double vpHeight,\n  ) {\n    return deltaTop < (0.5 * vpHeight) && deltaBottom > (0.5 * vpHeight);\n  },\n  itemCount: 10,\n  builder: (BuildContext context, int index) {\n    return InViewNotifierWidget(\n      id: '$index',\n      builder: (BuildContext context, bool isInView, Widget child) {\n        return Container(\n          height: 250.0,\n          color: isInView ? Colors.green : Colors.red,\n          child: Text(isInView ? 'Is in view' : 'Not in view'),\n        );\n      },\n    );\n  },\n)",
+    "confidence": 1
+  }
+}

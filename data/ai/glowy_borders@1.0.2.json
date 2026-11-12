@@ -1,0 +1,46 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.2",
+  "generatedAt": "2026-11-11T11:42:52.457Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "animation",
+      "theming"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A wrapper widget to animate borders and glows around widgets using gradients.",
+    "what_it_does": "It provides an AnimatedGradientBorder wrapper widget that adds animated borders and glowing effects to any child widget. Developers can either let it loop indefinitely or control the animation progress externally.",
+    "use_when": [
+      "You want to highlight a specific UI element with an animated glowing border.",
+      "You need a custom gradient border that loops an animation continuously."
+    ],
+    "avoid_when": [
+      "You need to use it extensively throughout the app, as the underlying Backdrop Filter can cause performance issues.",
+      "You are using stretched alignments without providing the stretchAlongAxis parameter."
+    ],
+    "strengths": [
+      "Easy to wrap around existing widgets.",
+      "Supports both indefinite looping and manual animation progress control.",
+      "Customizable border size, glow size, and gradient colors."
+    ],
+    "weaknesses": [
+      "Uses Backdrop Filter under the hood which may impact performance if used heavily.",
+      "Requires matching border radius on both the wrapper and the child for a true border effect."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [
+      {
+        "name": "flutter_animate",
+        "why_pick_it": "Provides a comprehensive general-purpose animation library for widgets instead of just specialized borders."
+      }
+    ],
+    "minimal_example": "AnimatedGradientBorder(\n  borderSize: 2,\n  glowSize: 10,\n  gradientColors: [\n    Colors.transparent,\n    Colors.purple.shade50\n  ],\n  borderRadius: BorderRadius.all(Radius.circular(16)),\n  child: Container(width: 100, height: 100),\n)",
+    "confidence": 0.95
+  }
+}

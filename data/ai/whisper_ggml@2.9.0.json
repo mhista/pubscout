@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.9.0",
+  "generatedAt": "2026-11-11T11:22:01.633Z",
+  "data": {
+    "primary_category": "ai-ml",
+    "secondary_categories": [
+      "audio-video"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "On-device speech-to-text for Flutter powered by whisper.cpp",
+    "what_it_does": "Provides on-device automatic speech recognition (ASR) using Whisper models via whisper.cpp. Supports both one-off audio file transcription and live streaming transcription with optional VAD and speaker-turn detection.",
+    "use_when": [
+      "You need completely offline speech-to-text without cloud APIs or keys.",
+      "You want live streaming speech transcription in a Flutter app.",
+      "You need voice activity detection (VAD) or basic speaker diarization."
+    ],
+    "avoid_when": [
+      "You require cloud-based speech recognition services with massive pre-trained language vocabularies.",
+      "You cannot accept the app bundle size increase from including or downloading Whisper model weights."
+    ],
+    "strengths": [
+      "Fully offline, local execution with no server dependency.",
+      "Supports live streaming transcription with partial results.",
+      "Fast native performance utilizing whisper.cpp with hardware acceleration."
+    ],
+    "weaknesses": [
+      "Requires managing large model files (from tens of megabytes to gigabytes).",
+      "Platform configuration required for native builds and minimum OS targets (e.g. iOS 15.6)."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires setting the iOS deployment target to 15.6 or later in Podfile and Xcode. On Windows and Linux, FFmpeg must be installed on PATH if non-WAV audio files are processed.",
+    "alternatives": [],
+    "minimal_example": "import 'package:whisper_ggml/whisper_ggml.dart';\n\nfinal controller = WhisperController();\n\nfinal result = await controller.transcribe(\n  model: WhisperModel.tiny,\n  audioPath: '/path/to/audio.wav',\n  lang: 'en',\n);\n\nprint(result?.transcription.text);",
+    "confidence": 0.95
+  }
+}

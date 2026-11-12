@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.6.8",
+  "generatedAt": "2026-11-10T13:16:37.308Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Run FFmpeg and FFprobe commands from Dart on Android, iOS, macOS, Windows and Linux.",
+    "what_it_does": "Provides prebuilt FFmpeg and FFprobe native libraries wrapped in a unified Dart API. Supports executing synchronous or asynchronous conversion commands, capturing logs and stats, and reading media metadata.",
+    "use_when": [
+      "You need to transcode, trim, or process audio and video files directly on-device.",
+      "You want to extract media information and stream statistics using FFprobe in a Flutter app."
+    ],
+    "avoid_when": [
+      "You want to avoid the GPL 3.0 licensing requirements introduced by codecs like x264 and x265.",
+      "Your app does not require native media processing and you want to keep binary file size minimal."
+    ],
+    "strengths": [
+      "Bundles prebuilt native binaries for Android, iOS, macOS, Windows and Linux with no compilation needed during build.",
+      "Includes essential GPL video codecs like x264, x265, xvidcore, and vid.stab.",
+      "Provides robust session management with log and statistics callbacks."
+    ],
+    "weaknesses": [
+      "Increases the application binary size significantly due to bundled native libraries.",
+      "Using GPL-licensed components means your application distribution falls under GPL 3.0."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "No compilation needed during build, but Linux requires libjson-glib-dev and Android/iOS may require specific configurations like Storage Access Framework permissions if needed.",
+    "alternatives": [],
+    "minimal_example": "import 'package:ffmpeg_kit_flutter_new_min_gpl/ffmpeg_kit.dart';\n\nfinal session = await FFmpegKit.execute('-i input.mp4 -c:v mpeg4 output.mp4');\nfinal returnCode = await session.getReturnCode();\n\nif (ReturnCode.isSuccess(returnCode)) {\n  // Success\n} else {\n  // Failed\n}",
+    "confidence": 1
+  }
+}

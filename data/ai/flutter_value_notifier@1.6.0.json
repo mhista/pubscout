@@ -1,0 +1,52 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.6.0",
+  "generatedAt": "2026-11-11T11:16:08.195Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Flutter widgets that implement state management patterns using ValueNotifier.",
+    "what_it_does": "Provides a set of widgets inspired by flutter_bloc such as ValueNotifierProvider, ValueNotifierBuilder, and ValueNotifierListener to make working with ValueNotifier cleaner and reduce boilerplate in state management.",
+    "use_when": [
+      "You want to manage app state using standard ValueNotifiers with a bloc-like widget structure.",
+      "You want dependency injection for ValueNotifiers down the widget tree.",
+      "You want to separate presentation from business logic using ValueNotifier and builder/listener widgets."
+    ],
+    "avoid_when": [
+      "You prefer a full-fledged state management framework like Riverpod or Bloc for complex asynchronous events.",
+      "You already use ValueListenableBuilder and do not need extra provider/listener wrapper widgets."
+    ],
+    "strengths": [
+      "Familiar API for developers coming from flutter_bloc.",
+      "Reduces boilerplate when working with ValueNotifier compared to raw ValueListenableBuilder.",
+      "Lightweight and built directly on core Flutter foundations."
+    ],
+    "weaknesses": [
+      "ValueNotifier can become cumbersome for complex multi-state logic compared to dedicated state management packages.",
+      "Relies on provider underneath for context lookups."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "provider",
+        "why_pick_it": "If you want a general-purpose dependency injection and state management tool without wrapping ValueNotifiers specifically."
+      },
+      {
+        "name": "flutter_bloc",
+        "why_pick_it": "If you need a more robust and formalized event-driven state management architecture."
+      },
+      {
+        "name": "flutter_riverpod",
+        "why_pick_it": "If you want compile-safe global state management without relying on widget context."
+      }
+    ],
+    "minimal_example": "ValueNotifierProvider(\n  create: (_) => CounterNotifier(),\n  child: CounterPage(),\n);",
+    "confidence": 1
+  }
+}

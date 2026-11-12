@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.21.7",
+  "generatedAt": "2026-11-09T11:55:42.209Z",
+  "data": {
+    "primary_category": "backend",
+    "secondary_categories": [
+      "storage"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Fetch Firestore documents with read from cache first then server based on a timestamp field.",
+    "what_it_does": "A Flutter plugin designed to fetch documents and queries from Cloud Firestore by reading from the cache first and falling back or updating based on a designated timestamp field on a Firestore document.",
+    "use_when": [
+      "You want to optimize Firestore read costs by serving cached data first.",
+      "You can manage timestamp fields in Firestore to signal when data updates should occur."
+    ],
+    "avoid_when": [
+      "You require real-time automatic cache-to-server data comparison without managing manual timestamp fields.",
+      "You are using standard Firestore offline persistence which handles caching natively."
+    ],
+    "strengths": [
+      "Helps reduce Firestore read operations by utilizing local cache first.",
+      "Integrates seamlessly with cloud_firestore and shared_preferences."
+    ],
+    "weaknesses": [
+      "Relies entirely on a manually updated timestamp field to determine when to fetch from the server.",
+      "Requires extra setup steps involving creating tracking documents and fields on Firestore."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires creating a specific document and a timestamp field in Firestore for each collection or document you want to fetch.",
+    "alternatives": [],
+    "minimal_example": "final cacheDocRef = Firestore.instance.doc('status/status');\nfinal cacheField = 'updatedAt';\nfinal query = Firestore.instance.collection('posts');\nfinal snapshot = await FirestoreCache.getDocuments(\n    query: query,\n    cacheDocRef: cacheDocRef,\n    firestoreCacheField: cacheField,\n);",
+    "confidence": 0.95
+  }
+}

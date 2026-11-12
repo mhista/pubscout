@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "2.3.15",
+  "generatedAt": "2026-11-12T11:31:04.945Z",
+  "data": {
+    "primary_category": "maps",
+    "secondary_categories": [],
+    "approach": [
+      "stream-based"
+    ],
+    "one_liner": "Realtime geo queries on Firestore using geohashes",
+    "what_it_does": "GeoFlutterFire2 lets you store geographic points in Firestore and query them in real‑time. It uses geohashes to limit Firestore reads to nearby documents, keeping apps light and responsive.",
+    "use_when": [
+      "Need to query Firestore documents by location in real time",
+      "Building map‑based apps that show nearby points",
+      "Working with large datasets where only nearby data should be loaded"
+    ],
+    "avoid_when": [
+      "Using the `within` method without cancelling the subscription, which can leak memory",
+      "Relying on it for non‑Firebase backends"
+    ],
+    "strengths": [
+      "Realtime streaming of query results",
+      "Null‑safe and Flutter 2 compatible",
+      "Lightweight wrapper around cloud_firestore",
+      "Easy to write and read geo data"
+    ],
+    "weaknesses": [
+      "Creates 9 underlying listeners per query, can leak memory if not cancelled",
+      "Only works with Firebase Firestore"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add `geoflutterfire2` to pubspec, initialize Firebase, import the package",
+    "alternatives": [],
+    "minimal_example": "```dart\nimport 'package:geoflutterfire2/geoflutterfire2.dart';\nimport 'package:cloud_firestore/cloud_firestore.dart';\n\nfinal geo = GeoFlutterFire();\nfinal _firestore = FirebaseFirestore.instance;\n\n// Write a point\nfinal point = geo.point(latitude: 12.960632, longitude: 77.641603);\n_firestore.collection('locations').add({'name': 'random', 'position': point.data});\n\n// Query nearby points\nfinal center = geo.point(latitude: 12.960632, longitude: 77.641603);\nfinal stream = geo.collection(collectionRef: _firestore.collection('locations'))\n    .within(center: center, radius: 50, field: 'position');\nstream.listen((docs) => print('Found ${docs.length} docs'));\n```",
+    "confidence": 0.9
+  }
+}
