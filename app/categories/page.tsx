@@ -1,7 +1,12 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import { CategoryIndex } from "@/components/CategoryIndex";
 
-export const metadata: Metadata = { title: "Categories" };
+export const metadata: Metadata = pageMeta({
+  title: "Flutter package categories",
+  description: "Every Flutter and Dart package sorted by what it does: state management, networking, storage, UI, maps, payments, testing and 25+ more categories.",
+  path: "/categories",
+});
 
 export default function CategoriesPage() {
   return (

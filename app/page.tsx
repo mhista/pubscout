@@ -1,8 +1,13 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { getCatalog } from "@/lib/catalog";
 import { PubspecSearch } from "@/components/PubspecSearch";
 import { CategoryIndex } from "@/components/CategoryIndex";
 import { MiniList } from "@/components/MiniList";
+import { SITE } from "@/lib/site";
+import { JsonLd, abs } from "@/lib/seo";
+
+export const metadata: Metadata = { alternates: { canonical: "/" } };
 
 export default function Home() {
   const c = getCatalog();
@@ -12,8 +17,32 @@ export default function Home() {
   const gems = [...live].filter((p) => p.essential && (p.rank == null || p.rank > 300)).sort((a, b) => b.scores.health - a.scores.health).slice(0, 6);
   const fresh = [...live].filter((p) => p.scores.health >= 70).sort((a, b) => Date.parse(b.published) - Date.parse(a.published)).slice(0, 6);
 
+  // Lets Google show a search box for the site, and ties the site to its author.
+  const ld = [
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      name: SITE.name,
+      url: abs("/"),
+      description: SITE.description,
+      potentialAction: { "@type": "SearchAction", target: { "@type": "EntryPoint", urlTemplate: `${abs("/explore")}?q={search_term_string}` }, "query-input": "required name=search_term_string" },
+      author: { "@type": "Person", name: SITE.credit.label, url: SITE.credit.href },
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      name: SITE.name,
+      url: abs("/"),
+      applicationCategory: "DeveloperApplication",
+      operatingSystem: "Any",
+      offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+      description: SITE.description,
+    },
+  ];
+
   return (
     <>
+      <JsonLd data={ld} />
       <section className="relative isolate">
       <div aria-hidden className="paper-grid pointer-events-none absolute inset-0 -z-10" />
       <div className="wrap grid items-center gap-12 pb-20 pt-14 lg:grid-cols-[minmax(0,5fr)_minmax(0,7fr)] lg:gap-16 lg:pt-24">

@@ -1,7 +1,12 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import { RequestPackage } from "@/components/RequestPackage";
 
-export const metadata: Metadata = { title: "Request a package" };
+export const metadata: Metadata = pageMeta({
+  title: "Request a Flutter package",
+  description: "Missing a package? Request any pub.dev package and it\u2019s added to pubscout with a health score and summary, usually within minutes.",
+  path: "/request",
+});
 
 export default async function RequestPage({ searchParams }: { searchParams: Promise<{ name?: string }> }) {
   const { name = "" } = await searchParams;

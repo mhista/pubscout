@@ -5,6 +5,7 @@ import { categoryName, getCatalog, getPackage } from "@/lib/catalog";
 import type { Pkg, SubScore } from "@/lib/types";
 import { KIND_LABELS, PLATFORMS, SUB_LABELS, ago, compact, pubUrl, tone, toneBg, toneText } from "@/lib/format";
 import { SITE } from "@/lib/site";
+import { JsonLd, abs, breadcrumbs, clip, comparePath, ogImage, pageMeta } from "@/lib/seo";
 import { CopyCommand } from "@/components/CopyCommand";
 import { CopySummary } from "@/components/CopySummary";
 import { SiblingNav } from "@/components/SiblingNav";
@@ -24,7 +25,16 @@ export function generateStaticParams() {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const p = getPackage((await params).name);
   if (!p) return {};
-  return { title: `${p.name}: ${p.oneLiner}`.slice(0, 70), description: p.explainer?.whatItDoes ?? p.description };
+  const cat = p.primaryCategory ? categoryName(p.primaryCategory) : null;
+  const alts = p.alternatives.slice(0, 3);
+  const what = p.explainer?.whatItDoes ?? p.description ?? "";
+  const description = clip(`${p.name} ${p.version}: health ${p.scores.health}/100. ${what}${alts.length ? ` Alternatives: ${alts.join(", ")}.` : ""}`);
+  return pageMeta({
+    title: `${p.name} for Flutter: health score, pros, cons & alternatives`,
+    description,
+    path: `/p/${p.name}`,
+    image: ogImage(p.name, clip(p.oneLiner || p.description || "", 120), { score: String(p.scores.health), ...(cat ? { kind: cat } : {}) }),
+  });
 }
 
 const ORDER: SubScore[] = ["maintenance", "quality", "popularity", "community", "compatibility"];
@@ -43,8 +53,35 @@ export default async function PackagePage({ params }: Props) {
 
   const md = summaryMarkdown(p, primary ? categoryName(primary.slug) : null);
 
+  // Structured data: what the package is, and where it sits on the site.
+  const ld = [
+    {
+      "@context": "https://schema.org",
+      "@type": "SoftwareSourceCode",
+      name: p.name,
+      description: ex?.whatItDoes ?? p.description,
+      url: abs(`/p/${p.name}`),
+      sameAs: [pubUrl(p.name), ...(p.repository ? [p.repository] : [])],
+      ...(p.repository ? { codeRepository: p.repository } : {}),
+      programmingLanguage: "Dart",
+      runtimePlatform: p.kind === "dart" ? "Dart" : "Flutter",
+      version: p.version,
+      dateModified: p.published,
+      ...(p.firstPublished ? { dateCreated: p.firstPublished } : {}),
+      ...(p.license ? { license: p.license } : {}),
+      ...(p.publisher ? { publisher: { "@type": "Organization", name: p.publisher } } : {}),
+      keywords: [...p.topics, ...(primary ? [categoryName(primary.slug)] : []), "Flutter", "Dart"].join(", "),
+    },
+    breadcrumbs([
+      { name: "Home", path: "/" },
+      ...(primary ? [{ name: categoryName(primary.slug), path: `/c/${primary.slug}` }] : []),
+      { name: p.name, path: `/p/${p.name}` },
+    ]),
+  ];
+
   return (
     <div className="wrap grid gap-12 pt-8 xl:grid-cols-[208px_minmax(0,1fr)]">
+    <JsonLd data={ld} />
     {primary && (
       <aside className="hidden xl:block">
         <div className="sticky top-[4.5rem] -ml-2.5 max-h-[calc(100vh-5.5rem)] overflow-y-auto pb-10 pr-3 [scrollbar-width:thin]">
@@ -165,7 +202,7 @@ export default async function PackagePage({ params }: Props) {
                     </div>
                     <div className="flex items-center gap-4">
                       <HealthNumber value={a.scores.health} />
-                      <Link href={`/compare?p=${p.name},${a.name}`} className="btn-line h-8 min-h-0 px-3 text-xs">Compare</Link>
+                      <Link href={comparePath([p.name, a.name])} className="btn-line h-8 min-h-0 px-3 text-xs">Compare</Link>
                     </div>
                   </li>
                 ))}

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { clip, comparePath, ogImage, pageMeta } from "@/lib/seo";
 import Link from "next/link";
 import { categoryName, getCatalog, getPackage } from "@/lib/catalog";
 import type { Pkg } from "@/lib/types";
@@ -13,8 +14,25 @@ const parse = (v: string | string[] | undefined) =>
   [...new Set((Array.isArray(v) ? v.join(",") : v ?? "").split(",").map((s) => s.trim()).filter(Boolean))].slice(0, 4);
 
 export async function generateMetadata({ searchParams }: Props): Promise<Metadata> {
-  const names = parse((await searchParams).p);
-  return { title: names.length > 1 ? `${names.join(" vs ")}` : "Compare packages" };
+  const names = parse((await searchParams).p).filter((n) => getPackage(n));
+  if (names.length < 2) {
+    return pageMeta({
+      title: "Compare Flutter packages side by side",
+      description: "Compare up to four Flutter packages on health score, maintenance, downloads, platforms, license and setup effort.",
+      path: "/compare",
+    });
+  }
+  const pkgs = names.map((n) => getPackage(n)!);
+  const vs = names.join(" vs ");
+  const best = [...pkgs].sort((a, b) => b.scores.health - a.scores.health)[0];
+  return pageMeta({
+    title: `${vs}: which Flutter package should you use?`,
+    description: clip(`${vs} compared: health scores (${pkgs.map((p) => `${p.name} ${p.scores.health}`).join(", ")}), downloads, maintenance, platforms and trade-offs. ${best.name} scores highest.`),
+    path: comparePath(names),
+    image: ogImage(vs, "Side-by-side Flutter package comparison", { kind: "Compare" }),
+    // Index real head-to-heads (2–3 packages); bigger ad-hoc mixes stay out of search.
+    noindex: names.length > 3,
+  });
 }
 
 type RowDef = { label: string; get: (p: Pkg) => string | number | null; best?: "max" | "min"; render?: (p: Pkg) => React.ReactNode; group?: string };
@@ -55,7 +73,7 @@ export default async function ComparePage({ searchParams }: Props) {
     const seenPairs = new Set<string>();
     const pairs: [Pkg, Pkg][] = [];
     for (const a of catalog.packages) {
-      if (pairs.length >= 6) break;
+      if (pairs.length >= 12) break;
       // Only pairs that name each other as alternatives.
       const b = a.alternatives.map((n) => getPackage(n)).find((x): x is Pkg => !!x && x.alternatives.includes(a.name));
       if (!b || !a.primaryCategory || seenCats.has(a.primaryCategory)) continue;
@@ -75,7 +93,7 @@ export default async function ComparePage({ searchParams }: Props) {
         <ul className="mt-4 grid border-t border-line sm:grid-cols-2">
           {pairs.map(([a, b]) => (
             <li key={a.name + b.name} className="border-b border-line">
-              <Link href={`/compare?p=${a.name},${b.name}`} className="block px-1 py-4 hover:bg-card sm:px-4">
+              <Link href={comparePath([a.name, b.name])} className="block px-1 py-4 hover:bg-card sm:px-4">
                 <span className="font-mono text-ink">{a.name}</span> <span className="text-muted">vs</span> <span className="font-mono text-ink">{b.name}</span>
                 <span className="mt-0.5 block text-sm text-body">{categoryName(a.primaryCategory!)}</span>
               </Link>

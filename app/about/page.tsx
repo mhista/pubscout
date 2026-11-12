@@ -1,9 +1,14 @@
 import type { Metadata } from "next";
+import { pageMeta } from "@/lib/seo";
 import Link from "next/link";
 import { SUB_LABELS } from "@/lib/format";
 import { SupportBlurb } from "@/components/SupportButton";
 
-export const metadata: Metadata = { title: "How scoring works" };
+export const metadata: Metadata = pageMeta({
+  title: "How Flutter package health scores work",
+  description: "How pubscout scores Flutter packages from 0 to 100: maintenance, quality, popularity, community and compatibility, plus how categories and AI summaries are made.",
+  path: "/about",
+});
 
 const PARTS: Record<keyof typeof SUB_LABELS, string[]> = {
   maintenance: ["Last release: 100 when released today, halving every 6 months (50%)", "Repo activity: last push to GitHub, halving every 3 months; release cadence when there's no repo (50%)"],
