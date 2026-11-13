@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.4.6",
+  "generatedAt": "2026-11-13T11:35:12.048Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Flutter plugin for bluetooth thermal printers supporting Android, iOS, web, macOS, and Linux.",
+    "what_it_does": "Allows scanning, connecting, and disconnecting from Bluetooth thermal printers. Supports printing via TSPL/TSC, CPCL, and ESC/POS command sets.",
+    "use_when": [
+      "You need to print receipts or labels via Bluetooth thermal printers from a Flutter app.",
+      "You require support for command sets like TSPL/TSC, CPCL, or ESC/POS."
+    ],
+    "avoid_when": [
+      "You only need standard network or USB printing without Bluetooth.",
+      "You require complex cross-platform BLE characteristic reading/writing beyond printer use."
+    ],
+    "strengths": [
+      "Supports multiple printer command protocols (TSPL/TSC, CPCL, ESC/POS).",
+      "Provides stream-based state tracking for scanning and connection status."
+    ],
+    "weaknesses": [
+      "Requires manual configuration of platform-specific permissions for Bluetooth and location.",
+      "Limited documentation outside of the basic README example."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding Bluetooth and location permissions to AndroidManifest.xml and NSBluetoothAlwaysUsageDescription / NSBluetoothPeripheralUsageDescription to Info.plist.",
+    "alternatives": [],
+    "minimal_example": "await BluetoothPrintPlus.startScan(timeout: Duration(seconds: 10));\nawait BluetoothPrintPlus.connect(_device);\nBluetoothPrintPlus.write(cmd);",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "8.3.0",
+  "generatedAt": "2026-11-13T10:59:27.084Z",
+  "data": {
+    "primary_category": "ai-ml",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Pure Dart client for the Mistral AI API, supporting chat, embeddings, fine-tuning, agents, and more.",
+    "what_it_does": "It provides a type‑safe, fully‑featured client for the Mistral AI API, including chat completions, streaming, embeddings, fine‑tuning, agents, and operational APIs. The client works on all Dart platforms without Flutter dependencies.",
+    "use_when": [
+      "You need to integrate Mistral AI into a Dart or Flutter app",
+      "You want a fully typed client with streaming support",
+      "You prefer a pure Dart solution over HTTP wrappers"
+    ],
+    "avoid_when": [
+      "You only need a minimal HTTP client for a single endpoint",
+      "You are building a Flutter‑only UI that requires widget helpers"
+    ],
+    "strengths": [
+      "Full API coverage including beta features",
+      "Pure Dart, no Flutter dependency",
+      "Built‑in streaming, retries, and error handling",
+      "Type‑safe request/response models"
+    ],
+    "weaknesses": [
+      "No Flutter widgets or UI helpers",
+      "Requires an API key and network access",
+      "Large feature set may be overkill for simple use cases"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add mistralai_dart to pubspec, set MISTRAL_API_KEY env var or pass key in code, then create MistralClient",
+    "alternatives": [],
+    "minimal_example": "import 'package:mistralai_dart/mistralai_dart.dart';\n\nFuture<void> main() async {\n  final client = MistralClient.fromEnvironment();\n  try {\n    final response = await client.chat.create(\n      request: ChatCompletionRequest(\n        model: 'mistral-small-latest',\n        messages: [ChatMessage.user('Hello! How are you?')],\n      ),\n    );\n    print(response.text);\n  } finally {\n    client.close();\n  }\n}",
+    "confidence": 0.9
+  }
+}

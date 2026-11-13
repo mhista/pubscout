@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "5.3.2",
+  "generatedAt": "2026-11-13T11:05:02.160Z",
+  "data": {
+    "primary_category": "ui-kits",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Adds Bootstrap 5 components and CSS integration to the Bones_UI Dart package.",
+    "what_it_does": "The package bundles Bootstrap 5 JavaScript and CSS, providing ready‑to‑use Bootstrap widgets like accordions, navbars, and date range pickers for Bones_UI. It also includes SCSS sources for custom theming and a compatibility layer for Bootstrap 4 styles.",
+    "use_when": [
+      "You need Bootstrap‑styled UI components in a web‑only Dart app using Bones_UI",
+      "You want to customize Bootstrap SCSS themes without adding manual HTML/JS"
+    ],
+    "avoid_when": [
+      "You are building for mobile platforms only",
+      "You prefer a pure Flutter widget library without external CSS/JS dependencies"
+    ],
+    "strengths": [
+      "Seamless Bootstrap integration with Bones_UI",
+      "Bundled JS/CSS and SCSS for easy theming",
+      "Provides Bootstrap 4 compatibility layer"
+    ],
+    "weaknesses": [
+      "Web‑only; not usable on mobile or desktop Flutter apps",
+      "Relies on external Bootstrap assets, increasing bundle size"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:bones_ui/bones_ui_kit.dart';\nimport 'package:bones_ui_bootstrap/bones_ui_bootstrap.dart';\n\nclass MyUI extends UIRoot {\n  MyUI(super.rootContainer);\n  @override\n  void configure() => Bootstrap.load();\n  @override\n  UIComponent renderContent() => $div(classes:'container',content:'Hello Bootstrap');\n}\n\nvoid main(){\n  var out=document.querySelector('#output');\n  MyUI(out).initialize();\n}",
+    "confidence": 0.78
+  }
+}

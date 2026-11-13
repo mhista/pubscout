@@ -1,0 +1,56 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "5.2.0",
+  "generatedAt": "2026-11-13T11:21:13.542Z",
+  "data": {
+    "primary_category": "auth",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "WebView-based OAuth 2.0 flow for mobile and web",
+    "what_it_does": "Provides a widget that handles OAuth 2.0 authorization using an in-app WebView. It supports Android, iOS, macOS, Windows and Web, with optional locale, headers and user‑agent customization.",
+    "use_when": [
+      "You need full control over the authentication UI",
+      "You want to avoid system browser dialogs",
+      "You need to support web platform without native plugins"
+    ],
+    "avoid_when": [
+      "You prefer native authentication flows like AppAuth",
+      "Your app has very limited dependencies and you want the smallest footprint"
+    ],
+    "strengths": [
+      "Full UI control inside the app",
+      "No system dialog or browser cache issues",
+      "Locale can be set via contentLocale",
+      "Supports custom headers and user‑agent"
+    ],
+    "weaknesses": [
+      "Requires web_support.js for Web builds",
+      "Needs internet permission on Android and ATS settings on iOS",
+      "More setup than native plugins"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add <uses-permission android:name=\"android.permission.INTERNET\"/> to AndroidManifest, add NSAllowsArbitraryLoads to iOS Info.plist, include web_support.js in web/index.html head",
+    "alternatives": [
+      {
+        "name": "google_sign_in",
+        "why_pick_it": "Provides native Google sign‑in with minimal setup"
+      },
+      {
+        "name": "firebase_auth",
+        "why_pick_it": "Offers comprehensive auth with multiple providers and backend integration"
+      },
+      {
+        "name": "flutter_web_auth_2",
+        "why_pick_it": "Simpler web‑only OAuth flow without WebView"
+      }
+    ],
+    "minimal_example": "```dart\nOAuthWebView(\n  configuration: OAuthConfiguration(\n    clientId: 'your-client-id',\n    redirectUrl: 'https://your.redirect',\n    scopes: ['openid', 'profile'],\n  ),\n  onSuccessAuth: (token) => print('Token: $token'),\n  onError: (e) => print('Error: $e'),\n)\n```",
+    "confidence": 0.85
+  }
+}

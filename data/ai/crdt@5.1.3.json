@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "5.1.3",
+  "generatedAt": "2026-11-13T11:10:54.497Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "state-management"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Dart implementation of Conflict-free Replicated Data Types (CRDTs).",
+    "what_it_does": "Provides a storage‑agnostic CRDT framework with Hybrid Logical Clocks for conflict resolution. It includes an in‑memory MapCrdt and hooks for custom storage backends.",
+    "use_when": [
+      "building local‑first apps that need offline sync",
+      "implementing collaborative editing features",
+      "creating deterministic data stores for distributed systems"
+    ],
+    "avoid_when": [
+      "needing ready‑made UI widgets or a full state‑management solution"
+    ],
+    "strengths": [
+      "Zero external dependencies, runs on any Dart platform",
+      "Storage‑agnostic API allows swapping persistence layers",
+      "Built‑in HLC for consistent ordering across nodes"
+    ],
+    "weaknesses": [
+      "No built‑in persistence or UI components",
+      "Requires manual integration with storage backends",
+      "Limited documentation on advanced use cases"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:crdt/map_crdt.dart';\n\nvoid main() {\n  var crdt1 = MapCrdt(['table']);\n  crdt1.put('table', 'a', 1);\n  crdt1.put('table', 'b', 1);\n  print(crdt1.getMap('table'));\n}\n",
+    "confidence": 0.9
+  }
+}

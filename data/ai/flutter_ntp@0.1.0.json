@@ -1,0 +1,37 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.1.0",
+  "generatedAt": "2026-11-13T11:43:46.349Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "A small, fast NTP client for Flutter and Dart with built-in offset caching.",
+    "what_it_does": "Fetches accurate time from Network Time Protocol (NTP) servers using pure Dart. It caches the offset between the device and the server so subsequent time lookups are instant.",
+    "use_when": [
+      "You need accurate, synchronized time independent of the device's local clock.",
+      "Your app requires offline fallback support while attempting to sync with an NTP server."
+    ],
+    "avoid_when": [
+      "You are targeting Flutter Web (UDP is not supported on the web platform)."
+    ],
+    "strengths": [
+      "Pure Dart with no platform channels required.",
+      "Built-in caching for instant subsequent time reads.",
+      "Includes 40+ public NTP servers by default."
+    ],
+    "weaknesses": [
+      "Does not support Flutter Web due to lack of UDP support."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "await FlutterNTP.sync();\nfinal accurateNow = FlutterNTP.nowSync();\nprint('NTP time : $accurateNow');",
+    "confidence": 1
+  }
+}

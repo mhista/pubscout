@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.1.2",
+  "generatedAt": "2026-11-13T11:47:48.199Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A MassTransit-style state machine framework for Dart with a fluent builder API.",
+    "what_it_does": "A declarative event-driven saga state machine framework that coordinates multiple events over time. It persists state across events, correlates events using a unique identifier, handles timeouts automatically, and supports compensation and rollback.",
+    "use_when": [
+      "You need to coordinate long-running business workflows or saga processes across multiple events.",
+      "You want a declarative state machine API inspired by MassTransit in Dart.",
+      "You require event correlation by ID and automatic timeout handling for specific states."
+    ],
+    "avoid_when": [
+      "You only need simple UI state management like ValueNotifier or simple BLoCs.",
+      "You want an extensive built-in persistence backend beyond in-memory storage."
+    ],
+    "strengths": [
+      "Declarative and fluent builder API for defining state machines.",
+      "Built-in support for event correlation, timeouts, and state compensation.",
+      "Pluggable storage repository interface for custom persistence."
+    ],
+    "weaknesses": [
+      "Default repository is in-memory only; custom persistence requires manual implementation.",
+      "Niche state machine architectural pattern which may be overkill for simple apps."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "class OrderStateMachine extends SagaStateMachine<OrderSaga, OrderStatus> {\n  OrderStateMachine() {\n    correlate<OrderCreated>((e) => e.orderId);\n    correlate<PaymentReceived>((e) => e.orderId);\n\n    initially(\n      when<OrderCreated>()\n        .set((saga, e) => saga\n          ..customerId = e.customerId\n          ..amount = e.amount)\n        .transitionTo(OrderStatus.pending),\n    );\n\n    during(OrderStatus.pending,\n      when<PaymentReceived>().transitionTo(OrderStatus.paid),\n      timeout(Duration(hours: 24), transitionTo: OrderStatus.cancelled),\n    );\n  }\n\n  @override\n  OrderSaga createSaga(String id) => OrderSaga()..id = id;\n\n  @override\n  OrderStatus getState(OrderSaga saga) => saga.status;\n\n  @override\n  void setState(OrderSaga saga, OrderStatus state) => saga.status = state;\n}",
+    "confidence": 0.95
+  }
+}

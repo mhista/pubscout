@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.0.6",
+  "generatedAt": "2026-11-13T11:02:28.757Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Prompt mobile web users to install the Flutter app as a PWA on demand.",
+    "what_it_does": "The package captures the browser's beforeinstallprompt event and exposes a singleton API to check if the prompt is available and to trigger it. It lets you show the install prompt from a button or any user action.",
+    "use_when": [
+      "You need a custom install button for a Flutter web app running on mobile browsers",
+      "You want to control when the PWA install prompt appears rather than relying on the browser's automatic prompt"
+    ],
+    "avoid_when": [
+      "Your app is not deployed to the web or targets only native platforms",
+      "You rely on native app store distribution instead of PWA"
+    ],
+    "strengths": [
+      "Simple, small API",
+      "Works across all Chromium‑based mobile browsers that support PWAs",
+      "No extra permissions or native code required"
+    ],
+    "weaknesses": [
+      "Only works on browsers that fire beforeinstallprompt",
+      "Requires manual addition of a script to web/index.html",
+      "No fallback for unsupported browsers"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add the provided <script> block to web/index.html, then call PWAInstall().setup() (optionally with an installCallback) before runApp() in main.dart",
+    "alternatives": [],
+    "minimal_example": "Future<void> main() async {\n  PWAInstall().setup(installCallback: () => debugPrint('APP INSTALLED!'));\n  runApp(MaterialApp(home: Scaffold(body: ElevatedButton(\n    onPressed: () {\n      if (PWAInstall().installPromptEnabled) {\n        PWAInstall().promptInstall_();\n      }\n    },\n    child: Text('Install PWA'),\n  ))));\n}",
+    "confidence": 0.93
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.1.0",
+  "generatedAt": "2026-11-13T11:05:38.518Z",
+  "data": {
+    "primary_category": "localization",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Composable number formatting and parsing for decimals, compact values, percentages, and locales.",
+    "what_it_does": "Provides reusable codec classes for formatting and parsing numbers into localized or specialized display strings like percentages, byte sizes, currency, and compact values. Supports multiple languages including English, Chinese, French, Spanish, Japanese, and Korean.",
+    "use_when": [
+      "You need to format and parse numbers, byte sizes, or percentages consistently using reusable codecs.",
+      "You require locale-aware number formatting and parsing for languages like Chinese, French, Spanish, Japanese, or Korean."
+    ],
+    "avoid_when": [
+      "You need full internationalization (i18n) for complex texts, plurals, and messages beyond numeric values."
+    ],
+    "strengths": [
+      "Bidirectional codecs that handle both formatting and parsing with the same object.",
+      "Supports multiple language packs and custom unit sets.",
+      "Extends `Codec` from `dart:convert` for standard-compliant usage."
+    ],
+    "weaknesses": [
+      "Limited to number-related formatting and parsing rather than general i18n string translation."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:numeral/codec.dart';\nimport 'package:numeral/en.dart' as en;\n\nfinal fileSize = BytesCodec.binary(maxFractionDigits: 1);\nfinal compact = en.compact(maxFractionDigits: 1);\n\nfileSize.format(1536); // 1.5 KiB\ncompact.format(12345); // 12.3K",
+    "confidence": 1
+  }
+}

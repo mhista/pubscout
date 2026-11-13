@@ -1,0 +1,56 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.2",
+  "generatedAt": "2026-11-13T11:29:37.874Z",
+  "data": {
+    "primary_category": "layout",
+    "secondary_categories": [
+      "widgets",
+      "theming"
+    ],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "High-performance responsive scaling package for Flutter with drop-in widgets and caching.",
+    "what_it_does": "Provides responsive scaling for layouts, typography, and geometry based on a base design size. Includes precomputed multipliers, LRU caching for scalar lookups, and drop-in widget replacements to automatically handle sizing across mobile, tablet, and desktop screens.",
+    "use_when": [
+      "You want an optimized alternative to flutter_screenutil for responsive design",
+      "You need drop-in widgets that automatically scale raw design numbers",
+      "You require caching to make scaling performance faster than standard map lookups"
+    ],
+    "avoid_when": [
+      "You prefer pure constraint-based adaptive layouts without artboard scaling",
+      "You do not use a fixed design resolution artboard"
+    ],
+    "strengths": [
+      "~3x faster scalar lookups using precomputed multipliers",
+      "Drop-in widget replacements like SKContainer and SKText",
+      "Low rebuild sensitivity to prevent excessive rendering during keyboard open/close"
+    ],
+    "weaknesses": [
+      "Requires migration or usage of specific SK widgets or extensions to benefit",
+      "Artboard-based scaling may not suit every fluid design workflow"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the dependency to pubspec.yaml and initialize ScaleKitBuilder at the root of the app.",
+    "alternatives": [
+      {
+        "name": "responsive_framework",
+        "why_pick_it": "Choose it if you want automatic responsive resizing and scaling based on breakpoints rather than explicit screenutil-style multipliers."
+      },
+      {
+        "name": "responsive_builder",
+        "why_pick_it": "Choose it if you prefer building layouts explicitly per device screen type using SizingInformation."
+      },
+      {
+        "name": "sizer",
+        "why_pick_it": "Choose it for a simpler percentage-based sizing approach without caching engines or drop-in widget suites."
+      }
+    ],
+    "minimal_example": "SKContainer(\n  width: 200,\n  height: 100,\n  padding: EdgeInsets.all(16),\n  child: SKText('Hello', fontSize: 16),\n)",
+    "confidence": 0.95
+  }
+}

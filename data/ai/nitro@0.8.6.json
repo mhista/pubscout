@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.8.6",
+  "generatedAt": "2026-11-13T11:11:54.716Z",
+  "data": {
+    "primary_category": "codegen",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "code generation",
+      "stream-based"
+    ],
+    "one_liner": "Zero-overhead native FFI bindings and runtime layer for Flutter plugins",
+    "what_it_does": "Nitro provides the base classes, annotations, and runtime primitives for writing type-safe, zero-copy FFI plugins across iOS, Android, macOS, Windows, Linux, and Web with no method-channel overhead. It supports synchronous calls, async isolate dispatch, native streams, and zero-copy structs.",
+    "use_when": [
+      "You are authoring high-performance native plugins for Flutter using FFI",
+      "You need zero-copy data transfer between Dart and native memory (like camera frames or audio)",
+      "You want type-safe native module bridges without manual boilerplate or method channel overhead"
+    ],
+    "avoid_when": [
+      "You are building a standard app developer project and not developing a Nitrogen-powered native plugin",
+      "Your project does not require native FFI modules and standard method channels suffice"
+    ],
+    "strengths": [
+      "Extremely low call overhead (~0 ms)",
+      "Type-safe generated bridges for Swift, Kotlin, and C++",
+      "Zero-copy buffer support via @HybridStruct and NitroBuffer",
+      "Automatic and adaptive worker pool for async calls"
+    ],
+    "weaknesses": [
+      "Requires using the separate code generator and CLI tooling",
+      "Requires writing native implementations in Swift, Kotlin, or C++"
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Requires setting up nitrogen tooling, native implementation code for each target platform, and correct minimum platform versions (such as iOS 13+ and Android NDK 26.1+).",
+    "alternatives": [],
+    "minimal_example": "import 'package:nitro/nitro.dart';\n\npart 'math.g.dart';\n\n@NitroModule(ios: AppleNativeImpl.swift, android: AndroidNativeImpl.kotlin)\nabstract class Math extends HybridObject {\n  static final Math instance = _MathImpl();\n\n  double add(double a, double b);\n\n  @nitroAsync\n  Future<String> compute(String expression);\n}",
+    "confidence": 0.95
+  }
+}

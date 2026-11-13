@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.3.0",
+  "generatedAt": "2026-11-13T11:07:42.480Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "animation",
+      "layout"
+    ],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "A Flutter widget that displays a four‑sided stage to show 3D objects with swipeable rotation.",
+    "what_it_does": "It provides a four‑sided stage where each side can host a widget, simulating a simple 3D object. Users can rotate the stage by swiping the bottom bar, and developers can customize content via a builder callback.",
+    "use_when": [
+      "You need a lightweight way to showcase four perspectives of an object.",
+      "You want built‑in swipe navigation without implementing custom gestures."
+    ],
+    "avoid_when": [
+      "You require full 3D rendering or more than four sides.",
+      "You need high‑performance graphics or physics‑based motion."
+    ],
+    "strengths": [
+      "Easy to integrate with a single widget.",
+      "Customizable content for each side.",
+      "Built‑in swipe handling for rotation."
+    ],
+    "weaknesses": [
+      "Limited to four sides, not a full 3D engine.",
+      "Breaking changes between minor versions may require code updates."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "Widget build(BuildContext context) {\n  return RotationStage(\n    contentBuilder: (int index, RotationStageSide side, double currentPage) =>\n        Card(\n          child: Padding(\n            padding: const EdgeInsets.all(8.0),\n            child: Text(side.map(front: \"Front\", left: \"Left\", back: \"Back\", right: \"Right\")),\n          ),\n        ),\n  );\n}",
+    "confidence": 0.85
+  }
+}

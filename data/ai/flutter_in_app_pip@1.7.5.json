@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "1.7.5",
+  "generatedAt": "2026-11-13T11:16:16.238Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Provides in-app Picture-in-Picture support with customizable widget",
+    "what_it_does": "This package lets you start a PiP window inside a Flutter app, with options for navigation, resizing, moving, and custom borders. It replaces the standard MaterialApp with PiPMaterialApp to manage PiP state.",
+    "use_when": [
+      "You need Picture-in-Picture functionality in a Flutter app",
+      "You want navigation inside the PiP window",
+      "You need to customize PiP size, position, or borders",
+      "You want to control PiP lifecycle events"
+    ],
+    "avoid_when": [
+      "You are building a web-only app that does not support PiP",
+      "You already have a custom PiP implementation that handles all required features"
+    ],
+    "strengths": [
+      "Easy integration by swapping MaterialApp",
+      "Supports navigation inside PiP",
+      "Highly customizable size, position, and appearance",
+      "Stable across Android, iOS, web, and desktop"
+    ],
+    "weaknesses": [
+      "Limited documentation on web behavior",
+      "No support for native platform-specific PiP APIs beyond Flutter"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Replace MaterialApp with PiPMaterialApp or PiPMaterialApp.router and call PictureInPicture.startPiP(pipWidget: YourWidget());",
+    "alternatives": [],
+    "minimal_example": "```dart\nimport 'package:flutter_in_app_pip/flutter_in_app_pip.dart';\n\nclass MyApp extends StatelessWidget {\n  @override\n  Widget build(BuildContext context) {\n    return PiPMaterialApp(\n      home: Scaffold(\n        appBar: AppBar(title: Text('PiP Demo')),\n        body: Center(\n          child: ElevatedButton(\n            onPressed: () {\n              PictureInPicture.startPiP(pipWidget: MyPiPWidget());\n            },\n            child: Text('Start PiP'),\n          ),\n        ),\n      ),\n    );\n  }\n}\n```",
+    "confidence": 0.9
+  }
+}

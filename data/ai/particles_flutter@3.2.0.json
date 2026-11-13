@@ -1,0 +1,48 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "3.2.0",
+  "generatedAt": "2026-11-13T11:07:53.402Z",
+  "data": {
+    "primary_category": "animation",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "High‑performance particle animation widget for Flutter",
+    "what_it_does": "Provides a customizable particle system with physics, lifetime animations, and interaction. It renders shapes, trails, and supports burst emitters and boundary behaviors.",
+    "use_when": [
+      "Need animated particle effects like confetti, fireworks, or background stars",
+      "Want fine‑grained control over particle lifetime, color, scale, and interaction",
+      "Require a reusable widget that can be dropped into any Flutter layout"
+    ],
+    "avoid_when": [
+      "You only need simple static graphics or basic animations",
+      "Your project targets very low‑end devices where performance is critical"
+    ],
+    "strengths": [
+      "Extremely customizable shapes and physics",
+      "Built‑in interaction (hover, tap, attractors)",
+      "Efficient pooling and burst emitters",
+      "Supports all platforms (web, mobile, desktop)"
+    ],
+    "weaknesses": [
+      "Requires Flutter 3.10+ (Dart >=3.0.0)",
+      "No code generation or hooks support",
+      "Large API surface can be overwhelming for beginners"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dependency via flutter pub add particles_flutter; no permissions or build_runner needed",
+    "alternatives": [
+      {
+        "name": "flutter_animate",
+        "why_pick_it": "Simpler animation library for basic effects, but lacks particle physics and lifetime control"
+      }
+    ],
+    "minimal_example": "import 'package:particles_flutter/engine.dart';\nimport 'package:particles_flutter/shapes.dart';\n\nParticles(\n  width: MediaQuery.of(context).size.width,\n  height: MediaQuery.of(context).size.height,\n  boundType: BoundType.WrapAround,\n  particles: List.generate(80, (_) {\n    final rng = Random();\n    return CircularParticle(\n      radius: rng.nextDouble() * 4 + 1,\n      color: Colors.white.withValues(alpha: 0.7),\n      velocity: Offset(\n        (rng.nextDouble() - 0.5) * 60,\n        (rng.nextDouble() - 0.5) * 60,\n      ),\n    );\n  }),\n)",
+    "confidence": 0.95
+  }
+}

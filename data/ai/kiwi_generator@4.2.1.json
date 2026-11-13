@@ -1,0 +1,48 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.2.1",
+  "generatedAt": "2026-11-13T11:03:03.536Z",
+  "data": {
+    "primary_category": "dependency-injection",
+    "secondary_categories": [
+      "codegen"
+    ],
+    "approach": [
+      "code generation"
+    ],
+    "one_liner": "Generates dependency injection code using the kiwi package.",
+    "what_it_does": "Generates implementation code for abstract injector classes using annotations like @Register.factory and @Register.singleton. It integrates with build_runner to automate kiwi container registrations and reduce boilerplate.",
+    "use_when": [
+      "You are using the kiwi package for dependency injection and want to automate container setup",
+      "You prefer annotation-based dependency injection generation using build_runner"
+    ],
+    "avoid_when": [
+      "You prefer manual dependency registration without code generation",
+      "You are using a different dependency injection framework like get_it or injectable"
+    ],
+    "strengths": [
+      "Reduces manual boilerplate code for kiwi container registrations",
+      "Supports named factories, custom constructors, and type resolution mapping via annotations"
+    ],
+    "weaknesses": [
+      "Requires running build_runner for code generation",
+      "Tied strictly to the kiwi dependency injection package ecosystem"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add build_runner and kiwi_generator to dev_dependencies, kiwi to dependencies, and run build_runner to generate code.",
+    "alternatives": [
+      {
+        "name": "injectable_generator",
+        "why_pick_it": "Alternative code-generation-based dependency injection tool typically used with get_it."
+      },
+      {
+        "name": "get_it",
+        "why_pick_it": "Service locator pattern without mandatory code generation."
+      }
+    ],
+    "minimal_example": "abstract class Injector {\n  @Register.singleton(ServiceA)\n  @Register.factory(Service, from: ServiceB)\n  void configure();\n}",
+    "confidence": 0.95
+  }
+}

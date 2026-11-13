@@ -1,0 +1,46 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "7.2.0",
+  "generatedAt": "2026-11-13T11:00:01.914Z",
+  "data": {
+    "primary_category": "devtools",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Visual layout inspector to inspect sizes, paddings, decorations, and compare widgets at runtime.",
+    "what_it_does": "ispect_layout provides a visual layout inspector for Flutter. It lets you tap any widget at runtime to inspect its render box properties, sizes, constraints, padding, decorations, text styles, and transform matrices. It also includes a compare mode to measure pixel gaps between widgets, plus a colour picker and zoom magnifier.",
+    "use_when": [
+      "You need to debug layout issues, sizes, or constraints on widgets at runtime.",
+      "You want to inspect text styles, borders, shadows, or gradients visually.",
+      "You need to measure pixel gaps or offsets between two widgets using a compare mode."
+    ],
+    "avoid_when": [
+      "You are running in a strict production environment where debug tools must be entirely excluded.",
+      "You need state-management or network-logging features rather than layout inspection."
+    ],
+    "strengths": [
+      "Comprehensive coverage of Flutter render objects and wrapper ancestors.",
+      "Works in profile and release builds when enabled with compile flags.",
+      "Includes helpful utilities like a colour picker, zoom magnifier, and widget comparison mode."
+    ],
+    "weaknesses": [
+      "Type names and custom painters/clippers are obfuscated when using code obfuscation.",
+      "ColorFilter details on images or vectors are limited by dart:ui accessors."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Wrap your app or router with the Inspector widget and enable diagnostics via the compile-time flag --dart-define=ISPECT_ENABLED=true.",
+    "alternatives": [
+      {
+        "name": "device_preview",
+        "why_pick_it": "If you need to preview your app across different screen sizes and device frames rather than inspecting render box properties."
+      }
+    ],
+    "minimal_example": "MaterialApp(\n  home: const MyApp(),\n  builder: (context, child) => Inspector(\n    isEnabled: true,\n    child: child!,\n  ),\n)",
+    "confidence": 0.95
+  }
+}

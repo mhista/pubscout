@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.4.6",
+  "generatedAt": "2026-11-13T11:14:18.688Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Heatmap widget for Flutter with customizable colors and dynamic labels",
+    "what_it_does": "Provides a grid of colored cells representing data values. Supports custom color palettes, rounded corners, and click callbacks to retrieve cell data. Allows limiting visible rows and expanding to show all.",
+    "use_when": [
+      "You need a visual heatmap for data like consumption or usage",
+      "You want to customize colors and cell styles",
+      "You need to handle cell taps to show details"
+    ],
+    "avoid_when": [
+      "You need a chart with axes and legends",
+      "You require complex animations beyond simple color changes"
+    ],
+    "strengths": [
+      "Easy to integrate, no code generation required",
+      "Supports dynamic labels and custom color palettes",
+      "Allows limiting rows for performance"
+    ],
+    "weaknesses": [
+      "No built‑in animations or advanced chart features",
+      "Limited to rectangular heatmaps, not line/bar charts"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dependency and run flutter packages get",
+    "alternatives": [],
+    "minimal_example": "import 'package:fl_heatmap/fl_heatmap.dart';\n\nHeatmap(\n  heatmapData: HeatmapData(\n    rows: ['2022','2021'],\n    columns: ['Jan','Feb'],\n    items: [\n      for (var r in ['2022','2021'])\n        for (var c in ['Jan','Feb'])\n          HeatmapItem(value: 5.0, unit: 'kWh', xAxisLabel: c, yAxisLabel: r),\n    ],\n  ),\n  onItemSelectedListener: (item) => print(item?.value),\n);",
+    "confidence": 0.92
+  }
+}

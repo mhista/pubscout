@@ -1,0 +1,54 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "2.0.0",
+  "generatedAt": "2026-11-13T11:14:46.649Z",
+  "data": {
+    "primary_category": "animation",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "imperative",
+      "declarative"
+    ],
+    "one_liner": "Animates between two icons with customizable colors, size, and tooltips.",
+    "what_it_does": "Provides a widget that smoothly transitions between a start and an end icon. A controller can trigger the animation programmatically or via press callbacks.",
+    "use_when": [
+      "You need a simple toggle animation between two icons (e.g., add/close).",
+      "You want built‑in support for start/end tooltips and separate colors."
+    ],
+    "avoid_when": [
+      "You require complex vector or timeline animations (Lottie, Rive).",
+      "You need animation curves beyond the default or multi‑step sequences."
+    ],
+    "strengths": [
+      "Very small API focused on icon transitions.",
+      "Supports both press‑based and controller‑driven animation.",
+      "Null‑safe and works on all Flutter platforms."
+    ],
+    "weaknesses": [
+      "Limited to icon‑to‑icon animation only.",
+      "No built‑in custom curves or advanced animation sequencing."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "flutter_animate",
+        "why_pick_it": "General purpose animation library that can also animate icons with more control."
+      },
+      {
+        "name": "lottie",
+        "why_pick_it": "For complex, vector‑based animations beyond simple icon swaps."
+      },
+      {
+        "name": "animate_do",
+        "why_pick_it": "Provides quick declarative animations, including simple icon fades."
+      }
+    ],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:animate_icons/animate_icons.dart';\n\nclass Demo extends StatefulWidget { @override _DemoState createState()=>_DemoState(); }\nclass _DemoState extends State<Demo>{\n  final controller = AnimateIconController();\n  @override Widget build(BuildContext context){\n    return Scaffold(\n      body: Center(\n        child: AnimateIcons(\n          startIcon: Icons.add,\n          endIcon: Icons.close,\n          controller: controller,\n          size: 60,\n          onStartIconPress:()=>true,\n          onEndIconPress:()=>true,\n          startIconColor: Colors.deepPurple,\n          endIconColor: Colors.deepOrange,\n        ),\n      ),\n    );\n  }\n}",
+    "confidence": 0.9
+  }
+}

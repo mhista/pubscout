@@ -1,0 +1,47 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.0.0",
+  "generatedAt": "2026-11-13T11:29:23.386Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [
+      "forms",
+      "widgets"
+    ],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "Create Preference Screens easily with advanced features and sub-pages.",
+    "what_it_does": "Provides ready-to-use Flutter widgets to quickly build settings and preference screens backed by shared preferences or custom services. Handles UI components like dropdowns, radios, switches, and text fields tied directly to persistent keys.",
+    "use_when": [
+      "You need to build a user settings or preferences screen quickly.",
+      "You want UI preference widgets that automatically sync with shared_preferences."
+    ],
+    "avoid_when": [
+      "You need complex relational storage or robust local databases.",
+      "You are not using SharedPreferences or a compatible key-value store for preferences."
+    ],
+    "strengths": [
+      "Ready-made preference widgets (PrefDropdown, PrefRadio, PrefText, etc.)",
+      "Built-in support for default values and stream-based value changes",
+      "Easy initialization with PrefServiceShared"
+    ],
+    "weaknesses": [
+      "Limited to key-value preference storage use cases",
+      "Not suitable for complex database queries"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Initialize the service in main using WidgetsFlutterBinding.ensureInitialized() and PrefServiceShared.init().",
+    "alternatives": [
+      {
+        "name": "shared_preferences",
+        "why_pick_it": "If you only need raw key-value persistence without built-in preference screen UI widgets."
+      }
+    ],
+    "minimal_example": "WidgetsFlutterBinding.ensureInitialized();\n\nfinal service = await PrefServiceShared.init(\n  defaults: {\n    'start_page': 'posts',\n    'ui_theme': 'light',\n  },\n);\n\nrunApp(\n  PrefService(\n    service: service,\n    child: MyApp(),\n  ),\n);",
+    "confidence": 1
+  }
+}

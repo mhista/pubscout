@@ -1,0 +1,37 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.2.0",
+  "generatedAt": "2026-11-13T11:10:13.094Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "A library to parse and work with multiple subtitle and caption file formats like WebVTT and SRT.",
+    "what_it_does": "It fetches, parses, and manages subtitle formats including WebVTT, SRT, TTML, and DFXP. It provides controllers for searching subtitles by duration, deduplicating cues, and handling encoding fallbacks.",
+    "use_when": [
+      "You need to display or synchronize subtitles in a video player app.",
+      "You want to parse local, network, asset, or raw string subtitle files."
+    ],
+    "avoid_when": [
+      "You are building a backend application that does not deal with caption files."
+    ],
+    "strengths": [
+      "Supports multiple popular formats (WebVTT, SRT, TTML, DFXP).",
+      "High-performance line-based parsing and O(log n + k) multi-cue search.",
+      "Built-in automatic cue deduplication and encoding fallback."
+    ],
+    "weaknesses": [
+      "Limited to subtitle parsing and management rather than a full built-in video rendering player widget."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "var controller = SubtitleController(\n  provider: SubtitleProvider.fromString(\n    data: vttData,\n    type: SubtitleType.vtt,\n  ),\n);\nawait controller.initial();\nprint(controller.subtitles);",
+    "confidence": 1
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.6.0",
+  "generatedAt": "2026-11-13T11:23:48.981Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Network Service Discovery (mDNS) plugin for Android, iOS, MacOS, and Windows.",
+    "what_it_does": "A Flutter plugin for Network Service Discovery (mDNS) that uses platform APIs on Android, iOS, MacOS, and Windows. It allows applications to discover services on the local network and receive updates through a stream.",
+    "use_when": [
+      "You need to discover local network services (mDNS) across Android, iOS, MacOS, and Windows.",
+      "Your app interacts with local network devices like printers or servers."
+    ],
+    "avoid_when": [
+      "You need to register services rather than just discover them.",
+      "You are developing for platforms other than Android, iOS, MacOS, and Windows."
+    ],
+    "strengths": [
+      "Supports multiple platforms including Android, iOS, MacOS, and Windows.",
+      "Uses platform-native APIs where available."
+    ],
+    "weaknesses": [
+      "Discovery only, service registration is not supported.",
+      "iOS and macOS implementations do not return hostAddresses.",
+      "Requires specific platform configurations like Info.plist keys on iOS."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding Bonjour Services and Local Network Usage Description keys in Info.plist for iOS 14+. Android requires API level 21+ and a real device instead of an emulator.",
+    "alternatives": [],
+    "minimal_example": "final flutterNsd = FlutterNsd();\nflutterNsd.stream.listen((nsdServiceInfo) {\n  print('Discovered service name: ${nsdServiceInfo.name}');\n});\nawait flutterNsd.discoverServices('_http._tcp.');",
+    "confidence": 0.95
+  }
+}

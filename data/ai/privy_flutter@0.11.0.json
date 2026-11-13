@@ -1,0 +1,55 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.11.0",
+  "generatedAt": "2026-11-13T11:00:18.176Z",
+  "data": {
+    "primary_category": "auth",
+    "secondary_categories": [
+      "web3"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter plugin for Privy authentication and embedded wallets on iOS and Android",
+    "what_it_does": "Provides phone, email, passkey, OAuth, SIWE/SIWS login, and non‑custodial Ethereum/Solana wallet creation and transaction signing. It also manages session restoration and MFA.",
+    "use_when": [
+      "You need multi‑factor authentication with phone or email OTP",
+      "You want to embed a non‑custodial wallet in your Flutter app",
+      "You need OAuth login with Google, Apple, Twitter, or Discord"
+    ],
+    "avoid_when": [
+      "You only need simple email/password auth",
+      "You are building a web‑only app without native SDKs"
+    ],
+    "strengths": [
+      "Native SDK integration for fast auth and wallet ops",
+      "Supports multiple auth methods and MFA",
+      "Handles session restoration and network changes"
+    ],
+    "weaknesses": [
+      "Requires native platform setup (App ID, URL schemes)",
+      "Limited to iOS 17+ and Android API 27+",
+      "No code generation or declarative UI components"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add privy_flutter to pubspec, configure App ID and Client ID in Privy dashboard, set URL schemes in Info.plist and AndroidManifest.xml, call Privy(config) in Dart",
+    "alternatives": [
+      {
+        "name": "google_sign_in",
+        "why_pick_it": "Provides Google OAuth only, simpler for single provider"
+      },
+      {
+        "name": "local_auth",
+        "why_pick_it": "Offers biometric auth without external service"
+      },
+      {
+        "name": "firebase_auth",
+        "why_pick_it": "Full auth suite with email/password, phone, OAuth, and backend"
+      }
+    ],
+    "minimal_example": "import 'package:privy_flutter/privy_flutter.dart';\n\nfinal privy = Privy(config: PrivyConfig(appId: \"YOUR_APP_ID\", appClientId: \"YOUR_CLIENT_ID\"));\nawait privy.getAuthState();",
+    "confidence": 0.85
+  }
+}

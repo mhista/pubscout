@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "2.1.0",
+  "generatedAt": "2026-11-13T11:16:03.772Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Provides a widget that requires a double back press to exit the app on Android.",
+    "what_it_does": "Wraps your UI in a widget that intercepts the Android back button. On first press it shows a SnackBar; a second press within a short interval closes the app. Handles SnackBar dismissal correctly.",
+    "use_when": [
+      "You want a simple double‑back‑to‑exit behavior on Android",
+      "You need a lightweight solution without native code"
+    ],
+    "avoid_when": [
+      "You need custom back‑navigation logic or iOS‑specific behavior",
+      "You require more advanced exit handling or multiple back‑press actions"
+    ],
+    "strengths": [
+      "Very small and easy to integrate",
+      "Handles SnackBar dismissal edge cases",
+      "No platform‑specific setup"
+    ],
+    "weaknesses": [
+      "Works only on Android",
+      "Limited customization of timing and UI",
+      "May conflict with other back‑button handlers"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "class MyApp extends StatelessWidget {\n  @override\n  Widget build(BuildContext context) {\n    return MaterialApp(\n      home: Scaffold(\n        body: DoubleBackToCloseApp(\n          child: Home(),\n          snackBar: const SnackBar(content: Text('Tap back again to leave')),\n        ),\n      ),\n    );\n  }\n}",
+    "confidence": 0.97
+  }
+}

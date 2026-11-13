@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "7.0.0",
+  "generatedAt": "2026-11-13T11:18:22.043Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "codegen",
+      "devtools"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Transport-agnostic RPC framework for Dart with streaming and zero-copy in-process transport.",
+    "what_it_does": "Provides a pure Dart RPC framework that can run over any transport, including in-process, WebSocket, HTTP/1.1, and HTTP/2 with gRPC wire protocol. It supports unary, server, client, and bidirectional streaming, resilience features, and optional code generation for boilerplate.",
+    "use_when": [
+      "Building cross-platform RPC services that need to run over multiple transports",
+      "Implementing streaming RPC calls with flow control",
+      "Requiring zero-copy in-process communication for performance"
+    ],
+    "avoid_when": [
+      "You only need a simple HTTP client or REST wrapper",
+      "Your project already uses a dedicated gRPC library and you don't need the extra abstraction"
+    ],
+    "strengths": [
+      "Zero-copy in-process transport for high performance",
+      "Built-in streaming support with flow control",
+      "Resilience features like retry, circuit breaker, rate limiting",
+      "Pure Dart implementation with no native dependencies"
+    ],
+    "weaknesses": [
+      "Complex API for beginners",
+      "Requires understanding of RPC concepts and transport setup",
+      "No built-in UI or higher-level abstractions"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add rpc_dart to pubspec, import package:rpc_dart/rpc_dart.dart, no build_runner needed unless using rpc_dart_generator",
+    "alternatives": [],
+    "minimal_example": "import 'package:rpc_dart/rpc_dart.dart';\n\nfinal (clientTransport, serverTransport) = RpcChannelTransport.memoryPair();\nfinal responder = RpcResponderEndpoint(transport: serverTransport);\nresponder.registerServiceContract(CalculatorResponder());\nresponder.start();\nfinal caller = RpcCallerEndpoint(transport: clientTransport);\nfinal res = await CalculatorCaller(caller).sum(SumRequest([1, 2, 3]));\nprint(res.result);",
+    "confidence": 0.9
+  }
+}

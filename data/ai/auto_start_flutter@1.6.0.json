@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.6.0",
+  "generatedAt": "2026-11-13T11:36:31.366Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Manage background execution, auto-start, battery optimization, and scheduled tasks on multiple platforms.",
+    "what_it_does": "Helps manage OEM auto-start settings on Android, background app refresh on iOS, startup apps on Windows and macOS, and headless background task execution. Also provides battery optimization checks, exact alarm management, boot callbacks, and foreground services.",
+    "use_when": [
+      "Your app requires reliable background task scheduling or boot callbacks.",
+      "You need to guide users to OEM auto-start or battery optimization settings.",
+      "You need to run headless background tasks or foreground services."
+    ],
+    "avoid_when": [
+      "You only need simple local notifications without background task management.",
+      "Your target platforms do not require managing background execution limits."
+    ],
+    "strengths": [
+      "Supports Android, iOS, macOS, Windows, and Linux.",
+      "Comprehensive coverage of OEM-specific auto-start settings.",
+      "Supports headless Dart callbacks on boot and custom schedules."
+    ],
+    "weaknesses": [
+      "Many background features depend heavily on platform permissions and OEM quirks.",
+      "Standard Android APIs cannot definitively verify if auto-start is actually enabled."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding specific permissions to AndroidManifest.xml depending on the features used (e.g. RECEIVE_BOOT_COMPLETED, WAKE_LOCK, FOREGROUND_SERVICE).",
+    "alternatives": [],
+    "minimal_example": "if (await AutoStart.isAutoStartSettingsAvailable()) {\n  final result = await AutoStart.openAutoStartSettings();\n  if (result == SettingsResult.notAvailable) {\n    await AutoStart.openAppInfo();\n  }\n}",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.6.6",
+  "generatedAt": "2026-11-13T11:31:00.593Z",
+  "data": {
+    "primary_category": "backend",
+    "secondary_categories": [
+      "auth"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Dart and Flutter client for the Better Auth platform.",
+    "what_it_does": "Enables secure sign-in, sign-up, social OAuth, and session management in Flutter applications using the Better Auth platform. Supports first-party plugins such as 2FA, passkeys, organizations, and magic links.",
+    "use_when": [
+      "Your backend is built with Better Auth and you need a native Flutter client.",
+      "You require secure encrypted session storage and reactive auth state changes in your app."
+    ],
+    "avoid_when": [
+      "You use a completely different backend authentication provider like Firebase or Supabase."
+    ],
+    "strengths": [
+      "Full-featured integration covering sign-in, sign-up, session management, and first-party plugins.",
+      "Built-in reactive auth state with automatic session refresh on app resume and network reconnect.",
+      "Encrypted session storage by default using Keychain and Keystore."
+    ],
+    "weaknesses": [
+      "Requires a matching Better Auth server setup and configuration.",
+      "Native social sign-in requires specific platform-level intent filter configuration."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires initializing with a base URL and deep-link scheme, and registering the callback activity in Android's AndroidManifest.xml for native social login.",
+    "alternatives": [
+      {
+        "name": "firebase_auth",
+        "why_pick_it": "Choose this if your backend is Firebase instead of a self-hosted Better Auth server."
+      }
+    ],
+    "minimal_example": "Future<void> main() async {\n  WidgetsFlutterBinding.ensureInitialized();\n  await FlutterBetterAuth.initialize(\n    url: 'https://your-server.com/api/auth',\n    scheme: 'myapp',\n  );\n  runApp(const MyApp());\n}",
+    "confidence": 1
+  }
+}

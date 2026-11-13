@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.4",
+  "generatedAt": "2026-11-13T11:32:01.793Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "animation"
+    ],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "A ListView where children stack when scrolling with swipe-to-remove support.",
+    "what_it_does": "Provides a specialized ListView widget where children stack at the beginning during scroll operations. It includes item removal functionality supporting swipe directions and callback hooks before and during removal.",
+    "use_when": [
+      "You want a stack-on-scroll list effect for cards or items",
+      "You need swipe-to-delete interactions with direction detection"
+    ],
+    "avoid_when": [
+      "You require a standard linear list or grid view",
+      "You do not need stacked scrolling animations"
+    ],
+    "strengths": [
+      "Supports swipe direction detection for removal callbacks",
+      "Easy to integrate into standard widget trees"
+    ],
+    "weaknesses": [
+      "Very narrow use case limited to stacked list effects",
+      "Limited documentation beyond basic example"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "StackedListView(\n  itemCount: data.length,\n  itemExtent: 100,\n  onRemove: (index, direction) {\n    setState(() {\n      data.removeAt(index);\n    });\n  },\n  builder: (_, index) {\n    return Text(data[index]);\n  },\n)",
+    "confidence": 0.95
+  }
+}

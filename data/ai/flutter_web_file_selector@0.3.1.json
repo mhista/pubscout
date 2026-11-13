@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.3.1",
+  "generatedAt": "2026-11-13T11:39:16.463Z",
+  "data": {
+    "primary_category": "files",
+    "secondary_categories": [
+      "web-desktop"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Select files on the web platform with an iOS UI workaround",
+    "what_it_does": "A Flutter package designed to let users select files on the Web platform. It includes a specific workaround for the issue where file selection popup menus on iOS/iPadOS web browsers are placed far away from the tap location.",
+    "use_when": [
+      "You need a workaround for the incorrect popup menu positioning on iOS/iPadOS web browsers",
+      "You are building a Flutter web application that requires file selection"
+    ],
+    "avoid_when": [
+      "You are targeting non-iOS web platforms primarily",
+      "You need a comprehensive file picker solution across mobile and desktop platforms without web-specific workarounds"
+    ],
+    "strengths": [
+      "Fixes the iOS/iPadOS web browser file selection menu positioning issue",
+      "Uses standard XFile classes from the cross_file package"
+    ],
+    "weaknesses": [
+      "Intended as a temporary solution until popular packages resolve the iOS web issue",
+      "Recommended to use file_selector or file_picker for non-iOS web platforms"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [],
+    "minimal_example": "WebFileSelector(\n  onData: (files) async {\n    for (final XFile file in files) {\n      final Uint8List bytes = await file.readAsBytes();\n    }\n  },\n  accept: '.pdf, .png',\n  multiple: true,\n  child: ElevatedButton(onPressed: () {}, child: const Text('Select Files')),\n)",
+    "confidence": 0.95
+  }
+}

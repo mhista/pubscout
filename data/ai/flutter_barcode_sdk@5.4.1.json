@@ -1,0 +1,53 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "5.4.1",
+  "generatedAt": "2026-11-13T11:03:36.119Z",
+  "data": {
+    "primary_category": "camera",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Cross‑platform Flutter plugin for reading 1D/2D barcodes from images or raw frames.",
+    "what_it_does": "It wraps the Dynamsoft Barcode Reader SDK to decode a wide range of barcode symbologies on Android, iOS, Web, Windows, macOS, and Linux. The plugin is camera‑agnostic, so you feed it image files or pixel buffers from any camera source.",
+    "use_when": [
+      "You need barcode scanning on multiple platforms from a single code base",
+      "You already use a custom camera plugin and only need decoding logic"
+    ],
+    "avoid_when": [
+      "You require a fully integrated camera‑preview + scanning solution out of the box",
+      "You cannot obtain a Dynamsoft license key"
+    ],
+    "strengths": [
+      "Supports all major platforms including web and desktop",
+      "Broad set of supported barcode formats",
+      "Decoding runs on background threads, not blocking UI"
+    ],
+    "weaknesses": [
+      "Requires a paid license for production use",
+      "Additional native setup (permissions, resource bundling)",
+      "Not a complete camera solution, must be paired with another plugin"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add Dynamsoft license key in code; Android minSdk 21; iOS/macOS add camera usage keys and entitlements; macOS bundle Dynamsoft Templates/Models resources; Web serve over HTTPS for WASM",
+    "alternatives": [
+      {
+        "name": "mobile_scanner",
+        "why_pick_it": "Provides an integrated camera preview and barcode scanning without a separate license"
+      },
+      {
+        "name": "google_mlkit_barcode_scanning",
+        "why_pick_it": "Free on‑device ML Kit barcode scanner for Android and iOS"
+      },
+      {
+        "name": "barcode",
+        "why_pick_it": "Pure Dart barcode generation/reading, no native dependencies"
+      }
+    ],
+    "minimal_example": "import 'package:flutter_barcode_sdk/flutter_barcode_sdk.dart';\n\nfinal reader = FlutterBarcodeSdk();\nawait reader.setLicense('YOUR-LICENSE-KEY');\nawait reader.init();\nList<BarcodeResult> results = await reader.decodeFile('path/to/image.png');\nfor (var r in results) {\n  print('${r.format}: ${r.text}');\n}",
+    "confidence": 0.85
+  }
+}

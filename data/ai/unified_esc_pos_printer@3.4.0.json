@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.4.0",
+  "generatedAt": "2026-11-13T11:04:09.586Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "images",
+      "files"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Unified ESC/POS thermal printer package for USB, Bluetooth, BLE, and Network connections.",
+    "what_it_does": "Provides a single PrinterManager API to discover printers and print tickets via USB, Bluetooth Classic, BLE, and Network connections. It supports full ESC/POS command generation including text formatting, images, barcodes, QR codes, tables, and multilingual text rasterization.",
+    "use_when": [
+      "You need to print receipts or tickets from Flutter to thermal printers using USB, Bluetooth, BLE, or Network.",
+      "You require multi-language support (such as CJK or Arabic) rendered as images on thermal printers."
+    ],
+    "avoid_when": [
+      "You are building a web-based app, as web browsers lack raw TCP, SPP, or USB access required by this package.",
+      "You need to print standard PDF documents instead of raw ESC/POS text and receipt commands."
+    ],
+    "strengths": [
+      "Supports multiple connection types (Network, Bluetooth Classic, BLE, USB) through a single unified API.",
+      "Built-in device discovery and capability profiles for over 200 printer models.",
+      "Supports multilingual text rasterization using Flutter's text engine."
+    ],
+    "weaknesses": [
+      "Not functional on the web platform due to browser hardware limitations.",
+      "Requires platform-specific permission setups on Android and iOS."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding network, bluetooth, or USB permissions and features to Android's AndroidManifest.xml and usage descriptions to iOS's Info.plist depending on the connection types used.",
+    "alternatives": [],
+    "minimal_example": "import 'package:unified_esc_pos_printer/unified_esc_pos_printer.dart';\n\nfinal manager = PrinterManager();\nfinal printers = await manager.scanPrinters(timeout: const Duration(seconds: 5));\nawait manager.connect(printers.first);\nfinal ticket = await Ticket.create(PaperSize.mm80);\nticket.text('Hello, Printer!');\nticket.cut();\nawait manager.printTicket(ticket);\nawait manager.disconnect();\nmanager.dispose();",
+    "confidence": 0.95
+  }
+}

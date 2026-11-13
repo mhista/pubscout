@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "4.2.2",
+  "generatedAt": "2026-11-13T11:11:49.460Z",
+  "data": {
+    "primary_category": "dependency-injection",
+    "secondary_categories": [
+      "state-management",
+      "widgets"
+    ],
+    "approach": [
+      "declarative",
+      "hooks",
+      "no codegen"
+    ],
+    "one_liner": "Mixin that lets widgets watch GetIt‑registered objects and rebuild on changes.",
+    "what_it_does": "Provides GetItMixin and related mixins to read and watch ChangeNotifier, ValueNotifier, Stream or Future instances stored in GetIt. It automatically manages subscriptions and rebuilds the widget when the data changes.",
+    "use_when": [
+      "You already use GetIt for dependency injection and want UI to react to changes without manual StreamBuilder or ValueListenableBuilder",
+      "You need a lightweight way to bind widget rebuilds to simple listenable objects"
+    ],
+    "avoid_when": [
+      "You need a full‑featured state‑management solution like Bloc or Riverpod",
+      "You require code‑generation or advanced features not offered by this mixin"
+    ],
+    "strengths": [
+      "Very little boilerplate compared to manual builders",
+      "Works directly with existing GetIt registrations",
+      "No extra code‑generation steps"
+    ],
+    "weaknesses": [
+      "Package is no longer maintained",
+      "Strict ordering rules for watch calls can be error‑prone",
+      "Limited to GetIt‑based data sources"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "class UserNameText extends StatelessWidget with GetItMixin {\n  @override\n  Widget build(BuildContext context) {\n    final userName = watchOnly((UserModel m) => m.name);\n    return Text(userName);\n  }\n}",
+    "confidence": 0.9
+  }
+}

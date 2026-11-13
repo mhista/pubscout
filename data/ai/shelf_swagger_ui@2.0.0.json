@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.0",
+  "generatedAt": "2026-11-13T11:33:07.579Z",
+  "data": {
+    "primary_category": "backend",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Serve Swagger UI API documentation using Shelf.",
+    "what_it_does": "Integrates Swagger UI into a Shelf server to present clean and professional API documentation. It allows configuring handlers directly from YAML or JSON schema files.",
+    "use_when": [
+      "You are building a backend API in Dart using the shelf package",
+      "You need to serve Swagger UI documentation for your OpenAPI specs"
+    ],
+    "avoid_when": [
+      "You are not using the shelf package for your Dart backend",
+      "You need client-side code generation rather than server documentation rendering"
+    ],
+    "strengths": [
+      "Easy setup with Shelf handlers",
+      "Supports loading schema directly from files",
+      "Supports custom titles and configuration options like syntax highlighting and doc expansion"
+    ],
+    "weaknesses": [
+      "Limited documentation outside basic file loading",
+      "Dependent on external OpenAPI schema files being correctly formatted"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires an OpenAPI schema file (YAML or JSON) and a running Shelf server.",
+    "alternatives": [],
+    "minimal_example": "import 'package:shelf/shelf_io.dart' as io;\nimport 'package:shelf_swagger_ui/shelf_swagger_ui.dart';\n\nvoid main(List<String> args) async {\n  final path = 'specs/swagger.yaml';\n  final handler = SwaggerUI.fromFile(File(path), title: 'Swagger Test');\n  var server = await io.serve(handler, '0.0.0.0', 4001);\n  print('Serving at http://${server.address.host}:${server.port}');\n}",
+    "confidence": 0.95
+  }
+}

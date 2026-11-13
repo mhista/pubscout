@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "2.3.0",
+  "generatedAt": "2026-11-13T11:05:04.985Z",
+  "data": {
+    "primary_category": "images",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Cross‑platform image format conversion and resizing using native APIs",
+    "what_it_does": "Converts images between JPEG, PNG, WebP, HEIC, AVIF and resizes them while preserving EXIF orientation. It uses platform‑native APIs via FFI/JNI for high performance.",
+    "use_when": [
+      "Need fast, native image conversion on multiple platforms",
+      "Require resizing with aspect‑ratio control",
+      "Need to handle HEIC/AVIF on supported OSes"
+    ],
+    "avoid_when": [
+      "Working in a pure Dart/Flutter web environment without native plugins",
+      "Need a lightweight dependency for simple image loading only"
+    ],
+    "strengths": [
+      "High performance native implementation",
+      "Supports many formats and resizing modes",
+      "Handles EXIF orientation automatically"
+    ],
+    "weaknesses": [
+      "Requires native setup (FFI/JNI)",
+      "Platform‑specific limitations (e.g., WebP output not on iOS)",
+      "Large binary size due to native code"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add plugin to pubspec, run flutter pub get. No build_runner needed. On Android, ensure minSdk 7; on iOS, deployment target 14.0. No special permissions required.",
+    "alternatives": [
+      {
+        "name": "image",
+        "why_pick_it": "Pure Dart image manipulation, no native dependencies"
+      },
+      {
+        "name": "flutter_svg",
+        "why_pick_it": "For SVG rendering, not conversion"
+      }
+    ],
+    "minimal_example": "import 'package:platform_image_converter/platform_image_converter.dart';\n\nfinal jpegData = await ImageConverter.convert(\n  inputData: heicImageData,\n  format: OutputFormat.jpeg,\n  quality: 90,\n);",
+    "confidence": 0.92
+  }
+}

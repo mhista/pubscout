@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.1.2",
+  "generatedAt": "2026-11-13T11:23:24.297Z",
+  "data": {
+    "primary_category": "web-desktop",
+    "secondary_categories": [
+      "device"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Allows Flutter desktop applications to perceive window activation state.",
+    "what_it_does": "Allows your Flutter desktop application to perceive whether the window is activated. Provides a ValueListenable to check and listen to window active/inactive events.",
+    "use_when": [
+      "You need to know when your Flutter desktop app window is focused or activated.",
+      "You want to pause or resume tasks based on desktop window focus."
+    ],
+    "avoid_when": [
+      "You are building strictly for mobile or web platforms.",
+      "You need complex window management features beyond checking activation."
+    ],
+    "strengths": [
+      "Simple API using ValueListenable.",
+      "Supports multiple desktop platforms (Windows, macOS, Linux)."
+    ],
+    "weaknesses": [
+      "Limited to window activation state perception.",
+      "No documentation on advanced window management features."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add desktop_lifecycle to your pubspec.yaml and use DesktopLifecycle.instance.isActive.",
+    "alternatives": [],
+    "minimal_example": "final ValueListenable<bool> event = DesktopLifecycle.instance.isActive;\n\nfinal bool active = event.value;\n\nevent.addListener(() {\n  debugPrint(\"window activate: ${event.value}\");\n});",
+    "confidence": 0.95
+  }
+}

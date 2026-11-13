@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.2.1",
+  "generatedAt": "2026-11-13T11:43:48.326Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "stream-based",
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "An event bus library to dispatch and listen to events across your app using Dart streams.",
+    "what_it_does": "Provides a simple event hub mechanism to fire events and register listeners globally without needing dedicated event classes. It uses underlying Dart streams to communicate between decoupled components.",
+    "use_when": [
+      "You need a simple event bus to decouple components across your application.",
+      "You want to avoid defining custom event classes or heavy state management for simple messaging.",
+      "You need to dispatch events from anywhere and listen anywhere."
+    ],
+    "avoid_when": [
+      "You need robust, typed state management with predictable state trees and debugging tools.",
+      "Your architecture benefits more from strict unidirectional data flows or inherited widgets."
+    ],
+    "strengths": [
+      "Extremely simple API with minimal boilerplate.",
+      "No need to define dedicated event classes.",
+      "Works across all Dart and Flutter platforms."
+    ],
+    "weaknesses": [
+      "Relies on dynamic data types for event payloads.",
+      "Global event buses can lead to untraceable code paths if overused."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:event_hub/event_hub.dart';\n\nEventHub eventHub = EventHub();\n\n// Register\neventHub.on('yourEventName', (dynamic data) {\n  print(data);\n});\n\n// Fire\neventHub.fire('yourEventName', 'some optional data');",
+    "confidence": 0.95
+  }
+}

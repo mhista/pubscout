@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.2.1",
+  "generatedAt": "2026-11-13T11:17:17.571Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "web-desktop"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "A Flutter plugin for managing and interacting with printers on Windows platforms.",
+    "what_it_does": "Allows developers to discover available printers, query printer properties, and send various types of print jobs on Windows. Supports raw ESC/POS commands for thermal receipt printers, rich text documents, and PDF files.",
+    "use_when": [
+      "You need to print receipts or tickets to thermal printers on Windows",
+      "You need to send PDF documents or formatted text to office printers from a Windows Flutter app"
+    ],
+    "avoid_when": [
+      "You are targeting non-Windows platforms like Android, iOS, or macOS",
+      "You require complex UI print preview screens out of the box"
+    ],
+    "strengths": [
+      "Built-in ESC/POS receipt builder for thermal printers",
+      "Supports multiple print modes including raw data, rich text, and PDFs",
+      "Hardware control features like cash drawer opening, paper cutting, and beeping"
+    ],
+    "weaknesses": [
+      "Limited exclusively to the Windows platform",
+      "Emojis and unicode characters are not supported natively by thermal printers"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires Windows 10 or higher and Flutter 3.0.0 or higher.",
+    "alternatives": [],
+    "minimal_example": "List<String> printers = await WindowsPrinter.getAvailablePrinters();\nif (printers.isNotEmpty) {\n  final file = File('document.pdf');\n  final bytes = await file.readAsBytes();\n  await WindowsPrinter.printPdf(data: bytes);\n}",
+    "confidence": 1
+  }
+}

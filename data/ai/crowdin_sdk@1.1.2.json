@@ -1,0 +1,47 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.1.2",
+  "generatedAt": "2026-11-13T11:19:48.950Z",
+  "data": {
+    "primary_category": "localization",
+    "secondary_categories": [],
+    "approach": [
+      "code generation"
+    ],
+    "one_liner": "Over-the-air translation delivery for Flutter apps using Crowdin CDN and ARB files.",
+    "what_it_does": "Fetches translation updates dynamically from the Crowdin Content Delivery Network at runtime. Automatically falls back to local ARB files when cloud translations are unavailable.",
+    "use_when": [
+      "You manage app translations in Crowdin and want to deliver updates without app store releases",
+      "You use standard Flutter ARB localization files"
+    ],
+    "avoid_when": [
+      "You do not use Crowdin for translation management",
+      "You prefer local-only translation files without remote over-the-air sync"
+    ],
+    "strengths": [
+      "Enables real-time translation updates and previews",
+      "Automatic fallback to local ARB files for offline or error states",
+      "Built-in caching mechanism"
+    ],
+    "weaknesses": [
+      "Requires manual maintenance of ARB files alongside Crowdin",
+      "Complex setup for real-time preview including OAuth and deep linking configurations"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires internationalized Flutter app setup, creating a Crowdin distribution hash, running the SDK generation command, and optionally configuring OAuth for real-time previews.",
+    "alternatives": [
+      {
+        "name": "easy_localization",
+        "why_pick_it": "If you prefer managing local translation files directly in various formats without relying on a third-party translation platform CDN like Crowdin."
+      },
+      {
+        "name": "slang",
+        "why_pick_it": "If you prefer a type-safe localization generation tool with rich dart-based translation files."
+      }
+    ],
+    "minimal_example": "void main() async {\n  WidgetsFlutterBinding.ensureInitialized();\n  await Crowdin.init(\n    distributionHash: 'distribution_hash',\n    connectionType: InternetConnectionType.any,\n    updatesInterval: const Duration(minutes: 15),\n  );\n  runApp(const MyApp());\n}",
+    "confidence": 1
+  }
+}

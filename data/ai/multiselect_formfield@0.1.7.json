@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.1.7",
+  "generatedAt": "2026-11-13T11:31:09.386Z",
+  "data": {
+    "primary_category": "forms",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A multi-select form field using an alert dialog with checkboxes and chips.",
+    "what_it_does": "Provides a FormField implementation that lets users select multiple items from a list via an alert dialog containing checkboxes. The selected items are then displayed as removable chips inside the form field, supporting validation and data saving.",
+    "use_when": [
+      "You need a multi-selection input inside a Flutter Form.",
+      "You want selected options to be displayed as chips."
+    ],
+    "avoid_when": [
+      "You need a deeply customized dropdown instead of an alert dialog.",
+      "You are not using Flutter's Form system."
+    ],
+    "strengths": [
+      "Integrates easily with Flutter's Form validation and state management.",
+      "Supports null safety.",
+      "Provides customization for chips, dialog shapes, and text styles."
+    ],
+    "weaknesses": [
+      "Relies on an alert dialog for selection, which may not fit all UI/UX designs.",
+      "Limited to a basic list of maps for data source configuration."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "MultiSelectFormField(\n  autovalidate: false,\n  chipBackGroundColor: Colors.red,\n  chipLabelStyle: TextStyle(fontWeight: FontWeight.bold),\n  dialogTextStyle: TextStyle(fontWeight: FontWeight.bold),\n  checkBoxActiveColor: Colors.red,\n  checkBoxCheckColor: Colors.green,\n  dialogShapeBorder: RoundedRectangleBorder(\n      borderRadius: BorderRadius.all(Radius.circular(12.0))),\n  title: Text(\n    \"Title Of Form\",\n    style: TextStyle(fontSize: 16),\n  ),\n  dataSource: [\n    {\n      \"display\": \"Running\",\n      \"value\": \"Running\",\n    },\n    {\n      \"display\": \"Climbing\",\n      \"value\": \"Climbing\",\n    },\n  ],\n  textField: 'display',\n  valueField: 'value',\n  okButtonLabel: 'OK',\n  cancelButtonLabel: 'CANCEL',\n  hintWidget: Text('Please choose one or more'),\n  initialValue: _myActivities,\n  onSaved: (value) {\n    if (value == null) return;\n    setState(() {\n      _myActivities = value;\n    });\n  },\n)",
+    "confidence": 0.95
+  }
+}

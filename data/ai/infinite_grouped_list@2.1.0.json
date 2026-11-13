@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.1.0",
+  "generatedAt": "2026-11-13T11:40:09.554Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "layout"
+    ],
+    "approach": [
+      "declarative",
+      "imperative"
+    ],
+    "one_liner": "Dynamic scrolling list that efficiently groups items and loads more data as the user scrolls.",
+    "what_it_does": "Provides an infinite scrolling list widget that organizes items into groups with sticky headers. It supports both a reactive pattern for state management libraries like BLoC, Riverpod, and Provider, and an imperative pattern with direct data fetching.",
+    "use_when": [
+      "You need to display large lists or grids with infinite scrolling and item grouping.",
+      "You require sticky group headers and group anchoring functionality.",
+      "You want support for both internal data fetching and modern reactive state management."
+    ],
+    "avoid_when": [
+      "Your project still relies exclusively on `package:flutter/material.dart` and cannot migrate to `material_ui` (version 2.0.0+).",
+      "You only need a simple un-grouped list or basic grid without pagination."
+    ],
+    "strengths": [
+      "Supports both reactive and imperative usage patterns.",
+      "Includes features like sticky group headers, group anchoring, and pull-to-refresh.",
+      "Automatically fetches pages if content does not fill the viewport."
+    ],
+    "weaknesses": [
+      "Requires migration to the standalone `material_ui` package for version 2.0.0+.",
+      "Minimum SDK raised to Dart 3.12.0 / Flutter 3.44.0."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires adding material_ui package for version 2.0.0 and above.",
+    "alternatives": [],
+    "minimal_example": "InfiniteGroupedList(\n  onLoadMore: (paginationInfo) async {\n    return await apiService.fetchItems(\n      page: paginationInfo.page,\n      limit: paginationInfo.limit,\n    );\n  },\n  itemBuilder: (item) => ListTile(title: Text(item.name)),\n  groupBy: (item) => item.category,\n  groupCreator: (category) => category,\n  groupTitleBuilder: (title, _, __, ___) => Text(title),\n)",
+    "confidence": 0.95
+  }
+}

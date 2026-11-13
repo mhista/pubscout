@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "7.12.0",
+  "generatedAt": "2026-11-13T11:44:17.381Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "audio-video"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Dart plugin wrapper for the Polar BLE SDK on Android and iOS",
+    "what_it_does": "It acts as a bridge to the Polar BLE SDK, allowing Flutter applications to connect to Polar devices, manage features, and stream sensor data like HR, ECG, and ACC.",
+    "use_when": [
+      "You need to connect and interact with Polar Bluetooth devices in a Flutter app",
+      "You want to stream biometric and motion data such as heart rate or ECG from Polar hardware"
+    ],
+    "avoid_when": [
+      "You are building an app that does not interact with Polar hardware",
+      "You need an official first-party SDK wrapper directly from Polar"
+    ],
+    "strengths": [
+      "Provides direct access to Polar sensor streaming and device control",
+      "Supports multiple streams like HR, ECG, ACC, temperature, and pressure"
+    ],
+    "weaknesses": [
+      "It is an unofficial community-maintained wrapper for the Polar SDK",
+      "Requires manual configuration of native Bluetooth permissions and specific iOS deployment targets"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding Bluetooth permissions in AndroidManifest.xml, changing the iOS deployment target to iOS 14+, and adding Bluetooth usage descriptions to Info.plist.",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter/foundation.dart';\nimport 'package:polar/polar.dart';\n\nconst identifier = '1C709B20';\nfinal polar = Polar();\n\nvoid example() {\n  polar.connectToDevice(identifier);\n}",
+    "confidence": 0.95
+  }
+}

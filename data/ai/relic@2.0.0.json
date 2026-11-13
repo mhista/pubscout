@@ -1,0 +1,48 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "2.0.0",
+  "generatedAt": "2026-11-13T10:58:56.111Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Lightweight web server framework inspired by Shelf, with typed APIs and a high‑performance native Zig adapter.",
+    "what_it_does": "Relic provides a robust HTTP server with routing, middleware, WebSocket support, static file handling, and a native adapter that boosts throughput. It offers typed request headers, unified body encoding, and a trie‑based router for speed.",
+    "use_when": [
+      "Building scalable APIs or backend services in Dart",
+      "Migrating from Shelf to a typed, high‑performance server",
+      "Needing WebSocket or static file support out of the box",
+      "Requiring native performance boosts via relic_native"
+    ],
+    "avoid_when": [
+      "You only need a simple client‑side HTTP library",
+      "Your project targets very old Dart versions (<3.10)",
+      "You need a full framework with ORM or database integration"
+    ],
+    "strengths": [
+      "Typed headers and request parsing",
+      "High performance, especially with relic_native",
+      "Easy migration from Shelf",
+      "Built‑in WebSocket and static file support"
+    ],
+    "weaknesses": [
+      "Requires Dart 3.10 or newer",
+      "Only server‑side, no client utilities",
+      "Limited ecosystem compared to Shelf"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add relic to pubspec, import relic/relic.dart, create RelicApp, define routes, call app.serve() or app.serveNative()",
+    "alternatives": [
+      {
+        "name": "shelf",
+        "why_pick_it": "Same API style, widely used, no native Zig adapter"
+      }
+    ],
+    "minimal_example": "import 'package:relic/relic.dart';\n\nFuture<void> main() async {\n  final app = RelicApp()\n    ..get('/hello', (req) => Response.ok(body: Body.fromString('Hello')));\n  await app.serve();\n}",
+    "confidence": 0.9
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.6",
+  "generatedAt": "2026-11-13T11:32:14.305Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "layout"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Provides a section list view widget with alphabet indexer and refresh support.",
+    "what_it_does": "Allows developers to display grouped list data with section headers, alphabet indexes, and customizable refresh controls. It supports sticky headers and fully custom builders for items, headers, and alphabets.",
+    "use_when": [
+      "You need to display a contact-list style view grouped by alphabetic sections.",
+      "You want section headers that stick while scrolling through grouped data."
+    ],
+    "avoid_when": [
+      "You do not need sectioned data or alphabet navigation.",
+      "You are looking for a state-management or networking solution."
+    ],
+    "strengths": [
+      "Supports alphabet navigation and jumping",
+      "Provides sticky header functionality via flutter_list_view",
+      "Highly customizable through builders"
+    ],
+    "weaknesses": [
+      "Tailer load-more functionality is listed as a Todo and is not provided natively",
+      "Limited built-in categories and documentation for complex use cases"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "SectionView<GroupModel, ItemModel>(\n  source: data,\n  onFetchListData: (header) => header.items,\n  headerBuilder: getDefaultHeaderBuilder((d) => d.name,\n      bkColor: Colors.green,\n      style:\n          const TextStyle(fontSize: 18, color: Colors.white)),\n  itemBuilder:\n      (context, itemData, itemIndex, headerData, headerIndex) =>\n          ListTile(\n            title: Text(itemData.name),\n          ))",
+    "confidence": 0.95
+  }
+}

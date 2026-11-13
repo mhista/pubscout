@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.2.4",
+  "generatedAt": "2026-11-13T11:16:44.171Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Encode and decode JSON Web Keys for use with the cryptography package",
+    "what_it_does": "The jwk package provides a simple API to convert cryptographic key pairs and secret keys to and from JSON Web Key (JWK) format. It supports RSA, EC, and symmetric keys and works with the cryptography package for key generation and usage.",
+    "use_when": [
+      "You need to exchange keys in JWK format with external services",
+      "You are using the cryptography package and want a convenient way to serialize keys",
+      "You are implementing JWT or other protocols that require JWKs"
+    ],
+    "avoid_when": [
+      "You are not using the cryptography package",
+      "You need a different key format such as PEM or PKCS#8"
+    ],
+    "strengths": [
+      "Simple, declarative API",
+      "Null safety and modern Dart support",
+      "Supports RSA, EC, and symmetric keys"
+    ],
+    "weaknesses": [
+      "Only works with the cryptography package",
+      "No key generation or advanced key management features"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:cryptography/cryptography.dart';\nimport 'package:jwk/jwk.dart';\n\nFuture<void> main() async {\n  final keyPair = await RsaPss().newKeyPair();\n  final jwk = Jwk.fromKeyPair(keyPair);\n  final json = jwk.toJson();\n}",
+    "confidence": 0.9
+  }
+}

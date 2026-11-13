@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.2.2",
+  "generatedAt": "2026-11-13T11:08:18.767Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based",
+      "no codegen"
+    ],
+    "one_liner": "A pure Dart mDNS library for local network service discovery and advertisement.",
+    "what_it_does": "It implements Multicast DNS (mDNS) directly in Dart, allowing applications to discover and advertise services on local networks. It supports both client queries and server publishing without relying on native platform SDKs.",
+    "use_when": [
+      "You need to discover or advertise services on a local network using pure Dart.",
+      "You are working in Docker or bridge networks where native platform mDNS resolution is limited."
+    ],
+    "avoid_when": [
+      "You only need high-level HTTP client requests rather than raw local network device discovery."
+    ],
+    "strengths": [
+      "Pure Dart implementation with no native dependencies.",
+      "Works reliably in Docker and bridge networks.",
+      "Provides both service discovery and advertisement features."
+    ],
+    "weaknesses": [
+      "Requires direct socket control handling for low-level networking scenarios.",
+      "Limited to local network multicast environments."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "final results = await MDNSClient.discover('_http._tcp');\nfor (final service in results) {\n  print('${service.name} at ${service.primaryAddress?.address}:${service.port}');\n}",
+    "confidence": 0.95
+  }
+}

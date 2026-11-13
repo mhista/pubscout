@@ -1,0 +1,54 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.2.0",
+  "generatedAt": "2026-11-13T11:29:14.865Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [
+      "files"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "An abstraction layer to persist data to the local file system, shared preferences, or secure storage.",
+    "what_it_does": "Provides a simple strongly-typed API for saving, reading, and deleting singletons and collections in the local file system, shared preferences, or secure storage. It abstracts underlying packages like path_provider, shared_preferences, and flutter_secure_storage.",
+    "use_when": [
+      "You want a simple key-value or document-based abstraction over files, shared preferences, and secure storage.",
+      "You need to store user preferences, cached JSON, or singletons like the current user."
+    ],
+    "avoid_when": [
+      "You need complex relational queries, indexing, or ACID transactions provided by a full SQL database.",
+      "You need a robust, web-first local database solution."
+    ],
+    "strengths": [
+      "Simple and intuitive API with LocalValue and LocalSingleton classes.",
+      "Supports multiple document types including secure storage and shared preferences.",
+      "Fully unit test covered."
+    ],
+    "weaknesses": [
+      "Relies on underlying plugins for backend implementations.",
+      "Not suitable for complex querying or relational data modeling."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "No special native setup required beyond the dependencies handled by pub.",
+    "alternatives": [
+      {
+        "name": "shared_preferences",
+        "why_pick_it": "If you only need basic key-value storage for simple primitives without file system abstractions."
+      },
+      {
+        "name": "flutter_secure_storage",
+        "why_pick_it": "If you exclusively need encrypted key-value storage for sensitive data like tokens."
+      },
+      {
+        "name": "sqflite",
+        "why_pick_it": "If your application requires a full relational SQLite database for complex querying."
+      }
+    ],
+    "minimal_example": "final localCounterValue = LocalSingleton<int>(id: 'counter_val');\nawait localCounterValue.write(5);\nprint(await localCounterValue.read());",
+    "confidence": 0.95
+  }
+}

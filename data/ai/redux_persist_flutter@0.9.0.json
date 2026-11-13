@@ -1,0 +1,55 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.9.0",
+  "generatedAt": "2026-11-13T11:14:01.625Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Flutter storage engine for redux_persist, saving state to a file or shared preferences.",
+    "what_it_does": "Provides a FlutterStorage class that persists Redux state to the app's document directory or to shared preferences. Supports web via shared preferences and includes null‑safety support.",
+    "use_when": [
+      "You need simple persistence of Redux state across app launches",
+      "You want a cross‑platform solution (mobile + web) without a full database",
+      "You prefer a file or key‑value store over SQL"
+    ],
+    "avoid_when": [
+      "You require encrypted or secure storage",
+      "You need to query large structured data",
+      "You are not using redux_persist"
+    ],
+    "strengths": [
+      "Very easy to integrate with redux_persist",
+      "Works on mobile and web out of the box",
+      "Supports both file and shared‑preferences storage"
+    ],
+    "weaknesses": [
+      "No built‑in encryption",
+      "Limited to key‑value/file storage, not suitable for complex queries",
+      "Tied to redux_persist, not a general purpose storage"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "shared_preferences",
+        "why_pick_it": "Direct key‑value storage without the Redux layer"
+      },
+      {
+        "name": "flutter_secure_storage",
+        "why_pick_it": "Provides encrypted storage for sensitive data"
+      },
+      {
+        "name": "sqflite",
+        "why_pick_it": "Full SQLite database when you need complex queries or large data"
+      }
+    ],
+    "minimal_example": "final persistor = Persistor<State>(\n  storage: FlutterStorage(),\n);",
+    "confidence": 0.97
+  }
+}

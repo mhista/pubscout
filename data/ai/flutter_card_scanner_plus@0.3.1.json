@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.3.1",
+  "generatedAt": "2026-11-13T11:36:13.432Z",
+  "data": {
+    "primary_category": "camera",
+    "secondary_categories": [
+      "ai-ml",
+      "payments"
+    ],
+    "approach": [
+      "imperative",
+      "declarative"
+    ],
+    "one_liner": "On-device credit card scanning using native OCR and browser WebAssembly.",
+    "what_it_does": "Scans payment cards using the camera to extract card numbers, expiry dates, and cardholder names. Recognition runs fully on-device via native platform OCR engines on iOS and Android, and PaddleOCR via WebAssembly on the web.",
+    "use_when": [
+      "You need to scan credit or debit cards on iOS, Android, and the web",
+      "You require fully on-device card processing without sending images to a cloud service"
+    ],
+    "avoid_when": [
+      "Your web app operates under very strict memory limits on iOS Safari where WebAssembly assets are heavy"
+    ],
+    "strengths": [
+      "Works offline with no third-party camera plugin required",
+      "Supports multi-frame voting, Luhn checks, and OCR error correction",
+      "Provides both a ready-made full screen page and a customisable preview widget"
+    ],
+    "weaknesses": [
+      "Web platform requires downloading a large external engine asset folder (approx 33-38 MB) via CLI script",
+      "High memory overhead on iOS WebKit browsers"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "iOS requires adding NSCameraUsageDescription to Info.plist and targets iOS 15+. Web requires running a Dart installation command to fetch engine WebAssembly assets.",
+    "alternatives": [],
+    "minimal_example": "final card = await CardScannerPage.show(context);\nif (card != null) {\n  print(card.formattedNumber);\n  print(card.brand);\n}",
+    "confidence": 0.95
+  }
+}

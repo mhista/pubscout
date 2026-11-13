@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.3.0",
+  "generatedAt": "2026-11-13T11:32:13.782Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "auth"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Argon2 password hashing for Flutter mobile, desktop, and web apps.",
+    "what_it_does": "Provides Argon2 password hashing and verification functionality using reference C implementations on native platforms and WebAssembly on the web.",
+    "use_when": [
+      "You need secure password hashing using Argon2 in a Flutter application.",
+      "You require cross-platform support covering mobile, desktop, and web."
+    ],
+    "avoid_when": [
+      "You are using a pure Objective-C iOS setup without Swift/bridging header support and cannot add one.",
+      "You need synchronous hashing methods (removed in version 3.0.0)."
+    ],
+    "strengths": [
+      "Supports a wide range of platforms including mobile, desktop, and web.",
+      "Uses reference C implementations and hash-wasm for performance."
+    ],
+    "weaknesses": [
+      "Requires extra setup steps for pure Objective-C iOS projects.",
+      "Requires explicit initialization calls when used inside isolates or on older Flutter versions."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires a dummy Swift file with a bridging header for pure Objective-C iOS apps, and build-essential packages on Linux.",
+    "alternatives": [
+      {
+        "name": "crypto",
+        "why_pick_it": "If you only need standard Dart cryptographic hashes like SHA or MD5 instead of Argon2."
+      }
+    ],
+    "minimal_example": "void _hash() async {\n   var password = 'password';\n   var s = Salt.newSalt();\n   var result = await argon2.hashPasswordString(password, salt: s);\n   var verified = await argon2.verifyHashString(password, result.encodedString);\n}",
+    "confidence": 0.95
+  }
+}

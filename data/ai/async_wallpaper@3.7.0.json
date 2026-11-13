@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.7.0",
+  "generatedAt": "2026-11-13T11:20:42.116Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "images",
+      "audio-video"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Set static, live video, OpenGL wallpapers and schedule rotations asynchronously on Android and iOS.",
+    "what_it_does": "Allows Flutter apps to set static wallpapers from URLs, files, content URIs, or bytes, as well as handle video and OpenGL live wallpapers. It also provides capabilities for daily wallpaper schedules and rotations on Android, and downloading images to photos on iOS.",
+    "use_when": [
+      "You need to set home screen or lock screen wallpapers programmatically from an Android app.",
+      "You want to implement live video or OpenGL shader wallpapers with rotation and daily schedules.",
+      "You need to check device capabilities before showing wallpaper actions."
+    ],
+    "avoid_when": [
+      "You are building for Web or desktop platforms where wallpaper setting is unsupported.",
+      "You need complex UI components or built-in wallpaper selection screens."
+    ],
+    "strengths": [
+      "Supports static images, video live wallpapers, and custom OpenGL fragment shaders.",
+      "Built-in support for daily wallpaper scheduling and automatic wallpaper rotation.",
+      "Detailed capability checks and operation status tracking."
+    ],
+    "weaknesses": [
+      "Live wallpapers, rotation, and daily schedules are Android-only; iOS is limited to downloading wallpapers.",
+      "Requires specific platform minimums like Android minSdk 24 and iOS 13.0+."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add async_wallpaper to pubspec.yaml. For iOS downloads, add NSPhotoLibraryAddUsageDescription to Info.plist. For older Android versions, declare WRITE_EXTERNAL_STORAGE permission.",
+    "alternatives": [],
+    "minimal_example": "final result = await AsyncWallpaper.applyWallpaper(\n  const StaticWallpaperRequest(\n    source: WallpaperSource.url('https://example.com/wallpaper.jpg'),\n    target: WallpaperTarget.both,\n    scaleMode: WallpaperScaleMode.centerCrop,\n    strategy: WallpaperApplyStrategy.direct,\n  ),\n);",
+    "confidence": 1
+  }
+}

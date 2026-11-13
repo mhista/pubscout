@@ -1,0 +1,46 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.1.0",
+  "generatedAt": "2026-11-13T11:25:41.144Z",
+  "data": {
+    "primary_category": "payments",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutterwave's official library that wraps the standard payment implementation.",
+    "what_it_does": "Wraps the standard Flutterwave payment modal to collect payments in mobile apps. Supports collections, recurring payments, and split payments.",
+    "use_when": [
+      "You need to integrate Flutterwave standard payments into your Flutter mobile app.",
+      "You want to process collections like cards, mobile money, and bank transfers using Flutterwave."
+    ],
+    "avoid_when": [
+      "You are building a web application (only Android and iOS are documented platforms).",
+      "You require a payment gateway other than Flutterwave."
+    ],
+    "strengths": [
+      "Official Flutter library provided by Flutterwave.",
+      "Supports multiple payment options including cards, mobile money, bank transfers, and USSD."
+    ],
+    "weaknesses": [
+      "Limited platform support (documented for Android and iOS only).",
+      "Requires manual transaction verification on the backend or via API."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires setting the NDK version >= 27.0.12077973 on Android in android/app/build.gradle.kts and obtaining Flutterwave API keys.",
+    "alternatives": [
+      {
+        "name": "flutter_stripe",
+        "why_pick_it": "If you are using Stripe instead of Flutterwave as your payment gateway."
+      },
+      {
+        "name": "adyen_checkout",
+        "why_pick_it": "If you prefer Adyen for payment processing."
+      }
+    ],
+    "minimal_example": "final Customer customer = Customer(name: \"Flutterwave Developer\", phoneNumber: \"1234566677777\", email: \"customer@customer.com\");\nfinal Flutterwave flutterwave = Flutterwave(\n    publicKey: \"Public Key-here\",\n    currency: \"currency-here\",\n    redirectUrl: \"add-your-redirect-url-here\",\n    txRef: \"add-your-unique-reference-here\",\n    amount: \"3000\",\n    customer: customer,\n    paymentOptions: \"ussd, card, bank transfer\",\n    customization: Customization(title: \"My Payment\"),\n    isTestMode: true );\nfinal ChargeResponse response = await flutterwave.charge(context);",
+    "confidence": 1
+  }
+}

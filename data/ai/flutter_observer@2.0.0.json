@@ -1,0 +1,50 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.0",
+  "generatedAt": "2026-11-13T11:40:20.166Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Android BroadcastReceiver and iOS NSNotification pattern for Flutter.",
+    "what_it_does": "Provides a global observer pattern similar to Android BroadcastReceiver and iOS NSNotification to notify pages to refresh. It allows registering and removing observers and sending notifications with optional names and maps across pages.",
+    "use_when": [
+      "You want to broadcast simple notifications between pages without passing complex callback functions.",
+      "You need a lightweight publish-subscribe notification mechanism similar to native mobile broadcast systems."
+    ],
+    "avoid_when": [
+      "You need robust, predictable state management with strict architectural boundaries like BLoC or Riverpod.",
+      "You prefer reactive, stream-based data flows for managing complex app state."
+    ],
+    "strengths": [
+      "Simple API with minimal boilerplate",
+      "Pure Dart development package",
+      "Supports targeted notifications using state names and notify names"
+    ],
+    "weaknesses": [
+      "Relies on global singleton state which can make testing difficult",
+      "Lacks type-safe payloads since data is passed via generic Maps",
+      "Documentation is sparse and partly in Chinese"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Not documented",
+    "alternatives": [
+      {
+        "name": "provider",
+        "why_pick_it": "Provides a more robust and idiomatic way to manage and listen to state changes in Flutter apps."
+      },
+      {
+        "name": "riverpod",
+        "why_pick_it": "Offers a compile-safe, modern alternative for dependency injection and state observation."
+      }
+    ],
+    "minimal_example": "class APageState extends State<APage> with Observer {\n  @override\n  void initState() {\n    Observable.instance.addObserver(this);\n    super.initState();\n  }\n  @override\n  void dispose() {\n    Observable.instance.removeObserver(this);\n    super.dispose();\n  }\n  @override\n  update(Observable observable, String notifyName, Map map) {\n    setState(() {});\n  }\n}",
+    "confidence": 0.9
+  }
+}

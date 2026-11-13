@@ -1,0 +1,46 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.0.0",
+  "generatedAt": "2026-11-13T11:33:41.579Z",
+  "data": {
+    "primary_category": "images",
+    "secondary_categories": [
+      "forms",
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Flutter widget to pick, re-order, and remove multiple images in a grid view.",
+    "what_it_does": "Provides a complete widget and controller to handle selecting multiple images from the device, displaying them in a customizable grid view, and supporting re-ordering via drag-and-drop. It delegates actual image picking to external packages like image_picker or file_picker.",
+    "use_when": [
+      "You need a UI component for users to upload and manage multiple images (like a gallery or photo post screen).",
+      "You want users to be able to drag and drop to re-order selected images."
+    ],
+    "avoid_when": [
+      "You only need a simple single-image picker without a management grid UI.",
+      "You want an out-of-the-box native image selection implementation without writing custom picker callback logic."
+    ],
+    "strengths": [
+      "Supports drag-and-drop re-ordering of selected images out of the box.",
+      "Fully customizable UI for items, initial container, and add-more buttons.",
+      "Flexible picker integration allowing any picker plugin like image_picker or file_picker."
+    ],
+    "weaknesses": [
+      "Requires writing your own bridge/callback logic to connect an underlying image picker plugin.",
+      "Lacks built-in image cropping or heavy editing capabilities."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the package and a separate image picking package like image_picker or file_picker to pubspec.yaml.",
+    "alternatives": [
+      {
+        "name": "image_picker",
+        "why_pick_it": "If you only need a standard native single or multi-image picker without a custom re-orderable grid interface."
+      }
+    ],
+    "minimal_example": "final controller = MultiImagePickerController(\n    picker: (int pickCount, Object? params) async {\n      final pickedImages = await pickImages(pickCount);\n      return pickedImages.map((e) => convertToImageFile(e)).toList();\n    }\n);\n\nMultiImagePickerView(\n  controller: controller,\n  padding: const EdgeInsets.all(10),\n);",
+    "confidence": 1
+  }
+}

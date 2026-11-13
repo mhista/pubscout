@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "1.1.0",
+  "generatedAt": "2026-11-13T11:08:36.395Z",
+  "data": {
+    "primary_category": "theming",
+    "secondary_categories": [
+      "storage"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Dynamically switch between multiple themes and persist selection across restarts.",
+    "what_it_does": "It lets you define a collection of ThemeData objects, choose one at runtime, and automatically saves the chosen theme ID using shared_preferences. The selected theme is restored when the app restarts.",
+    "use_when": [
+      "You need a user-selectable theme system that survives app restarts",
+      "You want a simple, widget-based API without extra state management"
+    ],
+    "avoid_when": [
+      "You already use a complex state management solution that handles theme persistence",
+      "You need advanced theming features like dynamic color schemes or platform adaptive theming"
+    ],
+    "strengths": [
+      "Easy to set up with a single widget",
+      "Persisted theme selection via shared_preferences",
+      "Supports any number of themes",
+      "No external code generation required"
+    ],
+    "weaknesses": [
+      "Relies on shared_preferences, so limited to key-value storage",
+      "No support for dynamic color schemes or system theme sync",
+      "Only works with Flutter MaterialApp"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dependency, wrap MaterialApp with DynamicTheme, provide ThemeCollection and optional defaultThemeId",
+    "alternatives": [],
+    "minimal_example": "final themeCollection = ThemeCollection(\n  themes: {\n    0: ThemeData(primarySwatch: Colors.blue),\n    1: ThemeData(primarySwatch: Colors.red),\n    2: ThemeData.dark(),\n  },\n  fallbackTheme: ThemeData.light(),\n);\n\nreturn DynamicTheme(\n  themeCollection: themeCollection,\n  defaultThemeId: 0,\n  builder: (context, theme) => MaterialApp(\n    theme: theme,\n    home: HomePage(),\n  ),\n);",
+    "confidence": 0.95
+  }
+}

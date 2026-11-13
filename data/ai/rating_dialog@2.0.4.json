@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.4",
+  "generatedAt": "2026-11-13T11:40:20.249Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "forms"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A customizable Star Rating Dialog package for Flutter",
+    "what_it_does": "Provides a customizable star rating dialog widget that can be displayed using Flutter's showDialog function. It allows users to submit a star rating and an optional comment.",
+    "use_when": [
+      "You need to ask users for a rating and review inside your app",
+      "You want a pre-built dialog with a star rating bar, title, message, and comment input"
+    ],
+    "avoid_when": [
+      "You need a embedded inline rating widget instead of a dialog",
+      "You require complex custom form elements beyond a star rating and text comment"
+    ],
+    "strengths": [
+      "Customizable appearance including star size and button text",
+      "Supports all platforms supported by Flutter",
+      "Built-in handling for validation (disables submit when rating is zero)"
+    ],
+    "weaknesses": [
+      "Limited to a dialog format",
+      "Relies on showDialog rather than a standalone form widget"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "final _dialog = RatingDialog(\n  initialRating: 1.0,\n  title: Text('Rating Dialog'),\n  message: Text('Tap a star to set your rating.'),\n  image: const FlutterLogo(size: 100),\n  submitButtonText: 'Submit',\n  onSubmitted: (response) {\n    print('rating: ${response.rating}, comment: ${response.comment}');\n  },\n);\nshowDialog(\n  context: context,\n  barrierDismissible: true,\n  builder: (context) => _dialog,\n);",
+    "confidence": 1
+  }
+}

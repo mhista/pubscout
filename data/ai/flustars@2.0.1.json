@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.1",
+  "generatedAt": "2026-11-13T11:26:15.661Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "storage",
+      "files"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Flutter common utilities for SharedPreferences, screen adaptation, directories, and widgets.",
+    "what_it_does": "Provides a collection of utility classes including SpUtil for SharedPreferences, ScreenUtil for screen adaptation and dimensions, DirectoryUtil for file paths, and WidgetUtil for widget rendering bounds and image sizes.",
+    "use_when": [
+      "You need quick helper utilities for SharedPreferences data storage",
+      "You require screen adaptation and sizing metrics in your Flutter app",
+      "You need to easily check image dimensions or widget bounds"
+    ],
+    "avoid_when": [
+      "You prefer modern reactive state management and dependency injection",
+      "You only need isolated small helpers where a full utility bundle is unnecessary"
+    ],
+    "strengths": [
+      "Combines multiple essential utilities in one package",
+      "Easy synchronous access to SharedPreferences after initialization",
+      "Provides handy screen metrics and adaptation helpers"
+    ],
+    "weaknesses": [
+      "Some utility classes have been split into separate packages like sp_util",
+      "Relies heavily on singleton patterns"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Initialize SpUtil in main using await SpUtil.getInstance() if using SharedPreferences synchronously.",
+    "alternatives": [],
+    "minimal_example": "void main() async {\n  WidgetsFlutterBinding.ensureInitialized();\n  await SpUtil.getInstance();\n  runApp(MyApp());\n}\n\nSpUtil.putString(\"username\", \"Sky24n\");\nString userName = SpUtil.getString(\"username\");",
+    "confidence": 0.9
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.2.2",
+  "generatedAt": "2026-11-13T11:27:28.814Z",
+  "data": {
+    "primary_category": "testing",
+    "secondary_categories": [
+      "codegen"
+    ],
+    "approach": [
+      "stream-based"
+    ],
+    "one_liner": "Write and run automated code modifications and refactors on a codebase.",
+    "what_it_does": "Provides utilities to write suggestor functions that analyze source files using package:analyzer, yield text patches, and run them via an interactive CLI. It supports regex, AST visitors, and test helpers to verify code refactoring logic.",
+    "use_when": [
+      "You need to automate large-scale refactoring or code updates across multiple files.",
+      "You are building a custom CLI tool to migrate Dart code or configuration files.",
+      "You want to write interactive codemods that prompt the user before applying patches."
+    ],
+    "avoid_when": [
+      "You only need standard code generation during build time (use build_runner instead).",
+      "You are looking for a simple static analysis linter without modifying code."
+    ],
+    "strengths": [
+      "Leverages package:analyzer APIs for robust AST traversal and modification.",
+      "Interactive CLI handles user confirmation for patches.",
+      "Includes testing helpers like PackageContextForTest for verifying resolved AST suggestors."
+    ],
+    "weaknesses": [
+      "Requires familiarity with the analyzer package API for complex AST-based transforms."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add codemod to pubspec.yaml dependencies and create a main script that calls runInteractiveCodemod.",
+    "alternatives": [],
+    "minimal_example": "import 'dart:io';\nimport 'package:codemod/codemod.dart';\n\nvoid main(List<String> args) async {\n  exitCode = await runInteractiveCodemod(\n    ['pubspec.yaml'],\n    regexSubstituter,\n    args: args,\n  );\n}",
+    "confidence": 1
+  }
+}

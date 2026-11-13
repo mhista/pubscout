@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.9.0",
+  "generatedAt": "2026-11-13T11:42:14.476Z",
+  "data": {
+    "primary_category": "theming",
+    "secondary_categories": [
+      "layout"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Create Material color schemes based on the platform's dynamic color implementation.",
+    "what_it_does": "Provides a widget builder and plugin to fetch device dynamic colors on supported platforms such as Android, Windows, macOS, and Linux. It also supports color and color scheme harmonization to seamlessly blend custom colors with user-generated dynamic colors.",
+    "use_when": [
+      "You want your Flutter application to support Material You dynamic colors on Android S+.",
+      "You want to match your app's color theme with desktop OS accent colors on Windows, macOS, or Linux.",
+      "You need to harmonize custom app colors with the user's dynamic system color scheme."
+    ],
+    "avoid_when": [
+      "Your app requires a strict, immutable brand color scheme that must never change based on user wallpapers or OS settings.",
+      "You are targeting platforms that do not support dynamic system colors and you do not need OS accent color integration."
+    ],
+    "strengths": [
+      "Supports cross-platform dynamic color extraction (Android, Windows, macOS, Linux).",
+      "Includes built-in color harmonization utilities to keep custom colors visually cohesive.",
+      "Provides convenient testing utilities and mock helpers for widget tests."
+    ],
+    "weaknesses": [
+      "Platform support varies significantly depending on what the underlying operating system provides.",
+      "Older Android versions or non-supporting desktop environments will fall back to default color schemes."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "No complex native setup steps are documented beyond adding the package dependency and using the DynamicColorBuilder widget.",
+    "alternatives": [],
+    "minimal_example": "DynamicColorBuilder(\n  builder: (ColorScheme? lightDynamic, ColorScheme? darkDynamic) {\n    return MaterialApp(\n      theme: ThemeData(colorScheme: lightDynamic),\n      darkTheme: ThemeData(colorScheme: darkDynamic),\n    );\n  },\n)",
+    "confidence": 1
+  }
+}

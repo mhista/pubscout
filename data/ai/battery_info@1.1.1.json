@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.1.1",
+  "generatedAt": "2026-11-13T11:43:54.054Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Flutter plugin providing detailed information about the device battery level, health, and status.",
+    "what_it_does": "Provides detailed information about the device battery including level, health, charging status, and more. Supports both Android and iOS devices.",
+    "use_when": [
+      "You need to read the device battery level or charging status.",
+      "You need detailed battery diagnostics on Android devices."
+    ],
+    "avoid_when": [
+      "You need cross-platform access to advanced battery info like health and temperature on iOS, which Apple limits.",
+      "You need a comprehensive device information package that covers more than just the battery."
+    ],
+    "strengths": [
+      "Provides extensive battery details on Android such as temperature, voltage, technology, and health.",
+      "Supports both Android and iOS platforms.",
+      "Offers stream-based updates for battery status changes."
+    ],
+    "weaknesses": [
+      "iOS support is strictly limited to battery level and charging status due to Apple limitations.",
+      "Remaining charge time is only available on Android API level 28 and higher."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the dependency to pubspec.yaml. No extra setup notes documented.",
+    "alternatives": [
+      {
+        "name": "device_info_plus",
+        "why_pick_it": "If you need a wider range of hardware and OS details about the device alongside basic battery information."
+      }
+    ],
+    "minimal_example": "import 'package:battery_info/battery_info.dart';\nimport 'package:battery_info/model/android_battery_info.dart';\n\nprint(\"Battery Health: ${(await BatteryInfoPlugin().androidBatteryInfo).health}\");",
+    "confidence": 0.95
+  }
+}

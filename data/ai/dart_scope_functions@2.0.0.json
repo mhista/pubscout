@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.0",
+  "generatedAt": "2026-11-13T11:37:23.818Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Kotlin-inspired scope functions like also, let, takeIf, and run for executing code blocks on objects.",
+    "what_it_does": "Implements Kotlin-inspired scope functions in Dart to execute blocks of code within the context of an object. It provides extension methods and global functions to chain operations, evaluate conditions, and handle nullable values more expressively.",
+    "use_when": [
+      "You want to chain multiple operations or transformations on an object fluently.",
+      "You prefer Kotlin-style utility functions like also, let, takeIf, and run in Dart code."
+    ],
+    "avoid_when": [
+      "You prefer standard Dart conditional expressions and cascade notations over functional scope wrappers.",
+      "You are working with asynchronous blocks inside also where you expect the method to await the Future."
+    ],
+    "strengths": [
+      "Brings expressive Kotlin-style scope functions to Dart.",
+      "Supports method chaining and conditional object execution.",
+      "Includes inline pragmas for performance optimization across dart2wasm, dart2js, and VM."
+    ],
+    "weaknesses": [
+      "Let does not short-circuit automatically on null like Kotlin's safe call operator combined with let.",
+      "Synchronous limitations with async closures inside functions like also."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Just add the dependency to pubspec.yaml and import the library.",
+    "alternatives": [],
+    "minimal_example": "import 'package:dart_scope_functions/dart_scope_functions.dart';\n\nvoid main() {\n  var result = 'Hello'.also((it) {\n    print(it);\n  }).let((it) {\n    return it.length;\n  });\n  print(result); // Prints 5\n}",
+    "confidence": 1
+  }
+}

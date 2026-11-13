@@ -1,0 +1,37 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.0",
+  "generatedAt": "2026-11-13T11:04:15.233Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A single-purpose widget to calculate its size after being built and attached to the tree.",
+    "what_it_does": "Provides a WidgetSize wrapper that invokes an onChange callback with the computed Size once the child is built and attached to the widget tree. This allows developers to read the dynamic layout dimensions of a widget.",
+    "use_when": [
+      "You need to obtain the runtime dimensions (width and height) of a widget after it has been rendered.",
+      "You want to dynamically adjust state or layout based on an existing child widget's measured size."
+    ],
+    "avoid_when": [
+      "You can accomplish the same layout constraints using standard Flutter layout widgets like LayoutBuilder or SizedBox.",
+      "You require complex custom painting or rendering layers."
+    ],
+    "strengths": [
+      "Simple and straightforward API for size calculation.",
+      "Cross-platform compatibility supporting Android, iOS, web, Windows, macOS, and Linux."
+    ],
+    "weaknesses": [
+      "Triggers a callback post-build, which can lead to rebuild loops if state updates modify constraints incorrectly.",
+      "Very minimal documentation and features beyond basic size observation."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "No native setup or build_runner required.",
+    "alternatives": [],
+    "minimal_example": "WidgetSize(\n  onChange: (Size size) {\n    _yourHeight = size.height;\n    _yourWidth = size.width;\n  },\n  child: Container(\n    height: _yourHeight,\n    width: _yourWidth,\n    color: Theme.of(context).primaryColor,\n  ),\n)",
+    "confidence": 1
+  }
+}

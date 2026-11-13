@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "5.5.5",
+  "generatedAt": "2026-11-13T11:35:55.823Z",
+  "data": {
+    "primary_category": "games",
+    "secondary_categories": [
+      "state-management"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Helpers for using Riverpod state management within Flame game engines.",
+    "what_it_does": "Bridges Riverpod state management with Flame game components. It provides specialized mixins and widgets like RiverpodAwareGameWidget, RiverpodGameMixin, and RiverpodComponentMixin to manage provider subscriptions based on component lifecycles.",
+    "use_when": [
+      "You are building a game using Flame and want to use Riverpod for state management",
+      "You need Flame components to react to provider changes and manage subscriptions automatically"
+    ],
+    "avoid_when": [
+      "You are not using the Flame game engine",
+      "You prefer a state management solution other than Riverpod"
+    ],
+    "strengths": [
+      "Integrates Riverpod naturally with Flame component lifecycles",
+      "Automatically handles subscription initialization and cleanup",
+      "Provides access to WidgetRef operations within components"
+    ],
+    "weaknesses": [
+      "Tied strictly to Flame and Riverpod ecosystems",
+      "Requires specific mixins and game widget replacements"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Use RiverpodAwareGameWidget, add RiverpodGameMixin to your game, and RiverpodComponentMixin to interacting components.",
+    "alternatives": [],
+    "minimal_example": "class RefExampleGame extends FlameGame with RiverpodGameMixin {\n  @override\n  Future<void> onLoad() async {\n    await super.onLoad();\n    add(RiverpodAwareTextComponent());\n  }\n}",
+    "confidence": 1
+  }
+}

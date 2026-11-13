@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "2.3.0",
+  "generatedAt": "2026-11-13T11:19:22.497Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [],
+    "approach": [
+      "declarative",
+      "code generation"
+    ],
+    "one_liner": "Extends ValueNotifier with functional reactive programming and observers.",
+    "what_it_does": "Provides RxNotifier, RxBuilder, RxRoot, and reactive collections (RxList, RxMap, RxSet) to manage state reactively in Flutter. It adds computed getters, async wrappers, and optional code generation for concise syntax.",
+    "use_when": [
+      "Need lightweight reactive state management",
+      "Want computed values via getters",
+      "Prefer no boilerplate for simple state changes",
+      "Need reactive collections and async wrappers"
+    ],
+    "avoid_when": [
+      "Complex multi‑layer state trees requiring deep context propagation",
+      "Projects already using a mature state‑management library like Bloc or Provider"
+    ],
+    "strengths": [
+      "Simple API built on ValueNotifier",
+      "Computed values via getters",
+      "Reactive collections and async wrappers",
+      "Optional code generation for concise syntax"
+    ],
+    "weaknesses": [
+      "Limited to ValueNotifier‑based state",
+      "Not as feature‑rich as Bloc or Riverpod",
+      "Community adoption is lower",
+      "No built‑in dependency injection or navigation support"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dependency in pubspec. For code generation add rx_notifier_generator and build_runner to dev_dependencies and run build_runner. No special permissions required.",
+    "alternatives": [],
+    "minimal_example": "final counter = RxNotifier<int>(0);\n\nRxDisposer disposer = rxObserver(() {\n  print(counter.value);\n});\n\ndisposer();",
+    "confidence": 0.8
+  }
+}

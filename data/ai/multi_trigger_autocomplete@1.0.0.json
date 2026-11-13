@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "1.0.0",
+  "generatedAt": "2026-11-13T11:14:57.917Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Widget that adds trigger‑based autocomplete to text fields",
+    "what_it_does": "MultiTriggerAutocomplete provides a text field with support for multiple autocomplete triggers such as @, #, and : . It shows a portal‑based options view that can be customized per trigger.",
+    "use_when": [
+      "Implementing mention, hashtag or emoji autocompletion in chat or comment UIs",
+      "Adding custom trigger‑based suggestions to a single text field",
+      "Need a lightweight, declarative solution without code generation"
+    ],
+    "avoid_when": [
+      "Using a non‑Flutter platform that cannot host a Portal",
+      "When you need a global state‑management solution for autocomplete data"
+    ],
+    "strengths": [
+      "Supports multiple triggers in one widget",
+      "Built on flutter_portal for flexible overlay placement",
+      "Easy to integrate with existing TextField or TextFormField",
+      "No code generation required"
+    ],
+    "weaknesses": [
+      "Requires flutter_portal dependency",
+      "Only works with text fields, not rich text editors",
+      "Limited to single‑line or multiline text with selection handling"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add Portal at the top of the widget tree and include multi_trigger_autocomplete in pubspec",
+    "alternatives": [],
+    "minimal_example": "```dart\nimport 'package:multi_trigger_autocomplete/multi_trigger_autocomplete.dart';\n\nPortal(\n  child: MaterialApp(\n    home: Scaffold(\n      body: MultiTriggerAutocomplete(\n        autocompleteTriggers: [\n          AutocompleteTrigger(\n            trigger: '@',\n            optionsViewBuilder: (ctx, query, ctrl) => MentionAutocompleteOptions(\n              query: query.query,\n              onMentionUserTap: (user) => MultiTriggerAutocomplete.of(ctx).acceptAutocompleteOption(user.id),\n            ),\n          ),\n        ],\n        fieldViewBuilder: (ctx, ctrl, focus) => TextField(controller: ctrl, focusNode: focus),\n      ),\n    ),\n  ),\n);\n```",
+    "confidence": 0.9
+  }
+}

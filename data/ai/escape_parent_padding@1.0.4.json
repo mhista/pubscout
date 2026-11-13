@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.4",
+  "generatedAt": "2026-11-13T11:37:23.563Z",
+  "data": {
+    "primary_category": "layout",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A Flutter widget that allows child widgets to visually escape parent padding constraints.",
+    "what_it_does": "It provides a mechanism for child widgets to ignore padding applied by a parent widget and span full-width. It supports multiple children with opt-outs via the Escaped widget, as well as a lite mode for single-child use cases.",
+    "use_when": [
+      "You need specific children within a padded layout to span the full screen width.",
+      "You are building full-width layouts like horizontal ListViews inside padded containers."
+    ],
+    "avoid_when": [
+      "You are not using parent padding constraints that need to be bypassed.",
+      "You want a complete UI kit rather than a single layout utility widget."
+    ],
+    "strengths": [
+      "Solves a common layout constraint issue without hacky workarounds.",
+      "Lightweight with no third-party dependencies.",
+      "Provides both a multi-child builder approach and a simplified lite mode."
+    ],
+    "weaknesses": [
+      "Limited scope restricted strictly to escaping parent padding.",
+      "Topics not documented."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "EscapablePadding(\n  padding: const EdgeInsets.all(16),\n  children: [\n    const Text('Padded Item 1'),\n    Escaped(\n      child: Container(\n        color: Colors.red,\n        child: const Text('I am not padded'),\n      ),\n    ),\n  ],\n  builder: (context, children) => Column(\n    crossAxisAlignment: CrossAxisAlignment.start,\n    children: children,\n  ),\n)",
+    "confidence": 0.95
+  }
+}

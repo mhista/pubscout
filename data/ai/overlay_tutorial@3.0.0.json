@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "3.0.0",
+  "generatedAt": "2026-11-13T11:05:02.364Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Displays overlay tutorials with customizable hole shapes and optional hints.",
+    "what_it_does": "Provides widgets to create a dimmed overlay with cut‑out holes over target UI elements. Hints can be positioned beside each hole and the overlay appearance is configurable.",
+    "use_when": [
+      "You need to highlight parts of the UI for onboarding or feature tours",
+      "You want a simple, code‑only way to show focus areas without external libraries"
+    ],
+    "avoid_when": [
+      "You require a full‑featured step‑by‑step tutorial framework",
+      "You need persistent storage or complex state management for tutorials"
+    ],
+    "strengths": [
+      "Customizable hole shapes and sizes",
+      "Easy to integrate with existing widget tree",
+      "Supports Flutter 3 and multiple platforms"
+    ],
+    "weaknesses": [
+      "No built‑in step sequencing or tutorial flow control",
+      "Manual handling of tutorial state is required",
+      "Limited to overlay UI, no other onboarding features"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "Widget build(BuildContext context){\n  return OverlayTutorialScope(\n    enabled:true,\n    overlayColor:Colors.black54,\n    child:Stack(\n      children:[\n        // your UI here\n        OverlayTutorialHole(\n          enabled:true,\n          overlayTutorialEntry:OverlayTutorialRectEntry(\n            padding:EdgeInsets.all(8),\n            radius:Radius.circular(8),\n            overlayTutorialHints:[\n              OverlayTutorialWidgetHint(\n                builder:(c,entryRect)=>Positioned(\n                  top:entryRect.rRect!.bottom+8,\n                  child:Text('Tap here'),\n                ),\n              ),\n            ],\n          ),\n          child:Icon(Icons.add),\n        ),\n      ],\n    ),\n  );\n}",
+    "confidence": 0.9
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.6.0",
+  "generatedAt": "2026-11-13T11:33:02.555Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "web-desktop"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Renders Flutter text, link, and image widgets as HTML elements for SEO purposes on the web.",
+    "what_it_does": "Detects web crawlers using user-agent regex and automatically adds corresponding HTML elements (like headings, paragraphs, links, and images) to the DOM for better search engine optimization.",
+    "use_when": [
+      "You are building a Flutter web application that requires search engine indexing.",
+      "You need to render text, links, or images as native HTML elements for web crawlers."
+    ],
+    "avoid_when": [
+      "Your application is exclusively for mobile or desktop platforms without web targets.",
+      "You do not care about search engine indexing for your Flutter web app."
+    ],
+    "strengths": [
+      "Automatically detects web crawlers via regex and user agent.",
+      "Supports rendering text, rich text, links, and images as HTML elements.",
+      "Integrates smoothly with navigator observers and MaterialApp."
+    ],
+    "weaknesses": [
+      "Under development, which may mean potential API changes or edge cases.",
+      "Requires manual configuration in index.html for reliable web renderer behavior in some scenarios."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Wrap MaterialApp in a RobotDetector widget and add seoRouteObserver to navigatorObservers.",
+    "alternatives": [],
+    "minimal_example": "RobotDetector(\n  child: MaterialApp(\n    home: MyApp(),\n    navigatorObservers: [seoRouteObserver],\n  ),\n)",
+    "confidence": 0.95
+  }
+}

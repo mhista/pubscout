@@ -1,0 +1,47 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.1",
+  "generatedAt": "2026-11-13T11:27:14.385Z",
+  "data": {
+    "primary_category": "payments",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter SDK for processing payments and tokenization via YooKassa API.",
+    "what_it_does": "Allows integrating the YooKassa payment interface into Flutter applications for Android and iOS. It uses native YooKassa mobile SDKs underneath to handle tokenization, payment forms, and payment confirmation methods like 3-D Secure, SberPay, SBP, and Alfa Pay.",
+    "use_when": [
+      "You need to accept payments in your Flutter app using the YooKassa payment gateway.",
+      "You want native payment forms and built-in handling for SberPay, SBP, Alfa Pay, and bank cards."
+    ],
+    "avoid_when": [
+      "Your target payment gateway is not YooKassa.",
+      "You are targeting platforms other than Android and iOS."
+    ],
+    "strengths": [
+      "Provides ready-to-use native payment and tokenization UI forms for Android and iOS.",
+      "Supports a wide array of payment methods including YooMoney, SberPay, SBP, and Alfa Pay.",
+      "Allows explicit version control of underlying native SDKs."
+    ],
+    "weaknesses": [
+      "Requires manual configuration of platform-specific deeplinks and URL schemes for external banking apps.",
+      "Android app process death during an external payment flow can cause payment results to not be delivered."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires setting a client application key and shop ID from YooKassa. Android requires setting up app schemes in build.gradle, and iOS requires setting up application schemes in Info.plist and handling links in AppDelegate.",
+    "alternatives": [
+      {
+        "name": "flutter_stripe",
+        "why_pick_it": "Choose this if you are processing payments through Stripe instead of YooKassa."
+      },
+      {
+        "name": "adyen_checkout",
+        "why_pick_it": "Choose this if you are processing payments through Adyen instead of YooKassa."
+      }
+    ],
+    "minimal_example": "var clientApplicationKey = \"<Ключ для клиентских приложений>\";\nvar amount = Amount(value: \"999.9\", currency: Currency.rub);\nvar shopId = \"<Идентификатор магазина в ЮKassa>\";\nvar tokenizationModuleInputData = TokenizationModuleInputData(\n    clientApplicationKey: clientApplicationKey,\n    title: \"Космические объекты\",\n    subtitle: \"Комета повышенной яркости, период обращения — 112 лет\",\n    amount: amount,\n    shopId: shopId,\n    savePaymentMethod: SavePaymentMethod.on);\nvar result = await YookassaPaymentsFlutter.tokenization(tokenizationModuleInputData);",
+    "confidence": 0.95
+  }
+}

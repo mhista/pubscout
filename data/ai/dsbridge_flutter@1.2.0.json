@@ -1,0 +1,47 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "1.2.0",
+  "generatedAt": "2026-11-13T11:17:14.605Z",
+  "data": {
+    "primary_category": "web-desktop",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "A Flutter plugin that enables synchronous and asynchronous JavaScript‑Dart communication via a WebView bridge.",
+    "what_it_does": "It wraps webview_flutter and adds a JavaScript bridge allowing Dart code to expose functions to JavaScript and call JavaScript functions. Supports sync, async, progress callbacks, namespaces and debug mode.",
+    "use_when": [
+      "You need tight two‑way interaction between a WebView's JavaScript and Flutter code",
+      "You want to reuse existing dsbridge.js code without rewriting it",
+      "You require progress callbacks or modal dialogs from JavaScript"
+    ],
+    "avoid_when": [
+      "You only need to display static web content without native interaction",
+      "You prefer a pure Dart‑only solution without a WebView"
+    ],
+    "strengths": [
+      "Full‑duplex bridge with sync and async calls",
+      "Namespace support for large API sets",
+      "Progress callbacks and built‑in JavaScript dialogs"
+    ],
+    "weaknesses": [
+      "Depends on webview_flutter, so inherits its platform limitations",
+      "Adds extra layer of complexity compared to direct JavaScript injection"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "webview_flutter",
+        "why_pick_it": "Provides a basic WebView without the extra bridge layer, suitable if you don't need JavaScript‑Dart communication"
+      }
+    ],
+    "minimal_example": "import 'package:dsbridge_flutter/dsbridge_flutter.dart';\n\nclass JsApi extends JavaScriptNamespaceInterface {\n  @override\n  void register() {\n    registerFunction(testSyn);\n    registerFunction(testAsyn);\n  }\n  String testSyn(dynamic msg) => \"$msg［syn call］\";\n  void testAsyn(dynamic msg, CompletionHandler handler) => handler.complete(\"$msg [ asyn call]\");\n}\n\nvoid main() async {\n  final controller = DWebViewController();\n  controller.addJavaScriptObject(JsApi());\n  // load your page, then you can call JS functions:\n  controller.callHandler('addValue', args: [3,4], handler: (ret) => print(ret));\n}",
+    "confidence": 0.92
+  }
+}

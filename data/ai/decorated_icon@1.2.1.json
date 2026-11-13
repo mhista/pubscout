@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "1.2.1",
+  "generatedAt": "2026-11-13T11:04:09.027Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Lightweight icon widget that renders an icon with multiple shadows using a single Text widget.",
+    "what_it_does": "`DecoratedIcon` displays a Flutter icon with a list of `BoxShadow`s applied. It inherits color and fontSize from the surrounding `IconTheme` and supports semantics and debugging. The widget is built with a single `Text` widget for efficient rendering.",
+    "use_when": [
+      "You need an icon with multiple shadows or an outer glow effect (within Flutter limits).",
+      "You want a lightweight, single-widget solution without extra dependencies.",
+      "You want the icon to automatically inherit theme colors and sizes."
+    ],
+    "avoid_when": [
+      "You require complex visual effects like true outer glow or custom shapes beyond shadows.",
+      "You need advanced animation or interaction beyond simple shadow changes."
+    ],
+    "strengths": [
+      "Very lightweight, single widget implementation.",
+      "Supports multiple shadows with order control.",
+      "Inherits theme color and fontSize automatically.",
+      "Provides semantics and debugging support."
+    ],
+    "weaknesses": [
+      "Cannot create true outer glow due to Flutter limitations.",
+      "Limited to text-based shadows; no custom shapes or complex effects."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "```dart\nimport 'package:decorated_icon/decorated_icon.dart';\n\nfinal decoratedIcons = Row(\n  mainAxisAlignment: MainAxisAlignment.spaceEvenly,\n  children: const [\n    DecoratedIcon(\n      Icons.android,\n      color: Colors.purple,\n      size: 60.0,\n      shadows: [\n        BoxShadow(\n          blurRadius: 42.0,\n          color: Colors.purpleAccent,\n        ),\n        BoxShadow(\n          blurRadius: 12.0,\n          color: Colors.white,\n        ),\n      ],\n    ),\n    DecoratedIcon(\n      Icons.favorite,\n      color: Colors.lightBlue.shade50,\n      size: 60.0,\n      shadows: [\n        BoxShadow(\n          blurRadius: 12.0,\n          color: Colors.blue,\n        ),\n        BoxShadow(\n          blurRadius: 12.0,\n          color: Colors.green,\n          offset: Offset(0, 6.0),\n        ),\n      ],\n    ),\n    DecoratedIcon(\n      Icons.fingerprint,\n      color: Colors.orange,\n      size: 60.0,\n      shadows: [\n        BoxShadow(\n          color: Colors.black,\n          offset: Offset(3.0, 3.0),\n        ),\n      ],\n    ),\n  ],\n);\n```",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.1.6",
+  "generatedAt": "2026-11-13T11:08:25.362Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [
+      "storage",
+      "networking"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Video caching and local proxy server for Flutter video playback",
+    "what_it_does": "It sets up a local HTTP proxy server to cache, pre-cache, and stream video content simultaneously. It supports formats like MP4 and HLS (m3u8), offering LRU-based memory and file caching.",
+    "use_when": [
+      "You need to cache remote videos locally while playing them with the video_player package.",
+      "You want to pre-cache video segments ahead of time for smoother playback.",
+      "You handle HLS (m3u8) or MP4 streams that require custom headers or token-ignoring cache keys."
+    ],
+    "avoid_when": [
+      "Your app does not use video playback or streaming.",
+      "You prefer an entirely native audio/video player framework that manages its own caching without a local HTTP proxy."
+    ],
+    "strengths": [
+      "Supports multiple video formats including MP4 and HLS (m3u8).",
+      "Provides pre-caching and simultaneous playback and caching.",
+      "Configurable memory/storage cache limits and custom HTTP clients via Dio."
+    ],
+    "weaknesses": [
+      "Requires platform-specific configuration to permit cleartext local HTTP traffic for the proxy server.",
+      "Running a local HTTP server proxy introduces background lifecycle management considerations."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires initializing the video proxy server on startup and configuring Android network security config and iOS Info.plist for local cleartext traffic.",
+    "alternatives": [
+      {
+        "name": "video_player",
+        "why_pick_it": "If you do not need caching functionality and just want the standard Flutter team video player."
+      },
+      {
+        "name": "just_audio",
+        "why_pick_it": "If you are focusing heavily on advanced audio playback features."
+      }
+    ],
+    "minimal_example": "void main() {\n  WidgetsFlutterBinding.ensureInitialized();\n  VideoProxy.init();\n  runApp(const HomeApp());\n}\n\n// Use with video_player\nplayControl = VideoPlayerController.networkUrl(url.toLocalUri());",
+    "confidence": 0.95
+  }
+}

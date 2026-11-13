@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.1",
+  "generatedAt": "2026-11-13T11:08:01.070Z",
+  "data": {
+    "primary_category": "images",
+    "secondary_categories": [
+      "ai-ml"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Removes backgrounds from images offline using an ONNX machine learning model.",
+    "what_it_does": "Processes image byte data locally using an on-device ONNX machine learning model to remove backgrounds without relying on any external APIs. It also provides options for adjusting thresholds, edge enhancement, and adding custom background colors.",
+    "use_when": [
+      "You need to remove image backgrounds completely offline on-device.",
+      "You want privacy and reliability without cloud-based API costs."
+    ],
+    "avoid_when": [
+      "You are operating within Dart isolates, as the package requires main thread assets.",
+      "You want to minimize app bundle size, as the embedded model adds around 30MB."
+    ],
+    "strengths": [
+      "Works entirely offline without external API dependencies.",
+      "Supports Android 16KB page size requirements.",
+      "Provides customizable edge enhancement and background color composition."
+    ],
+    "weaknesses": [
+      "Increases the application bundle size by approximately 30MB due to the bundled offline model.",
+      "Cannot be used inside Dart isolates."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires configuring iOS Podfile for minimum iOS 16.0 and modifying Xcode build settings (Strip Linked Product to No) for release builds.",
+    "alternatives": [],
+    "minimal_example": "BackgroundRemover.instance.initializeOrt();\nfinal result = await BackgroundRemover.instance.removeBg(imageBytes);\nBackgroundRemover.instance.dispose();",
+    "confidence": 1
+  }
+}

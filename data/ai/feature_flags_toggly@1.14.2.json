@@ -1,0 +1,37 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.14.2",
+  "generatedAt": "2026-11-13T11:43:58.693Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "declarative",
+      "imperative"
+    ],
+    "one_liner": "Dart package providing feature flags support for Flutter applications with or without Toggly.io.",
+    "what_it_does": "Allows developers to enable and disable features easily using feature flags in Flutter applications. It can be integrated with Toggly.io or used standalone with local flag defaults, and includes widget wrappers and programmatic evaluation.",
+    "use_when": [
+      "You need to toggle feature visibility or behavior dynamically in your Flutter app.",
+      "You want to integrate with Toggly.io for remote feature flag management."
+    ],
+    "avoid_when": [
+      "You do not need feature flags or remote configuration in your application."
+    ],
+    "strengths": [
+      "Supports both Toggly.io integration and standalone local usage.",
+      "Provides declarative widgets like Feature and FeatureGateBuilder.",
+      "Includes built-in cryptographic signature verification for definitions."
+    ],
+    "weaknesses": [
+      "Relies on external backend services if full remote toggling is desired."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the dependency to pubspec.yaml and initialize Toggly using Toggly.init in your app.",
+    "alternatives": [],
+    "minimal_example": "await Toggly.init(\n  appKey: '<your_app_key>',\n  environment: '<your_app_environment>',\n  flagDefaults: {\n    \"ExampleFeatureKey1\": true,\n  },\n);\n\nFeature(\n  featureKeys: const ['ExampleFeatureKey1'],\n  child: const Text('Feature enabled'),\n);",
+    "confidence": 0.95
+  }
+}

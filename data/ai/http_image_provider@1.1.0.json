@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.1.0",
+  "generatedAt": "2026-11-13T11:03:43.465Z",
+  "data": {
+    "primary_category": "images",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "An ImageProvider that uses the http package instead of dart:io.",
+    "what_it_does": "Provides an image provider that makes network image requests using the package:http client instead of the default dart:io implementation. Allows custom clients such as cupertino_http, cronet_http, or tracing via Sentry.",
+    "use_when": [
+      "You need to use cupertino_http or cronet_http for fetching images",
+      "You need to trace HTTP image requests with tools like Sentry"
+    ],
+    "avoid_when": [
+      "You do not need custom HTTP clients and standard Image.network is sufficient"
+    ],
+    "strengths": [
+      "Allows dynamic configuration of HTTP implementations via package:http",
+      "Supports custom clients globally or per instance",
+      "Supports loading progress tracking"
+    ],
+    "weaknesses": [
+      "Not documented beyond basic features"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [],
+    "minimal_example": "Image(\n  image: HttpImageProvider(Uri.parse('https://http.cat/200')),\n)",
+    "confidence": 0.95
+  }
+}

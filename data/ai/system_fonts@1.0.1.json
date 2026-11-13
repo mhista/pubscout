@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "1.0.1",
+  "generatedAt": "2026-11-13T11:02:39.537Z",
+  "data": {
+    "primary_category": "theming",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Load system fonts (ttf/otf) on Windows, macOS, Linux for Flutter apps",
+    "what_it_does": "The package lets you load any system font by name or path and use it in Text widgets. It also provides utilities to list fonts and a selector widget.",
+    "use_when": [
+      "You need to use a native OS font not bundled with the app",
+      "You want a quick way to preview and select system fonts in a Flutter UI"
+    ],
+    "avoid_when": [
+      "You target only mobile platforms (Android/iOS)",
+      "You need cross‑platform font fallback handling"
+    ],
+    "strengths": [
+      "Simple API, no build_runner, works on desktop",
+      "Supports loading all fonts or a specific directory",
+      "Provides a ready‑made selector widget"
+    ],
+    "weaknesses": [
+      "Only desktop platforms supported",
+      "No support for Android/iOS",
+      "No font fallback or caching strategy"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dependency in pubspec, import package, call SystemFonts().loadFont() in initState",
+    "alternatives": [],
+    "minimal_example": "class Example extends StatefulWidget {\n  const Example({super.key});\n  @override\n  State<Example> createState() => _ExampleState();\n}\n\nclass _ExampleState extends State<Example> {\n  String fontFamily = '';\n  @override\n  void initState() {\n    super.initState();\n    SystemFonts().loadFont('arial').then((value) {\n      setState(() {\n        fontFamily = value.toString();\n      });\n    });\n  }\n  @override\n  Widget build(BuildContext context) {\n    return Text('this text will use arial font', style: TextStyle(fontFamily: fontFamily));\n  }\n}",
+    "confidence": 0.85
+  }
+}

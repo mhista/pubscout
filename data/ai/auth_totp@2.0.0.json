@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.0",
+  "generatedAt": "2026-11-13T11:35:54.701Z",
+  "data": {
+    "primary_category": "auth",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "A time-based one-time password (TOTP) and HOTP authentication package for Flutter apps.",
+    "what_it_does": "Generates and verifies time-based (TOTP) and counter-based (HOTP) one-time passwords, creates secret keys, parses otpauth:// URIs, and aids with QR code generation.",
+    "use_when": [
+      "You need to implement multi-factor authentication (MFA) using authenticator apps like Google Authenticator.",
+      "You want to generate and verify TOTP or HOTP codes directly within your Flutter app."
+    ],
+    "avoid_when": [
+      "You are looking for external hosted authentication backends like Firebase Auth or Supabase.",
+      "You need biometric-only sign-in rather than time-based code verification."
+    ],
+    "strengths": [
+      "Supports SHA-1, SHA-256, and SHA-512 algorithms.",
+      "Includes offline QR code matrix generation for privacy.",
+      "Supports backup/recovery codes and URI parsing."
+    ],
+    "weaknesses": [
+      "Relies on third-party URL APIs if you use the online QR code generation helper.",
+      "Limited to one-time password logic rather than full identity management."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "No special native permissions or build runner required. Just import and use.",
+    "alternatives": [],
+    "minimal_example": "String secret = AuthTOTP.createSecret(length: 16);\nbool isValid = AuthTOTP.verifyCode(secretKey: secret, totpCode: '123456');",
+    "confidence": 1
+  }
+}

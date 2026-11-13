@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.3",
+  "generatedAt": "2026-11-13T11:01:46.301Z",
+  "data": {
+    "primary_category": "forms",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Utility to search and filter single or multiple items from a dynamic list.",
+    "what_it_does": "Provides customizable widgets, dialogs, and delegates to select single or multiple items from a list of strings or custom objects with search functionality.",
+    "use_when": [
+      "You need to provide a single or multi-selection filter interface for a list of items or objects.",
+      "You want search capabilities built directly into a selection list or dialog."
+    ],
+    "avoid_when": [
+      "You only need a standard dropdown or single-select form field without search/multi-select needs.",
+      "You require complex server-side pagination for filtering large datasets."
+    ],
+    "strengths": [
+      "Supports multiple ways to present filters (dialog, widget, delegate).",
+      "Works with both primitive strings and custom model objects.",
+      "Extensive customization options including themes and custom choice chip builders."
+    ],
+    "weaknesses": [
+      "Relies on client-side filtering which may not be suitable for massive datasets without custom optimization.",
+      "Breaking changes in past versions required migrating parameters to theme classes."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Not documented",
+    "alternatives": [],
+    "minimal_example": "await FilterListDialog.display<User>(\n  context,\n  listData: userList,\n  selectedListData: selectedUserList,\n  choiceChipLabel: (user) => user!.name,\n  validateSelectedItem: (list, val) => list!.contains(val),\n  onItemSearch: (user, query) {\n    return user.name!.toLowerCase().contains(query.toLowerCase());\n  },\n  onApplyButtonClick: (list) {\n    setState(() {\n      selectedUserList = List.from(list!);\n    });\n    Navigator.pop(context);\n  },\n);",
+    "confidence": 0.95
+  }
+}

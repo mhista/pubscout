@@ -1,0 +1,37 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.0.3",
+  "generatedAt": "2026-11-13T11:35:48.913Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "stream-based"
+    ],
+    "one_liner": "Detect application installation and uninstallation events on Android devices.",
+    "what_it_does": "A Flutter plugin that monitors changes in the list of installed applications on Android devices. It exposes a stream of installation and uninstallation events providing the package name of the affected app.",
+    "use_when": [
+      "You are developing an Android launcher with Flutter and need to reflect app additions or removals.",
+      "You need to listen to application install and uninstall events on Android."
+    ],
+    "avoid_when": [
+      "You need support for platforms other than Android, such as iOS.",
+      "You only need static device information rather than dynamic install/uninstall event monitoring."
+    ],
+    "strengths": [
+      "Simplifies monitoring of app install and uninstall changes on Android.",
+      "Provides an easy-to-use stream-based API for events."
+    ],
+    "weaknesses": [
+      "Limited to Android devices only.",
+      "No documentation provided regarding required native configurations or permissions."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [],
+    "minimal_example": "late AppIUEvents _appIUEvents;\n\n@override\nvoid initState(){\n    super.initState();\n    _appIUEvents = AppIUEvents();\n    \n    _appIUEvents.appEvents.listen((event){\n        if(event.type == AppIUEventType.INSTALL){\n            print(\"App installed: ${event.packageName}\");\n        }\n        if(event.type == AppIUEventType.UNINSTALL){\n            print(\"App uninstalled: ${event.packageName}\");\n        }\n    });\n}\n\n@override\nvoid dispose(){\n    _appIUEvents.dispose();\n    super.dispose();\n}",
+    "confidence": 0.95
+  }
+}

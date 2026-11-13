@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.0.9",
+  "generatedAt": "2026-11-13T11:17:38.666Z",
+  "data": {
+    "primary_category": "animation",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A widget that applies a Thanos Snap particle effect to its child using a custom shader",
+    "what_it_does": "Wrap any widget with Snappable to animate it with a particle burst effect. The effect is driven by an AnimationController or any Animation<double>.",
+    "use_when": [
+      "You want a visually striking exit or entrance animation for a widget",
+      "You need a reusable, customizable particle effect without writing shader code yourself",
+      "You want to animate lists or individual items with a snap effect"
+    ],
+    "avoid_when": [
+      "You need a lightweight animation without shader overhead",
+      "You are targeting platforms that do not support custom shaders (e.g., older web browsers)"
+    ],
+    "strengths": [
+      "Highly customizable particle parameters",
+      "Uses a single shader for performance",
+      "Easy to integrate via a single widget"
+    ],
+    "weaknesses": [
+      "Requires adding a custom shader file to pubspec",
+      "Only works on platforms that support custom shaders (Android, iOS, web, desktop)",
+      "No support for non-animated use cases"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add the shader file to pubspec.yaml under flutter.shaders and reference the path. No build_runner needed.",
+    "alternatives": [],
+    "minimal_example": "```dart\nSnappable(\n  animation: _controller,\n  child: MyWidget(),\n  outerPadding: const EdgeInsets.all(40.0),\n  style: SnappableStyle(\n    particleLifetime: 0.6,\n    fadeOutDuration: 0.3,\n    particleSpeed: 1.0,\n    particleSize: const SnappableParticleSize.squareFromRelativeWidth(0.01),\n  ),\n);\n```",
+    "confidence": 0.85
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "4.0.0",
+  "generatedAt": "2026-11-13T11:06:09.891Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Dart Result Monad for handling success/failure without exceptions",
+    "what_it_does": "Provides a Result type with Ok and Error variants to represent successful or failed operations. It offers functional helpers for chaining, mapping, and matching results without throwing exceptions.",
+    "use_when": [
+      "Handling operations that may fail and you want to avoid try/catch",
+      "Implementing functional error handling pipelines",
+      "When you need explicit success/failure propagation"
+    ],
+    "avoid_when": [
+      "When you prefer traditional exception handling",
+      "When performance overhead of Result objects matters",
+      "When working with APIs that already use exceptions"
+    ],
+    "strengths": [
+      "Type-safe success/failure representation",
+      "Composable functional helpers (andThen, map, fold)",
+      "No exception overhead",
+      "Clear intent in code"
+    ],
+    "weaknesses": [
+      "Adds boilerplate for simple cases",
+      "Learning curve for functional patterns",
+      "May be overkill for small projects"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:result_monad/result_monad.dart';\n\nResult<double, String> invert(double value) {\n  if (value == 0) {\n    return Error('Cannot invert zero');\n  }\n  return Ok(1.0 / value);\n}\n\nvoid main() {\n  invert(2).match(\n    onSuccess: (v) => print('Inverse is: $v'),\n    onError: (e, _) => print(e),\n  );\n}\n",
+    "confidence": 0.9
+  }
+}

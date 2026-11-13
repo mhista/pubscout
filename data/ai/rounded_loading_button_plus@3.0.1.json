@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "3.0.1",
+  "generatedAt": "2026-11-13T11:15:43.812Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "animation"
+    ],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "Animated button with loading, success and error states for Flutter.",
+    "what_it_does": "Provides a button widget that shows a loading spinner when pressed and can transition to success or error animations. A controller lets you trigger success, error, or reset programmatically.",
+    "use_when": [
+      "You need a quick loading indicator on a button press",
+      "You want built‑in success/error feedback without writing custom animations"
+    ],
+    "avoid_when": [
+      "You require extensive visual customization beyond the provided options",
+      "You prefer to avoid extra dependencies like rxdart"
+    ],
+    "strengths": [
+      "Simple API with controller",
+      "Built‑in success and error animations",
+      "Works on all Flutter platforms"
+    ],
+    "weaknesses": [
+      "Limited styling beyond preset colors and icons",
+      "Adds rxdart as a dependency",
+      "No code‑generation support"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:rounded_loading_button_plus/rounded_loading_button_plus.dart';\n\nfinal _btnController = RoundedLoadingButtonController();\n\nvoid _doSomething() async {\n  Timer(Duration(seconds: 3), () => _btnController.success());\n}\n\nRoundedLoadingButton(\n  child: Text('Tap me!', style: TextStyle(color: Colors.white)),\n  controller: _btnController,\n  onPressed: _doSomething,\n);",
+    "confidence": 0.93
+  }
+}

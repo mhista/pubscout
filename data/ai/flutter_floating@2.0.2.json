@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.2",
+  "generatedAt": "2026-11-13T11:46:21.186Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "ui-kits"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Lightweight and flexible floating window component with dragging and snapping support.",
+    "what_it_does": "Provides a draggable floating window component that can be managed globally or locally within pages. Supports edge snapping, position caching, multi-touch interaction, and screen rotation adaptation.",
+    "use_when": [
+      "You need a floating toolbar, quick access button, or floating video player.",
+      "You want floating windows to automatically snap to edges or cache their positions."
+    ],
+    "avoid_when": [
+      "You need native system-level floating windows over other apps.",
+      "You are using state management paradigms that strictly discourage imperative controllers."
+    ],
+    "strengths": [
+      "Supports both global manager and single-page stack modes.",
+      "Rich set of event callbacks and configuration for snapping, margins, and dragging behavior.",
+      "Adapts well to screen rotation and window resizing."
+    ],
+    "weaknesses": [
+      "Recent major version updates introduced breaking API changes.",
+      "Limited documentation outside of translations and basic examples."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "No native setup or permissions are required.",
+    "alternatives": [],
+    "minimal_example": "late FloatingOverlay floating = FloatingOverlay(\n  const FloatingIcon(),\n  slideType: FloatingEdgeType.onRightAndTop,\n  right: -20,\n  params: FloatingParams(snapToEdgeSpace: -20),\n  top: 100,\n);\n\n@override\nvoid initState() {\n  super.initState();\n  WidgetsBinding.instance.addPostFrameCallback((_) {\n    floating.open(context);\n  });\n}",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.1.0",
+  "generatedAt": "2026-11-13T11:03:49.973Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "An OpenPGP implementation in Dart for encryption, decryption, and key management.",
+    "what_it_does": "Dart PG (Dart Privacy Guard) provides an implementation of the OpenPGP standard in Dart. It supports data signing and encryption, key management (generation, reading, and decryption), and various cryptographic algorithms, ciphers, and hash functions.",
+    "use_when": [
+      "You need OpenPGP encryption or decryption in your Dart or Flutter application.",
+      "You need to generate, read, and manage PGP keys locally.",
+      "You need to sign and verify cleartext messages or use detached signatures."
+    ],
+    "avoid_when": [
+      "You require Blowfish, Camellia, or Twofish cipher engines, which were removed in version 2.1.0.",
+      "You need non-OpenPGP cryptographic primitives and prefer a lighter general-purpose cryptography library."
+    ],
+    "strengths": [
+      "Implements the OpenPGP standard (RFC 9580).",
+      "Supports multiple public-key algorithms (RSA, ECDSA, EdDSA, ECDH) and symmetric ciphers.",
+      "Pure Dart implementation supporting Android, iOS, Windows, macOS, and Linux."
+    ],
+    "weaknesses": [
+      "Some older ciphers like Blowfish, Camellia, and Twofish are no longer supported in version 2.1.0+.",
+      "Not documented for web platform support explicitly in the provided material."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dart_pg to pubspec.yaml dependencies and run pub get.",
+    "alternatives": [],
+    "minimal_example": "const literalText = 'Hello Dart Privacy Guard!';\nconst password = 'secret stuff';\n\nfinal encryptedMessage = OpenPGP.encryptCleartext(\n    literalText, passwords: [password]\n);\nfinal armored = encryptedMessage.armor();\nfinal literalMessage = OpenPGP.decrypt(\n    armored, passwords: [password]\n);\nfinal literalData = literalMessage.literalData;",
+    "confidence": 0.95
+  }
+}

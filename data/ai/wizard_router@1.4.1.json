@@ -1,0 +1,47 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.4.1",
+  "generatedAt": "2026-11-13T11:27:16.580Z",
+  "data": {
+    "primary_category": "navigation",
+    "secondary_categories": [],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "Routing for linear wizards with central route definitions and no page dependencies.",
+    "what_it_does": "Provides linear wizard routing that eliminates tight coupling between individual wizard pages. Pages can request the next or previous step without knowing what comes before or after them, while routes and transition conditions are defined centrally.",
+    "use_when": [
+      "You are building a multi-step wizard or onboarding flow",
+      "You want to decouple wizard pages so they don't depend on each other's order"
+    ],
+    "avoid_when": [
+      "You need complex non-linear navigation graphs or standard application routing"
+    ],
+    "strengths": [
+      "Eliminates dependencies between wizard pages",
+      "Centralized route and condition definitions",
+      "Supports conditional step skipping and passing arguments"
+    ],
+    "weaknesses": [
+      "Limited to linear wizard flows",
+      "Not a general-purpose application router"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "go_router",
+        "why_pick_it": "If you need a general-purpose declarative router for full application navigation and deep linking."
+      },
+      {
+        "name": "auto_route",
+        "why_pick_it": "If you prefer code-generation-based routing with strong typing for complex navigation."
+      }
+    ],
+    "minimal_example": "MaterialApp(\n  home: Scaffold(\n    body: Wizard(\n      routes: {\n        '/foo': WizardRoute(builder: (context) => FooPage()),\n        '/bar': WizardRoute(builder: (context) => BarPage()),\n        '/baz': WizardRoute(builder: (context) => BazPage()),\n      },\n    ),\n  ),\n)",
+    "confidence": 1
+  }
+}

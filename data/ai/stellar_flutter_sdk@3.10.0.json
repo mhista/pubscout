@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.10.0",
+  "generatedAt": "2026-11-13T11:08:07.217Z",
+  "data": {
+    "primary_category": "web3",
+    "secondary_categories": [
+      "networking",
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Stellar SDK for Flutter to query Horizon and Soroban RPC, and manage transactions.",
+    "what_it_does": "Allows Flutter apps to build, sign, and submit transactions to the Stellar network. It supports querying Horizon and Soroban RPC, deploying and invoking Soroban smart contracts, and implements many SEPs including Smart Account passkey features.",
+    "use_when": [
+      "Building a Flutter app that interacts with the Stellar blockchain",
+      "Interacting with Soroban smart contracts from Flutter",
+      "Integrating Stellar anchors or SEPs into a mobile, web, or desktop app"
+    ],
+    "avoid_when": [
+      "Building applications for blockchains other than Stellar",
+      "Needing a simple HTTP client without blockchain features"
+    ],
+    "strengths": [
+      "First-class support for Soroban smart contracts and Horizon API",
+      "Full Flutter Web and mobile platform support with BigInt precision handling",
+      "Includes built-in support for multiple SEPs and OpenZeppelin smart accounts"
+    ],
+    "weaknesses": [
+      "Specific platform setup required for iOS and WebAuthn features (e.g., iOS deployment target 15.0+)",
+      "API surface can be complex due to the breadth of Stellar protocol features"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires setting your app's iOS deployment target to 15.0 or higher in Podfile and Xcode for features like passkeys.",
+    "alternatives": [],
+    "minimal_example": "Transaction transaction = TransactionBuilder(senderAccount)\n    .addOperation(PaymentOperationBuilder(receiverId, Asset.NATIVE, '100').build())\n    .build();\ntransaction.sign(senderKeyPair, Network.TESTNET);\nawait sdk.submitTransaction(transaction);",
+    "confidence": 1
+  }
+}

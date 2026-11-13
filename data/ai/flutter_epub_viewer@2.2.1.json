@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "2.2.1",
+  "generatedAt": "2026-11-13T11:01:59.271Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "layout"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "A Flutter widget that displays EPUB books using a WebView and epub.js.",
+    "what_it_does": "It renders EPUB files inside a WebView, providing pagination, search, highlights, footnotes, and theme support. The widget tracks reading progress and allows navigation via a controller.",
+    "use_when": [
+      "You need to show EPUB documents on Android, iOS, macOS, or Web.",
+      "You want built‑in features like search, highlights, and progress tracking without writing your own renderer."
+    ],
+    "avoid_when": [
+      "You cannot use a WebView (e.g., strict size constraints or platform restrictions).",
+      "You need support for formats other than EPUB or require a fully native rendering engine."
+    ],
+    "strengths": [
+      "Cross‑platform (Android, iOS, macOS, Web).",
+      "Leverages mature epub.js for accurate EPUB rendering.",
+      "Built‑in navigation, search, highlights, and theming.",
+      "Improved performance with local server loading."
+    ],
+    "weaknesses": [
+      "Depends on a WebView, increasing app size.",
+      "Limited to EPUB format only.",
+      "Requires platform‑specific permissions and entitlements."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add INTERNET permission in AndroidManifest.xml if loading from network; add macOS entitlements for network server/client; no extra build steps required.",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:flutter_epub_viewer/flutter_epub_viewer.dart';\n\nclass ReaderPage extends StatefulWidget {\n  const ReaderPage({super.key});\n  @override\n  State<ReaderPage> createState() => _ReaderPageState();\n}\n\nclass _ReaderPageState extends State<ReaderPage> {\n  final controller = EpubController();\n  double progress = 0;\n  @override\n  Widget build(BuildContext context) {\n    return Scaffold(\n      appBar: AppBar(title: Text('${(progress * 100).round()}%')),\n      body: SafeArea(\n        child: EpubViewer(\n          epubController: controller,\n          epubSource: EpubSource.fromAsset('assets/book.epub'),\n          onRelocated: (loc) => setState(() => progress = loc.progress),\n        ),\n      ),\n    );\n  }\n}\n",
+    "confidence": 0.9
+  }
+}

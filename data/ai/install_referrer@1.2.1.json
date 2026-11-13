@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.2.1",
+  "generatedAt": "2026-11-13T11:48:02.183Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "declarative"
+    ],
+    "one_liner": "Detect from where your application was installed like Google Play, App Store, or TestFlight.",
+    "what_it_does": "A Flutter plugin that detects the installation source of your application on Android and iOS. It provides futures, widgets, and listeners to retrieve referrer details and package names.",
+    "use_when": [
+      "You need to track acquisition sources or app store origins",
+      "You want to display installation metadata inside a Flutter widget"
+    ],
+    "avoid_when": [
+      "You are targeting unsupported platforms beyond Android and iOS",
+      "You require complex mobile attribution beyond simple store detection"
+    ],
+    "strengths": [
+      "Supports multiple popular Android app stores and iOS platforms",
+      "Provides convenient widgets like InstallReferrerDetectorBuilder and InstallReferrerDetectorListener",
+      "Easy to integrate with a single Future or widget call"
+    ],
+    "weaknesses": [
+      "Limited to Android and iOS platforms",
+      "Third-party or non-preinstalled stores on Android default to manual installation values"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the dependency to pubspec.yaml and import the package. No complex configuration documented.",
+    "alternatives": [],
+    "minimal_example": "InstallReferrerDetectorBuilder(\n  builder: (BuildContext context, InstallationApp? app) {\n    if (app == null) {\n      return const CircularProgressIndicator.adaptive();\n    } else {\n      return Text('Package name:\\n${app.packageName ?? 'Unknown'}');\n    }\n  },\n);",
+    "confidence": 1
+  }
+}

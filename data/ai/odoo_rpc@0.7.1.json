@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.7.1",
+  "generatedAt": "2026-11-13T11:46:33.462Z",
+  "data": {
+    "primary_category": "backend",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Odoo RPC Client library for Dart with session changes tracking via stream.",
+    "what_it_does": "Allows Dart and Flutter apps to connect to Odoo backends, issue JSON-RPC requests, handle authentication, and track session changes via streams.",
+    "use_when": [
+      "You are building a Flutter or Dart application that communicates with an Odoo ERP backend.",
+      "You need to track session updates or handle expired sessions."
+    ],
+    "avoid_when": [
+      "You are not using Odoo as your backend.",
+      "You need a general-purpose REST or GraphQL client without Odoo-specific RPC methods."
+    ],
+    "strengths": [
+      "Provides seamless integration with Odoo authentication and session management.",
+      "Supports cross-platform environments including mobile, desktop, and web.",
+      "Tracks session changes through streams."
+    ],
+    "weaknesses": [
+      "Web platform support requires specific CORS configuration on the Odoo server.",
+      "Limited strictly to Odoo ERP backend interactions."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the dependency to pubspec.yaml and configure CORS headers on the Odoo server if targeting the web platform.",
+    "alternatives": [],
+    "minimal_example": "import 'package:odoo_rpc/odoo_rpc.dart';\n\nmain() async {\n  final client = OdooClient('https://my-db.odoo.com');\n  try {\n    await client.authenticate('my-db', 'admin', 'admin');\n    final res = await client.callRPC('/web/session/modules', 'call', {});\n    print('Installed modules: \\n' + res.toString());\n  } on OdooException catch (e) {\n    print(e);\n    client.close();\n  }\n  client.close();\n}",
+    "confidence": 0.95
+  }
+}

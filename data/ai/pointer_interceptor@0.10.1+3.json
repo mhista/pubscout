@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.10.1+3",
+  "generatedAt": "2026-11-13T11:32:09.807Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "web-desktop"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A widget to prevent clicks from being swallowed by underlying HtmlElementViews on the web.",
+    "what_it_does": "PointerInterceptor is a widget that prevents mouse events from being captured by an underlying HtmlElementView on the web, or an underlying PlatformView on iOS. It creates an empty platform view behind its child widget in paint order, allowing Flutter widgets to successfully handle pointer events.",
+    "use_when": [
+      "You need to render Flutter widgets on top of background maps, video players, or iframes on the web.",
+      "Your FloatingActionButton or Drawer is unclickable because it overlaps an HTML element view."
+    ],
+    "avoid_when": [
+      "You are building a mobile-only app without platform views or HtmlElementViews.",
+      "You are using multiple instances heavily on iOS where it can cause performance overhead and increase memory usage."
+    ],
+    "strengths": [
+      "Solves web click interception issues with HtmlElementViews seamlessly.",
+      "Includes a convenient `intercepting` property to toggle behavior conditionally.",
+      "Supports a `debug` property to visualize the intercepted area."
+    ],
+    "weaknesses": [
+      "Can be slow and increase memory usage if multiple instances are used on iOS.",
+      "Platform-specific overhead due to underlying platform views."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "PointerInterceptor(\n  child: ElevatedButton(\n    onPressed: () {},\n    child: const Text('Click Me'),\n  ),\n)",
+    "confidence": 1
+  }
+}

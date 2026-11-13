@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "5.0.1",
+  "generatedAt": "2026-11-13T11:07:02.147Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "layout"
+    ],
+    "approach": [
+      "declarative",
+      "imperative"
+    ],
+    "one_liner": "A Sliver implementation of a sticky collapsible panel with a box header and sliver child.",
+    "what_it_does": "Provides a Flutter Sliver widget that renders a sticky header and a collapsible panel content. It supports expanding and collapsing headers via commands or user interactions, custom animations, iOS-style sticky headers, and layout performance optimizations.",
+    "use_when": [
+      "You need sticky headers that can collapse or expand inside a CustomScrollView.",
+      "You want an iOS-style contact list sticky header behavior."
+    ],
+    "avoid_when": [
+      "Your scroll layout does not use Slivers or CustomScrollView.",
+      "You only need standard non-collapsible sticky headers and prefer simpler alternatives."
+    ],
+    "strengths": [
+      "Pure Dart implementation relying only on the Flutter framework.",
+      "Supports both declarative and command-style control for expanding and collapsing.",
+      "Includes performance options like optional fixed header size configuration."
+    ],
+    "weaknesses": [
+      "Limited to sliver-based layouts.",
+      "Requires managing specific controller keys and states for programmatic control."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "No native setup or extra dependencies required.",
+    "alternatives": [],
+    "minimal_example": "CustomScrollView(\n  controller: _scrollController,\n  slivers: [\n    SliverStickyCollapsablePanel(\n      scrollController: _scrollController,\n      panelController: StickyCollapsablePanelController(key:'key_1'),\n      headerBuilder: (context, status) => SizedBox.fromSize(size: Size.fromHeight(48)),\n      sliverPanel: SliverList.list(children: [...]),\n    ),\n  ],\n)",
+    "confidence": 1
+  }
+}

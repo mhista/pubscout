@@ -1,0 +1,37 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.1.1",
+  "generatedAt": "2026-11-13T11:05:25.683Z",
+  "data": {
+    "primary_category": "devtools",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Shared sidekick commands, plugin engine, migrations, templates, and utilities for custom CLIs.",
+    "what_it_does": "Provides shared commands, a plugin engine, migrations, and utilities for building customized project-scoped Dart CLIs. It includes prebuilt commands like analysis, formatting, dependency updates, and plugin management.",
+    "use_when": [
+      "You are building a custom project-specific sidekick CLI in Dart",
+      "You want to share repetitive CLI tasks across your team using Dart commands instead of Bash scripts"
+    ],
+    "avoid_when": [
+      "You are building a standard mobile, web, or desktop user-facing application",
+      "You do not need a custom project CLI generator"
+    ],
+    "strengths": [
+      "Replaces complex bash scripts with testable and debuggable Dart code",
+      "Includes a rich set of prebuilt commands and an extensible plugin system"
+    ],
+    "weaknesses": [
+      "Requires using the sidekick ecosystem and generator",
+      "Major versions introduce breaking changes to core command execution"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Activate the sidekick generator globally via pub and run sidekick init in your project directory.",
+    "alternatives": [],
+    "minimal_example": "import 'package:sidekick_core/sidekick_core.dart';\n\nFuture<void> main(List<String> args) async {\n  final runner = initializeSidekick(mainProjectPath: 'dev/integration_tests/flutter_gallery');\n  runner.addCommand(YourCommand());\n  runner.addCommand(SidekickCommand());\n  return await runner.run(args);\n}",
+    "confidence": 1
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "3.0.0",
+  "generatedAt": "2026-11-13T11:15:18.390Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "layout"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "iOS‑style sectioned list view with sticky headers",
+    "what_it_does": "CupertinoListView renders a vertical list of sections, each with a header that stays pinned while scrolling. It supports dynamic and static children, empty sections, and custom separators.",
+    "use_when": [
+      "Building an iOS‑styled list with sticky section headers",
+      "Need a simple API similar to ListView.builder for grouped data",
+      "Want to display empty sections with only a header",
+      "Integrating with scroll_to_index for programmatic scrolling"
+    ],
+    "avoid_when": [
+      "You only need a plain ListView without sticky headers",
+      "You require Android‑style Material design list views",
+      "You need complex custom section widgets beyond the provided builder"
+    ],
+    "strengths": [
+      "Sticky headers out of the box",
+      "Supports empty sections",
+      "Flexible builder API for dynamic/static content",
+      "Compatible with all Flutter platforms"
+    ],
+    "weaknesses": [
+      "Only provides Cupertino (iOS) styling",
+      "No built‑in Material design alternative",
+      "Limited to sectioned lists, not arbitrary grids or carousels"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "CupertinoListView.builder(\n  sectionCount: data.length,\n  itemInSectionCount: (s) => data[s].items.length,\n  sectionBuilder: (ctx, path, _) => Text(data[path.section].name),\n  childBuilder: (ctx, idx) => Text(data[idx.section].items[idx.child]),\n  separatorBuilder: (ctx, idx) => Divider(indent: 20.0),\n  controller: _scrollController,\n);",
+    "confidence": 0.9
+  }
+}

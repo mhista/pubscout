@@ -1,0 +1,50 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "3.0.2",
+  "generatedAt": "2026-11-13T11:05:56.937Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A Flutter widget that shows avatars with fallback to images, initials or custom text.",
+    "what_it_does": "The Avatar widget picks the best available source among social image providers, network or asset images, and text (name initials or custom value). It falls back automatically if a source fails and can cache remote images.",
+    "use_when": [
+      "You need an avatar that can try multiple image sources and fall back to initials.",
+      "You want built‑in caching for remote avatar images.",
+      "You require easy shape and style customization for avatars."
+    ],
+    "avoid_when": [
+      "You only need a simple image widget without fallback logic.",
+      "You need support for social platforms not listed (e.g., Twitter).",
+      "You require advanced image editing or transformations."
+    ],
+    "strengths": [
+      "Automatic priority & fallback among many sources",
+      "Built‑in caching via flutter_cache_manager",
+      "Customizable shape, colors, border, loader"
+    ],
+    "weaknesses": [
+      "Limited to the provided social sources",
+      "No support for custom network error handling beyond fallback",
+      "No code‑generation or advanced image processing features"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "cached_network_image",
+        "why_pick_it": "Provides robust caching for network images without the extra avatar fallback logic."
+      },
+      {
+        "name": "octo_image",
+        "why_pick_it": "Offers placeholder and error widget handling for images, useful if you only need simple fallback."
+      }
+    ],
+    "minimal_example": "import 'package:avatars/avatars.dart';\n\nAvatar(\n  name: 'Alberto Fecchi',\n  sources: [GitHubSource('luckyseven')],\n  shape: AvatarShape.circle(40),\n);",
+    "confidence": 0.92
+  }
+}

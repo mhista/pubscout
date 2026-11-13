@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "2.8.6",
+  "generatedAt": "2026-11-13T11:18:27.281Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "VdoCipher plugin for secure video playback in Flutter apps across Android, iOS, and Web.",
+    "what_it_does": "Provides a VdoPlayer widget and controller to stream VdoCipher‑protected videos. Handles DRM, playback controls, and event callbacks on all supported platforms.",
+    "use_when": [
+      "need secure DRM‑protected video streaming",
+      "building a cross‑platform app that must play VdoCipher content"
+    ],
+    "avoid_when": [
+      "simple local video playback without DRM",
+      "requiring extensive UI customization of the player"
+    ],
+    "strengths": [
+      "secure DRM‑enabled streaming",
+      "cross‑platform (Android, iOS, Web) support",
+      "exposes playback controls and event listeners"
+    ],
+    "weaknesses": [
+      "locks you into VdoCipher service",
+      "limited UI customization",
+      "no support for non‑VdoCipher videos"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add Android Theme.AppCompat and extend FlutterFragmentActivity; integrate iOS VdoCipher SDK; no extra build_runner steps.",
+    "alternatives": [
+      {
+        "name": "video_player",
+        "why_pick_it": "general purpose video playback without DRM, more UI flexibility"
+      }
+    ],
+    "minimal_example": "import 'package:vdocipher_flutter/vdocipher_flutter.dart';\n\nclass VdoPlaybackView extends StatelessWidget {\n  final embedInfo = EmbedInfo.streaming(\n    otp: 'YOUR_OTP',\n    playbackInfo: 'YOUR_PLAYBACK_INFO',\n    embedInfoOptions: EmbedInfoOptions(autoplay: true),\n  );\n  @override\n  Widget build(BuildContext context) => Scaffold(body: VdoPlayer(embedInfo: embedInfo));\n}",
+    "confidence": 0.9
+  }
+}

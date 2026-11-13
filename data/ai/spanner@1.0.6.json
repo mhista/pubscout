@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.6",
+  "generatedAt": "2026-11-13T11:07:55.501Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Generic HTTP router implementation using a Radix Tree for routing, params, and wildcards.",
+    "what_it_does": "Spanner is a generic HTTP router that uses an internal Radix Tree (compact Prefix Tree) to manage and lookup routes efficiently. It supports route parameters, wildcards, middleware, and multiple HTTP methods.",
+    "use_when": [
+      "You need to build a custom HTTP server or backend router in Dart.",
+      "You require fast route lookups using a Radix Tree structure.",
+      "You need advanced routing capabilities like parameters and wildcards."
+    ],
+    "avoid_when": [
+      "You are looking for mobile screen navigation or deep linking.",
+      "You want a batteries-included high-level web framework instead of just a router."
+    ],
+    "strengths": [
+      "Fast route lookup and insertion via a Radix Tree.",
+      "Supports route parameters and wildcards.",
+      "Decoupled from specific server frameworks."
+    ],
+    "weaknesses": [
+      "Minimal documentation beyond basic tests and examples.",
+      "Not intended for UI-level routing or navigation."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Not documented",
+    "alternatives": [
+      {
+        "name": "shelf_router",
+        "why_pick_it": "If you are building Dart backend servers using shelf and need standard request routing."
+      }
+    ],
+    "minimal_example": "import 'package:spanner/spanner.dart';\nimport 'package:test/test.dart';\n\nvoid main() {\n  final router = Spanner()\n    ..addRoute(HTTPMethod.GET, '/user/<userId>', 123);\n\n  var result = router.lookup(HTTPMethod.GET, '/user/24');\n  print(result?.params); // {'userId': '24'}\n}",
+    "confidence": 0.95
+  }
+}

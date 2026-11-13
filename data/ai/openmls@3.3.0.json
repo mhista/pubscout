@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.3.0",
+  "generatedAt": "2026-11-13T11:41:08.298Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "networking",
+      "storage"
+    ],
+    "approach": [
+      "imperative",
+      "hooks"
+    ],
+    "one_liner": "Dart wrapper for OpenMLS implementing the Messaging Layer Security protocol",
+    "what_it_does": "Provides a Dart and Flutter wrapper for the OpenMLS Rust implementation of the Messaging Layer Security (MLS) protocol (RFC 9420). Enables secure group messaging with forward secrecy, post-compromise security, and encrypted state storage.",
+    "use_when": [
+      "Building end-to-end encrypted secure group messaging applications",
+      "Needing compliance with the Messaging Layer Security (MLS) protocol (RFC 9420)",
+      "Requiring hybrid and post-quantum cryptographic ciphersuites in Dart or Flutter"
+    ],
+    "avoid_when": [
+      "Using dart2wasm target (currently unsupported due to upstream limitations)",
+      "Needing simple client-server messaging without end-to-end protocol encryption requirements"
+    ],
+    "strengths": [
+      "High performance via direct Rust integration using flutter_rust_bridge",
+      "Comprehensive implementation of the MLS protocol including tree-based group key agreement",
+      "Built-in encrypted state storage using SQLCipher on native and Web Crypto on WASM"
+    ],
+    "weaknesses": [
+      "Precompiled native binaries depend on target platforms and build hooks",
+      "Post-quantum ciphersuites are experimental and use provisional code points",
+      "Does not support `flutter build web --wasm` targets yet"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "No manual Rust compilation required for end users as precompiled binaries are downloaded automatically via build hooks.",
+    "alternatives": [],
+    "minimal_example": "import 'dart:convert';\nimport 'dart:typed_data';\nimport 'package:openmls/openmls.dart';\n\nvoid main() async {\n  await Openmls.init();\n  final encryptionKey = Uint8List(32);\n  final engine = await MlsEngine.create(\n    dbPath: ':memory:',\n    encryptionKey: encryptionKey,\n  );\n  final ciphersuite = MlsCiphersuite.mls128DhkemX25519Aes128GcmSha256Ed25519;\n  final keyPair = MlsSignatureKeyPair.generate(ciphersuite: ciphersuite);\n  final signerBytes = serializeSigner(\n    ciphersuite: ciphersuite,\n    privateKey: keyPair.privateKey(),\n    publicKey: keyPair.publicKey(),\n  );\n  final config = MlsGroupConfig.defaultConfig(ciphersuite: ciphersuite);\n  final group = await engine.createGroup(\n    config: config,\n    signerBytes: signerBytes,\n    credentialIdentity: utf8.encode('alice'),\n    signerPublicKey: keyPair.publicKey(),\n  );\n  print('Created group: ${group.groupId}');\n  await engine.close();\n  Openmls.cleanup();\n}",
+    "confidence": 0.95
+  }
+}

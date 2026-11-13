@@ -1,0 +1,51 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.0.6",
+  "generatedAt": "2026-11-13T11:46:38.301Z",
+  "data": {
+    "primary_category": "localization",
+    "secondary_categories": [
+      "storage"
+    ],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "Easily localize Flutter apps using JSON files with dynamic locale switching and persistent storage.",
+    "what_it_does": "Allows developers to translate a Flutter app into multiple languages using local JSON asset files. It provides widgets and extensions to change app locales dynamically at runtime and automatically saves the selected language preference.",
+    "use_when": [
+      "You want to manage app localizations using JSON files stored in assets.",
+      "Users need to change the app language dynamically within the UI without restarting.",
+      "You want to remember the user's selected language across app restarts."
+    ],
+    "avoid_when": [
+      "You require compile-time type-safe keys via code generation.",
+      "Your localization requires complex ICU message format features not handled by simple JSON assets."
+    ],
+    "strengths": [
+      "Easy setup with JSON assets",
+      "Runtime locale switching with automatic persistence",
+      "Handy extensions and helper widgets like LocaleText"
+    ],
+    "weaknesses": [
+      "No compile-time verification of localization keys",
+      "Relies on JSON asset loading rather than native ARB/Intl code generation"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add json files in assets/locales/, declare them in pubspec.yaml, initialize Locales in main(), and wrap MaterialApp with LocaleBuilder.",
+    "alternatives": [
+      {
+        "name": "easy_localization",
+        "why_pick_it": "Popular alternative for JSON/YAML-based localization with easy setup."
+      },
+      {
+        "name": "slang",
+        "why_pick_it": "Provides type-safe translations through code generation."
+      }
+    ],
+    "minimal_example": "void main() async {\n  WidgetsFlutterBinding.ensureInitialized();\n  await Locales.init(['en', 'fa', 'ps']);\n  runApp(MyApp());\n}\n\nclass MyApp extends StatelessWidget {\n  @override\n  Widget build(BuildContext context) {\n    return LocaleBuilder(\n      builder: (locale) => MaterialApp(\n        localizationsDelegates: Locales.delegates,\n        supportedLocales: Locales.supportedLocales,\n        locale: locale,\n        home: HomeScreen(),\n      ),\n    );\n  }\n}",
+    "confidence": 1
+  }
+}

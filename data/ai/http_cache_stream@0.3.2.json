@@ -1,0 +1,52 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.3.2",
+  "generatedAt": "2026-11-13T11:27:13.986Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [
+      "networking",
+      "files"
+    ],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "Simultaneously downloads, caches, and streams remote content via a local HTTP server.",
+    "what_it_does": "Simultaneously downloads, caches, and streams remote web content. It sets up a local HTTP server so standard media players and plugins can immediately play media while it is still downloading.",
+    "use_when": [
+      "You want media players to play remote audio or video files instantly while downloading.",
+      "You need persistent offline caching for streaming resources.",
+      "You want range request support for seeking in media players."
+    ],
+    "avoid_when": [
+      "Your target environment does not permit cleartext local traffic or local server binding.",
+      "You only need basic asset or file downloading without streaming or media playback integration."
+    ],
+    "strengths": [
+      "Allows instant playback of remote media while downloading.",
+      "Works seamlessly with existing media player plugins via local HTTP URLs.",
+      "Supports range requests, resumable downloads, and custom headers."
+    ],
+    "weaknesses": [
+      "Requires platform-specific configuration for cleartext traffic and local HTTP server usage.",
+      "Local server sockets can be reclaimed on iOS when the app enters the background, requiring manual reactivation handling."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires platform configuration to allow cleartext (non-HTTPS) traffic to localhost. iOS/macOS requires an NSAppTransportSecurity entry in Info.plist, and Android requires a network security configuration XML file.",
+    "alternatives": [
+      {
+        "name": "just_audio",
+        "why_pick_it": "If you specifically need advanced built-in audio playback and caching capabilities without setting up an external proxy server."
+      },
+      {
+        "name": "video_player",
+        "why_pick_it": "If you prefer using platform-native caching options built directly into video player implementations."
+      }
+    ],
+    "minimal_example": "await HttpCacheManager.init();\nfinal sourceUrl = Uri.parse('https://example.com/video.mp4');\nfinal cacheUrl = HttpCacheManager.instance.getCacheUrl(sourceUrl);\nfinal videoPlayerController = VideoPlayerController.networkUrl(cacheUrl);\nawait videoPlayerController.initialize();\nvideoPlayerController.play();",
+    "confidence": 1
+  }
+}

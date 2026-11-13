@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.1.0",
+  "generatedAt": "2026-11-13T11:26:09.227Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Pure Dart library to create and read Apple PkPass and order files for Apple Wallet.",
+    "what_it_does": "Allows reading, writing, signing, and managing Apple Wallet PkPass and order tracking files. It works on servers, web, and mobile apps in pure Dart.",
+    "use_when": [
+      "You need to generate Apple Wallet passes or order tracking files on a server or within an app.",
+      "You need to parse or update existing PkPass binary files."
+    ],
+    "avoid_when": [
+      "You need a complete mobile UI widget set out-of-the-box (requires passkit_ui for widgets).",
+      "You need to interact directly with Apple's native PassKit framework APIs (use apple_passkit instead)."
+    ],
+    "strengths": [
+      "Pure Dart implementation working across servers and Flutter clients.",
+      "Supports both reading and properly signing PkPass files for Apple Wallet."
+    ],
+    "weaknesses": [
+      "Push notification updates are only supported on iOS.",
+      "Localization currently uses UTF-8 instead of UTF-16 which may cause edge-case issues."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires setting up Apple certificates and private keys for proper pass signing.",
+    "alternatives": [
+      {
+        "name": "apple_passkit",
+        "why_pick_it": "Pick this if you want to work with Apple's native PassKit APIs instead of a pure Dart parsing/generation library."
+      }
+    ],
+    "minimal_example": "import 'package:passkit/passkit.dart';\n\nvoid main() {\n  final passKitBytes = ... // get bytes for the PassKit from somewhere\n  final pkPass = PkPass.fromBytes(passKitBytes);\n}",
+    "confidence": 0.95
+  }
+}

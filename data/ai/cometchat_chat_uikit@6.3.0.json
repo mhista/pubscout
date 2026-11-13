@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "6.3.0",
+  "generatedAt": "2026-11-13T11:35:00.352Z",
+  "data": {
+    "primary_category": "ui-kits",
+    "secondary_categories": [
+      "audio-video"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Prebuilt UI components for text chat, media messaging, and voice/video calls.",
+    "what_it_does": "Provides ready-made UI components and screens for messaging, user and group management, and voice/video calling. Integrates with the CometChat backend SDK to handle chat functionality and real-time communication out of the box.",
+    "use_when": [
+      "You want to add fully-featured chat and messaging to your Flutter app quickly",
+      "You need built-in voice and video calling screens tied to CometChat SDK",
+      "You want customizable chat components with support for theming and localization"
+    ],
+    "avoid_when": [
+      "You are building your own custom chat UI from scratch and only need raw backend API clients",
+      "You use a chat backend other than CometChat"
+    ],
+    "strengths": [
+      "Comprehensive UI components for conversations, messages, users, and groups",
+      "Built-in voice and video calling support via Calls SDK",
+      "Theming and localization support"
+    ],
+    "weaknesses": [
+      "Tightly coupled to the proprietary CometChat backend and SDK",
+      "High dependency footprint"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires creating an app in the CometChat Dashboard, obtaining App ID, Region, and Auth Key, and configuring SDK initialization.",
+    "alternatives": [],
+    "minimal_example": "Future<void> initCometChat() async {\n  final uiKitSettings = (UIKitSettingsBuilder()\n        ..subscriptionType = CometChatSubscriptionType.allUsers\n        ..region = '<YOUR_REGION>'\n        ..appId = '<YOUR_APP_ID>'\n        ..authKey = '<YOUR_AUTH_KEY>'\n        ..autoEstablishSocketConnection = true)\n      .build();\n\n  CometChatUIKit.init(\n    uiKitSettings: uiKitSettings,\n    onSuccess: (_) {\n      CometChatUIKit.login('<UID>', onSuccess: (_) {}, onError: (_) {});\n    },\n    onError: (_) {},\n  );\n}",
+    "confidence": 0.95
+  }
+}

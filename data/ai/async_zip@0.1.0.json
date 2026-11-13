@@ -1,0 +1,46 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.1.0",
+  "generatedAt": "2026-11-13T11:08:13.415Z",
+  "data": {
+    "primary_category": "files",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "A Flutter plugin to asynchronously read and write Zip files.",
+    "what_it_does": "Allows fast reading and writing of Zip archives both synchronously and asynchronously with low memory consumption. It also provides functions to extract a Zip archive into a folder with optional progress callbacks. The underlying C library is integrated using Dart FFI.",
+    "use_when": [
+      "You need to handle large Zip files on low or medium range devices without high memory consumption.",
+      "You require asynchronous Zip reading and writing capabilities in your Flutter application."
+    ],
+    "avoid_when": [
+      "You do not want to rely on a native C library integration via FFI.",
+      "You are targeting platforms other than Android and iOS (as only android and ios platforms are listed)."
+    ],
+    "strengths": [
+      "Low memory consumption compared to standard libraries that load entire files into memory.",
+      "Supports both synchronous and asynchronous operations.",
+      "Includes built-in extraction functions with progress tracking capabilities."
+    ],
+    "weaknesses": [
+      "Limited platform support explicitly documented (android, ios).",
+      "Requires manual resource management (must call `close()` to avoid leaks or unfinished zip files)."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [
+      {
+        "name": "archive",
+        "why_pick_it": "Pick archive if you want a pure Dart solution without FFI bindings or if you need support for a wider variety of archive formats beyond just Zip."
+      }
+    ],
+    "minimal_example": "import 'package:async_zip/async_zip.dart';\n\nfinal reader = ZipFileReader();\ntry {\n  reader.open(File('path-to-archive.zip'));\n  final entries = await reader.entries();\n  for (final entry in entries) {\n    print('${entry.name} ${entry.size}');\n  }\n} on ZipException catch (ex) {\n  print('Could not read Zip file: ${ex.message}');\n} finally {\n  await reader.close();\n}",
+    "confidence": 0.95
+  }
+}

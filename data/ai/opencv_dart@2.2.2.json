@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "2.2.2",
+  "generatedAt": "2026-11-13T10:59:16.837Z",
+  "data": {
+    "primary_category": "images",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "hooks",
+      "imperative"
+    ],
+    "one_liner": "Flutter bindings for OpenCV4 using dart:ffi.",
+    "what_it_does": "Provides Dart/Flutter access to OpenCV4 core and contrib modules via FFI. Enables image, video, and computer‑vision processing on Android, iOS, Windows, macOS and Linux.",
+    "use_when": [
+      "You need high‑performance native computer‑vision algorithms",
+      "You require OpenCV modules like DNN, feature detection, or video I/O",
+      "Your app runs on supported desktop or mobile platforms"
+    ],
+    "avoid_when": [
+      "You target web only (no native assets)",
+      "You prefer a pure‑Dart solution with smaller binary size",
+      "You want to avoid potential FFmpeg licensing issues"
+    ],
+    "strengths": [
+      "Broad coverage of OpenCV modules",
+      "Cross‑platform native performance",
+      "Supports both core and many contrib modules"
+    ],
+    "weaknesses": [
+      "Requires native build steps and CMake configuration",
+      "Large binary size and possible licensing concerns with FFmpeg",
+      "Not usable on web platforms"
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Requires Dart SDK >=3.10 (Flutter 3.38), enables native‑assets hooks, may need to install CMake and configure custom cmake generator, ensure platform SDKs are present, watch out for FFmpeg licensing when using video modules",
+    "alternatives": [
+      {
+        "name": "image",
+        "why_pick_it": "Pure‑Dart image manipulation library, no native build required, suitable for simple image tasks and web"
+      }
+    ],
+    "minimal_example": "import 'package:opencv_dart/opencv_dart.dart';\n\nvoid main() async {\n  final img = await Imgcodecs.imread('assets/sample.jpg');\n  final gray = await Imgproc.cvtColor(img, Imgproc.COLOR_BGR2GRAY);\n  await Imgcodecs.imwrite('assets/gray.jpg', gray);\n}",
+    "confidence": 0.93
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.0",
+  "generatedAt": "2026-11-13T11:08:01.431Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Enables Flutter apps to communicate with apps running on WearOS devices.",
+    "what_it_does": "Provides a wrapper to communicate with WearOS applications via the Data Layer API. Allows sending messages, syncing data items, transferring files, managing device capabilities, and tracking connected devices.",
+    "use_when": [
+      "Building a companion WearOS app for your Flutter Android application.",
+      "Synchronizing data, messages, or capabilities between a phone and a smartwatch."
+    ],
+    "avoid_when": [
+      "Targeting non-Android smartwatches or Apple Watch (use alternative watch packages instead).",
+      "Building general mobile-to-mobile connectivity apps without wearables."
+    ],
+    "strengths": [
+      "Supports device discovery, message passing, and capability querying.",
+      "Provides stream-based listening for data changes and messages."
+    ],
+    "weaknesses": [
+      "Limited strictly to Android and WearOS ecosystem.",
+      "Requires proper companion app package name alignment."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires creating a WearOS companion app with the same package name as the Android app and calling configureWearableAPI() before use.",
+    "alternatives": [],
+    "minimal_example": "FlutterWearOsConnectivity _flutterWearOsConnectivity = FlutterWearOsConnectivity();\n_flutterWearOsConnectivity.configureWearableAPI();\nList<WearOsDevice> _connectedDevices = await _flutterWearOsConnectivity.getConnectedDevices();",
+    "confidence": 0.95
+  }
+}

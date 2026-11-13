@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.2.3",
+  "generatedAt": "2026-11-13T11:39:20.373Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "animation"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Scroll observer to jump or animate to indices in scroll views without breaking current widgets.",
+    "what_it_does": "Allows you to scroll to specific indices or ratios in ListView, GridView, CustomScrollView, and SingleChildScrollView. It also provides visibility checking for items and scroll offset retention physics.",
+    "use_when": [
+      "You need to programmatically jump or animate to a specific index in a list or grid.",
+      "You want to check if a specific item index is currently visible on screen.",
+      "You need to retain scroll position when adding items to the top of a list."
+    ],
+    "avoid_when": [
+      "You are using NestedScrollView, which is not yet supported.",
+      "You are not willing to wrap item widgets inside an ObserverProxy."
+    ],
+    "strengths": [
+      "Supports a wide range of scroll views including ListView, GridView, CustomScrollView, SingleChildScrollView, and ListWheelScrollView.",
+      "Provides utilities for checking visible items and visibility ratios.",
+      "Includes PositionRetainedScrollPhysics for retaining scroll offsets."
+    ],
+    "weaknesses": [
+      "Requires every observed item widget or builder to be wrapped using ObserverProxy.",
+      "NestedScrollView is currently untested and not supported."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [],
+    "minimal_example": "final _observer = ScrollObserver.sliverMulti(itemCount: 30);\n\nListView.builder(\n  controller: _controller,\n  itemBuilder: (context, index) => ObserverProxy(\n    observer: _observer,\n    child: ListTile(title: Text(\"Item $index\")),\n  ),\n  itemCount: 30,\n);",
+    "confidence": 0.95
+  }
+}

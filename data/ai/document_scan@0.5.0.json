@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.5.0",
+  "generatedAt": "2026-11-13T11:33:59.352Z",
+  "data": {
+    "primary_category": "camera",
+    "secondary_categories": [
+      "files",
+      "ai-ml"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Offline document edge detection for Flutter returning corner coordinates.",
+    "what_it_does": "Detects document edges and corner coordinates from live camera frames or still photos using native vision engines. It performs perspective correction and filtering to produce clean scanned documents, leaving UI and camera management entirely to the developer.",
+    "use_when": [
+      "You need custom camera UI and UX while retaining document edge detection.",
+      "You require fully offline document scanning without external cloud services or bundled ML models.",
+      "You need corner coordinates and processed image bytes rather than a pre-packaged fullscreen view."
+    ],
+    "avoid_when": [
+      "You want a ready-to-use drop-in fullscreen document scanner UI out of the box.",
+      "You need built-in OCR capabilities included with the scanner."
+    ],
+    "strengths": [
+      "Widget-free and camera-agnostic, giving full control over the user interface.",
+      "Runs fully offline using native platform vision engines (Apple Vision on iOS, OpenCV on Android).",
+      "Supports real-time live-frame detection streams with stabilization and auto-capture analysis."
+    ],
+    "weaknesses": [
+      "Requires you to bring your own camera package and build the camera preview and overlay UI.",
+      "Perspective-correction warp is CPU intensive and runs on a background isolate."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "No camera dependency bundled; you must supply your own camera setup and pass frames as ScanInput.",
+    "alternatives": [],
+    "minimal_example": "import 'package:document_scan/document_scan.dart';\n\nfinal scanner = DocumentScanner();\nfinal scan = await scanner.scan(ScanInput.file('/path/to/photo.jpg'));\nif (scan != null) {\n  Image.memory(scan.bytes);\n}",
+    "confidence": 1
+  }
+}

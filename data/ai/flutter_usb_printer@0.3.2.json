@@ -1,0 +1,37 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.3.2",
+  "generatedAt": "2026-11-13T11:21:34.360Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Send data and work with USB printers on Android.",
+    "what_it_does": "Allows Flutter apps to interact with USB printers on Android. It provides methods to list connected USB devices, connect to them, and write raw or text data for printing.",
+    "use_when": [
+      "You need to connect and print receipts or documents to a USB thermal printer from an Android Flutter app.",
+      "You want to manage USB device permissions and bulk data transfers directly."
+    ],
+    "avoid_when": [
+      "You need printing support for iOS, desktop, or web platforms.",
+      "You require high-level document printing (like PDF rendering) rather than raw ESC/POS byte streams."
+    ],
+    "strengths": [
+      "Supports chunked data transfers and connection serialization for stable printing.",
+      "Handles automatic USB permission dialogs and detached device cleanups."
+    ],
+    "weaknesses": [
+      "Limited to Android platform only.",
+      "Documentation outside the basic README example is sparse."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Android only. Minimum SDK raised to 24 in recent versions. Uses USB device attached intent-filters.",
+    "alternatives": [],
+    "minimal_example": "_getDevicelist() async {\n    List<Map<String, dynamic>> results = [];\n    results = await FlutterUsbPrinter.getUSBDeviceList();\n    setState(() {\n      devices = results;\n    });\n}",
+    "confidence": 0.95
+  }
+}

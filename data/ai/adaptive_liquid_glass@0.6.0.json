@@ -1,0 +1,53 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.6.0",
+  "generatedAt": "2026-11-13T11:32:02.739Z",
+  "data": {
+    "primary_category": "ui-kits",
+    "secondary_categories": [
+      "widgets",
+      "layout",
+      "theming"
+    ],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "iOS Liquid Glass widgets with Material 3 fallbacks on Android behind one adaptive API",
+    "what_it_does": "Provides iOS Liquid Glass widgets matched to SwiftUI alongside Material 3 fallbacks for Android. It renders native SwiftUI glass on iOS 26+ and fragment shaders or Material surfaces elsewhere.",
+    "use_when": [
+      "You want an iOS 26 Liquid Glass aesthetic that matches SwiftUI",
+      "You need platform-adaptive UI components (glass on iOS, Material 3 on Android) through a single API",
+      "You are building custom buttons, tab bars, sheets, and sliders with frosted glass effects"
+    ],
+    "avoid_when": [
+      "Your app strictly requires a traditional Material or Cupertino look without glassmorphism",
+      "You are targeting devices with very limited GPU memory where full-screen offscreen shader textures would be an issue"
+    ],
+    "strengths": [
+      "Pixel-identical to SwiftUI on iOS 26+ via native views",
+      "Cross-platform adaptive API with automatic Material 3 fallbacks on Android",
+      "Extensive preset library and fluid glass grouping/merging features"
+    ],
+    "weaknesses": [
+      "Shader glass can consume significant GPU memory on Android under Impeller",
+      "Requires iOS 26+ for native SwiftUI views, falling back to shaders on older versions"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "No Gradle dependencies or permissions required for the core UI, though shaders can optionally be preloaded via AdaptiveLiquidGlass.initialize().",
+    "alternatives": [
+      {
+        "name": "material_ui",
+        "why_pick_it": "Choose this if you want a pure Material Design look instead of iOS-style liquid glass."
+      },
+      {
+        "name": "cupertino_ui",
+        "why_pick_it": "Choose this if you prefer standard native Apple Cupertino widgets instead of custom glass effects."
+      }
+    ],
+    "minimal_example": "GlassButton(\n  onPressed: () => showGlassAlert(context: context, title: 'Hello, glass'),\n  child: const Text('Tap me'),\n)",
+    "confidence": 0.95
+  }
+}

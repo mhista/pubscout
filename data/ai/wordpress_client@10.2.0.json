@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "10.2.0",
+  "generatedAt": "2026-11-13T11:13:27.876Z",
+  "data": {
+    "primary_category": "backend",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "imperative",
+      "code generation",
+      "stream-based"
+    ],
+    "one_liner": "A strongly typed WordPress client for REST, GraphQL, and CRUD operations.",
+    "what_it_does": "Provides a comprehensive, typed client library to interact with the WordPress REST API and WPGraphQL. Supports CRUD operations across 30+ endpoints, authentication methods, caching, pagination, and offline writes.",
+    "use_when": [
+      "Building a Dart or Flutter application that communicates with a self-hosted or WordPress.com site",
+      "Needing typed models, queries, and mutations for WordPress REST or WPGraphQL APIs"
+    ],
+    "avoid_when": [
+      "Building apps that do not interact with WordPress or a CMS utilizing the WordPress API standard"
+    ],
+    "strengths": [
+      "Comprehensive coverage of WordPress REST endpoints, GraphQL, and custom post types",
+      "Built-in resilience features like caching, retries, and offline write queues",
+      "Cross-platform support including web, mobile, and desktop"
+    ],
+    "weaknesses": [
+      "Specific tightly-coupled ecosystem focused entirely on WordPress"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Installs via pubspec.yaml with no complex native permissions or configuration required.",
+    "alternatives": [
+      {
+        "name": "dio",
+        "why_pick_it": "If you prefer a generic, highly configurable HTTP client for custom API integrations rather than a dedicated WordPress wrapper."
+      },
+      {
+        "name": "http",
+        "why_pick_it": "If you only need basic HTTP networking and want a lightweight alternative."
+      }
+    ],
+    "minimal_example": "import 'package:wordpress_client/wordpress_client.dart';\n\nfinal client = WordpressClient.forSite(\n  siteUrl: Uri.parse('https://example.com'),\n);\n\nfinal response = await client.posts.list(ListPostRequest(perPage: 10));",
+    "confidence": 1
+  }
+}

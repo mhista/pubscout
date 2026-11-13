@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.1.3",
+  "generatedAt": "2026-11-13T11:45:45.592Z",
+  "data": {
+    "primary_category": "payments",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter plugin for integrating the Razorpay payment gateway across multiple platforms.",
+    "what_it_does": "Allows Flutter applications to accept payments using Razorpay with an event-driven flow. Supports Android, iOS, Web, Windows, Linux, and macOS platforms via native SDKs and WebViews.",
+    "use_when": [
+      "You need to accept payments via Razorpay in a cross-platform Flutter application.",
+      "You require support for Android, iOS, Web, and desktop environments (Windows, macOS, Linux)."
+    ],
+    "avoid_when": [
+      "You need to process payments through a provider other than Razorpay.",
+      "You are looking for server-side payment processing code (this is strictly a client SDK wrapper)."
+    ],
+    "strengths": [
+      "True cross-platform support covering mobile, web, and desktop.",
+      "Event-driven architecture for handling success, error, and external wallet responses.",
+      "Official Razorpay SDK integration for mobile."
+    ],
+    "weaknesses": [
+      "Requires platform-specific setup on Android, iOS, Web, and macOS.",
+      "Desktop platforms rely on InAppWebView and require a BuildContext passed to the open method."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding checkout scripts for web, minimum SDK/deployment target configuration for Android/iOS, and network client entitlements for macOS.",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:razorpay_web/razorpay_web.dart';\n\nclass PaymentScreen extends StatefulWidget {\n  @override\n  _PaymentScreenState createState() => _PaymentScreenState();\n}\n\nclass _PaymentScreenState extends State<PaymentScreen> {\n  late Razorpay _razorpay;\n\n  @override\n  void initState() {\n    super.initState();\n    _razorpay = Razorpay();\n    _razorpay.on(Razorpay.EVENT_PAYMENT_SUCCESS, _handlePaymentSuccess);\n    _razorpay.on(Razorpay.EVENT_PAYMENT_ERROR, _handlePaymentError);\n  }\n\n  void openCheckout() {\n    var options = {\n      'key': 'rzp_test_1DP5mmOlF5G5ag',\n      'amount': 100,\n      'name': 'Acme Corp.',\n    };\n    _razorpay.open(options, context: context);\n  }\n\n  void _handlePaymentSuccess(PaymentSuccessResponse response) {}\n  void _handlePaymentError(PaymentFailureResponse response) {}\n\n  @override\n  Widget build(BuildContext context) {\n    return Scaffold(\n      body: Center(\n        child: ElevatedButton(\n          onPressed: openCheckout,\n          child: Text('Pay Now'),\n        ),\n      ),\n    );\n  }\n}",
+    "confidence": 1
+  }
+}

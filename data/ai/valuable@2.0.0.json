@@ -1,0 +1,46 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "2.0.0",
+  "generatedAt": "2026-11-13T11:18:00.665Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [],
+    "approach": [
+      "declarative",
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "A graph‑based state‑management library that lets you rebuild parts of the UI without many StatefulWidgets.",
+    "what_it_does": "Valuable lets you create independent state nodes (Valuables) that can depend on each other and notify listeners when they change. It works both inside and outside the widget tree, using ChangeNotifier under the hood.",
+    "use_when": [
+      "You need fine‑grained local state updates without scattering many StatefulWidgets",
+      "You want a graph‑like dependency system for state that can be scoped to a widget or view"
+    ],
+    "avoid_when": [
+      "You prefer a global provider solution like Riverpod",
+      "You need code‑generation based state management or built‑in DI"
+    ],
+    "strengths": [
+      "Graph‑based dependencies allow selective rebuilds",
+      "Works both inside and outside Flutter widget tree",
+      "No code‑generation required"
+    ],
+    "weaknesses": [
+      "Requires manual disposal of each Valuable",
+      "Limited ecosystem compared to more popular solutions",
+      "No built‑in DI or code‑gen features"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "riverpod",
+        "why_pick_it": "Mature, widely used global state management with extensive tooling and community support"
+      }
+    ],
+    "minimal_example": "final counter = StatefulValuable<int>(0);\ncounter.addListener(() => print('value: ${counter.getValue()}'));\ncounter.setValue(1);",
+    "confidence": 0.78
+  }
+}

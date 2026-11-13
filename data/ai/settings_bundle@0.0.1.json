@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.0.1",
+  "generatedAt": "2026-11-13T11:24:43.875Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Retrieve and modify iOS native Settings bundle preferences from Flutter.",
+    "what_it_does": "The plugin provides a simple API to get and set values stored in the iOS system-provided Settings app via a Settings bundle. It also allows listening to settings value changes via a stream.",
+    "use_when": [
+      "You need to integrate your Flutter app preferences with the system-provided iOS Settings app",
+      "You want to listen to changes made to native iOS settings values at runtime"
+    ],
+    "avoid_when": [
+      "You are building for Android or non-iOS platforms (the plugin supports iOS only)",
+      "You just need cross-platform key-value local storage without native iOS Settings app integration"
+    ],
+    "strengths": [
+      "Enables seamless integration with iOS system Settings bundles",
+      "Provides a simple API for getting, setting, and listening to preference changes"
+    ],
+    "weaknesses": [
+      "Supports iOS only",
+      "Requires manual configuration of a Settings.bundle in Xcode"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires creating and modifying a Settings.bundle template in your Xcode project under iOS resources.",
+    "alternatives": [
+      {
+        "name": "shared_preferences",
+        "why_pick_it": "Pick this if you need cross-platform simple key-value storage rather than native iOS Settings app integration."
+      }
+    ],
+    "minimal_example": "final bool? isDarkMode = await SettingsBundle().get<bool>('theme_mode');\nawait SettingsBundle().set('theme_mode', true);",
+    "confidence": 0.95
+  }
+}

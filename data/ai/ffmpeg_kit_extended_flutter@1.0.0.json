@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.0",
+  "generatedAt": "2026-11-13T11:45:08.859Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [
+      "files",
+      "web-desktop"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based",
+      "hooks"
+    ],
+    "one_liner": "Cross-platform FFmpeg, FFprobe, and FFplay plugin for media processing and playback",
+    "what_it_does": "A comprehensive Flutter plugin that allows executing FFmpeg, FFprobe, and FFplay commands using the 9.0.1 API. It supports Android, iOS, macOS, Linux, Windows, and WebAssembly builds, using Dart FFI for native performance and a WebAssembly runtime for the web.",
+    "use_when": [
+      "You need to transcode, trim, or edit audio and video files inside your Flutter app.",
+      "You require cross-platform support for media playback and streaming via FFplay.",
+      "You need detailed media metadata extraction using FFprobe."
+    ],
+    "avoid_when": [
+      "You only need basic, simple video playback without complex processing or custom FFmpeg commands.",
+      "Your target application cannot handle the large binary size of bundled FFmpeg native libraries."
+    ],
+    "strengths": [
+      "Comprehensive cross-platform support including Android, iOS, macOS, Linux, Windows, and WebAssembly.",
+      "Direct native bindings via Dart FFI for optimal execution performance.",
+      "Includes support for logs, statistics, session lifecycle control, and a full package introspection API."
+    ],
+    "weaknesses": [
+      "Adds significant binary size to the application due to embedded native FFmpeg libraries.",
+      "Requires careful adherence to build-hook configurations and SDK minimum requirements.",
+      "Synchronous FFmpeg/FFprobe operations cannot open network inputs on Web."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding official hooks configuration under user_defines in pubspec.yaml to specify bundle types and optional GPL flags, plus meeting minimum requirements (Flutter 3.47.0+, Dart 3.12.0+).",
+    "alternatives": [],
+    "minimal_example": "hooks:\n  user_defines:\n    ffmpeg_kit_extended_flutter:\n      type: \"base\"\n      gpl: true\n      small: true",
+    "confidence": 0.95
+  }
+}

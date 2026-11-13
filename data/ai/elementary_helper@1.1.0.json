@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.1.0",
+  "generatedAt": "2026-11-13T11:47:57.072Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative",
+      "stream-based"
+    ],
+    "one_liner": "Helpers for the Elementary architecture including state notifiers, builders, and execution mixins.",
+    "what_it_does": "Provides utility widgets and state management notifiers specifically designed to complement the Elementary architecture library. It includes reactive builders for single or multiple sources, and task execution mixins for managing async operations safely within model lifecycles.",
+    "use_when": [
+      "You are building a Flutter application using the Elementary architecture package.",
+      "You need state notifiers that do not require an initial value or handle loading/error states like EntityStateNotifier.",
+      "You want to manage async task execution and automatically handle errors tied to a model's lifecycle."
+    ],
+    "avoid_when": [
+      "You do not use the Elementary architecture in your Flutter application.",
+      "You prefer alternative state management solutions such as Bloc, Riverpod, or Provider without Elementary."
+    ],
+    "strengths": [
+      "Seamlessly integrates with the Elementary MVVM stack.",
+      "Provides multi-source builders for combining multiple listenables.",
+      "Includes lifecycle-aware execution helpers to prevent updating disposed models."
+    ],
+    "weaknesses": [
+      "Tied tightly to the Elementary ecosystem, limiting its usefulness in standard Flutter apps.",
+      "Limited documentation outside of basic README examples."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add elementary_helper to pubspec.yaml along with the elementary dependency.",
+    "alternatives": [],
+    "minimal_example": "final _somePropertyWithIntegerValue = StateNotifier<int>();\n\nStateNotifierBuilder<int>(\n  listenableState: _somePropertyWithIntegerValue,\n  builder: (ctx, value) {\n    return Text('$value');\n  },\n);",
+    "confidence": 0.9
+  }
+}

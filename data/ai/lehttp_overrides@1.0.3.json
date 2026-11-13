@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.3",
+  "generatedAt": "2026-11-13T11:31:24.380Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Resolves Let's Encrypt SSL certificate problems on Android 7.1.1 and below.",
+    "what_it_does": "It overrides global HTTP configurations to add the ISRG Root X1 CA to the certificate store, fixing SSL issues on older Android versions. An optional parameter also allows accepting the expired DST Root CA X3 certificate.",
+    "use_when": [
+      "Your app targets Android 7.1.1 or lower and uses Let's Encrypt SSL certificates",
+      "You need a quick global fix for SSL handshake errors on older devices"
+    ],
+    "avoid_when": [
+      "Your app does not support Android 7.1.1 or lower",
+      "You are using self-signed certificates or CAs other than Let's Encrypt"
+    ],
+    "strengths": [
+      "Harmless on Android versions greater than 7.1.1",
+      "Simple one-line setup in the main function"
+    ],
+    "weaknesses": [
+      "Limited scope restricted to specific Android versions and Let's Encrypt certificates",
+      "Relies on global HTTP overrides"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the initialization line with LEHttpOverrides to the beginning of your project's main function.",
+    "alternatives": [],
+    "minimal_example": "import 'package:lehttp_overrides/lehttp_overrides.dart';\n\nvoid main() {\n  if (Platform.isAndroid) {\n    HttpOverrides.global = LEHttpOverrides();\n  }\n  runApp(const MyApp());\n}",
+    "confidence": 0.95
+  }
+}

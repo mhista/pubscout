@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.3",
+  "generatedAt": "2026-11-13T11:27:01.897Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Check if the current Android or iOS device supports eSIM compatibility.",
+    "what_it_does": "Checks whether the current Android or iOS device supports eSIM using native platform code. Provides a simple asynchronous method to return a boolean compatibility result.",
+    "use_when": [
+      "You need to check eSIM compatibility before prompting users for eSIM activation.",
+      "You are building a telecom or carrier app targeting Android and iOS."
+    ],
+    "avoid_when": [
+      "You need to manage or install eSIM profiles rather than just checking device capability.",
+      "You are targeting web, desktop, or unsupported platforms."
+    ],
+    "strengths": [
+      "No extra permissions required.",
+      "Uses native Android and iOS code for accurate detection.",
+      "Simple one-line Dart API."
+    ],
+    "weaknesses": [
+      "Only supports Android and iOS platforms.",
+      "iOS detection relies on a hardcoded device model list that requires updates for new devices."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "No extra permissions required. Simply add the dependency to pubspec.yaml.",
+    "alternatives": [
+      {
+        "name": "device_info_plus",
+        "why_pick_it": "Provides general device and OS information which can be used to manually inspect OS versions and hardware properties."
+      }
+    ],
+    "minimal_example": "import 'package:esim_compatibility/esim_compatibility.dart';\n\nvoid main() async {\n  final isCompatible = await EsimCompatibility.isEsimCompatible();\n\n  if (isCompatible) {\n    print(\"✅ Device supports eSIM\");\n  } else {\n    print(\"❌ Device does not support eSIM\");\n  }\n}",
+    "confidence": 1
+  }
+}

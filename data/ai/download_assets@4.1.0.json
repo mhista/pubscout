@@ -1,0 +1,57 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "4.1.0",
+  "generatedAt": "2026-11-13T11:05:57.174Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "storage",
+      "files"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Download files (optionally unzip) and store them locally for later use.",
+    "what_it_does": "The package downloads assets from given URLs, can uncompress them using built‑in or custom delegates, and saves them to a configurable directory. It provides callbacks for progress, completion and cancellation, and supports web, mobile and desktop platforms.",
+    "use_when": [
+      "You need to fetch large assets (images, videos, zip bundles) at runtime rather than bundling them with the app",
+      "You require custom decompression for formats beyond ZIP",
+      "You want a simple API with progress reporting and optional cancellation"
+    ],
+    "avoid_when": [
+      "You need a full‑featured caching or offline sync solution",
+      "You require secure/encrypted storage of sensitive data",
+      "You only need basic HTTP GET without file handling"
+    ],
+    "strengths": [
+      "Built‑in support for ZIP and custom uncompress delegates",
+      "Cross‑platform including web support",
+      "Progress, start‑unzip and cancel callbacks"
+    ],
+    "weaknesses": [
+      "Relies on dio; no built‑in retry or cache management",
+      "Only handles file download/unzip, not higher‑level asset management",
+      "Permissions required on mobile platforms"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add storage permissions for Android/iOS; initialize with downloadAssetsController.init() before use",
+    "alternatives": [
+      {
+        "name": "dio",
+        "why_pick_it": "If you only need HTTP requests without the extra asset‑management layer"
+      },
+      {
+        "name": "archive",
+        "why_pick_it": "For manual archive handling without the download controller"
+      },
+      {
+        "name": "path_provider",
+        "why_pick_it": "To manage app directories directly without the download wrapper"
+      }
+    ],
+    "minimal_example": "await downloadAssetsController.init();\nawait downloadAssetsController.startDownload(\n  assetsUrls:[AssetUrl(url:'https://example.com/file.zip')],\n  onProgress:(p)=>print('Progress: $p'),\n  onDone:()=>print('Done'),\n);",
+    "confidence": 0.9
+  }
+}

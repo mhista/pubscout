@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.0.0",
+  "generatedAt": "2026-11-13T11:45:26.395Z",
+  "data": {
+    "primary_category": "auth",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter plugin to add Facebook login and user profile information to your app.",
+    "what_it_does": "Allows users to log into a Flutter application using their Facebook accounts. It provides access tokens, user profile information, profile image URLs, and email addresses.",
+    "use_when": [
+      "You want to allow users to sign in or sign up using their Facebook accounts.",
+      "Your application targets both Android and iOS platforms."
+    ],
+    "avoid_when": [
+      "You do not require Facebook authentication in your application.",
+      "You prefer using a backend-as-a-service provider like Firebase Authentication to handle all social logins."
+    ],
+    "strengths": [
+      "Includes user profile and email retrieval capabilities.",
+      "Supports Swift Package Manager (SPM) alongside CocoaPods on iOS.",
+      "Up-to-date with recent Facebook Android and iOS SDK versions."
+    ],
+    "weaknesses": [
+      "Requires manual native configuration on both Android (XML resources, Manifest, Key Hashes) and iOS (Info.plist).",
+      "Limited Login mode on iOS requires additional OIDC token validation for server-side verification."
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Requires creating a Facebook app, configuring Android strings.xml, AndroidManifest.xml, release/debug key hashes, and editing iOS Info.plist with URL schemes and App IDs.",
+    "alternatives": [
+      {
+        "name": "firebase_auth",
+        "why_pick_it": "If you are already using Firebase for backend services and want an integrated authentication system that supports Facebook login."
+      }
+    ],
+    "minimal_example": "import 'package:flutter_login_facebook/flutter_login_facebook.dart';\n\nfinal fb = FacebookLogin();\nfinal res = await fb.logIn(permissions: [\n  FacebookPermission.publicProfile,\n  FacebookPermission.email,\n]);",
+    "confidence": 1
+  }
+}

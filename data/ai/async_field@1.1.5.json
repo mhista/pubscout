@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "1.1.5",
+  "generatedAt": "2026-11-13T11:17:53.888Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Async fields with observable values, caching and stale handling for any data source",
+    "what_it_does": "Provides a storage-backed field abstraction that can fetch, save and observe values asynchronously. Fields expose default values, fetchers, savers and change listeners, and support stale data handling and periodic refresh.",
+    "use_when": [
+      "You need to fetch data from a remote API and keep it in sync with local storage",
+      "You want observable async values that notify listeners on change",
+      "You need a simple cache with stale‑value support without a full state‑management solution"
+    ],
+    "avoid_when": [
+      "You already use a full state‑management library like Riverpod or Bloc",
+      "You need complex dependency injection or navigation features"
+    ],
+    "strengths": [
+      "Zero‑config async field abstraction",
+      "Supports multiple storage backends (DB, HTTP, isolates)",
+      "Built‑in change listeners and stale‑value handling",
+      "Null safety and modern Dart SDK compatibility"
+    ],
+    "weaknesses": [
+      "Limited to async field use‑cases, not a general state manager",
+      "No built‑in UI widgets or integration with Flutter widgets",
+      "Requires manual wiring of fetchers/savers"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dependency, import package, create AsyncStorage and define fields",
+    "alternatives": [],
+    "minimal_example": "import 'package:async_field/async_field.dart';\nvar storage = AsyncStorage();\nvar field = storage.getField<double>('btc_usd')\n  ..defaultValue = double.nan\n  ..withFetcher(_fetchBtcUsd)\n  ..onChange.listen((f)=>print('changed: $f'));\nawait field.get();",
+    "confidence": 0.8
+  }
+}

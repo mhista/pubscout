@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.2.0",
+  "generatedAt": "2026-11-13T11:19:57.870Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "animation"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Animated list widget that updates automatically based on list changes.",
+    "what_it_does": "DeclarativeList builds list items with animations that react to changes in the underlying data. It uses a DiffUtil-like algorithm to compute insertions, removals, and moves, applying fade and size transitions.",
+    "use_when": [
+      "You need an animated list that updates automatically when the data changes.",
+      "You prefer a declarative approach over manual animation handling.",
+      "You want to customize insertion and removal animations via builders."
+    ],
+    "avoid_when": [
+      "You require extremely high-performance lists with thousands of items.",
+      "You need complex item animations that cannot be expressed with simple FadeTransition and SizeTransition."
+    ],
+    "strengths": [
+      "Declarative API simplifies list animation logic.",
+      "Built-in diff algorithm reduces boilerplate for insert/remove/move handling.",
+      "Supports custom builders for insertion and removal animations."
+    ],
+    "weaknesses": [
+      "Limited to list-type widgets; not suitable for grids or other layouts.",
+      "Animation options are basic; complex animations require custom widgets."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "final declarativeList = DeclarativeList<PresentationModel>(\n  items: presentationModels,\n  itemBuilder: (ctx, model, index, animation) => FadeTransition(\n    opacity: animation,\n    child: SizeTransition(\n      sizeFactor: animation,\n      child: SomeWidget(model),\n    ),\n  ),\n  removeBuilder: (ctx, model, index, animation) => _buildRemovingTile(animation, model),\n);",
+    "confidence": 0.8
+  }
+}

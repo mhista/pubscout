@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.0",
+  "generatedAt": "2026-11-13T11:28:57.546Z",
+  "data": {
+    "primary_category": "navigation",
+    "secondary_categories": [
+      "device"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Removes the hash '#' from web URLs while safely supporting non-web platforms.",
+    "what_it_does": "Provides a function to configure the URL strategy for Flutter web applications to use clean paths instead of hash-based URLs. It safely acts as a no-op on non-web platforms to maintain cross-platform compatibility.",
+    "use_when": [
+      "You are building a Flutter web application and want clean URLs without the '#' character",
+      "You need a cross-platform codebase where URL strategy configuration does not break mobile or desktop builds"
+    ],
+    "avoid_when": [
+      "Your web server cannot be configured to handle client-side routing and clean paths",
+      "You are not targeting the web platform"
+    ],
+    "strengths": [
+      "Simplifies URL strategy configuration for Flutter web",
+      "Platform-safe implementation using conditional imports",
+      "Zero configuration needed for non-web platforms"
+    ],
+    "weaknesses": [
+      "Requires proper server-side configuration to support deep linking with clean paths on the web",
+      "Limited feature set restricted solely to URL strategy configuration"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Call setPathUrlStrategy() in your main function before runApp().",
+    "alternatives": [],
+    "minimal_example": "import 'package:dynamic_path_url_strategy/dynamic_path_url_strategy.dart';\n\nvoid main() {\n  setPathUrlStrategy();\n  runApp(MyApp());\n}",
+    "confidence": 0.9
+  }
+}

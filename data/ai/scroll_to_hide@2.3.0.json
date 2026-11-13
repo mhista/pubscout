@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.3.0",
+  "generatedAt": "2026-11-13T11:46:27.244Z",
+  "data": {
+    "primary_category": "animation",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A Flutter widget that hides or shows any child when the user scrolls.",
+    "what_it_does": "A small Flutter widget for hiding or showing any child (like navigation bars or headers) when the user scrolls. It supports vertical and horizontal hide animations, manual controls via a controller, and route-pop restoration.",
+    "use_when": [
+      "You want to hide a bottom navigation bar or header on reverse scroll and show it on forward scroll.",
+      "You need vertical or horizontal hide animations bound to a ScrollController.",
+      "You want to manually control visibility or restore state on route pop."
+    ],
+    "avoid_when": [
+      "You are not using a scrollable widget with a ScrollController.",
+      "You need a complex layout system unrelated to scroll-driven visibility."
+    ],
+    "strengths": [
+      "Supports both vertical and horizontal hide directions.",
+      "Provides a ScrollToHideController for manual show, hide, toggle, and state reads.",
+      "Includes optional RouteObserver support to restore visibility when returning from a pushed route."
+    ],
+    "weaknesses": [
+      "Requires sharing the exact ScrollController attached to the scrollable.",
+      "Manual height or width sizing may be required for stable shown dimensions."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "ScrollToHide(\n  scrollController: _scrollController,\n  height: 72,\n  child: BottomNavigationBar(\n    items: const [\n      BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Home'),\n      BottomNavigationBarItem(icon: Icon(Icons.settings), label: 'Settings'),\n    ],\n  ),\n)",
+    "confidence": 1
+  }
+}

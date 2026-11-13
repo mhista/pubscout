@@ -1,0 +1,48 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "1.0.1",
+  "generatedAt": "2026-11-13T11:12:38.067Z",
+  "data": {
+    "primary_category": "localization",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A lightweight Dart library for locale‑sensitive formatting, collation, and plural rules.",
+    "what_it_does": "intl4x offers APIs to format dates, numbers, lists, and to perform locale‑aware collation and case mapping. It wraps ICU4X on native platforms and the browser Intl API on web, providing a consistent API across all targets.",
+    "use_when": [
+      "You need date, number, or list formatting that respects locale rules.",
+      "You want a small, dependency‑free i18n library without pulling in the full intl package.",
+      "You target multiple platforms (native, web, desktop) and need a single implementation.",
+      "You need locale‑aware collation or case mapping for sorting or display purposes."
+    ],
+    "avoid_when": [
+      "You require full ICU features like currency, unit, or calendar display names that are not yet supported.",
+      "You need advanced pluralization patterns beyond the provided API.",
+      "You are already using a comprehensive i18n solution such as the official intl package and cannot replace it."
+    ],
+    "strengths": [
+      "Small, modular API with minimal dependencies.",
+      "Cross‑platform support via ICU4X and browser Intl.",
+      "Provides locale‑aware collation and case mapping out of the box.",
+      "No code generation or build_runner required."
+    ],
+    "weaknesses": [
+      "Missing features: compact, percent, unit, currency formatting, and some display names.",
+      "Still in preview; may receive breaking changes in future releases.",
+      "Limited documentation compared to the official intl package."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add `intl4x` to pubspec and import the desired entrypoints; no additional build steps.",
+    "alternatives": [
+      {
+        "name": "intl",
+        "why_pick_it": "Provides a more mature, feature‑complete i18n solution with extensive formatting options."
+      }
+    ],
+    "minimal_example": "import 'package:intl4x/datetime_format.dart';\n\nfinal formatter = DateTimeFormat.yearMonthDayTime(\n  locale: Locale.parse('de-DE'),\n  length: DateTimeLength.long,\n).withTimeZoneLong();\nprint(formatter.format(DateTime.now(), 'Europe/Berlin'));\n",
+    "confidence": 0.9
+  }
+}

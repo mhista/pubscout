@@ -1,0 +1,52 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "1.0.0",
+  "generatedAt": "2026-11-13T11:05:51.165Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [],
+    "approach": [
+      "stream-based"
+    ],
+    "one_liner": "Cross‑platform WebSocket client with automatic reconnection and metrics",
+    "what_it_does": "Provides a lightweight WebSocket client for Dart and Flutter that supports reconnect logic, message streams, and connection state monitoring. It exposes a simple API for connecting, sending, and closing sockets, and offers configurable options per platform.",
+    "use_when": [
+      "You need a WebSocket client that works on mobile, desktop, and web without extra dependencies",
+      "You want automatic reconnection with exponential backoff",
+      "You need metrics on sent/received messages and bytes",
+      "You prefer a pure Dart implementation over platform‑specific plugins"
+    ],
+    "avoid_when": [
+      "You only need a single‑shot WebSocket connection without reconnection",
+      "You are already using a higher‑level networking library like dio that includes WebSocket support",
+      "You require advanced authentication or subprotocol handling beyond what the options provide"
+    ],
+    "strengths": [
+      "Cross‑platform support (VM and JS)",
+      "Automatic reconnection with backoff",
+      "Stream of state changes and messages",
+      "Configurable options per platform"
+    ],
+    "weaknesses": [
+      "No built‑in authentication or subprotocol helpers",
+      "Limited to WebSocket; no HTTP or REST support",
+      "No code generation or declarative API"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dependency in pubspec.yaml, import 'package:ws/ws.dart'; no special permissions needed",
+    "alternatives": [
+      {
+        "name": "web_socket_channel",
+        "why_pick_it": "Standard, widely used WebSocket client with minimal features"
+      },
+      {
+        "name": "shelf_web_socket",
+        "why_pick_it": "Server‑side WebSocket handling for Dart servers"
+      }
+    ],
+    "minimal_example": "import 'package:ws/ws.dart';\n\nfinal ws = WebSocket();\nawait ws.connect('wss://example.com');\nws.stream.listen((msg) => print(msg));\nws.add('Hello');",
+    "confidence": 0.85
+  }
+}

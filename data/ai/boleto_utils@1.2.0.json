@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.2.0",
+  "generatedAt": "2026-11-13T11:14:13.785Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "payments"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Validate, read, and interpret Brazilian bank and collection boletos (barcodes and digitizable lines).",
+    "what_it_does": "Provides utility methods to validate Brazilian boletos, identify issuing banks, convert barcodes to digitizable lines and vice versa, extract due dates and amounts, and calculate check digits (Mod10 and Mod11).",
+    "use_when": [
+      "Building financial apps, ERPs, or payment gateways that need to process Brazilian boletos.",
+      "Validating boleto barcodes or digitizable lines and calculating Mod10/Mod11 check digits.",
+      "Extracting metadata like bank information, due dates, and amounts from boletos."
+    ],
+    "avoid_when": [
+      "Your application does not deal with Brazilian payment slips or FEBRABAN standards.",
+      "You need to natively generate PDF representations of boletos rather than parse them."
+    ],
+    "strengths": [
+      "Comprehensive validation and parsing for both bank boletos and collection/utility bills (arrecadação).",
+      "Supports the updated 2025 due date factor defined by FEBRABAN.",
+      "Extracts issuer details including bank name, code, and ISPB."
+    ],
+    "weaknesses": [
+      "Due date extraction is not possible for collection/utility boletos (arrecadação) due to their inherent structure.",
+      "Limited strictly to the Brazilian banking standard (FEBRABAN)."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:boleto_utils/boleto_utils.dart';\n\nvoid main() {\n  final codigo = '34191790010104351004791020150008291070000005000';\n  final boleto = BoletoUtils();\n  final tipo = boleto.identificarTipoBoleto(codigo);\n  final valor = boleto.identificarValor(codigo);\n  final vencimento = boleto.identificarData(\n    codigo: codigo,\n    tipoCodigo: TipoCodigo.codigoDeBarras,\n  );\n\n  print('Tipo: $tipo');\n  print('Valor: R\\$ ${valor.toStringAsFixed(2)}');\n  print('Vencimento: $vencimento');\n}",
+    "confidence": 1
+  }
+}

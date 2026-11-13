@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.0",
+  "generatedAt": "2026-11-13T11:36:26.179Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "A SoundFont synthesizer (.sf2 player) written in pure Dart.",
+    "what_it_does": "dart_melty_soundfont parses SoundFont (.sf2) files and MIDI sequences, synthesizing them into PCM waveforms in pure Dart. It supports wave synthesis, MIDI processing, effects like reverb and chorus, and has no package dependencies.",
+    "use_when": [
+      "You need to play SoundFont (.sf2) files or MIDI files in a pure Dart or Flutter app.",
+      "You want an audio synthesizer with zero external package dependencies.",
+      "You need to generate PCM audio buffers manually to feed into an audio player or output device."
+    ],
+    "avoid_when": [
+      "You are looking for a high-level audio player that plays MP3/WAV files directly out-of-the-box without manual PCM handling.",
+      "You need a complete battery-included audio playback solution with built-in device speaker routing (the library only generates waveforms)."
+    ],
+    "strengths": [
+      "Written in pure Dart with no external dependencies.",
+      "Includes MIDI file sequencing, effects like reverb and chorus, and zero memory allocation during rendering.",
+      "Cross-platform compatibility across Android, iOS, Windows, macOS, and Linux."
+    ],
+    "weaknesses": [
+      "Does not audibly make sound on its own; requires an external library (like flutter_pcm_sound) to send generated PCM waveforms to device speakers.",
+      "Audio rendering needs to be run in isolates or using compute to prevent UI stutters."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "No special native permissions or dependencies required. Just add the package and load your .sf2 assets.",
+    "alternatives": [],
+    "minimal_example": "import 'package:dart_melty_soundfont/dart_melty_soundfont.dart';\nimport 'package:flutter/services.dart' show rootBundle;\n\nByteData bytes = await rootBundle.load('assets/akai_steinway.sf2');\nSynthesizer synth = Synthesizer.loadByteData(bytes);\nsynth.selectPreset(channel: 0, preset: 0);\nsynth.noteOn(channel: 0, key: 72, velocity: 120);\nArrayInt16 buf16 = ArrayInt16.zeros(numShorts: 44100);\nsynth.renderMonoInt16(buf16);",
+    "confidence": 0.95
+  }
+}
