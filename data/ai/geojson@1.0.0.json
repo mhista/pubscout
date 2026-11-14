@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.0",
+  "generatedAt": "2026-11-14T10:47:02.209Z",
+  "data": {
+    "primary_category": "maps",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "Utilities to parse GeoJSON data with a reactive API, search, and geofencing.",
+    "what_it_does": "Parses GeoJSON data structures into Dart objects using isolates by default to avoid blocking the main thread. Provides reactive streams for features as they are parsed, alongside search capabilities and geofencing functions for points in polygons or within distances.",
+    "use_when": [
+      "You need to parse GeoJSON files or strings in a Flutter or Dart application.",
+      "You want to process large geographical datasets reactively using streams.",
+      "You need built-in geofencing or property search capabilities over GeoJSON data."
+    ],
+    "avoid_when": [
+      "You are looking for full interactive map widgets (use a dedicated mapping package instead)."
+    ],
+    "strengths": [
+      "Parses data in an isolate to prevent UI jank.",
+      "Reactive API with streams for individual geometry types.",
+      "Includes search and geofencing utilities."
+    ],
+    "weaknesses": [
+      "None documented"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [],
+    "minimal_example": "final geo = GeoJson();\ngeo.processedLines.listen((GeoJsonLine line) {\n  print(line.name);\n});\nfinal data = await rootBundle.loadString('assets/data.geojson');\nawait geo.parse(data);",
+    "confidence": 0.95
+  }
+}

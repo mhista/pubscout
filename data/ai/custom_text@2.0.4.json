@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.4",
+  "generatedAt": "2026-11-14T10:51:19.897Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "theming"
+    ],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "Customisable text widget with advanced styling, gesture interactions, and a text editing controller.",
+    "what_it_does": "Provides a text widget and controller that let you style partial strings, handle gestures like taps and long-presses, and replace portions of text with custom widgets or inline spans using regular expressions and preset matchers.",
+    "use_when": [
+      "You need to make specific substrings like URLs, emails, hashtags, or phone numbers tappable or highlighted.",
+      "You want to build custom text parsing rules with regex or custom matchers inside normal text or text fields."
+    ],
+    "avoid_when": [
+      "You only need simple basic text styling without regex matching, custom gestures, or partial highlighting."
+    ],
+    "strengths": [
+      "Highly customisable with preset matchers like URLs, emails, and phone numbers.",
+      "Supports interactive gestures, hover states, and mouse cursor changes per definition.",
+      "Includes a special TextEditingController for text editing support."
+    ],
+    "weaknesses": [
+      "Adds overhead compared to a standard Flutter Text widget for simple use cases."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "auto_size_text",
+        "why_pick_it": "Pick auto_size_text instead if your primary goal is automatically resizing text to fit within its bounds."
+      }
+    ],
+    "minimal_example": "CustomText(\n  'URL: https://example.com/\\n'\n  'Email: foo@example.com',\n  definitions: const [\n    TextDefinition(matcher: UrlMatcher()),\n    TextDefinition(matcher: EmailMatcher()),\n  ],\n  matchStyle: const TextStyle(color: Colors.lightBlue),\n)",
+    "confidence": 1
+  }
+}

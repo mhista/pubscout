@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.2.1",
+  "generatedAt": "2026-11-14T10:56:19.789Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Displays WebVTT and SubRip (.srt) subtitles for video players in Flutter.",
+    "what_it_does": "Wraps a video player widget to overlay subtitles parsed from remote URLs or local content strings. It supports dynamic updating of subtitles during playback, text styling, and parses both WebVTT and .srt formats.",
+    "use_when": [
+      "You need to display WebVTT or SubRip (.srt) subtitles on a video player in Flutter.",
+      "You want to load subtitles remotely via a URL or locally via a content string.",
+      "You require standard or advanced subtitle text styling such as custom fonts and colors."
+    ],
+    "avoid_when": [
+      "You need to parse subtitle formats other than WebVTT or .srt.",
+      "You are not using a compatible video player controller setup."
+    ],
+    "strengths": [
+      "Supports the two most widely used subtitle formats (WebVTT and SubRip).",
+      "Allows dynamic updating of subtitles during playback.",
+      "Supports both UTF-8 and Latin-1 encoded remote subtitles."
+    ],
+    "weaknesses": [
+      "Requires you to explicitly specify the subtitle type (webvtt or srt).",
+      "Platform support is limited to Android, iOS, and macOS."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Instantiate a SubtitleController with a subtitle URL or content string and type, then wrap your video player with the SubTitleWrapper widget.",
+    "alternatives": [],
+    "minimal_example": "final SubtitleController subtitleController = SubtitleController(\n    subtitleUrl: \"https://pastebin.com/raw/ZWWAL7fK\",\n    subtitleType: SubtitleType.webvtt;\n);\n\nSubtitleWrapper(\n    videoPlayerController: videoPlayerController,\n    subtitleController: subtitleController,\n    subtitleStyle: SubtitleStyle(\n        textColor: Colors.white,\n        hasBorder: true,\n    ),\n    videoChild: Chewie(\n        controller: chewieController,\n    ),\n);",
+    "confidence": 0.95
+  }
+}

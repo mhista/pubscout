@@ -1,0 +1,52 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.1.2",
+  "generatedAt": "2026-11-14T10:40:59.907Z",
+  "data": {
+    "primary_category": "camera",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Pure Dart QR code detection and decoding from raw RGBA image bytes",
+    "what_it_does": "It scans a single QR code in an image, returns its location, type and decoded content. It can also track the QR across frames for AR use.",
+    "use_when": [
+      "You need a lightweight, pure Dart QR decoder without native dependencies",
+      "You want to process images from any source (camera, file, network) in Flutter or Dart CLI",
+      "You need to track a QR code position between frames for AR or overlay purposes"
+    ],
+    "avoid_when": [
+      "You need to detect multiple QR codes in the same image",
+      "You require high performance on large images or low‑noise environments",
+      "You need a fully featured camera preview and barcode scanning widget"
+    ],
+    "strengths": [
+      "Pure Dart, no native code or platform channels",
+      "Supports tracking across frames and perspective transforms",
+      "Easy to integrate into existing image pipelines"
+    ],
+    "weaknesses": [
+      "Only single QR code support",
+      "Performance can be poor on large or noisy images",
+      "Early development, may change API"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "zxing2",
+        "why_pick_it": "Pure Dart barcode/QR decoder with multi‑code support and better performance"
+      },
+      {
+        "name": "google_mlkit_barcode_scanning",
+        "why_pick_it": "Native MLKit implementation with high accuracy and multi‑code support"
+      }
+    ],
+    "minimal_example": "final qrCode = QrCode();\nqrCode.scanRgbaBytes(byteData, width, height);\nif (qrCode.location != null) {\n  print('QR content: ${qrCode.content?.text}');\n}",
+    "confidence": 0.7
+  }
+}

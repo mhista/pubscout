@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "4.0.0",
+  "generatedAt": "2026-11-14T10:43:55.306Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "storage"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Send emails directly from Flutter using EmailJS without a server.",
+    "what_it_does": "EmailJS allows Flutter apps to send emails via the EmailJS service by calling a REST API. It requires an EmailJS account and API keys, and supports optional throttling and blocklisting.",
+    "use_when": [
+      "Need to send emails from a Flutter app without a backend server",
+      "Using EmailJS service for email templates",
+      "Want built‑in data validation and throttling"
+    ],
+    "avoid_when": [
+      "No EmailJS account or plan",
+      "Need advanced email features like attachments or custom SMTP"
+    ],
+    "strengths": [
+      "No server required",
+      "Easy integration with EmailJS account",
+      "Built‑in validation and throttling",
+      "Cross‑platform support"
+    ],
+    "weaknesses": [
+      "Requires EmailJS account and API keys",
+      "API calls disabled by default for non‑browser apps",
+      "Limited to EmailJS service"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Enable API requests in EmailJS account security settings, add package via flutter pub add, provide public and private keys in Options or init, optionally configure blocklist/limitrate.",
+    "alternatives": [],
+    "minimal_example": "import package:emailjs/emailjs.dart as emailjs\n\nMap<String, dynamic> templateParams = {\n  'name': 'James',\n  'notes': 'Check this out!'\n};\n\ntry {\n  await emailjs.send(\n    'YOUR_SERVICE_ID',\n    'YOUR_TEMPLATE_ID',\n    templateParams,\n    const emailjs.Options(\n      publicKey: 'YOUR_PUBLIC_KEY',\n      privateKey: 'YOUR_PRIVATE_KEY',\n    ),\n  );\n  print('SUCCESS!');\n} catch (error) {\n  print('$error');\n}",
+    "confidence": 0.9
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.1.1",
+  "generatedAt": "2026-11-14T10:49:31.918Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "forms"
+    ],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "Shared vocabulary types and outcomes for the minted family of domain-parsing packages.",
+    "what_it_does": "Provides the core vocabulary types (ParseOutcome, MintedFailure, and MintedFormatError) used across minted domain packages to handle parsing without throwing exceptions. It serves as the base library that sibling packages like minted_contact or minted_finance depend on.",
+    "use_when": [
+      "You are building or using sibling packages in the minted family that require shared parse outcome types.",
+      "You want to reference ParseOutcome or MintedFailure directly in your codebase."
+    ],
+    "avoid_when": [
+      "You want specific domain value types like Email, Iban, or Date without adding their respective domain packages.",
+      "You prefer standard validation that returns booleans or strings rather than parse outcomes."
+    ],
+    "strengths": [
+      "Provides a unified, type-safe parse outcome structure across different domain models.",
+      "Pure Dart with zero heavy platform dependencies."
+    ],
+    "weaknesses": [
+      "Contains no domain parsing engines on its own; requires sibling packages for actual domain types.",
+      "Single-value extension types can be incorrectly bypassed via casting if not careful."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add minted to pubspec.yaml alongside any specific minted_* domain packages you need.",
+    "alternatives": [],
+    "minimal_example": "switch (Iban.parse(input)) {\n  case ParseSuccess(:final value): send(value);\n  case ParseFailure(:final reason): log(reason.message);\n}",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.4.1",
+  "generatedAt": "2026-11-14T10:58:01.837Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Dart client for Jellyfin media servers with authentication, browsing, and streaming.",
+    "what_it_does": "Provides a pure Dart client for Jellyfin 12+ media servers. Handles user authentication, library browsing, playlists, audio/video streaming, lyrics with timing, live events via WebSockets, and search using typed models.",
+    "use_when": [
+      "Building a Flutter or pure Dart client for a Jellyfin media server",
+      "Streaming audio and video or browsing media libraries programmatically"
+    ],
+    "avoid_when": [
+      "You are connecting to a non-Jellyfin media server backend like Plex or Emby"
+    ],
+    "strengths": [
+      "Pure Dart with no native plugin dependencies, supporting all platforms including the web",
+      "Fully typed models, errors, and parameters matching the Jellyfin OpenAPI specification",
+      "Background isolate parsing for large API responses to maintain UI frame rates"
+    ],
+    "weaknesses": [
+      "Tightly coupled to the Jellyfin media server API ecosystem",
+      "Requires managing HTTP client lifecycle and connection state manually"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires Dart 3.10 or later and a reachable Jellyfin server instance (v12.0 or later).",
+    "alternatives": [],
+    "minimal_example": "import 'package:dart_jellyfin/dart_jellyfin.dart';\n\nFuture<void> main() async {\n  final jellyfin = JellyfinClient(\n    baseUrl: 'https://jellyfin.example.com',\n    credentials: const JellyfinCredentials(\n      client: 'MyApp',\n      device: 'iPhone',\n      deviceId: 'PUT-YOUR-UUID-HERE',\n      version: '1.0.0',\n    ),\n  );\n\n  final auth = await jellyfin.user.authenticateByName(\n    username: 'me',\n    password: 'hunter2',\n  );\n  jellyfin.setSession(token: auth.accessToken, userId: auth.user.id);\n  jellyfin.close();\n}",
+    "confidence": 0.95
+  }
+}

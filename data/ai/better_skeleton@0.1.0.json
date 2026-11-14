@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.1.0",
+  "generatedAt": "2026-11-14T10:30:38.223Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "animation"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A Flutter package to create glass effect skeleton loading animations.",
+    "what_it_does": "Adds a glass effect loading skeleton over widgets using a single AnimationController. It uses a custom RenderWidget to achieve the effect.",
+    "use_when": [
+      "You want a glass effect skeleton loading animation in your app",
+      "You want to sync multiple skeleton loaders using a single AnimationController"
+    ],
+    "avoid_when": [
+      "You need complex out-of-the-box shimmering placeholder shapes without custom building them",
+      "You do not want to manage an AnimationController manually"
+    ],
+    "strengths": [
+      "Performs efficiently with a single animation controller over multiple widgets",
+      "Uses a custom RenderWidget for the glass effect"
+    ],
+    "weaknesses": [
+      "Requires manual creation and disposal of an AnimationController",
+      "Requires custom container widgets (like FakeCard) to define the skeleton shapes"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [
+      {
+        "name": "shimmer",
+        "why_pick_it": "If you want a more standard shimmering loading effect rather than a glass effect."
+      }
+    ],
+    "minimal_example": "class _MyAppState extends State<MyApp> with SingleTickerProviderStateMixin {\n  late final AnimationController animationController;\n\n  @override\n  void initState() {\n    super.initState();\n    animationController = AnimationController(vsync: this, duration: Duration(milliseconds: 1000))..repeat();\n  }\n\n  @override\n  Widget build(BuildContext context) {\n    return AnimatedSkeleton(\n      listenable: animationController,\n      child: FakeCard(),\n    );\n  }\n}",
+    "confidence": 0.9
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "4.1.0",
+  "generatedAt": "2026-11-14T10:45:32.970Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Provides Android‑only app usage statistics such as time spent per app.",
+    "what_it_does": "The plugin queries the Android UsageStatsManager to return a list of apps with their usage duration, start/end dates and last foreground time. It works as a singleton accessed via AppUsage().getAppUsage(start, end).",
+    "use_when": [
+      "You need to display how much time the user spent in each app on Android.",
+      "You require daily‑level usage data for analytics or parental‑control features."
+    ],
+    "avoid_when": [
+      "You need cross‑platform (iOS/web) usage data.",
+      "Precise per‑minute usage is required, as the data is only daily‑level accurate."
+    ],
+    "strengths": [
+      "Simple API for retrieving usage stats on Android.",
+      "Handles permission request flow automatically.",
+      "Supports last foreground timestamp."
+    ],
+    "weaknesses": [
+      "Android‑only; no iOS support.",
+      "Usage data limited to daily granularity.",
+      "Requires special permission (PACKAGE_USAGE_STATS) which may need user to enable manually."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add minSdkVersion >=21, include xmlns:tools in AndroidManifest, and request android.permission.PACKAGE_USAGE_STATS permission. No additional Dart setup required.",
+    "alternatives": [],
+    "minimal_example": "void getUsage() async {\n  DateTime end = DateTime.now();\n  DateTime start = end.subtract(Duration(hours: 1));\n  List<AppUsageInfo> info = await AppUsage().getAppUsage(start, end);\n  print(info);\n}",
+    "confidence": 0.97
+  }
+}

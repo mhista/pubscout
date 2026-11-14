@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "3.2.0",
+  "generatedAt": "2026-11-14T10:43:29.093Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "device"
+    ],
+    "approach": [
+      "stream-based"
+    ],
+    "one_liner": "Widget that displays Qiblah direction using device sensors and location.",
+    "what_it_does": "It reads the device’s compass and GPS to calculate the direction to Mecca and shows it as an arrow or text. The widget also reports GPS status and permission state.",
+    "use_when": [
+      "You need to show Qiblah direction in an app",
+      "Your device has a compass sensor and GPS",
+      "You want a single widget that handles permissions and status"
+    ],
+    "avoid_when": [
+      "Running on iOS simulator",
+      "Devices without a compass sensor",
+      "You need a custom map-based direction without the widget"
+    ],
+    "strengths": [
+      "Uses native sensors for accurate direction",
+      "Null‑safe and up‑to‑date dependencies",
+      "Handles permission and GPS status internally"
+    ],
+    "weaknesses": [
+      "Does not work on iOS simulator",
+      "Requires runtime permissions for location",
+      "Limited to Android/iOS only"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dependency, request location permission, add <FlutterQiblah> widget in UI. No build_runner needed.",
+    "alternatives": [],
+    "minimal_example": "```dart\nimport 'package:flutter_qiblah/flutter_qiblah.dart';\n\nclass QiblahDemo extends StatelessWidget {\n  @override\n  Widget build(BuildContext context) {\n    return Scaffold(\n      appBar: AppBar(title: Text('Qiblah Demo')),\n      body: Center(\n        child: FlutterQiblah(\n          onQiblahDirection: (direction) {\n            print('Qiblah direction: $direction');\n          },\n        ),\n      ),\n    );\n  }\n}\n```",
+    "confidence": 0.9
+  }
+}

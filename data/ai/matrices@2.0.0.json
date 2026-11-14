@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.0",
+  "generatedAt": "2026-11-14T10:37:01.887Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "High-performance matrix computation and linear algebra library with built-in SIMD support.",
+    "what_it_does": "Provides 32-bit and 64-bit matrix and vector types, linear algebra solvers, decompositions, iterative methods, and CSR sparse matrix support. Uses contiguous typed-data storage and pure Dart SIMD APIs for acceleration without external FFI dependencies.",
+    "use_when": [
+      "You need high-performance dense or sparse matrix computations in pure Dart.",
+      "You require linear algebra features like LU, QR, Cholesky, SVD, or PCA."
+    ],
+    "avoid_when": [
+      "You require native BLAS/LAPACK bindings or GPU execution.",
+      "You need automatic differentiation or distributed matrix operations."
+    ],
+    "strengths": [
+      "Uses built-in SIMD APIs without FFI or binary runtime dependencies.",
+      "Explicit 32-bit and 64-bit precision choices with continuous storage.",
+      "Broad coverage of direct linear algebra, decompositions, and iterative solvers."
+    ],
+    "weaknesses": [
+      "Does not include native BLAS/LAPACK or GPU execution support.",
+      "Fails fast on shape and numerical preconditions rather than silent reshaping."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:matrices/matrices.dart';\n\nvoid main() {\n  final a = mat([\n    [1, 2, 3],\n    [4, 5, 6],\n  ]);\n\n  final b = mat([\n    [7, 8],\n    [9, 10],\n    [11, 12],\n  ]);\n\n  print(a * b);\n}",
+    "confidence": 1
+  }
+}

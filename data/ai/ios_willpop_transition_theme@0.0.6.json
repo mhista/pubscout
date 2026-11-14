@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.0.6",
+  "generatedAt": "2026-11-14T10:56:25.513Z",
+  "data": {
+    "primary_category": "navigation",
+    "secondary_categories": [
+      "animation",
+      "theming"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Resolves conflicts between iOS sliding back gestures and WillPopScope in Flutter.",
+    "what_it_does": "Provides a custom PageTransitionsBuilder and PageRoute to allow smooth iOS-style swipe-to-back gestures while managing WillPop pop scopes properly. It can be applied globally via ThemeData or locally per route.",
+    "use_when": [
+      "You have conflicts between iOS swipe back gestures and WillPopScope",
+      "You want custom page transitions that respect pop behavior"
+    ],
+    "avoid_when": [
+      "You do not need iOS-style navigation gestures",
+      "You are using a navigation framework that completely replaces standard Navigator routing"
+    ],
+    "strengths": [
+      "Solves a specific known Flutter routing issue (#14203)",
+      "Can be used globally via PageTransitionsTheme or locally with WillPopPageRoute",
+      "Supports multiple platforms like iOS, Android, and macOS"
+    ],
+    "weaknesses": [
+      "Limited documentation outside of the README",
+      "Very specific niche use case"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Override pageTransitionsTheme builders in your ThemeData or use WillPopPageRoute directly.",
+    "alternatives": [],
+    "minimal_example": "MaterialApp(\n  theme: ThemeData(\n    pageTransitionsTheme: const PageTransitionsTheme(\n      builders: {\n        TargetPlatform.iOS: IOSWillPopTransitionsBuilder(),\n      },\n    ),\n  ),\n  home: const Home(),\n)",
+    "confidence": 0.95
+  }
+}

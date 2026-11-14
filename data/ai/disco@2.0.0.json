@@ -1,0 +1,50 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "2.0.0",
+  "generatedAt": "2026-11-14T10:32:05.816Z",
+  "data": {
+    "primary_category": "dependency-injection",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Scoped dependency injection library for Flutter, independent of state management solutions",
+    "what_it_does": "Disco provides a way to declare providers that are scoped to a widget tree. The state is created and disposed within a ProviderScope, keeping it local and testable.",
+    "use_when": [
+      "Need multiple providers of the same type without wrapper types",
+      "Want local state that is automatically disposed with the widget",
+      "Prefer a simple API that works with any state management library"
+    ],
+    "avoid_when": [
+      "Require compile‑time safety for provider lookup",
+      "Need built‑in reactivity methods like watch or listen",
+      "Need global provider architecture"
+    ],
+    "strengths": [
+      "Supports multiple providers of the same type",
+      "Lifecycle tied to widget tree, no global scope",
+      "Very simple API, works with any state‑management solution"
+    ],
+    "weaknesses": [
+      "No built‑in reactivity; must use external listeners",
+      "Runtime error if provider not found",
+      "No compile‑time safety for provider lookup"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "provider",
+        "why_pick_it": "If you need a simple, widget‑tree scoped DI without multiple same‑type providers"
+      },
+      {
+        "name": "riverpod",
+        "why_pick_it": "If you need compile‑time safety and built‑in reactivity"
+      }
+    ],
+    "minimal_example": "final modelProvider = Provider((context) => Model());\nProviderScope(\n  providers: [modelProvider],\n  child: MyWidget(),\n);",
+    "confidence": 0.9
+  }
+}

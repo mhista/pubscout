@@ -1,0 +1,52 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.0.0",
+  "generatedAt": "2026-11-14T10:59:00.634Z",
+  "data": {
+    "primary_category": "dependency-injection",
+    "secondary_categories": [
+      "codegen"
+    ],
+    "approach": [
+      "imperative",
+      "declarative",
+      "code generation"
+    ],
+    "one_liner": "Flexible and lightweight dependency injection library for Dart and Flutter.",
+    "what_it_does": "Cherrypick provides a system for registering, scoping, and resolving dependencies using modular bindings and hierarchical scopes. It supports singletons, lazy providers, asynchronous factories, and automatic resource cleanup for disposable dependencies.",
+    "use_when": [
+      "You want hierarchical scopes and modular composition in your dependency injection setup.",
+      "You need automatic resource cleanup via the Disposable interface.",
+      "You want support for both manual configuration and annotation-based code generation."
+    ],
+    "avoid_when": [
+      "You prefer a heavily runtime-reflected DI container without module definitions.",
+      "Your project uses an entirely different state management or service locator solution like get_it and you don't want to migrate."
+    ],
+    "strengths": [
+      "Supports hierarchical subscopes and named instances.",
+      "Automatic resource cleanup for Disposable dependencies.",
+      "Both manual bindings and annotation-based code generation are supported."
+    ],
+    "weaknesses": [
+      "Potential misuse of bindings inside modules (e.g., resolving types via toInstance during registration can cause errors).",
+      "Requires careful lifecycle management of scopes and singletons."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding cherrypick to pubspec.yaml, and optionally cherrypick_annotations and cherrypick_generator with build_runner if using code generation.",
+    "alternatives": [
+      {
+        "name": "get_it",
+        "why_pick_it": "A widely adopted, straightforward service locator for Dart and Flutter that doesn't require modules or code generation."
+      },
+      {
+        "name": "injectable",
+        "why_pick_it": "Provides extensive annotation-based code generation built on top of get_it for automatic dependency injection wiring."
+      }
+    ],
+    "minimal_example": "import 'package:cherrypick/cherrypick.dart';\n\nclass AppModule extends Module {\n  @override\n  void builder(Scope currentScope) {\n    bind<ApiClient>().toInstance(ApiClientMock());\n    bind<String>().toProvide(() => \"Hello, CherryPick!\");\n  }\n}\n\nfinal rootScope = CherryPick.openRootScope();\nrootScope.installModules([AppModule()]);\n\nfinal greeting = rootScope.resolve<String>();\nprint(greeting);\n\nawait CherryPick.closeRootScope();",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.8.0",
+  "generatedAt": "2026-11-14T10:39:16.410Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Installs iOS or Android apps from within a Flutter app.",
+    "what_it_does": "Provides a method to open the App Store or Google Play page for another app. On iOS it shows the store inside the app via SKStoreProductViewController; on Android it launches a market:// intent. Supports additional iOS parameters for affiliate and campaign tracking.",
+    "use_when": [
+      "You need to prompt users to install another app from your app",
+      "You want an in‑app App Store view on iOS",
+      "You need a simple way to open Google Play from Flutter"
+    ],
+    "avoid_when": [
+      "You require a fully custom installation flow or UI",
+      "You need advanced store analytics beyond the provided parameters",
+      "You only need a plain URL launch (can use url_launcher)"
+    ],
+    "strengths": [
+      "iOS in‑app store view via SKStoreProductViewController",
+      "Android market intent support",
+      "Null‑safe and works on web",
+      "Simple API"
+    ],
+    "weaknesses": [
+      "Limited to opening store pages, no download management",
+      "No fallback if store app is missing",
+      "Only basic configuration options"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add the plugin to pubspec, run flutter pub get; on iOS ensure SKStoreProductViewController is available (no extra permissions). Android uses a standard intent, no extra manifest changes required.",
+    "alternatives": [],
+    "minimal_example": "var app = AppSet()\n  ..iosAppId = 300915900\n  ..androidPackageName = 'com.skysoft.kkbox.android';\nFlutterInstallAppPlugin.installApp(app);",
+    "confidence": 0.9
+  }
+}

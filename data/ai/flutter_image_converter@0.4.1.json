@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.4.1",
+  "generatedAt": "2026-11-14T10:33:22.002Z",
+  "data": {
+    "primary_category": "images",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Converts between Flutter and Dart image types, including ImageProvider, ui.Image, widget.Image, and raw bytes.",
+    "what_it_does": "Provides extension methods that transform image data between common Flutter/Dart representations. It supports all formats recognized by the image package and works on all platforms, including web.",
+    "use_when": [
+      "You need to display an image from a Uint8List or convert an ImageProvider to raw bytes",
+      "You want to convert a widget.Image to a ui.Image for custom painting",
+      "You need to support multiple image formats without writing custom decoding logic"
+    ],
+    "avoid_when": [
+      "You only need basic image loading or caching",
+      "You require high-performance, low-level image manipulation beyond conversion"
+    ],
+    "strengths": [
+      "All-in-one conversion for ImageProvider, ui.Image, widget.Image, and bytes",
+      "Web platform support added in 0.4.0",
+      "Well‑tested and documented with example code"
+    ],
+    "weaknesses": [
+      "File handling is excluded in 0.4.0",
+      "May add runtime overhead for large images"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "```dart\nimport 'package:flutter_image_converter/flutter_image_converter.dart';\n\n// Convert an AssetImage to a ui.Image\nfinal uiImage = await AssetImage('assets/pic.png').uiImage;\n\n// Convert raw bytes to a widget.Image\nfinal widgetImage = Uint8List.fromList([/* bytes */]).widgetImage;\n```",
+    "confidence": 0.9
+  }
+}

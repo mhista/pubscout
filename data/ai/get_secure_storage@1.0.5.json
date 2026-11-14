@@ -1,0 +1,54 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "1.0.5",
+  "generatedAt": "2026-11-14T10:38:17.260Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Encrypted synchronous key‑value storage for Flutter apps.",
+    "what_it_does": "Provides a fast, in‑memory key‑value store that encrypts data on disk using AES‑CTR with SHA‑256 MAC. Supports basic types and offers listeners for changes across Android, iOS, Web, macOS, Linux and Windows.",
+    "use_when": [
+      "You need secure, lightweight persistent storage without async APIs.",
+      "You want a drop‑in replacement for GetStorage with encryption.",
+      "Cross‑platform apps that require listeners on storage changes."
+    ],
+    "avoid_when": [
+      "You need relational queries or large binary blobs.",
+      "You require native secure enclave APIs or biometric unlock.",
+      "Complex migrations or schema evolution are needed."
+    ],
+    "strengths": [
+      "Built‑in AES‑CTR encryption with MAC",
+      "Synchronous API for simple use cases",
+      "Cross‑platform support including web",
+      "Change listeners per box or key"
+    ],
+    "weaknesses": [
+      "All data kept in memory may affect large datasets",
+      "Limited to basic types (String, int, double, Map, List)",
+      "No advanced query or indexing features"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Call GetSecureStorage.init with a password before use; no additional native permissions required.",
+    "alternatives": [
+      {
+        "name": "flutter_secure_storage",
+        "why_pick_it": "Provides platform‑specific secure storage (Keychain/Keystore) with native encryption."
+      },
+      {
+        "name": "shared_preferences",
+        "why_pick_it": "Simple unencrypted key‑value storage when security is not required."
+      }
+    ],
+    "minimal_example": "import 'package:get_secure_storage/get_secure_storage.dart';\n\nvoid main() async {\n  await GetSecureStorage.init(password: 'strongpassword');\n  final box = GetSecureStorage();\n  box.write('greeting', 'hello');\n  print(box.read('greeting'));\n}",
+    "confidence": 0.93
+  }
+}

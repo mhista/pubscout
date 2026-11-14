@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.5.1",
+  "generatedAt": "2026-11-14T10:55:01.713Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "storage"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Mobile sensing framework for collecting sensor and wearable data in Flutter apps",
+    "what_it_does": "A software framework for collecting sensor data and device events from phones and attached wearables via probes. Supports defining study protocols, deploying them locally or remotely, and handling background data sampling and storage.",
+    "use_when": [
+      "You need to build a digital phenotyping or mHealth application that collects continuous sensor data",
+      "You want to schedule and execute background sensing tasks on mobile devices"
+    ],
+    "avoid_when": [
+      "You only need to query a single device sensor once without setting up a study framework",
+      "You are not targeting Android or iOS mobile sensing use cases"
+    ],
+    "strengths": [
+      "Extensible architecture for triggers, tasks, measures, and probes",
+      "Cross-platform support for Android and iOS",
+      "Built-in support for local SQLite storage and background execution"
+    ],
+    "weaknesses": [
+      "Requires complex native setup for background services and notifications",
+      "Steep learning curve due to extensive domain models and protocol definitions"
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Requires configuring flutter_local_notifications for Android and iOS, setting up flutter_background for Android background sensing, and adding specific permissions in AndroidManifest.xml and Info.plist depending on the probes used.",
+    "alternatives": [],
+    "minimal_example": "SmartPhoneClientManager().configure().then(\n  (_) => SmartPhoneClientManager()\n      .addStudyFromProtocol(\n        SmartphoneStudyProtocol.local(\n          name: 'Tracking steps, light, screen, and battery',\n          measures: [\n            Measure(type: SensorSamplingPackage.STEP_EVENT),\n            Measure(type: SensorSamplingPackage.AMBIENT_LIGHT),\n            Measure(type: DeviceSamplingPackage.SCREEN_EVENT),\n            Measure(type: DeviceSamplingPackage.BATTERY_STATE),\n          ],\n        ),\n      )\n      .then(\n        (study) => SmartPhoneClientManager()\n            .tryDeployment(study.studyDeploymentId, study.deviceRoleName)\n            .then((_) => SmartPhoneClientManager().resume()),\n      ),\n);",
+    "confidence": 0.95
+  }
+}

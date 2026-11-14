@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.0",
+  "generatedAt": "2026-11-14T10:39:01.831Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "device"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Connect to OpenVPN servers from Flutter on Android, iOS and macOS.",
+    "what_it_does": "Allows Flutter applications to establish and manage OpenVPN connections on Android, iOS, and macOS. It provides native engines, stage, traffic, and log streams, per-app VPN routing, and session timeouts.",
+    "use_when": [
+      "You need to build a VPN client application supporting Android, iOS, and macOS.",
+      "You require advanced OpenVPN features like per-app VPN or encrypted private keys."
+    ],
+    "avoid_when": [
+      "You only need standard HTTP/REST API calls and do not require a VPN tunnel."
+    ],
+    "strengths": [
+      "Cross-platform support for Android, iOS, and macOS with a unified Dart API.",
+      "Bundled OpenVPN engines and support for modern requirements like 16 KB page sizes on Android.",
+      "Streams for stage changes, traffic updates, and engine logs."
+    ],
+    "weaknesses": [
+      "Requires native configuration and setup for Network Extensions on iOS and macOS.",
+      "Android requires specific packaging rules and foreground service permissions."
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Requires native configuration in Android Gradle, creating a Network Extension target and adding App Groups in Xcode for iOS and macOS, plus CocoaPods or SPM integration for OpenVPNAdapter.",
+    "alternatives": [],
+    "minimal_example": "import 'package:openvpn_flutter/openvpn_flutter.dart';\n\nlate final OpenVPN openvpn;\n\n@override\nvoid initState() {\n  super.initState();\n  openvpn = OpenVPN(\n    onVpnStageChanged: (stage, raw) => setState(() => this.stage = stage),\n    onVpnStatusChanged: (status) => setState(() => this.status = status),\n  );\n  openvpn.initialize(\n    groupIdentifier: 'group.com.example.vpn',\n    providerBundleIdentifier: 'com.example.app.VPNExtension',\n    localizedDescription: 'Example VPN',\n  );\n}",
+    "confidence": 0.95
+  }
+}

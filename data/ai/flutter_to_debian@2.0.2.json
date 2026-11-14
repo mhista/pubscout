@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.8-flash",
+  "version": "2.0.2",
+  "generatedAt": "2026-11-14T10:30:49.975Z",
+  "data": {
+    "primary_category": "web-desktop",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "CLI tool to package Flutter Linux release builds into Debian (.deb) packages",
+    "what_it_does": "Packages compiled Flutter Linux release binaries into standard Debian (.deb) installers using configuration defined in debian.yaml and pubspec.yaml. It handles desktop entry integration, app icons, maintainer scripts, and skeleton configuration files. It also provides tools to inspect and detect shared library dependencies for the package control file.",
+    "use_when": [
+      "Distributing a Flutter Linux desktop application as a .deb package for Ubuntu, Debian, or derivatives",
+      "Automating Linux desktop packaging in CI/CD pipelines",
+      "Need to bundle maintainer scripts, desktop icons, and config files with a Linux Flutter app"
+    ],
+    "avoid_when": [
+      "Building for non-Linux platforms or package formats other than Debian (e.g., Snap, Flatpak, AppImage)",
+      "Looking for an in-app runtime Flutter library rather than a build/packaging CLI tool"
+    ],
+    "strengths": [
+      "Simplifies .deb package creation using a straightforward YAML configuration",
+      "Includes a dependency detection mode to identify required system libraries",
+      "Supports maintainer scripts (preinst, postinst, prerm, postrm) and custom skeleton directories"
+    ],
+    "weaknesses": [
+      "Limited exclusively to Debian-based packaging workflows",
+      "Requires manual pre-compilation of the Linux release bundle via `flutter build linux`"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Must be activated globally via Dart (`dart pub global activate flutter_to_debian`) and requires a `debian/debian.yaml` configuration alongside desktop entry files.",
+    "alternatives": [],
+    "minimal_example": "",
+    "confidence": 0.95
+  }
+}

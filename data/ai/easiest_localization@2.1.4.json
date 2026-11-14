@@ -1,0 +1,50 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.1.4",
+  "generatedAt": "2026-11-14T10:33:02.276Z",
+  "data": {
+    "primary_category": "localization",
+    "secondary_categories": [
+      "codegen"
+    ],
+    "approach": [
+      "code generation"
+    ],
+    "one_liner": "Type-safe localization package with code generation for YAML and JSON files.",
+    "what_it_does": "Generates 100% type-safe Dart classes from YAML or JSON translation files. Supports pluralization, gender-specific strings, nesting, and runtime locale changes.",
+    "use_when": [
+      "You want compile-time safety and autocompletion for translation keys.",
+      "You use YAML or JSON files for managing application translations.",
+      "You need advanced localization features like pluralization and gender support."
+    ],
+    "avoid_when": [
+      "You prefer runtime-only translation lookup without code generation steps.",
+      "You do not want to run a CLI tool during your development workflow."
+    ],
+    "strengths": [
+      "Full type-safe code generation prevents missing key compilation errors.",
+      "Flexible configuration with support for nested strings, arguments, pluralization, and genders.",
+      "Live watch mode for real-time code generation during development."
+    ],
+    "weaknesses": [
+      "Requires running a CLI command or build step to generate localizations.",
+      "Generates a separate local package inside your workspace."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dependencies, configure `pubspec.yaml` with localization settings, and run `dart run easiest_localization` to generate code.",
+    "alternatives": [
+      {
+        "name": "easy_localization",
+        "why_pick_it": "If you prefer runtime loading without compile-time code generation."
+      },
+      {
+        "name": "slang",
+        "why_pick_it": "If you want another robust type-safe localization generator with different syntax options."
+      }
+    ],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:localization/localization.dart';\n\nvoid main() {\n  WidgetsFlutterBinding.ensureInitialized();\n  runApp(const MyApp());\n}\n\nclass MyApp extends StatelessWidget {\n  const MyApp({super.key});\n\n  @override\n  Widget build(BuildContext context) {\n    return MaterialApp(\n      supportedLocales: supportedLocales,\n      localizationsDelegates: localizationsDelegates,\n      home: Scaffold(\n        body: Center(\n          child: Text(el.appTitle),\n        ),\n      ),\n    );\n  }\n}",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.0.1",
+  "generatedAt": "2026-11-14T10:59:12.395Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [],
+    "approach": [
+      "declarative",
+      "hooks"
+    ],
+    "one_liner": "A clean MVVM state management solution for Flutter using the Provider package and hooks.",
+    "what_it_does": "PMVVM separates the UI (View) from state and business logic (ViewModel and Model). It uses the Provider package underneath to manage reactivity and provides built-in lifecycle methods inside ViewModels.",
+    "use_when": [
+      "You want an MVVM architecture without the heavy boilerplate of other state management libraries.",
+      "Your widget has its own events that mutate state directly (e.g., pages, posts)."
+    ],
+    "avoid_when": [
+      "You prefer pure BLoC, Riverpod, or Redux architectures for your entire application.",
+      "You do not want to use the Provider package."
+    ],
+    "strengths": [
+      "Simple and clean API with low boilerplate.",
+      "Allows direct access to the BuildContext inside ViewModels.",
+      "Supports observables for fine-grained reactivity and history tracking."
+    ],
+    "weaknesses": [
+      "Relies heavily on the Provider package ecosystem.",
+      "May require adapting to its specific View and ViewModel structure."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "provider",
+        "why_pick_it": "If you want raw Provider without the MVVM wrapper classes."
+      },
+      {
+        "name": "flutter_bloc",
+        "why_pick_it": "If you prefer event-driven state management using BLoC/Cubit patterns."
+      },
+      {
+        "name": "flutter_riverpod",
+        "why_pick_it": "If you want compile-safe global state management without BuildContext dependency."
+      }
+    ],
+    "minimal_example": "class MyViewModel extends ViewModel {\n  int counter = 0;\n  void increase() {\n    counter++;\n    notifyListeners();\n  }\n}\n\nclass MyWidget extends StatelessWidget {\n  @override\n  Widget build(BuildContext context) {\n    return MVVM<MyViewModel>(\n      view: () => _MyView(),\n      viewModel: MyViewModel(),\n    );\n  }\n}",
+    "confidence": 0.95
+  }
+}

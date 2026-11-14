@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.3.0",
+  "generatedAt": "2026-11-14T11:03:02.181Z",
+  "data": {
+    "primary_category": "images",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Fast, minimalist Flutter package for manipulating bitmap images using Dart FFI.",
+    "what_it_does": "Provides a minimalist API to manipulate image bitmaps using RGBA32 format. Uses Dart FFI to perform fast operations such as contrast, brightness, saturation, exposure, rotation, flipping, resizing, and cropping.",
+    "use_when": [
+      "You need fast bitmap manipulation operations like contrast, brightness, and resizing",
+      "You want to avoid multi-conversion overhead between custom image formats and Flutter's display requirements"
+    ],
+    "avoid_when": [
+      "You need complex format encoding, EXIF data handling, or multi-frame image support",
+      "You need built-in caching and downloading capabilities for network images"
+    ],
+    "strengths": [
+      "Blazing fast performance via Dart FFI and C/C++ ports",
+      "Direct integration with Flutter ImageProvider and RGBA32 format",
+      "Supports batch operations"
+    ],
+    "weaknesses": [
+      "Does not support format encoding or EXIF data",
+      "Resizing currently only supports nearest interpolation"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "image",
+        "why_pick_it": "Choose it if you need format encoding, EXIF data support, multi-frame images, and diverse file format saving."
+      }
+    ],
+    "minimal_example": "import 'package:bitmap/bitmap.dart';\n\nBitmap bitmap = await Bitmap.fromProvider(NetworkImage(\"http://pudim.com.br/pudim.jpg\"));\nBitmap contrastedBitmap = bitmap.apply(BitmapContrast(0.2));\nUint8List headedBitmap = contrastedBitmap.buildHeaded();",
+    "confidence": 0.95
+  }
+}

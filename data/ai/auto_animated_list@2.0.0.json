@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "2.0.0",
+  "generatedAt": "2026-11-14T10:43:05.960Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "animation"
+    ],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "A ListView widget that automatically animates items when the list changes.",
+    "what_it_does": "AutoAnimatedList watches a list of items and animates insertions, removals and moves using built‑in transitions. It requires only the items and an itemBuilder, handling diff calculations internally.",
+    "use_when": [
+      "You need animated list updates without writing boilerplate diff logic",
+      "You want a simple declarative API for common list animations"
+    ],
+    "avoid_when": [
+      "You need highly custom animations per item",
+      "You require fine‑grained performance tuning for very large lists"
+    ],
+    "strengths": [
+      "Zero boilerplate API",
+      "Automatic diffing and animation handling",
+      "Works on all Flutter platforms"
+    ],
+    "weaknesses": [
+      "Limited customization of animation curves per operation",
+      "Relies on diffutil_dart which may add overhead for huge lists"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "AutoAnimatedList<Fruit>(\n  items: fruits,\n  itemBuilder: (context, fruit, index, animation) {\n    return SizeFadeTransition(\n      animation: animation,\n      child: ListTile(\n        leading: Text('${index + 1}'),\n        title: Text(fruit.name),\n      ),\n    );\n  },\n);",
+    "confidence": 0.9
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.1.0",
+  "generatedAt": "2026-11-14T10:49:38.113Z",
+  "data": {
+    "primary_category": "navigation",
+    "secondary_categories": [
+      "device"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Read referrer information for incoming deep links on Android and iOS.",
+    "what_it_does": "A Flutter plugin that allows you to read various referrer information when the app is opened via a deep link. It uses native APIs like NSUserActivity#referrerUrl on iOS and Intent.EXTRA_REFERRER on Android. On unsupported platforms, calls result in a no-op.",
+    "use_when": [
+      "You need to know the webpage or application URL that caused your app to open via a deep link",
+      "You are handling deep links with Flutter's mechanism or packages like app_links and need referrer details"
+    ],
+    "avoid_when": [
+      "You need to track app install referrers rather than deep link referrers",
+      "You are targeting platforms other than Android and iOS"
+    ],
+    "strengths": [
+      "Simple API to fetch referrer information",
+      "Works well with existing deep-linking solutions and routing libraries"
+    ],
+    "weaknesses": [
+      "Referrer information is subject to platform limitations and browser referrer policies",
+      "May not be available for certain browsers like Firefox or depending on user intent",
+      "Does not support install referrer tracking"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "No complex configuration required. Platforms other than Android and iOS are treated as no-ops.",
+    "alternatives": [],
+    "minimal_example": "class ReferrerObserver with WidgetsBindingObserver {\n  @override  \n  Future<bool> didPushRouteInformation(RouteInformation routeInformation) async {\n    final referrerInfo = await Referrer().getReferrer();\n    return false;\n  }\n}",
+    "confidence": 0.95
+  }
+}

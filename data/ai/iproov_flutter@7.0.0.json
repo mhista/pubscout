@@ -1,0 +1,46 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "7.0.0",
+  "generatedAt": "2026-11-14T10:31:37.129Z",
+  "data": {
+    "primary_category": "auth",
+    "secondary_categories": [
+      "camera"
+    ],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "iProov Face SDK for Flutter providing flexible authentication and identity assurance",
+    "what_it_does": "Wraps native iOS and Android iProov SDKs into a Dart interface for biometric facial authentication, verification, and identity assurance. It provides a launch method returning a stream of events tracking the verification progress, success, failure, or errors.",
+    "use_when": [
+      "You need secure biometric facial liveness checking and identity verification in your app.",
+      "You are using iProov for user authentication or enrollment flows."
+    ],
+    "avoid_when": [
+      "You only need standard local biometric prompt authentication (like fingerprint or Face ID via local_auth).",
+      "You do not require server-backed iProov face verification services."
+    ],
+    "strengths": [
+      "Wraps robust native iOS and Android iProov SDKs behind a unified Dart interface.",
+      "Provides stream-based event handling for tracking capture and verification states.",
+      "Offers customizable options for UI elements, filters, and timeouts."
+    ],
+    "weaknesses": [
+      "Requires external server-side or client-side tokens from the iProov API to function.",
+      "Strict native requirements (compileSdk 36, iOS 16+, Kotlin 2.0.21+, etc.)."
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Requires obtaining API credentials from iPortal, adding NSCameraUsageDescription to iOS Info.plist, and fulfilling strict native requirements for Android and iOS.",
+    "alternatives": [
+      {
+        "name": "local_auth",
+        "why_pick_it": "Pick local_auth if you only need on-device biometrics like Face ID or fingerprint instead of full cloud-backed iProov identity assurance."
+      }
+    ],
+    "minimal_example": "import 'package:iproov_flutter/iproov_flutter.dart';\n\nfinal stream = IProov.launch(streamingUrl: 'wss://eu.rp.secure.iproov.me/ws', token: '< YOUR TOKEN >');\n\nstream.listen((event) {\n  if (event is IProovEventSuccess) {\n    // Verified successfully\n  }\n});",
+    "confidence": 0.95
+  }
+}

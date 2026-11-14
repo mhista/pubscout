@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "3.0.0",
+  "generatedAt": "2026-11-14T10:36:13.975Z",
+  "data": {
+    "primary_category": "auth",
+    "secondary_categories": [
+      "device"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Protect Flutter screens from screenshots, recordings, and unauthorized access.",
+    "what_it_does": "Adds native screen‑capture protection, screenshot/recording detection, biometric re‑authentication, inactivity auto‑lock, integrity checks and a secure clipboard with TTL. It works on Android and iOS via a Flutter plugin.",
+    "use_when": [
+      "Handling confidential or personal data in the UI",
+      "Compliance requirements (GDPR, HIPAA, etc.)",
+      "Apps that need to prevent screen capture or enforce biometric re‑auth"
+    ],
+    "avoid_when": [
+      "Simple apps without sensitive screens",
+      "When targeting platforms other than Android/iOS",
+      "When native build‑step complexity is unacceptable"
+    ],
+    "strengths": [
+      "Full‑screen capture protection on both platforms",
+      "Biometric re‑auth and integrity risk detection",
+      "Configurable app‑switcher branding and watermark overlay",
+      "Sensitive clipboard with automatic expiry"
+    ],
+    "weaknesses": [
+      "Requires native configuration (Info.plist entry, FlutterFragmentActivity, specific themes)",
+      "Limited to Android and iOS only",
+      "Adds runtime overhead for monitoring events"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add NSFaceIDUsageDescription to iOS Info.plist; extend Android activity from FlutterFragmentActivity and use an AppCompat theme for API 23‑27; compile with Flutter 3.44+, Android SDK 37, iOS 13+; ensure Swift 6 compiler (Xcode 16).",
+    "alternatives": [
+      {
+        "name": "local_auth",
+        "why_pick_it": "Provides biometric authentication without screen‑capture protection, useful if only auth is needed."
+      }
+    ],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:secure_content/secure_content.dart';\n\nSecureContentScope(\n  enabled:true,\n  protectInAppSwitcher:true,\n  appSwitcherColor:Colors.black,\n  policy:const SecureContentPolicy(\n    requireBiometricOnResume:true,\n    inactivityTimeout:Duration(seconds:30),\n    enableIntegrityChecks:true,\n    hardBlockOnIntegrityRisk:false,\n    enableRiskWatermark:true,\n    watermarkText:'CONFIDENTIAL',\n  ),\n  child:const YourSensitiveWidget(),\n);",
+    "confidence": 0.93
+  }
+}

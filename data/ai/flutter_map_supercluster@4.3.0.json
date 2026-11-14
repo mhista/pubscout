@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.3.0",
+  "generatedAt": "2026-11-14T10:56:13.647Z",
+  "data": {
+    "primary_category": "maps",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Very fast marker clustering for flutter_map.",
+    "what_it_does": "Provides marker clustering layers for flutter_map to efficiently display large numbers of markers. It offers both immutable and mutable clustering layers depending on whether markers need to be added or removed dynamically.",
+    "use_when": [
+      "You are using flutter_map and experiencing performance issues with many markers.",
+      "You want to cluster markers efficiently without heavy animations."
+    ],
+    "avoid_when": [
+      "You require built-in beautiful clustering animations out of the box.",
+      "You are not using flutter_map."
+    ],
+    "strengths": [
+      "Extremely fast marker clustering performance.",
+      "Supports both mutable and immutable marker layers."
+    ],
+    "weaknesses": [
+      "Does not include built-in clustering animations."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "flutter_map",
+        "why_pick_it": "If you just need basic mapping without advanced marker clustering."
+      }
+    ],
+    "minimal_example": "Widget build(BuildContext context) {\n  return FlutterMap(\n    options: MapOptions(\n      zoom: 5,\n      maxZoom: 15,\n    ),\n    children: <Widget>[\n      TileLayer(\n        options: TileLayerOptions(\n          urlTemplate: 'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',\n          subdomains: ['a', 'b', 'c'],\n        ),\n      ),\n      SuperclusterLayer.immutable(\n        initialMarkers: markers,\n        clusterWidgetSize: const Size(40, 40),\n        builder: (context, markerCount, extraClusterData) {\n          return Container(\n            decoration: BoxDecoration(\n              borderRadius: BorderRadius.circular(20.0),\n              color: Colors.blue,\n            ),\n            child: Center(\n              child: Text(\n                markerCount.toString(),\n                style: const TextStyle(color: Colors.white),\n              ),\n            ),\n          );\n        },\n      ),\n    ],\n  );\n}",
+    "confidence": 1
+  }
+}

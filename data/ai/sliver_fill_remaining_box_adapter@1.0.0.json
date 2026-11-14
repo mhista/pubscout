@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "1.0.0",
+  "generatedAt": "2026-11-14T10:45:35.442Z",
+  "data": {
+    "primary_category": "layout",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A sliver that fills remaining space or shows its child, whichever is larger.",
+    "what_it_does": "It combines SliverFillRemaining and SliverToBoxAdapter to provide a sliver that either expands to fill the remaining viewport or sizes itself to its child if the child is larger. The widget is null‑safe and works with the latest Flutter SDK.",
+    "use_when": [
+      "You need a sliver that expands to fill the remaining space in a CustomScrollView.",
+      "You want a single‑purpose sliver that behaves like SliverToBoxAdapter but can also fill the viewport.",
+      "You are building a scrollable layout that requires a flexible child size without custom layout code."
+    ],
+    "avoid_when": [
+      "You are using shrinkWrap:true on the scroll view.",
+      "You need multiple instances of this sliver in the same scroll view.",
+      "You require guaranteed behavior when the sliver is not the last item in the list."
+    ],
+    "strengths": [
+      "Simple API, no extra dependencies.",
+      "Null safety and compatible with latest Flutter.",
+      "Fills remaining space or sizes to child automatically."
+    ],
+    "weaknesses": [
+      "Not tested with shrinkWrap:true or multiple instances.",
+      "Behavior uncertain if not the last sliver in the list.",
+      "No advanced configuration options."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "```dart\nCustomScrollView(\n  slivers: [\n    SliverFillRemainingBoxAdapter(\n      child: Container(color: Colors.blue, height: 200),\n    ),\n  ],\n);\n```",
+    "confidence": 0.8
+  }
+}

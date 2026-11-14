@@ -1,0 +1,52 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.11.4",
+  "generatedAt": "2026-11-14T10:47:35.224Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "stream-based"
+    ],
+    "one_liner": "LDAP v3 client for Dart, supports search, add, modify, delete, and connection pooling",
+    "what_it_does": "Provides a Dart API to connect to LDAP v3 servers, perform CRUD operations, and stream search results. Includes experimental connection pool and logging.",
+    "use_when": [
+      "Need to query or modify an LDAP directory from a Dart app",
+      "Working with directory services in a server or CLI tool",
+      "Implementing authentication backends that rely on LDAP"
+    ],
+    "avoid_when": [
+      "You only need simple HTTP or REST APIs",
+      "Your project targets only web browsers (LDAP requires sockets)"
+    ],
+    "strengths": [
+      "Full LDAP v3 support with search, modify, and referrals",
+      "Stream-based search results for efficient handling",
+      "Experimental connection pool for reuse and retry",
+      "Good logging integration via Dart logging"
+    ],
+    "weaknesses": [
+      "Experimental pool may lack advanced features",
+      "No built‑in UI components, purely backend",
+      "Requires native socket support (not available on web)"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add dependency, import package, create LdapConnection with host/port, optionally enable SSL. No build_runner needed.",
+    "alternatives": [
+      {
+        "name": "yaml",
+        "why_pick_it": "not applicable"
+      },
+      {
+        "name": "uuid",
+        "why_pick_it": "not applicable"
+      }
+    ],
+    "minimal_example": "import 'package:dartdap/dartdap.dart';\n\nvoid main() async {\n  var ldap = LdapConnection(hostname: 'ldap.example.com');\n  await ldap.connect();\n  var results = await ldap.search('dc=example,dc=com', Filter.eq('objectClass', 'person'));\n  await for (var entry in results.entries) {\n    print(entry.dn);\n  }\n  await ldap.close();\n}\n",
+    "confidence": 0.85
+  }
+}

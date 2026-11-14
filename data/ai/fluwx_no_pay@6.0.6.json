@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "6.0.6",
+  "generatedAt": "2026-11-14T10:59:06.319Z",
+  "data": {
+    "primary_category": "payments",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "WeChat SDK Flutter plugin without payment for App Store compliance.",
+    "what_it_does": "Provides WeChat integration APIs like sharing, auth, and mini programs while omitting payment features to pass iOS App Store payment compliance reviews.",
+    "use_when": [
+      "You need WeChat integration (sharing, login, mini programs) in a Flutter app distributed on the iOS App Store",
+      "You want to avoid Apple's payment review rejections caused by native WeChat payment hooks"
+    ],
+    "avoid_when": [
+      "Your app requires WeChat payment functionality",
+      "You are using the standard fluwx package which includes payment methods"
+    ],
+    "strengths": [
+      "Identical API to fluwx for easy swapping",
+      "Helps pass iOS App Store compliance review by omitting payment methods"
+    ],
+    "weaknesses": [
+      "Calling payment methods will result in a MissingPluginException",
+      "Requires platform-specific configuration such as Universal Links on iOS and fingerprint registration on Android"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires configuring Associated Domains, URL types, and LSApplicationQueriesSchemes in iOS Info.plist, and registering the app signature fingerprint on Android.",
+    "alternatives": [
+      {
+        "name": "fluwx",
+        "why_pick_it": "Pick fluwx if you actually need WeChat payment features built-in and do not have App Store compliance issues regarding payments."
+      }
+    ],
+    "minimal_example": "Fluwx fluwx = Fluwx();\nfinal success = fluwx.registerApi(appId: \"wxd930ea5d5a228f5f\", universalLink: \"https://your.univerallink.com/link/\");\nprint(\"register API success: $success\");",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "5.2.0",
+  "generatedAt": "2026-11-14T11:00:09.195Z",
+  "data": {
+    "primary_category": "dependency-injection",
+    "secondary_categories": [],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "Dependency management and service access via InheritedWidget.",
+    "what_it_does": "Simplifies dependency management in Flutter apps by providing easy initialization and access to services and repositories across the widget tree using `InheritedWidget`. It supports both synchronous and asynchronous setup, parent dependencies, nested scopes, and lazy initialization.",
+    "use_when": [
+      "You want to manage app services and repositories using InheritedWidget-based scopes.",
+      "You need lazy initialization for synchronous or asynchronous dependencies to improve startup time.",
+      "You want to support nested dependency scopes and parent dependencies."
+    ],
+    "avoid_when": [
+      "You prefer annotation-based dependency injection with code generation.",
+      "You want a global locator pattern instead of widget-tree-scoped dependencies."
+    ],
+    "strengths": [
+      "Provides built-in lazy initialization via `LazyGet` and `LazyFutureGet` with support for disposal callbacks.",
+      "Manages container lifecycles tied to `DependencyScope` widgets.",
+      "Supports asynchronous initialization and custom error handling."
+    ],
+    "weaknesses": [
+      "Relies on widget-tree placement rather than a decoupled global container.",
+      "Documentation and ecosystem are smaller compared to alternative DI solutions."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add depend to pubspec.yaml and wrap your app or subtree in a DependencyScope.",
+    "alternatives": [],
+    "minimal_example": "DependencyScope<RootContainer, RootDependencyFactory>(\n  factory: RootDependencyFactory(),\n  placeholder: const Center(child: CircularProgressIndicator()),\n  builder: (BuildContext context) => const MyApp(),\n);",
+    "confidence": 0.95
+  }
+}

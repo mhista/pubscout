@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.1.0",
+  "generatedAt": "2026-11-14T10:35:18.369Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Provides a widget to customize the iOS back swipe gesture width.",
+    "what_it_does": "Adds a theme widget that lets you set a fixed or fractional width for the iOS back‑gesture area. It works with CupertinoPageTransitionsBuilderCustomBackGestureWidth to apply the setting app‑wide.",
+    "use_when": [
+      "You need to increase or limit the swipe‑back zone on iOS devices",
+      "You want a consistent back‑gesture width across the whole app"
+    ],
+    "avoid_when": [
+      "The app runs only on Android or other platforms",
+      "You are fine with Flutter's default back‑gesture behavior"
+    ],
+    "strengths": [
+      "Simple API with fixed or fractional options",
+      "Null‑safe and works with existing MaterialApp",
+      "No extra native setup required"
+    ],
+    "weaknesses": [
+      "Only affects iOS back‑gesture, no effect on other platforms",
+      "Limited to width customization, no other gesture tweaks"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "BackGestureWidthTheme(\n  backGestureWidth: BackGestureWidth.fraction(1/2),\n  child: MaterialApp(\n    theme: ThemeData(\n      pageTransitionsTheme: PageTransitionsTheme(\n        builders: {\n          TargetPlatform.android: FadeUpwardsPageTransitionsBuilder(),\n          TargetPlatform.iOS: CupertinoPageTransitionsBuilderCustomBackGestureWidth(),\n        },\n      ),\n    ),\n    home: MainPage(),\n  ),\n)",
+    "confidence": 0.9
+  }
+}

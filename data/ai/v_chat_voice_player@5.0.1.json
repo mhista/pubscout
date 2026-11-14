@@ -1,0 +1,51 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "5.0.1",
+  "generatedAt": "2026-11-14T10:56:32.097Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [
+      "ui-kits",
+      "widgets"
+    ],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "Voice message playback widget with animated waveform, speed controls, and user avatars.",
+    "what_it_does": "Provides a customizable voice message player widget for chat applications with play/pause controls, interactive seek bars, speed adjustment, and animated wave visualizers. Supports multiple audio sources including URLs, local files, and byte arrays.",
+    "use_when": [
+      "You are building a chat application and need to display voice messages.",
+      "You require customizable voice waveforms and playback speed controls."
+    ],
+    "avoid_when": [
+      "You need background audio playback or a full-featured music player.",
+      "You are recording audio rather than playing it back."
+    ],
+    "strengths": [
+      "Includes animated waveform visualization and interactive seeking.",
+      "Supports speed control, avatars, and extensive styling configurations.",
+      "Cross-platform support across mobile, web, and desktop."
+    ],
+    "weaknesses": [
+      "Seeking is not supported when loading audio from byte sources.",
+      "Strictly tailored for chat voice messages rather than general audio streaming."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires v_platform as a dependency alongside v_chat_voice_player.",
+    "alternatives": [
+      {
+        "name": "just_audio",
+        "why_pick_it": "If you need a robust, low-level audio player for general audio streaming, playlists, or complex audio routing instead of a pre-built chat voice widget."
+      },
+      {
+        "name": "audioplayers",
+        "why_pick_it": "If you want a simple multi-platform audio player plugin to implement custom audio interfaces from scratch."
+      }
+    ],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:v_chat_voice_player/v_chat_voice_player.dart';\nimport 'package:v_platform/v_platform.dart';\n\nclass MyVoiceMessage extends StatefulWidget {\n  @override\n  _MyVoiceMessageState createState() => _MyVoiceMessageState();\n}\n\nclass _MyVoiceMessageState extends State<MyVoiceMessage> {\n  late VVoiceMessageController controller;\n\n  @override\n  void initState() {\n    super.initState();\n    controller = VVoiceMessageController(\n      id: 'voice_001',\n      audioSrc: VPlatformFile.fromUrl(\n        networkUrl: 'https://example.com/voice.mp3',\n      ),\n    );\n  }\n\n  @override\n  void dispose() {\n    controller.dispose();\n    super.dispose();\n  }\n\n  @override\n  Widget build(BuildContext context) {\n    return VVoiceMessageView(\n      controller: controller,\n    );\n  }\n}",
+    "confidence": 0.95
+  }
+}

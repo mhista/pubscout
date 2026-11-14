@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.8.1",
+  "generatedAt": "2026-11-14T11:00:20.093Z",
+  "data": {
+    "primary_category": "games",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "The Stockfish Chess Engine for Flutter.",
+    "what_it_does": "Wraps the Stockfish chess engine C++ code for use in Flutter applications via Dart FFI. Enables sending UCI commands and listening to engine output streams.",
+    "use_when": [
+      "You want to build a chess app in Flutter with an embedded chess engine.",
+      "You need to communicate with the Stockfish UCI interface on Android or iOS."
+    ],
+    "avoid_when": [
+      "You need a package supporting platforms other than Android and iOS.",
+      "You are running multiple instances simultaneously, as only one instance is supported at a time."
+    ],
+    "strengths": [
+      "Uses Dart FFI for performance when communicating with native C++ code.",
+      "Provides a simple ValueListenable for engine state and a Stream for stdout."
+    ],
+    "weaknesses": [
+      "Only supports Android and iOS.",
+      "Only one instance can be created at a time."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "iOS project must have IPHONEOS_DEPLOYMENT_TARGET >=12.0.",
+    "alternatives": [],
+    "minimal_example": "final stockfish = Stockfish();\nstockfish.stdin = 'isready';\nstockfish.stdout.listen((line) {\n  print(line);\n});",
+    "confidence": 0.95
+  }
+}

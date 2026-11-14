@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.3.0",
+  "generatedAt": "2026-11-14T10:45:31.729Z",
+  "data": {
+    "primary_category": "web3",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Manages transactions, wallets, and crypto operations on the TON network.",
+    "what_it_does": "Ton Dart streamlines transaction management, cryptographic operations, and interaction with TonApi and TonCenter RPC APIs within the TON network. It provides comprehensive support for basic wallets, highload wallets, jetton tokens, NFTs, and BOC serialization.",
+    "use_when": [
+      "Building a Flutter or Dart application that interacts with the TON blockchain",
+      "Managing TON wallet contracts, sending transfers, and handling Jettons or NFTs",
+      "Communicating with TonApi and TonCenter JSON-RPC endpoints"
+    ],
+    "avoid_when": [
+      "Working with non-TON blockchains such as Ethereum or Solana",
+      "Needing high-level UI components or ready-made wallet widgets"
+    ],
+    "strengths": [
+      "Comprehensive support for TON-specific contracts including basic wallets, highload wallets, jettons, and NFTs",
+      "Built-in BOC serialization and ED25519 cryptographic transaction signing",
+      "Integration capabilities with TonApi and TonCenter RPC"
+    ],
+    "weaknesses": [
+      "Requires familiarity with TON-specific concepts, TonApi, and TonCenter RPC APIs",
+      "Niche ecosystem focused strictly on the TON network"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Not documented",
+    "alternatives": [],
+    "minimal_example": "final TestWallet<WalletV5R1> wallet = TestWallet(version: WalletVersion.v5R1);\n\nawait wallet.wallet.sendTransfer(\n    params: VersionedV5TransferParams.external(\n      signer: wallet.signer,\n      messages: [\n        OutActionSendMsg(\n          outMessage: TonHelper.internal(\n            destination: destination.address,\n            amount: TonHelper.toNano(\"0.01\"),\n          ),\n        ),\n      ],\n    ),\n    rpc: wallet.rpc,\n);",
+    "confidence": 0.95
+  }
+}

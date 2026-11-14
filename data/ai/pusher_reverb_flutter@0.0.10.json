@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.0.10",
+  "generatedAt": "2026-11-14T10:49:26.056Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "backend"
+    ],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "A Flutter Pusher client for Laravel Reverb with custom paths and dynamic headers.",
+    "what_it_does": "Provides real-time WebSocket communication using the Pusher Protocol optimized for Laravel Reverb. It supports public, private, and end-to-end encrypted channels alongside automatic reconnection.",
+    "use_when": [
+      "You are building a Flutter application that connects to a Laravel Reverb backend.",
+      "You need real-time updates via public, private, or encrypted channels.",
+      "You want stream-based or callback-based event handling for WebSocket messages."
+    ],
+    "avoid_when": [
+      "You are using WebSockets without a Pusher-compatible protocol or Laravel Reverb.",
+      "You require features tied to browser-specific WebSocket configurations that are unsupported on web."
+    ],
+    "strengths": [
+      "Supports all Flutter platforms including Web, Android, iOS, macOS, Windows, and Linux.",
+      "Includes built-in support for encrypted channels with AES-256-CBC.",
+      "Automatic reconnection handling with exponential backoff."
+    ],
+    "weaknesses": [
+      "API key connection headers and ping intervals are ignored on web due to browser limitations.",
+      "Early stage version (0.0.10) which may undergo API changes."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires a running Laravel backend with Reverb configured. Pass host, port, and appKey to initialize the client.",
+    "alternatives": [],
+    "minimal_example": "import 'package:pusher_reverb_flutter/pusher_reverb_flutter.dart';\n\nfinal client = ReverbClient.instance(\n  host: 'localhost',\n  port: 8080,\n  appKey: 'your-app-key',\n);\n\nawait client.connect();\n\nfinal channel = client.subscribeToChannel('notifications');\nchannel.on('new-message').listen((event) {\n  print('Received: ${event.data}');\n});",
+    "confidence": 0.95
+  }
+}

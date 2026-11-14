@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.0.3",
+  "generatedAt": "2026-11-14T10:49:01.767Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Access device, platform, target, and app version information via an inherited widget.",
+    "what_it_does": "Bundles device_info_plus, package_info_plus, and version into a single AppInfo inherited widget. Automatically fetches async information at app launch and makes it available to every widget in the tree while safely handling web platform restrictions.",
+    "use_when": [
+      "You need global access to app version, package info, and device/platform specifications.",
+      "You want to avoid repeatedly writing async utility code for device and package details across projects."
+    ],
+    "avoid_when": [
+      "You only need to check a single isolated device property without an inherited widget setup.",
+      "You prefer calling native plugins directly rather than through a wrapper package."
+    ],
+    "strengths": [
+      "Provides a unified AppInfoData structure available anywhere in the widget tree.",
+      "Automatically handles platform safety and restrictions on the web.",
+      "Exposes structured SemVer version objects for easy comparison."
+    ],
+    "weaknesses": [
+      "Requires wrapping the root of your application with an async setup in main().",
+      "Brings in multiple dependencies (device_info_plus, package_info_plus, version)."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Update the main() function to wrap the root application with AppInfo using await AppInfoData.get().",
+    "alternatives": [],
+    "minimal_example": "void main() async {\n  runApp(\n    AppInfo(\n      data: await AppInfoData.get(),\n      child: const MyApp(),\n    ),\n  );\n}",
+    "confidence": 0.95
+  }
+}

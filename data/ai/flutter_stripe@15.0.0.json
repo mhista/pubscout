@@ -1,0 +1,59 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "15.0.0",
+  "generatedAt": "2026-11-14T10:28:57.670Z",
+  "data": {
+    "primary_category": "payments",
+    "secondary_categories": [
+      "ui-kits",
+      "widgets"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Flutter plugin for Stripe payments with native UI and Payment Sheet support.",
+    "what_it_does": "Provides a Flutter interface to Stripe’s payment platform, including pre‑built UI for card entry, Apple Pay, Google Pay, and 3‑D Secure. Works on Android, iOS, and experimental web builds.",
+    "use_when": [
+      "You need to accept card payments, Apple Pay or Google Pay via Stripe.",
+      "You want native‑look‑and‑feel payment screens like Payment Sheet.",
+      "You target Android, iOS and optionally web with a single package."
+    ],
+    "avoid_when": [
+      "You only need in‑app purchases through App Store/Play Store APIs.",
+      "You prefer a different payment gateway (e.g., Adyen, PayPal).",
+      "You need full web‑only Stripe integration without native code."
+    ],
+    "strengths": [
+      "Native UI components for Android & iOS",
+      "Built‑in support for Apple Pay, Google Pay and SCA",
+      "Handles PCI‑compliant tokenisation automatically",
+      "Supports web (experimental)"
+    ],
+    "weaknesses": [
+      "Requires extensive native setup (Android themes, iOS Podfile, proguard)",
+      "Minimum Flutter 3.47, may be too new for some projects",
+      "Web support is limited to a subset of features"
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Android: use Kotlin 1.8+, AGP 8, AppCompat theme, FlutterFragmentActivity, proguard rules. iOS: set deployment target ≥13, update Podfile, add camera usage keys for card scanning. Web: add flutter_stripe_web dependency and serve with CORS headers (dhttpd).",
+    "alternatives": [
+      {
+        "name": "stripe_android",
+        "why_pick_it": "If you only need Android Stripe integration without the cross‑platform UI."
+      },
+      {
+        "name": "adyen_checkout",
+        "why_pick_it": "When you prefer the Adyen payment gateway over Stripe."
+      },
+      {
+        "name": "pay",
+        "why_pick_it": "For a lightweight Google/Apple Pay integration without full Stripe SDK."
+      }
+    ],
+    "minimal_example": "import 'package:flutter_stripe/flutter_stripe.dart';\n\nFuture<void> initStripe() async {\n  Stripe.publishableKey = 'pk_test_...';\n  await Stripe.instance.applySettings();\n}\n\nFuture<void> presentPaymentSheet() async {\n  await Stripe.instance.initPaymentSheet(\n    paymentIntentClientSecret: 'client_secret',\n    merchantDisplayName: 'Demo Shop',\n  );\n  await Stripe.instance.presentPaymentSheet();\n}",
+    "confidence": 0.93
+  }
+}

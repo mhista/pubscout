@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.0.6",
+  "generatedAt": "2026-11-14T10:37:29.124Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Displays WebVTT or SRT subtitles in Flutter video players.",
+    "what_it_does": "Parses WebVTT and SRT subtitle files and provides controllers and widgets to render them over video playback. Works with common video players like Chewie and video_player.",
+    "use_when": [
+      "You need to show subtitles/captions for video content in a Flutter app",
+      "You require built‑in support for WebVTT and SRT formats without writing your own parser"
+    ],
+    "avoid_when": [
+      "You need advanced subtitle styling or format support beyond WebVTT/SRT",
+      "You require a full‑featured captioning solution with multiple languages or accessibility features"
+    ],
+    "strengths": [
+      "Simple API for loading and displaying subtitles",
+      "Supports both WebVTT and SRT out of the box",
+      "Integrates easily with Chewie and video_player"
+    ],
+    "weaknesses": [
+      "Limited to basic subtitle rendering; no extensive styling options",
+      "No support for other subtitle formats (e.g., ASS)"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'dart:convert' show utf8;\nimport 'package:chewie/chewie.dart';\nimport 'package:flutter/material.dart';\nimport 'package:flutter_subtitle/flutter_subtitle.dart' hide Subtitle;\nimport 'package:video_player/video_player.dart';\nimport 'package:http/http.dart' as http;\n\n// inside your widget\nfinal body = utf8.decode((await http.get(Uri.parse('https://example.com/subtitles.vtt'))).bodyBytes);\nfinal subtitleController = SubtitleController.string(body, format: SubtitleFormat.webvtt);\nfinal videoController = VideoPlayerController.networkUrl(Uri.parse('https://example.com/video.mp4'));\nawait videoController.initialize();\nfinal chewieController = ChewieController(\n  videoPlayerController: videoController,\n  subtitleBuilder: (context, subtitle) => SubtitleView(text: subtitle),\n);\nchewieController.setSubtitle(subtitleController.subtitles.map((e) => Subtitle(index:e.number,start:Duration(milliseconds:e.start),end:Duration(milliseconds:e.end),text:e.text)).toList());",
+    "confidence": 0.93
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.1.0",
+  "generatedAt": "2026-11-14T10:37:25.777Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "files"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Upload files to a server in chunks using Dio for mobile, desktop, and web.",
+    "what_it_does": "Allows uploading large files in smaller chunks to prevent memory issues and handle interrupted transfers. Supports both file paths and data streams for web compatibility.",
+    "use_when": [
+      "You need to upload large files to a backend server",
+      "You are using Dio for network requests",
+      "You need to support file uploads on web, mobile, and desktop"
+    ],
+    "avoid_when": [
+      "You are not using Dio as your HTTP client",
+      "You only need simple single-request file uploads"
+    ],
+    "strengths": [
+      "Supports chunked file uploads across mobile, desktop, and web",
+      "Provides both stream-based and file-path-based upload methods",
+      "Allows custom headers for each chunk upload request"
+    ],
+    "weaknesses": [
+      "Requires Dio as the underlying HTTP client",
+      "Limited documentation beyond basic usage examples"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add chunked_uploader and dio to your dependencies.",
+    "alternatives": [],
+    "minimal_example": "final dio = Dio(BaseOptions(baseUrl: 'https://example.com/api'));\nfinal uploader = ChunkedUploader(dio);\nfinal response = await uploader.upload(\n  fileName: file.name,\n  fileSize: file.size,\n  fileDataStream: file.readStream!,\n  maxChunkSize: 500000,\n  path: '/file',\n  onUploadProgress: (progress) => print(progress),\n);",
+    "confidence": 0.9
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.7.0",
+  "generatedAt": "2026-11-14T10:58:54.183Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "A Flutter plugin for Bluetooth Low Energy (BLE) central interactions.",
+    "what_it_does": "Allows Flutter applications to act as a BLE central device to scan for, connect to, and interact with peripheral devices. It supports reading/writing characteristics, subscriptions, bonding process observation, and connection management.",
+    "use_when": [
+      "Your app needs to scan for and connect to nearby Bluetooth Low Energy peripherals.",
+      "You need to read, write, or subscribe to BLE characteristics from Flutter."
+    ],
+    "avoid_when": [
+      "You only need high-level device information or general connectivity checks without BLE.",
+      "Your app needs to act exclusively as a BLE peripheral rather than a central (though background accessory capabilities exist)."
+    ],
+    "strengths": [
+      "Comprehensive suite of BLE operations including scanning, connecting, bonding, and characteristic management.",
+      "Built-in testing support including a FakeCentralMethodChannel and ESP32 hardware integration testing."
+    ],
+    "weaknesses": [
+      "Requires platform-specific configuration and permissions for Android, iOS, and macOS.",
+      "Limited to BLE central role interactions primarily."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding BLE permissions and features to AndroidManifest.xml, and Info.plist usage descriptions and Background Modes capabilities for iOS/macOS.",
+    "alternatives": [],
+    "minimal_example": "import 'dart:async';\n\nStreamSubscription<BleDevice>? scanSubscription;\n\nvoid startScan() async {\n  final Stream<BleDevice> scanStream = await bleCentral.startScan();\n  scanSubscription = scanStream.listen(\n    (device) {\n      print('Discovered device: \\${device.name} (\\${device.address})');\n    },\n  );\n}",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.0",
+  "generatedAt": "2026-11-14T10:56:25.735Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [],
+    "approach": [
+      "stream-based",
+      "declarative"
+    ],
+    "one_liner": "Extended bloc with a separate stream for one-time side effects.",
+    "what_it_does": "Extends the standard bloc pattern to support a secondary stream specifically for side effects that should be consumed only once, such as navigation or showing snackbars. It provides mixins and base classes to easily emit and listen to side effects separately from the UI state.",
+    "use_when": [
+      "You need to handle one-off events like navigation or snackbars cleanly in a BLoC architecture.",
+      "You want to avoid state-retrigger bugs when rebuilding widgets after a one-time event occurs."
+    ],
+    "avoid_when": [
+      "You are not using the bloc or flutter_bloc packages.",
+      "Your architecture already handles side effects through regular events or other state management approaches."
+    ],
+    "strengths": [
+      "Clean separation of state changes from one-time side effects like navigation and toasts.",
+      "Provides both a mixin approach for existing blocs and a base class for new ones.",
+      "Includes convenient listener widgets for Flutter."
+    ],
+    "weaknesses": [
+      "Adds an extra conceptual layer on top of standard BLoC.",
+      "Limited documentation outside of basic usage examples."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires existing bloc and flutter_bloc setup.",
+    "alternatives": [
+      {
+        "name": "bloc",
+        "why_pick_it": "If you prefer sticking strictly to the core state management package without side effect extensions."
+      },
+      {
+        "name": "flutter_bloc",
+        "why_pick_it": "If you only need the standard UI bindings provided by the official flutter_bloc library."
+      }
+    ],
+    "minimal_example": "class FeatureBloc extends SideEffectBloc<FeatureEvent, FeatureState, FeatureSideEffect>{\n  FeatureBloc() : super(FeatureState.initial());\n}",
+    "confidence": 0.95
+  }
+}

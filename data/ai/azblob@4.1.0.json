@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "4.1.0",
+  "generatedAt": "2026-11-14T10:29:31.488Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "storage"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Azure Blob Storage client for Dart, supports put/get blobs.",
+    "what_it_does": "This package provides a simple API to interact with Azure Blob Storage. It can parse a connection string, upload blobs, and supports local emulators like Azurite. It works on all major platforms including web.",
+    "use_when": [
+      "You need to upload or download blobs from Azure Storage in a Dart or Flutter app.",
+      "You want a lightweight client without heavy dependencies.",
+      "You need support for local Azure emulators during development."
+    ],
+    "avoid_when": [
+      "You are already using a comprehensive backend SDK like Firebase or Supabase.",
+      "You require advanced features such as blob listing, metadata management, or complex authentication flows beyond simple SAS tokens."
+    ],
+    "strengths": [
+      "Supports all platforms including web.",
+      "Supports local emulators via BlobEndpoint.",
+      "Simple API with minimal dependencies.",
+      "Keeps up with Dart SDK 3.8+ and null safety."
+    ],
+    "weaknesses": [
+      "Limited to basic put/get operations; no advanced blob management APIs.",
+      "No built‑in support for listing blobs or setting metadata.",
+      "Relies on http and http_parser, which may not be optimal for large files."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:azblob/azblob.dart';\n\nvoid main() async {\n  var storage = AzureStorage.parse('your connection string');\n  await storage.putBlob('/yourcontainer/yourfile.txt', body: 'Hello, world.');\n}",
+    "confidence": 0.9
+  }
+}

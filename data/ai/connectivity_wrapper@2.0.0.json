@@ -1,0 +1,46 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.0",
+  "generatedAt": "2026-11-14T10:47:38.295Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Provides network-aware widgets and connectivity feedback for Flutter applications.",
+    "what_it_does": "A Flutter package that offers network-aware widgets to give users feedback when they are offline or when connectivity is lost. It integrates with provider and connectivity_plus to monitor network changes and update UI elements accordingly.",
+    "use_when": [
+      "You want to display a banner or overlay when the user loses internet connection.",
+      "You need to disable specific UI components (like sign-in buttons) when offline.",
+      "You want a simple declarative way to handle network-aware widgets app-wide or per-screen."
+    ],
+    "avoid_when": [
+      "You need complex network state management beyond simple online/offline UI feedback.",
+      "You are relying solely on connectivity state for making critical network calls without timeout handling."
+    ],
+    "strengths": [
+      "Easy setup for global or per-screen offline feedback via wrapper widgets.",
+      "Supports custom offline widgets, messages, and decorations.",
+      "Built-in handling of subscription disposal and resource cleanup."
+    ],
+    "weaknesses": [
+      "Depends on the underlying platform connectivity checks which may occasionally give false positives.",
+      "Requires specific platform configurations (such as Android Gradle Plugin, Java 17, and iOS 13+ for v2.0.0)."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires Dart 3.6+ and updates to platform settings such as Java 17, Android Gradle Plugin 8.12.1+, Gradle 8.13+, iOS 13+, and macOS 10.15+ for connectivity_plus 7.x compatibility.",
+    "alternatives": [
+      {
+        "name": "connectivity_plus",
+        "why_pick_it": "If you need raw network status streams and checks without the pre-built wrapper widgets and UI feedback components."
+      }
+    ],
+    "minimal_example": "ConnectivityAppWrapper(\n  app: MaterialApp(\n    home: MenuScreen(),\n    builder: (buildContext, widget) {\n      return ConnectivityWidgetWrapper(\n        child: widget,\n        disableInteraction: true,\n        height: 80,\n      );\n    },\n  ),\n)",
+    "confidence": 1
+  }
+}

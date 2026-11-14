@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.0",
+  "generatedAt": "2026-11-14T10:39:01.530Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "A wrapper for FutureBuilder to improve readability and prevent unwanted refiring.",
+    "what_it_does": "It wraps Flutter's standard FutureBuilder widget to simplify handling various connection states and provides an option to remember the future result across rebuilds. This prevents the future from refiring when parent widgets call setState.",
+    "use_when": [
+      "You want to prevent your FutureBuilder from re-fetching data every time setState is called.",
+      "You want a cleaner, builder-less syntax for handling different future connection states."
+    ],
+    "avoid_when": [
+      "You need complex custom builder logic that doesn't fit into the predefined connection state callbacks."
+    ],
+    "strengths": [
+      "Solves the common FutureBuilder refiring issue with a simple flag.",
+      "Improves readability by removing the need for verbose connectionState checks in a builder function."
+    ],
+    "weaknesses": [
+      "Provides a limited set of opinionated state callbacks compared to raw FutureBuilder."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "EnhancedFutureBuilder(\n  future: widget._api.getRandomCat(),\n  rememberFutureResult: true,\n  whenDone: (dynamic cat) => _showCatWidget(cat),\n  whenNotDone: Center(child: Text('Loading...')),\n)",
+    "confidence": 0.95
+  }
+}

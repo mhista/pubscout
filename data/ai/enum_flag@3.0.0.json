@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.0.0",
+  "generatedAt": "2026-11-14T10:37:19.704Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "declarative",
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Portable enum bit flags for Dart with typed FlagSet values and stable bit positions.",
+    "what_it_does": "Provides type-safe enum bit flags for Dart. Allows defining flags with unique explicit bit positions or index-based values, offering immutable FlagSet operations, integer extensions, and handling for unknown bits.",
+    "use_when": [
+      "You need to store multiple enum-based states efficiently inside a single integer bitmask.",
+      "You require stable bit positions for database storage or external API serialization.",
+      "You want immutable, typed flag set operations without code generation."
+    ],
+    "avoid_when": [
+      "You are dealing with more than 32 flags (since positions are limited to 0-31 for standard 32-bit unsigned integers)."
+    ],
+    "strengths": [
+      "Stable explicit bit positions for persisted data and APIs.",
+      "Immutable and typed FlagSet API alongside classic int extensions.",
+      "Preserves and reports unknown bits for forward compatibility.",
+      "Guaranteed identical unsigned 32-bit behavior across Dart VM and JavaScript."
+    ],
+    "weaknesses": [
+      "Limited to a maximum of 32 bits (positions 0 through 31).",
+      "Requires manual migration or explicit configuration if flag orders change."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:enum_flag/enum_flag.dart';\n\nenum Permission with EnumFlag {\n  read(0),\n  write(1),\n  execute(2),\n  delete(3);\n\n  const Permission(this.bitIndex);\n\n  @override\n  final int bitIndex;\n}\n\nfinal permissions = [Permission.read, Permission.execute].flagSet;",
+    "confidence": 1
+  }
+}

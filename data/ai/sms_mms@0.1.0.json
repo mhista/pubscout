@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.1.0",
+  "generatedAt": "2026-11-14T10:51:01.565Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Opens the native Android and iOS messaging app to send SMS or MMS with attachments.",
+    "what_it_does": "Opens the native device messaging app pre-populated with recipients, a message body, and optional file attachments. On Android it skips the app chooser, while on iOS it presents the system compose sheet and returns whether the message was sent or cancelled.",
+    "use_when": [
+      "You want users to send an SMS or MMS using their native messaging app with pre-filled content.",
+      "You need to attach files like images or PDFs to a message compose sheet."
+    ],
+    "avoid_when": [
+      "You need to send text messages programmatically in the background without user interaction.",
+      "Targeting platforms other than Android and iOS (web and desktop are not supported)."
+    ],
+    "strengths": [
+      "Supports multiple file attachments on both Android and iOS.",
+      "No extra setup or permissions needed in your app.",
+      "Handles custom messaging apps on Android gracefully."
+    ],
+    "weaknesses": [
+      "Cannot send messages automatically without the user tapping send.",
+      "Android results cannot report whether the message was actually sent due to platform limitations."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "No setup is needed in your app; the plugin brings its own FileProvider and manifest entries.",
+    "alternatives": [],
+    "minimal_example": "import 'package:sms_mms/sms_mms.dart';\n\nfinal result = await SmsMms.send(\n  recipients: ['+4915112345678'],\n  message: 'Here is the invoice',\n  filePaths: [invoicePdf.path, photo.path],\n);",
+    "confidence": 1
+  }
+}

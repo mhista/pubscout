@@ -1,0 +1,52 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.0",
+  "generatedAt": "2026-11-14T11:03:20.564Z",
+  "data": {
+    "primary_category": "layout",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A simple responsive design approach for Flutter apps supporting scaling sizing and fonts.",
+    "what_it_does": "Provides a set of extension methods (.h, .w, .sp, .r, etc.) on numbers to build responsive layouts and scale fonts based on a design resolution. Requires wrapping your app in a Resize widget.",
+    "use_when": [
+      "You want to scale dimensions and font sizes proportionally based on a target design resolution.",
+      "You need a lightweight solution for responsive sizing using extension methods."
+    ],
+    "avoid_when": [
+      "You prefer built-in Flutter adaptive mechanisms like LayoutBuilder or MediaQuery without pixel-scaling extensions.",
+      "You need more advanced multi-breakpoint adaptive layout structures."
+    ],
+    "strengths": [
+      "Easy to use with numeric extensions like .h, .w, and .sp.",
+      "Supports custom base design sizes and REM-based font sizing."
+    ],
+    "weaknesses": [
+      "Relies on global initialization via a Resize widget in the widget tree.",
+      "Hardcoded scaling approach may not fit every screen aspect ratio equally well."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Initialize the Resize helper widget in your main app builder before using any responsive extensions.",
+    "alternatives": [
+      {
+        "name": "responsive_framework",
+        "why_pick_it": "Provides robust responsive scaling, breakpoints, and auto-scaling for various screen sizes."
+      },
+      {
+        "name": "sizer",
+        "why_pick_it": "Alternative sizing extension package based on device width and height percentages."
+      },
+      {
+        "name": "responsive_builder",
+        "why_pick_it": "Offers layout builders to target specific device types like mobile, tablet, and desktop."
+      }
+    ],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:resize/resize.dart';\n\nvoid main() => runApp(MyApp());\n\nclass MyApp extends StatelessWidget {\n  @override\n  Widget build(BuildContext context) {\n    return Resize(\n        builder: () {\n            return MaterialApp(\n                home: Scaffold(\n                    body: Container(\n                        height: 100.h,\n                        width: 100.w,\n                    ),\n                ),\n            );\n        },\n    );\n  }\n}",
+    "confidence": 1
+  }
+}

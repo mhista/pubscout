@@ -1,0 +1,48 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.0.0",
+  "generatedAt": "2026-11-14T10:59:06.337Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [
+      "images",
+      "files"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Extensible collection of media viewers for preview and interactive experiences.",
+    "what_it_does": "Provides an opinionated framework for media previews and interactions. It handles various media files like images, audio, video, and PDFs using unified MediaProviders and widgets.",
+    "use_when": [
+      "You need to display preview and interactive media viewers for images, videos, audio, and PDFs.",
+      "You want an extensible media viewing framework with built-in Hero animation support."
+    ],
+    "avoid_when": [
+      "You only need a simple audio player or a standalone video player without preview wrappers."
+    ],
+    "strengths": [
+      "Supports multiple media types (image, audio, PDF, video) under a unified provider abstraction.",
+      "Provides both preview and interactive near-fullscreen widgets with Hero animations."
+    ],
+    "weaknesses": [
+      "Opinionated structure may not fit custom bespoke media UI requirements.",
+      "Depends on several underlying media packages which may increase app size."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "For video setup, follow the instructions on the video_player package.",
+    "alternatives": [
+      {
+        "name": "just_audio",
+        "why_pick_it": "If you need a robust, feature-rich audio player without the broader mixed-media viewer framework."
+      },
+      {
+        "name": "video_player",
+        "why_pick_it": "If you only need core video playback capabilities without extra preview widgets."
+      }
+    ],
+    "minimal_example": "import 'package:enough_media/enough_media.dart';\nimport 'dart:typed_data';\nimport 'package:flutter/material.dart';\n\nWidget buildPreview(String name, String mimeType, Uint8List data) {\n  final mediaProvider = MemoryMediaProvider(name, mimeType, data);\n  return PreviewMediaWidget(\n    mediaProvider: mediaProvider,\n  );\n}",
+    "confidence": 0.95
+  }
+}

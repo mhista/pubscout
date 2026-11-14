@@ -1,0 +1,37 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.0.5",
+  "generatedAt": "2026-11-14T10:59:00.527Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Hold BuildContext globally to access it anywhere in the app without passing it.",
+    "what_it_does": "It stores the app's BuildContext globally by attaching to the root navigatorKey. Developers can then retrieve the current context, state, widget, or overlay from anywhere without explicit parameter passing.",
+    "use_when": [
+      "You need access to the current BuildContext in non-widget utility or service classes.",
+      "You want to show dialogs or snackbars without passing context through multiple layers."
+    ],
+    "avoid_when": [
+      "You prefer structured dependency injection or clean state management practices.",
+      "You are building apps where global context tracking can lead to anti-patterns or hard-to-debug lifecycle issues."
+    ],
+    "strengths": [
+      "Extremely simple setup with a single navigatorKey assignment.",
+      "Allows accessing context from anywhere in the codebase."
+    ],
+    "weaknesses": [
+      "Relies on a global state approach which is generally considered an anti-pattern in Flutter.",
+      "Can lead to using context when it might be stale or invalid."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Assign ContextHolder.key to the navigatorKey of your MaterialApp or CupertinoApp.",
+    "alternatives": [],
+    "minimal_example": "MaterialApp(\n  navigatorKey: ContextHolder.key,\n  home: Scaffold(),\n);",
+    "confidence": 0.95
+  }
+}

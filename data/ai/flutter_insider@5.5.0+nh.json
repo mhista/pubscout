@@ -1,0 +1,48 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "5.5.0+nh",
+  "generatedAt": "2026-11-14T10:53:09.225Z",
+  "data": {
+    "primary_category": "devtools",
+    "secondary_categories": [
+      "notifications"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter plugin wrapping the Insider mobile SDK for user tracking and push notifications.",
+    "what_it_does": "Wraps the native Insider SDK on Android and iOS to provide user tracking, custom event tagging, push notifications, smart recommendations, App Cards, and content optimization through a unified Dart API.",
+    "use_when": [
+      "You need to integrate the Insider growth and marketing platform into your Flutter application.",
+      "Your application requires features like push notifications, user identification, smart recommendations, and App Cards provided by Insider."
+    ],
+    "avoid_when": [
+      "You are looking for a standalone notification or analytics provider without the Insider ecosystem.",
+      "You want a pure Dart implementation without native SDK wrappers."
+    ],
+    "strengths": [
+      "Unified Dart API wrapping native Android and iOS Insider SDKs.",
+      "Supports a wide range of growth features including push notifications, App Cards, and smart recommendations."
+    ],
+    "weaknesses": [
+      "Requires platform-specific setup on Android and iOS, including native SDK configuration.",
+      "Tied directly to the commercial Insider platform."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding the package to pubspec.yaml, initializing with partner credentials, and platform-specific configurations for Android and iOS (such as CocoaPods or Swift Package Manager for iOS).",
+    "alternatives": [
+      {
+        "name": "onesignal_flutter",
+        "why_pick_it": "Pick OneSignal if you need a dedicated push notification and messaging platform rather than Insider's full growth suite."
+      },
+      {
+        "name": "firebase_messaging",
+        "why_pick_it": "Pick Firebase Messaging if you want a direct, native Firebase push integration without commercial marketing platforms."
+      }
+    ],
+    "minimal_example": "import 'package:flutter_insider/flutter_insider.dart';\nimport 'package:flutter_insider/enum/InsiderCallbackAction.dart';\n\nFuture<void> bootstrapInsider() async {\n  await FlutterInsider.Instance.init(\n    'YOUR_PARTNER_NAME',\n    'group.com.example.app',\n    (int actionType, dynamic data) {},\n  );\n}",
+    "confidence": 0.95
+  }
+}

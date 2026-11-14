@@ -1,0 +1,51 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.1.3",
+  "generatedAt": "2026-11-14T10:56:19.862Z",
+  "data": {
+    "primary_category": "devtools",
+    "secondary_categories": [
+      "networking",
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A floating widget for real-time API request logging and debugging in Flutter.",
+    "what_it_does": "Provides a draggable floating widget that monitors API requests in real-time, displays JSON responses and headers, copies cURL commands, and simulates network conditions.",
+    "use_when": [
+      "You want to inspect HTTP requests and responses directly on-device using a floating widget.",
+      "You need to quickly copy cURL commands from app network requests.",
+      "You need to simulate slow network conditions or offline states during testing."
+    ],
+    "avoid_when": [
+      "You are not using the Dio networking library.",
+      "You require backend production logging integration without on-device UI overlays."
+    ],
+    "strengths": [
+      "Includes a built-in network simulator for testing slow and offline conditions.",
+      "Supports copying cURL commands easily with a long tap.",
+      "Offers advanced JSON search, deep filtering, and web inspector support."
+    ],
+    "weaknesses": [
+      "Tied directly to the Dio package ecosystem.",
+      "UI overlay might interfere with user flow if left enabled in production builds."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the dependency, wrap your app or widget with FloatingLoggerControl, and add FloatingLoggerInterceptor to your Dio instance or use DioLogger.",
+    "alternatives": [
+      {
+        "name": "pretty_dio_logger",
+        "why_pick_it": "If you prefer console output logging rather than a floating on-screen UI."
+      },
+      {
+        "name": "inspector",
+        "why_pick_it": "If you want a more general debugging and layout inspection tool."
+      }
+    ],
+    "minimal_example": "return FloatingLoggerControl(\n  child: Scaffold(\n    appBar: AppBar(\n      title: const Text(\"Floating Logger Test\"),\n    ),\n    body: Center(child: Text(\"Logger is active!\")),\n  ),\n);",
+    "confidence": 1
+  }
+}

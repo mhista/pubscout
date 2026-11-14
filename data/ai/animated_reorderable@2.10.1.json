@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "2.10.1",
+  "generatedAt": "2026-11-14T10:34:45.665Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "animation"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Animated, draggable reorderable ListView/GridView with built‑in swipe‑to‑delete.",
+    "what_it_does": "Wraps any ListView or GridView to add drag‑and‑drop reordering, animated inserts/removals, and swipe‑to‑delete. Supports moving items between multiple lists or grids via AnimatedReorderableGroup.",
+    "use_when": [
+      "You need a sortable list or grid with smooth animations",
+      "You want to move items between several lists (e.g., a kanban board)",
+      "You need built‑in swipe‑to‑delete without extra widgets"
+    ],
+    "avoid_when": [
+      "You require drag handles, headers/footers, or sliver‑based lists",
+      "You only need simple reordering without animations",
+      "You need platform‑specific drag‑and‑drop APIs not covered by Flutter"
+    ],
+    "strengths": [
+      "Combines reorderable list and animated list features",
+      "Works with both ListView and GridView",
+      "Supports cross‑list dragging and swipe‑to‑delete",
+      "No extra native dependencies"
+    ],
+    "weaknesses": [
+      "No drag‑handle support; long‑press only",
+      "No sliver version; cannot be used inside CustomScrollView",
+      "Limited customization of drag feedback"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "flutter_slidable",
+        "why_pick_it": "Provides flexible swipe‑to‑delete and other slide actions without full reorderable functionality"
+      }
+    ],
+    "minimal_example": "AnimatedReorderable.list(\n  key: listKey,\n  keyGetter: (i)=>ValueKey(items[i]),\n  reorder: ReorderOptions(onReorder:(moves)=>moves.apply(items)),\n  listView: ListView.builder(\n    itemCount: items.length,\n    itemBuilder:(c,i)=>ListTile(title:Text(items[i])),\n  ),\n);",
+    "confidence": 0.97
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.0.0",
+  "generatedAt": "2026-11-14T10:39:19.838Z",
+  "data": {
+    "primary_category": "forms",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A multiple selection widget with fuzzy search functionality.",
+    "what_it_does": "Provides a customizable multiple selection widget featuring built-in fuzzy search capabilities and various item visibility modes. It allows users to search, select, create, and manage multiple items within a Flutter application.",
+    "use_when": [
+      "You need a picker or selector UI that supports multiple item selection.",
+      "Users need to quickly filter large lists using fuzzy search.",
+      "You want support for creating new items on the fly when search returns no matches."
+    ],
+    "avoid_when": [
+      "Your app still uses package:flutter/material.dart and you cannot migrate to material_ui.",
+      "You only require a simple single-selection dropdown or picker."
+    ],
+    "strengths": [
+      "Built-in fuzzy search support with multiple search algorithms.",
+      "Highly customizable with builders for items, picked items, and created items.",
+      "Supports creating new items dynamically when search results are empty."
+    ],
+    "weaknesses": [
+      "Requires migration to the standalone material_ui package in version 3.0.0.",
+      "High Dart and Flutter SDK minimum version requirements."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires running flutter pub add material_ui and dart fix during migration to version 3.0.0.",
+    "alternatives": [],
+    "minimal_example": "MultipleSearchSelection<Country>(\n  searchField: TextField(\n    decoration: InputDecoration(\n      hintText: 'Search countries',\n    ),\n  ),\n  items: countries,\n  fieldToCheck: (c) => c.name,\n  itemBuilder: (country, index, isPicked) {\n    return Padding(\n      padding: const EdgeInsets.all(6.0),\n      child: Text(country.name),\n    );\n  },\n  onPickedChange: (items) {},\n)",
+    "confidence": 0.95
+  }
+}

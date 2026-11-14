@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.6.3",
+  "generatedAt": "2026-11-14T10:29:35.767Z",
+  "data": {
+    "primary_category": "testing",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Code quality analysis for Flutter and Dart with architecture, maintainability, and safety checks.",
+    "what_it_does": "fCheck analyzes local Flutter and Dart projects for architecture, maintainability, and safety issues. It generates deterministic console, JSON, and diagram reports with 0-100% compliance scoring and can be used as a CLI tool or integrated as a Dart package.",
+    "use_when": [
+      "You need automated code quality checks and architecture enforcement for Flutter projects.",
+      "You want deterministic compliance scoring for CI/CD pipelines.",
+      "You want to build custom tools, IDE integrations, or AI review pipelines that consume project metrics."
+    ],
+    "avoid_when": [
+      "You only need standard linting rules provided by official flutter_lints.",
+      "You require online cloud services or external AI calls for code analysis (fCheck is strictly local and private)."
+    ],
+    "strengths": [
+      "Single local analysis pass covering architecture, dead code, localization, hardcoded strings, and duplicate code.",
+      "Provides both a CLI tool and a full Dart API for embedding quality metrics into custom apps and tools.",
+      "Deterministic execution with zero network calls and full privacy."
+    ],
+    "weaknesses": [
+      "Running synchronous analysis on very large codebases requires offloading to a background isolate to avoid UI jank."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Activate globally via pub or add as a dev dependency, then run fCheck on your project directory.",
+    "alternatives": [
+      {
+        "name": "lints",
+        "why_pick_it": "Official Dart lint rules if you only need standard static analysis integration."
+      },
+      {
+        "name": "flutter_lints",
+        "why_pick_it": "Recommended lint rules for Flutter applications without complex architecture scoring."
+      }
+    ],
+    "minimal_example": "import 'dart:io';\nimport 'package:fcheck/fcheck.dart';\n\nvoid main() {\n  final config = FcheckConfig.loadForInputDirectory(Directory('.'));\n  final metrics = AnalyzeFolder.fromConfig(config).analyze();\n  print('Score: ${metrics.complianceScore}%');\n}",
+    "confidence": 1
+  }
+}

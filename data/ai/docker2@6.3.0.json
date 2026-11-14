@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "6.3.0",
+  "generatedAt": "2026-11-14T10:41:47.922Z",
+  "data": {
+    "primary_category": "backend",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Dart wrapper for Docker CLI to manage images and containers",
+    "what_it_does": "Provides a Dart API to pull, build, run, and manage Docker images and containers using the local Docker CLI. It exposes immutable core classes for images, containers, and volumes, and throws exceptions on build failures.",
+    "use_when": [
+      "You need to automate Docker tasks from a Dart application",
+      "You want a typed API instead of shelling out to Docker directly"
+    ],
+    "avoid_when": [
+      "You don't have Docker installed or cannot run the Docker CLI",
+      "You need cross-platform container orchestration beyond local Docker"
+    ],
+    "strengths": [
+      "Simple API that mirrors Docker CLI commands",
+      "Immutable core classes for safer usage",
+      "Built-in error handling for build failures"
+    ],
+    "weaknesses": [
+      "Requires Docker CLI to be installed and in PATH",
+      "Limited to local Docker, no remote registry support"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Ensure Docker is installed and accessible via PATH; no build_runner or extra steps needed",
+    "alternatives": [],
+    "minimal_example": "```dart\nfinal docker = Docker();\nfinal image = await docker.pull('alpine');\nfinal container = image.create('alpine_sleep', argString: 'sleep infinity');\ncontainer.start();\nawait Future.delayed(Duration(seconds: 2));\ncontainer.stop();\ncontainer.delete();\n```",
+    "confidence": 0.9
+  }
+}

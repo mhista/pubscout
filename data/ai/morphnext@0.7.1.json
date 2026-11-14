@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.7.1",
+  "generatedAt": "2026-11-14T10:53:07.539Z",
+  "data": {
+    "primary_category": "animation",
+    "secondary_categories": [
+      "theming"
+    ],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "Interruptible spring-driven vector icon morphing for Flutter without per-pair animation assets.",
+    "what_it_does": "Transforms bundled Flutter IconData glyphs into continuous vector morphs using a spring-driven physics model. It requires no pre-generated animation assets and supports both implicit and controlled animations. It also exposes a public glyph outline API for TrueType and CFF fonts.",
+    "use_when": [
+      "You want to morph between different Material or custom vector icons smoothly.",
+      "You need interruptible, physics-based icon transitions without custom animation assets per pair."
+    ],
+    "avoid_when": [
+      "You need to morph arbitrary Flutter Path objects or complex SVG artwork.",
+      "You require multi-color icon animations (the renderer is monochrome)."
+    ],
+    "strengths": [
+      "No per-pair animation assets required",
+      "Interruptible spring-driven transitions",
+      "Automatic fallback to standard icons if fonts are unavailable"
+    ],
+    "weaknesses": [
+      "Renderer is monochrome",
+      "Cannot morph arbitrary Path objects or SVGs",
+      "Arbitrary icon pairs can produce unexpected intermediate shapes"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "IconButton(\n  onPressed: () => setState(() => open = !open),\n  icon: AnimatedMorphIcon(\n    icon: open ? Icons.close : Icons.menu,\n    semanticLabel: open ? 'Close menu' : 'Open menu',\n  ),\n)",
+    "confidence": 1
+  }
+}

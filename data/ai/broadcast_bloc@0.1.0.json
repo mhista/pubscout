@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.1.0",
+  "generatedAt": "2026-11-14T10:32:05.705Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [],
+    "approach": [
+      "stream-based"
+    ],
+    "one_liner": "Extends bloc to broadcast state changes to stream channels",
+    "what_it_does": "Adds a BroadcastCubit and BroadcastBloc that can subscribe to StreamChannel objects. When the bloc emits a new state, all subscribed channels receive the state as a stream event.",
+    "use_when": [
+      "Need to expose bloc state to other parts of the app via streams",
+      "Integrating with stream-based APIs or services",
+      "Want multiple listeners to react to state changes without duplicating bloc instances"
+    ],
+    "avoid_when": [
+      "Already using a different state‑management solution that provides broadcasting",
+      "You don't need to share state via streams"
+    ],
+    "strengths": [
+      "Seamless integration with existing bloc code",
+      "No additional code generation or build_runner steps",
+      "Supports all platforms supported by bloc"
+    ],
+    "weaknesses": [
+      "Only works with bloc; not a drop‑in for other patterns",
+      "Limited feature set beyond broadcasting"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "```dart\nclass CounterCubit extends BroadcastCubit<int> {\n  CounterCubit() : super(0);\n  void increment() => emit(state + 1);\n}\n\nfinal controller = StreamController<String>(sync: true);\nfinal subscription = controller.stream.listen(print);\nfinal channel = StreamChannel(controller.stream, controller.sink);\n\nfinal cubit = CounterCubit()\n  ..subscribe(channel)\n  ..increment()\n  ..unsubscribe(channel);\n\nsubscription.cancel();\ncubit.close();\n```",
+    "confidence": 0.9
+  }
+}

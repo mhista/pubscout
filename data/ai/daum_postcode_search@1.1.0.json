@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.1.0",
+  "generatedAt": "2026-11-14T10:35:38.264Z",
+  "data": {
+    "primary_category": "web-desktop",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Local server and HTML assets for Daum Postcode Service with zero forced WebView dependencies.",
+    "what_it_does": "Provides a local HTTP server and embedded HTML assets for integrating the Daum Postcode address lookup service. Allows developers to bring their own WebView implementation and handle callbacks easily.",
+    "use_when": [
+      "You need to integrate Korean address search using the Daum Postcode service in a Flutter app.",
+      "You want complete control over your WebView package choice (e.g. webview_flutter, flutter_inappwebview)."
+    ],
+    "avoid_when": [
+      "You want an out-of-the-box pre-built widget that handles WebView creation automatically without manual setup.",
+      "Your app does not target platforms requiring address search services."
+    ],
+    "strengths": [
+      "Zero forced WebView dependencies with a tiny package size (~50KB).",
+      "Flexible integration compatible with any WebView package.",
+      "Multiple callback mechanisms available (PostMessage, JS Handler, URL Scheme, JS Channel)."
+    ],
+    "weaknesses": [
+      "Requires manual setup of local HTTP server and chosen WebView instance.",
+      "Requires platform-specific network configuration (cleartext traffic / ATS settings)."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires Android cleartext traffic / network security config settings and iOS NSAppTransportSecurity configuration for local server and external postcode assets.",
+    "alternatives": [],
+    "minimal_example": "final server = DaumPostcodeLocalServer();\nawait server.start();\nfinal url = '${server.url}/${DaumPostcodeAssets.postMessage}';\nfinal result = DaumPostcodeCallbackParser.fromPostMessage(data);\nawait server.stop();",
+    "confidence": 0.95
+  }
+}

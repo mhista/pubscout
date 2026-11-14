@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.1",
+  "generatedAt": "2026-11-14T10:47:19.888Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "layout"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A GridView widget that groups list items and supports headers and footers per section.",
+    "what_it_does": "Provides a GridView implementation allowing developers to group items into sections with custom headers and footers, mimicking iOS UICollectionView sections. It exposes standard GridView builder capabilities.",
+    "use_when": [
+      "You need to display grid items organized in distinct sections with headers or footers.",
+      "You want a grid layout similar to iOS UICollectionView sections in Flutter."
+    ],
+    "avoid_when": [
+      "You need standard linear lists instead of grids (consider a grouped list view instead).",
+      "You require complex staggered grid patterns not natively supported by standard grid delegates."
+    ],
+    "strengths": [
+      "Supports section headers and footers for grouped grid items.",
+      "Compatible with standard GridView builders and delegates.",
+      "Cross-platform support including Android, iOS, Web, Windows, macOS, and Linux."
+    ],
+    "weaknesses": [
+      "Limited documentation beyond basic README examples.",
+      "No advanced community-driven features or frequent updates mentioned in changelog."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "flutter_staggered_grid_view",
+        "why_pick_it": "Pick if you need complex staggered grid layouts with varying item sizes instead of standard grid sections."
+      }
+    ],
+    "minimal_example": "GroupGridView(\n  padding: const EdgeInsets.symmetric(horizontal: 16),\n  gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(\n    crossAxisCount: 3, mainAxisSpacing: 16, crossAxisSpacing: 16),\n  sectionCount: dataSource.length,\n  headerForSection: (section) => Container(\n    padding: const EdgeInsets.symmetric(vertical: 12),\n    child: Text(dataSource[section].sectionName,\n      style: const TextStyle(fontSize: 22, fontWeight: FontWeight.bold))),\n  itemInSectionBuilder: (_, indexPath) {\n    final data = dataSource[indexPath.section].listItems[indexPath.index];\n    return Container(alignment: Alignment.center, child: Text(data));\n  },\n  itemInSectionCount: (section) => dataSource[section].listItems.length,\n)",
+    "confidence": 0.95
+  }
+}

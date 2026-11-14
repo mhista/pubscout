@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.0",
+  "generatedAt": "2026-11-14T10:39:25.701Z",
+  "data": {
+    "primary_category": "codegen",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "no codegen"
+    ],
+    "one_liner": "Write ergonomic copyWith methods for immutable models without build_runner.",
+    "what_it_does": "Provides a mixin and extension methods to distinguish between keeping a nullable field unchanged and explicitly setting it to null in copyWith methods. Operates entirely in pure Dart without code generation.",
+    "use_when": [
+      "You want manual copyWith methods without dealing with build_runner or code generation.",
+      "You need a clean way to differentiate between omitting a nullable field and setting it to null."
+    ],
+    "avoid_when": [
+      "You prefer automated code generation for your immutable models like freezed or built_value.",
+      "Your codebase has a massive number of models and manual boilerplate is strictly prohibited."
+    ],
+    "strengths": [
+      "Zero dependencies and lightweight.",
+      "No code generation or build_runner setup required.",
+      "Solves the nullability dilemma in copyWith methods cleanly."
+    ],
+    "weaknesses": [
+      "Fields must still be manually listed and implemented in copyWith.",
+      "Requires wrapping nullable field arguments with .maybe()."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "freezed",
+        "why_pick_it": "If you want fully automated code generation for immutable classes and copyWith methods instead of writing them manually."
+      },
+      {
+        "name": "built_value",
+        "why_pick_it": "If you prefer a strict, builder-based approach to immutability and code generation."
+      }
+    ],
+    "minimal_example": "class User with MaybeCopyWith<User> {\n  final String name;\n  final String? gender;\n\n  const User({required this.name, this.gender});\n\n  @override\n  User copyWith({\n    String? name,\n    Maybe<String>? gender,\n  }) {\n    return User(\n      name: name ?? this.name,\n      gender: gender.or(this.gender),\n    );\n  }\n}",
+    "confidence": 1
+  }
+}

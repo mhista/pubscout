@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.1.1",
+  "generatedAt": "2026-11-14T10:45:02.016Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [
+      "ui-kits",
+      "images"
+    ],
+    "approach": [
+      "imperative",
+      "declarative"
+    ],
+    "one_liner": "A Flutter video editor widget package supporting crop, trim, rotation, and cover selection.",
+    "what_it_does": "Provides a customizable UI and a controller to edit videos in Flutter. It allows users to trim video durations, crop frames, rotate views, and pick cover images, generating configurations that can be exported using libraries like FFmpeg.",
+    "use_when": [
+      "You need to build a video editing screen with custom UI in Flutter.",
+      "Your app requires video trimming, cropping, rotation, and thumbnail selection capabilities."
+    ],
+    "avoid_when": [
+      "You only need basic video playback without editing features.",
+      "You require an out-of-the-box native export pipeline bundled directly in the package without configuring external FFmpeg packages."
+    ],
+    "strengths": [
+      "Highly flexible and customizable UI components for editing.",
+      "Supports crop, trim, rotation, and cover selection out of the box.",
+      "Platform-agnostic export configurations supporting platforms like web via FFmpeg."
+    ],
+    "weaknesses": [
+      "Exporting requires manual integration with external libraries like FFmpeg.",
+      "Has breaking changes in recent major versions regarding export methods."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding the dependency to pubspec.yaml and integrating a separate FFmpeg package (such as ffmpeg_kit_flutter) if video/cover file exporting is needed.",
+    "alternatives": [],
+    "minimal_example": "final VideoEditorController _controller = VideoEditorController.file(\n  XFile('/path/to/video.mp4'),\n  minDuration: const Duration(seconds: 1),\n  maxDuration: const Duration(seconds: 10),\n);\n\n@override\nvoid initState() {\n  super.initState();\n  _controller.initialize().then((_) => setState(() {}));\n}\n\n@override\nvoid dispose() {\n  _controller.dispose();\n  super.dispose();\n}",
+    "confidence": 0.95
+  }
+}

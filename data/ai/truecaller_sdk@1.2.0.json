@@ -1,0 +1,48 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.2.0",
+  "generatedAt": "2026-11-14T10:37:07.988Z",
+  "data": {
+    "primary_category": "auth",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Flutter plugin for Truecaller OAuth SDK on Android.",
+    "what_it_does": "Allows Android apps to authenticate users using Truecaller's OAuth 2.0 flow or manual phone number verification. It provides methods to initialize the SDK, check usability, manage OAuth states and scopes, and listen to authentication callbacks via a stream.",
+    "use_when": [
+      "You want to integrate Truecaller login or phone verification into your Android Flutter app.",
+      "You need to support both Truecaller and non-Truecaller users with fallback manual verification."
+    ],
+    "avoid_when": [
+      "Your target platform includes iOS or web (as this plugin uses Truecaller's Android SDK).",
+      "You only need standard OAuth providers like Google or Apple."
+    ],
+    "strengths": [
+      "Supports seamless OAuth login for Truecaller users.",
+      "Provides manual verification flows (OTP, missed call, IM OTP) for non-Truecaller users.",
+      "Exposes stream-based callback handling for different authentication states."
+    ],
+    "weaknesses": [
+      "Restricted to Android platform only based on the documentation.",
+      "Requires manual native configuration including AndroidManifest.xml and MainActivity modifications."
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Requires generating a Truecaller client ID, adding metadata and permissions to AndroidManifest.xml, updating MainActivity to extend FlutterFragmentActivity, and configuring launchMode.",
+    "alternatives": [
+      {
+        "name": "google_sign_in",
+        "why_pick_it": "If you want cross-platform social sign-in via Google instead of Truecaller."
+      },
+      {
+        "name": "sign_in_with_apple",
+        "why_pick_it": "If you need native Apple authentication for iOS users."
+      }
+    ],
+    "minimal_example": "import 'package:truecaller_sdk/truecaller_sdk.dart';\n\nTcSdk.initializeSDK(sdkOption: TcSdkOptions.OPTION_VERIFY_ONLY_TC_USERS);\n\nStreamSubscription streamSubscription = TcSdk.streamCallbackData.listen((tcSdkCallback) {\n  if (tcSdkCallback.result == TcSdkCallbackResult.success) {\n    String authCode = tcSdkCallback.tcOAuthData!.authorizationCode;\n  }\n});",
+    "confidence": 0.95
+  }
+}

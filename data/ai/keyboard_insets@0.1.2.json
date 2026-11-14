@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.1.2",
+  "generatedAt": "2026-11-14T10:33:11.683Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "layout"
+    ],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "Provides real‑time keyboard height and visibility streams for Flutter apps.",
+    "what_it_does": "The plugin emits per‑frame keyboard inset values and a state stream indicating visibility and animation status. It also offers a SafeArea widget that keeps bottom padding stable during keyboard animations.",
+    "use_when": [
+      "You need precise keyboard height for custom UI adjustments",
+      "You want to react to keyboard visibility without using MediaQuery",
+      "You need a stable bottom safe‑area while the keyboard animates"
+    ],
+    "avoid_when": [
+      "You only need occasional keyboard height (MediaQuery is sufficient)",
+      "You target platforms without keyboard support (e.g., desktop)"
+    ],
+    "strengths": [
+      "High‑frequency per‑frame updates",
+      "Cross‑platform (iOS, Android, Web)",
+      "Lightweight FFI implementation",
+      "Provides a SafeArea replacement"
+    ],
+    "weaknesses": [
+      "Desktop returns zero insets (no keyboard support)",
+      "Requires iOS deployment target ≥13.0"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dependency, ensure iOS Podfile sets platform to '13.0' or higher; no additional permissions required.",
+    "alternatives": [],
+    "minimal_example": "import 'package:keyboard_insets/keyboard_insets.dart';\n\nvoid main() {\n  KeyboardInsets.insets.listen((height) {\n    print('Keyboard height: $height');\n  });\n  KeyboardInsets.stateStream.listen((state) {\n    print('Visible: ${state.isVisible}, Animating: ${state.isAnimating}');\n  });\n}",
+    "confidence": 0.9
+  }
+}

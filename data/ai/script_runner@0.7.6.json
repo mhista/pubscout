@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.7.6",
+  "generatedAt": "2026-11-14T10:38:47.007Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Runs configurable project scripts from a YAML/JSON file via a CLI tool.",
+    "what_it_does": "Provides a portable way to define and execute project‑related commands, similar to npm scripts. Scripts can be chained, have environment variables, custom shells, and can be invoked globally with the `scr` executable.",
+    "use_when": [
+      "You need a simple, language‑agnostic way to manage build, lint, or deployment commands for a Dart/Flutter project",
+      "You want a self‑documenting script list that can be version‑controlled alongside code"
+    ],
+    "avoid_when": [
+      "You require complex task orchestration with dependencies beyond simple command chaining",
+      "You need a GUI or visual workflow editor"
+    ],
+    "strengths": [
+      "No code generation required",
+      "Works on all major platforms",
+      "Configurable per‑project with YAML/JSON",
+      "Can be installed globally for easy CLI access"
+    ],
+    "weaknesses": [
+      "Limited to command‑line scripts; not a full task runner like Make or Gradle",
+      "No built‑in support for parallel execution"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:script_runner/script_runner.dart';\n\nvoid main() {\n  final runner = ScriptRunnerConfig(\n    scripts: [\n      RunnableScript(name: 'hello', cmd: 'echo', args: ['Hello world']),\n    ],\n  );\n  runner.scriptsMap['hello']!.run();\n}",
+    "confidence": 0.97
+  }
+}

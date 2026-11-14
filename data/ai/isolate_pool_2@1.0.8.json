@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "1.0.8",
+  "generatedAt": "2026-11-14T10:43:39.209Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "async"
+    ],
+    "one_liner": "A pool of long‑living Dart isolates for running jobs or hosting objects off the main isolate.",
+    "what_it_does": "The package creates and keeps active isolates ready to receive requests. It lets you schedule one‑off jobs like compute() but reuses isolates, and also host persistent objects accessed via proxies. Results are returned to the main isolate asynchronously.",
+    "use_when": [
+      "You need to run heavy CPU‑bound tasks frequently without the overhead of spawning a new isolate each time",
+      "You want to keep stateful objects alive in isolates and communicate with them via RPC‑style calls"
+    ],
+    "avoid_when": [
+      "A single occasional compute() call is enough",
+      "You target web where isolates are not supported",
+      "You need UI‑related functionality or platform channels"
+    ],
+    "strengths": [
+      "Reuses isolates for better performance on repeated tasks",
+      "Supports persistent isolate instances with proxy communication",
+      "Pure Dart, no native setup required"
+    ],
+    "weaknesses": [
+      "Works only on platforms that support Dart isolates (no web)",
+      "Debugging cross‑isolate communication can be tricky",
+      "No built‑in serialization helpers, you must ensure data is isolate‑safe"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "class MyJob extends PooledJob<int>{\n  final int value;\n  MyJob(this.value);\n  @override\n  int job() => value * 2;\n}\n\nvoid main() async {\n  final pool = await IsolatePool.create();\n  final result = await pool.scheduleJob(MyJob(5));\n  print(result); // 10\n  await pool.stop();\n}",
+    "confidence": 0.93
+  }
+}

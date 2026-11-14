@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "7.1.1",
+  "generatedAt": "2026-11-14T10:37:19.648Z",
+  "data": {
+    "primary_category": "codegen",
+    "secondary_categories": [
+      "web-desktop"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Inspect and generate Windows Metadata (.winmd) files based on ECMA-335.",
+    "what_it_does": "Inspects and generates Windows Metadata (.winmd) files based on the ECMA-335 standard. It parses .winmd files into strongly-typed object models, queries type definitions, merges files, and programmatically generates new metadata.",
+    "use_when": [
+      "You need to parse or generate Windows Metadata (.winmd) files in Dart",
+      "You are building Windows interop tooling or need to introspect WinRT types cross-platform"
+    ],
+    "avoid_when": [
+      "You are building standard cross-platform UI apps that do not deal with low-level Windows metadata"
+    ],
+    "strengths": [
+      "Cross-platform support (Windows, macOS, Linux) via direct binary parsing",
+      "Rich introspection of nested types, constants, parameters, and attributes",
+      "Supports writing and merging metadata"
+    ],
+    "weaknesses": [
+      "Low-level domain-specific tool, not needed for typical application development"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the package to pubspec.yaml and import it.",
+    "alternatives": [],
+    "minimal_example": "import 'dart:io' as io;\nimport 'package:winmd/winmd.dart';\n\nvoid main() {\n  const winmdPath = r'C:\\WINDOWS\\System32\\WinMetadata\\Windows.Storage.winmd';\n  final bytes = io.File(winmdPath).readAsBytesSync();\n  final reader = MetadataReader.read(bytes);\n  final index = MetadataIndex.fromReader(reader);\n  final metadata = MetadataLookup(index);\n  final storageFile = metadata.findSingleTypeByName('StorageFile');\n  print('WinRT class \"${storageFile.name}\" has the following methods:');\n  for (final method in storageFile.methods) {\n    print('  ${method.name}');\n  }\n}",
+    "confidence": 1
+  }
+}

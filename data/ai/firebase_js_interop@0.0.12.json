@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.0.12",
+  "generatedAt": "2026-11-14T10:40:33.321Z",
+  "data": {
+    "primary_category": "backend",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Dart wrappers to write Firebase Cloud Functions",
+    "what_it_does": "Provides JS interop for Firebase Admin and Functions, enabling Dart code to compile to JavaScript for Cloud Functions. It supports full interop for Firestore, HTTPS, and Identity services, with partial support for Admin Database and limited messaging.",
+    "use_when": [
+      "You want to write Cloud Functions in Dart instead of JavaScript/TypeScript",
+      "You need full interop for Firestore, HTTPS, or Identity functions",
+      "You are building a Dart-only project that also deploys Cloud Functions"
+    ],
+    "avoid_when": [
+      "You only need Firebase services on the client side",
+      "You require Auth, Storage, or other services not yet supported",
+      "You prefer to stay in TypeScript/JavaScript for Cloud Functions"
+    ],
+    "strengths": [
+      "Full interop for Firestore, HTTPS, Identity",
+      "Build tool that compiles Dart to JS for Cloud Functions",
+      "Supports Admin Database interop",
+      "Clear documentation and examples"
+    ],
+    "weaknesses": [
+      "Limited interop for many services (Auth, Storage, Messaging only partial)",
+      "Requires manual setup of firebase tools and build scripts",
+      "No support for non-web platforms"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Install firebase tools, add firebase.json ignores, create build.dart, run dart run tool/build.dart, then firebase deploy. No build_runner needed.",
+    "alternatives": [],
+    "minimal_example": "import 'dart:js_interop';\nimport 'package:firebase_js_interop/functions.dart';\nimport 'package:firebase_js_interop/express.dart' as express;\n\nvoid main() {\n  exports['helloWorld'] = FirebaseFunctions.https.onRequest(\n    (Request request, express.Response response) {\n      return response.send('Hello from Firebase!'.toJS);\n    }.toJS,\n  );\n}",
+    "confidence": 0.8
+  }
+}

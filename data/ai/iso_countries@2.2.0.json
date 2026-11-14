@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.2.0",
+  "generatedAt": "2026-11-14T10:51:19.625Z",
+  "data": {
+    "primary_category": "localization",
+    "secondary_categories": [
+      "device",
+      "forms"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Fetch ISO country data and localized names directly from the device OS.",
+    "what_it_does": "Fetches a list of ISO countries and their details dynamically from the device operating system rather than hardcoding them. Allows retrieving country names in various languages by passing language codes and supports querying specific countries by code and locale.",
+    "use_when": [
+      "You need a list of countries for user input forms like address or profile creation.",
+      "Country names need to be displayed in the user's local language using OS-level translations."
+    ],
+    "avoid_when": [
+      "You need a static list of countries that works identically across all devices without depending on OS capabilities.",
+      "You are targeting platforms other than Android and iOS."
+    ],
+    "strengths": [
+      "No hardcoded country lists or translations; leverages device OS data.",
+      "Supports fetching countries filtered or translated by specific language codes."
+    ],
+    "weaknesses": [
+      "Relies on the device OS, meaning country lists and translations may slightly vary across different OS versions or devices.",
+      "Android requires API level 21 or higher."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Android requires API level 21 or higher. iOS may require podfile cleanup if pod issues occur.",
+    "alternatives": [],
+    "minimal_example": "List<Country>? countries = await IsoCountries.isoCountries;",
+    "confidence": 0.95
+  }
+}

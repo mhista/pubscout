@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.0.2",
+  "generatedAt": "2026-11-14T10:43:01.874Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A vertical YouTube shorts video player widget.",
+    "what_it_does": "Provides a vertical TikTok/Shorts style video feed playing YouTube shorts using a list of URLs or channel names. Includes support for inline ads, custom overlays, loading states, and media controls.",
+    "use_when": [
+      "You want to build a YouTube Shorts or vertical video feed in your app",
+      "You need to display shorts from specific YouTube channels or a list of video URLs"
+    ],
+    "avoid_when": [
+      "You need standard horizontal video playback or full-featured YouTube embedding",
+      "You cannot use media_kit native dependencies"
+    ],
+    "strengths": [
+      "Supports multiple content sources including URL lists, single channels, and multi-channels",
+      "Includes features for ads integration, custom overlays, and error widgets"
+    ],
+    "weaknesses": [
+      "Relies on media_kit which requires platform-specific native setup and permissions",
+      "Dependent on web scraping and YouTube internal APIs which can be fragile"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires media_kit native configurations, calling MediaKit.ensureInitialized(), and handling runtime storage/video permissions.",
+    "alternatives": [],
+    "minimal_example": "late final ShortsController controller;\n\n@override\nvoid initState() {\n  super.initState();\n  controller = ShortsController(\n    youtubeVideoInfoService: VideosSourceController.fromUrlList(\n      videoIds: [\n        'https://www.youtube.com/shorts/PiWJWfzVwjU',\n        'https://www.youtube.com/shorts/AeZ3dmC676c',\n      ],\n    ),\n  );\n}\n\n@override\nWidget build(BuildContext context) {\n  return YoutubeShortsPage(\n    controller: controller,\n  );\n}",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.2.0",
+  "generatedAt": "2026-11-14T10:47:32.046Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "audio-video"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Play custom haptic feedback patterns, waveforms, and Apple Core Haptics .ahap files across Android and iOS.",
+    "what_it_does": "Advanced Haptics is a Flutter plugin that offers a unified API for custom haptic feedback, waveforms, Android composition primitives, and iOS .ahap files. It supports capability checks, pattern building with intensity and sharpness controls, and fallback behaviors for unsupported hardware.",
+    "use_when": [
+      "You want custom haptic waveforms and patterns on both Android and iOS.",
+      "You need to play iOS Core Haptics .ahap files from app assets.",
+      "You want a unified API for fine-grained vibration control with graceful platform fallbacks."
+    ],
+    "avoid_when": [
+      "You only need basic, default haptics already covered by standard platform triggers.",
+      "Your target devices lack vibrators or support for advanced haptics and you require guaranteed complex feedback everywhere."
+    ],
+    "strengths": [
+      "Unified cross-platform API for custom patterns, intensities, and sharpness.",
+      "Supports iOS Core Haptics .ahap files and Android composition primitives.",
+      "Graceful fallbacks and capability checking for unsupported hardware and older OS versions."
+    ],
+    "weaknesses": [
+      "Some advanced features like composition primitives and AHAP playback have strict minimum OS/API version requirements.",
+      "Player controls and looping behave differently or have limitations depending on the platform and rendering method."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the VIBRATE permission to Android Manifest. For iOS, declare .ahap files as assets in pubspec.yaml if used.",
+    "alternatives": [],
+    "minimal_example": "import 'package:advanced_haptics/advanced_haptics.dart';\n\nfinal bool hasSupport = await AdvancedHaptics.hasCustomHapticsSupport();\nif (hasSupport) {\n  await AdvancedHaptics.success();\n}",
+    "confidence": 1
+  }
+}

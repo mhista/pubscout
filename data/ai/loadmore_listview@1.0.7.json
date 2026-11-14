@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "1.0.7",
+  "generatedAt": "2026-11-14T10:39:38.546Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A ListView with load more and pull‑to‑refresh support",
+    "what_it_does": "Provides a ListView that automatically shows a load‑more widget when more data is available and supports pull‑to‑refresh. It offers builder, separated, and custom scroll view constructors.",
+    "use_when": [
+      "You need infinite scrolling with a simple load‑more button",
+      "You want pull‑to‑refresh without writing boilerplate",
+      "You prefer a single widget that handles pagination logic"
+    ],
+    "avoid_when": [
+      "You require fine‑grained control over pagination logic",
+      "You need advanced state management or custom animations",
+      "You are building a highly customized list that needs more features"
+    ],
+    "strengths": [
+      "Easy to integrate with minimal code",
+      "Supports CustomScrollView and separated lists",
+      "Handles short lists and refresh edge cases"
+    ],
+    "weaknesses": [
+      "Limited customization of load‑more widget",
+      "No built‑in state management or caching",
+      "No support for complex data sources"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "LoadMoreListView.builder(\n  haveMoreItem: true,\n  onLoadMore: () async{ await Future.delayed(const Duration(seconds:1)); },\n  onRefresh: () async{ await Future.delayed(const Duration(seconds:1)); },\n  itemCount: 20,\n  itemBuilder: (context, index){ return Text('$index'); },\n);",
+    "confidence": 0.9
+  }
+}

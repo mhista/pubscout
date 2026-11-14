@@ -1,0 +1,52 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.5.0",
+  "generatedAt": "2026-11-14T10:31:49.133Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "A drop-in ChangeNotifier replacement for observing specific model properties.",
+    "what_it_does": "Extends ChangeNotifier to allow notifying listeners about specific property changes instead of an all-or-none approach. Provides PropertyChangeProvider and PropertyChangeConsumer widgets to rebuild descendants only when specific properties change.",
+    "use_when": [
+      "You want a granular alternative to standard ChangeNotifier without learning a massive state management framework.",
+      "Your models are relatively simple and you want widgets to rebuild only when specific properties change."
+    ],
+    "avoid_when": [
+      "You are already using a comprehensive state management framework like Riverpod or BLoC.",
+      "You need complex dependency injection and stream-based business logic separation."
+    ],
+    "strengths": [
+      "100% backwards compatible with existing ChangeNotifier code.",
+      "Supports fine-grained rebuilds based on specific property names.",
+      "Includes helper widgets like PropertyChangeProvider and PropertyChangeConsumer."
+    ],
+    "weaknesses": [
+      "Relies on string literals or enums for property names, which can be less robust than fully typed states.",
+      "Not suitable for large-scale architectures requiring strict unidirectional data flow."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "provider",
+        "why_pick_it": "If you want standard inherited widget-based dependency injection and state management without property-level granularity."
+      },
+      {
+        "name": "flutter_riverpod",
+        "why_pick_it": "If you want a robust, compile-safe, modern state management solution that avoids BuildContext."
+      },
+      {
+        "name": "flutter_bloc",
+        "why_pick_it": "If you prefer a predictable, event-driven state management pattern."
+      }
+    ],
+    "minimal_example": "class MyModel with PropertyChangeNotifier<String> {\n  int _foo = 0;\n  int get foo => _foo;\n  set foo(int value) {\n    _foo = value;\n    notifyListeners('foo');\n  }\n}",
+    "confidence": 0.95
+  }
+}

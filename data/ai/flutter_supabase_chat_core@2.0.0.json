@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.0",
+  "generatedAt": "2026-11-14T10:39:38.011Z",
+  "data": {
+    "primary_category": "backend",
+    "secondary_categories": [
+      "auth",
+      "ui-kits"
+    ],
+    "approach": [
+      "stream-based",
+      "declarative"
+    ],
+    "one_liner": "Supabase BaaS integration for Flutter chat applications with optional UI support.",
+    "what_it_does": "Provides a complete chat backend using Supabase, PostgreSQL, Row Level Security, and Realtime broadcasts. Includes room management, messages with media, read receipts, reactions, and an optional chat UI controller.",
+    "use_when": [
+      "You are building a chat or messaging feature using Supabase as your backend.",
+      "You need real-time messaging, typing indicators, and room management out of the box.",
+      "You want support for pagination, read receipts, and message attachments over PostgreSQL RLS."
+    ],
+    "avoid_when": [
+      "You are using Firebase instead of Supabase as your backend.",
+      "You are not using Supabase or Postgres for your database needs."
+    ],
+    "strengths": [
+      "Realtime sync over private Broadcast channels and Presence.",
+      "Secure by default with PostgreSQL Row Level Security (RLS).",
+      "Optimistic sending with retry support and cursor-based pagination.",
+      "Supports group management, roles, and Telegram-like chat features."
+    ],
+    "weaknesses": [
+      "Requires running specific SQL scripts and database extensions (pg_partman, pg_cron) on Supabase.",
+      "Requires careful evaluation before integrating into large-scale projects.",
+      "Migration from 1.x requires a maintenance window and database schema updates."
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Requires initializing Supabase, running a sequence of custom SQL scripts on your Supabase database, and exposing the chats schema.",
+    "alternatives": [],
+    "minimal_example": "Future<void> main() async {\n  WidgetsFlutterBinding.ensureInitialized();\n  await Supabase.initialize(\n    url: 'https://<project-ref>.supabase.co',\n    publishableKey: '<anon-or-publishable-key>',\n  );\n  runApp(\n    const MaterialApp(home: UserOnlineStateObserver(child: RoomsPage())),\n  );\n}",
+    "confidence": 0.95
+  }
+}

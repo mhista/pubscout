@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.8-flash",
+  "version": "1.0.1",
+  "generatedAt": "2026-11-14T10:29:33.882Z",
+  "data": {
+    "primary_category": "payments",
+    "secondary_categories": [
+      "device"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter plugin to discover UPI payment apps and initiate UPI payments on Android and iOS",
+    "what_it_does": "Discovers installed UPI-compatible apps on mobile devices and triggers payments using the UPI deep linking specification. On Android, it invokes specific apps via Intents and receives transaction status responses. On iOS, it relies on custom URL schemes to launch available UPI applications without transaction status feedback.",
+    "use_when": [
+      "Integrating direct UPI payments in India without an intermediary payment gateway",
+      "Querying and listing installed UPI applications on a user's device"
+    ],
+    "avoid_when": [
+      "Requiring guaranteed cross-platform transaction verification (iOS cannot return transaction status directly)",
+      "Building payments outside India or without UPI support"
+    ],
+    "strengths": [
+      "Enables direct UPI app-to-app payments without payment gateway fees",
+      "Provides discovery of installed UPI applications and their display metadata",
+      "Follows official UPI Deep Linking and Proximity Integration specifications"
+    ],
+    "weaknesses": [
+      "iOS scheme limitations prevent identifying which app was launched or receiving transaction status",
+      "README explicitly notes it is currently working primarily in Android with specific banks",
+      "Non-merchant transactions face frequent errors and restrictions (e.g., Z7, U16 errors) from evolving bank apps"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires configuring LSApplicationQueriesSchemes in iOS Info.plist for each supported UPI app scheme.",
+    "alternatives": [],
+    "minimal_example": "final UpiTransactionResponse response = await UpiPay.initiateTransaction(\n  amount: '100.00',\n  app: appMeta.application,\n  receiverName: 'John Doe',\n  receiverUpiAddress: 'john@doe',\n  transactionRef: 'UPITXREF0001',\n  transactionNote: 'A UPI Transaction',\n);\nprint(response.status);",
+    "confidence": 0.85
+  }
+}

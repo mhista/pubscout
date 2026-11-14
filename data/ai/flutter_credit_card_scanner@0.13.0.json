@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.13.0",
+  "generatedAt": "2026-11-14T10:41:19.558Z",
+  "data": {
+    "primary_category": "camera",
+    "secondary_categories": [
+      "payments",
+      "ai-ml"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Scan and extract credit card information using the device camera and on-device machine learning.",
+    "what_it_does": "Provides a camera widget that captures credit card details like the card number, cardholder name, and expiration date. It uses Google ML Kit for Android and Apple Vision for iOS to perform on-device text recognition.",
+    "use_when": [
+      "You need users to scan credit cards directly from the device camera.",
+      "You require on-device processing for credit card information to maintain privacy."
+    ],
+    "avoid_when": [
+      "You only need standard barcode or QR code scanning.",
+      "Targeting platforms other than Android and iOS."
+    ],
+    "strengths": [
+      "Cross-platform support for Android and iOS using native ML features (Google ML Kit and Apple Vision).",
+      "Includes Luhn validation and configurable scanning options.",
+      "Secure on-device processing."
+    ],
+    "weaknesses": [
+      "Requires platform-specific configuration like camera permissions and minimum SDK versions.",
+      "Android integration requires Firebase and Google ML Kit setup."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add CAMERA permission to AndroidManifest.xml, set minimum SDK version to 21, and configure NSCameraUsageDescription in iOS Info.plist with a minimum deployment target of iOS 15.5.",
+    "alternatives": [],
+    "minimal_example": "CameraScannerWidget(\n  onNoCamera: () {},\n  onScan: (_, cardModel) {},\n  loadingHolder: const Center(child: CircularProgressIndicator()),\n)",
+    "confidence": 0.95
+  }
+}

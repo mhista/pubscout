@@ -1,0 +1,37 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.1",
+  "generatedAt": "2026-11-14T10:54:23.432Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Determine application and device platforms separately in Flutter.",
+    "what_it_does": "Provides AppPlatform and DevicePlatform classes to distinguish between the platform running the app (such as web browsers) and the underlying device platform. Includes handy getter methods and support for test overrides.",
+    "use_when": [
+      "You need to distinguish between the app platform (like web) and the actual device platform.",
+      "You want a test-friendly way to check platforms across all Flutter targets."
+    ],
+    "avoid_when": [
+      "You are already using comprehensive device info libraries that cover platform checks."
+    ],
+    "strengths": [
+      "Zero external dependencies apart from the Flutter SDK.",
+      "Compiles and runs on all platforms.",
+      "Test friendly with built-in override support."
+    ],
+    "weaknesses": [
+      "Limited to basic platform checking functionality."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:simple_platform/simple_platform.dart';\n\nif (!AppPlatform.isWeb) {\n  // check app version\n}\n\nif (DevicePlatform.isWindows || DevicePlatform.isMacOS || DevicePlatform.isLinux) {\n  // add desktop features\n}",
+    "confidence": 1
+  }
+}

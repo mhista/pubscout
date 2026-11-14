@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "5.0.0",
+  "generatedAt": "2026-11-14T11:01:58.399Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "files"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "A Flutter plugin for printing ZPL and PDFs over TCP/IP and Bluetooth using Zebra Link OS.",
+    "what_it_does": "Allows Flutter applications to communicate with Zebra Link-OS thermal printers. It supports sending ZPL data or files, printing PDF files directly, checking printer status, configuring printer settings, running calibrations, and rebooting the printer.",
+    "use_when": [
+      "You need to print ZPL labels or PDF documents to Zebra thermal printers in a Flutter app.",
+      "You need to communicate with Zebra printers over TCP/IP or Bluetooth (MFi on iOS, MAC address on Android)."
+    ],
+    "avoid_when": [
+      "You are printing to non-Zebra printers or standard office printers.",
+      "You need to print PDF byte arrays on iOS or Android (PDF printing requires a file path)."
+    ],
+    "strengths": [
+      "Supports both TCP/IP and Bluetooth connections on iOS and Android.",
+      "Provides printer management features like settings retrieval, calibration, and status checking.",
+      "Supports direct PDF printing on compatible printers using Link-OS v6.3 or later."
+    ],
+    "weaknesses": [
+      "Requires specific printer firmware and Virtual Device for PDF Direct setup for PDF printing.",
+      "iOS Bluetooth requires MFi accessories configuration and specific permissions setup."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires platform-specific configuration for Bluetooth (Info.plist keys and ExternalAccessory framework for iOS, permissions in AndroidManifest.xml for Android). PDF printing requires Zebra printer firmware >= Link-OS v6.3 and Virtual Device for PDF Direct installed.",
+    "alternatives": [],
+    "minimal_example": "final zsdk = ZSDK();\nzsdk.printZplDataOverTCPIP(\n  data: '^XA^FO17,16^GB379,371,8^FS^FT65,255^A0N,135,134^FDTEST^FS^XZ',\n  address: '10.0.0.100',\n  port: 9100,\n).then((value) {\n  final printerResponse = PrinterResponse.fromMap(value);\n  if (printerResponse.errorCode == ErrorCode.SUCCESS) {\n    // Success\n  }\n});",
+    "confidence": 0.95
+  }
+}

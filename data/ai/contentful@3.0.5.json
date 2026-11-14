@@ -1,0 +1,50 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "3.0.5",
+  "generatedAt": "2026-11-14T10:36:42.613Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "A Dart client for the Contentful Delivery API.",
+    "what_it_does": "Provides a thin wrapper around Contentful's Delivery REST API. It lets you fetch entries, assets and content types and map them to typed Dart models. Supports token‑based authentication and query parameters.",
+    "use_when": [
+      "You need to integrate a Contentful CMS backend into a Dart/Flutter app",
+      "You want typed models generated with json_serializable for Contentful entries"
+    ],
+    "avoid_when": [
+      "You require offline caching or a full GraphQL client",
+      "You need a backend‑agnostic HTTP client with advanced features"
+    ],
+    "strengths": [
+      "Simple, purpose‑built API for Contentful",
+      "Works on all Dart platforms (mobile, web, desktop)",
+      "Leverages familiar packages like http and json_annotation"
+    ],
+    "weaknesses": [
+      "Only works with Contentful, no other CMS support",
+      "No built‑in caching or retry logic",
+      "Limited to REST, no GraphQL support"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "http",
+        "why_pick_it": "General purpose HTTP client; you can manually call Contentful endpoints without a dedicated wrapper"
+      },
+      {
+        "name": "dio",
+        "why_pick_it": "Feature‑rich HTTP client with interceptors, retries and caching options"
+      }
+    ],
+    "minimal_example": "import 'package:contentful/contentful.dart';\n\nfinal client = Client(BearerTokenHTTPClient('YOUR_TOKEN'), spaceId: 'YOUR_SPACE');\nfinal repo = EventRepository(client);\nfinal event = await repo.findBySlug('myevent');\nprint('Title: ${event.fields.title}');",
+    "confidence": 0.9
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.4.0",
+  "generatedAt": "2026-11-14T10:37:13.860Z",
+  "data": {
+    "primary_category": "navigation",
+    "secondary_categories": [
+      "codegen"
+    ],
+    "approach": [
+      "code generation"
+    ],
+    "one_liner": "Automatically create type-safe routing configurations using annotations and build_runner.",
+    "what_it_does": "Katana Router generates type-safe routing and deep-linking configurations using build_runner and annotations. It allows developers to define pages using widget annotations and automatically wires them up into an application router.",
+    "use_when": [
+      "You want type-safe navigation and parameter passing without string-based paths.",
+      "You prefer annotation-based page configuration combined with build_runner."
+    ],
+    "avoid_when": [
+      "You want a pure runtime router without build_runner dependency generation.",
+      "You prefer standard declarative routing configuration via go_router."
+    ],
+    "strengths": [
+      "Type-safe navigation and deep linking parameters.",
+      "Reduces boilerplate by generating route configurations directly from page widgets.",
+      "Supports nested and tabbed navigation."
+    ],
+    "weaknesses": [
+      "Requires build_runner code generation steps for updating routes.",
+      "Tied to the Katana ecosystem and specific annotations."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding katana_router along with build_runner and katana_router_builder as dev dependencies, then running build_runner.",
+    "alternatives": [
+      {
+        "name": "go_router",
+        "why_pick_it": "You want official, declarative routing without code generation."
+      },
+      {
+        "name": "auto_route",
+        "why_pick_it": "You want an alternative annotation-driven type-safe router with its own feature set."
+      }
+    ],
+    "minimal_example": "import \"package:katana_router/katana_router.dart\";\nimport \"package:flutter/material.dart\";\n\npart \"home.page.dart\";\n\n@PagePath(\"/\")\nclass HomePage extends StatelessWidget {\n  const HomePage({super.key});\n\n  @pageRouteQuery\n  static const query = _$HomePageQuery();\n\n  @override\n  Widget build(BuildContext context) {\n    return const Scaffold(body: Center(child: Text(\"Home page\")));\n  }\n}",
+    "confidence": 0.95
+  }
+}

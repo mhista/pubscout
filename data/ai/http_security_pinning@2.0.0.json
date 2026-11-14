@@ -1,0 +1,50 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.0",
+  "generatedAt": "2026-11-14T10:51:08.591Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "drop-in client"
+    ],
+    "one_liner": "SPKI SHA-256 TLS certificate pinning for Flutter with a drop-in HttpClient.",
+    "what_it_does": "Provides a drop-in dart:io HttpClient implementation that enforces SPKI SHA-256 certificate pinning for secure connections. It also includes Ed25519 response signature checks on Flutter Web.",
+    "use_when": [
+      "You need TLS certificate pinning to prevent man-in-the-middle attacks on mobile and desktop.",
+      "You want a drop-in HttpClient replacement that works with package:http and package:dio."
+    ],
+    "avoid_when": [
+      "You do not control your server keys and cannot ship backup pins before key rotations.",
+      "You are relying on native WebViews or plugins that use their own network stack without HttpOverrides."
+    ],
+    "strengths": [
+      "Drop-in compatibility with dart:io HttpClient, package:http, and package:dio.",
+      "Supports per-host pin policies, wildcards, and unpinned host handling.",
+      "Includes cross-platform support including Android, iOS, desktop, and web signature checks."
+    ],
+    "weaknesses": [
+      "Server key rotations without a backup pin will break the app until a client update is installed.",
+      "Flutter Web does not support TLS pinning and relies on a weaker response-signature scheme."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires obtaining your server certificate pins using OpenSSL or discovery mode and configuring minimum Android/iOS platform versions.",
+    "alternatives": [
+      {
+        "name": "dio",
+        "why_pick_it": "A powerful HTTP client for Dart which can be combined with this package via adapters for advanced request handling."
+      },
+      {
+        "name": "http",
+        "why_pick_it": "The standard Dart HTTP package, which integrates seamlessly with this package's IOClient."
+      }
+    ],
+    "minimal_example": "import 'package:http/io_client.dart';\nimport 'package:http_security_pinning/http_security_pinning.dart';\n\nFuture<void> main() async {\n  final client = IOClient(HttpSecurityPinningClient([\n    'PRIMARY0PIN000000000000000000000000000000AA=',\n    'BACKUP00PIN000000000000000000000000000000AA=',\n  ]));\n  try {\n    final response = await client.get(Uri.parse('https://api.example.com/'));\n    print(response.statusCode);\n  } finally {\n    client.close();\n  }\n}",
+    "confidence": 0.95
+  }
+}

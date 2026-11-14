@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "1.0.1+2",
+  "generatedAt": "2026-11-14T10:35:34.705Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "A Flutter widget for interactive drawing with tools, undo/redo, and image export.",
+    "what_it_does": "Provides a canvas where users can draw free‑form lines, shapes, and erase. Supports palm‑rejection, history management, JSON serialization and PNG export. The board is highly customizable via a controller and toolbar widgets.",
+    "use_when": [
+      "You need an in‑app drawing surface with basic shapes and brush tools",
+      "You want to save/load drawings as JSON or export them as images"
+    ],
+    "avoid_when": [
+      "You require text annotations (removed after v0.3.0)",
+      "You need vector‑based editing or advanced graphic design features"
+    ],
+    "strengths": [
+      "Rich set of drawing tools and smoothing options",
+      "Built‑in undo/redo history with configurable limit",
+      "Performance optimizations like point filtering and canvas caching",
+      "Easy JSON serialization and PNG export"
+    ],
+    "weaknesses": [
+      "No built‑in text support",
+      "Limited to raster output; no vector export",
+      "Customization may require writing custom content types"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter_drawing_board/flutter_drawing_board.dart';\n\nfinal controller = DrawingController();\n\nWidget build(BuildContext context) {\n  return Scaffold(\n    body: Column(\n      children: [\n        Expanded(child: DrawingBoard(controller: controller, background: Container(color: Colors.white))),\n        DrawingBar(controller: controller, tools: [DefaultActionItem.undo(), DefaultActionItem.redo(), DefaultActionItem.clear()]),\n        DrawingBar(controller: controller, tools: [DefaultToolItem.pen(), DefaultToolItem.brush(), DefaultToolItem.rectangle()]),\n      ],\n    ),\n  );\n}",
+    "confidence": 0.9
+  }
+}

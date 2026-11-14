@@ -1,0 +1,50 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.0.1",
+  "generatedAt": "2026-11-14T11:01:58.817Z",
+  "data": {
+    "primary_category": "dependency-injection",
+    "secondary_categories": [
+      "navigation"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Manages Flutter project dependencies and routing using get_it.",
+    "what_it_does": "Integrates with get_it to efficiently manage Flutter dependencies while providing robust page control, route management, and module flexibility. It automatically registers and removes dependencies as needed based on the app lifecycle and routing.",
+    "use_when": [
+      "You are using get_it for dependency injection and want integrated module-based routing.",
+      "You need automatic cleanup of dependencies when navigating away from pages or modules.",
+      "You want to organize large Flutter applications into hierarchical modules with scoped bindings."
+    ],
+    "avoid_when": [
+      "you prefer state management solutions like Provider or Riverpod for dependency injection.",
+      "You are using alternative routing frameworks like go_router or auto_route that handle their own scope management."
+    ],
+    "strengths": [
+      "Automatic dependency cleanup upon leaving routes or modules.",
+      "Flexible modular architecture with hierarchical binding support.",
+      "Integrates directly with Flutter's native routing lifecycle."
+    ],
+    "weaknesses": [
+      "Tied strictly to the get_it package ecosystem.",
+      "Requires adopting a specific modular routing structure defined by the package."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Wrap your MaterialApp with FlutterGetIt and supply modules or page routers.",
+    "alternatives": [
+      {
+        "name": "auto_route",
+        "why_pick_it": "If you want a powerful declarative routing solution with code generation rather than building routes manually via flutter_getit."
+      },
+      {
+        "name": "go_router",
+        "why_pick_it": "If you need an official declarative router with deep-linking support built directly on top of the Router API."
+      }
+    ],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:flutter_getit/flutter_getit.dart';\n\nvoid main() {\n  runApp(const MyApp());\n}\n\nclass MyApp extends StatelessWidget {\n  const MyApp({super.key});\n  @override\n  Widget build(BuildContext context) {\n    return FlutterGetIt(\n      modulesRouter: [\n        FlutterGetItModuleRouter(\n          name: '/Initialize',\n          pages:[\n            FlutterGetItPageRouter(\n              name: '/Landing',\n              builder: (context) => const Scaffold(\n                body: Center(\n                  child: Text('Initializing...'),\n                ),\n              ),\n            ),\n          ]\n        ),\n      ],\n      builder: (context, routes, isReady) {\n        return MaterialApp(\n          title: 'Flutter Demo',\n          initialRoute: '/Landing/Initialize',\n          routes: routes,\n          builder: (context, child) => switch (isReady) {\n            true => child ?? const SizedBox.shrink(),\n            false => const WidgetLoadDependencies(),\n          },\n        );\n      },\n    );\n  },\n);",
+    "confidence": 0.95
+  }
+}

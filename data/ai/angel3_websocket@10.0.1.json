@@ -1,0 +1,52 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "10.0.1",
+  "generatedAt": "2026-11-14T10:47:26.163Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "backend"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based",
+      "hooks"
+    ],
+    "one_liner": "WebSockets support and event broadcasting for the Angel3 framework.",
+    "what_it_does": "Provides WebSocket server integration and client libraries for Angel3. It automatically broadcasts events from hooked services, adds WebSocket support to controllers, and allows reconnection handling on both browser and CLI clients.",
+    "use_when": [
+      "You are building an Angel3 backend and need real-time WebSocket communication.",
+      "You want automatic broadcasting of service events to connected clients.",
+      "You need CLI or browser WebSocket clients compatible with Angel3 services."
+    ],
+    "avoid_when": [
+      "You are using a backend framework other than Angel3.",
+      "You only need raw WebSockets without framework bindings or hooked services."
+    ],
+    "strengths": [
+      "Automatic broadcasting of service events",
+      "Built-in JWT authentication over WebSockets",
+      "Includes both browser and CLI client implementations with auto-reconnect"
+    ],
+    "weaknesses": [
+      "Tightly coupled to the Angel3 framework ecosystem",
+      "Does not support WebSockets over HTTP/2 (refuses with 501)"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Configure the server plugin with app.configure(ws.configureServer) and map routes with ws.handleRequest.",
+    "alternatives": [
+      {
+        "name": "shelf_web_socket",
+        "why_pick_it": "If you are using Shelf instead of Angel3 for your Dart backend."
+      },
+      {
+        "name": "web_socket_channel",
+        "why_pick_it": "If you need a generic, framework-agnostic WebSocket wrapper for Dart."
+      }
+    ],
+    "minimal_example": "import \"package:angel3_framework/angel3_framework.dart\";\nimport \"package:angel3_websocket/server.dart\";\n\nvoid main() async {\n  var app = Angel();\n  var ws = AngelWebSocket(app);\n  await app.configure(ws.configureServer);\n  app.all('/ws', ws.handleRequest);\n}",
+    "confidence": 1
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "1.1.0",
+  "generatedAt": "2026-11-14T10:32:49.952Z",
+  "data": {
+    "primary_category": "localization",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Provides a static list of world languages with ISO‑639‑1 codes and optional localized names.",
+    "what_it_does": "The package ships with a comprehensive collection of languages, their English names and ISO‑639‑1 codes. It can optionally load locale‑specific language names so apps can display language names in the device's language.",
+    "use_when": [
+      "You need a ready‑made list of languages for a language selector or settings screen",
+      "You want to show language names in the user's locale without building your own translation files"
+    ],
+    "avoid_when": [
+      "You need full i18n support for app strings (use intl or slang)",
+      "You require dynamic updates or custom language data"
+    ],
+    "strengths": [
+      "Comprehensive built‑in language data",
+      "Simple static API, no platform setup",
+      "Optional localized names loaded at runtime"
+    ],
+    "weaknesses": [
+      "Only provides language metadata, not full translation support",
+      "Localized names require an explicit initialization step",
+      "No code generation or advanced i18n features"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "flutter_localized_locales",
+        "why_pick_it": "Provides locale‑aware language names and integrates with intl for broader i18n"
+      },
+      {
+        "name": "intl",
+        "why_pick_it": "Full i18n solution with date/number formatting and message translation"
+      },
+      {
+        "name": "slang",
+        "why_pick_it": "Code‑generated localization with strong type safety"
+      }
+    ],
+    "minimal_example": "import 'package:language_info_plus/language_info_plus.dart';\n\nvoid main() async {\n  WidgetsFlutterBinding.ensureInitialized();\n  await initializeLanguage();\n  List<Language> languages = LanguageInfoPlus.languages;\n  print('Total languages: ${languages.length}');\n  Locale deviceLocale = LanguageInfoPlus.deviceLocale;\n  print('Device Locale: $deviceLocale');\n  Language deviceLanguage = LanguageInfoPlus.deviceLanguage;\n  print('Device Language: ${deviceLanguage.name}');\n}\n",
+    "confidence": 0.97
+  }
+}

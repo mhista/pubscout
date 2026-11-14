@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.1.0",
+  "generatedAt": "2026-11-14T10:58:48.094Z",
+  "data": {
+    "primary_category": "testing",
+    "secondary_categories": [
+      "backend"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "A mock Supabase client for unit testing API calls without network requests.",
+    "what_it_does": "Intercepts HTTP requests for Supabase clients and stores mock data in memory. Supports select, insert, update, upsert, delete, filtering, ordering, limiting, edge functions, and RPC calls.",
+    "use_when": [
+      "You need to unit test Supabase API calls in your Flutter or Dart app",
+      "You want to mock Supabase tables, edge functions, and RPC calls without real network connections"
+    ],
+    "avoid_when": [
+      "You need full support for auth, realtime, or storage mocks",
+      "You need nested referenced table data or !inner joins"
+    ],
+    "strengths": [
+      "Allows testing database operations and filtering easily in memory",
+      "Supports custom edge function handlers and mock RPC functions",
+      "Provides error trigger callbacks to simulate postgrest exceptions"
+    ],
+    "weaknesses": [
+      "Discontinued in favor of supabase_test once supabase_flutter v3 is released",
+      "Does not support nested referenced table data or table schemas",
+      "Does not support auth, realtime, or storage"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add to dev_dependencies and pass the mock HTTP client to your SupabaseClient.",
+    "alternatives": [],
+    "minimal_example": "import 'package:mock_supabase_http_client/mock_supabase_http_client.dart';\nimport 'package:supabase/supabase.dart';\n\nfinal mockSupabase = SupabaseClient(\n  'https://mock.supabase.co',\n  'fakeAnonKey',\n  httpClient: MockSupabaseHttpClient(),\n);",
+    "confidence": 0.95
+  }
+}

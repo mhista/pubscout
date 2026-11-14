@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "1.0.3",
+  "generatedAt": "2026-11-14T10:35:55.349Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Flutter bindings to LAME MP3 encoder that builds the native library automatically.",
+    "what_it_does": "Provides a LameMp3Encoder class to encode PCM audio data to MP3. The LAME source is bundled and compiled as part of the Flutter build, so no external binaries are required.",
+    "use_when": [
+      "Need to convert recorded or streamed PCM audio to MP3 for storage or upload",
+      "Perform offline batch conversion of audio files to MP3",
+      "Integrate MP3 encoding into a Flutter app without external dependencies"
+    ],
+    "avoid_when": [
+      "Real‑time low‑latency streaming where encoder latency matters",
+      "Applications that require other audio codecs besides MP3"
+    ],
+    "strengths": [
+      "No external native libraries required",
+      "Cross‑platform support (Android, iOS, Windows, macOS, Linux)",
+      "Simple imperative API",
+      "Bundled LAME source ensures consistent build"
+    ],
+    "weaknesses": [
+      "Only supports MP3 encoding",
+      "Limited to PCM input; no support for other audio formats",
+      "Windows build issues reported in past releases"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "final encoder = LameMp3Encoder(sampleRate: 44100, numChannels: 2);\nfinal mp3Frame = await encoder.encode(leftChannel: leftSamples, rightChannel: rightSamples);\nfinal lastFrame = await encoder.flush();",
+    "confidence": 0.9
+  }
+}

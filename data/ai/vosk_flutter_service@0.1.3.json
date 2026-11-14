@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.1.3",
+  "generatedAt": "2026-11-14T10:41:37.936Z",
+  "data": {
+    "primary_category": "ai-ml",
+    "secondary_categories": [
+      "audio-video"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Flutter plugin for offline speech recognition using Vosk toolkit.",
+    "what_it_does": "Provides offline speech-to-text functionality using the Vosk toolkit across multiple platforms. Supports loading models, creating recognizers, processing audio data, and handling microphone input.",
+    "use_when": [
+      "You need speech recognition that works completely offline.",
+      "You want on-device processing for privacy or connectivity reasons."
+    ],
+    "avoid_when": [
+      "You require cloud-based large vocabulary speech recognition engines.",
+      "You are targeting Web platforms where the plugin has limited native binary support."
+    ],
+    "strengths": [
+      "Works completely offline without sending audio data to external servers.",
+      "Supports multiple platforms including Android, iOS, macOS, Windows, and Linux."
+    ],
+    "weaknesses": [
+      "Requires manual installation of native binaries on desktop and iOS platforms.",
+      "Web platform support is limited or stub-based."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires downloading native binaries via CLI for iOS, macOS, Linux, and Windows, plus configuring ProGuard and microphone permissions on Android.",
+    "alternatives": [],
+    "minimal_example": "final vosk = VoskFlutterPlugin.instance();\nfinal enSmallModelPath = await ModelLoader()\n    .loadFromAssets('assets/models/vosk-model-small-en-us-0.15.zip');\nfinal recognizer = await vosk.createRecognizer(\n    model: model,\n    sampleRate: sampleRate,\n);",
+    "confidence": 0.95
+  }
+}

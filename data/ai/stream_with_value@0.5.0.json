@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.5.0",
+  "generatedAt": "2026-11-14T10:45:20.419Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "stream-based"
+    ],
+    "one_liner": "Encapsulates a Stream<T> with its latest value and load state.",
+    "what_it_does": "It provides an interface that exposes a Stream<T>, the most recent value emitted, and a flag indicating whether a value has been loaded. The package also offers widgets that simplify displaying progress indicators while waiting for the first value.",
+    "use_when": [
+      "Need to access the latest stream value outside of a listen callback",
+      "Want to avoid flickering when rebuilding widgets after a rotation",
+      "Need a simple way to show a loading indicator until a stream emits its first value"
+    ],
+    "avoid_when": [
+      "Using multi-subscription streams that require immediate subscription",
+      "When you need to transform or combine streams with complex logic that is better handled by other stream utilities"
+    ],
+    "strengths": [
+      "Easy access to the latest value without manual state management",
+      "Built-in widgets reduce boilerplate for loading states",
+      "Works with any single-subscription Stream"
+    ],
+    "weaknesses": [
+      "Does not automatically subscribe to the stream; the first value is only available after a subscription",
+      "Limited to single-subscription streams",
+      "No built-in support for stream transformations or combinators"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dependency to pubspec and import the package; no special permissions or build_runner needed",
+    "alternatives": [],
+    "minimal_example": "final counter = StreamWithValue<int>(Stream<int>.periodic(const Duration(seconds: 1)));\n\n// In a widget\nStreamBuilderWithValue<int>(\n  streamWithValue: counter,\n  builder: (ctx, snapshot) => snapshot.hasData\n      ? Text('${snapshot.data}')\n      : CircularProgressIndicator(),\n);",
+    "confidence": 0.9
+  }
+}

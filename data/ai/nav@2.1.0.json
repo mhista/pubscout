@@ -1,0 +1,52 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.1.0",
+  "generatedAt": "2026-11-14T10:45:08.157Z",
+  "data": {
+    "primary_category": "navigation",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "declarative"
+    ],
+    "one_liner": "Context-free imperative navigation helper with built-in animations, dialogs, and deep link routing.",
+    "what_it_does": "Provides an easy way to navigate in Flutter apps with context-free push and pop operations, built-in animated route transitions, dialogs, bottom sheets, and type-safe results. It supports deep linking via NavPathDelegate and can coexist with declarative routers like go_router.",
+    "use_when": [
+      "You want context-free navigation without passing BuildContext everywhere.",
+      "You need custom animated route transitions or ripple effects easily.",
+      "You want a type-safe result-returning screen API."
+    ],
+    "avoid_when": [
+      "You want a purely declarative navigation setup managed entirely by a modern router like go_router without imperative extensions."
+    ],
+    "strengths": [
+      "Context-free navigation via a global navigator key or mixin.",
+      "Type-safe screen results using NavScreen<Result>.",
+      "Built-in route animations and ripple reveal effects.",
+      "Compatible with both basic Material Apps and Navigator 2.0 routers."
+    ],
+    "weaknesses": [
+      "Imperative navigation style may not fit complex state-driven URL routing architectures."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Mix `Nav` into your app state or call `Nav.init(navigatorKey)` once, and configure deep linking intent filters on Android and Info.plist on iOS if needed.",
+    "alternatives": [
+      {
+        "name": "go_router",
+        "why_pick_it": "Official declarative routing solution with built-in URL-based navigation and deep linking support."
+      },
+      {
+        "name": "auto_route",
+        "why_pick_it": "Type-safe declarative routing with code generation for complex navigation structures."
+      },
+      {
+        "name": "beamer",
+        "why_pick_it": "Delegate-based declarative routing that synchronizes your app state with the browser URL."
+      }
+    ],
+    "minimal_example": "import 'package:nav/nav.dart';\n\n// Push with built-in animation\nNav.push(const NextScreen(), navAni: NavAni.Blink);\n\n// Push and await a typed result\nfinal String? result = await Nav.pushResult(const TopScreen());",
+    "confidence": 0.95
+  }
+}

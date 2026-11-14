@@ -1,0 +1,52 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.4.0",
+  "generatedAt": "2026-11-14T10:36:39.648Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Unified API for native key-value storage across platforms",
+    "what_it_does": "Provides a simple interface for reading and writing key-value pairs to platform-native storage such as iOS Keychain, Android SharedPreferences, and Windows Registry. It supports synchronous, asynchronous (via isolates), and secure encrypted storage.",
+    "use_when": [
+      "Storing non-sensitive data that should persist across app restarts",
+      "Storing sensitive data that needs encryption and isolation from the UI thread",
+      "Need a single API that works on Android, iOS, macOS, Linux, Windows, and Web",
+      "Migrating from platform-specific storage solutions to a unified API"
+    ],
+    "avoid_when": [
+      "Using secure storage on Web, as it is only in-memory and not persistent",
+      "Requiring secure storage on Android versions below API 29",
+      "When you need advanced database features like SQL or NoSQL"
+    ],
+    "strengths": [
+      "Cross-platform support with a single API",
+      "Built-in secure encryption for sensitive data",
+      "Asynchronous APIs via isolates to avoid UI blocking",
+      "Supports both local and secure storage variations"
+    ],
+    "weaknesses": [
+      "Web secure storage is in-memory and not persistent",
+      "Requires native setup for secure storage on Android (min API 29)",
+      "No advanced database features (SQL, NoSQL)"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "shared_preferences",
+        "why_pick_it": "Simple key-value storage without secure encryption, lighter weight"
+      },
+      {
+        "name": "flutter_secure_storage",
+        "why_pick_it": "Provides secure storage with platform-specific implementations, but lacks unified API across all platforms"
+      }
+    ],
+    "minimal_example": "final storage = NativeStorage();\nstorage.write('key', 'value');\nprint(storage.read('key'));",
+    "confidence": 0.9
+  }
+}

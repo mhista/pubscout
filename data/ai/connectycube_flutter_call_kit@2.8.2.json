@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.8.2",
+  "generatedAt": "2026-11-14T11:01:12.550Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [
+      "notifications"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter plugin for displaying incoming call screens when the app is in the background or terminated.",
+    "what_it_does": "It handles displaying native incoming call screens on Android and iOS when push notifications arrive. It provides tokens (FCM/VoIP) and listens to user actions such as accept, reject, and mute.",
+    "use_when": [
+      "You are building a VoIP or calling app and need native background incoming call interfaces.",
+      "You need to handle push notifications specifically tailored for audio or video calls on Android and iOS."
+    ],
+    "avoid_when": [
+      "You only need generic local or push notifications without native call screen UI.",
+      "You are not building a calling or real-time communication application."
+    ],
+    "strengths": [
+      "Supports native background/terminated incoming call screens for both Android and iOS.",
+      "Built-in token handling for FCM and VoIP notifications.",
+      "Allows customization of ringtones, icons, and accent colors."
+    ],
+    "weaknesses": [
+      "Requires specific platform-level configurations like Google Services or Info.plist modifications.",
+      "Platform behavior differs significantly between Android and iOS regarding terminated state handlers."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding google-services.json and build.gradle setup on Android, and UIBackgroundModes remote-notification and voip in Info.plist on iOS.",
+    "alternatives": [],
+    "minimal_example": "ConnectycubeFlutterCallKit.getToken().then((token) {\n    // use received token for subscription on push notifications on your server\n});",
+    "confidence": 0.95
+  }
+}

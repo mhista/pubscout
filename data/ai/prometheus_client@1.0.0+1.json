@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.0+1",
+  "generatedAt": "2026-11-14T10:47:01.681Z",
+  "data": {
+    "primary_category": "devtools",
+    "secondary_categories": [
+      "backend"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Dart implementation of the Prometheus client library providing metrics.",
+    "what_it_does": "Provides Prometheus metric types like counters, gauges, histograms, and summaries for Dart applications. Allows registering and collecting metrics to export them in the standard text format.",
+    "use_when": [
+      "You need to instrument a Dart backend or server application with Prometheus metrics",
+      "You want to expose runtime and custom metrics for scraping"
+    ],
+    "avoid_when": [
+      "You are building a client-side Flutter app without a backend server endpoint for scraping metrics"
+    ],
+    "strengths": [
+      "Supports standard Prometheus metric types (Counter, Gauge, Histogram, Summary)",
+      "Includes plug-in ready metrics for the Dart runtime",
+      "Allows dynamic metric updates using collect callbacks"
+    ],
+    "weaknesses": [
+      "Limited set of runtime metrics compared to other languages due to Dart platform limitations"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [],
+    "minimal_example": "import 'package:prometheus_client/prometheus_client.dart';\n\nfinal requestsCounter = Counter(\n  name: 'metric_requests_total',\n  help: 'The total amount of requests of the metrics.',\n)..register();\n\nrequestsCounter.inc();",
+    "confidence": 1
+  }
+}

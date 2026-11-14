@@ -1,0 +1,46 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.0",
+  "generatedAt": "2026-11-14T10:31:48.957Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "auth",
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Assess app integrity and sign client data securely using iOS App Attest and Android Play Integrity.",
+    "what_it_does": "Provides a unified Dart API to create cryptographic keys and attest app integrity on iOS, warm up the integrity server and sign client data on Android. It helps verify that requests originate from a legitimate, untampered application instance running on a real, unrooted device.",
+    "use_when": [
+      "You need to verify app authenticity and prevent tampering or replay attacks.",
+      "Your backend needs to validate data signed by a platform-backed secure key on iOS and Android."
+    ],
+    "avoid_when": [
+      "You need to run or test features on iOS simulators, which are not supported.",
+      "You are looking for general device info rather than cryptographic attestation."
+    ],
+    "strengths": [
+      "Unified API across iOS and Android.",
+      "Supports replay-attack resistance using challenge and nonce verification.",
+      "Follows official Apple and Google integrity guidelines."
+    ],
+    "weaknesses": [
+      "Requires proper native setup on both platforms, including a Google Cloud project number for Android.",
+      "iOS requires a real device (simulators are not supported)."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires iOS 14+ on a real device with proper bundle identifier and entitlements configured. Android requires API 21+, Google Play services, and linking to a Google Cloud project.",
+    "alternatives": [
+      {
+        "name": "device_info_plus",
+        "why_pick_it": "If you only need basic device information and properties without cryptographic app integrity or attestation."
+      }
+    ],
+    "minimal_example": "final integrity = AppAttestIntegrity();\nfinal signature = await integrity.verify(\n  clientData: json.encode({\"nonce\": challengeFromServer}),\n  iOSkeyID: await loadKeyId(),\n);",
+    "confidence": 0.95
+  }
+}

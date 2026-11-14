@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.4.3",
+  "generatedAt": "2026-11-14T10:29:09.163Z",
+  "data": {
+    "primary_category": "devtools",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "In-app debugging console and network monitor for Flutter applications.",
+    "what_it_does": "TraceX provides an in-app debugging console, network traffic inspector, and pretty logger for Flutter applications. It lets developers monitor API calls, search and filter logs, inspect JSON bodies, and display a customizable floating action button directly inside their app.",
+    "use_when": [
+      "You need an in-app console to view logs and network traffic directly on mobile or desktop devices during testing.",
+      "You want to inspect HTTP requests and responses using Dio or custom clients with support for pretty logging and JSON viewing."
+    ],
+    "avoid_when": [
+      "You require production-level crash reporting and remote analytics without relying on an in-app interface.",
+      "Your application runs headless or doesn't support UI-based debugging overlays."
+    ],
+    "strengths": [
+      "Includes a built-in network inspector and Dio interceptor.",
+      "Features an interactive JSON tree viewer with search and lazy rendering.",
+      "Customizable floating action button with auto-stash capability."
+    ],
+    "weaknesses": [
+      "Limited to in-app visual debugging rather than long-term cloud log aggregation.",
+      "Requires manual initialization and widget tree attachment."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Initialize TraceX, attach it to the context in debug mode, and add the Dio interceptor if using network monitoring.",
+    "alternatives": [
+      {
+        "name": "talker",
+        "why_pick_it": "Provides a comprehensive advanced exception handling and logging package with an in-app UI and many plugins."
+      },
+      {
+        "name": "pretty_dio_logger",
+        "why_pick_it": "Specializes specifically in logging Dio network requests directly to the console output."
+      }
+    ],
+    "minimal_example": "final TraceX tracex = TraceX(\n  logger: TraceXPrettyLogger(\n    enabled: kDebugMode,\n    compact: true,\n  ),\n);\n\ntracex.attach(\n  context: context,\n  visible: kDebugMode,\n);",
+    "confidence": 0.95
+  }
+}

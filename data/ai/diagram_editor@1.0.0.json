@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "1.0.0",
+  "generatedAt": "2026-11-14T10:42:41.039Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Flutter library for building interactive diagram editors with pan, zoom, and link support",
+    "what_it_does": "Provides a DiagramEditor widget and a DiagramController to manage nodes and links on a canvas. Supports type‑safe custom data, serialization, and gesture callbacks.",
+    "use_when": [
+      "Need a diagram or flow‑chart editor in a Flutter app",
+      "Want pan/zoom and link creation without writing custom gesture logic",
+      "Require type‑safe component data and custom serialization"
+    ],
+    "avoid_when": [
+      "You only need simple static diagrams",
+      "You prefer a fully declarative widget tree without a controller",
+      "You need integration with a state‑management solution that expects a provider or bloc"
+    ],
+    "strengths": [
+      "Type‑safe generics eliminate dynamic casts",
+      "Built‑in pan/zoom and link controls",
+      "Extensible via callbacks and custom painters",
+      "No external state‑management dependency"
+    ],
+    "weaknesses": [
+      "Requires manual controller setup",
+      "No built‑in state‑management integration",
+      "Limited to Flutter (no pure Dart API)",
+      "Requires Flutter 3.3+ (Dart 3) for sealed classes"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dependency, import package, create DiagramController and DiagramEditor, no build_runner needed",
+    "alternatives": [],
+    "minimal_example": "import 'package:diagram_editor/diagram_editor.dart';\nimport 'package:flutter/material.dart';\n\nclass MyDiagram extends StatelessWidget {\n  final controller = DiagramController<void, void>();\n  @override\n  Widget build(BuildContext context) {\n    return DiagramEditor<void, void>(\n      controller: controller,\n      componentBuilder: (ctx, comp) => Container(\n        color: Colors.blue,\n        child: Center(child: Text(comp.id)),\n      ),\n      onCanvasTapUp: (details) {\n        controller.addComponent(ComponentData(\n          size: const Size(96, 72),\n          position: controller.fromCanvasCoordinates(details.localPosition),\n        ));\n      },\n      onComponentTap: (id) => controller.removeComponent(id),\n    );\n  }\n}",
+    "confidence": 0.9
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.8-flash",
+  "version": "2.0.0",
+  "generatedAt": "2026-11-14T10:29:48.407Z",
+  "data": {
+    "primary_category": "devtools",
+    "secondary_categories": [],
+    "approach": [
+      "declarative",
+      "imperative"
+    ],
+    "one_liner": "On-screen FPS and frame duration monitoring tool for Flutter debug and profile modes.",
+    "what_it_does": "Collects per-frame build and raster rendering timings via WidgetsBinding callbacks in debug and profile modes. Displays interactive overlay charts categorizing frames into fluidity levels (smooth, good, slight lag, severe lag). Provides metrics like maximum, average, and total frame durations to help evaluate UI performance.",
+    "use_when": [
+      "You need an on-device visual overlay to benchmark frame rendering and detect UI stutter during profile/debug builds.",
+      "You want detailed frame breakdown statistics instead of the raw charts provided by PerformanceOverlay.",
+      "Testing performance specifically on 60Hz display refresh rate devices."
+    ],
+    "avoid_when": [
+      "Monitoring performance in production release builds (it operates only in profile/debug mode).",
+      "Profiling devices with high refresh rates (>60Hz) due to fixed 16.7ms frame duration floor assumptions."
+    ],
+    "strengths": [
+      "Categorizes frame times into clear color-coded smoothness tiers.",
+      "Built-in overlay UI allows instant inspection of recently recorded frames without external tooling.",
+      "Easy widget-level integration wrapping the app's root builder."
+    ],
+    "weaknesses": [
+      "Hardcodes frame calculations based on 60Hz display intervals (normalizes frame times < 16.7ms).",
+      "Requires manual overlay state configuration using a global navigator key."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires assigning a GlobalKey<NavigatorState> to MaterialApp to pass overlayState, and wrapping the app root via MaterialApp.builder.",
+    "alternatives": [
+      {
+        "name": "newrelic_mobile",
+        "why_pick_it": "Provides production-grade performance tracking and analytics rather than local debug overlays."
+      }
+    ],
+    "minimal_example": "MaterialApp(\n  navigatorKey: globalKey,\n  builder: (ctx, child) => CustomWidgetInspector(child: child),\n  home: const MyHomePage(),\n);",
+    "confidence": 0.85
+  }
+}

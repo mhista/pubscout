@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.0",
+  "generatedAt": "2026-11-14T10:30:38.022Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "files"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Get free, used and total disk space for internal and external storage.",
+    "what_it_does": "Provides methods to retrieve the total, free, and used internal and external storage space in various units like bytes, KB, MB, and GB. Supports both Android and iOS platforms.",
+    "use_when": [
+      "You need to check available device storage before downloading large files or caching data.",
+      "You want to display storage statistics to the user within your app settings."
+    ],
+    "avoid_when": [
+      "You need to persist key-value data or structured databases locally.",
+      "You require storage information for desktop or web platforms."
+    ],
+    "strengths": [
+      "Supports multiple units of measurement (bytes, KB, MB, GB).",
+      "Supports both internal storage and external SD cards (on Android).",
+      "Simple API with a single initialization point."
+    ],
+    "weaknesses": [
+      "Limited platform support (only Android and iOS).",
+      "External storage features are limited to Android only."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "No extra permissions documented in the README; follow standard Flutter plugin integration.",
+    "alternatives": [],
+    "minimal_example": "final _storageInfoPlugin = StorageInfo();\nFuture<double> _getSpace() async {\n  return await _storageInfoPlugin.getStorageFreeSpace(SpaceUnit.GB);\n}",
+    "confidence": 0.95
+  }
+}

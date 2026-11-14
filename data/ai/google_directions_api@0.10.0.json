@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.10.0",
+  "generatedAt": "2026-11-14T10:54:00.073Z",
+  "data": {
+    "primary_category": "maps",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Calculates directions between locations using the Google Directions API.",
+    "what_it_does": "Calculates directions and routes between locations using the Google Directions API for various modes of transportation. It supports multi-part directions with waypoints, and specifies origins, destinations, and waypoints as text, coordinates, or place IDs.",
+    "use_when": [
+      "You need to calculate travel routes and directions using the Google Directions API.",
+      "You want to fetch multi-part directions with waypoints for transit, driving, walking, or cycling."
+    ],
+    "avoid_when": [
+      "You need a solution designed to respond in real time to user input.",
+      "You are looking for an interactive embedded map widget."
+    ],
+    "strengths": [
+      "Supports multiple modes of transportation including transit, driving, walking, and cycling.",
+      "Handles complex requests with origins, destinations, and waypoints."
+    ],
+    "weaknesses": [
+      "Not designed to respond in real time to user input.",
+      "Lacks written tests via mocks currently."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires initializing the service with a Google API key using DirectionsService.init('API_KEY').",
+    "alternatives": [],
+    "minimal_example": "import 'package:google_directions_api/google_directions_api.dart';\n\nvoid main() {\n  DirectionsService.init('API_KEY');\n\n  final directionsService = DirectionsService();\n\n  final request = DirectionsRequest(\n    origin: 'New York',\n    destination: 'San Francisco',\n    travelMode: TravelMode.driving,\n  );\n\n  directionsService.route(request,\n      (DirectionsResult response, DirectionsStatus status) {\n    if (status == DirectionsStatus.ok) {\n      // do something with successful response\n    } else {\n      // do something with error response\n    }\n  });\n}",
+    "confidence": 0.95
+  }
+}

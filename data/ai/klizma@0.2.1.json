@@ -1,0 +1,55 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.2.1",
+  "generatedAt": "2026-11-14T10:37:41.310Z",
+  "data": {
+    "primary_category": "dependency-injection",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "A lightweight DI container for Dart with singleton and named factory support.",
+    "what_it_does": "klizma provides a minimalistic dependency injection container that lets you register factories and singletons, then resolve them by type or name. It has no external dependencies and works on all Dart platforms.",
+    "use_when": [
+      "You need a simple, zero‑dependency DI solution for a small to medium project.",
+      "You want named factories to differentiate between multiple implementations of the same type.",
+      "You prefer a straightforward API without code generation or annotations."
+    ],
+    "avoid_when": [
+      "You require advanced features like scoped lifetimes, automatic injection via annotations, or integration with Flutter widgets.",
+      "You need a full‑featured service locator with lifecycle management like get_it."
+    ],
+    "strengths": [
+      "Zero external dependencies",
+      "Supports named factories",
+      "Simple API",
+      "Works on all Dart platforms"
+    ],
+    "weaknesses": [
+      "No code generation or annotations",
+      "Limited lifecycle control",
+      "No built‑in support for scoped or transient instances",
+      "No integration with Flutter widgets"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "get_it",
+        "why_pick_it": "Widely used, feature‑rich service locator with support for scopes, factories, and integration with Flutter."
+      },
+      {
+        "name": "injector",
+        "why_pick_it": "Provides a similar lightweight DI container with optional code generation."
+      },
+      {
+        "name": "watch_it",
+        "why_pick_it": "Offers a reactive DI container with change notification."
+      }
+    ],
+    "minimal_example": "import 'package:klizma/klizma.dart';\n\nfinal di = Klizma();\ndi.provide((_) => Engine('Vroom!'));\ndi.provide((_) => Horn('Honk!'));\ndi.provide((_) => Car(_<Engine>(), _<Horn>()));\nfinal car = di.get<Car>();\nprint(car.sound);",
+    "confidence": 0.95
+  }
+}

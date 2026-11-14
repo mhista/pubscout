@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "1.0.0",
+  "generatedAt": "2026-11-14T10:39:53.447Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Flutter plugin to read device screen corner radii on Android and iOS",
+    "what_it_does": "Provides the per‑corner radius of the active screen, including live updates on multi‑screen devices. It uses native APIs on Android 12+ and iOS 26+, falling back to a bundled JSON dataset for older versions.",
+    "use_when": [
+      "You need to match UI elements to the device’s rounded corners",
+      "You’re building a multi‑screen app that must adapt to changing screen geometry",
+      "You want to animate or style widgets based on the real corner radius"
+    ],
+    "avoid_when": [
+      "You only need a generic rounded corner value",
+      "You’re targeting only web or desktop where screen corners are irrelevant"
+    ],
+    "strengths": [
+      "Accurate per‑corner data on modern Android and iOS",
+      "Live stream of radius changes for multi‑screen devices",
+      "No external dependencies beyond Flutter SDK"
+    ],
+    "weaknesses": [
+      "Only Android and iOS supported",
+      "Requires native platform code, so not usable on web/desktop"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add dependency in pubspec, run flutter pub get. No special permissions or build_runner needed.",
+    "alternatives": [],
+    "minimal_example": "import 'package:corner_radius_plugin/corner_radius_plugin.dart';\n\nfinal radius = await CornerRadiusPlugin.init();\nprint('Top‑left radius: ${radius?.topLeft}');",
+    "confidence": 0.9
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.5.0",
+  "generatedAt": "2026-11-14T10:43:58.946Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Check if Android Data Saver or iOS Low Data Mode is enabled.",
+    "what_it_does": "The plugin queries the operating system to determine the current data‑saver state. It returns enabled, whitelisted (Android only), or disabled without throwing on unsupported platforms.",
+    "use_when": [
+      "You need to respect user’s low‑data preferences before heavy network calls",
+      "You want a simple way to detect Data Saver on Android or Low Data Mode on iOS/macOS"
+    ],
+    "avoid_when": [
+      "You require fine‑grained network type detection (Wi‑Fi vs cellular)",
+      "You need a full connectivity suite beyond data‑saver status"
+    ],
+    "strengths": [
+      "Lightweight single‑purpose API",
+      "Handles unsupported platforms gracefully",
+      "Supports Android, iOS, macOS and Web"
+    ],
+    "weaknesses": [
+      "Only reports data‑saver state, no other network info",
+      "Requires Swift Package Manager for iOS/macOS, no CocoaPods"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add the package, ensure iOS/macOS Swift Package Manager integration (Flutter 3.44+), Android minSdk 24, no extra permissions required",
+    "alternatives": [
+      {
+        "name": "connectivity_plus",
+        "why_pick_it": "Provides broader network connectivity information, including Wi‑Fi/cellular status, though it doesn't expose data‑saver state"
+      }
+    ],
+    "minimal_example": "const dataSaver = DataSaver();\nfinal mode = await dataSaver.checkMode();",
+    "confidence": 0.93
+  }
+}

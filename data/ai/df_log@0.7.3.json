@@ -1,0 +1,48 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.7.3",
+  "generatedAt": "2026-11-14T10:38:17.225Z",
+  "data": {
+    "primary_category": "devtools",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "A Dart logging utility offering styled, tag‑filtered, in‑memory logs with JSON export and callbacks.",
+    "what_it_does": "df_log replaces print() with colorful, emoji‑enhanced console output. It lets you assign tags, filter logs, store recent entries in memory, and export them as JSON lines. You can also attach callbacks for analytics or crash reporting.",
+    "use_when": [
+      "You need readable, colored console logs during development",
+      "You want tag‑based filtering and in‑memory log history",
+      "You need to export logs for external analysis or crash reporting"
+    ],
+    "avoid_when": [
+      "You require persistent file‑based logging",
+      "You need a full‑featured logging framework with log levels and sinks"
+    ],
+    "strengths": [
+      "Beautiful ANSI‑styled output with emojis",
+      "Tag‑based filtering and per‑isolate context",
+      "In‑memory queue of recent logs",
+      "Export to JSONL and custom callbacks"
+    ],
+    "weaknesses": [
+      "No built‑in file persistence",
+      "Limited to console styling; may not work on all terminals",
+      "No advanced log routing or multiple sinks"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "stack_trace",
+        "why_pick_it": "Provides detailed stack traces and can be combined with other logging solutions for richer error info"
+      }
+    ],
+    "minimal_example": "import 'package:df_log/df_log.dart';\n\nvoid main() {\n  Log.start('App starting');\n  Log.info('Loading user data', tags: {#auth});\n  Log.err('Failed to load config');\n  Log.stop('App shutting down');\n}",
+    "confidence": 0.93
+  }
+}

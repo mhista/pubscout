@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.3.2",
+  "generatedAt": "2026-11-14T10:37:31.895Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "ui-kits"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Display a hidden brand logo behind iPhone notches and Dynamic Islands.",
+    "what_it_does": "The hidden_logo plugin allows you to place a custom widget, such as a brand logo, underneath the hardware barriers (notch or Dynamic Island) of supported iPhones. It automatically handles sizing constraints, corner rounding for the Dynamic Island, and restricts display to portrait mode without affecting non-supported devices.",
+    "use_when": [
+      "You want to display a brand logo or simplified identifier under the iPhone notch or Dynamic Island.",
+      "You want automatic constraints and bounding adjustments based on supported iPhone hardware models."
+    ],
+    "avoid_when": [
+      "You need to place interactive controls, ads, or sensitive information under the hardware barrier.",
+      "The top of your application's screen is already heavily loaded with details in app bars."
+    ],
+    "strengths": [
+      "Automatically adapts to iOS Display Zoom and device-specific hardware cutouts.",
+      "Excludes the overlay from pointer events, keyboard focus, and accessibility semantics.",
+      "No additional manual checks required for non-target devices."
+    ],
+    "weaknesses": [
+      "Limited only to specific Apple iPhone models supporting notches or Dynamic Islands.",
+      "Visibility depends on iOS capture timing in screenshots, app-switchers, or screen mirroring."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires Flutter >=3.24.0 and iOS >=13.0. Supports CocoaPods or Swift Package Manager.",
+    "alternatives": [],
+    "minimal_example": "HiddenLogo(\n  body: child!,\n  notchBuilder: (context, constraints) {\n    return MyNotchLogoBuilder();\n  },\n  dynamicIslandBuilder: (context, constraints) {\n    return MyDynamicIslandLogoBuilder();\n  },\n)",
+    "confidence": 0.95
+  }
+}

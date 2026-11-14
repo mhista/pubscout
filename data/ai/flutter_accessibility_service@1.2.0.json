@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "1.2.0",
+  "generatedAt": "2026-11-14T10:42:42.857Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "Flutter plugin to interact with Android Accessibility Service for events and actions.",
+    "what_it_does": "Provides APIs to check and request accessibility permission, stream accessibility events, and perform actions or gestures via the Android accessibility service.",
+    "use_when": [
+      "You need to monitor Android accessibility events (e.g., window changes, text changes)",
+      "You want to automate UI interactions on Android using accessibility actions or gestures"
+    ],
+    "avoid_when": [
+      "Your app targets iOS or other platforms",
+      "You need a cross‑platform solution without native Android setup"
+    ],
+    "strengths": [
+      "Low‑level access to Android accessibility events",
+      "Supports gesture simulation and action execution",
+      "Event stream makes reactive handling easy"
+    ],
+    "weaknesses": [
+      "Android‑only; no iOS support",
+      "Requires manual AndroidManifest and XML configuration",
+      "Documentation is limited"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add a <service> entry with BIND_ACCESSIBILITY_SERVICE permission to AndroidManifest and create res/xml/accessibilityservice.xml; request permission at runtime.",
+    "alternatives": [],
+    "minimal_example": "final bool status = await FlutterAccessibilityService.requestAccessibilityPermission();\nFlutterAccessibilityService.accessStream.listen((event) {\n  log('Current Event: $event');\n});",
+    "confidence": 0.9
+  }
+}

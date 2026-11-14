@@ -1,0 +1,47 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.1.0+1",
+  "generatedAt": "2026-11-14T10:45:13.683Z",
+  "data": {
+    "primary_category": "images",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "SVG ImageProvider for Flutter with caching support",
+    "what_it_does": "Provides SVG ImageProvider and widget integrations for Flutter. It parses SVGs using jovial_svg or a WebView and caches files using flutter_cache_manager.",
+    "use_when": [
+      "You need to load and cache network SVGs as a standard Flutter ImageProvider",
+      "You want to render SVGs using jovial_svg or WebView rendering"
+    ],
+    "avoid_when": [
+      "You need a simple vector asset loader without caching or external parsing libraries"
+    ],
+    "strengths": [
+      "Supports caching of SVG files via flutter_cache_manager",
+      "Provides options for parsing with jovial_svg or WebView"
+    ],
+    "weaknesses": [
+      "Limited platform support (Android and iOS)",
+      "Relies on external heavy dependencies like flutter_inappwebview and jovial_svg"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [
+      {
+        "name": "flutter_svg",
+        "why_pick_it": "More widely adopted and standard library for rendering SVG assets and strings directly in Flutter."
+      },
+      {
+        "name": "cached_network_image",
+        "why_pick_it": "Better suited for standard raster images with robust caching capabilities."
+      }
+    ],
+    "minimal_example": "import 'package:flutter_svg_image/flutter_svg_image.dart';\n\nImage(\n  fit: BoxFit.contain,\n  image: SvgImage.cachedNetwork(\n    'https://jovial.com/images/jupiter.svg',\n  ),\n);",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "6.0.6",
+  "generatedAt": "2026-11-14T10:41:01.848Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "stream-based",
+      "no codegen"
+    ],
+    "one_liner": "Lightweight reactive framework with observable values, lists, sets, maps, and event emitters.",
+    "what_it_does": "Provides non-intrusive reactive primitives like RxValue, RxList, RxSet, RxMap, and Emitter that use Dart Streams to update UI automatically when data changes.",
+    "use_when": [
+      "You want lightweight, stream-backed observables without code generation.",
+      "You prefer separating models from their reactive wrappers.",
+      "You need reactive collections (lists, sets, maps) with conditional add helpers."
+    ],
+    "avoid_when": [
+      "You want a fully-fledged architecture pattern like BLoC or Redux.",
+      "You rely heavily on widget-tree based state inheritance like Provider or Riverpod."
+    ],
+    "strengths": [
+      "Light-weight and non-intrusive framework.",
+      "Supports reactive values, lists, sets, maps, and event emitters out of the box."
+    ],
+    "weaknesses": [
+      "Lacks built-in dependency injection compared to comprehensive state solutions.",
+      "Requires manual plumbing to connect observables to the UI tree."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "riverpod",
+        "why_pick_it": "Provides a more robust, compile-safe dependency injection and state management solution for Flutter."
+      },
+      {
+        "name": "bloc",
+        "why_pick_it": "Offers a strict, predictable event-driven state management pattern suitable for large applications."
+      },
+      {
+        "name": "provider",
+        "why_pick_it": "Offers simpler widget-tree scoped state inheritance."
+      }
+    ],
+    "minimal_example": "main() {\n  final rxInts = RxValue<int>(initial: 5);\n  int got = rxInts.value;\n  rxInts.value = 10;\n}",
+    "confidence": 0.95
+  }
+}

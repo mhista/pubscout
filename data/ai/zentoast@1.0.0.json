@@ -1,0 +1,57 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "1.0.0",
+  "generatedAt": "2026-11-14T10:34:45.653Z",
+  "data": {
+    "primary_category": "notifications",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "A headless, fully customizable toast system for Flutter with physics‑based animations.",
+    "what_it_does": "Manages toast queuing, animation, gestures and multi‑position viewers while letting you provide the UI. Offers theming, motion policies and independent stacks.",
+    "use_when": [
+      "You need custom toast designs beyond simple text‑only toasts",
+      "You want physics‑based, gesture‑rich notifications with multiple viewers",
+      "You require theming and motion policy control"
+    ],
+    "avoid_when": [
+      "You only need a quick, out‑of‑the‑box toast like FlutterToast",
+      "You need push or system notifications rather than in‑app UI",
+      "You prefer a solution that includes its own widget UI"
+    ],
+    "strengths": [
+      "Full UI control – headless architecture",
+      "Physics‑based, configurable animations via Motor",
+      "Multiple independent viewers and theming support"
+    ],
+    "weaknesses": [
+      "Requires you to build the toast widget UI",
+      "Adds extra dependencies (motor, oref)",
+      "May be overkill for simple toast needs"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add zentoast to pubspec, wrap app with ToastProvider, no native permissions required",
+    "alternatives": [
+      {
+        "name": "fluttertoast",
+        "why_pick_it": "Provides a simple out‑of‑the‑box toast with minimal setup"
+      },
+      {
+        "name": "bot_toast",
+        "why_pick_it": "Offers ready‑made toast widgets and easy API"
+      },
+      {
+        "name": "overlay_support",
+        "why_pick_it": "Lightweight overlay system for quick notifications"
+      }
+    ],
+    "minimal_example": "void main(){runApp(ToastProvider.create(child: MyApp()));}\n\nclass MyApp extends StatelessWidget{ @override Widget build(BuildContext context){return MaterialApp(builder:(c,child)=>ToastThemeProvider(data:ToastTheme(gap:8,viewerPadding:EdgeInsets.all(12)),child:Stack(children:[Positioned.fill(child:child??SizedBox()),SafeArea(child:ToastViewer(alignment:Alignment.topRight,delay:Duration(seconds:3),visibleCount:3)),])),home:HomePage();}}",
+    "confidence": 0.93
+  }
+}

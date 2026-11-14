@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.1.0",
+  "generatedAt": "2026-11-14T10:35:07.742Z",
+  "data": {
+    "primary_category": "codegen",
+    "secondary_categories": [
+      "backend"
+    ],
+    "approach": [
+      "code generation"
+    ],
+    "one_liner": "CLI tool that generates type-safe Dart and Flutter classes from your Supabase database schema.",
+    "what_it_does": "Supadart connects to your Supabase schema via a CLI command and generates immutable Dart classes, JSON serialisation, converters, enums, and insertion/update helpers tailored to your database tables and columns.",
+    "use_when": [
+      "You want type-safe queries and inserts with Supabase in a Dart or Flutter project",
+      "You want to eliminate manual model writing for your Supabase tables"
+    ],
+    "avoid_when": [
+      "You prefer writing your database models and JSON serializers manually",
+      "You are not using Supabase as your backend"
+    ],
+    "strengths": [
+      "Eliminates boilerplate when mapping database schemas to Dart models",
+      "Generates type-safe insert and update helper methods",
+      "Supports multiple schemas and custom database enums"
+    ],
+    "weaknesses": [
+      "Requires running a CLI command whenever your database schema changes",
+      "Requires using a secret/service role key to fetch the schema from hosted Supabase projects"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Activate via 'dart pub global activate supadart' and run supadart or configure a supadart.yaml file with your Supabase URL and key.",
+    "alternatives": [],
+    "minimal_example": "final allBooks = await supabase\n      .books\n      .select(\"*\")\n      .withConverter(Books.converter);",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.0.3",
+  "generatedAt": "2026-11-14T10:36:26.487Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "layout"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Provides widgets that emulate CSS position: sticky in Flutter.",
+    "what_it_does": "StickyContainer and StickyWidget let a child widget stay fixed at a position while scrolling until a threshold. They use a shared ScrollController to track scroll offset and reposition the widget between initial and final positions.",
+    "use_when": [
+      "Implement sticky headers or footers in a list",
+      "Create floating action buttons that stick after scrolling",
+      "Need a simple, platform‑agnostic sticky UI pattern"
+    ],
+    "avoid_when": [
+      "Complex nested scroll views that require independent controllers",
+      "Performance‑critical apps where every frame must be ultra‑fast",
+      "Scenarios needing custom scroll physics beyond basic offset tracking"
+    ],
+    "strengths": [
+      "Simple API, no code generation",
+      "Works on all Flutter platforms (web, mobile, desktop)",
+      "No external dependencies beyond Flutter"
+    ],
+    "weaknesses": [
+      "Requires a single ScrollController shared with the scrollable",
+      "Limited to two‑parameter positions (top/bottom, left/right)",
+      "No built‑in support for nested or multi‑axis scrolling"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter_sticky_widgets/flutter_sticky_widgets.dart';\n\nStickyContainer(\n  stickyChildren: [\n    StickyWidget(\n      initialPosition: StickyPosition(bottom: 20, right: 20),\n      finalPosition: StickyPosition(\n        bottom: MediaQuery.of(context).size.height - 80, right: 20),\n      controller: _controller,\n      child: Container(\n        width: 40,\n        height: 40,\n        decoration: const BoxDecoration(\n          shape: BoxShape.circle,\n          color: Colors.green,\n        ),\n        child: const Center(child: Icon(Icons.pause)),\n      ),\n    ),\n  ],\n  child: ListView.builder(\n    controller: _controller,\n    itemCount: 50,\n    itemBuilder: (context, index) {\n      return ListTile(title: Text(\"Tile $index\"));\n    },\n  ),\n);",
+    "confidence": 0.9
+  }
+}

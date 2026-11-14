@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.1.0",
+  "generatedAt": "2026-11-14T10:43:01.677Z",
+  "data": {
+    "primary_category": "navigation",
+    "secondary_categories": [
+      "utils",
+      "theming"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Manage navigation, dialogs, overlays, and themes globally without a BuildContext.",
+    "what_it_does": "OneContext allows Flutter developers to interact with navigators, overlays, dialogs, media queries, and themes from anywhere in the app without requiring a BuildContext. It wraps standard Flutter operations into a singleton interface.",
+    "use_when": [
+      "You need to trigger navigation or dialogs from outside the widget tree (like in BLoCs, services, or view models)",
+      "You want a simple global solution for handling overlays and progress indicators"
+    ],
+    "avoid_when": [
+      "You prefer strictly context-based architectural patterns",
+      "You need complex state management systems where global context access causes unintended rebuild issues"
+    ],
+    "strengths": [
+      "No BuildContext required for navigation and dialogs",
+      "Uses familiar native Flutter function names and parameters",
+      "Fast O(1) performance"
+    ],
+    "weaknesses": [
+      "Global context usage can sometimes lead to unexpected behavior if not handled carefully",
+      "May bypass standard InheritedWidget lookup mechanisms if using root context directly"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Configure MaterialApp with OneContext().builder in the builder property and OneContext().key in the navigatorKey property.",
+    "alternatives": [],
+    "minimal_example": "return MaterialApp(\n    builder: OneContext().builder,\n    navigatorKey: OneContext().key,\n);\n\n// Later anywhere:\nOneContext().pushNamed('/detail_page');",
+    "confidence": 0.95
+  }
+}

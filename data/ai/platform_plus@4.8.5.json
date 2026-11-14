@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.8.5",
+  "generatedAt": "2026-11-14T10:33:32.017Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Easily figure out detailed information about the platform your code is running on.",
+    "what_it_does": "Platform Plus helps you detect specific platforms, operating system versions, web renderers, and device states such as whether the app runs on a physical device or in a unit test. It initializes asynchronously so that subsequent platform checks can be made synchronously.",
+    "use_when": [
+      "You need to execute different logic for native versus web environments across various operating systems.",
+      "You need to check specific OS versions, web renderers, or if the app is running on a physical device.",
+      "You need to detect if your code is currently running within a unit test."
+    ],
+    "avoid_when": [
+      "You only need standard Flutter web checks which can be handled using Flutter's built-in kIsWeb."
+    ],
+    "strengths": [
+      "Comprehensive properties covering native vs web distinctions for major platforms.",
+      "Provides helpful device details like physical device detection, Android SDK versions, and iOS device types.",
+      "Supports web platform including web renderers and WASM."
+    ],
+    "weaknesses": [
+      "Requires an asynchronous initialization step before calling platform property checks.",
+      "Fuchsia web support is currently unsupported."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Call PlatformPlus.platform.init() before accessing platform properties.",
+    "alternatives": [
+      {
+        "name": "universal_platform",
+        "why_pick_it": "If you want a lightweight package specifically for checking platform types across web and native without additional device info or initialization requirements."
+      }
+    ],
+    "minimal_example": "import 'package:platform_plus/platform_plus.dart';\n\nvoid example() async {\n  await PlatformPlus.platform.init();\n\n  if (PlatformPlus.platform.isAndroidNative) {\n    // Do something\n  }\n\n  final androidVersionCode = PlatformPlus.platform.androidVersionCode;\n  if ((androidVersionCode ?? -1) >= AndroidVersionCode.s) {\n    // Do something\n  }\n}",
+    "confidence": 0.95
+  }
+}

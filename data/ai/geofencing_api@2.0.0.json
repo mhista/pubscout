@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.0",
+  "generatedAt": "2026-11-14T10:35:43.977Z",
+  "data": {
+    "primary_category": "maps",
+    "secondary_categories": [
+      "device"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Implement circular and polygon geofencing services with real-time status and location changes.",
+    "what_it_does": "Allows developers to set up circular or polygon geofence regions, listen to real-time status changes (enter, exit, dwell), and track location updates. It navigates location changes while the app is alive to provide more accurate geofencing.",
+    "use_when": [
+      "You need to detect when a user enters, exits, or dwells within circular or polygon regions.",
+      "You require real-time location and geofence status updates.",
+      "You want to build custom geofencing logic for Android, iOS, or Web."
+    ],
+    "avoid_when": [
+      "You rely strictly on battery-efficient native platform geofencing APIs, since this plugin navigates location while the app is alive.",
+      "You do not want to manage platform-specific location permissions."
+    ],
+    "strengths": [
+      "Supports both circular and polygon geofence regions.",
+      "Provides real-time geofence status and location change listeners.",
+      "Cross-platform support including Android, iOS, and Web."
+    ],
+    "weaknesses": [
+      "Battery efficiency cannot be guaranteed because it does not use native platform geofencing APIs.",
+      "Requires additional packages like flutter_foreground_task for background service implementation."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires location permissions declared in AndroidManifest.xml and Info.plist, and background mode settings if background tracking is needed.",
+    "alternatives": [],
+    "minimal_example": "void setupGeofencing() {\n  Geofencing.instance.setup(\n    interval: 5000,\n    accuracy: 100,\n    statusChangeDelay: 10000,\n    allowsMockLocation: false,\n    printsDebugLog: true,\n  );\n}",
+    "confidence": 0.95
+  }
+}

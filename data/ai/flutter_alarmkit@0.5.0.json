@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.5.0",
+  "generatedAt": "2026-11-14T10:35:30.283Z",
+  "data": {
+    "primary_category": "notifications",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter plugin for scheduling Apple AlarmKit alarms on iOS 26+",
+    "what_it_does": "Provides an API to request authorization, schedule one‑shot, countdown, and recurring alarms, read scheduled alarms, listen to updates, and control alarms. It also supports custom sounds and Live Activity UI customization.",
+    "use_when": [
+      "You need to schedule alarms that must ring even when the app is terminated or Do Not Disturb is on",
+      "You want to use iOS 26+ AlarmKit features from Flutter",
+      "You need to observe alarm state changes in real time"
+    ],
+    "avoid_when": [
+      "You target Android or iOS versions below 26",
+      "You only need simple local notifications without AlarmKit features"
+    ],
+    "strengths": [
+      "Full access to AlarmKit features (Live Activity, custom sounds, metadata)",
+      "Typed API with strong typing for alarms and updates",
+      "Automatic setup script patches iOS project and handles widget template"
+    ],
+    "weaknesses": [
+      "Only works on iOS 26+, no Android support",
+      "Requires manual setup via CLI scripts",
+      "No code generation, manual API usage"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Run `dart run flutter_alarmkit:setup` (and optionally `--doctor`) to patch iOS project, add Live Activity widget, and configure entitlements. Requires Flutter 3.38+, Xcode 26+, and an iOS 26+ device for testing.",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter_alarmkit/flutter_alarmkit.dart';\n\nfinal kit = FlutterAlarmkit();\nawait kit.requestAuthorization();\nawait kit.scheduleOneShotAlarm(\n  timestamp: DateTime.now().add(const Duration(hours: 1)).millisecondsSinceEpoch.toDouble(),\n  label: 'Wake up',\n  soundPath: 'assets/sounds/alarm.caf',\n);",
+    "confidence": 0.95
+  }
+}

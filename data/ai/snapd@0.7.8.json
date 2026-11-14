@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.8-flash",
+  "version": "0.7.8",
+  "generatedAt": "2026-11-14T10:33:44.477Z",
+  "data": {
+    "primary_category": "web-desktop",
+    "secondary_categories": [
+      "device"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "A Dart client for communicating with the snapd daemon on Linux systems.",
+    "what_it_does": "Provides a client interface to interact with snapd on Linux. It allows developers to query, search, install, refresh, revert, and manage snaps and their connections. It also provides methods to inspect system information and manage snapd tasks.",
+    "use_when": [
+      "Building Linux desktop applications or app stores that need to manage or inspect snap packages.",
+      "Integrating snap package installation, removal, or update status into a Linux utility."
+    ],
+    "avoid_when": [
+      "Developing for non-Linux platforms such as Android, iOS, Windows, macOS, or web.",
+      "Targeting Linux distributions or systems where snapd is not installed or supported."
+    ],
+    "strengths": [
+      "Official-style client supporting a wide range of snapd daemon APIs including connections, categories, and revisions.",
+      "Simple asynchronous API via SnapdClient."
+    ],
+    "weaknesses": [
+      "Strictly tied to the Linux platform and the snapd service.",
+      "Documentation and examples in the README are minimal."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires the snapd daemon running on the host Linux system.",
+    "alternatives": [],
+    "minimal_example": "import 'package:snapd/snapd.dart';\n\nvoid main() async {\n  var client = SnapdClient();\n  var snaps = await client.getSnaps();\n  print(snaps);\n  client.close();\n}",
+    "confidence": 0.9
+  }
+}

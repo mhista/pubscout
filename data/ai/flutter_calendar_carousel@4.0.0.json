@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.0.0",
+  "generatedAt": "2026-11-14T10:28:23.117Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "ui-kits"
+    ],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "An accessible, theme-aware Flutter calendar with lazy month and week paging.",
+    "what_it_does": "Provides customizable month and week calendar views with event markers, date selection, and navigation controls. Built on the material_ui package.",
+    "use_when": [
+      "You need to display a month or week calendar view with event markers.",
+      "You require accessibility, theme-awareness, and customizable day and header builders."
+    ],
+    "avoid_when": [
+      "Your application is still using the standard in-framework package:flutter/material.dart instead of material_ui (for version 4.0).",
+      "You need complex event scheduling and calendar management out of the box."
+    ],
+    "strengths": [
+      "Lazy month and week paging for performance.",
+      "Typed event builders and application model integration.",
+      "Configurable layout, paging, and theming objects."
+    ],
+    "weaknesses": [
+      "Requires migrating to the standalone material_ui package on version 4.0.",
+      "Strict dependency on Flutter >=3.47.0 and Dart ^3.13.0."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add material_ui as a dependency and ensure your app hosts the calendar under a material_ui MaterialApp or Localizations ancestor.",
+    "alternatives": [],
+    "minimal_example": "SizedBox(\n  height: 420,\n  child: CalendarCarousel<String>.month(\n    selectedDate: _selectedDate,\n    focusedDate: _focusedDate,\n    onDateSelected: (DateTime date, List<String> events) {\n      setState(() {\n        _selectedDate = date;\n        _focusedDate = date;\n      });\n    },\n  ),\n)",
+    "confidence": 1
+  }
+}

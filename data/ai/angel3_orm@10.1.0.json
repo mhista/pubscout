@@ -1,0 +1,51 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "10.1.0",
+  "generatedAt": "2026-11-14T10:32:01.454Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [
+      "backend",
+      "codegen"
+    ],
+    "approach": [
+      "code generation",
+      "declarative"
+    ],
+    "one_liner": "Runtime support and query builder for Angel3 ORM.",
+    "what_it_does": "Provides database-agnostic query building, relation loading, and runtime support for Angel3 ORM models. Works alongside database executors such as PostgreSQL, MySQL, and MariaDB.",
+    "use_when": [
+      "You are building a backend application using the Angel3 ecosystem.",
+      "You need a type-safe, code-generated query builder for SQL databases."
+    ],
+    "avoid_when": [
+      "You are writing a standard Flutter frontend app that talks directly to local SQLite databases (use drift or sqflite instead).",
+      "You do not use code generation or the Angel3 backend framework."
+    ],
+    "strengths": [
+      "Database-agnostic query builder supporting PostgreSQL, MySQL, and MariaDB.",
+      "Handles relations like HasOne, BelongsTo, HasMany, and ManyToMany cleanly.",
+      "Supports advanced features like skipLocked for concurrency."
+    ],
+    "weaknesses": [
+      "Requires external database driver executors (e.g., angel3_orm_postgres or angel3_orm_mysql).",
+      "Breaking changes between minor/major versions require careful migration and model regeneration."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding angel3_orm to dependencies, configuring database executors, and running build_runner to generate query classes.",
+    "alternatives": [
+      {
+        "name": "drift",
+        "why_pick_it": "If you want a robust, reactive SQL database library specifically designed for Dart and Flutter with rich compile-time safety."
+      },
+      {
+        "name": "sqflite",
+        "why_pick_it": "If you just need raw SQLite access on mobile platforms without heavy ORM layers."
+      }
+    ],
+    "minimal_example": "var query = EmployeeQuery()\n  ..where!.firstName.equals('Rich')\n  ..orWhere((w) => w.salary.greaterThanOrEqualTo(75000));\nList<Employee> employees = await query.get(executor);",
+    "confidence": 0.95
+  }
+}

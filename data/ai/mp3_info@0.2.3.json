@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.2.3",
+  "generatedAt": "2026-11-14T10:43:19.582Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Extract metadata such as sample rate, bitrate, and duration from MP3 files.",
+    "what_it_does": "Processes MP3 files in pure Dart to extract key metadata including MPEG version, layer version, bitrate, sample rate, duration, and optional ID3 tags. It supports constant bitrate (CBR) files and allows parsing from a file or bytes.",
+    "use_when": [
+      "You need to read the duration or bitrate of an MP3 file in a pure Dart environment.",
+      "You want to extract basic ID3 tags and MP3 properties without native platform audio player dependencies."
+    ],
+    "avoid_when": [
+      "You need to play, stream, or record audio files.",
+      "You need robust Variable Bitrate (VBR) support or comprehensive ID3 v2 tag support."
+    ],
+    "strengths": [
+      "Written in pure Dart making it easy to test and cross-compile.",
+      "Can process MP3 metadata directly from files or raw bytes."
+    ],
+    "weaknesses": [
+      "Variable Bitrate (VBR) support is not implemented.",
+      "Not all ID3 v2 tag types are fully supported."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'dart:io';\nimport 'package:mp3_info/mp3_info.dart';\n\nmain() {\n  MP3Info mp3 = MP3Processor.fromFile(File(\"test_files/test_128kpbs_441khz_stereo_10s.mp3\"));\n  print('Bit rate: \\${mp3.bitrate}bps');\n  print('Duration: \\${mp3.duration}');\n}",
+    "confidence": 0.95
+  }
+}

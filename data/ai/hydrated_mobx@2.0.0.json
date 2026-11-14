@@ -1,0 +1,50 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.0",
+  "generatedAt": "2026-11-14T10:35:19.805Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [
+      "storage"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Automatically persist and restore MobX state stores.",
+    "what_it_does": "Extends MobX state management library to automatically persist and restore store states across app restarts. It supports schema migration, write coalescing, multiple storage boxes, and eviction strategies.",
+    "use_when": [
+      "You are using MobX for state management and need to persist store states.",
+      "You need advanced features like write coalescing, schema migration, and eviction for your persisted stores."
+    ],
+    "avoid_when": [
+      "You use a different state management library like Riverpod or Bloc.",
+      "You only need simple key-value storage without state management integration."
+    ],
+    "strengths": [
+      "Automatic persistence and restoration of MobX stores",
+      "Supports schema versioning and migrations",
+      "Write coalescing and change detection to reduce redundant disk writes",
+      "Comprehensive error handling and testing utilities"
+    ],
+    "weaknesses": [
+      "Tightly coupled to the MobX state management library",
+      "Requires careful storage prefix management to avoid data loss on class renaming"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Initialize HydratedStorage with a directory before calling runApp.",
+    "alternatives": [
+      {
+        "name": "flutter_bloc",
+        "why_pick_it": "If you want to use BLoC state management with built-in persistence via hydrated_bloc instead of MobX."
+      },
+      {
+        "name": "flutter_riverpod",
+        "why_pick_it": "If you prefer Riverpod for state management and need a different persistence approach."
+      }
+    ],
+    "minimal_example": "class CounterStore = _CounterStore with _$CounterStore;\n\nabstract class _CounterStore extends HydratedMobX with Store {\n  @observable\n  int count = 0;\n\n  @override\n  String get storagePrefix => 'counter';\n\n  @override\n  Map<String, dynamic>? toJson() => {'count': count};\n\n  @override\n  void fromJson(Map<String, dynamic> json) => count = json['count'] as int;\n}",
+    "confidence": 0.95
+  }
+}

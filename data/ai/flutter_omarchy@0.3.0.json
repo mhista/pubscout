@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.8-flash",
+  "version": "0.3.0",
+  "generatedAt": "2026-11-14T10:31:44.433Z",
+  "data": {
+    "primary_category": "ui-kits",
+    "secondary_categories": [
+      "theming",
+      "web-desktop"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "UI toolkit and theming system designed for the Omarchy Arch Linux desktop environment.",
+    "what_it_does": "Provides a comprehensive set of terminal-styled widgets and overlays matching the Omarchy aesthetic. Automatically reads system color palettes and Alacritty configs from local files to synchronize theme changes in real time. Also supports running on other platforms by falling back to a default Tokyonight theme.",
+    "use_when": [
+      "Building Flutter desktop applications specifically targeting the Omarchy Arch Linux setup",
+      "Creating applications with a minimalist, terminal-inspired keyboard-friendly desktop aesthetic",
+      "Needing real-time integration with local Linux system theme files without app restarts"
+    ],
+    "avoid_when": [
+      "Building mainstream consumer mobile apps that require standard Material or Cupertino design",
+      "Needing an enterprise-tested, highly stable production UI framework (package is in early development with unstable APIs)"
+    ],
+    "strengths": [
+      "Rich collection of specialized desktop widgets (split panels, command panels, context menus, status bars)",
+      "Automatic hot-reloading of themes from system TOML files and signals",
+      "Cross-platform fallback to Tokyonight theme for testing outside Linux"
+    ],
+    "weaknesses": [
+      "Under active early development with self-admitted unstable APIs",
+      "Requires manual adjustments to Linux GTK runner code to eliminate title bars or black startup windows"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires `await Omarchy.initialize()` in main. Linux deployment may require manual modifications in linux/runner/my_application.cc to hide titlebars and prevent black startup windows.",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter_omarchy/flutter_omarchy.dart';\n\nFuture<void> main() async {\n  await Omarchy.initialize();\n  runApp(MyApp());\n}\n\nclass MyApp extends StatelessWidget {\n  @override\n  Widget build(BuildContext context) {\n    return OmarchyApp(\n      home: OmarchyScaffold(\n        child: Center(\n          child: OmarchyButton(\n            onPressed: () {},\n            child: Text('Hello Omarchy!'),\n          ),\n        ),\n      ),\n    );\n  }\n}",
+    "confidence": 0.95
+  }
+}

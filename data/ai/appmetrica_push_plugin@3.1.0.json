@@ -1,0 +1,51 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "3.1.0",
+  "generatedAt": "2026-11-14T10:44:40.599Z",
+  "data": {
+    "primary_category": "notifications",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Flutter plugin for Yandex AppMetrica Push SDK, enabling push notifications with targeting and analytics.",
+    "what_it_does": "It allows sending push notifications to users segmented by AppMetrica data, supports A/B testing, scheduling, and detailed analytics. The plugin requires the AppMetrica SDK to be activated first.",
+    "use_when": [
+      "need push notifications with advanced targeting and analytics",
+      "require A/B testing or scheduling of pushes",
+      "integrate with Yandex AppMetrica ecosystem"
+    ],
+    "avoid_when": [
+      "using another push provider like Firebase Messaging or OneSignal",
+      "project does not use AppMetrica SDK"
+    ],
+    "strengths": [
+      "advanced targeting using AppMetrica data",
+      "built-in A/B testing and scheduling",
+      "unlimited push notifications",
+      "detailed campaign analytics"
+    ],
+    "weaknesses": [
+      "requires AppMetrica SDK activation",
+      "only works with Yandex ecosystem",
+      "iOS UIScene conflict requires specific handling"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add appmetrica_plugin dependency, activate AppMetrica with API key, activate AppMetricaPush, listen to tokenStream, ensure iOS UIScene configuration if using Flutter 3.41+",
+    "alternatives": [
+      {
+        "name": "firebase_messaging",
+        "why_pick_it": "Provides push notifications with Firebase Cloud Messaging, widely used and supported across platforms"
+      },
+      {
+        "name": "flutter_local_notifications",
+        "why_pick_it": "Offers local notification handling and basic push features without requiring AppMetrica"
+      }
+    ],
+    "minimal_example": "dependencies:\\n  appmetrica_plugin: ^4.1.0\\n  appmetrica_push_plugin: ^3.1.0\\n\\n// In main.dart\\nAppMetrica.activate(AppMetricaConfig(\"YOUR_API_KEY\"));\\nAppMetricaPush.activate();\\nAppMetricaPush.tokenStream.listen((tokens) {\n  // handle new tokens\n});",
+    "confidence": 0.8
+  }
+}

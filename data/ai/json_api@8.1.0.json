@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "8.1.0",
+  "generatedAt": "2026-11-14T10:53:02.022Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "backend"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Framework-agnostic implementations of JSON:API Client and Server.",
+    "what_it_does": "Provides tools to build JSON:API compliant clients and servers in Dart. It decouples the JSON:API protocol handling from the underlying HTTP client via http_interop.",
+    "use_when": [
+      "You are building a client or server that communicates using the JSON:API specification (v1.0/v1.1).",
+      "You need standard URI design routing and resource collection manipulation for JSON:API."
+    ],
+    "avoid_when": [
+      "Your backend uses standard REST or GraphQL instead of the strict JSON:API standard.",
+      "You want an all-in-one HTTP client without dealing with explicit JSON:API protocol serializers."
+    ],
+    "strengths": [
+      "Implements the official JSON:API standard.",
+      "Framework-agnostic and decoupled from specific HTTP implementations."
+    ],
+    "weaknesses": [
+      "Requires installing separate HTTP interop adapters like http_interop_http.",
+      "Work-in-progress status with frequent breaking changes across major versions."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires adding http_interop and an implementation like http_interop_http alongside http.",
+    "alternatives": [],
+    "minimal_example": "import 'package:http/http.dart' as http;\nimport 'package:http_interop_http/http_interop_http.dart';\nimport 'package:json_api/client.dart';\nimport 'package:json_api/routing.dart';\n\nvoid main() async {\n  final baseUri = 'http://localhost:8080';\n  final uriDesign = StandardUriDesign(Uri.parse(baseUri));\n  final httpClient = http.Client();\n  final httpHandler = httpClient.handleInterop;\n  final jsonApiClient = Client(httpHandler);\n  final client = RoutingClient(uriDesign, jsonApiClient);\n\n  try {\n    final response = await client.fetchCollection('colors');\n    for (final resource in response.collection) {\n      print('${resource.type}:${resource.id}');\n    }\n  } on RequestFailure catch (e) {\n    for (final error in e.errors) {\n      print(error.title);\n    }\n  }\n  httpClient.close();\n}",
+    "confidence": 0.95
+  }
+}

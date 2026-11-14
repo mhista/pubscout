@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.0.1",
+  "generatedAt": "2026-11-14T10:39:07.854Z",
+  "data": {
+    "primary_category": "backend",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Multi-platform client for Convex backend integration with real-time WebSockets and subscriptions.",
+    "what_it_does": "Provides a Dart and Flutter interface over the Convex backend to run queries, mutations, and actions, and to subscribe to real-time updates. It supports web using pure Dart and native platforms using Rust FFI.",
+    "use_when": [
+      "You are building a Flutter application backed by Convex.",
+      "You need real-time data synchronization via WebSocket subscriptions.",
+      "You require cross-platform support including web and native mobile/desktop."
+    ],
+    "avoid_when": [
+      "Your backend is not Convex (e.g., using Firebase or Supabase instead).",
+      "You want to avoid the native Rust toolchain dependencies for desktop/mobile builds."
+    ],
+    "strengths": [
+      "Full multi-platform support including pure Dart web implementation and native FFI.",
+      "Real-time query subscriptions and connection state monitoring streams.",
+      "Automatic token refresh and authentication state management."
+    ],
+    "weaknesses": [
+      "Requires Rust toolchain and platform-specific build toolchains for native builds.",
+      "Platform-specific network entitlements/permissions must be manually configured for Android and macOS."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding pub dependency, plus Rust toolchain and platform toolchains for native platforms. Android needs INTERNET permission and macOS needs network client/server entitlements.",
+    "alternatives": [],
+    "minimal_example": "Future<void> main() async {\n  WidgetsFlutterBinding.ensureInitialized();\n  await ConvexClient.initialize(\n    ConvexConfig(\n      deploymentUrl: 'https://my-app.convex.cloud',\n      clientId: 'flutter-app-1.0',\n    ),\n  );\n  runApp(MyApp());\n}",
+    "confidence": 0.95
+  }
+}

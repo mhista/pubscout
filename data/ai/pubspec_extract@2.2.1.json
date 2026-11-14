@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.2.1",
+  "generatedAt": "2026-11-14T10:41:13.483Z",
+  "data": {
+    "primary_category": "codegen",
+    "secondary_categories": [],
+    "approach": [
+      "code generation"
+    ],
+    "one_liner": "Extracts Dart pubspec.yaml file and generates pubspec.dart at build time",
+    "what_it_does": "Extracts metadata and dependencies from pubspec.yaml and outputs a Dart file containing a class with these values. It can be run as a standalone command-line tool or integrated using build_runner.",
+    "use_when": [
+      "You need to access app version, name, or description inside your Dart code",
+      "You want to automate reading pubspec configuration during compilation"
+    ],
+    "avoid_when": [
+      "You need dynamic runtime reading of external YAML assets without code generation"
+    ],
+    "strengths": [
+      "Supports both command-line usage and build_runner integration",
+      "Highly configurable extraction of specific top-level keys"
+    ],
+    "weaknesses": [
+      "Requires regeneration when pubspec.yaml changes if not using build_runner"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add pubspec_extract as a dev dependency and run via dart run or build_runner.",
+    "alternatives": [
+      {
+        "name": "yaml",
+        "why_pick_it": "If you prefer parsing YAML files dynamically at runtime rather than generating static Dart code."
+      }
+    ],
+    "minimal_example": "import 'pubspec.dart';\n\nvoid main() {\n  print(Pubspec.name);\n  print(Pubspec.description);\n  print(Pubspec.version);\n}",
+    "confidence": 1
+  }
+}

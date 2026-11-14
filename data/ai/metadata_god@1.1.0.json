@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.8-flash",
+  "version": "1.1.0",
+  "generatedAt": "2026-11-14T10:31:21.679Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [
+      "files"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter plugin for reading and writing audio metadata and tags using Rust",
+    "what_it_does": "metadata_god retrieves and updates metadata tags in local audio files, supporting formats such as MP3 (ID3v2.4), MP4/M4A, and FLAC (Vorbis comments). It uses flutter_rust_bridge and Cargokit to run native Rust audio tagging libraries under the hood. Developers can inspect or set track information, album details, and embedded cover artwork.",
+    "use_when": [
+      "You need to read embedded metadata or album artwork from audio files on the local filesystem.",
+      "You need to edit, tag, or update metadata in MP3, M4A, MP4, or FLAC audio files."
+    ],
+    "avoid_when": [
+      "You only need to play or stream audio without inspecting or altering file tags.",
+      "You are targeting web, as it relies on Rust FFI and local file access."
+    ],
+    "strengths": [
+      "Supports both reading and writing metadata tags including embedded cover art.",
+      "Supports multiple desktop and mobile platforms via Rust FFI.",
+      "Simple imperative API with `readMetadata` and `writeMetadata`."
+    ],
+    "weaknesses": [
+      "Requires `rustup` installed on the developer machine to build due to flutter_rust_bridge and Cargokit.",
+      "Format support documented is limited to mp3, m4a, mp4, and flac."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires rustup installed on the build machine. Android requires READ/WRITE_EXTERNAL_STORAGE permissions configured in AndroidManifest.xml and requested at runtime.",
+    "alternatives": [],
+    "minimal_example": "Future<void> main() async {\n  WidgetsFlutterBinding.ensureInitialized();\n  await MetadataGod.initialize();\n\n  // Read metadata\n  Metadata metadata = await MetadataGod.readMetadata('/path/to/audio-file.mp3');\n  print(metadata.title);\n\n  // Write metadata\n  await MetadataGod.writeMetadata(\n    '/path/to/audio-file.mp3',\n    Metadata(\n      title: 'Song Title',\n      artist: 'Artist Name',\n      album: 'Album Name',\n      year: 2024,\n    ),\n  );\n}",
+    "confidence": 0.95
+  }
+}

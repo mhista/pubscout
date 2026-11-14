@@ -1,0 +1,48 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.0",
+  "generatedAt": "2026-11-14T10:47:19.936Z",
+  "data": {
+    "primary_category": "camera",
+    "secondary_categories": [
+      "files"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Scan documents with automatic edge detection, cropping, and color enhancement via native APIs.",
+    "what_it_does": "Provides a Flutter plugin to scan documents as PDF or JPEG using ML Kit on Android and VisionKit on iOS. It automatically detects edges, crops images, and enhances colors.",
+    "use_when": [
+      "You need to allow users to scan physical documents in your Flutter app.",
+      "You want automatic edge detection and image enhancement using native platform APIs."
+    ],
+    "avoid_when": [
+      "You need custom non-document barcode scanning or general camera preview integration.",
+      "You require complex cross-platform custom UI overlays for document capture that native APIs do not support."
+    ],
+    "strengths": [
+      "Uses native platform APIs (ML Kit on Android and VisionKit on iOS) for high-quality scans.",
+      "Supports both PDF and JPEG output formats."
+    ],
+    "weaknesses": [
+      "Requires platform-specific setup such as modifying Podfiles and Android build.gradle files.",
+      "Scanned files are stored in a temporary folder and need manual persistence if required long-term."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires modifying iOS Podfile for platform version and camera permissions, updating Info.plist with NSCameraUsageDescription, and setting minimum SDK version 21 in Android build.gradle.",
+    "alternatives": [
+      {
+        "name": "mobile_scanner",
+        "why_pick_it": "Choose mobile_scanner if you need barcode and QR code scanning rather than document scanning."
+      },
+      {
+        "name": "camera",
+        "why_pick_it": "Choose camera if you need full programmatic control over the device camera preview and custom image capturing instead of a pre-built document scanner."
+      }
+    ],
+    "minimal_example": "import 'package:doc_scan_flutter/doc_scan.dart';\n\ntry {\n    List<String>? result = await DocumentScanner.scan();\n} on DocumentScannerException {\n    // Something went wrong\n}",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.2.3",
+  "generatedAt": "2026-11-14T10:32:00.617Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [
+      "files"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Parses total and available disk spaces on Windows and UNIX-based systems",
+    "what_it_does": "Parses total and available disk spaces on Windows and UNIX-based systems, including Linux and macOS. It allows scanning for disks, retrieving their mount paths, device paths, and space metrics, and querying specific directories.",
+    "use_when": [
+      "You need to check available or total disk space on desktop or mobile systems",
+      "You want to find which disk a specific directory or FileSystemEntity belongs to"
+    ],
+    "avoid_when": [
+      "You need general key-value or local database storage rather than disk space statistics"
+    ],
+    "strengths": [
+      "Supports both Windows and UNIX-based systems like Linux and macOS",
+      "Easy-to-use API for scanning and inspecting storage devices"
+    ],
+    "weaknesses": [
+      "Platform parsing relies on system commands which may behave differently across environments",
+      "macOS support was historically noted as untested"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the dependency to pubspec.yaml and import universal_disk_space.",
+    "alternatives": [],
+    "minimal_example": "import 'dart:io';\nimport 'package:universal_disk_space/universal_disk_space.dart';\n\nFuture<void> main() async {\n  final diskSpace = DiskSpace();\n  await diskSpace.scan();\n  for (final disk in diskSpace.disks) {\n    print(disk.devicePath);\n    print(disk.totalSize);\n  }\n}",
+    "confidence": 0.9
+  }
+}

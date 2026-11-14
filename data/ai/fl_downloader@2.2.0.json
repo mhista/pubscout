@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.2.0",
+  "generatedAt": "2026-11-14T10:53:59.708Z",
+  "data": {
+    "primary_category": "files",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "A Flutter plugin to download files using native platform capabilities.",
+    "what_it_does": "It downloads files using DownloadManager on Android, URLSession on iOS, and BITS on Windows. It also provides tracking of download progress and status updates.",
+    "use_when": [
+      "You need to download files directly to the device's storage (Downloads or App Documents folder).",
+      "You want to leverage native background download capabilities across Android, iOS, and Windows."
+    ],
+    "avoid_when": [
+      "You need complex HTTP client configuration for REST API calls rather than just downloading files."
+    ],
+    "strengths": [
+      "Uses native platform capabilities (DownloadManager, URLSession, BITS) for reliable downloads.",
+      "Supports Android, iOS, and Windows.",
+      "Provides progress and status tracking streams."
+    ],
+    "weaknesses": [
+      "Requires specific platform configurations and SDK requirements for older Android versions or iOS file sharing.",
+      "ID types returned can vary between platforms (integers vs GUID strings)."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires setting compileSdk 36 on Android, permission handling for Android 9 or below, and optional Info.plist keys for iOS Files app sharing.",
+    "alternatives": [],
+    "minimal_example": "try {\n  String? downloadId = await FlDownloader.download(url);\n} catch (e) {\n  print(e);\n}",
+    "confidence": 0.95
+  }
+}

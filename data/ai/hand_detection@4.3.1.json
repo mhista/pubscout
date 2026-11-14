@@ -1,0 +1,54 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "4.3.1",
+  "generatedAt": "2026-11-14T10:32:16.620Z",
+  "data": {
+    "primary_category": "ai-ml",
+    "secondary_categories": [
+      "camera",
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "hooks"
+    ],
+    "one_liner": "On‑device hand detection, landmarks and gesture recognition using LiteRT models.",
+    "what_it_does": "The package runs MediaPipe hand detection locally, returning 21‑point 3D landmarks, handedness and a set of predefined gestures. It works on mobile, desktop and web without any remote API.",
+    "use_when": [
+      "You need offline hand tracking on multiple platforms",
+      "You require 3D hand landmarks and built‑in gesture classification",
+      "You want GPU/NPU acceleration where available"
+    ],
+    "avoid_when": [
+      "You prefer a pure Dart solution without native OpenCV dependencies",
+      "You target very old devices or browsers without WebGPU support"
+    ],
+    "strengths": [
+      "Fully offline, no network calls",
+      "Cross‑platform: Android, iOS, macOS, Windows, Linux, Web",
+      "Supports GPU/NPU via LiteRT for better performance",
+      "Provides ready‑made gesture labels"
+    ],
+    "weaknesses": [
+      "Requires native libraries (opencv_dart, dartcv4) and specific Flutter/Dart versions",
+      "Setup can be complex (hooks, iOS deployment target, native linking)",
+      "Web support limited to WebGPU"
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Requires Dart 3.10+ and Flutter 3.47.5+. Add hooks user_defines for iOS deployment target (>=15.0). Ensure native dependencies (opencv_dart, dartcv4) are compiled for each platform. Include camera_desktop for desktop camera use. May need to run flutter clean after changes.",
+    "alternatives": [
+      {
+        "name": "tflite_flutter",
+        "why_pick_it": "Provides a lower‑level TFLite API without the heavy OpenCV and LiteRT stack, suitable for simpler models or when you want full control over inference."
+      },
+      {
+        "name": "google_mlkit_commons",
+        "why_pick_it": "Offers Google‑backed ML Kit APIs with easier setup on mobile, though it relies on Google services and may not support desktop/web."
+      }
+    ],
+    "minimal_example": "import 'dart:io';\nimport 'package:hand_detection/hand_detection.dart';\n\nFuture<void> main() async {\n  final detector = await HandDetector.create();\n  final bytes = await File('path/to/image.jpg').readAsBytes();\n  final hands = await detector.detect(bytes);\n  for (var hand in hands) {\n    print('Handedness: ${hand.handedness}');\n    if (hand.hasLandmarks) {\n      final wrist = hand.getLandmark(HandLandmarkType.wrist);\n      print('Wrist: (${wrist?.x}, ${wrist?.y})');\n    }\n  }\n  await detector.dispose();\n}\n",
+    "confidence": 0.85
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.4.1",
+  "generatedAt": "2026-11-14T10:41:32.483Z",
+  "data": {
+    "primary_category": "testing",
+    "secondary_categories": [
+      "devtools",
+      "images"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Renders Flutter widget previews to PNG and diffs two runs pixel by pixel.",
+    "what_it_does": "Shutter renders Flutter widget previews to PNG during flutter test without launching the app, pairing runs to diff pixel changes before and after edits. It also supports rendering semantics trees and evaluating widget expressions via CLI commands.",
+    "use_when": [
+      "You want to review visual changes via before-and-after PNG images during pull requests.",
+      "You want to verify a refactor changed no UI pixels across test runs.",
+      "You need to inspect semantics trees or check widget rendering for overflows without launching the app."
+    ],
+    "avoid_when": [
+      "You need standard widget or unit testing assertions inside Dart test files.",
+      "Your project cannot use flutter_test in dev_dependencies."
+    ],
+    "strengths": [
+      "Generates clear before, after, and diff images highlighting changed pixels.",
+      "Reuses existing @Preview functions from the project.",
+      "Operates entirely within flutter_test without needing a running app or device."
+    ],
+    "weaknesses": [
+      "Requires Flutter 3.47+ and flutter_test.",
+      "Comparisons rely on manually managed runs rather than persistent git/golden baselines."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "The target project needs Flutter 3.47+ (Dart 3.13+) and flutter_test in dev_dependencies. Run `dart install shutter` and `shutter init` to write the project shell.",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:flutter/widget_previews.dart';\n\nimport '../widgets/notification_tile.dart';\n\n@Preview(name: 'NotificationTile', size: Size(360, double.infinity))\nWidget notificationTile() => const Material(\n  child: NotificationTile(\n    icon: Icons.local_shipping_outlined,\n    title: 'Your order has shipped',\n    body: 'It arrives tomorrow.',\n    timestamp: '5m',\n    unread: true,\n  ),\n);",
+    "confidence": 0.95
+  }
+}

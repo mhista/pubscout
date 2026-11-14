@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "2.3.1",
+  "generatedAt": "2026-11-14T10:42:15.035Z",
+  "data": {
+    "primary_category": "theming",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Automatically sync app theme with OS and persist user choice",
+    "what_it_does": "EasyDynamicThemeWidget reads the system theme and applies it to your MaterialApp. It also lets you force light or dark mode and stores the preference with shared_preferences.",
+    "use_when": [
+      "You want your app to follow the device theme automatically",
+      "You need to persist the user’s theme choice across launches",
+      "You want quick, out‑of‑the‑box widgets to toggle theme"
+    ],
+    "avoid_when": [
+      "You need fine‑grained control over multiple custom themes",
+      "You are building a complex state‑management solution that requires custom logic"
+    ],
+    "strengths": [
+      "Simple API, no boilerplate",
+      "Built‑in persistence",
+      "Provides ready‑made toggle widgets",
+      "Supports all Flutter platforms"
+    ],
+    "weaknesses": [
+      "Only supports light/dark, no custom theme switching",
+      "No integration with advanced state‑management libraries",
+      "Limited customization of the toggle widgets"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "```dart\nimport 'package:flutter/material.dart';\nimport 'package:easy_dynamic_theme/easy_dynamic_theme.dart';\n\nvoid main() => runApp(\n  EasyDynamicThemeWidget(\n    child: MyApp(),\n  ),\n);\n\nclass MyApp extends StatelessWidget {\n  @override\n  Widget build(BuildContext context) => MaterialApp(\n    theme: ThemeData.light(),\n    darkTheme: ThemeData.dark(),\n    themeMode: EasyDynamicTheme.of(context).themeMode,\n    home: Scaffold(body: Center(child: Text('Hello'))),\n  );\n}\n```",
+    "confidence": 0.9
+  }
+}

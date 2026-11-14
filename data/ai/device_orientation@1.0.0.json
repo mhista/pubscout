@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.0",
+  "generatedAt": "2026-11-14T10:41:13.340Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "widgets",
+      "animation"
+    ],
+    "approach": [
+      "stream-based",
+      "declarative"
+    ],
+    "one_liner": "Check absolute device orientation via accelerometer and keep widgets pointing down.",
+    "what_it_does": "It reads absolute device orientation using accelerometer events, even when system rotation is disabled. It provides streams, current values, and helper widgets like AlwaysDown and AnimatedAlwaysDown to ensure critical widgets stay readable and point downwards.",
+    "use_when": [
+      "You need to rotate specific widgets based on physical device rotation independently of system settings.",
+      "You want to ensure certain UI elements always point down for readability."
+    ],
+    "avoid_when": [
+      "You only need standard system-level screen rotation handled by the operating system.",
+      "Target devices lack accelerometer sensors."
+    ],
+    "strengths": [
+      "Works even when system rotation is disabled.",
+      "Includes built-in helper widgets for animated and static orientation correction.",
+      "Provides both a current value field and an orientation change stream."
+    ],
+    "weaknesses": [
+      "Defaults to portraitUp on devices without or lacking support for accelerometer sensors.",
+      "Limited documentation on advanced configuration."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [],
+    "minimal_example": "AnimatedAlwaysDown(\n  child: Text(\"I'm readable!\")\n)",
+    "confidence": 0.9
+  }
+}

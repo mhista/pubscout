@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.6.2",
+  "generatedAt": "2026-11-14T10:45:01.676Z",
+  "data": {
+    "primary_category": "maps",
+    "secondary_categories": [
+      "utils",
+      "files"
+    ],
+    "approach": [
+      "stream-based",
+      "no codegen"
+    ],
+    "one_liner": "Load, manipulate, and save GPS data in GPX and KML format in Dart.",
+    "what_it_does": "Provides tools to parse, manipulate, and generate GPS data structures using GPX and KML XML formats. Supports reading from strings and streams as well as writing objects back to XML strings.",
+    "use_when": [
+      "You need to parse or generate GPX files for waypoints, tracks, and routes",
+      "You need to import or export KML geographic data for earth browsers like Google Earth"
+    ],
+    "avoid_when": [
+      "You require full bidirectional fidelity converting between GPX and KML (conversion is lossy)",
+      "You need GPX 1.0 support or schema declaration validation"
+    ],
+    "strengths": [
+      "Supports both GPX and KML read/write operations",
+      "Allows parsing from streams for memory efficiency",
+      "Cross-platform support including mobile, web, and desktop"
+    ],
+    "weaknesses": [
+      "No support for GPX 1.0",
+      "Does not validate schema declarations",
+      "Some Kml elements and attributes are unimplemented"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:geoxml/geoxml.dart';\n\nmain() async {\n  var xmlGpx = await GeoXml.fromGpxString('<?xml version=\"1.0\" encoding=\"UTF-8\"?>' \n      '<gpx version=\"1.1\" creator=\"dart-gpx library\">' \n      '<wpt lat=\"-25.7996\" lon=\"-62.8666\"><ele>10.0</ele><name>Monte Quemado</name><desc>Argentina</desc></wpt>' \n      '</gpx>');\n  print(xmlGpx.wpts);\n}",
+    "confidence": 0.95
+  }
+}

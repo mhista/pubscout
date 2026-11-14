@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.7.3",
+  "generatedAt": "2026-11-14T10:49:08.080Z",
+  "data": {
+    "primary_category": "devtools",
+    "secondary_categories": [
+      "testing",
+      "networking"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Records user journeys, network traffic, and errors into a self-contained HTML file.",
+    "what_it_does": "Records the user journey in a Flutter app including screens, taps, network requests, logs, and errors. Exports the complete session as a single self-contained HTML file that can be replayed offline in any web browser.",
+    "use_when": [
+      "You need to collect reproducible bug reports and session evidence from testers or users.",
+      "You want to replay user journeys offline without maintaining a dedicated backend dashboard."
+    ],
+    "avoid_when": [
+      "You require real-time cloud streaming of session analytics and remote monitoring dashboards.",
+      "You are building for platforms where file sharing or local recording is restricted."
+    ],
+    "strengths": [
+      "Self-contained HTML export requiring no server, account, or internet connection to view.",
+      "Captures network traffic with cURL generation, screenshots, and stack traces on a single timeline.",
+      "Built-in privacy controls like automatic password masking and RedactedZones."
+    ],
+    "weaknesses": [
+      "Cloud logging and remote upload integrations are no longer included out-of-the-box.",
+      "File sharing is not supported on Linux platforms."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Initialize FlogFlow before runApp, configure navigator observers, and add companion interceptors for Dio or package:http if network capture is desired.",
+    "alternatives": [],
+    "minimal_example": "Future<void> main() async {\n  WidgetsFlutterBinding.ensureInitialized();\n  await FlogFlow.instance.start(appName: 'MyApp');\n\n  runApp(MaterialApp(\n    navigatorObservers: [FlogFlow.instance.newNavigatorObserver()],\n    home: const Scaffold(body: Center(child: Text('My app'))),\n  ));\n}",
+    "confidence": 0.95
+  }
+}

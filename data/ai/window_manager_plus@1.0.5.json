@@ -1,0 +1,37 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.5",
+  "generatedAt": "2026-11-14T10:55:01.365Z",
+  "data": {
+    "primary_category": "web-desktop",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Create and manage multiple windows and communicate between them in Flutter desktop apps.",
+    "what_it_does": "Allows Flutter desktop apps to create, resize, reposition, and manage multiple windows, while also supporting inter-window communication and event listening.",
+    "use_when": [
+      "You are building a desktop application with Flutter that requires multiple windows.",
+      "You need communication between different windows in a desktop app."
+    ],
+    "avoid_when": [
+      "You need to support Linux desktop apps (Linux is not currently supported).",
+      "You are targeting mobile or web platforms exclusively."
+    ],
+    "strengths": [
+      "Enables multi-window support for macOS and Windows.",
+      "Provides inter-window communication and window event listeners."
+    ],
+    "weaknesses": [
+      "Linux is not currently supported.",
+      "Requires manual platform-specific code modifications in Swift and C++."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires modifications to native macOS Swift files (MainFlutterWindow.swift, AppDelegate.swift) and Windows C++ files (main.cpp) as documented in the setup guide.",
+    "alternatives": [],
+    "minimal_example": "void main(List<String> args) async {\n  WidgetsFlutterBinding.ensureInitialized();\n  await WindowManagerPlus.ensureInitialized(args.isEmpty ? 0 : int.tryParse(args[0]) ?? 0);\n  runApp(const MyApp());\n}",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "8.0.0",
+  "generatedAt": "2026-11-14T10:33:20.070Z",
+  "data": {
+    "primary_category": "auth",
+    "secondary_categories": [
+      "web3"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter SDK for Web3Auth passwordless authentication and non-custodial keys",
+    "what_it_does": "Provides a thin MethodChannel wrapper over native Web3Auth SDKs to aggregate OAuth logins, manage keys via Threshold Cryptography, and handle active sessions for Web3 applications.",
+    "use_when": [
+      "You need passwordless social logins like Google, Twitter, or Discord in a Web3 application",
+      "You want non-custodial key infrastructure with multi-factor authentication setup and recovery"
+    ],
+    "avoid_when": [
+      "Your project targets iOS versions older than 14 or Android API versions older than 26",
+      "You only require standard traditional backend authentication without Web3 or non-custodial key features"
+    ],
+    "strengths": [
+      "Aggregates multiple OAuth providers and wallet connections",
+      "Supports threshold cryptography and multi-factor authentication",
+      "Whitelabeling options for user interfaces"
+    ],
+    "weaknesses": [
+      "Requires specific native minimum versions and configuration on iOS and Android",
+      "Acts as a thin wrapper depending heavily on native Android and iOS SDK updates"
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Requires native configuration including updating iOS Podfile/SPM setup to iOS 14.0+, and Android compileSdkVersion 34 with JitPack.",
+    "alternatives": [],
+    "minimal_example": "await Web3AuthFlutter.init(\n  Web3AuthOptions(\n    clientId: 'YOUR_WEB3AUTH_CLIENT_ID',\n    web3AuthNetwork: Web3AuthNetwork.sapphire_devnet,\n    redirectUrl: redirectUrl,\n    isFlutterAnalytics: true,\n  ),\n);\nawait Web3AuthFlutter.connectTo(\n  LoginParams(authConnection: AuthConnection.google),\n);",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "1.4.0",
+  "generatedAt": "2026-11-14T10:29:15.642Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [],
+    "approach": [
+      "stream-based"
+    ],
+    "one_liner": "Cross‑platform WebSocket client with auto‑reconnect, ping measurement and typed message support",
+    "what_it_does": "Provides a unified WebSocket API for web, mobile and desktop. It handles connection state, ping/pong, auto‑reconnect and offers a generic message processor for typed payloads.",
+    "use_when": [
+      "Real‑time chat or collaboration apps",
+      "Live data feeds or dashboards",
+      "Any scenario needing reliable WebSocket communication across platforms"
+    ],
+    "avoid_when": [
+      "Simple one‑off WebSocket usage where a lightweight library is sufficient",
+      "Projects that already use a dedicated WebSocket client like web_socket_channel"
+    ],
+    "strengths": [
+      "Cross‑platform support (IO + web)",
+      "Auto‑reconnect and ping/pong handling",
+      "Typed message processing via IMessageProcessor",
+      "Stream‑based API for easy integration with async code"
+    ],
+    "weaknesses": [
+      "No active code generation support",
+      "Limited documentation on advanced configuration",
+      "Not as widely used as web_socket_channel, so community support is smaller"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dependency, import package, create handler and listen to streams – no extra build_runner or permissions needed",
+    "alternatives": [
+      {
+        "name": "web_socket_channel",
+        "why_pick_it": "Lightweight, widely used, no extra dependencies, good for simple WebSocket needs"
+      }
+    ],
+    "minimal_example": "import 'package:websocket_universal/websocket_universal.dart';\n\nfinal handler = IWebSocketHandler<String, String>.createClient(\n  'wss://example.com/ws',\n  SocketSimpleTextProcessor(),\n);\n\nhandler.socketHandlerStateStream.listen((s) => print('state: $s'));\nhandler.incomingMessagesStream.listen((msg) => print('msg: $msg'));\nawait handler.connect();\nhandler.sendMessage('hello');",
+    "confidence": 0.8
+  }
+}

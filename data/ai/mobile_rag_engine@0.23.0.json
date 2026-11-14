@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.23.0",
+  "generatedAt": "2026-11-14T10:31:42.982Z",
+  "data": {
+    "primary_category": "ai-ml",
+    "secondary_categories": [
+      "storage",
+      "files"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Build local on-device RAG in Flutter with hybrid retrieval and PDF indexing.",
+    "what_it_does": "Provides a local Retrieval-Augmented Generation (RAG) engine for Flutter using a pre-compiled Rust core. It handles document ingestion, chunking, embedding, SQLite persistence, and hybrid semantic and keyword search entirely on-device.",
+    "use_when": [
+      "You need offline, private on-device RAG for documents, notes, or chat with PDFs.",
+      "User data must never leave the device for privacy or enterprise compliance reasons."
+    ],
+    "avoid_when": [
+      "You need built-in cloud storage or server-side vector databases.",
+      "You require OCR processing for scanned or image-only PDFs without an external OCR layer."
+    ],
+    "strengths": [
+      "100% offline and private operation with zero network round-trips for search.",
+      "Pre-compiled Rust core via Cargokit avoids requiring a local Rust toolchain.",
+      "HNSW vector search and BM25 keyword hybrid retrieval with RRF fusion."
+    ],
+    "weaknesses": [
+      "Scanned or image-only PDFs are detected but require an external OCR layer.",
+      "Does not include an LLM; you must supply your own model or API call to generate answers from retrieved context."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Run the setup command to download model packs, and ensure native platform targets (iOS 16+, macOS 14+, static framework linkage) are properly configured.",
+    "alternatives": [],
+    "minimal_example": "await MobileRag.initialize(\n  modelPack: const RagModelPack.asset(\n    'assets/mobile_rag/model-pack.json',\n  ),\n  deferIndexWarmup: true,\n);\n\nif (!MobileRag.instance.isIndexReady) {\n  await MobileRag.instance.warmupFuture;\n}\n\nawait MobileRag.instance.addDocument('Flutter is a UI toolkit for building apps.');\nfinal result = await MobileRag.instance.search('What is Flutter?', tokenBudget: 2000);\nprint(result.context.text);",
+    "confidence": 0.95
+  }
+}

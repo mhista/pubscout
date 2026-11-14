@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.1.0",
+  "generatedAt": "2026-11-14T10:35:19.854Z",
+  "data": {
+    "primary_category": "navigation",
+    "secondary_categories": [
+      "backend",
+      "device"
+    ],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "An alternative to Firebase Dynamic Links handling deep links on Android and iOS.",
+    "what_it_does": "SojoLink provides an alternative SDK to Firebase Dynamic Links, offering similar APIs and setup to handle incoming deep links and UTM parameters. It uses a stream-based approach to listen for pending dynamic links on Android and iOS platforms.",
+    "use_when": [
+      "You are migrating away from Firebase Dynamic Links prior to its shutdown.",
+      "You need to capture deep links and UTM parameters in your Flutter app for Android and iOS."
+    ],
+    "avoid_when": [
+      "You are using backend services other than SojoLink for dynamic links.",
+      "You only require basic web routing without dynamic link shorteners."
+    ],
+    "strengths": [
+      "Similar API and setup to Firebase Dynamic Links for easy migration.",
+      "Supports capturing UTM parameters automatically.",
+      "Cross-platform support for Android and iOS."
+    ],
+    "weaknesses": [
+      "Requires manual native configuration in AndroidManifest.xml and Info.plist.",
+      "Depends on a specific third-party backend service (sojolink.com)."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires creating a SojoLink account, configuring apps on the dashboard, adding intent filters in AndroidManifest.xml, and setting up URL schemes and associated domains in Info.plist for iOS.",
+    "alternatives": [],
+    "minimal_example": "import 'package:sojo_link/sojo_link.dart';\n\nvoid main() {\n  SojoLink.instance.onLink.listen((pendingDynamicLink) {\n    final Uri deepLinkUri = pendingDynamicLink.link;\n  });\n}",
+    "confidence": 0.95
+  }
+}

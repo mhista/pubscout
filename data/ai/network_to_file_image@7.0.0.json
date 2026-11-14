@@ -1,0 +1,46 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "7.0.0",
+  "generatedAt": "2026-11-14T10:43:19.834Z",
+  "data": {
+    "primary_category": "images",
+    "secondary_categories": [
+      "storage"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Combines NetworkImage and FileImage to cache network images onto the local file system.",
+    "what_it_does": "It attempts to load an image from a local file. If the file does not exist, it fetches the image from a network URL, saves it to the local file for future use, and displays it.",
+    "use_when": [
+      "You need to persistently cache network images to disk for offline use.",
+      "You want to manage exact local file paths for downloaded network images."
+    ],
+    "avoid_when": [
+      "You require complex cache eviction policies like max size or automatic expiration based on headers.",
+      "You do not have a local directory path readily available via path_provider."
+    ],
+    "strengths": [
+      "Simple combination of NetworkImage and FileImage.",
+      "Works with Canvas and custom painters via ImageForCanvas.",
+      "Built-in mocking support for tests."
+    ],
+    "weaknesses": [
+      "Ignores server cache headers completely.",
+      "Requires manual management of local file directories."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires the path_provider package to supply local directory paths for saving files.",
+    "alternatives": [
+      {
+        "name": "cached_network_image",
+        "why_pick_it": "Provides a more full-featured image caching solution with placeholders, error widgets, and automatic cache management out of the box."
+      }
+    ],
+    "minimal_example": "Image(\n  image: NetworkToFileImage(\n    url: \"https://example.com/someFile.png\", \n    file: myFile,\n  ),\n)",
+    "confidence": 0.95
+  }
+}

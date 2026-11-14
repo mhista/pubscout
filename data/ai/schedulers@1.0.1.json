@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.1",
+  "generatedAt": "2026-11-14T10:54:35.895Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Dart library for running asynchronous functions on time with interval, rate, parallel, and lazy controls.",
+    "what_it_does": "Provides various scheduling mechanisms like IntervalScheduler, RateScheduler, ParallelScheduler, TimeScheduler, and LazyScheduler to manage asynchronous task execution over time. It helps with load balancing, rate limiting, and lazy execution, returning a Future for task results.",
+    "use_when": [
+      "You need to limit the rate of API requests or actions over time.",
+      "You want to control concurrency by limiting parallel running asynchronous tasks.",
+      "You need lazy execution where only the latest rapid-fire task is eventually executed."
+    ],
+    "avoid_when": [
+      "You require complex reactive stream transformations (where standard Dart async or RxDart might be more suitable).",
+      "You are working with Dart SDK versions below 2.18."
+    ],
+    "strengths": [
+      "Offers multiple specialized schedulers (Interval, Rate, Parallel, Time, Lazy).",
+      "Allows awaiting results of scheduled tasks via standard Futures.",
+      "Simple and lightweight with minimal dependencies."
+    ],
+    "weaknesses": [
+      "Limited built-in documentation and categories.",
+      "No advanced scheduling features outside the described classes."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "async",
+        "why_pick_it": "Provides robust asynchronous utilities, restartable timers, and collections tools maintained directly by the Dart team."
+      }
+    ],
+    "minimal_example": "final scheduler = RateScheduler(3, Duration(seconds: 1));\nscheduler.run(() => download('pageA'));",
+    "confidence": 0.95
+  }
+}

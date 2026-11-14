@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.1.0",
+  "generatedAt": "2026-11-14T10:39:25.858Z",
+  "data": {
+    "primary_category": "payments",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Native PayPal integration for Flutter without WebViews.",
+    "what_it_does": "A Flutter plugin that enables native PayPal checkout flows on Android and iOS devices. It handles user authentication, cart management, order execution, and callbacks for payment statuses.",
+    "use_when": [
+      "You need to accept PayPal payments natively inside your Flutter app",
+      "You want to avoid using WebViews for the PayPal checkout process"
+    ],
+    "avoid_when": [
+      "You require web-only support without mobile platform requirements",
+      "You want a generalized payment gateway supporting multiple non-PayPal providers"
+    ],
+    "strengths": [
+      "Provides a native SDK integration instead of WebViews",
+      "Supports both Android and iOS platforms",
+      "Includes order callbacks for success, cancellation, errors, and shipping changes"
+    ],
+    "weaknesses": [
+      "Requires platform-specific configuration and dashboard setups (such as exact return URLs and enabling SDK options)",
+      "Strict limit on the number of purchase unit items (4 to 6 items)"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires AndroidManifest.xml updates, configuring internet permissions, minimum SDK version 21 on Android, and enabling Jetifier. Requires setting up return URLs and configuring credentials on the PayPal Developer Dashboard.",
+    "alternatives": [],
+    "minimal_example": "final _flutterPaypalPlugin = FlutterPaypal.instance;\nawait _flutterPaypalPlugin.init(\n  returnUrl: \"com.example.app://paypalpay\",\n  clientID: \"YOUR_CLIENT_ID\",\n  payPalEnvironment: FPayPalEnvironment.sandbox,\n  currencyCode: FPayPalCurrencyCode.usd,\n  action: FPayPalUserAction.payNow,\n);",
+    "confidence": 0.95
+  }
+}

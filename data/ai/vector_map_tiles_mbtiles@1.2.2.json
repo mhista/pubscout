@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.2.2",
+  "generatedAt": "2026-11-14T11:03:26.251Z",
+  "data": {
+    "primary_category": "maps",
+    "secondary_categories": [
+      "files"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Mapbox MBTiles vector tile provider for flutter_map for offline maps",
+    "what_it_does": "Provides a TileProvider for flutter_map that enables rendering vector tiles using MBTiles databases. It supports pbf/mvt formats for 100% offline map usage.",
+    "use_when": [
+      "You need fully offline vector maps in your flutter_map application",
+      "You are using MBTiles files containing vector tiles (pbf/mvt format)"
+    ],
+    "avoid_when": [
+      "You need web support, as SQLite support is lacking on the web",
+      "You are using raster tiles instead of vector tiles"
+    ],
+    "strengths": [
+      "Enables 100% offline map rendering with vector_map_tiles and flutter_map",
+      "Supports gzip-encoded tile data"
+    ],
+    "weaknesses": [
+      "Not supported on the web platform due to lack of SQLite support",
+      "Requires proper local file read permissions"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires file system read permission and the MBTiles file to be accessible on the device.",
+    "alternatives": [],
+    "minimal_example": "final mbtiles = MbTiles(path: mbTilesPath, gzip: true);\n\nFlutterMap(\n  options: MapOptions(\n    minZoom: 8,\n    maxZoom: 18,\n    initialZoom: 11,\n  ),\n  children: [\n    VectorTileLayer(\n      theme: _theme,\n      tileProviders: TileProviders({\n        'openmaptiles': MbTilesVectorTileProvider(\n          mbtiles: mbtiles,\n        ),\n      }),\n      maximumZoom: 18,\n    ),\n  ],\n)",
+    "confidence": 0.95
+  }
+}

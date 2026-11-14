@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.11.0",
+  "generatedAt": "2026-11-14T10:29:29.384Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Thin wrapper around Dart Isolates implementing the Actor Model",
+    "what_it_does": "Makes working with Dart Isolates easier by wrapping them in an Actor model. Supports maintaining private internal state, streaming responses, and managing groups of actors with different strategies.",
+    "use_when": [
+      "You need to offload CPU-intensive tasks to separate isolates easily",
+      "You want to manage isolated states with message passing"
+    ],
+    "avoid_when": [
+      "You are targeting the web where this library's worker implementation is not yet complete",
+      "Simple asynchronous async/await without isolates is sufficient for your workload"
+    ],
+    "strengths": [
+      "Simplifies Isolate management",
+      "Supports stateful actors and actor groups with strategies like RoundRobin and MultiHandler",
+      "Provides a unified Messenger interface for local and isolated execution"
+    ],
+    "weaknesses": [
+      "Web support is currently a TODO",
+      "Passing actors via Sendable adds a small performance overhead"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "class Accumulator with Handler<int, int> {\n  int _value;\n  Accumulator([int initialValue = 0]): _value = initialValue;\n  int handle(int n) => _value += n;\n}\n\nmain() async {\n  final actor = Actor.create(() => Accumulator(6));\n  print(await actor.send(5)); // 11\n  await actor.close();\n}",
+    "confidence": 0.95
+  }
+}
