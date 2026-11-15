@@ -16,10 +16,21 @@ type Props = { params: Promise<{ name: string }> };
 
 // Every package page is built at deploy time. Unknown names 404 instead of being
 // rendered and cached on demand, so the site never writes to Vercel's ISR cache.
-export const dynamicParams = false;
+// Pre-building all ~6,000 package pages made every deploy ~1 GB, which filled Vercel's
+// 10 GB Hobby deployment storage within days. Now only the most visited packages are
+// built at deploy time; every other package page is rendered on its first visit and
+// cached until the next deploy (one ISR write per page per deploy; Hobby includes 200k/month).
+// Unknown names still 404 (the page calls notFound()).
+export const dynamicParams = true;
+export const revalidate = false;
+
+const PREBUILD = Number(process.env.PREBUILD_PACKAGES ?? 300);
 
 export function generateStaticParams() {
-  return getCatalog().packages.map((p) => ({ name: p.name }));
+  const pkgs = getCatalog().packages;
+  const top = [...pkgs].sort((a, b) => b.metrics.downloads30d - a.metrics.downloads30d).slice(0, PREBUILD);
+  const names = new Set([...top.map((p) => p.name), ...pkgs.filter((p) => p.essential).map((p) => p.name)]);
+  return [...names].map((name) => ({ name }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
