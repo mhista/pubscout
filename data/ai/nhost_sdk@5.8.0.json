@@ -1,0 +1,56 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "5.8.0",
+  "generatedAt": "2026-11-15T11:18:28.216Z",
+  "data": {
+    "primary_category": "auth",
+    "secondary_categories": [
+      "backend",
+      "storage",
+      "networking"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Dart SDK for Nhost authentication and file storage APIs.",
+    "what_it_does": "Provides functions to sign users in, manage sessions, and upload, download, or replace files on Nhost storage. It abstracts HTTP calls to the Nhost backend.",
+    "use_when": [
+      "You need direct Nhost auth and storage access in a pure Dart or Flutter app",
+      "You prefer a lightweight client without Firebase or Supabase dependencies"
+    ],
+    "avoid_when": [
+      "You need a full-featured UI auth flow (use nhost_dart or nhost_flutter_auth)",
+      "You require code generation for models (this package has none)"
+    ],
+    "strengths": [
+      "Supports latest Nhost features like metadata on sign‑in and file replace",
+      "Works across all Dart platforms (mobile, web, desktop)",
+      "No codegen required, simple imperative API"
+    ],
+    "weaknesses": [
+      "Only low‑level SDK; no ready‑made UI widgets",
+      "Documentation advises not to use it directly in Flutter projects",
+      "Limited to Nhost ecosystem"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "shared_preferences",
+        "why_pick_it": "For simple key‑value storage instead of Nhost file storage"
+      },
+      {
+        "name": "flutter_secure_storage",
+        "why_pick_it": "When you need secure local storage rather than remote Nhost storage"
+      },
+      {
+        "name": "sqflite",
+        "why_pick_it": "If you prefer a local SQLite database over remote file storage"
+      }
+    ],
+    "minimal_example": "import 'package:nhost_sdk/nhost_sdk.dart';\n\nfinal client = NhostClient(url: 'https://backend.nhost.app', adminSecret: 'secret');\nawait client.auth.signInWithEmailPassword(email: 'user@example.com', password: 'pwd');\nfinal file = await client.storage.uploadFile(path: '/avatars/me.png', fileBytes: bytes);\nprint('Uploaded: ${file.id}');",
+    "confidence": 0.87
+  }
+}

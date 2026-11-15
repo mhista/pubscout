@@ -1,0 +1,53 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.0.2",
+  "generatedAt": "2026-11-15T10:56:19.572Z",
+  "data": {
+    "primary_category": "camera",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A simple QR scanner style overlay widget for a Stack with a camera scanner",
+    "what_it_does": "Provides a customizable QR scanner overlay widget that can be placed in a Stack alongside a camera scanner. It supports two modes: an overlay using an asset image path or an overlay using a solid color.",
+    "use_when": [
+      "You need a visual targeting box or overlay for a QR or barcode scanner",
+      "You want to customize the scan area size, border color, border radius, and stroke width"
+    ],
+    "avoid_when": [
+      "You need actual camera scanning functionality built into the widget rather than just a UI overlay",
+      "You require network images for the overlay instead of local asset images"
+    ],
+    "strengths": [
+      "Simple and lightweight widget for Stack layouts",
+      "Supports custom colors or asset images for the overlay",
+      "Configurable scan area dimensions, border color, and border radius"
+    ],
+    "weaknesses": [
+      "Only supports local asset images for the image overlay mode",
+      "Does not handle camera logic on its own; requires a separate camera scanner"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [
+      {
+        "name": "mobile_scanner",
+        "why_pick_it": "It is an alternative scanner package that often includes complete scanning features."
+      },
+      {
+        "name": "qr_code_scanner_plus",
+        "why_pick_it": "It is an alternative QR scanning solution."
+      },
+      {
+        "name": "pretty_qr_code",
+        "why_pick_it": "It offers customized rendering for QR codes."
+      }
+    ],
+    "minimal_example": "return Scaffold(\n  body: Stack(\n    children: [\n      MobileScanner(\n        controller: cameraConroller,\n        onDetect: (capture) {\n            // do something\n      },),\n      QRScannerOverlay(imagePath: \"images/test.jpg\",)\n    ],\n  ),\n);",
+    "confidence": 0.95
+  }
+}

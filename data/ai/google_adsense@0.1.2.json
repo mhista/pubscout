@@ -1,0 +1,46 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.1.2",
+  "generatedAt": "2026-11-15T11:14:06.073Z",
+  "data": {
+    "primary_category": "payments",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Wrapper plugin to insert Google AdSense snippets in Flutter Web apps.",
+    "what_it_does": "Provides APIs to initialize AdSense and display H5 Games Ads or Ad Unit widgets on web. Includes a testing callback for deterministic unit tests.",
+    "use_when": [
+      "You need Google AdSense ads in a Flutter Web project.",
+      "You are building a web‑based game and have beta approval for H5 Games Ads."
+    ],
+    "avoid_when": [
+      "Targeting mobile platforms (iOS/Android).",
+      "You lack the required AdSense beta approval."
+    ],
+    "strengths": [
+      "Web‑only focus simplifies integration.",
+      "Supports H5 Games Ads beta feature.",
+      "Provides a testing callback for unit tests."
+    ],
+    "weaknesses": [
+      "Only works on web; no mobile support.",
+      "Requires beta approval; otherwise may violate policies.",
+      "Ad Unit widget is experimental and invitation‑only."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "google_mobile_ads",
+        "why_pick_it": "For AdMob/AdSense ads on iOS and Android instead of web‑only support."
+      }
+    ],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:google_adsense/google_adsense.dart';\n\nvoid main() async {\n  await AdSense.initialize();\n  runApp(const MyApp());\n}\n\nclass MyApp extends StatelessWidget {\n  const MyApp({super.key});\n  @override\n  Widget build(BuildContext context) => const MaterialApp(home: Scaffold(body: Center(child: AdUnitWidget())));\n}",
+    "confidence": 0.9
+  }
+}

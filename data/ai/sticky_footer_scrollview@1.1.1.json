@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.1.1",
+  "generatedAt": "2026-11-15T10:56:25.153Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "layout"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A scrollable Flutter widget with a sticky footer.",
+    "what_it_does": "Provides a scrollable widget using SingleChildScrollView and CustomMultiChildLayout that keeps a footer sticky at either the bottom of the screen or the end of the scroll body. It supports dynamic heights for child widgets in the scroll body.",
+    "use_when": [
+      "You need a scrollable view with a footer that sticks to the bottom or the end of the content.",
+      "Your scroll body contains a limited number of child widgets."
+    ],
+    "avoid_when": [
+      "You have a large number of child widgets in the scroll body, due to performance reasons with SingleChildScrollView.",
+      "You require lazy-loaded list views like ListView.builder for massive datasets."
+    ],
+    "strengths": [
+      "Supports dynamic height of child widgets in the scroll body.",
+      "Footer can stick to the bottom of the screen or the end of the scroll body.",
+      "Includes support for a scrollController."
+    ],
+    "weaknesses": [
+      "Not recommended for use with lots of child widgets for performance reasons.",
+      "Limited to SingleChildScrollView approach."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "StickyFooterScrollView(\n  itemCount: 50,\n  itemBuilder: (context, index) {\n    return Card(\n      child: ListTile(\n        title: Text('content $index'),\n      ),\n      color: Colors.pinkAccent,\n    );\n  },\n  footer: AppBar(\n    title: Text('i stick at bottom'),\n  ),\n)",
+    "confidence": 1
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.1.4",
+  "generatedAt": "2026-11-15T10:56:19.494Z",
+  "data": {
+    "primary_category": "files",
+    "secondary_categories": [
+      "utils",
+      "networking"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Reliable foreground file downloads with multipart ranges, durable resume, and integrity checks.",
+    "what_it_does": "A download manager for Flutter that handles multipart HTTP range transfers, bounded concurrency, SQLite-backed durable resume, and integrity validation with SHA-256 or custom validators. It supports operation-scoped progress tracking, foreground priority promotion, and authenticated restoration after restart.",
+    "use_when": [
+      "You need reliable foreground file transfers with pause, resume, and cancellation support.",
+      "You want to download large files using multipart HTTP range requests and bounded concurrency.",
+      "You require file integrity checks such as SHA-256 verification or custom post-download validation."
+    ],
+    "avoid_when": [
+      "You need background transfers that continue automatically after the operating system terminates the app.",
+      "You are looking for a state management or dependency injection solution."
+    ],
+    "strengths": [
+      "Durable SQLite resume and artifact management.",
+      "Multipart range downloads with bounded concurrency and speed metrics.",
+      "Integrity checks including SHA-256 and custom validators."
+    ],
+    "weaknesses": [
+      "Does not support background transfers after operating system app termination.",
+      "Foreground-focused scope only."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [],
+    "minimal_example": "final manager = DownloadManager(\n  subdirectory: 'downloads',\n  configuration: DownloadConfiguration(\n    maxConcurrentDownloads: 3,\n  ),\n);\n\nfinal task = manager.enqueue(\n  DownloadRequest(\n    url: Uri.parse('https://example.com/archive.zip'),\n    fileName: 'archive.zip',\n  ),\n);\n\ntask.updates.listen((update) {\n  print('${update.status}: ${update.receivedBytes}/${update.totalBytes}');\n});",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "2.2.7",
+  "generatedAt": "2026-11-15T11:19:17.619Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "auth"
+    ],
+    "approach": [
+      "stream-based"
+    ],
+    "one_liner": "A Dart/Flutter client implementing the WAMP protocol for RPC and Pub/Sub.",
+    "what_it_does": "Provides transport-agnostic communication over WebSocket, RawSocket, or local transports using WAMP. Supports authentication methods, advanced RPC and Pub/Sub features, and multiple serialization formats.",
+    "use_when": [
+      "You need real‑time RPC or Pub/Sub with a WAMP router",
+      "Cross‑platform support including web, mobile, and desktop",
+      "Custom authentication (CRA, SCRAM, Ticket, Cryptosign) is required"
+    ],
+    "avoid_when": [
+      "A simple REST/GraphQL API would suffice",
+      "You need built‑in UI components or notifications",
+      "You prefer a higher‑level backend‑as‑a‑service SDK"
+    ],
+    "strengths": [
+      "Comprehensive WAMP feature support",
+      "Multiple authentication methods",
+      "Works on all major Flutter platforms",
+      "Stream‑based API fits reactive code"
+    ],
+    "weaknesses": [
+      "Not a drop‑in replacement for HTTP clients",
+      "Requires a WAMP router backend",
+      "Limited documentation beyond README"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add the package, choose a transport (e.g., WebSocketTransport), and call client.connect(); no special permissions needed.",
+    "alternatives": [],
+    "minimal_example": "import 'package:connectanum/connectanum.dart';\nimport 'package:connectanum/json.dart';\n\nfinal client = Client(\n  realm: \"my.realm\",\n  transport: WebSocketTransport(\n    \"ws://localhost:8080/wamp\",\n    Serializer(),\n    WebSocketSerialization.serializationJson,\n  ),\n);\nfinal session = await client.connect().first;\n",
+    "confidence": 0.85
+  }
+}

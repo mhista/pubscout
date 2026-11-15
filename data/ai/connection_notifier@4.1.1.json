@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.1.1",
+  "generatedAt": "2026-11-15T11:16:24.131Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "notifications"
+    ],
+    "approach": [
+      "declarative",
+      "stream-based"
+    ],
+    "one_liner": "Notifies users about internet connection status and provides tools to track connectivity.",
+    "what_it_does": "It listens to internet connectivity changes and displays global or local overlay notifications when the connection is lost or restored. It also offers programmatic tools like synchronous and asynchronous status getters and connection toggler widgets.",
+    "use_when": [
+      "You need to automatically show a banner or overlay when the user goes offline or comes back online.",
+      "You want support for modern routing solutions like GoRouter or AutoRoute alongside classic navigation.",
+      "You need an easy way to check connectivity programmatically or toggle widgets based on connection state."
+    ],
+    "avoid_when": [
+      "You require complex offline-first data synchronization and queue management rather than simple connection notification.",
+      "You do not want global overlay banners displayed over your app."
+    ],
+    "strengths": [
+      "Works with both Navigator 1.0 and Navigator 2.0 routing solutions like GoRouter and AutoRoute.",
+      "Fully supports all Flutter platforms including iOS, Android, Web, macOS, Windows, and Linux.",
+      "Provides injectable connectivity handlers for custom connection source implementation."
+    ],
+    "weaknesses": [
+      "Primarily focused on UI notification and basic status checking rather than advanced offline data management.",
+      "Relies on overlay mechanisms which might overlap with custom app top/bottom bars if not configured carefully."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires calling `await ConnectionNotifierTools.initialize();` in `main()` before `runApp()`.",
+    "alternatives": [],
+    "minimal_example": "void main() async {\n  WidgetsFlutterBinding.ensureInitialized();\n  await ConnectionNotifierTools.initialize();\n  runApp(const MyApp());\n}\n\nclass MyApp extends StatelessWidget {\n  const MyApp({Key? key}) : super(key: key);\n\n  @override\n  Widget build(BuildContext context) {\n    return GlobalConnectionNotifier(\n      child: MaterialApp(\n        title: 'My App',\n        home: const MyHomePage(),\n      ),\n    );\n  }\n}",
+    "confidence": 1
+  }
+}

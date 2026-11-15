@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "1.2.1",
+  "generatedAt": "2026-11-15T10:56:20.348Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Middleware that blocks non-HTTPS requests to a Shelf or Dart Frog server.",
+    "what_it_does": "It intercepts incoming requests and rejects any that are not over HTTPS, optionally returning a custom error response. The middleware can be added to a Shelf pipeline or wrapped for Dart Frog usage.",
+    "use_when": [
+      "You need to enforce HTTPS on a Shelf or Dart Frog API",
+      "Your server is exposed directly to the internet and you want to reject HTTP traffic",
+      "You want a quick, declarative way to add SSL enforcement without custom routing logic"
+    ],
+    "avoid_when": [
+      "Your traffic is already terminated at a reverse proxy that guarantees HTTPS",
+      "You are using a framework that already provides SSL enforcement"
+    ],
+    "strengths": [
+      "Simple to add to existing Shelf pipelines",
+      "Supports custom error responses",
+      "Compatible with Dart 3 and newer",
+      "No build_runner or code generation required"
+    ],
+    "weaknesses": [
+      "Only works with Shelf or Dart Frog",
+      "Does not handle HTTPS termination at load balancers",
+      "No support for other server frameworks"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the package to pubspec, import, and add enforceSSL() to your Pipeline or Dart Frog handler.",
+    "alternatives": [],
+    "minimal_example": "import 'package:shelf/shelf.dart';\nimport 'package:shelf_enforces_ssl/shelf_enforces_ssl.dart';\n\nvar handler = const Pipeline()\n    .addMiddleware(enforceSSL())\n    .addMiddleware(logRequests())\n    .addHandler(_echoRequest);",
+    "confidence": 0.9
+  }
+}

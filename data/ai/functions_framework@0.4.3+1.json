@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.4.3+1",
+  "generatedAt": "2026-11-15T11:33:19.453Z",
+  "data": {
+    "primary_category": "backend",
+    "secondary_categories": [],
+    "approach": [
+      "code generation",
+      "imperative"
+    ],
+    "one_liner": "FaaS framework for writing portable Dart functions.",
+    "what_it_does": "An open source FaaS (Function as a Service) framework that lets you write lightweight functions in Dart which run portably across local machines, Google Cloud Run, Google App Engine, and Knative-based environments without writing explicit HTTP server boilerplate.",
+    "use_when": [
+      "You want to deploy serverless Dart functions to Google Cloud Run or Knative environments.",
+      "You want to handle HTTP requests or CloudEvents without writing custom server request-handling logic."
+    ],
+    "avoid_when": [
+      "You need an officially supported Google Cloud Functions Dart runtime (currently not provided).",
+      "You require an official enterprise-level SLA or deprecation policy, as this is a community-supported project."
+    ],
+    "strengths": [
+      "Portable between multiple serverless and container platforms like Cloud Run and App Engine.",
+      "Supports automatic unmarshaling of CloudEvents and handling of JSON data.",
+      "Removes the boilerplate of setting up an HTTP server and request-handling logic."
+    ],
+    "weaknesses": [
+      "Community-supported project with no official level of support or SLA.",
+      "Google Cloud Functions does not currently provide an officially supported Dart language runtime."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Annotate functions with @CloudFunction() and run inside serverless containers or local environments.",
+    "alternatives": [],
+    "minimal_example": "import 'package:functions_framework/functions_framework.dart';\nimport 'package:shelf/shelf.dart';\n\n@CloudFunction()\nResponse function(Request request) => Response.ok('Hello, World!');",
+    "confidence": 0.95
+  }
+}

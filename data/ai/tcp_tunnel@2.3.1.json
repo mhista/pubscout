@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.3.1",
+  "generatedAt": "2026-11-15T11:07:23.822Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Minimalistic TCP tunnel library and CLI written in Dart",
+    "what_it_does": "Provides a TCP tunneling library and CLI tool supporting local port redirects, bridge tunneling, client tunnels, and hub mode routing between networks behind NAT.",
+    "use_when": [
+      "You need to expose private servers or services behind NAT to other networks",
+      "You want a pure Dart TCP tunneling library with a CLI tool"
+    ],
+    "avoid_when": [
+      "You require application-level protocols or HTTP-specific routing without relying on raw TCP pipes"
+    ],
+    "strengths": [
+      "Entirely written in Dart with a convenient CLI",
+      "Supports multiple tunnel types including local redirect, bridge, client, and hub mode",
+      "Opt-in TLS encryption and token authentication for hub mode"
+    ],
+    "weaknesses": [
+      "Plaintext and unauthenticated by default in legacy local, bridge, and client modes"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Not documented",
+    "alternatives": [],
+    "minimal_example": "Future<void> redirectLocalPort(int listenPort, int targetPort, {String targetHost = 'localhost'}) async {\n  await TunnelLocalServer(listenPort, targetPort, targetHost: targetHost).start();\n}",
+    "confidence": 0.95
+  }
+}

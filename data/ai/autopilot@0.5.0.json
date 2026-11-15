@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.5.0",
+  "generatedAt": "2026-11-15T11:24:40.009Z",
+  "data": {
+    "primary_category": "testing",
+    "secondary_categories": [
+      "ai-ml",
+      "devtools"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "A test driver for Flutter that exposes a JSON HTTP API for QA testing.",
+    "what_it_does": "Runs an HTTP server inside the Flutter app to expose a JSON API for UI automation tests, allowing tests to be written in any language without sharing the app source code. It also includes an MCP endpoint for AI agents to drive the app.",
+    "use_when": [
+      "You need to run UI tests for a Flutter app written in programming languages other than Dart.",
+      "You want to allow QA testing or AI agents to drive your app without sharing its source code.",
+      "You are building test builds and need HTTP-based widget inspection and interaction."
+    ],
+    "avoid_when": [
+      "You are writing standard Dart unit, widget, or integration tests using flutter_test.",
+      "You need authentication on the testing endpoints in production builds."
+    ],
+    "strengths": [
+      "Enables testing Flutter apps in any language via an HTTP server API.",
+      "Includes support for an MCP endpoint so AI agents can drive the app.",
+      "Provides extensive endpoints for interacting with widgets, text, scrolls, and taking screenshots."
+    ],
+    "weaknesses": [
+      "The API and endpoints have no authentication, so it should only be included in test builds.",
+      "Requires running the app with specific target files and port forwarding on Android."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Wrap your root widget with Autopilot in a separate test entrypoint, run the app on release or debug, and forward ports if using Android.",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:autopilot/autopilot.dart';\n\nimport 'my_app.dart';\n\nvoid main() {\n  runApp(\n    Autopilot(child: MyApp())\n  );\n}",
+    "confidence": 0.95
+  }
+}

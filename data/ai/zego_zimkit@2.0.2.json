@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.2",
+  "generatedAt": "2026-11-15T11:34:13.352Z",
+  "data": {
+    "primary_category": "ui-kits",
+    "secondary_categories": [
+      "audio-video",
+      "images",
+      "files"
+    ],
+    "approach": [
+      "imperative",
+      "declarative"
+    ],
+    "one_liner": "A Flutter UI kit providing one-to-one and group chat screens, messaging widgets, and APIs.",
+    "what_it_does": "ZIMKit provides a low-code UI wrapper for chat applications, offering ready-to-use conversation lists, one-to-one and group chat screens, and messaging APIs. It supports text, image, voice, video, and file messages along with message actions like replies, reactions, and forwarding.",
+    "use_when": [
+      "You need to quickly integrate one-to-one and group chat interfaces into a Flutter application.",
+      "You want built-in UI components for conversation lists, message histories, and group management."
+    ],
+    "avoid_when": [
+      "You require a completely custom chat UI built from scratch without pre-packaged widgets.",
+      "You are using a backend messaging service other than ZIM."
+    ],
+    "strengths": [
+      "Provides ready-to-use conversation and message screens out of the box.",
+      "Supports rich messaging types including text, image, voice, video, and files.",
+      "Includes built-in group details and member management pages."
+    ],
+    "weaknesses": [
+      "Tied closely to the ZIM backend and signaling ecosystem.",
+      "Customizing deeply beyond the provided configuration options can be constrained by the low-code design."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Initialize the SDK with your app ID and app sign, then connect a user before showing the chat UI.",
+    "alternatives": [],
+    "minimal_example": "Future<void> initializeZIMKit() async {\n  WidgetsFlutterBinding.ensureInitialized();\n\n  await ZIMKit().init(\n    appID: yourAppID,\n    appSign: yourAppSign,\n  );\n\n  final errorCode = await ZIMKit().connectUser(\n    id: userID,\n    name: userName,\n  );\n  if (errorCode != 0) {\n    throw StateError('ZIMKit user connection failed: $errorCode');\n  }\n}",
+    "confidence": 1
+  }
+}

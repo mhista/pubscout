@@ -1,0 +1,51 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.3.0",
+  "generatedAt": "2026-11-15T10:56:01.571Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [
+      "backend"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Laravel-style query builder, schema builder, and migrations for PostgreSQL and MySQL.",
+    "what_it_does": "Provides a Laravel-inspired query builder, schema builder, and migrations for Dart supporting PostgreSQL and MySQL drivers. Includes both a traditional query builder and an Active Record/Data Mapper ORM without code generation or reflection.",
+    "use_when": [
+      "You want Laravel-style query building and migrations in Dart",
+      "You are connecting directly to PostgreSQL or MySQL databases",
+      "You want an ORM that does not rely on code generation or reflection"
+    ],
+    "avoid_when": [
+      "You need an embedded client-side local database like SQLite",
+      "You do not use PostgreSQL or MySQL"
+    ],
+    "strengths": [
+      "Rich query builder ported from Laravel 5.2 and 12",
+      "Supports multiple PostgreSQL drivers and MySQL",
+      "Active Record and Data Mapper ORM features without code generation"
+    ],
+    "weaknesses": [
+      "Limited to PostgreSQL and MySQL drivers",
+      "Not an embedded local mobile database like SQLite"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires database connection configuration and proper driver setup for PostgreSQL or MySQL.",
+    "alternatives": [
+      {
+        "name": "drift",
+        "why_pick_it": "Choose drift if you prefer a reactive, type-safe SQLite database library with broad local storage support."
+      },
+      {
+        "name": "sqflite",
+        "why_pick_it": "Choose sqflite if you need lightweight SQLite database access for mobile platforms."
+      }
+    ],
+    "minimal_example": "final manager = new Manager();\nmanager.addConnection({\n  'driver': 'pgsql',\n  'host': 'localhost',\n  'port': '5432',\n  'database': 'database_name',\n  'username': 'user_name',\n  'password': 'pass',\n});\nmanager.setAsGlobal();\nfinal db = await manager.connection();\nfinal res = await db.table('temp_location').select(['id', 'city']).get();",
+    "confidence": 0.95
+  }
+}

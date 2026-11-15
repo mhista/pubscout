@@ -1,0 +1,53 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.8.0",
+  "generatedAt": "2026-11-15T10:56:50.467Z",
+  "data": {
+    "primary_category": "devtools",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Plugin for automatic error catching and handling in Flutter applications.",
+    "what_it_does": "Catcher automatically captures uncaught errors and exceptions in Flutter applications. It provides multiple report modes (like dialogs, notifications, and pages) and various handlers to process errors by logging them to the console, sending emails, or reporting them to services like Sentry and Crashlytics.",
+    "use_when": [
+      "You need centralized error tracking and reporting across multiple platforms in Flutter.",
+      "You want to prompt users with dialogs or notifications when an application crash occurs."
+    ],
+    "avoid_when": [
+      "You are looking for a simple logging-only utility without crash reporting workflows.",
+      "You prefer an official lightweight APM SDK integration without UI report flows."
+    ],
+    "strengths": [
+      "Supports multiple platforms including Android, iOS, Web, Windows, macOS, and Linux.",
+      "Provides a wide variety of out-of-the-box handlers like Console, Email, Sentry, and Crashlytics.",
+      "Offers customizable report modes and localization options."
+    ],
+    "weaknesses": [
+      "Requires boilerplate code configuration and adding a specific navigator key.",
+      "Might introduce heavy dependencies due to multiple built-in integrations."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding the Catcher navigator key to your MaterialApp or CupertinoApp and configuring debug and release options in the main function.",
+    "alternatives": [
+      {
+        "name": "logger",
+        "why_pick_it": "Pick logger if you only need structured console logging rather than comprehensive crash handling workflows with dialogs and remote reporting."
+      },
+      {
+        "name": "sentry",
+        "why_pick_it": "Pick sentry if you want dedicated, first-party error tracking without Catcher's custom UI dialog layer."
+      },
+      {
+        "name": "talker",
+        "why_pick_it": "Pick talker if you want a modern, highly extensible error and log management tool with built-in UI screens."
+      }
+    ],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:catcher/catcher.dart';\n\nmain() {\n  CatcherOptions debugOptions = CatcherOptions(DialogReportMode(), [ConsoleHandler()]);\n  Catcher(rootWidget: MyApp(), debugConfig: debugOptions);\n}\n\nclass MyApp extends StatelessWidget {\n  @override\n  Widget build(BuildContext context) {\n    return MaterialApp(\n      navigatorKey: Catcher.navigatorKey,\n      home: Scaffold(\n        body: Center(\n          child: TextButton(\n            child: Text(\"Generate error\"),\n            onPressed: () => throw \"Test exception\",\n          ),\n        ),\n      ),\n    );\n  }\n}",
+    "confidence": 0.95
+  }
+}

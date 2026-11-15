@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "2.2.0",
+  "generatedAt": "2026-11-15T11:07:52.532Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Load and cache any asset type with a custom decoder",
+    "what_it_does": "asset_cache provides generic and typed caches for binary, image, json, and text assets. It stores decoded objects in memory and offers cache management and preloading.",
+    "use_when": [
+      "You need fast repeated access to local assets",
+      "You want a simple in-memory cache without external dependencies",
+      "You need custom decoding logic for assets"
+    ],
+    "avoid_when": [
+      "You require persistent storage across app restarts",
+      "You need disk caching or eviction policies",
+      "You are already using a full-featured asset bundle manager"
+    ],
+    "strengths": [
+      "Zero external dependencies beyond flutter and path",
+      "Built-in support for common asset types",
+      "Easy preloading and cache management",
+      "Custom exception handling"
+    ],
+    "weaknesses": [
+      "Only in-memory cache, no persistence",
+      "No eviction strategy for large caches",
+      "Limited to assets bundled with the app"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dependency, declare assets in pubspec, create cache instance",
+    "alternatives": [],
+    "minimal_example": "final imageCache = ImageAssetCache(basePath: \"assets/images/\");\nfinal image = await imageCache.load('sprite.png');",
+    "confidence": 0.92
+  }
+}

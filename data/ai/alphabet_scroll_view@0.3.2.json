@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.3.2",
+  "generatedAt": "2026-11-15T11:10:02.014Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "layout"
+    ],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "A scrollable list view with a vertical alphabet index for quick jumping.",
+    "what_it_does": "Provides a scrollable list view widget combined with a dynamic vertical alphabet index list on the side. Users can drag or tap letters on the index to automatically scroll to the first item starting with that letter.",
+    "use_when": [
+      "You need to display a long alphabetically ordered list, such as contacts or a country list.",
+      "You want users to be able to jump to specific sections of a list quickly using an alphabet sidebar."
+    ],
+    "avoid_when": [
+      "Your list items do not have alphabetical ordering or textual identifiers.",
+      "You require complex grid layouts rather than a standard vertical list."
+    ],
+    "strengths": [
+      "Supports custom overlay widgets to display the currently selected letter.",
+      "Allows alignment of the alphabet list on either the left or the right side.",
+      "Responsive across all screen sizes and platforms supported by Flutter."
+    ],
+    "weaknesses": [
+      "Limited to alphabetical indexing out-of-the-box.",
+      "No documentable advanced customization beyond standard parameters and overlay widgets."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "AlphabetScrollView(\n    list: list.map((e) => AlphaModel(e)).toList(),\n    itemExtent: 50,\n    itemBuilder: (_, k, id) {\n      return Padding(\n        padding: const EdgeInsets.only(right: 20),\n        child: ListTile(\n          title: Text('$id'),\n          subtitle: Text('Secondary text'),\n          leading: Icon(Icons.label),\n        ),\n      );\n    },\n)",
+    "confidence": 1
+  }
+}

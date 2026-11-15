@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.23.0",
+  "generatedAt": "2026-11-15T11:13:20.000Z",
+  "data": {
+    "primary_category": "auth",
+    "secondary_categories": [
+      "forms",
+      "device"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Integrate Flutter with Android platform autofill services.",
+    "what_it_does": "Allows your Flutter application to act as an Android autofill service, providing login credentials to other apps and websites. It supports both a legacy dataset-selection flow and an interactive in-app selection flow, along with security trust signals.",
+    "use_when": [
+      "You are building a password manager or credential storage app in Flutter for Android.",
+      "You need to securely provide saved credentials to third-party Android apps and browser autofill requests."
+    ],
+    "avoid_when": [
+      "You are targeting iOS, as Apple requires a native extension for autofill and does not support Flutter plugins for it.",
+      "You only want to consume autofill suggestions in your own app rather than provide them."
+    ],
+    "strengths": [
+      "Provides advanced security trust signals (like domain verification via Digital Asset Links and package ID checks).",
+      "Supports both legacy multi-dataset Android UI and an opt-in in-app interactive selection flow.",
+      "Includes features like fill dialog support and dynamic debug logging."
+    ],
+    "weaknesses": [
+      "Only supports Android; iOS is not supported.",
+      "Requires manual configuration of Android manifest files, resources, and optional JVM classpath properties."
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Requires native Android configuration in AndroidManifest.xml, resource overrides, keep.xml for Gradle resource shrinkage, and optional tinylog JVM classpath properties.",
+    "alternatives": [],
+    "minimal_example": "AutofillPreferences preferences = const AutofillPreferences(\n  enableFillDialog: true,\n  useInAppSelection: false,\n);",
+    "confidence": 0.95
+  }
+}

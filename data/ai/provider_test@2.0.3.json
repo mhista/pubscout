@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.3",
+  "generatedAt": "2026-11-15T11:11:31.458Z",
+  "data": {
+    "primary_category": "testing",
+    "secondary_categories": [
+      "state-management"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "A testing library which makes it easy to test providers.",
+    "what_it_does": "Provides a testing utility function called testProvider that simplifies testing provider state changes over time. It handles checking expected states in order while an action is executed, and ensures no additional unexpected states are updated.",
+    "use_when": [
+      "You are using Provider for state management in your Flutter application",
+      "You want a structured and concise way to write unit tests for your providers"
+    ],
+    "avoid_when": [
+      "You are using state management solutions other than Provider, such as Bloc or Riverpod",
+      "You do not use unit tests in your project"
+    ],
+    "strengths": [
+      "Simplifies testing provider state changes and notifications",
+      "Supports seed states, async operations via wait, and verification callbacks",
+      "Familiar API structure for developers coming from bloc_test"
+    ],
+    "weaknesses": [
+      "Limited to the Provider state management library",
+      "Not documented for non-Flutter pure Dart packages"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add provider_test to dev_dependencies in pubspec.yaml.",
+    "alternatives": [],
+    "minimal_example": "testProvider(\n  'CounterProvider updates state to [1] when increment() is called.',\n  build: () => CounterProvider(),\n  act: (provider) => provider.increment(),\n  expect: {\n    (provider) => provider.count: [1],\n  },\n);",
+    "confidence": 0.95
+  }
+}

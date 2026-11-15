@@ -1,0 +1,54 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.0.0",
+  "generatedAt": "2026-11-15T11:22:20.336Z",
+  "data": {
+    "primary_category": "navigation",
+    "secondary_categories": [],
+    "approach": [
+      "declarative",
+      "no codegen",
+      "imperative"
+    ],
+    "one_liner": "Typed Flutter Router navigation with URI patterns, guards, and browser history without code generation.",
+    "what_it_does": "Defines explicit routes with URI patterns and path parameters for Flutter's Router and Navigator. Provides an ordered guard pipeline for authorization and redirects, typed page results, and independent nested stacks without relying on code generation.",
+    "use_when": [
+      "You want an explicit route table and typed navigation without code generation",
+      "You need asynchronous guard pipelines for authorization and redirects",
+      "You require browser history and navigation-stack restoration on web and native platforms"
+    ],
+    "avoid_when": [
+      "You need automatic shell or tab orchestration and wildcard path matching",
+      "You prefer code-generated route definitions and type safety"
+    ],
+    "strengths": [
+      "No code generation required",
+      "Explicit ordered guard pipeline supporting async validation",
+      "Typed navigation results and parameters parsing"
+    ],
+    "weaknesses": [
+      "Does not support wildcard matching or automatic shell/tab orchestration",
+      "Manual browser title updates required starting in 4.0.0"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Import package:route_definer/route_definer.dart and configure router instances with defined routes.",
+    "alternatives": [
+      {
+        "name": "go_router",
+        "why_pick_it": "Widely adopted declarative routing package maintained by the Flutter team with built-in redirection and shell routing."
+      },
+      {
+        "name": "auto_route",
+        "why_pick_it": "Provides strongly-typed routing and deep-linking with code generation and built-in nested navigation support."
+      },
+      {
+        "name": "beamer",
+        "why_pick_it": "Handles complex navigation and deep-linking by beaming to different screens based on application state."
+      }
+    ],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:route_definer/material.dart';\n\nvoid main() => runApp(MaterialApp.router(routerConfig: router.config));\n\nfinal router = createMaterialRouter(\n  routes: [\n    RouteDefiner<void>.simple(\n      path: '/',\n      builder: (context) => Scaffold(\n        body: Center(\n          child: FilledButton(\n            onPressed: () =>\n                RouteDefinerRouter.of(context).push<void>('/about'),\n            child: const Text('Open About'),\n          ),\n        ),\n      ),\n    ),\n    RouteDefiner<void>.simple(\n      path: '/about',\n      builder: (context) => Scaffold(\n        appBar: AppBar(title: const Text('About')),\n        body: const Center(child: Text('Hello!')),\n      ),\n    ),\n  ],\n);",
+    "confidence": 1
+  }
+}

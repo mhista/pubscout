@@ -1,0 +1,46 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.10",
+  "generatedAt": "2026-11-15T11:13:08.247Z",
+  "data": {
+    "primary_category": "maps",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "An extensible map abstraction for Flutter with support for multiple map providers",
+    "what_it_does": "Provides an abstract mapping interface for Flutter that allows applications to switch between different underlying map providers by implementing a custom Atlas provider. It includes support for markers, polygons, polylines, camera positions, and gestures.",
+    "use_when": [
+      "You need to write map-agnostic code that can swap map providers without changing your UI code.",
+      "You want a unified abstraction layer for map views, markers, and camera controls in Flutter."
+    ],
+    "avoid_when": [
+      "You just want to use Google Maps or a single specific map provider directly without abstraction.",
+      "You need ready-to-use out-of-the-box map rendering without writing or supplying a custom provider package."
+    ],
+    "strengths": [
+      "Provider-agnostic design allows swapping map implementations.",
+      "Supports a wide array of map features like markers, polylines, circles, and tracking."
+    ],
+    "weaknesses": [
+      "Requires a separate concrete provider implementation (e.g., custom atlas provider) to render maps.",
+      "Documentation on how to build a custom provider from scratch is limited in the readme."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires assigning an AtlasProvider instance in main() before running the app.",
+    "alternatives": [
+      {
+        "name": "google_maps_flutter",
+        "why_pick_it": "If you specifically want Google Maps without an abstraction layer."
+      },
+      {
+        "name": "flutter_map",
+        "why_pick_it": "If you want a complete, ready-to-use OpenStreetMap-based mapping solution for Flutter."
+      }
+    ],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:atlas/atlas.dart';\n\nvoid main() {\n  runApp(MyApp());\n}\n\nclass MyApp extends StatelessWidget {\n  final _initialCameraPosition = LatLng(\n    latitude: 37.42796133580664,\n    longitude: -122.085749655962,\n  );\n  @override\n  Widget build(BuildContext context) {\n    return MaterialApp(\n      home: Scaffold(\n        body: Atlas(\n          initialCameraPosition: _initialCameraPosition,\n        ),\n      ),\n    );\n  }\n}",
+    "confidence": 0.95
+  }
+}

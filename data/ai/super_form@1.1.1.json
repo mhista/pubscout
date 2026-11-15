@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.1.1",
+  "generatedAt": "2026-11-15T11:35:07.823Z",
+  "data": {
+    "primary_category": "forms",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "Quick, familiar, and extensible form management and validation for Flutter without code generation.",
+    "what_it_does": "Manages form state, values, errors, and touch status without complicated boilerplate. It provides ready-to-use form widgets like text fields, checkboxes, sliders, and rules for validation, while remaining fully reactive for dynamic fields and rules.",
+    "use_when": [
+      "You need a straightforward form solution with built-in validation rules.",
+      "You want to manage form state locally without Redux or BLoC.",
+      "You require dynamic fields or rules that can change at runtime."
+    ],
+    "avoid_when": [
+      "You prefer compile-time type safety via code generation.",
+      "You already manage your entire application state inside a global state management library."
+    ],
+    "strengths": [
+      "No complex configuration or code generation required.",
+      "Fully reactive, supporting dynamic fields and rules in flight.",
+      "Built-in support for state restoration."
+    ],
+    "weaknesses": [
+      "Relies on dynamic types internally rather than static generics.",
+      "Limited to synchronous validation rules out of the box."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "SuperForm(\n  validationMode: ValidationMode.onBlur,\n  onSubmit: (values) {\n    print(values.toString());\n  },\n  child: Column(\n    children: [\n      TextSuperFormField(\n        decoration: const InputDecoration(labelText: \"Email\"),\n        name: \"email\",\n        rules: [RequiredRule(\"Must not be empty\")],\n      ),\n    ],\n  ),\n)",
+    "confidence": 0.95
+  }
+}

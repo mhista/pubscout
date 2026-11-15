@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.3.0",
+  "generatedAt": "2026-11-15T11:05:18.541Z",
+  "data": {
+    "primary_category": "files",
+    "secondary_categories": [
+      "device"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Preview local files with Apple's native Quick Look on iOS.",
+    "what_it_does": "Provides an interface to Apple's native QLPreviewController on iOS to preview single or multiple local files. Includes capability checks, swipe-to-dismiss control, and handles paths with special characters.",
+    "use_when": [
+      "You need to preview local files like PDFs or images natively on iOS.",
+      "You want to allow users to swipe through a collection of local documents."
+    ],
+    "avoid_when": [
+      "You need support for Android, Web, or desktop platforms.",
+      "You need to preview remote files directly via HTTP URLs without downloading them first."
+    ],
+    "strengths": [
+      "Uses Apple's native Quick Look controller.",
+      "Supports multiple files and custom dismiss controls."
+    ],
+    "weaknesses": [
+      "iOS only; calls on other platforms fail.",
+      "Requires Swift Package Manager and does not support CocoaPods."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires Flutter 3.44+ and Dart 3.12+, Swift Package Manager enabled, and iOS 13+.",
+    "alternatives": [],
+    "minimal_example": "if (await QuickLook.canOpenURL(file.path)) {\n  final dismissed = await QuickLook.openURL(file.path);\n}",
+    "confidence": 0.95
+  }
+}

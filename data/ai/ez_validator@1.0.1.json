@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "1.0.1",
+  "generatedAt": "2026-11-15T10:55:19.741Z",
+  "data": {
+    "primary_category": "forms",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "Dead‑simple field and object schema validation for Flutter.",
+    "what_it_does": "Define validation schemas with EzValidator and validate data objects. It returns a map of field errors or processed data synchronously. Supports custom and conditional rules.",
+    "use_when": [
+      "validating form inputs in Flutter widgets",
+      "defining reusable data schemas for API responses",
+      "adding custom validation logic without code generation"
+    ],
+    "avoid_when": [
+      "need asynchronous or server‑side validation",
+      "requiring extensive code‑gen or annotation‑based models",
+      "high‑performance validation of massive data sets"
+    ],
+    "strengths": [
+      "very easy to integrate and use",
+      "supports conditional, custom, and nested validation",
+      "works on all Flutter platforms"
+    ],
+    "weaknesses": [
+      "no async validation support",
+      "limited to synchronous checks",
+      "small ecosystem compared to larger validation libraries"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "email_validator",
+        "why_pick_it": "If you only need simple email format validation without full schema support"
+      }
+    ],
+    "minimal_example": "final userSchema = EzSchema.shape({\"email\": EzValidator<String>().required().email(),\"password\": EzValidator<String>().required().minLength(8)});\nfinal errors = userSchema.catchErrors({\"email\":\"test\",\"password\":\"123\"});",
+    "confidence": 0.9
+  }
+}

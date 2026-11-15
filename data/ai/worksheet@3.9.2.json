@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.9.2",
+  "generatedAt": "2026-11-15T11:18:07.449Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "ui-kits"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "High-performance spreadsheet widget supporting large datasets, zoom, and tile rendering.",
+    "what_it_does": "A Flutter spreadsheet widget that displays and edits tabular data using GPU-optimized tile-based rendering. It supports large datasets, 10%-400% zoom, cell merging, formulas, and keyboard navigation.",
+    "use_when": [
+      "You need to display and edit large spreadsheet-style tabular data at 60fps.",
+      "Your application requires Excel-like features such as zooming, cell selection, and formulas."
+    ],
+    "avoid_when": [
+      "You only need a basic, simple data table without heavy spreadsheet capabilities.",
+      "You do not require high-performance tile rendering or sparse dataset memory management."
+    ],
+    "strengths": [
+      "Maintains 60fps performance with large datasets through GPU-optimized tile-based rendering.",
+      "Sparse storage handles hundreds of thousands of rows efficiently.",
+      "Built-in support for zoom, cell merging, rich text, and extensive keyboard navigation."
+    ],
+    "weaknesses": [
+      "Specialized widget with a very specific spreadsheet domain, not suited for general layout tasks.",
+      "Requires learning its specific data and controller APIs."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:worksheet/worksheet.dart';\n\nvoid main() => runApp(MaterialApp(home: MySpreadsheet()));\n\nclass MySpreadsheet extends StatelessWidget {\n  @override\n  Widget build(BuildContext context) {\n    final data = SparseWorksheetData(rowCount: 100, columnCount: 10, cells: {\n        (0, 0): 'Name'.cell,\n        (0, 1): 'Amount'.cell,\n        (1, 0): 'Apples'.cell,\n        (1, 1): 42.cell,\n        (2, 1): '=2+42'.formula,\n    });\n\n    return Scaffold(\n      body: WorksheetTheme(\n        data: const WorksheetThemeData(),\n        child: Worksheet(\n          data: data,\n          rowCount: 100,\n          columnCount: 10,\n        ),\n      ),\n    );\n  }\n}",
+    "confidence": 0.95
+  }
+}

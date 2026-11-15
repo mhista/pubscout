@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "2.0.0",
+  "generatedAt": "2026-11-15T10:55:51.403Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Wrapper around ReorderableListView that adds tree structure, expand/collapse, and reordering.",
+    "what_it_does": "It lets you build a list of items that can be expanded or collapsed like a tree, while still supporting drag‑to‑reorder. Each item is built via a builder that receives the current model and child widget. The package removes the visibility_detector dependency, so visibility must be handled manually if needed.",
+    "use_when": [
+      "You need a reorderable list with expandable/collapsible tree nodes.",
+      "You want to reuse ReorderableListView API but add hierarchical support.",
+      "You need a simple, declarative way to build custom list items with drag handles."
+    ],
+    "avoid_when": [
+      "You only need a flat list or a simple ListView.",
+      "You require high‑performance scrolling for very large trees.",
+      "You need built‑in visibility detection for lazy loading."
+    ],
+    "strengths": [
+      "Easy integration with existing ReorderableListView code.",
+      "No extra code generation or build_runner steps.",
+      "Supports custom builders and drag handles out of the box."
+    ],
+    "weaknesses": [
+      "Visibility detection removed; must wrap items manually if needed.",
+      "Limited to the features of ReorderableListView; no advanced animations or custom drag logic.",
+      "No support for nested lists beyond a single tree level."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "```dart\nExpandableReorderableList<ValueKey<int>>(\n  onReorder: (details) {\n    setState(() {\n      var newIndex = details.newIndex;\n      if (details.oldIndex < details.newIndex) newIndex -= 1;\n      final item = _items.removeAt(details.oldIndex);\n      _items.insert(newIndex, item);\n    });\n  },\n  children: _items.map((int item) {\n    return ExpandableReorderableListItem<ValueKey<int>>(\n      key: ValueKey<int>(item),\n      builder: (_, child, model) {\n        return ReorderableDragStartListener(\n          index: model.index!,\n          child: ListTile(title: Text('Item $item')),\n        );\n      },\n    );\n  }).toList(),\n);\n```",
+    "confidence": 0.9
+  }
+}

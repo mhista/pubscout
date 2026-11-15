@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.2.0",
+  "generatedAt": "2026-11-15T11:13:13.837Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Inspects active network interfaces, internet capability, validation, metering, and bandwidth.",
+    "what_it_does": "A Flutter plugin providing low-level, system-driven visibility into active network interfaces on a device. It allows apps to inspect multiple simultaneous networks, check internet capability, validation state, metering, and bandwidth estimates.",
+    "use_when": [
+      "You need to know whether a connection actually has internet access (e.g., captive portal detection).",
+      "You need to distinguish metered from unmetered connections to adapt data usage.",
+      "You need bandwidth estimates to adjust media quality on Android.",
+      "You need to reason about multiple simultaneous network interfaces."
+    ],
+    "avoid_when": [
+      "You need broad platform coverage across Windows, Linux, or Web.",
+      "You only need a basic connection type check and do not require interface-level details."
+    ],
+    "strengths": [
+      "Provides detailed inspection of multiple simultaneous network interfaces.",
+      "Exposes internet capability, validation, and metering status across platforms.",
+      "Offers real-time network change streams using native event-driven implementations."
+    ],
+    "weaknesses": [
+      "Limited platform support compared to some alternatives (Android, iOS, macOS only).",
+      "Bandwidth estimates (`downLinkKbps`, `upLinkKbps`) are only available on Android.",
+      "VPN detection behaves differently or is not exposed as a distinct interface type on iOS and macOS."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires Flutter 3.44+ and Dart 3.12+. No special extra manual platform permissions are documented beyond standard plugin inclusion.",
+    "alternatives": [
+      {
+        "name": "connectivity_plus",
+        "why_pick_it": "Pick it if you need broader platform coverage including Windows, Linux, and Web, or only require general connection types."
+      }
+    ],
+    "minimal_example": "import 'package:connectivity_control/connectivity_control.dart';\n\nfinal networks = await ConnectivityControl().getActiveNetworks();\nprint(networks);",
+    "confidence": 0.95
+  }
+}

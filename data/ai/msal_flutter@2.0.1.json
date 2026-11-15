@@ -1,0 +1,37 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.1",
+  "generatedAt": "2026-11-15T11:17:13.784Z",
+  "data": {
+    "primary_category": "auth",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Microsoft Authentication Library wrapper for Android and iOS",
+    "what_it_does": "Wraps the Microsoft Authentication Library (MSAL) for Android and iOS to let users sign in and acquire tokens. Supports public client application functionality using the implicit workflow, interactive token acquisition, silent token acquisition, and logout.",
+    "use_when": [
+      "You need to authenticate users via Microsoft Azure AD / B2C in a Flutter mobile application",
+      "You require interactive or silent token acquisition using native MSAL libraries on Android and iOS"
+    ],
+    "avoid_when": [
+      "You need free support or pull request reviews, as maintenance is limited and the package comes as-is",
+      "You need functionality outside of public client applications and implicit workflow"
+    ],
+    "strengths": [
+      "Provides direct integration with official MSAL libraries for Android and iOS",
+      "Supports Azure AD B2C tenants and custom authorities"
+    ],
+    "weaknesses": [
+      "Maintainers do not offer free support or review PRs",
+      "Early stage / wrapper nature means bugs may require forking to fix"
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Requires setting up Azure AD B2C, configuring AndroidManifest.xml with intent filters and raw JSON config, updating Gradle and Kotlin versions, modifying iOS Info.plist, adding Keychain Sharing capabilities, and modifying AppDelegate.swift.",
+    "alternatives": [],
+    "minimal_example": "var pca = await PublicClientApplication.createPublicClientApplication(\"YOUR-CLIENT-ID\");\ntry {\n  String token = await pca.acquireToken([\"https://msalfluttertest.onmicrosoft.com/msalbackend/user_impersonation\"]);\n} on MsalException {\n  // error handling logic here\n}",
+    "confidence": 0.95
+  }
+}

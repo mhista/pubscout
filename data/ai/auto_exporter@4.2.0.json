@@ -1,0 +1,37 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.2.0",
+  "generatedAt": "2026-11-15T11:29:07.924Z",
+  "data": {
+    "primary_category": "codegen",
+    "secondary_categories": [],
+    "approach": [
+      "code generation"
+    ],
+    "one_liner": "Automatically export Dart classes and enums using annotations and build_runner.",
+    "what_it_does": "Auto Exporter is a code generation tool that automatically creates export directives for Dart classes and enums within a project or sub-packages. It allows developers to control what gets exported using annotations like @AutoExport and @IgnoreExport, and configures via build.yaml.",
+    "use_when": [
+      "You want to automate the maintenance of export statements in large Dart or Flutter packages.",
+      "You need explicit control over what gets exported using annotations."
+    ],
+    "avoid_when": [
+      "Your project does not use code generation or build_runner.",
+      "You prefer manually managing export files."
+    ],
+    "strengths": [
+      "Sorts and formats export lists consistently across different devices and environments.",
+      "Supports sub-package exporting and configurable default export behaviors."
+    ],
+    "weaknesses": [
+      "Requires build_runner to generate files, adding a build step to development.",
+      "Depends on specific versions of the analyzer and build packages."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add auto_exporter_annotation to dependencies, auto_exporter and build_runner to dev_dependencies, and configure build.yaml at the root of the project.",
+    "alternatives": [],
+    "minimal_example": "targets:\n  $default:\n    builders:\n      auto_exporter:\n        options:\n          default_export_all: true\n          project_name: <your plugin name>",
+    "confidence": 0.95
+  }
+}

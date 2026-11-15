@@ -1,0 +1,55 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.0.8",
+  "generatedAt": "2026-11-15T11:16:46.469Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "Flutter plugin to control Sunmi Android barcode scanner via its native service.",
+    "what_it_does": "Provides a Dart API to bind to the Sunmi scanner service, listen to barcode scan events and connection status, and trigger scans programmatically. It wraps the Sunmi Android SDK for hardware barcode scanners.",
+    "use_when": [
+      "You need to use the built‑in barcode scanner on Sunmi Android devices",
+      "You require low‑level control over scanner service lifecycle",
+      "You prefer event‑driven (stream) handling of scan results"
+    ],
+    "avoid_when": [
+      "Your app must run on iOS or non‑Sunmi Android devices",
+      "You want a cross‑platform camera‑based scanner",
+      "You prefer a plug‑and‑play solution without manual service binding"
+    ],
+    "strengths": [
+      "Direct access to Sunmi hardware features",
+      "Stream API for real‑time scan and status events",
+      "Allows manual control of service binding/unbinding"
+    ],
+    "weaknesses": [
+      "Android‑only, Sunmi‑specific",
+      "Requires explicit bind/unbind calls",
+      "Limited to devices that support Sunmi SDK"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add the package, then call SunmiScanner.bindService() (optionally hide toasts) in initState and SunmiScanner.unbindService() in dispose. No extra Dart code generation needed, but the plugin works only on Android devices with Sunmi SDK.",
+    "alternatives": [
+      {
+        "name": "mobile_scanner",
+        "why_pick_it": "Cross‑platform camera barcode scanning without device‑specific SDK"
+      },
+      {
+        "name": "google_mlkit_barcode_scanning",
+        "why_pick_it": "Provides on‑device ML barcode scanning for any Android/iOS device"
+      },
+      {
+        "name": "qr_code_scanner_plus",
+        "why_pick_it": "Simple QR/barcode scanner using the camera, works on all platforms"
+      }
+    ],
+    "minimal_example": "import 'package:sunmi_scanner/sunmi_scanner.dart';\n\nvoid initScanner() async {\n  await SunmiScanner.bindService();\n  SunmiScanner.onBarcodeScanned().listen((code) => print('Scanned: $code'));\n  SunmiScanner.scan();\n}\n",
+    "confidence": 0.9
+  }
+}

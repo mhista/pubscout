@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.4.0",
+  "generatedAt": "2026-11-15T11:15:02.002Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "maps"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Brazilian ZIP code (CEP) lookup via ViaCEP, BrasilAPI and OpenCEP with offline validation and cache.",
+    "what_it_does": "Queries Brazilian postal codes (CEPs) using multiple providers with fallback mechanisms. It also supports address-to-CEP searches, coordinate retrieval, and offline format/range validation.",
+    "use_when": [
+      "Building forms that need to auto-complete addresses based on Brazilian CEPs.",
+      "Looking up latitude and longitude for a given Brazilian ZIP code.",
+      "Validating and formatting CEP strings offline."
+    ],
+    "avoid_when": [
+      "You need global postal code lookups outside of Brazil."
+    ],
+    "strengths": [
+      "Supports multiple fallback providers (ViaCEP, BrasilAPI, OpenCEP).",
+      "Includes offline helpers for validation and state detection.",
+      "Built-in in-memory caching and request timeout handling."
+    ],
+    "weaknesses": [
+      "Limited strictly to Brazilian postal codes.",
+      "Relies on public third-party APIs which may experience downtime or rate limits."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter_cep2/flutter_cep2.dart';\n\nFuture<void> main() async {\n  final cep = FlutterCep2();\n  try {\n    final address = await cep.search('01310-100');\n    print('${address.logradouro}, ${address.localidade}/${address.uf}');\n  } on CepException catch (e) {\n    print('Lookup failed: ${e.message}');\n  } finally {\n    cep.dispose();\n  }\n}",
+    "confidence": 1
+  }
+}

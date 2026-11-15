@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.4.0",
+  "generatedAt": "2026-11-15T11:09:32.151Z",
+  "data": {
+    "primary_category": "testing",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Manages containers for testing purposes in Dart and Flutter.",
+    "what_it_does": "Testainers is a Dart plugin that streamlines the management of containers for testing. It allows developers to programmatically spin up, configure, and tear down isolated test environments using predefined or custom containers like PostgreSQL, Redis, and MongoDB.",
+    "use_when": [
+      "You need to run integration or unit tests requiring real databases or external services inside containers.",
+      "You want automated container lifecycle management within your Dart test suites."
+    ],
+    "avoid_when": [
+      "You are running tests in an environment that does not support Docker or container orchestration.",
+      "You do not use containerized dependencies in your testing workflow."
+    ],
+    "strengths": [
+      "Provides predefined support for common services like PostgreSQL, Redis, and MongoDB.",
+      "Seamlessly integrates with the standard Dart test library for setup and teardown hooks."
+    ],
+    "weaknesses": [
+      "Requires a running Docker/container environment to function.",
+      "Limited documentation outside of basic usage examples."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires a working Docker environment on the host machine to spin up containers during tests.",
+    "alternatives": [],
+    "minimal_example": "import 'dart:io';\nimport 'package:http/http.dart';\nimport 'package:test/test.dart';\nimport 'package:testainers/testainers.dart';\n\nvoid main() {\n  group('Test Httpbucket', () {\n    final TestainersHttpbucket container = TestainersHttpbucket();\n\n    setUpAll(() async {\n      await container.start();\n    });\n\n    test('Http Test', () async {\n      final Response response = await get(\n        Uri.parse('http://localhost:${container.httpPort}/methods'),\n      );\n\n      expect(response.statusCode, 200);\n    });\n\n    tearDownAll(container.stop);\n  });\n}",
+    "confidence": 0.95
+  }
+}

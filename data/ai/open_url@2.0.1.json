@@ -1,0 +1,47 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "2.0.1",
+  "generatedAt": "2026-11-15T11:10:28.891Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "device"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Open a URL with the system's default application on Dart VM platforms.",
+    "what_it_does": "Calls the OS utility (start, xdg-open, open) to launch a URL in the default handler. Works on Android, iOS, Windows, macOS, and Linux when running on the Dart VM. Not usable in Flutter projects, which should use url_launcher instead.",
+    "use_when": [
+      "Running pure Dart code on the VM and need to open a web page or file with the default system app",
+      "You need a lightweight solution without pulling in Flutter dependencies"
+    ],
+    "avoid_when": [
+      "Developing a Flutter app (use url_launcher)",
+      "Targeting the web (use window.open)",
+      "Needing advanced features like checking if a URL can be launched"
+    ],
+    "strengths": [
+      "Zero Flutter dependencies",
+      "Works on all major desktop platforms",
+      "Simple API"
+    ],
+    "weaknesses": [
+      "Only works on Dart VM, not in Flutter or web",
+      "No ability to check launch availability",
+      "No callbacks for success/failure"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "url_launcher",
+        "why_pick_it": "Provides the same functionality for Flutter apps and supports web, with additional launch checks"
+      }
+    ],
+    "minimal_example": "import 'package:open_url/open_url.dart';\n\nvoid main() {\n  openUrl('https://example.com');\n}",
+    "confidence": 0.97
+  }
+}

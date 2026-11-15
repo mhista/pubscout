@@ -1,0 +1,47 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.4.0",
+  "generatedAt": "2026-11-15T11:06:59.982Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "codegen"
+    ],
+    "approach": [
+      "code generation"
+    ],
+    "one_liner": "Integrate Storyblok headless CMS with your Flutter app.",
+    "what_it_does": "Provides an SDK for the Storyblok Content Delivery API to fetch stories, datasources, and links. It also works with a code generator for type-safe serializing.",
+    "use_when": [
+      "You are using Storyblok as the headless CMS for your Flutter application.",
+      "You want to fetch stories and content dynamically using the Storyblok API."
+    ],
+    "avoid_when": [
+      "You are using a different CMS provider than Storyblok."
+    ],
+    "strengths": [
+      "Supports exhaustiveness checking and automatic, type-safe serializing when used with the code generator.",
+      "Includes support for regions outside of the EU."
+    ],
+    "weaknesses": [
+      "Limited to Storyblok integration only.",
+      "Relies on a separate code generator package for full type safety."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the dependency to pubspec.yaml and optionally use the code generator package.",
+    "alternatives": [
+      {
+        "name": "http",
+        "why_pick_it": "If you prefer making direct raw HTTP REST requests to the Storyblok API instead of using a dedicated SDK wrapper."
+      },
+      {
+        "name": "dio",
+        "why_pick_it": "If you prefer a robust HTTP client with interceptors and advanced networking features to query Storyblok manually."
+      }
+    ],
+    "minimal_example": "final storyblokClient = StoryblokClient(\n  accessToken: \"<public_access_token>\",\n  storyContentBuilder: (json) => Blok.fromJson(json),\n);\nfinal story = await storyblokClient.getStory(id: StoryIdentifierID(12345));",
+    "confidence": 1
+  }
+}

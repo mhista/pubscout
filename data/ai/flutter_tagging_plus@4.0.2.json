@@ -1,0 +1,37 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.0.2",
+  "generatedAt": "2026-11-15T11:34:19.142Z",
+  "data": {
+    "primary_category": "forms",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A Flutter package providing tagging and multi-select functionality for forms.",
+    "what_it_does": "It allows users to select, search, and add tags or labels within a form input using a customizable autocomplete-style interface. It provides widgets to configure suggestions, input text fields, and resulting item chips.",
+    "use_when": [
+      "You need a tag selection or multi-select form input field.",
+      "Users need to search through suggestions and dynamically add custom tags."
+    ],
+    "avoid_when": [
+      "You need simple dropdown selection without custom text searching or tagging."
+    ],
+    "strengths": [
+      "Simplifies implementing tag and label selection forms.",
+      "Provides callback hooks for custom suggestions and added tags."
+    ],
+    "weaknesses": [
+      "Depends on specific third-party typeahead packages that may change over time."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "List<Language> _selectedLanguages = [];\n\nFlutterTagging<Language>(\n    initialItems: _selectedLanguages,\n    textFieldConfiguration: TextFieldConfiguration(\n        decoration: InputDecoration(\n            labelText: 'Select Tags',\n        ),\n    ),\n    findSuggestions: LanguageService.getLanguages,\n    configureSuggestion: (lang) => SuggestionConfiguration(title: Text(lang.name)),\n    configureChip: (lang) => ChipConfiguration(label: Text(lang.name)),\n    onChanged: () {},\n);",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.0.0",
+  "generatedAt": "2026-11-15T11:22:19.701Z",
+  "data": {
+    "primary_category": "camera",
+    "secondary_categories": [
+      "ai-ml"
+    ],
+    "approach": [
+      "imperative",
+      "declarative"
+    ],
+    "one_liner": "Google ML Kit text recognition (OCR) plugin for Flutter supporting Android and iOS.",
+    "what_it_does": "Provides real-time camera text recognition and image byte OCR using Google ML Kit. Supports multiple languages including Latin, Chinese, Japanese, Korean, and Devanagari, and returns text blocks, lines, and elements with their bounding coordinates.",
+    "use_when": [
+      "You need real-time OCR text recognition from a camera preview",
+      "You need to scan text from image bytes on Android and iOS",
+      "You want built-in support for multiple languages like Chinese, Japanese, and Korean"
+    ],
+    "avoid_when": [
+      "You only need barcode or QR code scanning without full text recognition",
+      "You are targeting iOS simulators with arm64 where static libraries are not supported"
+    ],
+    "strengths": [
+      "Real-time camera preview text recognition with overlay customization",
+      "Supports both camera streams and static image byte recognition",
+      "Multiple language support including Chinese, Japanese, and Korean"
+    ],
+    "weaknesses": [
+      "iOS static libraries do not support arm64 simulators (requires real device or Rosetta)",
+      "Requires specific platform versions like iOS 15.5+ and Android minSdk 23"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding camera and photo library usage descriptions to Info.plist on iOS and meeting platform requirements such as iOS 15.5+ and Android minSdk 23.",
+    "alternatives": [
+      {
+        "name": "mobile_scanner",
+        "why_pick_it": "If you specifically need fast and versatile barcode or QR code scanning instead of general text OCR."
+      }
+    ],
+    "minimal_example": "FlMlKitTextRecognize(\n  recognizedLanguage: RecognizedLanguage.chinese,\n  resolution: CameraResolution.high,\n  frequency: 800,\n  autoRecognize: true,\n  overlay: const ScannerLine(),\n  onDataChanged: (AnalysisTextModel data) {\n    debugPrint(data.text);\n  },\n)",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.4.0",
+  "generatedAt": "2026-11-15T11:06:54.218Z",
+  "data": {
+    "primary_category": "forms",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Schema validation and transformation library for Dart, inspired by Zod",
+    "what_it_does": "Zard provides a schema definition, validation, and transformation library for Dart. It supports standard types, complex nested objects, custom refinements, asynchronous validations, and performance-optimized validation checks.",
+    "use_when": [
+      "You need to validate complex data structures or API payloads in Dart or Flutter.",
+      "You want Zod-like schema validation semantics in your Dart applications."
+    ],
+    "avoid_when": [
+      "You need compile-time code generation for immutable models rather than runtime validation."
+    ],
+    "strengths": [
+      "Extensive built-in string, numeric, list, and map validators including ISO dates and network types.",
+      "High performance that meets or beats Zod on many operations.",
+      "Supports both throwing and non-throwing parse APIs along with async refinements."
+    ],
+    "weaknesses": [
+      "Closure-only constraints like custom refinements cannot be introspected for static schema exporting.",
+      "Slightly slower than V8 on complex nested objects due to Dart VM limitations."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add zard to dependencies in pubspec.yaml and import package:zard/zard.dart.",
+    "alternatives": [],
+    "minimal_example": "import 'package:zard/zard.dart';\n\nvoid main() {\n  final schema = z.string().min(3).email();\n  final result = schema.safeParse('example@example.com');\n  if (result.success) {\n    print(result.data);\n  }\n}",
+    "confidence": 1
+  }
+}

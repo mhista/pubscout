@@ -1,0 +1,47 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.1",
+  "generatedAt": "2026-11-15T11:31:13.487Z",
+  "data": {
+    "primary_category": "localization",
+    "secondary_categories": [
+      "device"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Detailed information about 250 countries including dial codes, time zones, and localized names.",
+    "what_it_does": "Provides data on 250 countries, such as calling codes, time zones, ISO codes, and flag image paths. It can automatically resolve country information based on the device locale and load localized country names.",
+    "use_when": [
+      "You need a comprehensive country database including dial codes, time zones, and ISO codes.",
+      "You need to display localized country names matching the device's locale."
+    ],
+    "avoid_when": [
+      "You only need a simple phone input field with country pickers (use intl_phone_field instead)."
+    ],
+    "strengths": [
+      "Covers 250 countries with extensive properties like capital, continent, currency, and flags.",
+      "Supports automatic device locale detection and optional localized country names."
+    ],
+    "weaknesses": [
+      "Requires an asynchronous initialization call (initializeLocalizedName) if you want to use localized names."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Optionally call await initializeLocalizedName() in your main function before running the app if you need localized names.",
+    "alternatives": [
+      {
+        "name": "intl_phone_field",
+        "why_pick_it": "If your primary goal is a form field for entering international phone numbers with a country code picker."
+      },
+      {
+        "name": "devicelocale",
+        "why_pick_it": "If you only need device locale detection without the full country information database."
+      }
+    ],
+    "minimal_example": "import 'package:world_info_plus/world_info_plus.dart';\n\nvoid main() async {\n  WidgetsFlutterBinding.ensureInitialized();\n  await initializeLocalizedName();\n  runApp(const MyApp());\n}\n\n// Basic Usage\nList<Country> countries = WorldInfoPlus.countries;\nCountry? countryUS = WorldInfoPlus.getCountryByAlpha2('US');",
+    "confidence": 0.95
+  }
+}

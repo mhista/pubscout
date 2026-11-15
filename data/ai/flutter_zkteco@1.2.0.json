@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "1.2.0",
+  "generatedAt": "2026-11-15T10:57:33.436Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter plugin to connect to ZKTeco fingerprint machines over TCP/IP",
+    "what_it_does": "Provides methods to connect, retrieve attendance logs, user data, and disconnect from fingerprint devices. Supports real‑time and batch data retrieval.",
+    "use_when": [
+      "You need to integrate fingerprint attendance in a Flutter app",
+      "You have a ZKTeco or compatible device on the network",
+      "You want a simple API without writing native code"
+    ],
+    "avoid_when": [
+      "You need cross‑platform biometric authentication via device sensors",
+      "You require offline storage of attendance data",
+      "You need a fully managed backend for attendance"
+    ],
+    "strengths": [
+      "Easy TCP/IP connection setup",
+      "Built‑in methods for logs and user data",
+      "Supports live attendance streams",
+      "No external dependencies beyond Flutter"
+    ],
+    "weaknesses": [
+      "Limited to ZKTeco and similar devices",
+      "No support for Android/iOS biometric APIs",
+      "No offline storage or sync features"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dependency, import package, create ZKTeco instance, call connect()",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter_zkteco/flutter_zkteco.dart';\n\nfinal machine = ZKTeco('192.168.1.201', port: 4370);\nawait machine.connect();\nfinal logs = await machine.getAttendanceLogs();\nawait machine.disconnect();",
+    "confidence": 0.85
+  }
+}

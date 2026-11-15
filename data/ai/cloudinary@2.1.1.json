@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.1.1",
+  "generatedAt": "2026-11-15T11:35:01.798Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "utils",
+      "storage"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Pure Dart Cloudinary SDK for upload, admin, search, and signed delivery URLs.",
+    "what_it_does": "Provides a complete Cloudinary client written in pure Dart with no Flutter dependency. It handles uploads, the Admin and Search APIs, and constructs signed delivery URLs.",
+    "use_when": [
+      "You need to interact with Cloudinary from a Dart backend, CLI, or Flutter app.",
+      "You want to share your media code between Flutter and server-side Dart.",
+      "You need comprehensive coverage of Cloudinary's Upload, Admin, and Search APIs."
+    ],
+    "avoid_when": [
+      "You only need to build delivery URLs and never call an API (use cloudinary_url_gen instead).",
+      "You prefer official first-party packages like cloudinary_api and cloudinary_url_gen."
+    ],
+    "strengths": [
+      "Pure Dart with zero Flutter dependencies.",
+      "Complete coverage of Upload, Admin, and Search APIs.",
+      "Synchronous and pure delivery URL building."
+    ],
+    "weaknesses": [
+      "Transformation DSL is less expressive than the dedicated cloudinary_url_gen package."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires a Cloudinary account. Set up your cloud name, API key, and API secret, or use unsigned upload presets for client apps.",
+    "alternatives": [],
+    "minimal_example": "final cloudinary = Cloudinary.unsigned(cloudName: 'your-cloud');\n\nfinal result = await cloudinary.upload.upload(\n  file: const CloudinaryFileSource.path('/path/to/photo.jpg'),\n  folder: 'trips/2026',\n);\nprint(result.secureUrl);",
+    "confidence": 0.95
+  }
+}

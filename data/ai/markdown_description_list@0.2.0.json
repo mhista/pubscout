@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.2.0",
+  "generatedAt": "2026-11-15T10:55:14.421Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Adds support for Markdown description/definition lists to the markdown package",
+    "what_it_does": "Provides a Syntax class that can be added to markdown's block syntaxes to parse description lists. It renders them as HTML definition lists.",
+    "use_when": [
+      "You need to parse or render Markdown that contains definition lists",
+      "You are already using the markdown package and want minimal extra code"
+    ],
+    "avoid_when": [
+      "You are not using markdown or need a full Markdown parser replacement",
+      "You need advanced Markdown extensions beyond description lists"
+    ],
+    "strengths": [
+      "Simple API, no build_runner or codegen",
+      "Works with existing markdown package",
+      "Supports custom term limits and indentation rules"
+    ],
+    "weaknesses": [
+      "Only supports description lists, no other extensions",
+      "Requires markdown ^7.3.1 and Dart 3.10+",
+      "No UI widgets, only parsing logic"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add markdown and markdown_description_list to pubspec, import the library, and include DescriptionListSyntax in Document or markdownToHtml",
+    "alternatives": [],
+    "minimal_example": "import 'package:markdown/markdown.dart' as md;\nimport 'package:markdown_description_list/markdown_description_list.dart';\n\nfinal document = md.Document(blockSyntaxes: [const DescriptionListSyntax()]);\nfinal html = md.markdownToHtml('''\nTerm\n: Description\n''', blockSyntaxes: [const DescriptionListSyntax()]);",
+    "confidence": 0.85
+  }
+}

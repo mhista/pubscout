@@ -1,0 +1,50 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.0.0",
+  "generatedAt": "2026-11-15T10:57:14.700Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "maps"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "A fully typed Dart SDK to access the Open-Meteo weather, air quality, and climate APIs.",
+    "what_it_does": "Provides API clients for all Open-Meteo services including weather, historical data, air quality, marine conditions, and geocoding. It supports type-safe requests via FlatBuffers as well as raw JSON responses.",
+    "use_when": [
+      "You need weather, climate, or air quality data in a Dart or Flutter application.",
+      "You want type-safe API responses using FlatBuffers for performance."
+    ],
+    "avoid_when": [
+      "You require real-time bidirectional weather streaming via WebSockets.",
+      "You need a backend database or device storage for weather caching."
+    ],
+    "strengths": [
+      "Full typed support with enums and DateTime conversions for Open-Meteo parameters.",
+      "Supports multiple locations and segmented responses in a single request.",
+      "Optimized performance using FlatBuffers under the hood."
+    ],
+    "weaknesses": [
+      "Geocoding and Elevation APIs are limited to JSON response methods.",
+      "Strictly bound to the Open-Meteo service ecosystem."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "No special native setup or build_runner required.",
+    "alternatives": [
+      {
+        "name": "dio",
+        "why_pick_it": "If you prefer a general-purpose HTTP client for custom REST APIs instead of a dedicated Open-Meteo SDK."
+      },
+      {
+        "name": "http",
+        "why_pick_it": "If you want to make low-level HTTP requests to the Open-Meteo API manually without a wrapper SDK."
+      }
+    ],
+    "minimal_example": "import 'package:open_meteo/open_meteo.dart';\n\nvoid main() async {\n  final weather = WeatherApi(\n    userAgent: \"My-Flutter-App\",\n    temperatureUnit: TemperatureUnit.celsius,\n  );\n  final response = await weather.request(\n    locations: {\n      OpenMeteoLocation(\n        latitude: 16.16667,\n        longitude: 107.83333,\n      )\n    },\n    hourly: {WeatherHourly.temperature_2m},\n  );\n  final temperatures = response.segments[0].hourlyData[WeatherHourly.temperature_2m]?.values;\n  print(temperatures);\n}",
+    "confidence": 1
+  }
+}

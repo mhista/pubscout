@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "1.6.0",
+  "generatedAt": "2026-11-15T11:23:12.729Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A Flutter widget that embeds Google Blockly for visual programming.",
+    "what_it_does": "It provides a Blockly editor inside a Flutter app, exposing methods to inject, update, and retrieve code in multiple languages. The editor runs in a WebView on mobile and a native iframe on web.",
+    "use_when": [
+      "You need a drag‑and‑drop coding interface for users",
+      "You want to support multiple target languages (Dart, JS, Python, etc.)",
+      "You target Android, iOS, web, and macOS with a single code base"
+    ],
+    "avoid_when": [
+      "You require native performance or low memory footprint",
+      "You need a fully custom block set that cannot be loaded via XML",
+      "You are building a lightweight app that cannot afford a WebView"
+    ],
+    "strengths": [
+      "Cross‑platform support via WebView/Web",
+      "Rich API for injecting, updating, and retrieving code",
+      "Supports many languages out of the box"
+    ],
+    "weaknesses": [
+      "Depends on WebView which adds overhead",
+      "Limited customization of the Blockly UI beyond XML",
+      "Requires platform‑specific setup for web and mobile"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add webview_flutter to pubspec, configure AndroidManifest and iOS Info.plist for WebView, import flutter_blockly and instantiate BlocklyEditorWidget.",
+    "alternatives": [],
+    "minimal_example": "```dart\nimport 'package:flutter_blockly/flutter_blockly.dart';\n\nclass MyEditor extends StatelessWidget {\n  @override\n  Widget build(BuildContext context) {\n    return Scaffold(\n      body: SafeArea(\n        child: BlocklyEditorWidget(\n          workspaceConfiguration: {},\n          initial: '',\n          onChange: ({xml, json, dart, js, lua, php, python}) {\n            // handle changes\n          },\n        ),\n      ),\n    );\n  }\n}\n```",
+    "confidence": 0.8
+  }
+}

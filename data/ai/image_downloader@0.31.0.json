@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.31.0",
+  "generatedAt": "2026-11-15T11:33:07.533Z",
+  "data": {
+    "primary_category": "files",
+    "secondary_categories": [
+      "images"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Download internet images and media files and save them to device storage.",
+    "what_it_does": "Downloads images and movies from the internet and saves them to the device's photo library on iOS or a specified directory on Android. It preserves EXIF data and GPS coordinates, and provides progress updates and file metadata retrieval.",
+    "use_when": [
+      "You need to save internet images or movies directly to the device storage or photo library",
+      "You need to track download progress for media files"
+    ],
+    "avoid_when": [
+      "You only need to display images in the UI (use cached_network_image instead)",
+      "You need a general-purpose HTTP networking library for all REST requests"
+    ],
+    "strengths": [
+      "Keeps EXIF and GPS data intact",
+      "Supports custom directories and progress callbacks",
+      "Can open and preview downloaded files immediately"
+    ],
+    "weaknesses": [
+      "Requires platform-specific permissions setup for Android and iOS",
+      "External storage features depend heavily on Android device differences"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding NSPhotoLibraryUsageDescription and NSPhotoLibraryAddUsageDescription to Info.plist on iOS, and WRITE_EXTERNAL_STORAGE permission or FileProvider configuration on Android depending on the destination.",
+    "alternatives": [],
+    "minimal_example": "try {\n  var imageId = await ImageDownloader.downloadImage(\"https://raw.githubusercontent.com/wiki/ko2ic/image_downloader/images/flutter.png\");\n  if (imageId == null) {\n    return;\n  }\n  var path = await ImageDownloader.findPath(imageId);\n} on PlatformException catch (error) {\n  print(error);\n}",
+    "confidence": 0.9
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.6.0",
+  "generatedAt": "2026-11-15T10:55:59.749Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "auth"
+    ],
+    "approach": [
+      "code generation",
+      "imperative"
+    ],
+    "one_liner": "A Dart wrapper for Twitter API v1.1 with typed models and endpoint methods.",
+    "what_it_does": "The package provides typed service classes for Twitter v1.1 endpoints, handling OAuth1 authentication and parsing responses into Dart models. It also offers a low‑level client for custom requests.",
+    "use_when": [
+      "You need to interact with Twitter's v1.1 REST API from a Dart/Flutter app",
+      "You prefer typed, documented methods over manual HTTP calls",
+      "You want built‑in OAuth1 handling"
+    ],
+    "avoid_when": [
+      "You need Twitter API v2 support (use twitter-api-v2)",
+      "You require a lightweight HTTP client without code‑gen models"
+    ],
+    "strengths": [
+      "Well‑documented endpoint methods",
+      "Automatic JSON (de)serialization via json_serializable",
+      "OAuth1 authentication built‑in",
+      "Supports all major platforms"
+    ],
+    "weaknesses": [
+      "Only covers v1.1, not the newer v2 API",
+      "Adds build_runner step for code generation",
+      "Relies on http package, so no advanced features like interceptors"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add the package, run `dart pub get`, then execute `dart run build_runner build` to generate JSON models; configure OAuth1 credentials.",
+    "alternatives": [],
+    "minimal_example": "import 'package:dart_twitter_api/twitter_api.dart';\n\nvoid main() async {\n  final twitter = TwitterApi(\n    consumerKey: 'YOUR_KEY',\n    consumerSecret: 'YOUR_SECRET',\n    accessToken: 'YOUR_TOKEN',\n    accessTokenSecret: 'YOUR_TOKEN_SECRET',\n  );\n  final tweet = await twitter.tweetService.create(status: 'Hello from Dart!');\n  print('Tweeted: ${tweet.id}');\n}",
+    "confidence": 0.92
+  }
+}

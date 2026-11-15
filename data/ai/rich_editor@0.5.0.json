@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.5.0",
+  "generatedAt": "2026-11-15T11:06:24.521Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "ui-kits"
+    ],
+    "approach": [
+      "imperative",
+      "declarative"
+    ],
+    "one_liner": "WYSIWYG rich text editor widget for Flutter using a WebView.",
+    "what_it_does": "Provides a rich‑text editing surface with formatting, lists, images, videos, links and more. Content can be retrieved or set as HTML or Tiptap/ProseMirror JSON. A customizable toolbar and theming support are included.",
+    "use_when": [
+      "You need a full‑featured rich‑text editor on Android/iOS",
+      "You want HTML/JSON output and a customizable toolbar",
+      "You need RTL support and theme‑aware styling"
+    ],
+    "avoid_when": [
+      "You require a pure‑Dart editor without a WebView",
+      "You target web or desktop platforms",
+      "You need a minimal bundle size"
+    ],
+    "strengths": [
+      "Extensive formatting options",
+      "Customizable and localizable toolbar",
+      "HTML and JSON content handling",
+      "Follows app theme and supports RTL"
+    ],
+    "weaknesses": [
+      "Depends on flutter_inappwebview, increasing app size",
+      "Requires native setup (Info.plist, permissions)",
+      "Limited to mobile platforms"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Configure flutter_inappwebview and image_picker per their docs, add iOS photo library usage description and NSAllowsLocalNetworking in Info.plist, ensure Android System WebView 80+ is available.",
+    "alternatives": [],
+    "minimal_example": "final controller = RichEditorController();\nRichEditor(\n  controller: controller,\n  value: '<p>Hello</p>',\n  editorOptions: const RichEditorOptions(\n    placeholder: 'Start typing',\n    barPosition: BarPosition.top,\n  ),\n  onChanged: (html) => print(html),\n  getImageUrl: (image) async {\n    final base64 = base64Encode(await image.readAsBytes());\n    return 'data:image/png;base64,$base64';\n  },\n);",
+    "confidence": 0.85
+  }
+}

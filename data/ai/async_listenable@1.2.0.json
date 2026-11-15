@@ -1,0 +1,47 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "1.2.0",
+  "generatedAt": "2026-11-15T11:18:28.521Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "stream-based",
+      "no codegen"
+    ],
+    "one_liner": "Provides a ValueListenable‑like API for async operations, exposing an AsyncSnapshot.",
+    "what_it_does": "It defines AsyncListenable, an interface that delivers AsyncSnapshot updates for Futures or Streams. AsyncNotifier implements this interface and lets you set or replace async sources, while AsyncListenableBuilder rebuilds widgets based on snapshot changes.",
+    "use_when": [
+      "You need to observe async results outside the widget tree",
+      "You want a ValueListenable‑style API for Futures/Streams",
+      "You need to rebuild UI when async state (data, error, loading) changes"
+    ],
+    "avoid_when": [
+      "A simple FutureBuilder or StreamBuilder is sufficient",
+      "You require full state‑management solutions like Bloc or Riverpod"
+    ],
+    "strengths": [
+      "Integrates with existing ValueListenable patterns",
+      "Handles both Future and Stream uniformly",
+      "Provides snapshot (data, error, loading) out of the box"
+    ],
+    "weaknesses": [
+      "Limited to async snapshot handling, no broader state‑management features",
+      "No code generation or advanced tooling"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "async",
+        "why_pick_it": "Provides general async utilities and Stream helpers, though without the ValueListenable‑style snapshot API"
+      }
+    ],
+    "minimal_example": "final notifier = AsyncNotifier<int>()..set(Future.value(42));\nAsyncListenableBuilder(\n  notifier: notifier,\n  builder: (context, snapshot) => Text(snapshot.data?.toString() ?? ''),\n);",
+    "confidence": 0.9
+  }
+}

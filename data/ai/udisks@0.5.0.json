@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.5.0",
+  "generatedAt": "2026-11-15T11:19:40.919Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Dart client for interacting with the UDisks D-Bus service on Linux.",
+    "what_it_does": "Connects to the UDisks daemon via D-Bus to query version, supported filesystems, and manage disks and storage devices. Provides a simple API for Linux desktop applications to monitor and manipulate storage.",
+    "use_when": [
+      "Building Linux desktop apps that need to query or control disks",
+      "Need D-Bus access to UDisks for storage management"
+    ],
+    "avoid_when": [
+      "Targeting mobile, web, or non‑Linux platforms",
+      "You need a cross‑platform storage solution"
+    ],
+    "strengths": [
+      "Lightweight and focused on UDisks",
+      "Uses the dbus package for native D-Bus communication",
+      "Simple, imperative API"
+    ],
+    "weaknesses": [
+      "Linux‑only; no support for other OSes",
+      "Limited documentation beyond README"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Just add the package; ensure D-Bus is available on the Linux system",
+    "alternatives": [],
+    "minimal_example": "import 'package:udisks/udisks.dart';\n\nvar client = UDisksClient();\nawait client.connect();\nprint('Running UDisks ${client.version}');\nprint('Supported filesystems: ${client.supportedFilesystems.join(' ')}');\nawait client.close();",
+    "confidence": 0.9
+  }
+}

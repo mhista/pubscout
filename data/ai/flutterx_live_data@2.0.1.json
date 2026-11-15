@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.1",
+  "generatedAt": "2026-11-15T11:09:31.948Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [
+      "storage"
+    ],
+    "approach": [
+      "declarative",
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Observable data holders inspired by Android LiveData with lazy activation and history.",
+    "what_it_does": "Provides observable data holders, one-shot events, reactive mediators, history, persistence, and collection wrappers inspired by Android LiveData. Integrates with Flutter through dedicated widget builders and an observer mixin.",
+    "use_when": [
+      "You want Android LiveData style observables in Flutter",
+      "You need undo/redo history or persistence for individual state objects and collections",
+      "You prefer an imperative/reactive wrapper model without code generation"
+    ],
+    "avoid_when": [
+      "You are already using a different major state management solution like BLoC or Riverpod",
+      "You require complex unidirectional data flow architectures"
+    ],
+    "strengths": [
+      "Includes built-in support for collections, events, history, and storage",
+      "Seamlessly integrates with Flutter's Listenable and ValueListenable",
+      "Lazy activation and mediator patterns out of the box"
+    ],
+    "weaknesses": [
+      "Strict runtime checks that throw StateError on duplicate observers or uninitialized reads",
+      "Niche state management paradigm tailored after Android LiveData"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "final counter = MutableLiveData<int>(value: 0);\n\nLiveDataBuilder<int>(\n  data: counter,\n  placeholder: const CircularProgressIndicator(),\n  builder: (context, value) => Text('$value'),\n)",
+    "confidence": 0.95
+  }
+}

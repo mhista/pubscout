@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.0.24",
+  "generatedAt": "2026-11-15T11:08:17.055Z",
+  "data": {
+    "primary_category": "backend",
+    "secondary_categories": [
+      "networking",
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "A Dart client for Discord Interactions using webhooks, suited for serverless bots.",
+    "what_it_does": "Provides classes to validate Discord webhook requests, build interaction responses, and call Discord's REST API. It wraps Dio and adds response validation for reliable serverless operation.",
+    "use_when": [
+      "You need a lightweight Discord bot that runs on serverless platforms like Cloud Run",
+      "You want to handle slash commands and other interactions via webhooks without managing a gateway connection"
+    ],
+    "avoid_when": [
+      "You require real‑time events via the Discord gateway",
+      "You need a full‑featured Discord client with voice or streaming support"
+    ],
+    "strengths": [
+      "Full support for many Discord API endpoints, unit‑tested",
+      "Designed for serverless deployment with minimal runtime overhead",
+      "Uses Dio with response validation for robust HTTP calls"
+    ],
+    "weaknesses": [
+      "Only works with webhook‑based interactions, no gateway support",
+      "Package is still in‑progress and may lack some advanced features"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add the package, provide your application public key, bot token or credentials token, and configure DiscordUserAgent; no build_runner needed",
+    "alternatives": [],
+    "minimal_example": "final validator = InteractionValidator(applicationPublicKey: 'YOUR_KEY');\nfinal valid = validator.validate(headers: request.headers, body: body);\nif (!valid) return Response(401, body: 'invalid request signature');\nfinal interaction = Interaction.fromJson(jsonDecode(body));\nif (interaction.type == InteractionType.ping) {\n  return Response.ok(jsonEncode(InteractionResponse.pong()));\n}",
+    "confidence": 0.85
+  }
+}

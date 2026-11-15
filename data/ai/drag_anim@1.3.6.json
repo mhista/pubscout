@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.3.6",
+  "generatedAt": "2026-11-15T11:17:01.727Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "animation"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Supports reorderable drag-and-drop sorting for grids, lists, and slivers in Flutter.",
+    "what_it_does": "Provides a DragAnim widget that allows reorderable drag-and-drop sorting for virtually all widgets, including Web, Android, iOS, Windows, macOS, and Linux. It supports complex layouts like ListView, GridView, Waterfall, and Sliver series, including multiple drag-and-drop zones.",
+    "use_when": [
+      "You need drag-and-drop reordering inside GridViews, ListViews, or custom Sliver layouts.",
+      "You want support for multi-component or cross-sliver dragging and dropping."
+    ],
+    "avoid_when": [
+      "You require standard simple reordering where the built-in ReorderableListView is sufficient.",
+      "You forget to pass a scrollController and scrollDirection, which will break automatic edge scrolling."
+    ],
+    "strengths": [
+      "Supports a wide variety of widgets including ListViews, GridViews, and Sliver series.",
+      "Supports multiple drags and drops such as SliverList combined with SliverGrid.",
+      "Cross-platform support across mobile, desktop, and web."
+    ],
+    "weaknesses": [
+      "Requires explicitly passing a scrollController and scrollDirection to enable edge auto-scrolling.",
+      "Limited documentation outside of README examples."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "DragAnim(\n  scrollController: scrollController,\n  scrollDirection: Axis.vertical,\n  buildItems: (dragItems) {\n    return GridView.builder(\n      controller: scrollController,\n      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 6),\n      itemBuilder: (_, index) {\n        return dragItems(\n          data: items[index],\n          child: Text(items[index]),\n          key: ValueKey<String>(items[index]),\n        );\n      },\n      itemCount: items.length,\n    );\n  },\n  dataList: items,\n)",
+    "confidence": 0.95
+  }
+}

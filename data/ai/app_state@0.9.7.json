@@ -1,0 +1,52 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.9.7",
+  "generatedAt": "2026-11-15T11:15:02.297Z",
+  "data": {
+    "primary_category": "navigation",
+    "secondary_categories": [
+      "state-management"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Stateful navigation stack built on Flutter's Router API",
+    "what_it_does": "Provides a type‑safe, state‑first navigation system that keeps page states alive, supports deep‑linking, and recovers the stack from URLs.",
+    "use_when": [
+      "Large apps with complex navigation and state that needs to survive rebuilds",
+      "Projects that require compile‑time type safety for push/pop operations",
+      "Apps that need URL‑based stack recovery for web and deep linking"
+    ],
+    "avoid_when": [
+      "Small or simple apps that only need basic navigation",
+      "Teams that prefer a declarative routing approach like go_router or auto_route"
+    ],
+    "strengths": [
+      "Compile‑time type safety for navigation",
+      "State‑first architecture keeps page state separate from widgets",
+      "Automatic stack recovery from URLs",
+      "Dialog results survive app restarts"
+    ],
+    "weaknesses": [
+      "Steeper learning curve compared to simpler routers",
+      "Less community support and fewer examples",
+      "Requires manual setup of PageStack and delegates"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add dependencies, create a global PageStack, use PageStacksRouterDelegate in MaterialApp.router, provide PageStackNavigator",
+    "alternatives": [
+      {
+        "name": "go_router",
+        "why_pick_it": "Simpler declarative routing with built‑in deep linking and state management via GoRouterState"
+      },
+      {
+        "name": "auto_route",
+        "why_pick_it": "Code‑generated routes with type safety and easy navigation API"
+      }
+    ],
+    "minimal_example": "```dart\nfinal pageStack = PageStack();\nfinal routerDelegate = PageStacksRouterDelegate(pageStack: pageStack);\nMaterialApp.router(\n  routerDelegate: routerDelegate,\n  routeInformationParser: PageStackRouteInformationParser(),\n);\n```",
+    "confidence": 0.8
+  }
+}

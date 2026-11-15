@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.3.0",
+  "generatedAt": "2026-11-15T11:33:13.834Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [],
+    "approach": [
+      "declarative",
+      "imperative"
+    ],
+    "one_liner": "Run FFMPEG CLI commands from Dart.",
+    "what_it_does": "Allows you to configure and execute FFMPEG and FFPROBE CLI commands directly using Dart code. It provides classes to build filter graphs, inputs, outputs, and arguments for audio and video processing.",
+    "use_when": [
+      "You need to process audio or video files using FFMPEG within a Dart or Flutter project.",
+      "You prefer writing structured Dart objects over raw command-line strings for FFMPEG commands."
+    ],
+    "avoid_when": [
+      "FFMPEG is not installed on the target device or system path.",
+      "You need comprehensive and complete FFPROBE support for every possible output property immediately."
+    ],
+    "strengths": [
+      "Purposefully retains the full complexity of FFMPEG so anything the CLI can do is possible.",
+      "Structured Dart API for building complex filter graphs and commands."
+    ],
+    "weaknesses": [
+      "Requires FFMPEG to be separately installed on the host device.",
+      "FFPROBE support is partial and properties are added as discovered due to the large scope."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Make sure that ffmpeg is installed on your device and is available on your system path.",
+    "alternatives": [],
+    "minimal_example": "final command = FfmpegCommand(inputs: [FfmpegInput.asset('assets/input.mp4')], outputFilepath: '/my/output/file.mp4');\nfinal process = await Ffmpeg().run(command: command);",
+    "confidence": 0.95
+  }
+}

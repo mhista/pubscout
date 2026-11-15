@@ -1,0 +1,37 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.3",
+  "generatedAt": "2026-11-15T11:18:13.409Z",
+  "data": {
+    "primary_category": "devtools",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Unifies working with multiple analytic services using custom strategies.",
+    "what_it_does": "Provides an interface and base classes to unify how analytical actions are sent to various analytic services. It introduces concepts like AnalyticAction, AnalyticStrategy, and AnalyticService to coordinate event tracking across different platforms.",
+    "use_when": [
+      "You need a unified interface to send tracking events to multiple analytics providers.",
+      "You want to organize analytics logic into clear strategy classes."
+    ],
+    "avoid_when": [
+      "You are looking for a package that comes with pre-integrated analytics SDKs out of the box.",
+      "You only use a single analytics provider and prefer using its official SDK directly."
+    ],
+    "strengths": [
+      "Clean architecture separating analytic actions from delivery strategies.",
+      "Easily extendable to support any custom analytics API."
+    ],
+    "weaknesses": [
+      "Requires writing custom implementation strategies for each analytics service you use.",
+      "Does not include pre-built integrations for popular analytics providers."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [],
+    "minimal_example": "class MyAnalyticAction implements AnalyticAction {\n    final String key;\n    final String value;\n\n    MyAnalyticAction(this.key, this.value);\n}\n\nfinal analyticService = AnalyticService.withStrategies({\n    MyAnalyticStrategy(analytics),\n});\n\nanalyticService.performAction(ButtonPressedAction());",
+    "confidence": 0.95
+  }
+}

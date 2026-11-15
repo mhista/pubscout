@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.1.0",
+  "generatedAt": "2026-11-15T11:26:02.021Z",
+  "data": {
+    "primary_category": "navigation",
+    "secondary_categories": [
+      "animation"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Universal and customizable back gesture for any custom page transitions in Flutter.",
+    "what_it_does": "Provides a configurable edge swipe back gesture that works with custom page transitions and standard routers like GoRouter. Allows customization of detection areas, velocity thresholds, swipe distance, and animation curves.",
+    "use_when": [
+      "You want to add an interactive swipe-to-pop gesture to custom page transitions",
+      "You need fine-grained control over swipe sensitivity, thresholds, and animation curves for going back"
+    ],
+    "avoid_when": [
+      "You are satisfied with the default platform-specific back gestures provided by Flutter",
+      "Your navigation setup does not use custom page transitions or standard PageTransitionsTheme builders"
+    ],
+    "strengths": [
+      "Highly customizable gesture parameters including swipe area, range, and velocity thresholds",
+      "Compatible with PopScope and GoRouter",
+      "Works across multiple platforms (Android, iOS, Web, Windows, macOS, Linux)"
+    ],
+    "weaknesses": [
+      "Requires manual configuration for custom route setups",
+      "Not a drop-in replacement for standard routing without setting up PageTransitionsTheme or custom Page routes"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "go_router",
+        "why_pick_it": "If you are looking for a complete declarative routing and deep linking solution rather than just back gesture handling."
+      },
+      {
+        "name": "auto_route",
+        "why_pick_it": "If you need strongly typed route generation and advanced navigation features."
+      }
+    ],
+    "minimal_example": "MaterialApp(\n  theme: ThemeData(\n    pageTransitionsTheme: PageTransitionsTheme(\n      builders: {\n        for (final platform in TargetPlatform.values)\n          platform: BackGesturePageTransitionsBuilder(\n            parentTransitionBuilder: const FadeForwardsPageTransitionsBuilder(),\n            config: BackGestureConfig(),\n          ),\n      },\n    ),\n  ),\n);",
+    "confidence": 0.95
+  }
+}

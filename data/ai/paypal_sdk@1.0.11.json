@@ -1,0 +1,53 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "1.0.11",
+  "generatedAt": "2026-11-15T11:10:09.913Z",
+  "data": {
+    "primary_category": "payments",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "PayPal SDK for integrating PayPal REST APIs in Dart/Flutter apps.",
+    "what_it_does": "Provides Dart wrappers for PayPal REST endpoints such as catalog products, orders, payments, subscriptions, and webhooks. Handles authentication, request building, and response parsing for PayPal services.",
+    "use_when": [
+      "You need to call PayPal REST APIs directly from a Flutter/Dart app",
+      "You want a pure‑Dart client that works on mobile, web and desktop",
+      "You need built‑in support for PayPal orders, subscriptions or webhooks"
+    ],
+    "avoid_when": [
+      "You require a payment gateway other than PayPal",
+      "You need a full‑featured UI checkout flow (the SDK is API‑only)",
+      "You prefer a server‑side integration for security reasons"
+    ],
+    "strengths": [
+      "Covers most PayPal APIs (orders, payments, subscriptions, webhooks)",
+      "Cross‑platform pure Dart implementation",
+      "Simple to add as a regular dependency"
+    ],
+    "weaknesses": [
+      "Limited to PayPal only, no multi‑gateway support",
+      "No code‑generated models or UI components",
+      "Manual error handling and request construction required"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add paypal_sdk to pubspec.yaml, run flutter pub get, and provide PayPal client ID/secret as per PayPal docs.",
+    "alternatives": [
+      {
+        "name": "http",
+        "why_pick_it": "General purpose HTTP client; you can call PayPal APIs manually without a dedicated SDK"
+      },
+      {
+        "name": "dio",
+        "why_pick_it": "Feature‑rich HTTP client with interceptors and better error handling for custom PayPal integration"
+      }
+    ],
+    "minimal_example": "import 'package:paypal_sdk/paypal_sdk.dart';\n\nvoid main() async {\n  final client = PayPalClient(\n    clientId: 'YOUR_CLIENT_ID',\n    secret: 'YOUR_SECRET',\n    environment: PayPalEnvironment.sandbox,\n  );\n  final order = await client.createOrder(\n    amount: '10.00',\n    currency: 'USD',\n  );\n  print('Order ID: ${order.id}');\n}",
+    "confidence": 0.85
+  }
+}

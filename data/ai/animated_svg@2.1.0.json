@@ -1,0 +1,51 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "2.1.0",
+  "generatedAt": "2026-11-15T11:12:29.509Z",
+  "data": {
+    "primary_category": "animation",
+    "secondary_categories": [
+      "widgets",
+      "images"
+    ],
+    "approach": [
+      "declarative",
+      "imperative"
+    ],
+    "one_liner": "Flutter widget that animates a smooth transition between two SVG assets.",
+    "what_it_does": "Provides an AnimatedSvg widget controlled by an SvgController. It cross‑fades or morphs between two SVGs over a configurable duration.",
+    "use_when": [
+      "You need animated icons or buttons that switch between SVG states",
+      "You want a simple, declarative way to animate SVG transitions without writing custom animation code"
+    ],
+    "avoid_when": [
+      "Complex vector animations requiring path morphing beyond simple cross‑fade",
+      "Performance‑critical scenes where a full‑featured animation engine is required"
+    ],
+    "strengths": [
+      "Very easy to integrate – just add the widget and controller",
+      "Works on all Flutter platforms supported by flutter_svg",
+      "Highly customizable (duration, direction, tap callback)"
+    ],
+    "weaknesses": [
+      "Limited to transitioning between two static SVGs",
+      "Relies on flutter_svg, so any limitations of that package apply"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "flutter_svg",
+        "why_pick_it": "Provides basic SVG rendering without animation, useful if you only need static SVGs"
+      },
+      {
+        "name": "vector_graphics",
+        "why_pick_it": "Offers a compiled SVG format with potentially better performance for static graphics"
+      }
+    ],
+    "minimal_example": "import 'package:animated_svg/animated_svg.dart';\nimport 'package:flutter_svg/flutter_svg.dart';\n\nlate final SvgController controller;\n\n@override\nvoid initState(){\n  controller = AnimatedSvgController();\n  super.initState();\n}\n\n@override\nWidget build(BuildContext context){\n  return AnimatedSvg(\n    controller: controller,\n    duration: const Duration(milliseconds:600),\n    children:[\n      SvgPicture.asset('assets/play.svg'),\n      SvgPicture.asset('assets/pause.svg'),\n    ],\n  );\n}",
+    "confidence": 0.95
+  }
+}

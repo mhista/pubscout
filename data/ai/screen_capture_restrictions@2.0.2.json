@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.2",
+  "generatedAt": "2026-11-15T11:08:31.012Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "audio-video"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Restrict screen capture and recording on mobile and monitor events.",
+    "what_it_does": "Allows Flutter apps to block screen capture and recording, resulting in blacked-out media on mobile platforms. It also provides listeners to detect when screen captures or screen recordings occur.",
+    "use_when": [
+      "You need to prevent users from recording or taking screenshots of sensitive screens.",
+      "You need to detect and monitor screen captures or recordings within your app."
+    ],
+    "avoid_when": [
+      "You do not need native mobile screen restriction features.",
+      "You want to avoid requesting sensitive storage permissions like MANAGE_EXTERNAL_STORAGE on Android."
+    ],
+    "strengths": [
+      "Provides both restriction and detection capabilities for mobile platforms.",
+      "Migrated to Pigeon for type safety."
+    ],
+    "weaknesses": [
+      "Requires sensitive Android permissions for full detection functionality on certain SDK versions.",
+      "Known delays in callbacks on specific Android versions."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires requesting appropriate storage permissions in AndroidManifest.xml depending on the Android SDK version.",
+    "alternatives": [],
+    "minimal_example": "await ScreenCaptureRestrictions.enableSecure();\nawait ScreenCaptureRestrictions.disableSecure();",
+    "confidence": 0.95
+  }
+}

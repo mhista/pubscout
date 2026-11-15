@@ -1,0 +1,37 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.39.2",
+  "generatedAt": "2026-11-15T11:27:11.966Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [],
+    "one_liner": "Run Dart and Flutter commands across multiple projects in the current directory.",
+    "what_it_does": "Puby is a CLI tool that automates executing commands like pub get, test, clean, and custom scripts across multiple projects or monorepos simultaneously. It automatically detects project engines such as Dart, Flutter, or FVM, and provides performance shortcuts like cached offline linking.",
+    "use_when": [
+      "You are working with monorepos containing multiple Dart or Flutter projects.",
+      "You want to run common commands like pub get or test across all projects at once.",
+      "You need a faster way to warm the pub cache and run offline dependency updates."
+    ],
+    "avoid_when": [
+      "You are working on a single isolated project without sub-projects.",
+      "You require complex release orchestration or publishing workflows provided by other monorepo tools."
+    ],
+    "strengths": [
+      "Automatically detects project engines (dart, flutter, fvm).",
+      "Significantly faster dependency linking with `puby link`.",
+      "Supports project-level command exclusions and combined exit codes for CI."
+    ],
+    "weaknesses": [
+      "Relies on directory structure and convention for project discovery.",
+      "Relative paths passed to `puby exec` require full paths ($PWD) to work correctly."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Install globally via dart pub global activate puby and optionally add puby.yaml for command exclusions.",
+    "alternatives": [],
+    "minimal_example": "dart pub global activate puby\npuby get",
+    "confidence": 0.95
+  }
+}

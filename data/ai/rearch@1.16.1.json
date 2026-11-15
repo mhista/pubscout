@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "1.16.1",
+  "generatedAt": "2026-11-15T11:15:30.308Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [
+      "dependency-injection"
+    ],
+    "approach": [
+      "declarative",
+      "hooks"
+    ],
+    "one_liner": "A declarative state‑management framework with capsule‑based side effects for Flutter and Dart.",
+    "what_it_does": "ReArch lets you define state and UI as pure functions that consume capsules. It provides a side‑effect system for state updates, persistence, and dependency inversion, enabling composable, testable applications.",
+    "use_when": [
+      "You need a highly testable, composable state‑management solution",
+      "You want to avoid boilerplate and complex provider hierarchies",
+      "You prefer a functional, hook‑style API over class‑based providers"
+    ],
+    "avoid_when": [
+      "You are already comfortable with Riverpod or Provider and need no new abstraction",
+      "You require extensive code generation or complex type inference"
+    ],
+    "strengths": [
+      "Pure function based API reduces boilerplate",
+      "Built‑in side‑effect system for persistence and async logic",
+      "Supports both Flutter widgets and pure Dart containers",
+      "High testability with minimal mocking"
+    ],
+    "weaknesses": [
+      "Limited ecosystem compared to Riverpod",
+      "Learning curve for capsule syntax",
+      "No official code generation support"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add rearch and flutter_rearch, wrap root with RearchBootstrapper, no build_runner needed",
+    "alternatives": [],
+    "minimal_example": "final Capsule<(int, void Function())> countManager = capsule((CapsuleHandle use) {\n  final (count, setCount) = use.state(0);\n  return (count, () => setCount(count + 1));\n});",
+    "confidence": 0.85
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.1.0",
+  "generatedAt": "2026-11-15T11:12:01.751Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "animation",
+      "navigation"
+    ],
+    "approach": [
+      "declarative",
+      "imperative"
+    ],
+    "one_liner": "A customizable animated side drawer for Flutter with controller, gesture, RTL, and multi-platform support.",
+    "what_it_does": "Provides a dependency-free animated side drawer widget and controller for Flutter apps. Supports gestures, pinned or centered menus, page history, right-side drawers, and RTL layouts.",
+    "use_when": [
+      "You need a custom animated side navigation menu that goes beyond standard Scaffold drawers.",
+      "You require RTL layout support or right-side drawer positioning.",
+      "You want optional page history and back-button handling built into the drawer controller."
+    ],
+    "avoid_when": [
+      "You prefer using standard Material Scaffold drawers without external custom transitions.",
+      "Your navigation relies heavily on complex nested Navigator routing stacks managed entirely externally."
+    ],
+    "strengths": [
+      "Dependency-free implementation with broad platform support.",
+      "Includes gesture support, edge dragging, and RTL layout awareness.",
+      "Provides optional page history and reactive controller updates."
+    ],
+    "weaknesses": [
+      "Swaps page widgets instead of pushing native Navigator routes by default.",
+      "Requires managing a custom controller or state structure."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "final drawerController = KFDrawerController(\n  initialPage: const HomePage(),\n  items: <KFDrawerItem>[\n    KFDrawerItem.withPage(\n      alias: 'home',\n      icon: const Icon(Icons.home, color: Colors.white),\n      text: const Text('HOME', style: TextStyle(color: Colors.white)),\n      page: const HomePage(),\n    ),\n  ],\n);\n\nScaffold(\n  body: KFDrawer(\n    controller: drawerController,\n  ),\n);",
+    "confidence": 1
+  }
+}

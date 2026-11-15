@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.0",
+  "generatedAt": "2026-11-15T11:26:13.806Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "auth"
+    ],
+    "approach": [
+      "imperative",
+      "declarative"
+    ],
+    "one_liner": "Apply a safe masking effect or screenshot protection to the app screen in the app switcher.",
+    "what_it_does": "Masks or blurs the app screen when users enter the system app switcher or task list on Android and iOS. It allows enabling or disabling protection globally via methods or on a screen-by-screen basis using a route observer and widget wrapper.",
+    "use_when": [
+      "You need to hide sensitive financial or personal data when the app is backgrounded into the task switcher.",
+      "You want to prevent screenshots or hide app content selectively on specific routes."
+    ],
+    "avoid_when": [
+      "You require customizable mask styles natively on Android (mask effect styles are iOS-specific).",
+      "You do not need app switcher privacy protection."
+    ],
+    "strengths": [
+      "Provides both global and screen-by-screen route-based control.",
+      "Supports distinct mask effects for iOS like blur and dark/light overlays.",
+      "Leverages native platform features like Android's FLAG_SECURE."
+    ],
+    "weaknesses": [
+      "Android mask effects and screenshot disabling cannot be customized independently like iOS.",
+      "On Android 11 or later, the mask effect requires switching other apps once according to OS specs."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires adding the navigator observer for route-based usage and wrapping target pages with SecureAppSwitcherPage.",
+    "alternatives": [],
+    "minimal_example": "import 'package:secure_app_switcher/secure_app_switcher.dart';\n\n// Turn on app switcher masking\nSecureAppSwitcher.on();\n\n// Turn off app switcher masking\nSecureAppSwitcher.off();",
+    "confidence": 0.95
+  }
+}

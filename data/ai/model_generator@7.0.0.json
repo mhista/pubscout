@@ -1,0 +1,37 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "7.0.0",
+  "generatedAt": "2026-11-15T11:13:01.724Z",
+  "data": {
+    "primary_category": "codegen",
+    "secondary_categories": [],
+    "approach": [
+      "code generation"
+    ],
+    "one_liner": "Automatically generate Dart models from YAML configuration files.",
+    "what_it_does": "Reads a YAML file defining models, properties, enums, and types, then automatically generates corresponding Dart model classes complete with JSON serialization, equality operators, hash codes, and toString methods.",
+    "use_when": [
+      "You want to maintain model definitions in a centralized YAML format rather than writing Dart classes manually.",
+      "You need automated JSON serialization, equals/hashCode, and toString generation for your data models."
+    ],
+    "avoid_when": [
+      "You prefer writing your data classes and Freezed/JsonSerializable annotations purely in Dart code.",
+      "Your project does not use code generation workflows."
+    ],
+    "strengths": [
+      "Supports inline type definitions, generics, enums with properties, and custom converters.",
+      "Can look up models from a single config file or an entire directory of YAML files."
+    ],
+    "weaknesses": [
+      "Requires managing and writing model definitions in separate YAML files instead of native Dart code.",
+      "Breaking changes between major versions (such as v7.0.0) require updates to existing YAML configurations."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add model_generator to your workflow and run via flutter packages run model_generator or specify custom config paths in pubspec.yaml.",
+    "alternatives": [],
+    "minimal_example": "model_generator:\n  config_path: my_model_dir/config.yaml",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "1.0.5",
+  "generatedAt": "2026-11-15T11:07:10.101Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "layout"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A draggable home page widget with expandable header and customizable body",
+    "what_it_does": "Provides a Scaffold‑like widget that lets the header stretch and collapse with drag gestures. It supports custom header, body, bottom sheet, navigation bar, and scroll physics.",
+    "use_when": [
+      "You need a sliding home page with a stretchable header",
+      "You want a single widget that handles scrolling and layout of header and body",
+      "You prefer a declarative API without extra state management"
+    ],
+    "avoid_when": [
+      "You need complex state management or custom animations beyond what the widget offers",
+      "You are building a highly custom layout that requires fine‑grained control over scroll physics"
+    ],
+    "strengths": [
+      "Easy to integrate with a single widget",
+      "Highly customizable via many properties",
+      "Supports multiple platforms (android, ios, web, desktop)",
+      "No external state management required"
+    ],
+    "weaknesses": [
+      "Limited to the provided layout; not a full state‑management solution",
+      "No built‑in theming or animation beyond basic scroll physics",
+      "Relies on Flutter’s Scaffold and Sliver under the hood"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dependency in pubspec and import draggable_home.dart",
+    "alternatives": [],
+    "minimal_example": "DraggableHome(\n  title: Text(\"Title\"),\n  headerWidget: headerWidget(),\n  body: [\n    Container(height: 200, color: Colors.blue),\n    ListView.builder(\n      padding: EdgeInsets.only(top: 0),\n      physics: NeverScrollableScrollPhysics(),\n      shrinkWrap: true,\n      itemCount: 10,\n      itemBuilder: (context, index) => Card(\n        child: ListTile(title: Text(\"Item \"+index.toString())),\n      ),\n    ),\n  ],\n)",
+    "confidence": 0.95
+  }
+}

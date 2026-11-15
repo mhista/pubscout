@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.2.4",
+  "generatedAt": "2026-11-15T11:20:19.772Z",
+  "data": {
+    "primary_category": "camera",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "One-shot Flutter QR and barcode scanner using native camera APIs.",
+    "what_it_does": "Opens the native camera to scan a single QR code or barcode, returning the decoded string. Also provides functions to scan from photo pickers, paths, or bytes, and to generate barcode/QR images.",
+    "use_when": [
+      "You need a quick one-shot camera scan that returns a string result",
+      "You want a simple scanner implementation without managing a camera widget preview"
+    ],
+    "avoid_when": [
+      "You need an embedded camera preview widget or continuous scanning",
+      "You need custom format filtering or complex overlay configurations"
+    ],
+    "strengths": [
+      "Simple imperative API",
+      "Supports both Android and iOS with native components",
+      "Built-in decoding fallback and retry logic for rotated images"
+    ],
+    "weaknesses": [
+      "Not a widget, so you cannot embed the camera preview inside your own UI layout",
+      "No format filtering arguments"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Android minSdk 21. iOS requires NSCameraUsageDescription and NSPhotoLibraryUsageDescription in Info.plist.",
+    "alternatives": [
+      {
+        "name": "mobile_scanner",
+        "why_pick_it": "Pick mobile_scanner if you need an embedded camera widget, continuous scanning, format filtering, or web/desktop support."
+      }
+    ],
+    "minimal_example": "import 'package:qrscan/qrscan.dart' as scanner;\n\nString? code = await scanner.scan();",
+    "confidence": 1
+  }
+}

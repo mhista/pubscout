@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "6.0.1",
+  "generatedAt": "2026-11-15T11:30:13.555Z",
+  "data": {
+    "primary_category": "devtools",
+    "secondary_categories": [],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "Integrates Bugfender with Dart's standard logging package.",
+    "what_it_does": "Bridges the logging package with Bugfender by listening to log records and forwarding them. It also allows adding and removing custom data for debugging sessions.",
+    "use_when": [
+      "You are already using the standard Dart logging package in your Flutter app and want to send logs to Bugfender.",
+      "You need to attach custom metadata like usernames to your remote logs."
+    ],
+    "avoid_when": [
+      "You do not use the Dart logging package.",
+      "You do not use Bugfender as your remote logging or crash reporting service."
+    ],
+    "strengths": [
+      "Seamless integration between the standard logging package and Bugfender.",
+      "Supports custom data management for logs.",
+      "Configurable print strategies."
+    ],
+    "weaknesses": [
+      "Tied specifically to Bugfender and the logging package."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires setting up a Bugfender app key and initializing the LoggingBugfenderListener.",
+    "alternatives": [],
+    "minimal_example": "final loggingListener = LoggingBugfenderListener('my-very-secret-app-key');\n\nvoid main() {\n    Logger.root.level = Level.ALL;\n    loggingListener.listen(Logger.root);\n    runApp(MyApp());\n}",
+    "confidence": 0.95
+  }
+}

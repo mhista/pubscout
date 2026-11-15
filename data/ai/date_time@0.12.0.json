@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.12.0",
+  "generatedAt": "2026-11-15T11:20:48.826Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Provides Date, Time, and range classes with comparison and manipulation utilities.",
+    "what_it_does": "The package defines separate Date and Time objects, supports copying, arithmetic, and overflow handling, and includes DateRange and TimeRange types for interval operations. It also offers extensions on DateTime and integrates with the clock package for testable time sources.",
+    "use_when": [
+      "You need strong typed date or time handling beyond DateTime",
+      "You work with booking or scheduling logic requiring ranges and overflow logic"
+    ],
+    "avoid_when": [
+      "You only need simple DateTime usage without extra types",
+      "You require timezone-aware or locale‑specific date handling beyond what intl provides"
+    ],
+    "strengths": [
+      "Clear separation of date and time concepts",
+      "Range and overflow support out of the box",
+      "CopyWith and immutable‑style API"
+    ],
+    "weaknesses": [
+      "No built‑in timezone or locale‑aware parsing beyond intl",
+      "Limited ecosystem compared to more mature date libraries"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:date_time/date_time.dart';\n\nvoid main(){\n  final date = Date(year:2022, month:5, day:10);\n  final time = Time(hour:14, minute:30);\n  final range = DateRange(date, date.addDays(5));\n  print(range.isValid); // true\n}",
+    "confidence": 0.93
+  }
+}

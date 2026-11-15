@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.2.0",
+  "generatedAt": "2026-11-15T11:19:17.384Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Generates timestamp‑based unique IDs and random barcodes with configurable length and charset.",
+    "what_it_does": "The package creates IDs by inserting a random string into the current timestamp at a random position. It also produces random barcode numbers (5‑13 characters) using numbers, capital letters, or both, with batch methods for both IDs and barcodes.",
+    "use_when": [
+      "You need quick, lightweight IDs without external dependencies",
+      "You need simple random barcode strings for testing or non‑secure labeling"
+    ],
+    "avoid_when": [
+      "Cryptographic‑level uniqueness is required",
+      "You need QR/barcode encoding or validation logic"
+    ],
+    "strengths": [
+      "Fast and dependency‑free",
+      "Supports custom charset and length",
+      "Batch generation without duplicates"
+    ],
+    "weaknesses": [
+      "No guarantees against collisions in high‑throughput scenarios",
+      "Limited to numeric or uppercase alphabetic characters",
+      "No built‑in validation or encoding for real barcodes"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "uuid",
+        "why_pick_it": "Provides standard UUID formats with proven uniqueness guarantees"
+      }
+    ],
+    "minimal_example": "import 'package:uid/uid.dart';\n\nvoid main() {\n  String id = UId.getId();\n  String barcode = UId.getBarcode(length: 8, charset: BarcodeCharset.alphabet);\n  print('ID: $id');\n  print('Barcode: $barcode');\n}",
+    "confidence": 0.97
+  }
+}

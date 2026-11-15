@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.0",
+  "generatedAt": "2026-11-15T11:29:14.109Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "theming"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Dynamically change the app launcher icon on Android and iOS at runtime.",
+    "what_it_does": "A Flutter plugin that lets applications switch their launcher icon dynamically on both Android and iOS. It provides an API to change, reset, and check the currently active app icon.",
+    "use_when": [
+      "You want to let users customize their app launcher icon from within the app settings.",
+      "Your app has seasonal, achievement-based, or user-selectable icon themes."
+    ],
+    "avoid_when": [
+      "You only need to generate static icons at build-time rather than changing them dynamically at runtime.",
+      "You require hidden or automatic icon changes on iOS using unsupported private APIs."
+    ],
+    "strengths": [
+      "Supports both Android and iOS out of the box.",
+      "Provides clear handling of platform-specific behaviors like Android's deferred background icon application."
+    ],
+    "weaknesses": [
+      "Requires manual native configuration including Android activity-aliases and iOS asset catalogs.",
+      "iOS icon changes trigger a native system confirmation alert."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding alternate icons to Android mipmap folders and updating AndroidManifest.xml with activity-aliases, as well as setting up alternate app icon sets in Xcode for iOS.",
+    "alternatives": [
+      {
+        "name": "flutter_launcher_icons",
+        "why_pick_it": "Pick flutter_launcher_icons if you only need to configure static launcher icons at build-time rather than changing them dynamically at runtime."
+      }
+    ],
+    "minimal_example": "await FlutterDynamicLauncherIcon.changeIcon('AppIconDart');\nawait FlutterDynamicLauncherIcon.changeIcon(null);",
+    "confidence": 1
+  }
+}

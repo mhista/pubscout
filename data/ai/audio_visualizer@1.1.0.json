@@ -1,0 +1,50 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.1.0",
+  "generatedAt": "2026-11-15T11:35:08.012Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "imperative",
+      "declarative"
+    ],
+    "one_liner": "Flutter package for seamlessly visualizing audio from files, assets, streams, and PCM16 data.",
+    "what_it_does": "Provides components and pre-built widgets to visualize audio from multiple sources like files, assets, HTTP streams, and microphone input. Supports various styles such as bar, circle, line, and multi-wave visualizers.",
+    "use_when": [
+      "You need to render audio visualizations or spectrum analysis in a Flutter app",
+      "You want pre-built visualizer widgets like bar, circle, or line charts for audio playback"
+    ],
+    "avoid_when": [
+      "You only need standard audio playback without any graphical visualization",
+      "You need complex background audio management or advanced music player controls"
+    ],
+    "strengths": [
+      "Supports multiple input sources including files, assets, HTTP streams, and raw PCM16",
+      "Includes pre-built visualizer styles like BarVisualizer, CircleVisualizer, and RainbowBlockVisualizer",
+      "Cross-platform support for Android and iOS"
+    ],
+    "weaknesses": [
+      "Does not handle microphone recording directly, requiring a separate package like record",
+      "Limited to visualization features and not a complete audio engine or player"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires the android.permission.RECORD_AUDIO permission on Android if visualizing microphone input.",
+    "alternatives": [
+      {
+        "name": "audioplayers",
+        "why_pick_it": "If you need a robust, general-purpose audio playback engine rather than specialized visualizers."
+      },
+      {
+        "name": "just_audio",
+        "why_pick_it": "If you need advanced audio playback features like looping, clipping, and gapless playback."
+      }
+    ],
+    "minimal_example": "final audioPlayer = VisualizerPlayer();\nawait audioPlayer.initialize();\nawait audioPlayer.setDataSource(\"asset://assets/sample.mp3\");\nawait audioPlayer.play();\n\nListenableBuilder(\n   listenable: audioPlayer,\n   builder: (context, child) {\n      return BarVisualizer(\n         input: audioPlayer.value.waveform,\n         backgroundColor: Colors.black,\n         color: Colors.greenAccent,\n         gap: 2,\n      );\n   },\n);",
+    "confidence": 0.95
+  }
+}

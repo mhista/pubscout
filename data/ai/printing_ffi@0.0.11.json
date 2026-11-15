@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.0.11",
+  "generatedAt": "2026-11-15T11:17:07.435Z",
+  "data": {
+    "primary_category": "files",
+    "secondary_categories": [
+      "device",
+      "web-desktop"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Flutter plugin for direct printer communication and print job management via native FFI bindings.",
+    "what_it_does": "Communicates directly with printers using native FFI bindings on macOS, Windows, and Linux. Enables listing printers, sending raw print data or PDFs, managing print jobs, and tracking job status.",
+    "use_when": [
+      "You need direct, low-level printer communication via FFI on desktop platforms.",
+      "You need to send raw print data like ZPL or ESC/POS to thermal or POS printers.",
+      "You require fine-grained print job management such as pausing, resuming, or canceling jobs."
+    ],
+    "avoid_when": [
+      "You are targeting mobile platforms like Android or iOS.",
+      "You want a high-level cross-platform solution without desktop-specific native setup."
+    ],
+    "strengths": [
+      "Uses native FFI for improved performance and direct API access.",
+      "Supports offline printers on macOS.",
+      "Provides comprehensive print job management and status streams."
+    ],
+    "weaknesses": [
+      "Does not support mobile platforms (Android and iOS).",
+      "Requires manual native dependency setup such as CUPS on macOS/Linux."
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Requires installing CUPS development libraries on macOS and Linux, updating the macOS Podfile, and optionally handling PDFium initialization on Windows.",
+    "alternatives": [],
+    "minimal_example": "import 'package:printing_ffi/printing_ffi.dart';\n\nfinal printingFfi = PrintingFfi.instance;\nList<Printer> printers = printingFfi.listPrinters();",
+    "confidence": 0.95
+  }
+}

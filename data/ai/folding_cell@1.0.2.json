@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "1.0.2",
+  "generatedAt": "2026-11-15T11:17:57.599Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "animation"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A widget that folds/unfolds a cell with front and inner content",
+    "what_it_does": "The SimpleFoldingCell widget lets you display a front widget that can be tapped to reveal an inner widget with a folding animation. It exposes callbacks for open/close and allows programmatic control via a GlobalKey.",
+    "use_when": [
+      "You need a card-like UI that expands/collapses with a folding effect",
+      "You want a lightweight, customizable folding cell without external dependencies"
+    ],
+    "avoid_when": [
+      "You require complex animation sequences beyond a simple fold",
+      "You need a fully featured accordion or expandable list with many items"
+    ],
+    "strengths": [
+      "Simple API, no external dependencies",
+      "Customizable size, padding, duration, and border radius",
+      "Provides open/close callbacks and programmatic toggle"
+    ],
+    "weaknesses": [
+      "Limited to a single cell, not a list widget",
+      "Animation options are basic (only duration and curve)",
+      "No support for nested folding cells or complex state management"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:folding_cell/folding_cell.dart';\n\nfinal _key = GlobalKey<SimpleFoldingCellState>();\n\nSimpleFoldingCell.create(\n  key: _key,\n  frontWidget: Container(color: Colors.yellow, child: Text('Front')),\n  innerWidget: Container(color: Colors.blue, child: Text('Inner')),\n  cellSize: Size(MediaQuery.of(context).size.width, 140),\n  animationDuration: Duration(milliseconds: 300),\n);",
+    "confidence": 0.9
+  }
+}

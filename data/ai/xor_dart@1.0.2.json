@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.2",
+  "generatedAt": "2026-11-15T11:34:19.084Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Simple XOR symmetric encryption and decryption library with or without a secret key.",
+    "what_it_does": "Provides a pure Dart library for simple XOR symmetric encryption and decryption. Supports operations with a secret key or static methods for byte arrays, base64 strings, and file processing.",
+    "use_when": [
+      "You need lightweight obfuscation or basic XOR encryption in Dart",
+      "You want to encrypt or decrypt files or byte streams using XOR"
+    ],
+    "avoid_when": [
+      "You require strong cryptographic security (XOR is easily broken)",
+      "You need standard modern encryption algorithms like AES or RSA"
+    ],
+    "strengths": [
+      "Pure Dart implementation with no external dependencies",
+      "Supports both secret-key and keyless XOR operations",
+      "Convenience methods for base64 strings and files"
+    ],
+    "weaknesses": [
+      "XOR cipher is cryptographically weak and unsuitable for sensitive data",
+      "No built-in modern cryptographic features"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "crypto",
+        "why_pick_it": "Provides standard cryptographic hash functions and tools if you need more robust security utilities."
+      }
+    ],
+    "minimal_example": "import 'package:xor_dart/xor_dart.dart';\n\nvoid main() {\n  var xor = Xor('_a_random_key_');\n  var plain = 'You are so handsome!';\n  var encode = xor.encode(plain);\n  var decode = xor.decode(encode);\n  print('>>> decrypted correct: ${plain == decode}');\n}",
+    "confidence": 0.95
+  }
+}

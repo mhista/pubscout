@@ -1,0 +1,54 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "1.0.5",
+  "generatedAt": "2026-11-15T11:20:29.800Z",
+  "data": {
+    "primary_category": "layout",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Provides adaptive size extensions and widgets for responsive Flutter layouts.",
+    "what_it_does": "Adds extension methods like .h, .w, .dp to calculate dimensions based on screen size. Supplies a FlutterSizer widget to expose orientation and screen type for conditional UI.",
+    "use_when": [
+      "You need quick, percentage‑based sizing without writing custom MediaQuery code",
+      "You want to support both portrait/landscape and tablet/mobile layouts easily"
+    ],
+    "avoid_when": [
+      "You require fine‑grained layout control beyond simple percentages",
+      "You need a full theming or design system rather than just size helpers"
+    ],
+    "strengths": [
+      "Very simple API using extension methods",
+      "Works across all Flutter platforms",
+      "No extra build steps required"
+    ],
+    "weaknesses": [
+      "Limited to percentage‑based sizing, no breakpoint system",
+      "Deprecated .sp may cause confusion",
+      "No built‑in support for complex responsive grids"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "sizer",
+        "why_pick_it": "Similar extension‑based API with active maintenance"
+      },
+      {
+        "name": "responsive_framework",
+        "why_pick_it": "Provides breakpoint‑based responsive design and theming"
+      },
+      {
+        "name": "responsive_builder",
+        "why_pick_it": "Offers widget‑based responsive utilities with more layout options"
+      }
+    ],
+    "minimal_example": "import 'package:flutter_sizer/flutter_sizer.dart';\n\nFlutterSizer(\n  builder: (context, orientation, screenType) {\n    return Scaffold(\n      body: Center(\n        child: Container(\n          width: 50.w, // 50% of screen width\n          height: 20.h, // 20% of screen height\n          color: Colors.blue,\n        ),\n      ),\n    );\n  },\n);",
+    "confidence": 0.97
+  }
+}

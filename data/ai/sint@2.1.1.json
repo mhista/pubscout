@@ -1,0 +1,47 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.1.1",
+  "generatedAt": "2026-11-15T11:29:02.844Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [
+      "dependency-injection",
+      "navigation",
+      "localization"
+    ],
+    "approach": [
+      "declarative",
+      "no codegen",
+      "imperative"
+    ],
+    "one_liner": "High-performance framework for state, dependency injection, navigation, and translation.",
+    "what_it_does": "SINT provides a micro-framework covering four foundational pillars: reactive state management with signals, contract-first dependency injection, multi-level prefix trie routing, and locale translation caches.",
+    "use_when": [
+      "You want an all-in-one architecture covering state, navigation, dependency injection, and localization without multiple packages.",
+      "You need fine-grained reactive signals with batching and computed properties.",
+      "You want context-free navigation and dependency resolution bound to route lifecycles."
+    ],
+    "avoid_when": [
+      "You prefer strict separation of concerns using independent single-purpose packages.",
+      "Your project standardizes on BLoC, Riverpod, or Provider.",
+      "You want strictly reactive stream-based architectures."
+    ],
+    "strengths": [
+      "Fine-grained $O(1)$ reactive signals with zero-allocation batching and computed properties.",
+      "Contract-first dependency injection with automated route-bound lifecycle disposal.",
+      "Multi-level prefix trie router for fast route matching.",
+      "Zero codegen requirement."
+    ],
+    "weaknesses": [
+      "Monolithic approach tightly couples state, navigation, and DI into a single framework.",
+      "Context-free APIs might encourage global state patterns if not carefully managed."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter/widgets.dart';\nimport 'package:material_ui/material_ui.dart';\nimport 'package:sint/sint.dart';\n\nclass CartController extends SintController {\n  final items = 1.obs;\n  final price = 25.obs;\n  late final total = computed(() => items.value * price.value);\n\n  void addBundle() => Sint.batch(() {\n    items.value += 2;\n    price.value = 20;\n  });\n}\n\nvoid main() => runApp(\n  SintApp(\n    materialTheme: ThemeData(),\n    initialRoute: '/',\n    sintPages: [\n      SintPage(\n        name: '/',\n        binds: [Bind.put(CartController())],\n        page: () {\n          final c = Sint.find<CartController>();\n          return Scaffold(\n            body: Center(child: Obx(() => Text('Total: \\${c.total.value}'))),\n            floatingActionButton: FloatingActionButton(\n              onPressed: c.addBundle,\n              child: const Text('+'),\n            ),\n          );\n        },\n      ),\n    ],\n  ),\n);",
+    "confidence": 0.95
+  }
+}

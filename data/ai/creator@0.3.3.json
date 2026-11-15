@@ -1,0 +1,52 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.3.3",
+  "generatedAt": "2026-11-15T11:16:00.648Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [],
+    "approach": [
+      "stream-based",
+      "declarative"
+    ],
+    "one_liner": "A lightweight state management library inspired by Riverpod, providing concise, testable business logic.",
+    "what_it_does": "Creator offers a simple API to create reactive state streams and async emitters. It automatically manages dependencies, lazy loads providers, and rebuilds widgets when state changes.",
+    "use_when": [
+      "Need concise, readable state logic",
+      "Require async support without complex boilerplate",
+      "Want easy testing of business logic",
+      "Prefer a small, self-contained library"
+    ],
+    "avoid_when": [
+      "Large, complex apps with many interdependent providers",
+      "Projects that rely heavily on code generation or advanced features like routing"
+    ],
+    "strengths": [
+      "Concise API with map/where/reduce helpers",
+      "Automatic dependency graph and lazy loading",
+      "Good async support via Emitter",
+      "Testable business logic"
+    ],
+    "weaknesses": [
+      "Less mature ecosystem, fewer third‑party integrations",
+      "Limited documentation compared to Riverpod",
+      "No built‑in code generation or advanced features"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "riverpod",
+        "why_pick_it": "More mature, extensive ecosystem, and built‑in async support"
+      },
+      {
+        "name": "flutter_bloc",
+        "why_pick_it": "Popular, well‑documented, and integrates with Bloc pattern"
+      }
+    ],
+    "minimal_example": "final counter = Creator.value(0);\n\nWidget build(BuildContext context) {\n  return Column(\n    children: [\n      Watcher((context, ref, _) => Text('${ref.watch(counter)}')),\n      TextButton(\n        onPressed: () => context.ref.update<int>(counter, (c) => c + 1),\n        child: const Text('+1'),\n      ),\n    ],\n  );\n}",
+    "confidence": 0.8
+  }
+}

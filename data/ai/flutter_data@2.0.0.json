@@ -1,0 +1,59 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "2.0.0",
+  "generatedAt": "2026-11-15T10:56:53.327Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [
+      "state-management",
+      "codegen",
+      "utils"
+    ],
+    "approach": [
+      "code generation",
+      "declarative"
+    ],
+    "one_liner": "A Flutter/Dart library for reactive, offline‑first data models with built‑in Riverpod integration.",
+    "what_it_does": "Flutter Data lets you define data models that automatically sync with local SQLite storage and remote REST endpoints. It generates adapters and providers so you can watch, query, and mutate data reactively via Riverpod.",
+    "use_when": [
+      "You need offline‑first persistence with reactive UI updates",
+      "You want a unified API for local SQLite and remote REST without writing boilerplate",
+      "You are already using Riverpod for state management"
+    ],
+    "avoid_when": [
+      "You prefer a pure NoSQL or key‑value store without relational features",
+      "You need Web support only (Flutter Web is still TBD)",
+      "You want a minimal package without code generation"
+    ],
+    "strengths": [
+      "Automatic code‑gen of adapters and providers",
+      "Strong offline‑first support with SQLite3",
+      "Seamless Riverpod integration and reactive watchers"
+    ],
+    "weaknesses": [
+      "Requires build_runner and code generation step",
+      "Flutter Web not fully supported yet",
+      "Complex API may be overkill for simple key‑value storage"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add flutter_data and build_runner to pubspec, run `flutter pub run build_runner build`, configure a LocalStorage provider via Riverpod overrides, optionally generate adapter map with `main.data.dart`.",
+    "alternatives": [
+      {
+        "name": "riverpod",
+        "why_pick_it": "Provides state‑management without the storage layer; lighter if you only need reactive state"
+      },
+      {
+        "name": "flutter_riverpod",
+        "why_pick_it": "Same as Riverpod but with Flutter‑specific extensions"
+      },
+      {
+        "name": "bloc",
+        "why_pick_it": "Offers predictable state management without built‑in persistence; can be combined with separate storage solutions"
+      }
+    ],
+    "minimal_example": "```dart\nimport 'package:flutter_data/flutter_data.dart';\nimport 'package:flutter_riverpod/flutter_riverpod.dart';\n\n@JsonSerializable()\n@DataAdapter([])\nclass User extends DataModel<User> {\n  @override final int? id;\n  final String name;\n  User({this.id, required this.name});\n}\n\nvoid main() async {\n  // Initialize Flutter Data with default SQLite storage\n  await initializeFlutterData(adapterProvidersMap: mainDataAdapterProviders);\n  runApp(const ProviderScope(child: MyApp()));\n}\n\nclass MyApp extends ConsumerWidget {\n  const MyApp({Key? key}) : super(key: key);\n  @override\n  Widget build(BuildContext context, WidgetRef ref) {\n    final state = ref.users.watchOne(1);\n    if (state.isLoading) return const CircularProgressIndicator();\n    final user = state.model;\n    return Text(user.name);\n  }\n}\n```",
+    "confidence": 0.9
+  }
+}

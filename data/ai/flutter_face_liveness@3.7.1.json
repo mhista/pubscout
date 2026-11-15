@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.7.1",
+  "generatedAt": "2026-11-15T11:17:01.908Z",
+  "data": {
+    "primary_category": "auth",
+    "secondary_categories": [
+      "camera",
+      "ai-ml"
+    ],
+    "approach": [
+      "declarative",
+      "imperative"
+    ],
+    "one_liner": "On-device face liveness detection, anti-spoofing, and Face ID for Flutter apps.",
+    "what_it_does": "Provides real-time face liveness detection and anti-spoofing challenges like blinks, head turns, and smiles. Features persistent on-device Face ID embeddings using Google ML Kit, TensorFlow Lite, and optional YOLOv8 or SCRFD detectors.",
+    "use_when": [
+      "You need secure, on-device user verification and KYC compliance via face recognition.",
+      "You want to prevent replay attacks and screen spoofs without routing biometric video to a server.",
+      "You need passive or active facial authentication flows with persistent local Face ID matching."
+    ],
+    "avoid_when": [
+      "Your application targets environments below Android API 26 or iOS 13.",
+      "You require server-side cloud biometric storage rather than secure local device storage."
+    ],
+    "strengths": [
+      "Runs entirely on-device with zero server calls for core liveness and replay checks.",
+      "Multi-signal replay attack detection and 9-signal anti-spoof engine.",
+      "Supports both active challenge gestures and passive zero-action Face ID sessions."
+    ],
+    "weaknesses": [
+      "Requires platform permission setup and specific minimum OS and SDK versions.",
+      "Large binary or model dependencies (such as TFLite models) downloaded at runtime."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires setting camera permissions in AndroidManifest.xml and Info.plist, configuring minSdk 26 for Android, and potentially setting up dependency overrides for tflite_flutter.",
+    "alternatives": [],
+    "minimal_example": "FlutterFaceLiveness(\n  actions: [\n    LivenessAction.blink,\n    LivenessAction.turnLeft,\n  ],\n  config: LivenessConfig(\n    randomizeActions: true,\n    enableAntiSpoof: true,\n  ),\n  onSuccess: (result) => print('Success: ${result.sessionId}'),\n  onFailed: (reason) => print('Failed: $reason'),\n)",
+    "confidence": 0.95
+  }
+}

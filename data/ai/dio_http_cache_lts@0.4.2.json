@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.4.2",
+  "generatedAt": "2026-11-15T11:06:54.130Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "storage"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "HTTP cache manager for the Dio package using SQLite",
+    "what_it_does": "Provides caching capabilities for Dio HTTP requests, storing responses in memory and a local SQLite database. Allows configuring cache duration, stale times, custom keys, and manual cache deletion.",
+    "use_when": [
+      "You are using the Dio HTTP client and need to cache API responses locally.",
+      "You need offline fallback support using stale cache data when network requests fail."
+    ],
+    "avoid_when": [
+      "You are not using the Dio networking library.",
+      "You need a general-purpose key-value storage solution rather than HTTP caching."
+    ],
+    "strengths": [
+      "Easy integration as a Dio interceptor.",
+      "Supports custom maxAge and maxStale durations.",
+      "Provides automated or manual cache cleaning and deletion methods."
+    ],
+    "weaknesses": [
+      "Maintenance version of an older package (dio-http-cache).",
+      "Tied specifically to the Dio ecosystem."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the interceptor to your Dio instance with a CacheConfig.",
+    "alternatives": [],
+    "minimal_example": "dio.interceptors.add(DioCacheManager(CacheConfig(baseUrl: \"http://www.google.com\")).interceptor);\n\nDio().get(\n  \"http://www.google.com\",\n  options: buildCacheOptions(Duration(days: 7)),\n);",
+    "confidence": 0.95
+  }
+}

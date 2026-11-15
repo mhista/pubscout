@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.0.0",
+  "generatedAt": "2026-11-15T11:35:02.145Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "EspTouch and EspTouchV2 smart config provisioning implementations for IoT devices.",
+    "what_it_does": "Provides EspTouch and EspTouchV2 SmartConfig provisioning protocols in plain Dart. It allows configuring Wi-Fi credentials on headless IoT devices over UDP without knowing the network details in advance.",
+    "use_when": [
+      "You need to provision ESP8266 or ESP32 Wi-Fi devices using SmartConfig from a Dart or Flutter application.",
+      "You want to implement EspTouch or EspTouchV2 protocols without native platform wrappers."
+    ],
+    "avoid_when": [
+      "You are targeting the Web platform, as browsers do not allow UDP communication.",
+      "You require automatic provisioning timeouts built into the package."
+    ],
+    "strengths": [
+      "Supports multiple platforms including Android, iOS, Windows, Linux, and macOS.",
+      "Implements both EspTouch and EspTouchV2 protocols.",
+      "Plain Dart implementation."
+    ],
+    "weaknesses": [
+      "Web platform is not supported due to lack of UDP support in browsers.",
+      "Provisioning has no built-in timeout and must be stopped manually.",
+      "Requires manual firewall configuration for port 18266 on desktop platforms and special Apple Developer multicast entitlements on iOS."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "On iOS 14.6/16+, a special request for Multicast API access must be made via Apple Developer account. On desktop platforms, ensure UDP port 18266 is open in the firewall for incoming data.",
+    "alternatives": [],
+    "minimal_example": "import 'package:esp_smartconfig/esp_smartconfig.dart';\n\nfinal provisioner = Provisioner.espTouch();\n\nprovisioner.listen((response) {\n    print(\"Device ${response.bssidText} connected to WiFi!\");\n});\n\ntry {\n    await provisioner.start(ProvisioningRequest.fromStrings(\n        ssid: \"NETWORK NAME\",\n        password: \"NETWORK PASSWORD\",\n    ));\n    await Future.delayed(Duration(seconds: 10));\n} catch (e, s) {\n    print(e);\n}\n\nprovisioner.stop();",
+    "confidence": 0.95
+  }
+}

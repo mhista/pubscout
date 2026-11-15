@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.0.7",
+  "generatedAt": "2026-11-15T11:23:33.343Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "A Flutter plugin to read, filter, search, and stream SMS messages on Android.",
+    "what_it_does": "Allows Flutter applications running on Android to fetch SMS messages from inbox, sent, and draft folders with pagination and search. It also supports checkpoint-based incremental inbox reads and real-time streaming of incoming messages.",
+    "use_when": [
+      "You need to read or search SMS messages within an Android Flutter application.",
+      "You want to stream incoming SMS messages in real-time.",
+      "You require incremental inbox syncing using checkpoints."
+    ],
+    "avoid_when": [
+      "You are targeting iOS or other non-Android platforms.",
+      "You cannot qualify for Google Play restricted SMS permissions."
+    ],
+    "strengths": [
+      "Supports pagination, filtering, and search by keyword or phone number.",
+      "Provides native checkpoint-based incremental inbox reading.",
+      "Includes real-time streaming of incoming SMS messages."
+    ],
+    "weaknesses": [
+      "Android only; throws MissingPluginException on other platforms.",
+      "Requires restricted Google Play permissions (READ_SMS, RECEIVE_SMS)."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add READ_SMS and RECEIVE_SMS permissions to AndroidManifest.xml and handle runtime permissions using a package like permission_handler.",
+    "alternatives": [],
+    "minimal_example": "import 'package:android_sms_reader/android_sms_reader.dart';\n\nFuture<void> demo() async {\n  final messages = await AndroidSMSReader.fetchMessages(\n    type: AndroidSMSType.inbox,\n    start: 0,\n    count: 50,\n    query: 'OTP',\n  );\n\n  AndroidSMSReader.observeIncomingMessages().listen((sms) {\n    print('Received: \\${sms.body}');\n  });\n}",
+    "confidence": 1
+  }
+}

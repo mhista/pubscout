@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "5.0.1",
+  "generatedAt": "2026-11-15T11:34:07.518Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "stream-based",
+      "declarative"
+    ],
+    "one_liner": "Facilitates infinite scroll and pull-to-refresh features for the RxBloc ecosystem.",
+    "what_it_does": "The rx_bloc_list package provides the RxPaginatedBuilder widget and extensions to easily implement pagination, infinity scroll, and pull-to-refresh. It integrates seamlessly with the RxBloc state management ecosystem.",
+    "use_when": [
+      "You are building an app using the RxBloc ecosystem and need paginated lists.",
+      "You want a straightforward way to add infinity scroll and pull-to-refresh to your UI."
+    ],
+    "avoid_when": [
+      "You are not using the RxBloc ecosystem or reactive streams for state management.",
+      "You prefer alternative state management solutions like Riverpod or Provider."
+    ],
+    "strengths": [
+      "Simplifies implementing infinity scroll and pull-to-refresh.",
+      "Provides built-in support for refresh indicators and list item state management."
+    ],
+    "weaknesses": [
+      "Tightly coupled to the RxBloc ecosystem.",
+      "Limited usefulness if not using streams for pagination."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the dependency to pubspec.yaml and import the package in your Dart code.",
+    "alternatives": [],
+    "minimal_example": "RxPaginatedBuilder<UserBlocType, User>.withRefreshIndicator(\n  state: (bloc) => bloc.states.paginatedList,\n  onBottomScrolled: (bloc) => bloc.events.loadPage(),\n  onRefresh: (bloc) async {\n    bloc.events.loadPage(reset: true);\n    return bloc.states.refreshDone;\n  },\n  buildSuccess: (context, list, bloc) => ListView.builder(\n    itemBuilder: (context, index) {\n      final user = list.getItem(index);\n      if (user == null) return const CircularProgressIndicator();\n      return ListTile(title: Text(user.name));\n    },\n    itemCount: list.itemCount,\n  ),\n  buildLoading: (context, list, bloc) => const CircularProgressIndicator(),\n  buildError: (context, list, bloc) => Text(list.error!.toString()),\n)",
+    "confidence": 0.95
+  }
+}

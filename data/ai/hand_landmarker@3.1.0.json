@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.1.0",
+  "generatedAt": "2026-11-15T11:21:32.454Z",
+  "data": {
+    "primary_category": "ai-ml",
+    "secondary_categories": [
+      "camera",
+      "device"
+    ],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "Real-time hand landmark detection on Android using Google MediaPipe and JNI.",
+    "what_it_does": "A Flutter plugin that performs real-time hand landmark detection using Google's MediaPipe Hand Landmarker task on Android. It processes a camera image stream via a JNI bridge and delivers hand coordinates asynchronously without blocking the UI thread.",
+    "use_when": [
+      "You need real-time hand tracking and landmark detection in a Flutter Android app",
+      "You want non-blocking inference running on a background thread to prevent UI jank",
+      "You want to bypass expensive JPEG compression using direct YUV to ARGB conversion"
+    ],
+    "avoid_when": [
+      "You need iOS support (only Android is supported)",
+      "You require synchronous detection calls (only asynchronous streaming via landmarkStream is supported)"
+    ],
+    "strengths": [
+      "Non-blocking live tracking on a background thread",
+      "Configurable GPU or CPU delegate",
+      "Bundled MediaPipe hand_landmarker.task model requires no manual setup",
+      "Optimized JNI bridge with custom YUV to ARGB conversion"
+    ],
+    "weaknesses": [
+      "Limited to the Android platform",
+      "Requires minimum Flutter SDK 3.44 and JDK 17"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires Flutter SDK 3.44 or higher and JDK 17 or higher. The required MediaPipe model is bundled with the plugin.",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:camera/camera.dart';\nimport 'package:hand_landmarker/hand_landmarker.dart';\n\nclass HandTrackerView extends StatefulWidget {\n  const HandTrackerView({super.key});\n  @override\n  State<HandTrackerView> createState() => _HandTrackerViewState();\n}\n\nclass _HandTrackerViewState extends State<HandTrackerView> {\n  HandLandmarkerPlugin? _plugin;\n  CameraController? _controller;\n  bool _isInitialized = false;\n\n  @override\n  void initState() {\n    super.initState();\n    _initialize();\n  }\n\n  Future<void> _initialize() async {\n    final cameras = await availableCameras();\n    final camera = cameras.firstWhere(\n      (cam) => cam.lensDirection == CameraLensDirection.front,\n      orElse: () => cameras.first,\n    );\n\n    _controller = CameraController(\n      camera,\n      ResolutionPreset.medium,\n      enableAudio: false,\n    );\n\n    _plugin = HandLandmarkerPlugin.create(\n      numHands: 2,\n      minHandDetectionConfidence: 0.7,\n      delegate: HandLandmarkerDelegate.gpu,\n    );\n\n    await _controller!.initialize();\n    await _controller!.startImageStream((image) {\n      if (_isInitialized && _plugin != null) {\n        _plugin!.processFrame(image, _controller!.description.sensorOrientation);\n      }\n    });\n\n    if (mounted) {\n      setState(() => _isInitialized = true);\n    }\n  }\n\n  @override\n  void dispose() {\n    _controller?.stopImageStream();\n    _controller?.dispose();\n    _plugin?.dispose();\n    super.dispose();\n  }\n\n  @override\n  Widget build(BuildContext context) {\n    if (!_isInitialized) {\n      return const Center(child: CircularProgressIndicator());\n    }\n    return CameraPreview(_controller!);\n  }\n}",
+    "confidence": 1
+  }
+}

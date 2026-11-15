@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "6.0.0",
+  "generatedAt": "2026-11-15T11:17:07.646Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "ui-kits",
+      "utils"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Flutter library for displaying calendar events in multiple day view layouts.",
+    "what_it_does": "Provides customized widgets to render daily calendar events in formats like multi-column, category, overflow, event-only, and in-row views. Includes visual customization via DayViewDecoration, auto-scrolling to current time, and interactive time slot tapping.",
+    "use_when": [
+      "You need to display daily schedule or calendar events in a Flutter application",
+      "You want support for Google Calendar-style multi-column layout for overlapping events"
+    ],
+    "avoid_when": [
+      "You need month or year calendar views instead of a day view",
+      "You require a complex backend-synced calendar architecture out-of-the-box"
+    ],
+    "strengths": [
+      "Multiple layout view types including multi-column and category day views",
+      "Reusable DayViewDecoration for consistent styling across different views",
+      "Auto-scroll to current time and custom overlap strategies"
+    ],
+    "weaknesses": [
+      "Focused exclusively on day views rather than full month or year calendars",
+      "Recent major version updates introduce breaking changes to config and decoration structures"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Not documented",
+    "alternatives": [],
+    "minimal_example": "CalendarDayView.multiColumn(\n  config: MultiColumnDayViewConfig(\n    currentDate: DateTime.now(),\n    timeGap: 60,\n    heightPerMin: 2,\n    startOfDay: const TimeOfDay(hour: 7, minute: 0),\n    endOfDay: const TimeOfDay(hour: 20, minute: 0),\n  ),\n  events: events,\n  onTimeTap: (time) => handleTimeTap(time),\n  itemBuilder: (context, constraints, event, columnIndex, totalColumns) {\n    return Container(child: Text(event.value));\n  },\n)",
+    "confidence": 0.95
+  }
+}

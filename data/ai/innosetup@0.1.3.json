@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.1.3",
+  "generatedAt": "2026-11-15T11:31:13.310Z",
+  "data": {
+    "primary_category": "web-desktop",
+    "secondary_categories": [
+      "files"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Make Windows installers for Flutter and Dart apps using Inno Setup.",
+    "what_it_does": "Allows developers to define Windows installer configurations directly in Dart and compile them using Inno Setup. It generates the installation script and invokes the Inno Setup compiler (iscc).",
+    "use_when": [
+      "You need to package a Flutter or Dart desktop app into a Windows installer.",
+      "You want to configure Inno Setup scripts using Dart code instead of raw Inno Setup script files."
+    ],
+    "avoid_when": [
+      "You are targeting platforms other than Windows for installation creation.",
+      "You do not want to require Inno Setup installed on the build machine."
+    ],
+    "strengths": [
+      "Declarative configuration of Inno Setup scripts via Dart.",
+      "Supports advanced features like custom compression, app URLs, icons, and licensing prompts."
+    ],
+    "weaknesses": [
+      "Depends on an external tool (Inno Setup / iscc compiler) being available on the host machine.",
+      "Limited strictly to Windows installer creation."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires Inno Setup installed on the host machine and available to the build environment.",
+    "alternatives": [],
+    "minimal_example": "InnoSetup(\n  app: InnoSetupApp(\n    name: 'Test App',\n    version: Version.parse('0.1.0'),\n    publisher: 'author',\n    urls: InnoSetupAppUrls(\n      homeUrl: Uri.parse('https://example.com/'),\n    ),\n  ),\n  files: InnoSetupFiles(\n    executable: File('build/windows/runner/test_app.exe'),\n    location: Directory('build/windows/runner'),\n  ),\n  name: const InnoSetupName('windows_installer'),\n  location: InnoSetupInstallerDirectory(\n    Directory('build/windows'),\n  ),\n  icon: InnoSetupIcon(\n    File('assets/icon.ico'),\n  ),\n).make();",
+    "confidence": 0.95
+  }
+}

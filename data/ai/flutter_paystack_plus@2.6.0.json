@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "2.6.0",
+  "generatedAt": "2026-11-15T11:21:50.014Z",
+  "data": {
+    "primary_category": "payments",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter plugin to process Paystack payments on mobile and web with split and subscription support.",
+    "what_it_does": "Provides a unified API to initialize, display and verify Paystack transactions on Android, iOS and Web. Supports card, bank, USSD, mobile money, QR, split payments and subscription plans. Can work with client‑side secret key or server‑side authorization URL.",
+    "use_when": [
+      "you need Paystack payment integration for Android, iOS, or Web",
+      "you require split‑payment or subscription capabilities"
+    ],
+    "avoid_when": [
+      "you use a different payment gateway (e.g., Stripe, Adyen)",
+      "you need native in‑app purchases from Google Play or App Store"
+    ],
+    "strengths": [
+      "mobile and web support in one package",
+      "built‑in split‑payment and subscription features",
+      "offers both client‑side and server‑side initialization"
+    ],
+    "weaknesses": [
+      "requires manual JavaScript interop for web",
+      "client‑side secret key handling can be insecure",
+      "limited to Paystack only"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add web/paystack_interop.js and include Paystack script in web/index.html; set Android minSdkVersion >=19; no extra iOS steps; provide secretKey or authorizationUrl at runtime",
+    "alternatives": [
+      {
+        "name": "flutter_stripe",
+        "why_pick_it": "Provides a broader set of payment methods and is backed by Stripe, a widely used gateway"
+      }
+    ],
+    "minimal_example": "await FlutterPaystackPlus.openPaystackPopup(\n  context: context,\n  customerEmail: 'customer@example.com',\n  amount: '50000',\n  reference: DateTime.now().millisecondsSinceEpoch.toString(),\n  secretKey: 'sk_live_your_secret_key',\n  callBackUrl: 'https://your-callback-url.com',\n  onSuccess: () => debugPrint('Payment successful!'),\n  onClosed: () => debugPrint('Payment cancelled.'),\n);",
+    "confidence": 0.93
+  }
+}

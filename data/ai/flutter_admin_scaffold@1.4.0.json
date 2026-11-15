@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.4.0",
+  "generatedAt": "2026-11-15T11:12:13.385Z",
+  "data": {
+    "primary_category": "layout",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "A scaffold widget providing a sidebar and an app bar for admin panels.",
+    "what_it_does": "It provides an AdminScaffold class that integrates an adjustable sidebar with an app bar and body area. It supports hierarchical menu items, headers, footers, and routing handlers out of the box.",
+    "use_when": [
+      "You are building an admin dashboard or a desktop/web app requiring a collapsible sidebar navigation.",
+      "You want a pre-built layout structure combining an AppBar and a SideBar."
+    ],
+    "avoid_when": [
+      "You need complex navigation with advanced deep linking handled directly by a routing package.",
+      "You are building a mobile-first app that does not require a persistent sidebar layout."
+    ],
+    "strengths": [
+      "Quickly sets up standard admin panel layouts.",
+      "Supports nested menu items inside the sidebar.",
+      "Cross-platform support including web and desktop."
+    ],
+    "weaknesses": [
+      "Limited to specific admin layout paradigms.",
+      "Lacks integrated routing features, requiring manual navigation handling."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:flutter_admin_scaffold/admin_scaffold.dart';\n\nclass SamplePage extends StatelessWidget {\n  @override\n  Widget build(BuildContext context) {\n    return AdminScaffold(\n      appBar: AppBar(\n        title: const Text('Sample'),\n      ),\n      sideBar: SideBar(\n        items: const [\n          AdminMenuItem(\n            title: 'Dashboard',\n            route: '/',\n            icon: Icons.dashboard,\n          ),\n        ],\n        selectedRoute: '/',\n        onSelected: (item) {\n          if (item.route != null) {\n            Navigator.of(context).pushNamed(item.route!);\n          }\n        },\n      ),\n      body: Container(),\n    );\n  }\n}",
+    "confidence": 0.95
+  }
+}

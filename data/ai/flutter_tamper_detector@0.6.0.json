@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.6.0",
+  "generatedAt": "2026-11-15T10:57:32.696Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Detect rooting, hooking tools, emulators, debug mode and store installation on Android/iOS.",
+    "what_it_does": "Provides methods to check if the device is rooted, running on an emulator, using hooking frameworks like Frida or Xposed, or if the app is in debug mode. It can also enforce security actions such as exiting the process or uninstalling the app.",
+    "use_when": [
+      "You need to protect a Flutter app from tampering or running on compromised devices",
+      "You want to enforce security policies like terminating the app on rooted or emulated environments"
+    ],
+    "avoid_when": [
+      "You only need basic device info without security checks",
+      "You target platforms other than Android/iOS"
+    ],
+    "strengths": [
+      "Simple API with async boolean checks",
+      "Built‑in options to exit or uninstall the app automatically",
+      "Supports screenshot prevention and recent‑apps hiding"
+    ],
+    "weaknesses": [
+      "Limited to Android and iOS only",
+      "Security checks can be bypassed by advanced attackers",
+      "No code‑generation or declarative integration"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the package to pubspec, run flutter pub get, and for Android add ProGuard/R8 keep rules as documented; iOS requires no extra steps.",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter_tamper_detector/flutter_tamper_detector.dart';\n\nFuture<void> checkSecurity() async {\n  if (await FlutterTamperDetector.isRooted(exitProcessIfTrue: true)) {\n    // app will exit automatically\n  }\n}",
+    "confidence": 0.97
+  }
+}

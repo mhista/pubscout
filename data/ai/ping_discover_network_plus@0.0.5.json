@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.0.5",
+  "generatedAt": "2026-11-15T11:15:48.158Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "device"
+    ],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "Ping IP subnets and discover local network devices and services.",
+    "what_it_does": "Allows Flutter apps to scan an IP subnet to find active network devices and open ports. It provides stream-based network discovery methods to locate printers, services, or other hardware on a local Wi-Fi network.",
+    "use_when": [
+      "You need to discover printers or smart devices on a local Wi-Fi network.",
+      "You want to scan a specific subnet and port to find active IP addresses."
+    ],
+    "avoid_when": [
+      "You are communicating with remote internet APIs rather than local network hardware.",
+      "You need robust device discovery protocols like mDNS or UPnP instead of raw port pinging."
+    ],
+    "strengths": [
+      "Provides stream-based discovery for monitoring found devices in real time.",
+      "Supports checking single ports or entire subnets.",
+      "Tested on both Android and iOS platforms."
+    ],
+    "weaknesses": [
+      "Requires the device to be connected to Wi-Fi and relies on a separate plugin to fetch local IP info.",
+      "Raw port scanning can be slow or blocked depending on network firewalls."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires the wifi_info_plugin_plus dependency and appropriate local network permissions depending on the target platform.",
+    "alternatives": [],
+    "minimal_example": "import 'package:ping_discover_network_plus/ping_discover_network_plus.dart';\n\nconst port = 80;\nfinal stream = NetworkAnalyzer.discover2(\n  '192.168.0', port,\n  timeout: Duration(milliseconds: 5000),\n);\n\nstream.listen((NetworkAddress addr) {\n  if (addr.exists) {\n    print('Found device: ${addr.ip}:$port');\n  });",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.0.1",
+  "generatedAt": "2026-11-15T11:18:01.163Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "device",
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Integrate Philips Hue smart devices and bridges into Flutter applications.",
+    "what_it_does": "Discovers Philips Hue bridges on the local network, establishes local or remote communication, and controls connected smart devices like lights and entertainment areas. It also provides color conversion helpers and Philips Hue icons.",
+    "use_when": [
+      "You need to build a Flutter application that interacts with Philips Hue smart lights.",
+      "You want to stream entertainment colors to Philips Hue entertainment areas."
+    ],
+    "avoid_when": [
+      "Your project does not use Flutter and requires pure Dart (use dart_hue instead).",
+      "You are working with smart home devices from manufacturers other than Philips Hue."
+    ],
+    "strengths": [
+      "Supports Philips Hue API v2.",
+      "Provides built-in bridge discovery, color converters, and entertainment streaming.",
+      "Supports both local network and remote connections."
+    ],
+    "weaknesses": [
+      "Tied exclusively to Philips Hue products.",
+      "Entertainment areas must still be created using the official Hue app before controlling them."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add flutter_hue to dependencies and optionally call FlutterHueMaintenanceRepo.maintain at the root of your app for local storage maintenance.",
+    "alternates": [],
+    "minimal_example": "List<DiscoveredBridge> newBridges = await BridgeDiscoveryRepo.discoverBridges();\nList<String> ipAddresses = newBridges.map((e) => e.ipAddress).toList();",
+    "confidence": 0.95,
+    "alternatives": []
+  }
+}

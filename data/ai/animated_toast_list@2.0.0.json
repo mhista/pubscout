@@ -1,0 +1,56 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "2.0.0",
+  "generatedAt": "2026-11-15T11:11:00.033Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "animation"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A dependency‑free toast list widget for Flutter",
+    "what_it_does": "Wrap your app with ToastListOverlay and call context.showToast to display custom toasts that stack, animate and auto‑hide. The toasts stay above every screen and can be any widget you build.",
+    "use_when": [
+      "Need lightweight, dependency‑free toast system",
+      "Want full control over toast appearance and animation",
+      "Need to show multiple toast types or persistent toasts",
+      "Require toasts that survive navigation changes"
+    ],
+    "avoid_when": [
+      "You need built‑in styling or theme integration",
+      "You already use a comprehensive toast package like toastification or bot_toast"
+    ],
+    "strengths": [
+      "No external dependencies beyond Flutter",
+      "Fully customizable toast widgets",
+      "Supports persistent and timed toasts",
+      "Handles navigation and nested navigators gracefully"
+    ],
+    "weaknesses": [
+      "No built‑in styles – you must design the toast yourself",
+      "Limited to simple toast logic – no advanced features like queues or priority"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add ToastListOverlay around your MaterialApp and call context.showToast from any descendant widget.",
+    "alternatives": [
+      {
+        "name": "toastification",
+        "why_pick_it": "Provides ready‑made toast styles, themes, and advanced features like queueing and auto‑dismiss options."
+      },
+      {
+        "name": "fluttertoast",
+        "why_pick_it": "Simple API for quick toasts but less flexible for custom widgets."
+      },
+      {
+        "name": "bot_toast",
+        "why_pick_it": "Offers rich customization and built‑in animations but adds a dependency."
+      }
+    ],
+    "minimal_example": "```dart\nToastListOverlay<MyToastModel>(\n  itemBuilder: (context, item, index, animation) => ToastItem(animation: animation, item: item),\n  child: MaterialApp(\n    home: const MainScreen(),\n  ),\n);\n\n// Show a toast\ncontext.showToast(MyToastModel('Saved', ToastType.success));\n```",
+    "confidence": 0.9
+  }
+}

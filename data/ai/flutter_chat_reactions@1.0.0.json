@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.0",
+  "generatedAt": "2026-11-15T11:10:26.272Z",
+  "data": {
+    "primary_category": "ui-kits",
+    "secondary_categories": [
+      "widgets",
+      "layout"
+    ],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "Add message reactions and context menus with adaptive Cupertino and Material styling.",
+    "what_it_does": "Adds chat message reactions and context menus with adaptive iOS and Material styling. It supports multiple presentations such as focused overlays, compact bars, and bottom sheets, alongside optional controller-managed state with optimistic updates.",
+    "use_when": [
+      "You are building a chat application and need reaction pickers or context menus.",
+      "You want platform-adaptive styling (Cupertino on iOS/macOS, Material elsewhere)."
+    ],
+    "avoid_when": [
+      "Your app does not involve messaging or chat features.",
+      "You need a built-in emoji picker included directly in the package (this package has zero dependencies and requires an external picker)."
+    ],
+    "strengths": [
+      "Zero external dependencies",
+      "Multiple swappable presenters (focused overlay, compact bar, bottom sheet, custom)",
+      "Adaptive iOS and Material styling with deep theming support",
+      "Accessible out of the box with semantics, keyboard navigation, and screen reader actions"
+    ],
+    "weaknesses": [
+      "Does not include a built-in emoji picker (requires a pluggable adapter)",
+      "Requires Flutter 3.32 or newer"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires Flutter 3.32 or newer. Zero native dependencies.",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:flutter_chat_reactions/flutter_chat_reactions.dart';\n\nvoid main() => runApp(const QuickStartApp());\n\nclass QuickStartApp extends StatefulWidget {\n  const QuickStartApp({super.key});\n\n  @override\n  State<QuickStartApp> createState() => _QuickStartAppState();\n}\n\nclass _QuickStartAppState extends State<QuickStartApp> {\n  final _controller = ReactionsController(\n    currentUserId: 'me',\n    currentUserName: 'You',\n  );\n\n  @override\n  void dispose() {\n    _controller.dispose();\n    super.dispose();\n  }\n\n  @override\n  Widget build(BuildContext context) {\n    return MaterialApp(\n      home: Scaffold(\n        body: ListenableBuilder(\n          listenable: _controller,\n          builder: (context, _) => ReactableMessage(\n            reactions: _controller.summariesFor('m1'),\n            onReactionSelected: _controller.bind('m1').onReactionSelected,\n            child: const Text('Message m1'),\n          ),\n        ),\n      ),\n    );\n  }\n}",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.1.1",
+  "generatedAt": "2026-11-15T11:08:07.542Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [
+      "dependency-injection"
+    ],
+    "approach": [
+      "stream-based",
+      "declarative"
+    ],
+    "one_liner": "A generic InheritedWidget-based provider for BLoC state management in Flutter.",
+    "what_it_does": "Provides BLoC objects down the widget tree using InheritedWidget while helping to avoid boilerplate. It automatically manages the lifecycle of the BLoC by calling its dispose method when the provider is removed.",
+    "use_when": [
+      "You are using a custom BLoC pattern requiring basic stream management and disposal",
+      "You want a lightweight provider mechanism without heavy third-party state libraries"
+    ],
+    "avoid_when": [
+      "You are using modern state management libraries like flutter_bloc or riverpod",
+      "You need complex dependency injection containers"
+    ],
+    "strengths": [
+      "Simple API with minimal boilerplate",
+      "Automatic lifecycle management with BLoC disposal",
+      "Supports custom updateShouldNotify overrides"
+    ],
+    "weaknesses": [
+      "Relies on a custom abstract Bloc class rather than official state management packages",
+      "Very basic feature set compared to modern alternatives"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "flutter_bloc",
+        "why_pick_it": "It is the official, widely-adopted package for BLoC state management with extensive tooling and community support."
+      },
+      {
+        "name": "provider",
+        "why_pick_it": "It is the standard general-purpose dependency injection and state propagation tool in Flutter."
+      },
+      {
+        "name": "riverpod",
+        "why_pick_it": "It offers a robust, compile-safe, and modern provider system that completely replaces InheritedWidget patterns."
+      }
+    ],
+    "minimal_example": "class MyApp extends StatelessWidget {\n  @override\n  Widget build(BuildContext context) {\n    return BlocProvider(\n      bloc: AppBloc(),\n      child: MaterialApp(\n        home: MainPage(),\n      ),\n    );\n  }\n}",
+    "confidence": 0.95
+  }
+}

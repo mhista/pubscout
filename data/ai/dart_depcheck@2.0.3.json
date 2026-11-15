@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.3",
+  "generatedAt": "2026-11-15T11:21:41.836Z",
+  "data": {
+    "primary_category": "devtools",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Command-line tool and library to check for unused and missing dependencies in Flutter or Dart projects.",
+    "what_it_does": "Analyzes project source files and pubspec.yaml to identify unused dependencies, unused dev dependencies, and missing dependencies. Can be used via CLI or programmatically in Dart code.",
+    "use_when": [
+      "You want to clean up unused dependencies in your pubspec.yaml",
+      "You need to detect missing dependencies imported in source files but not declared",
+      "You want to check dependency health in continuous integration (CI) pipelines"
+    ],
+    "avoid_when": [
+      "Your project relies heavily on runtime-only packages that have no importable API"
+    ],
+    "strengths": [
+      "Supports both CLI and programmatic usage",
+      "Can fail builds in CI using the --fail-on-issues flag",
+      "Provides JSON and summary output formats for automation"
+    ],
+    "weaknesses": [
+      "Detection is import-based and may flag packages with no importable API as unused",
+      "Only scans the lib folder by default unless additional folders are specified"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Install globally via 'dart pub global activate dart_depcheck' or add it as a dependency in your project.",
+    "alternatives": [],
+    "minimal_example": "import 'package:dart_depcheck/dart_depcheck.dart';\n\nvoid main() async {\n  final result = await DependencyChecker.analyze(\n    projectPath: '/path/to/project',\n  );\n  print(result.isClean);\n}",
+    "confidence": 1
+  }
+}

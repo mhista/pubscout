@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "4.8.0",
+  "generatedAt": "2026-11-15T11:11:32.625Z",
+  "data": {
+    "primary_category": "maps",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter plugin for MapsIndoors indoor mapping using Mapbox.",
+    "what_it_does": "Provides indoor maps, real‑time wayfinding and route rendering via the MapsIndoors SDK on Android and iOS. It wraps native Mapbox maps and adds MapsIndoors-specific controls and services.",
+    "use_when": [
+      "You need indoor mapping and navigation with MapsIndoors on Flutter",
+      "You want offline caching of base‑map tiles for Mapbox",
+      "You target Android API 21+ and iOS 16+ and can provide Mapbox credentials"
+    ],
+    "avoid_when": [
+      "You cannot add native Gradle or Podfile changes",
+      "You require a different map provider (e.g., Google Maps only)",
+      "Your app must support iOS versions below 16"
+    ],
+    "strengths": [
+      "Full integration with MapsIndoors indoor SDK",
+      "Offline base‑map tile caching for Mapbox",
+      "Directions rendering with customizable styles",
+      "Supports both Android and iOS"
+    ],
+    "weaknesses": [
+      "Requires native setup: API keys, Maven repo, Gradle token, Podfile changes",
+      "Minimum iOS version 16 limits older devices",
+      "Tied to Mapbox; cannot switch to other map providers easily"
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Add mapbox_api_key.xml with API key, configure Maven repo and MAPBOX_DOWNLOADS_TOKEN in gradle.properties, set iOS platform to 16.0 and add use_frameworks! in Podfile, provide MBXAccessToken in Info.plist, then add mapsindoors_mapbox to pubspec.",
+    "alternatives": [],
+    "minimal_example": "import 'package:mapsindoors/mapsindoors.dart' as MapsIndoors;\nimport 'package:mapsindoors/mapsindoors_library.dart';\n\nclass MapWidget extends StatefulWidget {\n  final String apiKey;\n  const MapWidget({Key? key, required this.apiKey}) : super(key: key);\n  @override\n  State<MapWidget> createState() => _MapWidgetState();\n}\n\nclass _MapWidgetState extends State<MapWidget> {\n  final _floorSelector = MPDefaultFloorSelector();\n  late final MapsIndoorsWidget _map;\n  @override\n  void initState() {\n    super.initState();\n    loadMapsIndoors(widget.apiKey);\n  }\n  void _ready(MPError? e) async {\n    if (e == null) {\n      _map.goTo(await getDefaultVenue());\n    }\n  }\n  @override\n  Widget build(BuildContext context) {\n    return Scaffold(\n      body: _map = MapsIndoorsWidget(\n        floorSelector: _floorSelector,\n        initialCameraPosition: MPCameraPosition(\n          zoom: 7,\n          point: MPPoint.withCoordinates(longitude: -118.0165, latitude: 33.9457),\n        ),\n        readyListener: _ready,\n      ),\n    );\n  }\n}\n",
+    "confidence": 0.9
+  }
+}

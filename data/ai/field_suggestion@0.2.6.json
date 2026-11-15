@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.2.6",
+  "generatedAt": "2026-11-15T11:20:01.521Z",
+  "data": {
+    "primary_category": "forms",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Create customizable and controllable autocomplete fields in Flutter.",
+    "what_it_does": "Provides customizable input fields with suggestion capabilities, including network-driven suggestions via a FutureBuilder-like API. It allows developers to control the visibility of the suggestion box, provide custom input widgets, and use generic types for suggestions.",
+    "use_when": [
+      "You need an autocomplete input field with custom suggestion fetching (e.g., local or network searches).",
+      "You want to customize how suggestions are displayed and filtered."
+    ],
+    "avoid_when": [
+      "You require a complex native-like search delegate spanning entire screens."
+    ],
+    "strengths": [
+      "Supports custom search algorithms and generic typing.",
+      "Provides a network constructor for asynchronous suggestion loading.",
+      "Highly customizable UI components and box controllers."
+    ],
+    "weaknesses": [
+      "Relies on external wiki documentation for detailed usage examples."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "FieldSuggestion<String>.network(\n  inputDecoration: InputDecoration(\n    hintText: 'Username',\n  ),\n  future: (input) => future.call(input),\n  textController: controller,\n  boxController: boxController,\n  builder: (context, snapshot) {\n    if (snapshot.connectionState != ConnectionState.done) {\n      return Center(child: CircularProgressIndicator());\n    }\n    final result = snapshot.data ?? [];\n    return ListView.builder(\n      itemCount: result.length,\n      itemBuilder: (context, index) {\n        return ListTile(title: Text(result[index]));\n      },\n    );\n  },\n)",
+    "confidence": 0.95
+  }
+}

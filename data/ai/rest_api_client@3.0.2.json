@@ -1,0 +1,52 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.0.2",
+  "generatedAt": "2026-11-15T11:31:01.609Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "auth",
+      "storage"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "HTTP client for REST APIs with JWT authentication, automatic token refresh, and response caching.",
+    "what_it_does": "Provides a production-ready HTTP client built on top of Dio that simplifies REST API communication. It handles JWT authentication, automatic token refresh strategies, request retries with exponential backoff, response caching, and typed exception handling.",
+    "use_when": [
+      "You need a robust HTTP client with built-in JWT authentication and refresh token rotation.",
+      "Your app requires offline caching capabilities for REST API responses.",
+      "You want typed exceptions and global error stream handling for network requests."
+    ],
+    "avoid_when": [
+      "You are working with GraphQL, WebSockets, or gRPC instead of REST.",
+      "You prefer writing raw Dio code without an opinionated client abstraction."
+    ],
+    "strengths": [
+      "Built-in JWT authentication management and automatic token refresh.",
+      "Configurable response caching and retry logic with exponential backoff.",
+      "Supports multiple platforms including iOS, Android, Web, and Desktop."
+    ],
+    "weaknesses": [
+      "Tied to a specific abstraction layer rather than using raw Dio or standard http directly.",
+      "Limited to REST API communication."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Call RestApiClient.initFlutter() in main before initializing the client.",
+    "alternatives": [
+      {
+        "name": "dio",
+        "why_pick_it": "If you prefer a highly customizable HTTP client with full control over interceptors and adapters without opinionated wrappers."
+      },
+      {
+        "name": "http",
+        "why_pick_it": "If you want a lightweight, standard package maintained by the Dart team for simple HTTP requests."
+      }
+    ],
+    "minimal_example": "import 'package:rest_api_client/rest_api_client.dart';\n\nvoid main() async {\n  WidgetsFlutterBinding.ensureInitialized();\n  await RestApiClient.initFlutter();\n\n  final client = RestApiClientImpl(\n    options: RestApiClientOptions(\n      baseUrl: 'https://api.example.com',\n    ),\n  );\n\n  await client.init();\n\n  final result = await client.get('/users');\n  if (result.hasData) {\n    print(result.data);\n  }\n}",
+    "confidence": 0.95
+  }
+}

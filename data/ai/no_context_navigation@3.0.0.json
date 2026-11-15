@@ -1,0 +1,46 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "3.0.0",
+  "generatedAt": "2026-11-15T11:19:33.429Z",
+  "data": {
+    "primary_category": "navigation",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Navigate without BuildContext using a global NavigatorKey",
+    "what_it_does": "Provides a NavigationService that uses a global NavigatorState to push, replace, and pop routes without needing a BuildContext. It wraps Navigator methods in a simple API.",
+    "use_when": [
+      "You need context‑free navigation in a small or medium app",
+      "You want a quick, minimal setup without learning a new routing library",
+      "You prefer imperative navigation calls over declarative routing"
+    ],
+    "avoid_when": [
+      "You require deep linking, nested routes, or complex route management",
+      "You are already using a declarative router like go_router or auto_route",
+      "You need advanced navigation features such as route guards or transition animations"
+    ],
+    "strengths": [
+      "Simple API, no context required",
+      "Null safety compliant",
+      "Easy to add to existing projects"
+    ],
+    "weaknesses": [
+      "Limited to basic navigation, no deep linking or nested routes",
+      "No declarative routing or route configuration",
+      "Relies on a global key which can be problematic in tests"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add navigatorKey to MaterialApp and create a NavigationService instance. No build_runner or permissions needed.",
+    "alternatives": [
+      {
+        "name": "go_router",
+        "why_pick_it": "Provides declarative routing, deep linking, nested routes, and a richer feature set for larger apps"
+      }
+    ],
+    "minimal_example": "final navService = NavigationService();\n\nMaterialApp(\n  navigatorKey: NavigationService.navigationKey,\n  onGenerateRoute: (settings) => MaterialPageRoute(\n    builder: (_) => settings.name == '/detail' ? DetailScreen() : HomeScreen(),\n  ),\n);\n\n// Navigate\nnavService.pushNamed('/detail', args: 'From Home');",
+    "confidence": 0.9
+  }
+}

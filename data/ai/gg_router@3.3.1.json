@@ -1,0 +1,50 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.3.1",
+  "generatedAt": "2026-11-15T11:19:07.883Z",
+  "data": {
+    "primary_category": "navigation",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Create nested routes, sync app state with browser URLs, and animate transitions.",
+    "what_it_does": "GgRouter helps you define nested routes, popover routes, and fallback routes in Flutter. It synchronizes application state with the browser URI, handles query parameters, and supports route-specific animations.",
+    "use_when": [
+      "You want easy nested routing and browser URL synchronization.",
+      "You need page-based hierarchical navigation with animations."
+    ],
+    "avoid_when": [
+      "You prefer standard mainstream routing packages like go_router or auto_route.",
+      "You need complex third-party navigation architectures not supported by GgRouter."
+    ],
+    "strengths": [
+      "Supports relative and absolute navigation.",
+      "Handles fallback routes (index, default, wildcard).",
+      "Saves and restores route state as JSON."
+    ],
+    "weaknesses": [
+      "Niche package with limited community compared to go_router."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Provide GgRouterDelegate and GgRouteInformationParser to MaterialApp.router.",
+    "alternatives": [
+      {
+        "name": "go_router",
+        "why_pick_it": "It is the officially endorsed declarative routing package for Flutter with a massive community."
+      },
+      {
+        "name": "auto_route",
+        "why_pick_it": "It offers strongly-typed route generation and deep linking out of the box."
+      },
+      {
+        "name": "beamer",
+        "why_pick_it": "It specializes in routing delegate management and synchronizing state with the browser history."
+      }
+    ],
+    "minimal_example": "class MyApp extends StatelessWidget {\n  MyApp({Key? key}) : super(key: key);\n\n  @override\n  Widget build(BuildContext context) {\n    return MaterialApp.router(\n      routerDelegate: GgRouterDelegate(\n        child: Scaffold(\n          body: GgRouterExample(),\n        ),\n      ),\n      routeInformationParser: GgRouteInformationParser(),\n    );\n  }\n}",
+    "confidence": 0.95
+  }
+}

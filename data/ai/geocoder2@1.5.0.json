@@ -1,0 +1,48 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "1.5.0",
+  "generatedAt": "2026-11-15T11:13:19.961Z",
+  "data": {
+    "primary_category": "maps",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Forward and reverse geocoding using the Google Maps Geocoding API for Flutter and Dart",
+    "what_it_does": "Provides async methods to convert addresses to coordinates and vice versa, returning structured GeoData objects. It handles errors with a custom exception and supports multiple results and optional language selection.",
+    "use_when": [
+      "You need to geocode addresses or coordinates in a Flutter app",
+      "You have a Google Maps API key and want a simple, null‑safe wrapper",
+      "You need to support multiple results or nullable queries"
+    ],
+    "avoid_when": [
+      "You prefer an open‑source, no‑API‑key solution like OpenStreetMap",
+      "You need offline geocoding or a different backend"
+    ],
+    "strengths": [
+      "Null‑safe and fully typed API",
+      "Structured exception handling with Google status codes",
+      "Supports multiple results and optional language",
+      "Zero runtime crashes and proper URL encoding"
+    ],
+    "weaknesses": [
+      "Requires a Google Maps API key and billing",
+      "Only supports Google Maps Geocoding API",
+      "No offline mode"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add geocoder2 to pubspec and provide a Google Maps API key in method calls",
+    "alternatives": [
+      {
+        "name": "geocoding",
+        "why_pick_it": "Official Google Maps geocoding package with similar functionality"
+      }
+    ],
+    "minimal_example": "```dart\nimport 'package:geocoder2/geocoder2.dart';\n\ntry {\n  GeoData data = await Geocoder2.getDataFromAddress(\n    address: \"277 Bedford Ave, Brooklyn, NY 11211, USA\",\n    googleMapApiKey: \"YOUR_GOOGLE_MAP_API_KEY\",\n  );\n  print(\"Formatted Address: ${data.address}\");\n  print(\"Latitude: ${data.latitude}\");\n  print(\"Longitude: ${data.longitude}\");\n} on Geocoder2Exception catch (e) {\n  print(\"Geocoding failed: ${e.message} (Status: ${e.status})\");\n}\n```",
+    "confidence": 0.9
+  }
+}

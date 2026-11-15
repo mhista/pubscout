@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.2.5",
+  "generatedAt": "2026-11-15T11:16:06.731Z",
+  "data": {
+    "primary_category": "auth",
+    "secondary_categories": [
+      "storage"
+    ],
+    "approach": [
+      "code generation",
+      "imperative"
+    ],
+    "one_liner": "A plugin implementing the WebAuthn authenticator model for generating Public Key Credentials",
+    "what_it_does": "Implements the WebAuthn Authenticator model allowing Flutter apps to generate public key credentials, register users using biometrics, and create assertions for login. It uses local_auth and flutter_secure_storage under the hood.",
+    "use_when": [
+      "You need to implement WebAuthn authenticator functionality in a Flutter application.",
+      "You want to use platform-supported biometrics and secure credential storage for WebAuthn authentication."
+    ],
+    "avoid_when": [
+      "You do not require WebAuthn or platform authenticator capabilities.",
+      "Your Android minSdkVersion is lower than 18."
+    ],
+    "strengths": [
+      "Implements the WebAuthn Authenticator model with helper methods for Web APIs.",
+      "Integrates with local_auth and flutter_secure_storage."
+    ],
+    "weaknesses": [
+      "Credential selection during assertions is not yet fully implemented (uses the most recently created credential).",
+      "StrongBox keystore is not fully supported across all Android devices."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires local_auth integration setup for iOS and Android. In build.gradle, minSdkVersion must be set to >= 18 for flutter_secure_storage. Uses build_runner for code generation.",
+    "alternatives": [],
+    "minimal_example": "final authenticator = Authenticator(true, true);\nfinal makeCredentialOptions = MakeCredentialOptions.fromJson(options);\nfinal attestation = authenticator.makeCredential(makeCredentialOptions);",
+    "confidence": 0.95
+  }
+}

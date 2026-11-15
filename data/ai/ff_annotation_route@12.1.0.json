@@ -1,0 +1,50 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "12.1.0",
+  "generatedAt": "2026-11-15T11:32:14.333Z",
+  "data": {
+    "primary_category": "navigation",
+    "secondary_categories": [
+      "codegen"
+    ],
+    "approach": [
+      "code generation"
+    ],
+    "one_liner": "Annotation-driven route generator and navigation helper for Flutter",
+    "what_it_does": "Scans Dart code for annotations like @FFRoute to generate strongly-typed routing maps and argument helpers. It supports multiple navigation frameworks including Navigator 1.0/2.0, GetX, and GoRouter, alongside route interceptors and lifecycle observers.",
+    "use_when": [
+      "You want strongly-typed routing and arguments generated via annotations",
+      "Your project uses Navigator 1.0, 2.0, GetX, or GoRouter and needs centralized route maps",
+      "You need built-in route interceptors and page lifecycle callbacks"
+    ],
+    "avoid_when": [
+      "You prefer manual route table definitions without code generation tools",
+      "You do not want external command-line tools or global activation in your build workflow"
+    ],
+    "strengths": [
+      "Multi-navigation paradigm support (Navigator 1.0/2.0, GetX, GoRouter)",
+      "Strongly-typed argument helpers and auto-import features",
+      "Supports fast mode and full analysis mode for monorepos"
+    ],
+    "weaknesses": [
+      "Requires running an external CLI command for route generation",
+      "Fast mode requires manual import statements or @FFAutoImport for complex arguments"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Activate the plugin globally using `dart pub global activate ff_annotation_route`, add dependencies like ff_annotation_route_core and ff_annotation_route_library, and execute the route generator command in the project root.",
+    "alternatives": [
+      {
+        "name": "auto_route",
+        "why_pick_it": "Provides a robust, annotation-driven routing solution with built-in declarative routing and generated type-safe arguments."
+      },
+      {
+        "name": "go_router",
+        "why_pick_it": "Offers an official declarative routing package with deep linking built directly into the Flutter ecosystem without mandatory code generation tools."
+      }
+    ],
+    "minimal_example": "@FFRoute(\n  name: \"fluttercandies://mainpage\",\n  routeName: \"MainPage\",\n)\nclass MainPage extends StatelessWidget {\n  const MainPage({Key? key}) : super(key: key);\n  @override\n  Widget build(BuildContext context) => Container();\n}",
+    "confidence": 0.95
+  }
+}

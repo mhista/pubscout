@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "1.2.0",
+  "generatedAt": "2026-11-15T10:57:12.800Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter plugin to copy sensitive content to clipboard, hiding it on Android 13.",
+    "what_it_does": "Wraps the default clipboard and uses Android 13's sensitive flag to prevent the copied text from being shown in the system UI. On iOS it falls back to the standard clipboard behavior.",
+    "use_when": [
+      "You need to copy confidential data on Android 13 without showing it in the pop‑up notification",
+      "You want a simple API to hide sensitive clipboard content across Android and iOS"
+    ],
+    "avoid_when": [
+      "Targeting only older Android versions where the flag is unnecessary",
+      "You need full clipboard management (e.g., rich content, multiple formats)"
+    ],
+    "strengths": [
+      "Hides sensitive content on Android 13",
+      "Simple static method API",
+      "Works on both Android and iOS"
+    ],
+    "weaknesses": [
+      "Only supports copy (paste support added later but limited)",
+      "Requires compileSdkVersion 33",
+      "No advanced clipboard features"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Set compileSdkVersion to 33 in android/app/build.gradle; no additional permissions required.",
+    "alternatives": [],
+    "minimal_example": "import 'package:sensitive_clipboard/sensitive_clipboard.dart';\n\nvoid copySecret() {\n  SensitiveClipboard.copy('Sensitive-Content');\n}",
+    "confidence": 0.9
+  }
+}

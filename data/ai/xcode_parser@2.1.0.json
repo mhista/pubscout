@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.1.0",
+  "generatedAt": "2026-11-15T11:30:19.872Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "files"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Read, modify, and save Xcode project .pbxproj files programmatically",
+    "what_it_does": "Reads and analyzes the contents of Xcode .pbxproj project files, allows modifying settings and configurations, and saves the changes back out. It supports native platforms as well as web and WASM via string parsing.",
+    "use_when": [
+      "You need to automate iOS development or build tasks by modifying Xcode project settings.",
+      "You want to programmatically inject build configurations or source files into a .pbxproj file."
+    ],
+    "avoid_when": [
+      "You are building a standard mobile application that does not require low-level project file modification.",
+      "You need deep native device access outside of parsing text-based Xcode project structures."
+    ],
+    "strengths": [
+      "Compatible with native platforms, Web, and WASM.",
+      "Provides an intuitive object-oriented representation of sections, maps, entries, and lists inside .pbxproj files."
+    ],
+    "weaknesses": [
+      "Opening large project files can take a few seconds and requires isolates to avoid blocking the main thread.",
+      "File reading and writing methods throw UnsupportedError on Web and WASM platforms."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "void main() async {\n  var project = await Pbxproj.open('path/to/Runner.xcodeproj/project.pbxproj');\n  var uuid = project.generateUuid();\n  var config = MapPbx(\n    uuid: uuid,\n    children: [\n      MapEntryPbx('isa', VarPbx('XCBuildConfiguration')),\n      MapEntryPbx('name', VarPbx('\"CustomDebug\"')),\n    ],\n  );\n  project.add(config);\n  await project.save();\n}",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.8-flash",
+  "version": "2.3.2",
+  "generatedAt": "2026-11-15T10:59:57.939Z",
+  "data": {
+    "primary_category": "devtools",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Client-agnostic network and WebSocket inspector for Flutter with overlay UI, replay, and MCP export",
+    "what_it_does": "Intercepts and inspects HTTP and WebSocket traffic directly inside Flutter applications using an on-screen overlay UI. It offloads body parsing and serialization to background isolates and provides network simulation, HAR/cURL export, and Postman-style request replaying. It also exposes VM service extensions to connect with AI coding assistants via the Model Context Protocol (MCP).",
+    "use_when": [
+      "Debugging HTTP requests, GraphQL queries, or WebSocket frames directly on device or in simulators",
+      "Simulating offline or throttled network profiles (e.g., Slow 3G) inside your Flutter app",
+      "Inspecting app traffic using AI coding agents through Model Context Protocol (MCP)"
+    ],
+    "avoid_when": [
+      "Production builds where you do not want inspection overhead or potential data leakage",
+      "Apps looking for built-in HTTP client functionality without adding dedicated adapter packages"
+    ],
+    "strengths": [
+      "Client-agnostic design with modular adapters for Dio, http, Chopper, and WebSocket packages",
+      "Uses background isolates and hybrid storage to avoid UI frame drops on large payloads",
+      "Supports live bidirectional WebSocket frame inspection with ring-buffering and throttling"
+    ],
+    "weaknesses": [
+      "Requires installing and maintaining satellite adapter packages (e.g., interceptly_dio) to hook into client traffic",
+      "Documented platform support is currently limited to Android and iOS"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires passing the app's NavigatorState GlobalKey to Interceptly.init and attaching the relevant adapter to your HTTP or WebSocket client.",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:interceptly/interceptly.dart';\n\nfinal _navKey = GlobalKey<NavigatorState>();\n\nvoid main() {\n  WidgetsFlutterBinding.ensureInitialized();\n  runApp(MaterialApp(navigatorKey: _navKey, home: const Scaffold()));\n\n  Interceptly.init(\n    navigatorKey: _navKey,\n    showFloatingButton: true,\n  );\n}",
+    "confidence": 0.95
+  }
+}

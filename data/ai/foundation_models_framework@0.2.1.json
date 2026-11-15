@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.2.1",
+  "generatedAt": "2026-11-15T11:26:01.787Z",
+  "data": {
+    "primary_category": "ai-ml",
+    "secondary_categories": [
+      "device"
+    ],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "Flutter plugin for Apple's on-device Foundation Models framework and Apple Intelligence.",
+    "what_it_does": "Integrates with Apple's Foundation Models framework on iOS and macOS to provide session-based language model interactions. Supports token streaming, persistent context, generation options, and content safety guardrails entirely on-device.",
+    "use_when": [
+      "You are building an iOS or macOS app that leverages Apple Intelligence on-device models",
+      "You need local, privacy-first language model chat sessions with streaming responses"
+    ],
+    "avoid_when": [
+      "You need cross-platform support for Android or Windows",
+      "Target devices do not support iOS 26.0+ or macOS 15.0+ with Apple Intelligence enabled"
+    ],
+    "strengths": [
+      "On-device processing ensures privacy with no external server costs",
+      "Supports persistent multi-turn chat sessions and real-time token streaming",
+      "Includes built-in content safety guardrails and session pre-warming"
+    ],
+    "weaknesses": [
+      "Restricted only to Apple platforms (iOS 26.0+ / macOS 15.0+)",
+      "Requires physical devices with Apple Intelligence enabled and models downloaded"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires setting iOS deployment target to 26.0+, enabling Apple Intelligence in macOS system settings, and ensuring compatible hardware.",
+    "alternatives": [],
+    "minimal_example": "import 'package:foundation_models_framework/foundation_models_framework.dart';\n\nfinal foundationModels = FoundationModelsFramework.instance;\nfinal session = foundationModels.createSession(\n  instructions: 'You are a helpful assistant.',\n  guardrailLevel: GuardrailLevel.standard,\n);\n\nfinal response = await session.respond(prompt: 'Hello, how are you?');\nprint(response.content);\nawait session.dispose();",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.8-flash",
+  "version": "1.0.14",
+  "generatedAt": "2026-11-15T11:04:58.419Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "storage"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Fetches and caches historical daily stock and market data from Yahoo Finance.",
+    "what_it_does": "Fetches historical daily market candle data (open, close, high, low) for symbols using the Yahoo Finance API. It parses response data in background isolates and supports local persistence via Sembast cache. Developers can also supply custom Dio instances for specialized interceptors or caching behavior.",
+    "use_when": [
+      "You need historical daily stock, index, or futures candle data for backtesting or charting in Flutter.",
+      "You want an easy way to query Yahoo Finance without managing endpoints and JSON parsing manually.",
+      "You want local caching of historical financial time-series data."
+    ],
+    "avoid_when": [
+      "You need real-time, tick-level, or intraday order book data.",
+      "You require guaranteed SLA production market data, as Yahoo Finance endpoints are unofficial and subject to breaking changes."
+    ],
+    "strengths": [
+      "Supports pulling full historical dataframes dating back many decades for certain symbols (e.g., ^GSPC).",
+      "Provides built-in local persistence caching with Sembast.",
+      "Allows injecting a customized Dio client to handle interceptors, proxies, or caching."
+    ],
+    "weaknesses": [
+      "Relies on Yahoo Finance's unofficial API endpoints, which can change or fail without notice.",
+      "Limited documentation on advanced query parameters and cache configuration options."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires internet access permissions on mobile and desktop platforms.",
+    "alternatives": [],
+    "minimal_example": "YahooFinanceResponse response = await YahooFinanceDailyReader().getDailyDTOs('GOOG');\nfor (var candle in response.candlesData) {\n  print('${candle.date}: ${candle.close}');\n}",
+    "confidence": 0.95
+  }
+}

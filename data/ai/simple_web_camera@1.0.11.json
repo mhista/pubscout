@@ -1,0 +1,51 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.11",
+  "generatedAt": "2026-11-15T11:28:25.900Z",
+  "data": {
+    "primary_category": "camera",
+    "secondary_categories": [
+      "images",
+      "web-desktop"
+    ],
+    "approach": [
+      "declarative",
+      "imperative"
+    ],
+    "one_liner": "A simple Flutter widget to access and take photos using the browser's camera.",
+    "what_it_does": "Provides a widget designed for web applications that accesses the browser's camera to capture photos. It returns the captured photo as a base64 encoded string. It also includes an AppBar and camera switching capabilities.",
+    "use_when": [
+      "You are building a Flutter web application that needs to capture photos from the browser camera.",
+      "You need the captured image returned easily as a base64 encoded string."
+    ],
+    "avoid_when": [
+      "You need complex native camera features on mobile platforms like Android and iOS.",
+      "You require QR or barcode scanning functionalities."
+    ],
+    "strengths": [
+      "Easy to integrate camera access specifically for Flutter web apps.",
+      "Returns captured images directly as base64 encoded strings ready for use.",
+      "Supports customizable AppBar titles and camera switching when multiple cameras are available."
+    ],
+    "weaknesses": [
+      "Camera switching stability can vary across different browsers.",
+      "Limited feature set focused primarily on basic photo capture on web."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add simple_web_camera as a dependency in pubspec.yaml.",
+    "alternatives": [
+      {
+        "name": "camera",
+        "why_pick_it": "Pick the official camera package if you need robust native platform support alongside web."
+      },
+      {
+        "name": "camera_web",
+        "why_pick_it": "Use camera_web as the underlying implementation when working with the official camera package ecosystem."
+      }
+    ],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:simple_web_camera/simple_web_camera.dart';\n\nclass SimpleCameraExample extends StatelessWidget {\n  const SimpleCameraExample({Key? key}) : super(key: key);\n\n  @override\n  Widget build(BuildContext context) {\n    return ElevatedButton(\n      onPressed: () async {\n        var res = await Navigator.push(\n          context,\n          MaterialPageRoute(\n            builder: (context) => const SimpleWebCameraPage(\n                appBarTitle: \"Take a Picture\", centerTitle: true),\n          ),\n        );\n      },\n      child: const Text(\"Take a picture\"),\n    );\n  }\n}",
+    "confidence": 0.95
+  }
+}

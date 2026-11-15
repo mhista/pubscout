@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "1.0.1",
+  "generatedAt": "2026-11-15T11:13:32.470Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Pure‑Dart LZMA compression library for encoding and decoding byte arrays.",
+    "what_it_does": "Provides lzma.encode to compress a list of bytes and lzma.decode to decompress LZMA data. The implementation is a manual port of the original Java SDK and works on all Dart platforms.",
+    "use_when": [
+      "You need LZMA compression in a pure‑Dart project without native plugins",
+      "Cross‑platform code (mobile, web, desktop) must stay in Dart"
+    ],
+    "avoid_when": [
+      "You need to compress data larger than 4 GB (output limited to 32 bits)",
+      "Streaming compression or high‑performance native codecs are required"
+    ],
+    "strengths": [
+      "Pure Dart implementation – no native build steps",
+      "Simple API with just encode/decode functions",
+      "Works on all Dart platforms"
+    ],
+    "weaknesses": [
+      "Output size limited to 32 bits",
+      "No streaming or incremental API",
+      "Last update was minor; may lack optimizations"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:lzma/lzma.dart';\n\nfinal input = <int>[0,1,2,3,4,5,6,7,8,9];\nfinal compressed = lzma.encode(input);\nfinal decompressed = lzma.decode(compressed);",
+    "confidence": 0.95
+  }
+}

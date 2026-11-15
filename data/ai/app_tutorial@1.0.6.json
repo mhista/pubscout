@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "1.0.6",
+  "generatedAt": "2026-11-15T11:20:44.671Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A lightweight widget for creating onboarding flows with customizable highlights and callbacks.",
+    "what_it_does": "It displays a sequence of highlighted UI elements with overlay and optional child widgets. The flow can be started with `Tutorial.showTutorial` and finished with a callback or skipped with `Tutorial.skipAll`.",
+    "use_when": [
+      "adding a feature walkthrough to a new screen",
+      "quickly onboarding first‑time users",
+      "adding a short tutorial to a button or menu item"
+    ],
+    "avoid_when": [
+      "building complex multi‑screen navigation flows",
+      "requiring deep link handling or nested routing"
+    ],
+    "strengths": [
+      "simple API, no build_runner needed",
+      "highly customizable overlay and shape",
+      "provides completion callback"
+    ],
+    "weaknesses": [
+      "limited to single‑screen tutorials",
+      "no built‑in navigation or deep link support",
+      "no state‑management integration"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dependency to pubspec and import package; no additional permissions or build steps required.",
+    "alternatives": [],
+    "minimal_example": "```dart\nimport 'package:app_tutorial/app_tutorial.dart';\n\nfinal items = [\n  TutorialItem(\n    globalKey: _buttonKey,\n    child: Text('Tap here to start'),\n  ),\n];\n\nTutorial.showTutorial(\n  context,\n  items,\n  onTutorialComplete: () => print('Tutorial finished'),\n);\n```",
+    "confidence": 0.8
+  }
+}

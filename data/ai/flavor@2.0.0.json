@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.0",
+  "generatedAt": "2026-11-15T11:08:13.641Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Configure environment-specific settings and display visual flavor banners.",
+    "what_it_does": "Allows defining separate main entry points for different development environments like dev, beta, and production. Stores environment-specific properties such as API keys and URLs, and optionally displays a visual banner on the app.",
+    "use_when": [
+      "You want to easily manage different API endpoints and configurations for development, staging, and production.",
+      "You want to display a visual overlay banner on non-production builds."
+    ],
+    "avoid_when": [
+      "You need native-level bundle ID and asset switching (use a tool like flutter_flavorizr instead).",
+      "You require complex state management solutions."
+    ],
+    "strengths": [
+      "Simple setup with Dart-based main methods.",
+      "Built-in support for environment properties like API URLs and keys.",
+      "Optional visual flavor banner display."
+    ],
+    "weaknesses": [
+      "Does not configure native-level Android and iOS build flavors by itself.",
+      "Limited to predefined and custom basic key-value properties."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Create separate main entry point files for each environment (e.g., main_dev.dart, main_prod.dart) and initialize Flavor.create.",
+    "alternatives": [],
+    "minimal_example": "Flavor.create(\n  Environment.dev,\n  color: Colors.green,\n  name: 'PREVIEW',\n  properties: {\n    Keys.apiUrl: 'https://api.dev.company.com',\n  },\n);\nsetupApp();",
+    "confidence": 0.95
+  }
+}

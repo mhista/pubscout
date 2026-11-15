@@ -1,0 +1,50 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "1.0.4",
+  "generatedAt": "2026-11-15T11:14:49.870Z",
+  "data": {
+    "primary_category": "animation",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "Lightweight staggered animations for ListView, GridView, Column and Row children.",
+    "what_it_does": "Adds easy‑to‑use staggered fade, slide, scale and flip animations to scrollable and linear widget collections. It minimizes per‑frame work by avoiding per‑frame animation objects and reduces widget rebuilds.",
+    "use_when": [
+      "You need simple staggered entrance animations for lists or grids",
+      "You want a drop‑in replacement for flutter_staggered_animations with Dart 3 support",
+      "Performance on low‑spec devices matters"
+    ],
+    "avoid_when": [
+      "You require highly custom or physics‑based animations",
+      "You need fine‑grained control over animation curves per frame",
+      "You already use a full‑featured animation framework"
+    ],
+    "strengths": [
+      "Very low runtime overhead",
+      "Zero external dependencies beyond Flutter SDK",
+      "Same API as the original package, easy migration",
+      "Works on all major platforms"
+    ],
+    "weaknesses": [
+      "Limited to predefined animation widgets",
+      "No built‑in support for complex sequence or physics animations",
+      "Customization beyond duration/delay is minimal"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "shimmer",
+        "why_pick_it": "Provides a simple loading‑placeholder animation without needing staggered list logic"
+      }
+    ],
+    "minimal_example": "import 'package:flutter_staggered_animations_plus/flutter_staggered_animations_plus.dart';\n\nAnimationLimiter(\n  child: ListView.builder(\n    itemCount: 20,\n    itemBuilder: (context, i) => AnimationConfiguration.staggeredList(\n      position: i,\n      duration: const Duration(milliseconds: 375),\n      child: SlideAnimation(\n        verticalOffset: 50.0,\n        child: FadeInAnimation(\n          child: ListTile(title: Text('Item $i')),\n        ),\n      ),\n    ),\n  ),\n);",
+    "confidence": 0.98
+  }
+}

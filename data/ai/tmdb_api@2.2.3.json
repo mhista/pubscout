@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.2.3",
+  "generatedAt": "2026-11-15T11:21:51.645Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [],
+    "approach": [
+      "no codegen"
+    ],
+    "one_liner": "Dart client-side API package for the TMDB (The Movie Database) API.",
+    "what_it_does": "Provides a client library to interact with TMDB.org API endpoints such as trending movies, tv shows, watch providers, and details. Allows configuring console logs, custom Dio instances, default languages, and interceptors.",
+    "use_when": [
+      "You need to fetch movie or TV show data from The Movie Database in a Dart or Flutter application.",
+      "You want a pre-built wrapper over the TMDB REST API using Dio."
+    ],
+    "avoid_when": [
+      "You are building an app that does not require movie or media database integrations.",
+      "You prefer to write raw HTTP requests directly without a third-party TMDB wrapper."
+    ],
+    "strengths": [
+      "Supports a wide range of TMDB v3 endpoints including trending, TV series, videos, and watch providers.",
+      "Built-in logging presets and options for custom Dio instances and interceptors."
+    ],
+    "weaknesses": [
+      "Dependent on a specific third-party API wrapper which may lag behind official TMDB API updates."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires an API key and/or apiReadAccessTokenv4 from The Movie Database (TMDB.org).",
+    "alternatives": [
+      {
+        "name": "dio",
+        "why_pick_it": "If you prefer making direct HTTP requests to the TMDB API using a robust HTTP client without relying on a dedicated wrapper."
+      },
+      {
+        "name": "http",
+        "why_pick_it": "If you prefer the standard Dart http package for custom REST API consumption."
+      }
+    ],
+    "minimal_example": "final tmdbWithCustomLogs = TMDB(\n    ApiKeys('Your API KEY', 'apiReadAccessTokenv4'),\n  );\nMap result = await tmdb.v3.trending.getTrending(mediaType = MediaType.all, timeWindow = TimeWindow.day);",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.2.0",
+  "generatedAt": "2026-11-15T11:25:17.869Z",
+  "data": {
+    "primary_category": "files",
+    "secondary_categories": [
+      "device"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Flutter plugin for file and directory operations on Android using SAF API.",
+    "what_it_does": "Simplifies file and directory operations on Android devices using the Storage Access Framework (SAF) API. Provides pickers, app directory path retrieval, persisted permissions management, thumbnails generation, and custom DocumentsProvider implementation.",
+    "use_when": [
+      "You need advanced Android file and directory operations via Storage Access Framework (SAF).",
+      "You need to pick files, directories, or visual media with persisted permissions.",
+      "You need to generate thumbnails for images, videos, or PDFs on Android."
+    ],
+    "avoid_when": [
+      "You are building a cross-platform app requiring non-Android specific advanced storage operations without Android SAF focus.",
+      "You only need basic temporary directories and already use path_provider."
+    ],
+    "strengths": [
+      "Comprehensive Android SAF integration and document management.",
+      "Persisted permissions management.",
+      "No manifest permissions required for basic operations."
+    ],
+    "weaknesses": [
+      "Android-specific features and implementation.",
+      "Subject to Android storage access restrictions (e.g., Android 11+ limitations on root and data folders)."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Supports Android 5.0 (API level 21) and above. No manifest permissions are required for basic usage.",
+    "alternatives": [
+      {
+        "name": "path",
+        "why_pick_it": "If you only need core path manipulation utilities."
+      },
+      {
+        "name": "file",
+        "why_pick_it": "If you need a generic file system abstraction over multiple implementations (memory, local, etc.)."
+      }
+    ],
+    "minimal_example": "Future<Directory?> getCachedDir() => DocMan.dir.cache();\nFuture<DocumentFile?> pickDir() => DocMan.pick.directory();",
+    "confidence": 0.95
+  }
+}

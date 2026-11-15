@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "1.0.4",
+  "generatedAt": "2026-11-15T10:56:35.914Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Provides a customizable splash screen widget with optional timer or future navigation.",
+    "what_it_does": "Shows a splash screen with a logo, title, background, and optional loader. After a set duration or when a provided Future completes, it navigates to the specified page. All configuration is done via widget parameters.",
+    "use_when": [
+      "You need a quick, code‑only splash screen without native splash setup",
+      "You want to display a logo or loading indicator while performing async initialization"
+    ],
+    "avoid_when": [
+      "You require native splash screen integration for faster app launch",
+      "You need complex animations or platform‑specific splash behavior"
+    ],
+    "strengths": [
+      "Very easy to integrate with a single widget",
+      "Supports both time‑based and future‑based navigation",
+      "Customizable logo, background, loader, and text"
+    ],
+    "weaknesses": [
+      "Limited to basic UI; no advanced animation support",
+      "Does not replace native splash screen for true cold‑start branding",
+      "No built‑in handling for permissions or platform‑specific splash assets"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:easy_splash_screen/easy_splash_screen.dart';\nimport 'package:flutter/material.dart';\n\nclass SplashPage extends StatelessWidget {\n  @override\n  Widget build(BuildContext context) {\n    return EasySplashScreen(\n      logo: Image.network('https://cdn4.iconfinder.com/data/icons/logos-brands-5/24/flutter-512.png'),\n      title: Text('Title', style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),\n      backgroundColor: Colors.grey.shade400,\n      showLoader: true,\n      loadingText: Text('Loading...'),\n      navigator: HomePage(),\n      durationInSeconds: 5,\n    );\n  }\n}",
+    "confidence": 0.9
+  }
+}

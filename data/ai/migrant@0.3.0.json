@@ -1,0 +1,51 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.3.0",
+  "generatedAt": "2026-11-15T11:12:51.524Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "A simple Dart tool for applying database schema migrations to SQLite and PostgreSQL.",
+    "what_it_does": "It reads migration scripts from a source (in‑memory or file system) and applies them to a target database. Separate packages provide the actual SQLite or PostgreSQL drivers. The API is minimal and focuses on sequential migration execution.",
+    "use_when": [
+      "You need to version and apply schema changes for SQLite or PostgreSQL databases in a Dart/Flutter project",
+      "You want a lightweight, framework‑agnostic migration runner without an ORM"
+    ],
+    "avoid_when": [
+      "You already use an ORM that includes its own migration system (e.g., drift)",
+      "You need advanced migration features like automatic rollbacks or complex dependency graphs"
+    ],
+    "strengths": [
+      "Very small and easy to add",
+      "Works with both SQLite and PostgreSQL via companion packages",
+      "Supports in‑memory and filesystem migration sources"
+    ],
+    "weaknesses": [
+      "No built‑in database drivers – you must add separate packages",
+      "Limited feature set compared to full‑featured migration tools",
+      "No code‑generation or declarative schema definitions"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add migrant to pubspec and also add the appropriate source (migrant_source_fs) and database driver packages (migrant_db_sqlite or migrant_db_postgresql)",
+    "alternatives": [
+      {
+        "name": "drift",
+        "why_pick_it": "Provides an integrated ORM with built‑in migration support and code generation"
+      },
+      {
+        "name": "sqlparser",
+        "why_pick_it": "Can parse and analyze SQL scripts for custom migration workflows"
+      }
+    ],
+    "minimal_example": "import 'package:migrant/migrant.dart';\nimport 'package:migrant_source_fs/migrant_source_fs.dart';\nimport 'package:migrant_db_sqlite/migrant_db_sqlite.dart';\n\nfinal source = InMemorySource([Migration('001_create', 'CREATE TABLE foo (id INTEGER PRIMARY KEY);')]);\nfinal db = SqliteDatabase('my.db');\nfinal migrator = Database(source, db);\nawait migrator.migrate();",
+    "confidence": 0.9
+  }
+}

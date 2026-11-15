@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.1.3",
+  "generatedAt": "2026-11-15T11:34:13.207Z",
+  "data": {
+    "primary_category": "codegen",
+    "secondary_categories": [],
+    "approach": [
+      "code generation"
+    ],
+    "one_liner": "Extends json_serializable to support MobX collections like ObservableList, ObservableSet, and ObservableMap.",
+    "what_it_does": "It adds support for serializing and deserializing MobX collections using the json_serializable code generation tool. It acts as an extension to allow seamless handling of reactive collections in data models.",
+    "use_when": [
+      "You are using MobX in your Flutter application and need to serialize models containing ObservableList, ObservableSet, or ObservableMap.",
+      "You already rely on json_serializable for your JSON parsing boilerplate."
+    ],
+    "avoid_when": [
+      "You are not using MobX for state management.",
+      "You prefer manual JSON serialization or a different code generation library like built_value."
+    ],
+    "strengths": [
+      "Bridges MobX collections with json_serializable seamlessly.",
+      "Reduces manual mapping boilerplate for reactive types."
+    ],
+    "weaknesses": [
+      "Requires custom build.yaml configuration to avoid conflicts with standard json_serializable.",
+      "Unofficial package dependent on json_serializable internals."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding to dev_dependencies and configuring build.yaml to exclude standard json_serializable builders and avoid conflicts.",
+    "alternatives": [
+      {
+        "name": "built_value",
+        "why_pick_it": "Alternative code generation system for immutable values and JSON serialization."
+      }
+    ],
+    "minimal_example": "targets:\n  $default:\n    builders:\n      json_serializable_mobx:\n        options:\n          explicit_to_json: true\n      json_serializable:json_serializable:\n        generate_for:\n          include:\n          exclude:\n            - test/**\n            - lib/**",
+    "confidence": 0.95
+  }
+}

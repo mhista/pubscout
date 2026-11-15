@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.1",
+  "generatedAt": "2026-11-15T11:26:01.949Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "animation"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A widget that can be dragged and scrolled in a single gesture and snapped to extents.",
+    "what_it_does": "Provides a sliding sheet widget that can be used permanently in the widget tree or as a bottom sheet dialog. It allows dragging, scrolling in a single gesture, and snapping to specific extents with support for headers, footers, and parallax effects.",
+    "use_when": [
+      "You need a bottom sheet that can be dragged, scrolled, and snapped to various extents seamlessly.",
+      "You want a persistent sliding panel embedded directly into your widget tree."
+    ],
+    "avoid_when": [
+      "You only need standard Material bottom sheets without custom snap points or single-gesture drag-to-scroll behavior.",
+      "Your children have infinite height without proper constraints (like shrinkWrap)."
+    ],
+    "strengths": [
+      "Supports dragging and scrolling in a single gesture.",
+      "Can be used both as a persistent widget and as a bottom sheet dialog.",
+      "Highly customizable snapping behavior and snap positioning."
+    ],
+    "weaknesses": [
+      "Requires careful handling of child widget heights (e.g. shrinkWrap for ListViews).",
+      "Forks an older package, requiring careful consideration for maintenance."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "SlidingSheet(\n  elevation: 8,\n  cornerRadius: 16,\n  snapSpec: const SnapSpec(\n    snap: true,\n    snappings: [0.4, 0.7, 1.0],\n    positioning: SnapPositioning.relativeToAvailableSpace,\n  ),\n  builder: (context, state) {\n    return Container(\n      height: 500,\n      child: Center(\n        child: Text('This is the content of the sheet'),\n      ),\n    );\n  },\n)",
+    "confidence": 0.95
+  }
+}

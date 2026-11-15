@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "1.1.2",
+  "generatedAt": "2026-11-15T10:55:32.026Z",
+  "data": {
+    "primary_category": "codegen",
+    "secondary_categories": [],
+    "approach": [
+      "stream-based",
+      "code generation"
+    ],
+    "one_liner": "Merges multiple input files into a single output file during the build process.",
+    "what_it_does": "The package provides a builder that reads several source files and writes a single merged file. It supports optional topological sorting of inputs and custom output paths.",
+    "use_when": [
+      "You need to combine generated code from multiple files into one file",
+      "You want to control the order of merged assets",
+      "You are already using build_runner and source_gen for code generation"
+    ],
+    "avoid_when": [
+      "You only need to generate a single file",
+      "You prefer a simpler, non‑stream based approach"
+    ],
+    "strengths": [
+      "Integrates with build_runner and source_gen",
+      "Supports topological sorting to avoid dependency cycles",
+      "Customizable input/output via build.yaml",
+      "No runtime overhead – all work happens at build time"
+    ],
+    "weaknesses": [
+      "Only works with Dart build system",
+      "Requires build_runner configuration",
+      "Limited to merging – not suitable for other code generation patterns"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add merging_builder to dependencies, configure build.yaml with build_extensions and options, run `dart run build_runner build`",
+    "alternatives": [],
+    "minimal_example": "```dart\n// build.yaml\nbuilders:\n  merging_builder:\n    import: \"package:merging_builder/merging_builder.dart\"\n    builder_factories: [\"mergingBuilder\"]\n    build_extensions: {\"lib/$lib$\": [\"lib/merged.dart\"]}\n    auto_apply: root_package\n    build_to: source\n```",
+    "confidence": 0.8
+  }
+}

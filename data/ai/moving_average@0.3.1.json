@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.3.1",
+  "generatedAt": "2026-11-15T11:33:01.478Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Calculate simple, weighted, and exponential moving averages for lists of numbers or objects.",
+    "what_it_does": "Provides a MovingAverage class to compute simple, weighted, and exponential moving averages over collections of data. Supports customizable window sizes, partial starts, and getter functions for custom objects.",
+    "use_when": [
+      "You need to compute simple moving averages for time-series or numerical list data.",
+      "You require weighted or exponential moving averages for statistical or data smoothing purposes."
+    ],
+    "avoid_when": [
+      "You need complex charting or visualization UI widgets to display the moving average data.",
+      "You are handling real-time streaming data that requires reactive stream-based operators."
+    ],
+    "strengths": [
+      "Supports multiple moving average types (simple, weighted, exponential).",
+      "Works with lists of numbers or custom objects via mapping functions.",
+      "Zero external dependencies."
+    ],
+    "weaknesses": [
+      "Not built as a reactive stream-based operator.",
+      "Lacks built-in UI components or chart plotting capabilities."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "final simpleMovingAverage = MovingAverage<num>(\n  averageType: AverageType.simple,\n  windowSize: 3,\n  partialStart: true,\n  getValue: (num n) => n,\n  add: (List<num> data, num value) => value,\n);\nfinal movingAverage3 = simpleMovingAverage([1, 2, 3, 4, 5]);",
+    "confidence": 1
+  }
+}

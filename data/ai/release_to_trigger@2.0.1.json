@@ -1,0 +1,52 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "2.0.1",
+  "generatedAt": "2026-11-15T11:17:39.699Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "animation",
+      "device"
+    ],
+    "approach": [
+      "declarative",
+      "stream-based",
+      "no codegen"
+    ],
+    "one_liner": "A customizable pull-to-reveal and swipe-to-trigger widget for Flutter.",
+    "what_it_does": "Wrap any widget to capture vertical or horizontal pull gestures and trigger custom actions. Supports multi‑stage thresholds, long‑press combo locks, shake‑to‑cancel and a built‑in pull‑to‑refresh constructor.",
+    "use_when": [
+      "You need a generic gesture wrapper beyond the standard RefreshIndicator",
+      "You want multi‑stage pull thresholds or secure long‑press‑then‑drag interactions",
+      "You require shake‑to‑cancel or real‑time progress callbacks"
+    ],
+    "avoid_when": [
+      "Only a simple list refresh is required",
+      "You prefer a full‑featured UI kit rather than a low‑level primitive",
+      "You need heavy state‑management or dependency‑injection solutions"
+    ],
+    "strengths": [
+      "Highly customizable with multi‑direction and multi‑stage support",
+      "Built‑in secure combo lock and shake‑to‑cancel features",
+      "No runtime third‑party dependencies besides sensors_plus",
+      "Provides a progress stream for advanced effects"
+    ],
+    "weaknesses": [
+      "Adds a sensor dependency which may need permissions on Android/iOS",
+      "May be overkill for simple pull‑to‑refresh use cases",
+      "Limited to gesture handling; not a complete UI kit"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the package and, if using shake‑to‑cancel, ensure sensors_plus is configured (Android may require sensor permissions).",
+    "alternatives": [
+      {
+        "name": "flutter_slidable",
+        "why_pick_it": "Provides ready‑made swipe‑to‑action list items without custom gesture handling"
+      }
+    ],
+    "minimal_example": "ReleaseToTrigger(\n  initialText: 'Pull down to reveal',\n  triggeredText: 'Release to unlock',\n  onTrigger: () => setState(() => _showPanel = true),\n  child: const HomeScreenBody(),\n);",
+    "confidence": 0.97
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "14.0.0",
+  "generatedAt": "2026-11-15T10:55:00.468Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Prompt users to upgrade when a newer version of the app is available in the store.",
+    "what_it_does": "Checks public store pages or custom appcasts for newer app versions and prompts the user with an alert dialog or a card widget containing update buttons, ignore options, and release notes.",
+    "use_when": [
+      "You need to nag users to update their app more quickly than usual",
+      "You want to enforce a minimum app version using store description metadata"
+    ],
+    "avoid_when": [
+      "Your app relies on native Android In-App Updates API or Huawei AppGallery API",
+      "Your app uses legacy Flutter material imports without standalone material_ui/cupertino_ui and you cannot upgrade or migrate yet"
+    ],
+    "strengths": [
+      "Supports multiple platforms including Android, iOS, and appcast support for others",
+      "Built-in minimum version enforcement via store descriptions",
+      "Customizable alert dialogs, cards, themes, and localized messages"
+    ],
+    "weaknesses": [
+      "Relies on scraping public Google Play Store pages for Android instead of native APIs",
+      "Requires standalone material_ui and cupertino_ui packages in version 14+"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires adding the package and wrapping your home widget or using UpgradeAlert/UpgradeCard. Version 14 requires migrating to standalone material_ui and cupertino_ui packages.",
+    "alternatives": [],
+    "minimal_example": "UpgradeAlert(\n  child: Scaffold(\n    appBar: AppBar(title: const Text('Upgrader Example')),\n    body: const Center(child: Text('Checking...')),\n  ),\n)",
+    "confidence": 1
+  }
+}

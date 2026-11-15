@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.0.5",
+  "generatedAt": "2026-11-15T11:17:07.589Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [
+      "files"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Sync and manage app files in iCloud storage for iOS and macOS.",
+    "what_it_does": "Provides an interface to upload, download, delete, rename, and move files within iCloud storage containers. It supports path filtering, timeout handling, progress tracking, and live stream updates for file modifications.",
+    "use_when": [
+      "You need to back up or sync app documents and data to iCloud on iOS and macOS.",
+      "You want to monitor live updates or track upload/download progress of cloud files."
+    ],
+    "avoid_when": [
+      "You are building for Android or web platforms where iCloud is unavailable.",
+      "You need a cross-platform local database or key-value store rather than cloud file sync."
+    ],
+    "strengths": [
+      "Supports path filtering and timeout options for metadata queries.",
+      "Provides progress tracking callbacks and live stream updates for file changes.",
+      "Comprehensive API for file operations (upload, delete, rename, move, replace)."
+    ],
+    "weaknesses": [
+      "Limited to Apple platforms (iOS and macOS).",
+      "Requires manual configuration of iCloud Container IDs, App IDs, and Apple Developer entitlements."
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Requires an Apple Developer account, configuring an iCloud Container ID, enabling the iCloud capability in Apple Developer portal, and setting up entitlements in Xcode.",
+    "alternatives": [],
+    "minimal_example": "Future<List<ICloudFile>> gatherFilesOptimized({\n  required String containerId,\n  required String pathPrefix,\n}) async {\n  return await icloudSyncPlugin.gather(\n    containerId: containerId,\n    relativePathPrefix: pathPrefix,\n    timeout: Duration(seconds: 30),\n  );\n}",
+    "confidence": 0.95
+  }
+}

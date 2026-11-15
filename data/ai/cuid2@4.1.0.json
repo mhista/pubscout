@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "4.1.0",
+  "generatedAt": "2026-11-15T11:16:25.650Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Generate collision‑resistant, URL‑friendly IDs with optional secure randomness",
+    "what_it_does": "Cuid2 creates unique identifiers that are hard to guess, collision‑resistant, and suitable for horizontal scaling. It uses cryptographically secure hashing and multiple entropy sources.",
+    "use_when": [
+      "Need globally unique IDs without coordination",
+      "Require IDs that are URL and name friendly",
+      "Need offline ID generation",
+      "Want to avoid UUID collisions in large distributed systems"
+    ],
+    "avoid_when": [
+      "Need sequential or sortable IDs",
+      "Running in tight render loops where performance is critical"
+    ],
+    "strengths": [
+      "High collision resistance",
+      "Secure RNG support",
+      "Fast and synchronous API",
+      "No async overhead"
+    ],
+    "weaknesses": [
+      "Not suitable for sequential IDs",
+      "Can be slower than simple counters in tight loops",
+      "Requires Dart SDK >=3.4.0",
+      "No built‑in CLI support before v4.0.0"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dependency in pubspec and import 'package:cuid2/cuid2.dart'; no extra permissions or build steps",
+    "alternatives": [],
+    "minimal_example": "import 'package:cuid2/cuid2.dart';\n\nvoid main() {\n  final id = cuid();\n  final secureId = cuidSecure(30);\n  print(id);\n  print(secureId);\n}",
+    "confidence": 0.95
+  }
+}

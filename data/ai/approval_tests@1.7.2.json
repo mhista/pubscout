@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.7.2",
+  "generatedAt": "2026-11-15T11:25:41.425Z",
+  "data": {
+    "primary_category": "testing",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Approval tests implementation in Dart for snapshot and complex object testing.",
+    "what_it_does": "Approval tests provide an alternative to traditional assertions by taking a snapshot of test results (such as long strings, collections, or JSON objects) and comparing them against a saved approved file. If a mismatch occurs, reporters highlight the differences.",
+    "use_when": [
+      "Testing objects with complex values, long strings, or many properties",
+      "Verifying complex JSON model outputs against a baseline snapshot",
+      "Running unit tests where exact string or text output comparison is required"
+    ],
+    "avoid_when": [
+      "Testing simple primitive equality where standard expect(actual, equals(expected)) is sufficient",
+      "Projects requiring heavy visual/UI golden testing specifically for Flutter widgets (use approval_tests_flutter instead)"
+    ],
+    "strengths": [
+      "Simplifies assertions for large or complex structured outputs",
+      "Supports automatic file generation and CLI-based review workflows",
+      "Includes atomic text writing and strict mode options for CI environments"
+    ],
+    "weaknesses": [
+      "Requires maintaining approved baseline files alongside source or test code",
+      "Depends on correct file naming and path resolution conventions"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add approval_tests to dev_dependencies/dependencies in pubspec.yaml and configure test files.",
+    "alternatives": [
+      {
+        "name": "test",
+        "why_pick_it": "For basic standard unit testing assertions without file-based snapshots."
+      }
+    ],
+    "minimal_example": "Approvals.verify(response, options: const Options(missingApprovedPolicy: MissingApprovedPolicy.writeReceivedAndFail));",
+    "confidence": 0.95
+  }
+}

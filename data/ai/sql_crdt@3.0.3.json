@@ -1,0 +1,53 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.0.3",
+  "generatedAt": "2026-11-15T11:09:44.437Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Base package for Conflict-free Replicated Data Types using SQL databases",
+    "what_it_does": "Provides base functionality and abstraction for CRDTs backed by relational databases with support for Hybrid Local Clocks, query watching, and synchronization changesets.",
+    "use_when": [
+      "You are building a local-first application requiring offline sync capabilities using SQL",
+      "You need conflict-free replicated data types backed by relational databases"
+    ],
+    "avoid_when": [
+      "You need an out-of-the-box concrete implementation without using a driver package like sqlite_crdt",
+      "You require a traditional full-featured ORM"
+    ],
+    "strengths": [
+      "Enables seamless synchronization across nodes via changesets",
+      "Includes reactive query watching capabilities",
+      "Uses Hybrid Local Clocks (HLC) for consistent snapshots"
+    ],
+    "weaknesses": [
+      "Abstract base package requiring a concrete implementation like sqlite_crdt",
+      "Automatically modifies table schemas by adding three internal columns",
+      "Deleted records are only flagged and not physically removed, requiring manual GDPR sanitization"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires a concrete driver implementation package such as sqlite_crdt or postgres_crdt.",
+    "alternatives": [
+      {
+        "name": "sqlite3",
+        "why_pick_it": "If you need a direct SQLite database wrapper without CRDT logic."
+      },
+      {
+        "name": "sqflite",
+        "why_pick_it": "If you want standard Flutter SQLite database storage without CRDT synchronization features."
+      },
+      {
+        "name": "drift",
+        "why_pick_it": "If you want a full-featured reactive type-safe SQL database library with code generation."
+      }
+    ],
+    "minimal_example": "final db = SqlCrdt();\nawait db.execute('CREATE TABLE users (id TEXT PRIMARY KEY, name TEXT)');\nawait db.execute('INSERT INTO users VALUES (?, ?)', ['1', 'Alice']);\nfinal results = await db.query('SELECT * FROM users');",
+    "confidence": 0.95
+  }
+}

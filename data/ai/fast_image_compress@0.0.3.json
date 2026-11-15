@@ -1,0 +1,47 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.0.3",
+  "generatedAt": "2026-11-15T11:20:07.941Z",
+  "data": {
+    "primary_category": "images",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "parallel-processing"
+    ],
+    "one_liner": "Compress images quickly in Flutter with batch and parallel processing support.",
+    "what_it_does": "A Flutter plugin that enables fast and easy image compression for JPEG, PNG, and HEIC formats on iOS and Android. It supports batch processing, parallel execution, resizing via target width, and preserving EXIF orientation.",
+    "use_when": [
+      "You need to compress single or multiple images efficiently before uploading or storing them.",
+      "You require parallel or batch image processing to keep UI smooth.",
+      "You work with JPEG, PNG, or HEIC formats on Android and iOS."
+    ],
+    "avoid_when": [
+      "You need support for platforms other than Android and iOS (e.g., Web, Desktop).",
+      "You require advanced image editing features like cropping or filters."
+    ],
+    "strengths": [
+      "Supports parallel and batch image processing.",
+      "Maintains image EXIF orientation during compression.",
+      "Supports HEIC formats on supported Android and iOS versions."
+    ],
+    "weaknesses": [
+      "Limited platform support (only Android and iOS).",
+      "HEIC format support is restricted to iOS 11+ and Android API 28+ with hardware encoder support."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Android may require updating Kotlin to version 1.5.20 or higher.",
+    "alternatives": [
+      {
+        "name": "image",
+        "why_pick_it": "Provides a pure Dart image processing library with a wide range of manipulation features beyond just compression."
+      }
+    ],
+    "minimal_example": "Future<Uint8List> compressImage(Uint8List imageData) async {\n  final compressedImage = await fastImageCompress.compressImage(\n    imageData: imageData,\n    quality: 60,\n    targetWidth: 400,\n    imageQuality: ImageQuality.low,\n  );\n  return compressedImage;\n}",
+    "confidence": 0.95
+  }
+}

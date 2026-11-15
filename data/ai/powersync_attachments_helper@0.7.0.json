@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.7.0",
+  "generatedAt": "2026-11-15T10:55:14.592Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "Helper for syncing file attachments between local and remote storage in PowerSync apps",
+    "what_it_does": "It queues uploads, downloads and deletes of files, watches database changes to enqueue work, and integrates with a remote storage adapter.",
+    "use_when": [
+      "You need to keep media files in sync with a remote store while using PowerSync",
+      "You want a simple queue that reacts to database changes"
+    ],
+    "avoid_when": [
+      "You plan to use the upcoming core PowerSync attachments library",
+      "You need advanced custom storage backends not supported by the helper"
+    ],
+    "strengths": [
+      "Built for PowerSync, handles queueing and watching DB changes",
+      "Supports multiple platforms (Android, iOS, Windows, macOS, Linux)",
+      "Uses standard Flutter plugins like path_provider"
+    ],
+    "weaknesses": [
+      "Will be replaced by core library, future features limited",
+      "No support for custom local storage implementations",
+      "Requires PowerSync 2.x"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add dependency, import package, implement AbstractRemoteStorageAdapter, initialize queue in main.dart",
+    "alternatives": [],
+    "minimal_example": "import 'package:powersync_attachments_helper/powersync_attachments_helper.dart';\n\nclass MyQueue extends AbstractAttachmentQueue {\n  MyQueue(db, remote) : super(db: db, remoteStorage: remote);\n  // implement saveFile, deleteFile, watchIds\n}\n\ninitializeAttachmentQueue(db) async {\n  attachmentQueue = MyQueue(db, remoteStorage);\n  await attachmentQueue.init();\n}\n",
+    "confidence": 0.85
+  }
+}

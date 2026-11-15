@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.1",
+  "generatedAt": "2026-11-15T11:34:07.475Z",
+  "data": {
+    "primary_category": "camera",
+    "secondary_categories": [
+      "ai-ml"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Detects if a face visible in the camera is a live person using facial challenges.",
+    "what_it_does": "Performs face liveness detection by prompting users to complete specific challenges like blinking, smiling, or turning their head. It uses Google ML Kit face detection to prevent presentation attacks and spoofing.",
+    "use_when": [
+      "You need to verify that a real, live human is interacting with your app during onboarding or authentication.",
+      "You want to protect against spoofing attacks using printed photos, recordings, or masks."
+    ],
+    "avoid_when": [
+      "You only need standard face recognition without liveness checks.",
+      "You need web, desktop, or macOS support, as this package is limited to iOS and Android."
+    ],
+    "strengths": [
+      "Includes built-in challenges like blinking, smiling, and head turns.",
+      "Highly customizable UI including oval guides, step cards, and info screens.",
+      "Performs no network I/O locally, keeping biometric data handling client-side."
+    ],
+    "weaknesses": [
+      "Limited platform support (Android and iOS only).",
+      "Requires manual cleanup of temporary captured image files.",
+      "Client-side liveness detection signals are not fully tamper-proof without server-side verification."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding NSCameraUsageDescription on iOS, setting iOS deployment target to 14.0+, and setting minSdkVersion to 21 with camera permission on Android.",
+    "alternatives": [],
+    "minimal_example": "final CapturedImage? result = await LivelynessDetection.detect(\n  context: context,\n  config: DetectionConfig(\n    steps: [\n      LivelynessStepItem(\n        step: LivelynessStep.blink,\n        title: \"Blink\",\n        isCompleted: false,\n      ),\n    ],\n    startWithInfoScreen: true,\n  ),\n);",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.2.0",
+  "generatedAt": "2026-11-15T11:25:23.263Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [
+      "auth"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Store and decode JWT tokens securely on device with helper methods for expiration and refresh flows.",
+    "what_it_does": "It stores JWT and refresh tokens using secure storage, decodes their payloads, and provides helper methods to check expiration dates, token age, and token validity without manual base64 parsing.",
+    "use_when": [
+      "You need to store and manage authentication JWTs and refresh tokens securely",
+      "You need a quick way to check if a token is expired or extract its payload and expiration date"
+    ],
+    "avoid_when": [
+      "You require complex cross-platform state management solutions beyond authentication sessions"
+    ],
+    "strengths": [
+      "Simplifies JWT payload decoding and expiration checking",
+      "Built-in support for access and refresh token pairs",
+      "Allows inspecting tokens directly without touching secure storage"
+    ],
+    "weaknesses": [
+      "Relies on device secure storage which can occasionally require platform-specific configuration",
+      "Does not handle full OAuth or credential exchange flows on its own"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires adding the package dependency to pubspec.yaml and ensuring standard platform secure storage dependencies are configured.",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter_session_jwt/flutter_session_jwt.dart';\n\n// Save a token after login\nawait FlutterSessionJwt.saveToken(token);\n\n// Retrieve payload\nvar payload = await FlutterSessionJwt.getPayload();\n\n// Check if expired\nbool expired = await FlutterSessionJwt.isTokenExpired();",
+    "confidence": 0.95
+  }
+}
