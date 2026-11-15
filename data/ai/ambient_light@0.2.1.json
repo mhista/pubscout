@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.2.1",
+  "generatedAt": "2026-11-14T10:29:14.885Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Access ambient light sensor data on Android, iOS and macOS.",
+    "what_it_does": "A Flutter plugin that enables applications to retrieve the current ambient light level and listen to continuous light sensor updates. It supports Android, iOS, and macOS platforms.",
+    "use_when": [
+      "You need to adjust app UI brightness based on the user's environment",
+      "You want to stream continuous ambient light data"
+    ],
+    "avoid_when": [
+      "You need a broader sensor suite like accelerometer or gyroscope",
+      "You need to support web interface (web support is dropped)"
+    ],
+    "strengths": [
+      "Supports multiple platforms including Android, iOS, and macOS",
+      "Provides both a one-time retrieval method and a continuous data stream"
+    ],
+    "weaknesses": [
+      "Web interface is no longer supported",
+      "Requires platform-specific configuration such as camera usage description on iOS"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "For iOS, you need to add the NSCameraUsageDescription key to your Info.plist file to request access to the camera for measuring ambient light.",
+    "alternatives": [
+      {
+        "name": "sensors_plus",
+        "why_pick_it": "Pick sensors_plus if you need standard device sensors like accelerometer, magnetometer, gyroscope, or user acceleration."
+      }
+    ],
+    "minimal_example": "import 'package:ambient_light/ambient_light.dart';\n\nvoid main() async {\n  final AmbientLight _ambientLight = AmbientLight();\n  double? lightLevel = await _ambientLight.currentAmbientLight();\n}",
+    "confidence": 0.95
+  }
+}

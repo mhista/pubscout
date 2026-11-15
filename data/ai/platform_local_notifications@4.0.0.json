@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.0.0",
+  "generatedAt": "2026-11-15T11:13:14.064Z",
+  "data": {
+    "primary_category": "notifications",
+    "secondary_categories": [
+      "web-desktop"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Cross-platform local notifications plugin supporting Android, iOS, Web, Windows, macOS, and Linux.",
+    "what_it_does": "Provides a unified facade for managing and showing local notifications and chat-style messages with interactive actions across multiple operating systems. It handles platform initialization, payload delivery, notification cancellation, and user action streams.",
+    "use_when": [
+      "You need to display standard local notifications or chat-style notifications across Android, iOS, Web, Windows, macOS, and Linux.",
+      "Your app needs to handle click events, reply actions, or mark-as-read actions via a unified stream.",
+      "You want to target both JavaScript and WebAssembly on web browsers using the native Browser Notifications API."
+    ],
+    "avoid_when": [
+      "You require server-driven push notifications or background messaging handlers that persist reliably after app termination without custom native setup.",
+      "You are targeting mobile web browsers requiring service-worker notifications (such as iOS browsers)."
+    ],
+    "strengths": [
+      "Comprehensive cross-platform support including mobile, desktop, and web.",
+      "Includes built-in chat-style notifications and interactive actions on Android with standard fallbacks on other platforms.",
+      "Provides a unified stream API for actions like clicks, replies, and mark-as-read."
+    ],
+    "weaknesses": [
+      "Does not persist or replay actions after app termination without custom native configuration.",
+      "Web backend is page-scoped and requires the page to stay open to receive clicks."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires platform-specific configuration such as adding an action broadcast receiver in the Android manifest, setting notification center delegates on iOS and macOS, and ensuring proper desktop server/identity setup on Windows and Linux.",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter/widgets.dart';\nimport 'package:platform_local_notifications/platform_local_notifications.dart';\n\nFuture<void> main() async {\n  WidgetsFlutterBinding.ensureInitialized();\n  await PlatformNotifier.initialize(appName: 'My App');\n}\n\nFuture<void> showStandard() => PlatformNotifier.showNotification(\n  model: const NotificationModel(\n    id: 43,\n    title: 'Reminder',\n    body: 'Your meeting starts soon.',\n    payload: 'meeting-43',\n  ),\n);",
+    "confidence": 0.95
+  }
+}

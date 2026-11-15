@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.6.5",
+  "generatedAt": "2026-11-15T11:12:25.164Z",
+  "data": {
+    "primary_category": "files",
+    "secondary_categories": [
+      "device"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Call native applications to open files with string results across platforms.",
+    "what_it_does": "Allows your Flutter application to trigger native apps to open specific files using platform-specific mechanisms like intents on Android, DocumentInteraction on iOS, ffi on PC, and dart:html on the web. It returns the result as a string.",
+    "use_when": [
+      "You need to let users open downloaded files or documents inside native applications.",
+      "You need cross-platform file opening support covering Android, iOS, PC, and web."
+    ],
+    "avoid_when": [
+      "You need to parse or view files directly inside the Flutter UI rather than launching an external app."
+    ],
+    "strengths": [
+      "Supports multiple platforms including mobile, desktop, and web.",
+      "Handles automatic type and UTI retrieval for common file formats."
+    ],
+    "weaknesses": [
+      "May require manual Android FileProvider configuration adjustments if conflicts occur with other plugins.",
+      "Relies entirely on external native applications installed on the device to view files."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "May require configuring Android FileProvider XML paths in AndroidManifest.xml if conflicts with other plugins occur.",
+    "alternatives": [],
+    "minimal_example": "import 'package:better_open_file/better_open_file.dart';\n\nOpenFile.open(\"/sdcard/example.txt\");",
+    "confidence": 0.95
+  }
+}

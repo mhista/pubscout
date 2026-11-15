@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.10.1",
+  "generatedAt": "2026-11-13T11:23:19.114Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [
+      "networking",
+      "device"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Real-time video and audio rooms for Flutter on Gravix Cloud.",
+    "what_it_does": "Provides real-time video and audio room capabilities for Flutter applications connected to Gravix Cloud. It handles region-aware connections, token providers, join analytics, automatic data-saving, and video or voice effects.",
+    "use_when": [
+      "You are building a live streaming, video call, or audio room app on Gravix Cloud.",
+      "You need region-aware connection optimization for low-latency media."
+    ],
+    "avoid_when": [
+      "You are using a self-hosted WebRTC server or a different cloud provider like Agora or Twilio.",
+      "You only need local audio or video playback without a real-time room server backend."
+    ],
+    "strengths": [
+      "Comprehensive suite of features including region probing, reconnect policies, and recovery.",
+      "Built-in Android beauty effects and voice effects.",
+      "Token management via local signing or endpoint providers."
+    ],
+    "weaknesses": [
+      "Tied tightly to Gravix Cloud backend and infrastructure.",
+      "Platform support is currently limited to Android and iOS."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding the package, configuring tokens, and optionally adjusting Android Gradle properties/Proguard rules if excluding or configuring built-in beauty effects.",
+    "alternatives": [],
+    "minimal_example": "import 'package:gravix_rtc/gravix_rtc.dart';\n\nfinal room = GravixRoomService();\nfinal tokens = GravixTokenProvider.endpoint(\n  Uri.parse('https://api.example.com/rtc/token'),\n);\n\nfinal ok = await room.connectWithTokenProvider(\n  tokenProvider: tokens,\n  request: GravixTokenRequest(room: 'room_id', identity: 'user_id'),\n);\nif (!ok) return;\nawait room.disconnect();\nawait room.dispose();",
+    "confidence": 0.95
+  }
+}

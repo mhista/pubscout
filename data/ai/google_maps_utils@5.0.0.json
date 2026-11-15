@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "5.0.0",
+  "generatedAt": "2026-11-15T11:08:43.804Z",
+  "data": {
+    "primary_category": "maps",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Port of Google's android-maps-utils for spherical geometry, polylines, and math in Dart.",
+    "what_it_does": "Provides core geometry, geodesy, and math utilities ported from Google's android-maps-utils library. Includes calculations for distances, headings, bounding boxes, polyline encoding/decoding, and Douglas-Peucker simplification.",
+    "use_when": [
+      "You need to calculate distances, headings, or areas between geographical coordinates.",
+      "You need to encode or decode Google polyline strings in a Dart or Flutter application.",
+      "You need spatial calculations like point-in-polygon or path simplification without heavy map rendering dependencies."
+    ],
+    "avoid_when": [
+      "You need a full interactive map widget (use a mapping package instead).",
+      "You only need basic non-geographical math operations."
+    ],
+    "strengths": [
+      "Exact algorithmic parity with Google's android-maps-utils library.",
+      "Cross-platform support including mobile, web, and desktop.",
+      "Zero external dependencies."
+    ],
+    "weaknesses": [
+      "Only a small subset (3 out of 78) of the full android-maps-utils classes have been ported so far."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "latlong2",
+        "why_pick_it": "A pure Dart library for distance and geometry calculations often used alongside flutter_map."
+      }
+    ],
+    "minimal_example": "import 'package:google_maps_utils/google_maps_utils.dart';\n\nfinal distance = GoogleMapsUtils.spherical.computeDistanceBetween(from, to);\nfinal path = GoogleMapsUtils.poly.decode(encodedString);",
+    "confidence": 1
+  }
+}

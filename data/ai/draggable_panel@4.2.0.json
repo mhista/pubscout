@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.2.0",
+  "generatedAt": "2026-11-13T11:44:24.473Z",
+  "data": {
+    "primary_category": "animation",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A floating panel window that can be dragged, spring-snapped, parked, and expanded.",
+    "what_it_does": "Provides a draggable floating panel widget for Flutter that snaps to screen edges using physics-based motion. It supports collapsing to a small window or parking off-screen as a grab tab, and expands in place on tap.",
+    "use_when": [
+      "You want a floating picture-in-picture style player or utility window.",
+      "You need a panel that can be tucked away to the screen edge when not in use."
+    ],
+    "avoid_when": [
+      "You need standard modal bottom sheets or navigation routes.",
+      "Your content requires complex layout constraints within a small bounding box rather than full-window overlay."
+    ],
+    "strengths": [
+      "Zero third-party dependencies.",
+      "High-performance rendering with custom RenderBox painting that avoids rebuilding app subtrees during motion.",
+      "Physics-based spring motion derived from native SwiftUI fluid interfaces."
+    ],
+    "weaknesses": [
+      "Must be mounted globally over the full window (e.g., via MaterialApp.builder) to position correctly.",
+      "Expanded builder runs even while collapsed, so expensive subtree setup must be avoided or gated."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "MaterialApp(\n  builder: (context, child) => DraggablePanel(\n    collapsedBuilder: (context, status) => const Icon(Icons.play_arrow),\n    expandedBuilder: (context, status) => const MiniPlayer(),\n    child: child,\n  ),\n  home: const HomeScreen(),\n)",
+    "confidence": 0.95
+  }
+}

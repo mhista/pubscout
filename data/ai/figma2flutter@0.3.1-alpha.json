@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.3.1-alpha",
+  "generatedAt": "2026-11-14T10:33:03.087Z",
+  "data": {
+    "primary_category": "codegen",
+    "secondary_categories": [
+      "theming"
+    ],
+    "approach": [
+      "code generation"
+    ],
+    "one_liner": "Converts Tokens Studio for Figma JSON exports into Flutter code and themes.",
+    "what_it_does": "Parses design tokens from a JSON file or folder exported from Figma (Tokens Studio) and generates Flutter code, including themes, custom composition tokens, and styles like colors, typography, and spacing.",
+    "use_when": [
+      "You use Tokens Studio for Figma and want to sync design tokens into your Flutter project automatically.",
+      "You need a structured way to manage design systems with support for themes, typography, and composition tokens."
+    ],
+    "avoid_when": [
+      "You do not use Figma or Tokens Studio for your design tokens.",
+      "You prefer manual styling and do not want a command-line code generator for your themes."
+    ],
+    "strengths": [
+      "Supports multiple themes and metadata sets.",
+      "Handles complex tokens like gradients, shadows, border radii, and math expressions.",
+      "Provides composition tokens for creating custom widgets and InputDecoration conversions."
+    ],
+    "weaknesses": [
+      "Breaking changes may occur on releases lower than v1.0.0.",
+      "Some token types or CSS color spaces (like non-sRGB) have limited or no support."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Activate via 'dart pub global activate figma2flutter' and run the command against your JSON tokens file or folder.",
+    "alternatives": [],
+    "minimal_example": "Tokens(\n  tokens: LightTokens(),\n  child: MaterialApp(\n    home: Container(\n      width: context.tokens.sizing.large,\n      color: context.tokens.color.primary,\n    ),\n  ),\n)",
+    "confidence": 1
+  }
+}

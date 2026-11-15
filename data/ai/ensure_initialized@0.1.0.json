@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.1.0",
+  "generatedAt": "2026-11-15T11:17:01.634Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Allows to await for an object's heavy initialization before using it.",
+    "what_it_does": "Provides mixins that allow objects to expose an initialization state, handle success and error outcomes, and let consumers await readiness or listen to state changes via streams.",
+    "use_when": [
+      "You have objects or services that perform heavy asynchronous initialization and need to be awaited before use.",
+      "You need to handle reinitialization flows when dependencies change, such as user sign-in and sign-out."
+    ],
+    "avoid_when": [
+      "You are using a comprehensive dependency injection container that already handles lazy singletons and asynchronous factories out of the box."
+    ],
+    "strengths": [
+      "Simple mixin-based API for making any class awaitable until ready",
+      "Supports initialization results and error propagation",
+      "Provides streams to listen to initialization and uninitialization events"
+    ],
+    "weaknesses": [
+      "Manual management of lifecycle states (calling initializedSuccessfully or initializedWithError)",
+      "Limited built-in orchestration beyond mixin methods"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "class YourObject with EnsureInitializedMixin {\n  Future<void> init() async {\n    await Future.delayed(const Duration(seconds: 3));\n    initializedSuccessfully();\n  }\n}\n\nfinal object = YourObject();\nawait object.ensureInitialized;\nobject.doSomethingAfterItIsReady();",
+    "confidence": 0.95
+  }
+}

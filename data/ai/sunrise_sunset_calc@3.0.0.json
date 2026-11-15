@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.0.0",
+  "generatedAt": "2026-11-14T10:37:31.946Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "maps"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Calculates sunrise and sunset times given latitude, longitude, timezone offset and date.",
+    "what_it_does": "Calculates the exact sunrise and sunset times for any given geographic coordinates, date, and timezone offset. It provides a simple API function to retrieve these times and also includes an async variant.",
+    "use_when": [
+      "You need to compute sunrise and sunset times locally without relying on an external API.",
+      "You are building an application that adjusts its UI or behavior based on day and night cycles."
+    ],
+    "avoid_when": [
+      "You need comprehensive astronomical data beyond basic sunrise and sunset times."
+    ],
+    "strengths": [
+      "Lightweight with minimal dependencies.",
+      "Supports both synchronous and asynchronous usage.",
+      "Cross-platform support including mobile, web, and desktop."
+    ],
+    "weaknesses": [
+      "Relies on manual timezone offsets using Durations rather than full IANA timezone database lookups."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:sunrise_sunset_calc/sunrise_sunset_calc.dart';\n\nmain() {\n  var sunriseSunset = getSunriseSunset(60.0, 60.0, 1, DateTime.now());\n  print(\"Sunrise is at: ${sunriseSunset.sunrise.toString()}\");\n  print(\"Sunset is at: ${sunriseSunset.sunset.toString()}\");\n}",
+    "confidence": 1
+  }
+}

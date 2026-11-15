@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "3.0.4",
+  "generatedAt": "2026-11-14T10:33:53.028Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [],
+    "approach": [
+      "stream-based"
+    ],
+    "one_liner": "StreamMixin provides a lightweight stream‑based state manager for Flutter widgets.",
+    "what_it_does": "It lets you expose a stream of state changes from a plain Dart class and consume it with StreamBuilder. The mixin handles the stream controller and exposes the last value via lastUpdate.",
+    "use_when": [
+      "You need a simple, performance‑friendly state solution without boilerplate.",
+      "You want to avoid using StatefulWidget and setState for small to medium widgets.",
+      "You prefer a single source of truth that can be shared globally or as a singleton."
+    ],
+    "avoid_when": [
+      "Your app requires complex navigation, dependency injection, or advanced state patterns like BLoC or Redux.",
+      "You need persistence, offline support, or integration with other state libraries.",
+      "You are building a large, feature‑rich app that needs more structure."
+    ],
+    "strengths": [
+      "No extra dependencies beyond Flutter.",
+      "Easy to use with a single line mixin and StreamBuilder.",
+      "Provides lastUpdate for quick access to the current value.",
+      "Performance gains by avoiding rebuilds of the whole widget tree."
+    ],
+    "weaknesses": [
+      "Limited to stream‑based state; no built‑in persistence or routing.",
+      "No built‑in testing utilities beyond basic unit tests.",
+      "Lacks advanced features like selectors or middleware."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "class Counter with StreamMixin<int>{\n  void increment(){\n    update((lastUpdate ?? 0)+1);\n  }\n}\nfinal counter=Counter();\nWidget build(BuildContext ctx)=>StreamBuilder<int>(\n  stream: counter.onChange,\n  builder:(cxt,snap)=>Text((snap.data ?? 0).toString()),\n);",
+    "confidence": 0.9
+  }
+}

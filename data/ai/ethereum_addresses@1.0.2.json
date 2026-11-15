@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.2",
+  "generatedAt": "2026-11-14T10:30:44.907Z",
+  "data": {
+    "primary_category": "web3",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "no codegen"
+    ],
+    "one_liner": "A Dart library to generate, checksum, and validate Ethereum addresses.",
+    "what_it_does": "It derives Ethereum addresses from public keys, converts addresses to checksummed formats using EIP-55, and validates existing Ethereum addresses.",
+    "use_when": [
+      "You need to derive Ethereum addresses from public keys.",
+      "You need to convert addresses to EIP-55 checksum format.",
+      "You need to validate Ethereum address strings in your application."
+    ],
+    "avoid_when": [
+      "You need a full Ethereum wallet or blockchain interaction client.",
+      "You are not working with Ethereum-compatible networks."
+    ],
+    "strengths": [
+      "Simple and focused API for Ethereum address operations.",
+      "Supports address validation and EIP-55 checksum formatting."
+    ],
+    "weaknesses": [
+      "Very narrow scope limited to address generation, checksums, and validation.",
+      "Not documented beyond basic address utilities."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [
+      {
+        "name": "web3dart",
+        "why_pick_it": "Pick web3dart if you need a full Ethereum blockchain client with wallet support and contract interaction rather than just address utilities."
+      },
+      {
+        "name": "eip55",
+        "why_pick_it": "Pick eip55 if you specifically need an alternative library for EIP-55 checksum encoding."
+      }
+    ],
+    "minimal_example": "import \"package:convert/convert.dart\" show hex;\nimport \"package:ethereum_addresses/ethereum_addresses.dart\";\n\nfinal publicKey = hex.decode(\n  \"028a8c59fa27d1e0f1643081ff80c3cf0392902acbf76ab0dc9c414b8d115b0ab3\",\n);\n\nfinal address = ethereumAddressFromPublicKey(Uint8List.fromList(hex.decode(publicKey)));\nfinal isChecksumValid = checksumEthereumAddress(address);\nfinal isValid = isValidEthereumAddress(address);",
+    "confidence": 0.95
+  }
+}

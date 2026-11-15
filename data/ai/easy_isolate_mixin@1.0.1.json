@@ -1,0 +1,37 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "1.0.1",
+  "generatedAt": "2026-11-14T10:39:46.003Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Mixin that runs functions in a separate Dart isolate to keep the UI responsive.",
+    "what_it_does": "Provides an IsolateHelperMixin with a loadWithIsolate method. The method executes a supplied function in a background isolate and returns its result as a Future. It simplifies isolate usage in Flutter apps.",
+    "use_when": [
+      "You need to perform CPU‑intensive work without blocking the main thread",
+      "You want a quick way to offload data processing or API calls to an isolate"
+    ],
+    "avoid_when": [
+      "The task is trivial and doesn’t justify isolate overhead",
+      "Running on platforms that don’t support isolates (e.g., web)"
+    ],
+    "strengths": [
+      "Very easy to integrate via a mixin",
+      "Works with Flutter plugins and multiple platforms"
+    ],
+    "weaknesses": [
+      "Limited to Flutter (no web support)",
+      "Provides only basic isolate handling, no advanced error or cancellation features"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:easy_isolate_mixin/easy_isolate_mixin.dart';\n\nclass Service with IsolateHelperMixin {\n  Future<int> computeHeavy() async {\n    return await loadWithIsolate(() => heavyCalculation());\n  }\n\n  int heavyCalculation() {\n    // expensive sync work\n    return 42;\n  }\n}",
+    "confidence": 0.9
+  }
+}

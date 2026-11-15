@@ -1,0 +1,47 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.0",
+  "generatedAt": "2026-11-13T11:29:29.455Z",
+  "data": {
+    "primary_category": "camera",
+    "secondary_categories": [
+      "ai-ml"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Live, on-device text recognition for Flutter using Apple Vision on iOS and ML Kit on Android.",
+    "what_it_does": "Performs fast, on-device optical character recognition (OCR) via a live camera view or from static images. It integrates Apple Vision natively on iOS without adding third-party ML frameworks, while using ML Kit with an on-demand model download on Android.",
+    "use_when": [
+      "You need real-time OCR or text scanning within a live Flutter camera preview.",
+      "You want to avoid bundling heavy third-party ML frameworks into your iOS application build.",
+      "You need to extract text from a single image file or byte array without using a camera."
+    ],
+    "avoid_when": [
+      "You need to scan barcodes or QR codes instead of text.",
+      "You are targeting Android devices that do not support Latin script text recognition."
+    ],
+    "strengths": [
+      "Uses native Apple Vision on iOS, keeping app builds lighter.",
+      "Unbundled Android ML Kit model by default to keep initial APK size small.",
+      "Provides normalized bounding boxes across both platforms so layout code does not branch on platform."
+    ],
+    "weaknesses": [
+      "Android text recognition is currently restricted to Latin script only.",
+      "Live scanning requires a physical device because the iOS Simulator lacks a camera."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding the NSCameraUsageDescription permission string to ios/Runner/Info.plist for iOS camera access.",
+    "alternatives": [
+      {
+        "name": "mobile_scanner",
+        "why_pick_it": "Pick mobile_scanner if you need barcode and QR code scanning instead of text OCR."
+      }
+    ],
+    "minimal_example": "final controller = TextSightController();\n\nTextSightView(\n  controller: controller,\n  onResult: (capture) => capture.lines.forEach((line) => print(line.text)),\n);\n\nawait controller.requestCameraPermission();\nawait controller.start();",
+    "confidence": 1
+  }
+}

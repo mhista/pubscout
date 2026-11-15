@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.1.0",
+  "generatedAt": "2026-11-15T11:10:37.887Z",
+  "data": {
+    "primary_category": "camera",
+    "secondary_categories": [
+      "ai-ml"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "A Flutter plugin for native OCR using Apple Vision on iOS and Google ML Kit on Android.",
+    "what_it_does": "Provides optical character recognition (OCR) by leveraging native device frameworks. Processes images locally on-device to extract text without requiring an internet connection.",
+    "use_when": [
+      "You need to extract text from local image files on iOS and Android.",
+      "You want on-device OCR processing without sending data to external servers."
+    ],
+    "avoid_when": [
+      "You need to run OCR on unsupported platforms like Web or Desktop.",
+      "You require advanced OCR options like confidence scores or language hints out of the box."
+    ],
+    "strengths": [
+      "On-device processing ensuring privacy and offline support.",
+      "Uses high-accuracy native frameworks (Apple Vision and Google ML Kit)."
+    ],
+    "weaknesses": [
+      "Limited platform support (only iOS and Android).",
+      "Minimal advanced configuration options currently available."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires Android configuration for compileSdk 35, minSdk 21, and Java 11 support, plus iOS 13.0 or later.",
+    "alternatives": [
+      {
+        "name": "google_mlkit_barcode_scanning",
+        "why_pick_it": "If you specifically need barcode scanning via Google ML Kit rather than general text recognition."
+      }
+    ],
+    "minimal_example": "import 'package:flutter_native_ocr/flutter_native_ocr.dart';\n\nfinal flutterNativeOcr = FlutterNativeOcr();\ntry {\n  String recognizedText = await flutterNativeOcr.recognizeText('/path/to/image.jpg');\n  print(recognizedText);\n} catch (e) {\n  print(e);\n}",
+    "confidence": 1
+  }
+}

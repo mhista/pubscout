@@ -1,0 +1,52 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.1.0",
+  "generatedAt": "2026-11-14T10:28:47.440Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "animation"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Drop‑in replacement for IndexedStack with animated transitions",
+    "what_it_does": "Provides an EasyAnimatedIndexedStack widget that animates child changes using a custom animation builder. It replaces Flutter’s IndexedStack while allowing animation customization such as curve, duration, and skip parameters.",
+    "use_when": [
+      "You need animated transitions between indexed children",
+      "You want a simple, drop‑in replacement for IndexedStack",
+      "You prefer declarative widget composition over manual animation controllers"
+    ],
+    "avoid_when": [
+      "You need complex, physics‑based or physics‑based motion",
+      "You require fine‑grained control over animation timing beyond the provided builder"
+    ],
+    "strengths": [
+      "Simple API, drop‑in replacement",
+      "Customizable animation via builder",
+      "No external dependencies",
+      "Cross‑platform support"
+    ],
+    "weaknesses": [
+      "Limited to indexed stack use cases",
+      "No built‑in physics or advanced animation features",
+      "No state‑management integration"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dependency to pubspec and replace IndexedStack with EasyAnimatedIndexedStack",
+    "alternatives": [
+      {
+        "name": "flutter_animate",
+        "why_pick_it": "Provides a broader set of implicit animations for widgets"
+      },
+      {
+        "name": "page_transition",
+        "why_pick_it": "Offers page transition animations for navigation"
+      }
+    ],
+    "minimal_example": "```dart\nEasyAnimatedIndexedStack(\n  index: selectedIndex,\n  animationBuilder: (context, animation, child) {\n    return RotationTransition(\n      turns: Tween<double>(begin: 1, end: 0).animate(animation),\n      child: child,\n    );\n  },\n  curve: Curves.easeInOut,\n  duration: const Duration(milliseconds: 700),\n  children: [\n    ScreenA(onTap: () => setState(() => selectedIndex = 1)),\n    ScreenB(onTap: () => setState(() => selectedIndex = 2)),\n    ScreenC(onTap: () => setState(() => selectedIndex = 0)),\n  ],\n)\n```",
+    "confidence": 0.9
+  }
+}

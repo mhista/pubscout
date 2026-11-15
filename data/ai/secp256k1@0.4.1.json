@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.4.1",
+  "generatedAt": "2026-11-15T11:11:52.380Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "web3"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Pure Dart implementation of secp256k1 ECDSA signing and verification",
+    "what_it_does": "Provides key generation, ECDSA signing, and signature verification on the secp256k1 curve. It also exposes utilities for public key handling and curve point validation.",
+    "use_when": [
+      "Generating Bitcoin or Ethereum private/public keys",
+      "Signing messages for blockchain transactions",
+      "Verifying ECDSA signatures in Dart applications"
+    ],
+    "avoid_when": [
+      "When deterministic ECDSA signatures are required",
+      "When using Schnorr signatures or other curve algorithms"
+    ],
+    "strengths": [
+      "Pure Dart, no native dependencies",
+      "Security fixes for key generation and nonce handling",
+      "Low‑S normalization and curve point validation"
+    ],
+    "weaknesses": [
+      "Does not provide deterministic ECDSA signatures",
+      "Limited to ECDSA, no Schnorr support",
+      "No high‑level blockchain abstractions"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "var pk = PrivateKey.fromHex('c37c299bb7f5ffd8d9329d052983342a8c3234ff3b3fa32a292187341f7146d7');\nvar pub = pk.publicKey;\nprint(pub.toHex());\nprint(pub.toCompressedHex());\nvar messageHash = 'b94d27b9934d3e08a52e52d7da7dabfac484efe37a5380ee9088f7ace2efcde9';\nvar sig = pk.signature(messageHash);\nprint(sig.verify(pub, messageHash));",
+    "confidence": 0.9
+  }
+}

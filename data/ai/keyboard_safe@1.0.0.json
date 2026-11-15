@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.0",
+  "generatedAt": "2026-11-13T11:37:29.526Z",
+  "data": {
+    "primary_category": "layout",
+    "secondary_categories": [
+      "widgets",
+      "forms"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A Flutter widget that prevents keyboard overflow and auto-scrolls input fields.",
+    "what_it_does": "Automatically adjusts layouts when the software keyboard appears, scrolls focused input fields into view, and supports sticky footers. It also includes optional tap-to-dismiss functionality and keyboard visibility callbacks.",
+    "use_when": [
+      "Building forms or authentication screens that suffer from keyboard overflow.",
+      "Implementing chat interfaces where input fields need to stay visible above the keyboard."
+    ],
+    "avoid_when": [
+      "You already manage view insets and custom scroll physics manually throughout your app."
+    ],
+    "strengths": [
+      "Prevents common keyboard overflow and layout shifting issues.",
+      "Provides automatic scrolling to focused text fields.",
+      "Includes helpful options like tap-to-dismiss and customizable animations."
+    ],
+    "weaknesses": [
+      "Adds another wrapper widget into the widget tree.",
+      "May require tuning parameters depending on complex nested scrolling structures."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Simply add the package to pubspec.yaml and wrap your body content with the KeyboardSafe widget.",
+    "alternatives": [],
+    "minimal_example": "KeyboardSafe(\n  scroll: true,\n  dismissOnTapOutside: true,\n  footer: ElevatedButton(\n    onPressed: _submitForm,\n    child: const Text('Submit'),\n  ),\n  child: Column(\n    children: [\n      TextField(decoration: InputDecoration(labelText: 'Email')),\n      SizedBox(height: 16),\n      TextField(decoration: InputDecoration(labelText: 'Password')),\n    ],\n  ),\n)",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.1.2",
+  "generatedAt": "2026-11-15T11:17:19.657Z",
+  "data": {
+    "primary_category": "images",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Generates ASCII art from images, FIGlet text banners, Unicode fonts, and emoticons.",
+    "what_it_does": "Generates ASCII art using image-to-ASCII conversion, FIGlet text banner rendering, Unicode font styling, and emoticon-to-text conversion. It processes Dart image objects and text strings into stylized text representations.",
+    "use_when": [
+      "You need to convert images into textual ASCII art representations",
+      "You want to render FIGlet text banners in your Dart application",
+      "You need to convert normal text into Unicode alternate font styles like doublestruck"
+    ],
+    "avoid_when": [
+      "You need advanced image editing or multi-color ASCII output (images are always converted to grayscale)",
+      "You need right-to-left text direction support for FIGlet banners"
+    ],
+    "strengths": [
+      "Supports multiple features including images, FIGlet, Unicode fonts, and emoticons",
+      "Compatible across Android, iOS, web, Windows, macOS, and Linux",
+      "Commercial-friendly MPL 2.0 license"
+    ],
+    "weaknesses": [
+      "Images are always converted to grayscale",
+      "FIGlet banners are only supported with left-to-right text direction and are not automatically wrapped into multiple lines",
+      "Cannot programmatically list available FIGlet fonts; you must know their names"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Just add the dependency to pubspec.yaml and import it.",
+    "alternatives": [
+      {
+        "name": "image",
+        "why_pick_it": "Provides core image decoding and manipulation capabilities if you only need lower-level image processing."
+      }
+    ],
+    "minimal_example": "import 'package:enough_ascii_art/enough_ascii_art.dart' as art;\nimport 'package:image/image.dart' as img;\n\nvoid main() {\n  var unicode = art.renderUnicode('hello world', art.UnicodeFont.doublestruck);\n  print(unicode);\n}",
+    "confidence": 1
+  }
+}

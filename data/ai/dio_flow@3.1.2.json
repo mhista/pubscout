@@ -1,0 +1,48 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.1.2",
+  "generatedAt": "2026-11-15T11:28:07.906Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flexible Flutter HTTP client built on Dio with mock support, caching, and token management.",
+    "what_it_does": "DioFlow is an HTTP client built on Dio that offers structured request handling, automatic token refreshing, local caching, and request mocking out of the box.",
+    "use_when": [
+      "You need a structured networking layer with built-in token management and single-flight refresh.",
+      "You want offline request mocking and built-in caching for GET requests.",
+      "You want robust retry logic and safe FormData cloning."
+    ],
+    "avoid_when": [
+      "You prefer using raw Dio directly without wrapper response models.",
+      "Your project does not require an HTTP networking client."
+    ],
+    "strengths": [
+      "Built-in single-flight token refresh handling",
+      "Isolated local caching with query-key stabilization",
+      "Offline request mocking support"
+    ],
+    "weaknesses": [
+      "Tied to a specific wrapper API instead of standard Dio clients",
+      "Adds an opinionated layer over Dio that you must learn"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Initialize DioFlowConfig and ApiClient in main().",
+    "alternatives": [
+      {
+        "name": "dio",
+        "why_pick_it": "If you prefer using the standard Dio client without wrappers."
+      },
+      {
+        "name": "http",
+        "why_pick_it": "If you want a lightweight built-in HTTP client instead of Dio."
+      }
+    ],
+    "minimal_example": "Future<void> main() async {\n  WidgetsFlutterBinding.ensureInitialized();\n  DioFlowConfig.initialize(\n    baseUrl: 'https://api.example.com',\n  );\n  await ApiClient.initialize();\n  runApp(const MyApp());\n}",
+    "confidence": 0.95
+  }
+}

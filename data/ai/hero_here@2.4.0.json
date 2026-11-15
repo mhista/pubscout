@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.4.0",
+  "generatedAt": "2026-11-13T11:17:18.054Z",
+  "data": {
+    "primary_category": "animation",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "Hero animations on the same page without a Navigator or routes.",
+    "what_it_does": "Provides HeroHere and HeroHereSwitcher widgets to animate a widget from one place to another on the same screen. It uses tags and keys to coordinate the transition when state changes, without needing routes or a Navigator.",
+    "use_when": [
+      "You want shared element transitions between different positions on the same page.",
+      "You need tab indicator or sliding segmented control animations without route changes."
+    ],
+    "avoid_when": [
+      "You are navigating between distinct routes and can use Flutter's built-in Hero widget.",
+      "You only need simple layout repositioning of a single widget without a second matching widget."
+    ],
+    "strengths": [
+      "Works on the same page with no Navigator or routes required.",
+      "Supports customizable flights, ready-made shuttles (crossfade, flip, scale), and redirect behaviors.",
+      "Works across all major platforms including web and desktop."
+    ],
+    "weaknesses": [
+      "Requires proper key and tag management between old and new places to trigger flights correctly.",
+      "Not intended for inter-route navigation transitions."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "No native setup or build runner required. Just add the dependency to pubspec.yaml.",
+    "alternatives": [],
+    "minimal_example": "HeroHereSwitcher(\n  child: HeroHere(\n    key: const ValueKey('center'),\n    tag: 'flippers',\n    child: Image.asset('images/flippers.png'),\n  ),\n)",
+    "confidence": 1
+  }
+}

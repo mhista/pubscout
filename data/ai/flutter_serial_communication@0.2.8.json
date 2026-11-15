@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.2.8",
+  "generatedAt": "2026-11-13T11:36:07.041Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Communicate with serial hardware and Arduinos via Android USB OTG without root access.",
+    "what_it_does": "Allows Flutter apps to list available USB serial devices, connect to them, write data, and listen for incoming messages or connection changes. It specifically supports Android USB OTG communication without requiring root permissions.",
+    "use_when": [
+      "You need to connect an Android Flutter application to an Arduino or USB serial hardware via OTG.",
+      "You want to read and write serial data without root access on Android."
+    ],
+    "avoid_when": [
+      "You are targeting iOS, desktop, or web platforms for serial communication.",
+      "You require complex high-level protocols that are not handled by raw serial byte streams."
+    ],
+    "strengths": [
+      "Does not require root access on Android devices.",
+      "Provides stream listeners for both reading messages and device connection status."
+    ],
+    "weaknesses": [
+      "Currently limited to Android USB (OTG) hardware support.",
+      "Documentation does not list explicit iOS or other platform support."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires adding the dependency to pubspec.yaml and importing the package. Compatible with Android API 21+ and compiled with API 34.",
+    "alternatives": [],
+    "minimal_example": "final _flutterSerialCommunicationPlugin = FlutterSerialCommunication();\nList<DeviceInfo> availableDevices = await _flutterSerialCommunicationPlugin.getAvailableDevices();",
+    "confidence": 0.95
+  }
+}

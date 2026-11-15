@@ -1,0 +1,48 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.5.0",
+  "generatedAt": "2026-11-15T11:17:28.329Z",
+  "data": {
+    "primary_category": "localization",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Adds Kurdish (Sorani) language support to Flutter apps via localization delegates.",
+    "what_it_does": "Provides Sorani (ckb) strings and RTL layout support for Material and Cupertino widgets. Works with Flutter’s gen‑l10n workflow and can be dropped into an existing app.",
+    "use_when": [
+      "You need Kurdish (Sorani) translations in a Flutter app",
+      "You already use Flutter’s gen‑l10n and want to add a new locale",
+      "You want automatic RTL handling for Arabic‑script languages"
+    ],
+    "avoid_when": [
+      "You are not targeting Kurdish users",
+      "You prefer to write your own localization delegates",
+      "You need a full i18n framework with plural/selection logic beyond what gen‑l10n offers"
+    ],
+    "strengths": [
+      "Drop‑in delegates that integrate with gen‑l10n",
+      "Automatic RTL support",
+      "No build_runner or codegen required",
+      "MIT license"
+    ],
+    "weaknesses": [
+      "Only supports Kurdish (Sorani) locale",
+      "Requires Flutter 3.47+ and Dart 3.13+",
+      "No support for other languages",
+      "Limited to localization strings, not full i18n features"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dependency, include delegates in MaterialApp, add app_ckb.arb file, rebuild",
+    "alternatives": [
+      {
+        "name": "slang",
+        "why_pick_it": "Full i18n framework with codegen, but overkill for a single locale"
+      }
+    ],
+    "minimal_example": "import 'package:ckb_localizations/ckb_localizations.dart';\n\nMaterialApp(\n  localizationsDelegates: const [\n    ...AppLocalizations.localizationsDelegates,\n    ...CkbLocalizations.localizationsDelegates,\n  ],\n  supportedLocales: AppLocalizations.supportedLocales,\n  home: const HomePage(),\n);",
+    "confidence": 0.92
+  }
+}

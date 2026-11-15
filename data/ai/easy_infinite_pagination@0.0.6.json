@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.0.6",
+  "generatedAt": "2026-11-15T10:57:21.121Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Easy and customizable infinite pagination for Flutter lists, grids, and page views.",
+    "what_it_does": "Provides enhanced widgets like InfiniteListView, InfiniteGridView, and InfinitePageView that seamlessly handle infinite scrolling pagination without requiring complex custom controllers. It supports customizable indicators for loading, errors, and empty states, and works with any state management approach.",
+    "use_when": [
+      "You need infinite scrolling pagination for lists, grids, or page views.",
+      "You want a controller-free pagination solution that works with standard state management like BLoC, Riverpod, or setState.",
+      "You need customized indicators for pagination states like loading more, errors, and empty lists."
+    ],
+    "avoid_when": [
+      "You are not using Flutter widgets for lists or grids.",
+      "You prefer paging libraries tightly bound to a specific architectural pattern or reactive streams."
+    ],
+    "strengths": [
+      "No additional controllers needed, mimics standard Flutter widgets.",
+      "Supports ListView, GridView, PageView, and their Sliver variants out of the box.",
+      "Extensible to custom pagination layouts using PaginationLayoutBuilder.",
+      "Works with any state management library."
+    ],
+    "weaknesses": [
+      "Relies on manual state tracking for loading, error, and max items rather than offering built-in data source paging controllers.",
+      "Fairly new package with potential maturity limitations."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "InfiniteListView(\n  delegate: PaginationDelegate(\n    itemCount: _items.length,\n    itemBuilder: (_, index) => ListTile(\n      title: Text(_items[index]),\n    ),\n    isLoading: _isLoading,\n    onFetchData: _fetchData,\n  ),\n)",
+    "confidence": 0.95
+  }
+}

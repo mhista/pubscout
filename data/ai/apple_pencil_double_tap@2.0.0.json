@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.0",
+  "generatedAt": "2026-11-14T10:37:31.809Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter plugin for Apple Pencil double-tap and squeeze gestures on compatible iPads and iPhones.",
+    "what_it_does": "Detects Apple Pencil double-tap and squeeze gestures via native UIKit interactions and exposes them through Dart callbacks. It supports hover pose information and user preferred action settings on compatible hardware.",
+    "use_when": [
+      "You are building an iOS Flutter app that needs to respond to Apple Pencil double-tap gestures.",
+      "You need to handle Apple Pencil Pro squeeze gestures and lifecycle phases.",
+      "You want to retrieve the user's preferred Apple Pencil action settings from the iOS Settings app."
+    ],
+    "avoid_when": [
+      "You need to implement drawing, handwriting recognition, or raw stylus input tracking.",
+      "You are targeting Android, web, or desktop platforms.",
+      "You are using Apple Pencil 1st generation or Apple Pencil (USB-C) which do not support these gestures."
+    ],
+    "strengths": [
+      "Supports both Apple Pencil double-tap and Apple Pencil Pro squeeze gestures.",
+      "Provides hover pose coordinates and z-offset information.",
+      "Supports Swift Package Manager alongside CocoaPods."
+    ],
+    "weaknesses": [
+      "Limited to iOS and iPadOS platforms only.",
+      "Hardware-dependent; older Apple Pencil models lack gesture support entirely."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires iOS/iPadOS 15.0 or later and compatible Apple Pencil hardware. Swift Package Manager or CocoaPods is supported for iOS integration.",
+    "alternatives": [],
+    "minimal_example": "import 'package:apple_pencil_double_tap/apple_pencil_double_tap.dart';\n\nfinal applePencil = ApplePencilDoubleTap();\n\napplePencil.listen(\n    onTapAction: (TapAction action) {\n        print('TapAction: $action');\n    },\n    onSqueeze: (SqueezeAction action) {\n        print('Squeeze phase: ${action.squeezePhase}');\n    },\n);\n\n// applePencil.dispose();",
+    "confidence": 0.95
+  }
+}

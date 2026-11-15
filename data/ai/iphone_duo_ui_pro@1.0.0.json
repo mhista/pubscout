@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.0",
+  "generatedAt": "2026-11-13T11:43:52.746Z",
+  "data": {
+    "primary_category": "layout",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Fold-aware Flutter widgets and layouts for iPhone Duo devices.",
+    "what_it_does": "Provides a native bridge to detect device folds, hinges, and size classes on iPhone Duo. Includes fold-aware two-pane layouts, adaptive scaffolds, and aligned grids to handle dual-screen device layouts.",
+    "use_when": [
+      "Building Flutter applications targeting the iPhone Duo",
+      "Implementing fold-aware split-pane views or hinge-aligned grids"
+    ],
+    "avoid_when": [
+      "Building apps that do not target foldable iOS devices"
+    ],
+    "strengths": [
+      "Fills the gap where MediaQuery display features stay empty on iOS",
+      "Supports both custom Flutter-drawn bars and official UIKit Liquid Glass via a companion package",
+      "Gracefully falls back on standard devices and platforms"
+    ],
+    "weaknesses": [
+      "Targeted specifically at a single emerging device form factor",
+      "Requires iOS 15+ and the UIScene life cycle"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires wrapping the app root with DuoScope and DuoDisplayFeatures.",
+    "alternatives": [],
+    "minimal_example": "MaterialApp(\n  builder: (context, child) => DuoScope(\n    child: DuoDisplayFeatures(child: child ?? const SizedBox.shrink()),\n  ),\n  home: const HomeScreen(),\n);",
+    "confidence": 0.95
+  }
+}

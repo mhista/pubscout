@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "5.2.1",
+  "generatedAt": "2026-11-14T10:55:02.244Z",
+  "data": {
+    "primary_category": "devtools",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "An in-app debug kits platform for Flutter apps with built-in inspection plugins.",
+    "what_it_does": "Provides an in-app debugging platform and floating panel for Flutter apps. It supports various built-in plugin kits for inspecting widgets, performance, memory, CPU, device info, console logs, network requests with Dio, SharedPreferences, and Provider states.",
+    "use_when": [
+      "You need an in-app debug menu and inspection tools running directly inside your Flutter application during development.",
+      "You want to inspect widgets, performance, network requests, and local storage directly on device."
+    ],
+    "avoid_when": [
+      "You only want to use standard external IDE devtools and do not need an in-app overlay.",
+      "You are deploying to production and want to avoid adding debug UI overhead."
+    ],
+    "strengths": [
+      "Includes 15 built-in plugin kits covering UI, performance, device info, and storage.",
+      "Supports custom plugin kit development through the Pluggable interface.",
+      "Compatible with Flutter 3."
+    ],
+    "weaknesses": [
+      "Requires manual initialization and registration of plugins in the main method.",
+      "Some features rely on VM Service and may require extra CLI parameters like --disable-dds or --no-dds on physical devices."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Register plugins in the main method inside kDebugMode and wrap the root widget with UMEWidget.",
+    "alternatives": [
+      {
+        "name": "inspector",
+        "why_pick_it": "Alternative tool for inspecting widget trees and app properties."
+      },
+      {
+        "name": "talker",
+        "why_pick_it": "Alternative comprehensive logging and debugging package for Flutter apps."
+      }
+    ],
+    "minimal_example": "void main() {\n  if (kDebugMode) {\n    PluginManager.instance..register(WidgetInfoInspector());\n    runApp(UMEWidget(child: MyApp(), enable: true));\n  } else {\n    runApp(MyApp());\n  }\n}",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.8.2",
+  "generatedAt": "2026-11-15T11:33:19.503Z",
+  "data": {
+    "primary_category": "devtools",
+    "secondary_categories": [],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "MCP server connecting AI assistants to running Flutter applications for debugging.",
+    "what_it_does": "Connects AI assistants like Claude or Cursor to running Flutter apps via the Dart VM Service over WebSockets. Provides tools to inspect widget trees, track rebuild frequencies, profile CPU and memory, capture network traffic, and read console logs.",
+    "use_when": [
+      "You want to use AI assistants to debug, profile, or optimize running Flutter apps",
+      "You need to inspect widget hierarchies, memory allocations, and performance metrics from an external LLM tool"
+    ],
+    "avoid_when": [
+      "Your application only runs in release mode (VM Service is disabled)",
+      "You are not using an MCP-compatible assistant"
+    ],
+    "strengths": [
+      "Direct integration with AI tools via Model Context Protocol",
+      "Comprehensive coverage of debugging capabilities including memory audits, jank diagnostics, and network capture"
+    ],
+    "weaknesses": [
+      "Requires debug or profile mode to function",
+      "Dependent on external AI client configuration (e.g., Claude Desktop or Cursor)"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Activate globally via 'dart pub global activate flutter_agent_lens' and configure your MCP client JSON.",
+    "alternatives": [],
+    "minimal_example": "{\n  \"mcpServers\": {\n    \"flutter_agent_lens\": {\n      \"command\": \"flutter-agent-lens\"\n    }\n  }\n}",
+    "confidence": 0.95
+  }
+}

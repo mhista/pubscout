@@ -1,0 +1,51 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.0.5",
+  "generatedAt": "2026-11-15T11:11:00.223Z",
+  "data": {
+    "primary_category": "charts",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Animated radial and pie charts for Flutter",
+    "what_it_does": "Provides widgets to display animated circular charts, including pie and radial types. Users supply data entries and can update them to animate transitions.",
+    "use_when": [
+      "Need animated circular charts without heavy dependencies",
+      "Want quick integration of pie or radial charts in a Flutter app",
+      "Prefer a simple API for chart data updates"
+    ],
+    "avoid_when": [
+      "Require advanced chart features like tooltips, legends, or custom animations beyond the provided options",
+      "Need cross-platform charting with extensive customization like other chart libraries"
+    ],
+    "strengths": [
+      "Lightweight, no external dependencies",
+      "Easy to use API with GlobalKey for updates",
+      "Supports both pie and radial charts with animation"
+    ],
+    "weaknesses": [
+      "Limited customization compared to larger chart libraries",
+      "No built-in support for legends, tooltips, or complex interactions",
+      "Documentation is minimal"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dependency to pubspec and import package",
+    "alternatives": [
+      {
+        "name": "fl_chart",
+        "why_pick_it": "More features, larger community, supports more chart types and customization"
+      },
+      {
+        "name": "syncfusion_flutter_charts",
+        "why_pick_it": "Rich feature set, enterprise support, extensive chart types"
+      }
+    ],
+    "minimal_example": "import 'package:circular_chart_flutter/circular_chart_flutter.dart';\n\nfinal GlobalKey<AnimatedCircularChartState> _chartKey = GlobalKey();\n\nWidget build(BuildContext context) {\n  return AnimatedCircularChart(\n    key: _chartKey,\n    size: const Size(300, 300),\n    initialChartData: [\n      CircularStackEntry(\n        [\n          CircularSegmentEntry(500.0, Colors.red[200]!, rankKey: 'Q1'),\n          CircularSegmentEntry(1000.0, Colors.green[200]!, rankKey: 'Q2'),\n        ],\n        rankKey: 'Quarterly Profits',\n      ),\n    ],\n    chartType: CircularChartType.Pie,\n  );\n}",
+    "confidence": 0.85
+  }
+}

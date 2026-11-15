@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.4.0",
+  "generatedAt": "2026-11-13T11:06:19.576Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "utils",
+      "auth"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Implements the DIDComm v2 Messaging protocol for secure and private app communication.",
+    "what_it_does": "Provides tools and libraries to send, receive, sign, and encrypt DIDComm v2 messages within your application. Supports various encryption algorithms, DID methods like did:peer and did:key, and connection to mediator services.",
+    "use_when": [
+      "You need secure, private, and decentralized messaging using Decentralized Identifiers (DIDs).",
+      "Your app requires authenticated encryption (authcrypt) or anonymous encryption (anoncrypt) for message transport."
+    ],
+    "avoid_when": [
+      "You are building a standard REST or GraphQL client without decentralized identity requirements.",
+      "You only need standard push notifications or real-time web sockets without DIDComm protocol framing."
+    ],
+    "strengths": [
+      "Comprehensive support for DIDComm v2 message envelopes (plaintext, signed, authcrypt, anoncrypt).",
+      "Supports multiple curves and algorithms like Ed25519, P-256, P-384, and P-521.",
+      "Integrates with Affinidi Dart SSI for digital wallets and DID management."
+    ],
+    "weaknesses": [
+      "Niche protocol domain with a steeper learning curve regarding decentralized identity and DID methods.",
+      "Certain curves and content encryption algorithms have platform-specific limitations or lack full spec support."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires setting up DID Manager, wallets via Affinidi Dart SSI, and proper cryptographic keys.",
+    "alternatives": [],
+    "minimal_example": "import 'package:didcomm/didcomm.dart';\n\n// Compose a plain text message example\nfinal message = Message(\n  id: '123',\n  type: 'https://example.com/protocols/1.0/message',\n  body: {'content': 'Hello DIDComm'},\n  to: ['did:example:recipient'],\n  from: 'did:example:sender',\n);",
+    "confidence": 0.95
+  }
+}

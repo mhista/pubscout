@@ -1,0 +1,50 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "4.0.2",
+  "generatedAt": "2026-11-13T11:16:36.410Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [
+      "networking",
+      "utils"
+    ],
+    "approach": [
+      "code generation",
+      "imperative"
+    ],
+    "one_liner": "Unified offline‑first repository that syncs SQLite with remote providers.",
+    "what_it_does": "It routes data fetching through a memory cache, a local SQLite provider, and a remote provider (REST/GraphQL). Policies let you control when to read/write locally or remotely and it queues failed remote writes for later sync.",
+    "use_when": [
+      "You need reliable offline support with automatic sync to a backend",
+      "You want a single API for CRUD that works both online and offline",
+      "Your app already uses Brick for other domains"
+    ],
+    "avoid_when": [
+      "The app only needs simple network calls without local persistence",
+      "You prefer a lightweight solution without code generation",
+      "You are not using SQLite or Brick elsewhere"
+    ],
+    "strengths": [
+      "Automatic offline‑first sync and policy control",
+      "Supports memory cache, SQLite queue for failed requests",
+      "Integrates with Brick codegen for models and providers"
+    ],
+    "weaknesses": [
+      "Adds build_runner step and code‑gen complexity",
+      "Tied to Brick ecosystem, not a generic solution",
+      "May be overkill for small apps"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add brick_core, brick_sqlite and other deps, run `flutter pub run build_runner build`, configure local and remote providers in your repository.",
+    "alternatives": [
+      {
+        "name": "http",
+        "why_pick_it": "For simple REST calls without offline caching or SQLite integration"
+      }
+    ],
+    "minimal_example": "import 'package:brick_offline_first/brick_offline_first.dart';\n\nclass PersonRepository extends OfflineFirstRepository with DeleteAllMixin {\n  PersonRepository({required super.localProvider, required super.remoteProvider});\n\n  Future<Person?> getPerson(int id) => get<Person>(id);\n}\n\n// Usage\nfinal repo = PersonRepository(\n  localProvider: SqliteProvider(...),\n  remoteProvider: RestProvider(...),\n);\nfinal person = await repo.getPerson(1);",
+    "confidence": 0.9
+  }
+}

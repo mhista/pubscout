@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.4.0",
+  "generatedAt": "2026-11-13T11:23:40.317Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "auth",
+      "device"
+    ],
+    "approach": [
+      "imperative",
+      "code generation"
+    ],
+    "one_liner": "An unofficial Flutter client for the Strava V3 API with OAuth2 and repository-based endpoints.",
+    "what_it_does": "Provides a client for the Strava V3 API, handling OAuth2 authentication with automatic token refresh, structured error handling, and typed request/response models for activities, athletes, segments, and more.",
+    "use_when": [
+      "You need to integrate Strava data into your Flutter application.",
+      "You want built-in OAuth2 flow with automatic token refreshing and storage."
+    ],
+    "avoid_when": [
+      "You are building a web application (web platform is not supported).",
+      "You only need generic HTTP networking without Strava-specific models."
+    ],
+    "strengths": [
+      "Handles complex OAuth2 flows and automatic token refresh out of the box.",
+      "Provides repository-per-domain API structure covering athletes, activities, segments, etc.",
+      "Typed models generated with json_serializable and structured error handling via Fault."
+    ],
+    "weaknesses": [
+      "Web platform is not supported.",
+      "It is an unofficial third-party API client."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding custom redirect URL scheme configuration in AndroidManifest.xml and Info.plist, and setting up an API client in Strava settings.",
+    "alternatives": [],
+    "minimal_example": "final stravaClient = StravaClient(\n  clientId: \"YOUR_CLIENT_ID\",\n  secret: \"YOUR_CLIENT_SECRET\",\n);\n\nfinal token = await stravaClient.authentication.authenticate(\n  scopes: [AuthenticationScope.activity_read_all],\n  redirectUrl: \"stravaflutter://redirect\",\n  callbackUrlScheme: \"stravaflutter\",\n);\n\nfinal athlete = await stravaClient.athletes.getAuthenticatedAthlete();",
+    "confidence": 1
+  }
+}

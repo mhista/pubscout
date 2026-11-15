@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.2.8",
+  "generatedAt": "2026-11-14T10:47:31.917Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "animation"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A vertical fullscreen scroll implementation that snaps in place, similar to TikTok.",
+    "what_it_does": "Provides a specialized vertical scrollable widget that snaps pages into place with customizable thresholds, swipe velocities, and animation durations. It includes a controller to listen to scroll events and direction changes.",
+    "use_when": [
+      "Building a TikTok-style short video feed or fullscreen vertical card interface",
+      "Needing precise snapping behavior for full-height pages"
+    ],
+    "avoid_when": [
+      "Building standard scrolling lists or multi-directional grids",
+      "Needing complex nested scroll views with custom physics outside of full-page snapping"
+    ],
+    "strengths": [
+      "Easy setup for vertical snap scrolling",
+      "Provides velocity and position thresholds for customization",
+      "Includes a controller for tracking scroll actions and events"
+    ],
+    "weaknesses": [
+      "Limited to vertical fullscreen scrolling use cases",
+      "Fewer layout options compared to standard PageView or CustomScrollView"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:tiktoklikescroller/tiktoklikescroller.dart';\n\nvoid main() => runApp(MyApp());\n\nclass MyApp extends StatelessWidget {\n  @override\n  Widget build(BuildContext context) {\n    final List<Color> colors = <Color>[Colors.red, Colors.blue, Colors.green];\n    final Controller controller = Controller();\n\n    return MaterialApp(\n      home: Scaffold(\n        body: TikTokStyleFullPageScroller(\n          contentSize: colors.length,\n          controller: controller,\n          builder: (BuildContext context, int index) {\n            return Container(\n              color: colors[index],\n              child: Text(\n                '$index',\n                style: const TextStyle(fontSize: 48, color: Colors.white),\n              ),\n            );\n          },\n        ),\n      ),\n    );\n  }\n}",
+    "confidence": 0.95
+  }
+}

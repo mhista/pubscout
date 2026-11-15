@@ -1,0 +1,37 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.2",
+  "generatedAt": "2026-11-13T11:29:23.265Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "no codegen"
+    ],
+    "one_liner": "CP949 and EUC-KR text encoder and decoder for Dart.",
+    "what_it_does": "Provides encoding and decoding for the CP949 and EUC-KR character sets following the Dart standard Encoding protocol. It includes methods for decoding byte lists, encoding strings, and fixing incorrectly decoded strings.",
+    "use_when": [
+      "You need to decode or encode CP949 or EUC-KR data in Dart or Flutter.",
+      "You want to handle legacy Korean text encodings with lower memory consumption."
+    ],
+    "avoid_when": [
+      "You are running on a host endian other than Little Endian (host endian must be Little Endian for memory optimization to work properly).",
+      "You only need standard UTF-8 or Latin-1 encodings already supported by dart:convert."
+    ],
+    "strengths": [
+      "Follows the standard Dart `Encoding` protocol from `dart:convert`.",
+      "Reduces memory consumption using `BytesBuilder`.",
+      "Supports null safety and includes tests and examples."
+    ],
+    "weaknesses": [
+      "Requires Little Endian architecture for its memory consumption optimization to work properly."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "none",
+    "alternatives": [],
+    "minimal_example": "import 'package:cp949_codec/cp949_codec.dart';\n\nList<int> beautiful = [0xBE, 0xC6, 0xB8, 0xA7, 0xB4, 0xD9, 0xBF, 0xEE];\nprint(cp949.decode(beautiful)); // 아름다운",
+    "confidence": 0.95
+  }
+}

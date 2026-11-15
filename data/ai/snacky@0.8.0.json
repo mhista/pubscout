@@ -1,0 +1,47 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.8.0",
+  "generatedAt": "2026-11-14T10:48:04.518Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Simple customizable snackbar widget for Flutter",
+    "what_it_does": "Snacky provides a lightweight snackbar implementation with minimal configuration. It supports custom widgets, automatic duration calculation, and optional dismissal controls.",
+    "use_when": [
+      "Need quick, non‑intrusive notifications",
+      "Want a top or bottom snackbar without boilerplate",
+      "Require custom content or actions inside the snackbar",
+      "Need to cancel or queue snackbars programmatically"
+    ],
+    "avoid_when": [
+      "Building a full‑featured notification system with push support",
+      "Requiring extensive theming or complex animation pipelines"
+    ],
+    "strengths": [
+      "Minimal setup, just wrap MaterialApp with SnackyConfiguratorWidget",
+      "Highly configurable: duration, transition, location, padding, margin",
+      "Supports custom widgets via Snacky.widget",
+      "Built‑in cancellation and queue management"
+    ],
+    "weaknesses": [
+      "No automated tests documented",
+      "Limited theming options compared to larger UI kits",
+      "Documentation focuses on basic usage; advanced customization may need digging into source"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Wrap your MaterialApp with SnackyConfiguratorWidget and optionally add SnackyNavigationObserver to auto‑dismiss on navigation.",
+    "alternatives": [
+      {
+        "name": "fluttertoast",
+        "why_pick_it": "Provides simple toast notifications with minimal API, suitable for quick alerts when full snackbar features are unnecessary."
+      }
+    ],
+    "minimal_example": "SnackyConfiguratorWidget(\n  app: MaterialApp(\n    home: Scaffold(\n      appBar: AppBar(title: Text('Snacky Demo')),\n      body: Center(\n        child: ElevatedButton(\n          onPressed: () {\n            final snacky = Snacky(\n              title: 'Hello',\n              type: SnackyType.info,\n              showDuration: Duration(seconds: 3),\n            );\n            SnackyController.instance.showMessage((context) => snacky);\n          },\n          child: Text('Show Snacky'),\n        ),\n      ),\n    ),\n  ),\n);",
+    "confidence": 0.9
+  }
+}

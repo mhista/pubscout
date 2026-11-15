@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "6.4.2",
+  "generatedAt": "2026-11-13T11:33:07.556Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Access Aliyun OSS from Flutter with STS temporary access credential support.",
+    "what_it_does": "Provides a comprehensive Flutter client for Aliyun OSS, allowing you to upload, download, copy, and delete files, manage buckets, and generate signed URLs. It supports STS temporary access tokens and custom authentication getters.",
+    "use_when": [
+      "Your application needs to upload or download files from Aliyun OSS.",
+      "You need to interact with Aliyun Object Storage Service using STS temporary tokens."
+    ],
+    "avoid_when": [
+      "You use a completely different cloud storage provider like AWS S3 or Firebase Storage."
+    ],
+    "strengths": [
+      "Covers almost all Aliyun OSS SDK features including batch operations and local file handling.",
+      "Supports STS temporary access tokens and custom auth getters.",
+      "Cross-platform support including mobile, desktop, and web."
+    ],
+    "weaknesses": [
+      "Tied specifically to Aliyun OSS backend services.",
+      "Requires proper backend configuration for STS token generation."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires configuring an OSS endpoint, bucket name, and either an STS server endpoint or a custom auth getter function.",
+    "alternatives": [],
+    "minimal_example": "Client.init(\n    stsUrl: \"server url get sts token\",\n    ossEndpoint: \"oss-cn-beijing.aliyuncs.com\",\n    bucketName: \"bucket name\",\n);\n\nawait Client().putObject(\n  bytes,\n  \"test.txt\",\n);",
+    "confidence": 0.95
+  }
+}

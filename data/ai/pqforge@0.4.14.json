@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.4.14",
+  "generatedAt": "2026-11-14T10:35:02.056Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Pure-Dart post-quantum cryptography for ML-KEM, ML-DSA, SLH-DSA, and HPKE.",
+    "what_it_does": "Provides post-quantum encryption, decryption, digital signatures, and key encapsulation mechanisms (ML-KEM, ML-DSA, SLH-DSA, and RFC 9180 HPKE) for Dart and Flutter. Includes streaming file support and a command-line interface.",
+    "use_when": [
+      "You need post-quantum cryptography resistance (ML-KEM, ML-DSA, SLH-DSA) in Dart or Flutter",
+      "You want application recipes like encrypted file vaults, signed media, and hybrid sessions"
+    ],
+    "avoid_when": [
+      "You only need standard classical cryptography without post-quantum algorithms and prefer simpler native libraries",
+      "You need a backend client or state management solution"
+    ],
+    "strengths": [
+      "Pure-Dart implementation making it web-safe and cross-platform without strict FFI dependencies",
+      "Comprehensive suite of NIST post-quantum standards (FIPS 203, 204, 205) and RFC 9180 HPKE"
+    ],
+    "weaknesses": [
+      "Niche domain-specific cryptographic library requiring specialized security knowledge",
+      "Post-quantum cryptographic keys and ciphertexts are significantly larger than classical ones"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:pqforge/pqforge.dart';\n\nfinal forge = PqForge(profile: PqForgeProfile.maximum);\nfinal keys = forge.generateKeys(keyId: 'archive-key');\n\nfinal envelope = forge.sealMedia(\n  keys.kemKeyPair.publicKey,\n  mediaBytes,\n  mediaId: 'cover-2026-001',\n  mimeType: 'image/png',\n);",
+    "confidence": 0.95
+  }
+}

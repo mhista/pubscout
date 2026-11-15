@@ -1,0 +1,50 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.1.2",
+  "generatedAt": "2026-11-13T11:06:19.346Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "images",
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Scrapes a website for favicons and orders them by image dimensions.",
+    "what_it_does": "Library for finding favicons in a website, either in a <link> tag or by a predefined URL. It validates ICO file signatures, filters file extensions, and sorts the output based on image dimensions.",
+    "use_when": [
+      "You need to fetch and extract favicon icons from a given website URL.",
+      "You want to find the best-sized favicon automatically for a web clip or bookmark feature."
+    ],
+    "avoid_when": [
+      "You need to render or cache the fetched images extensively in the UI.",
+      "You require complex local storage or caching of scraped web assets."
+    ],
+    "strengths": [
+      "Automatically sorts and selects the best favicon based on image dimensions.",
+      "Validates ICO file signatures and handles relative URLs correctly."
+    ],
+    "weaknesses": [
+      "Depends entirely on successful web scraping and HTTP responses from target sites.",
+      "Limited to favicon detection and retrieval features."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "http",
+        "why_pick_it": "If you only need basic HTTP GET requests without specialized favicon HTML parsing."
+      },
+      {
+        "name": "dio",
+        "why_pick_it": "If you need advanced HTTP client features like interceptors and global configuration."
+      }
+    ],
+    "minimal_example": "import 'package:favicon/favicon.dart';\nvar iconUrl = await FaviconFinder.getBest('https://www.mashable.com');\nprint(iconUrl);",
+    "confidence": 0.95
+  }
+}

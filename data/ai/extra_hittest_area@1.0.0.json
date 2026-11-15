@@ -1,0 +1,37 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.0",
+  "generatedAt": "2026-11-15T11:21:54.649Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Manually add extra hitTest area to widgets without changing their layout size.",
+    "what_it_does": "Provides wrapper widgets like GestureDetectorHitTestWithoutSizeLimit and layout variants such as StackHitTestWithoutSizeLimit to expand the touch target area beyond the visual bounds of a widget without modifying its layout size.",
+    "use_when": [
+      "You need to make a small icon button easier to tap by increasing its hit test area.",
+      "A touch target needs to extend outside of its parent widget bounds."
+    ],
+    "avoid_when": [
+      "You want to actually resize the widget and its layout bounds rather than just the hit test area."
+    ],
+    "strengths": [
+      "Does not alter widget size or layout.",
+      "Provides debugging colors to visualize extra hit test areas.",
+      "Supports multiple layout and listener widget variants."
+    ],
+    "weaknesses": [
+      "Requires using specific custom wrapper widgets instead of standard Flutter widgets.",
+      "Limited documentation beyond the README."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "return GestureDetectorHitTestWithoutSizeLimit(\n  child: mockButtonUI(text),\n  extraHitTestArea: const EdgeInsets.all(16),\n  onTap: () {},\n);",
+    "confidence": 1
+  }
+}

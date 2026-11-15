@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.3.4",
+  "generatedAt": "2026-11-13T10:59:49.443Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "ui-kits"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "An extension to render LaTeX equations inside flutter_markdown widgets.",
+    "what_it_does": "Extends the flutter_markdown package to parse and render both inline and block LaTeX expressions. It relies on flutter_math_fork under the hood to display mathematical formulas.",
+    "use_when": [
+      "You need to display mathematical formulas written in LaTeX inside markdown text in a Flutter app.",
+      "You are already using flutter_markdown and want to add LaTeX rendering support."
+    ],
+    "avoid_when": [
+      "You do not use markdown and just need standalone LaTeX rendering widgets.",
+      "You require a non-Flutter Dart environment."
+    ],
+    "strengths": [
+      "Supports both inline and block LaTeX syntax.",
+      "Provides custom element builders for controlling text style and text scale factor."
+    ],
+    "weaknesses": [
+      "Adds an extra configuration overhead to the standard markdown widget via specific extension sets and element builders."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "MarkdownBody(\n  selectable: true,\n  data: 'latex: \\$c = \\pm\\sqrt{a^2 + b^2}\\$',\n  builders: {\n    'latex': LatexElementBuilder(),\n  },\n  extensionSet: md.ExtensionSet(\n    [LatexBlockSyntax()],\n    [LatexInlineSyntax()],\n  ),\n)",
+    "confidence": 0.95
+  }
+}

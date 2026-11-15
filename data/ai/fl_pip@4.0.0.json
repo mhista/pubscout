@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.0.0",
+  "generatedAt": "2026-11-14T10:53:59.964Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [
+      "device"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Display Flutter engines and videos in native picture-in-picture or overlay windows.",
+    "what_it_does": "A Flutter plugin that displays Flutter pages and video playback inside native picture-in-picture (PiP) or floating overlay windows across Android, iOS, and HarmonyOS. It manages multi-engine communication and supports customized video controls and positioning.",
+    "use_when": [
+      "You need picture-in-picture mode for Flutter pages or video playback on Android, iOS, or HarmonyOS.",
+      "You want to display floating overlay windows or manage multi-engine applications."
+    ],
+    "avoid_when": [
+      "You are developing for web or desktop platforms.",
+      "You do not want to configure native platform setup like Activities, Capabilities, or custom surfaces."
+    ],
+    "strengths": [
+      "Supports multiple platforms including Android, iOS, and HarmonyOS.",
+      "Integrated support for both system picture-in-picture and floating overlay windows.",
+      "Provides message passing and synchronization between the main engine and the PiP engine."
+    ],
+    "weaknesses": [
+      "Requires significant native configuration for each platform (e.g., overriding MainActivity, background modes, surfaces).",
+      "iOS main engine requires placeholder media generation since it lacks an independent FlutterEngine instance."
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Requires modifying Android's MainActivity to extend FlPiPActivity and updating AndroidManifest.xml, adding Background Modes for PiP on iOS, and registering surfaces and abilities for HarmonyOS.",
+    "alternatives": [],
+    "minimal_example": "final FlMultiEngineInfo engine = await FlPiP.instance.present(\n  name: 'pipMain',\n  android: const FlPiPAndroidOptions.overlay(),\n  ios: const FlPiPIOSOptions(),\n  harmonyOS: const FlPiPHarmonyOSOptions.systemPip(),\n);",
+    "confidence": 0.95
+  }
+}

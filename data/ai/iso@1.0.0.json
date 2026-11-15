@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "1.0.0",
+  "generatedAt": "2026-11-13T11:01:17.716Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "Runs code in a Dart isolate with bidirectional stream communication.",
+    "what_it_does": "Provides a runner to launch a top‑level function in a separate isolate. It exposes streams to send data to the isolate and receive data back, handling lifecycle and disposal.",
+    "use_when": [
+      "You need to offload heavy computation to a background isolate",
+      "You require real‑time two‑way communication between UI and isolate"
+    ],
+    "avoid_when": [
+      "Simple async tasks that don't need an isolate",
+      "You need platform‑specific APIs that isolates can't access"
+    ],
+    "strengths": [
+      "Simple API for isolate management",
+      "Bidirectional streams make continuous data exchange easy",
+      "Handles isolate lifecycle and disposal"
+    ],
+    "weaknesses": [
+      "Only works with top‑level or static functions",
+      "No code generation or advanced state management features"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "async",
+        "why_pick_it": "Provides generic isolate utilities and stream helpers without a dedicated runner class"
+      }
+    ],
+    "minimal_example": "import 'package:iso/iso.dart';\n\nvoid run(IsoRunner iso) {\n  iso.receive();\n  iso.dataIn.listen((d) => iso.send('Echo: $d'));\n}\n\nvoid main() async {\n  final iso = Iso(run, onDataOut: print);\n  iso.run();\n  await iso.onCanReceive;\n  iso.send('Hello');\n}",
+    "confidence": 0.9
+  }
+}

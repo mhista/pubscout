@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.5.2",
+  "generatedAt": "2026-11-13T11:41:59.550Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "stream-based",
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Cross-platform NTP and SNTP time synchronization client for Dart and Flutter.",
+    "what_it_does": "Synchronizes true UTC and local time via UDP and Web HTTP with microsecond precision, offset caching, and system clock tamper detection. It handles cross-platform discrepancies and unstable networks to deliver reliable, tamper-proof time.",
+    "use_when": [
+      "You need accurate time that cannot be spoofed by users changing their device clock.",
+      "Your Flutter app targets Web/WASM as well as mobile and desktop platforms.",
+      "You need live accurate time streams or anti-tamper detection for financial, auction, or gaming apps."
+    ],
+    "avoid_when": [
+      "Standard device DateTime.now() is completely sufficient for your app's requirements.",
+      "Your app has strictly zero network connectivity and never connects to the internet."
+    ],
+    "strengths": [
+      "Cross-platform support including Web/WASM without intl dependency conflicts.",
+      "Includes built-in offset caching, multi-server failover, and multi-sample RTT filtering.",
+      "Provides reactive clock streams and system clock tamper detection."
+    ],
+    "weaknesses": [
+      "Requires an active internet connection or a previously cached offset for initial accuracy.",
+      "Depends on external NTP servers or custom time API endpoints being reachable."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "final DateTime now = await NtpClient().now();",
+    "confidence": 0.95
+  }
+}

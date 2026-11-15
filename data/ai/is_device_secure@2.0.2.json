@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.2",
+  "generatedAt": "2026-11-15T11:12:19.161Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "auth"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Checks whether the mobile device has a secure lock screen setup like a PIN, pattern, password, or biometrics.",
+    "what_it_does": "A Flutter plugin for Android and iOS that checks if the device enforces basic security measures like a secure lock screen. It exposes a simple asynchronous property to query device security status.",
+    "use_when": [
+      "You are building a banking, payment, or enterprise app that requires basic device security enforcement.",
+      "You want to warn users or block access if their device lacks a lock screen or passcode."
+    ],
+    "avoid_when": [
+      "You need to authenticate the user's identity via biometrics for a specific action (use local_auth instead).",
+      "You are targeting web, desktop, or platforms other than Android and iOS."
+    ],
+    "strengths": [
+      "Lightweight and straightforward API.",
+      "Helps enforce security compliance for sensitive applications."
+    ],
+    "weaknesses": [
+      "Limited platform support (Android and iOS only).",
+      "Only checks if a lock screen exists, not who is unlocking or specific biometric validation."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "No extra native setup or permissions documented.",
+    "alternatives": [
+      {
+        "name": "local_auth",
+        "why_pick_it": "If you need local biometric authentication rather than just checking if the device has a secure lock screen setup."
+      }
+    ],
+    "minimal_example": "final isSecure = await IsDeviceSecure.secure;\nprint(\"Is device secure: $isSecure\");",
+    "confidence": 1
+  }
+}

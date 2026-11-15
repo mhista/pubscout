@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.1.0",
+  "generatedAt": "2026-11-15T11:11:25.571Z",
+  "data": {
+    "primary_category": "notifications",
+    "secondary_categories": [
+      "backend"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Flutter plugin for Azure Notification Hubs cross-platform push messaging.",
+    "what_it_does": "Allows Flutter apps to integrate with Microsoft Azure Notification Hubs for sending push notifications across Android and iOS platforms. It provides methods for initialization, managing tags, templates, background messaging, and handling app opens from notifications.",
+    "use_when": [
+      "You are using Microsoft Azure Notification Hubs as your push notification backend.",
+      "You need cross-platform push notifications with template support for Android and iOS."
+    ],
+    "avoid_when": [
+      "You are using Firebase Cloud Messaging directly without Azure Notification Hubs.",
+      "You only require local notifications."
+    ],
+    "strengths": [
+      "Supports cross-platform template definitions.",
+      "Provides stream-based foreground message handling and background handlers."
+    ],
+    "weaknesses": [
+      "Requires native configuration on both Android (Firebase/Google Services) and iOS (Push Notifications and Background Modes capability).",
+      "Only supports setting a single hardcoded template name by default."
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Requires setting up Azure Notification Hub and Firebase (for Android), adding Google Services plugin, configuring AndroidManifest.xml and Info.plist, and enabling capabilities in Xcode for iOS.",
+    "alternatives": [
+      {
+        "name": "firebase_messaging",
+        "why_pick_it": "If you want to use Firebase Cloud Messaging directly instead of routing through Azure Notification Hubs."
+      },
+      {
+        "name": "onesignal_flutter",
+        "why_pick_it": "If you prefer OneSignal as your push notification provider instead of Azure."
+      }
+    ],
+    "minimal_example": "void main() async {\n  WidgetsFlutterBinding.ensureInitialized();\n  await AzureNotificationHub.instance.start();\n  runApp(const MyApp());\n}",
+    "confidence": 0.95
+  }
+}

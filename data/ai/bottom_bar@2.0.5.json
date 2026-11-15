@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.5",
+  "generatedAt": "2026-11-14T10:41:31.844Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "animation"
+    ],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "An optimized bottom navigation bar widget with customizable animations and styling.",
+    "what_it_does": "Bottom bar helps create an optimized bottom navigation bar with beautiful animations and items. It provides a `BottomBar` widget and `BottomBarItem` objects to manage selection states and custom active/inactive colors, icons, and titles.",
+    "use_when": [
+      "You need a custom animated bottom navigation bar in your application.",
+      "You want individual control over item colors, active backgrounds, and layout alignment."
+    ],
+    "avoid_when": [
+      "You require the standard platform-specific native bottom navigation bars without custom animations.",
+      "You are looking for a complete navigation routing framework."
+    ],
+    "strengths": [
+      "Customizable animations with configurable curves and durations.",
+      "Supports custom active/inactive colors, icons, and background opacity per item."
+    ],
+    "weaknesses": [
+      "Requires manual state tracking (e.g., using `setState` or a page controller) to synchronize selection index.",
+      "Breaking changes in past major versions removed built-in properties like `darkActiveColor`."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "BottomBar(\n  selectedIndex: _currentPage,\n  onTap: (int index) {\n    _pageController.jumpToPage(index);\n    setState(() => _currentPage = index);\n  },\n  items: <BottomBarItem>[\n    BottomBarItem(\n      icon: Icon(Icons.home),\n      title: Text('Home'),\n      activeColor: Colors.blue,\n    ),\n  ],\n)",
+    "confidence": 1
+  }
+}

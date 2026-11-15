@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.1.1",
+  "generatedAt": "2026-11-13T11:39:49.007Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "backend",
+      "auth"
+    ],
+    "approach": [
+      "imperative",
+      "declarative"
+    ],
+    "one_liner": "Dart implementation of Model Context Protocol (MCP) servers for LLM applications.",
+    "what_it_does": "Exposes data, tools, prompts, and resources to Large Language Model (LLM) applications through standardized protocols. Supports stdio, legacy SSE, and Streamable HTTP transports with built-in OAuth 2.1 authorization.",
+    "use_when": [
+      "You need to build an MCP server in Dart to serve resources, tools, or prompts to LLMs.",
+      "Your Flutter or Dart backend needs to securely expose local functionality or data via stdio or HTTP transports."
+    ],
+    "avoid_when": [
+      "You are just writing a standard REST or GraphQL API without LLM integration needs."
+    ],
+    "strengths": [
+      "Supports every MCP protocol revision through 2026-07-28.",
+      "Includes multi-transport capabilities (stdio, SSE, Streamable HTTP).",
+      "Provides built-in JSON schema validation and OAuth 2.1 authorization."
+    ],
+    "weaknesses": [
+      "Niche domain specific strictly to the Model Context Protocol.",
+      "Requires careful security and session management configuration when exposed over HTTP."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "No special build steps or native permissions required; works wherever dart:io is available.",
+    "alternatives": [],
+    "minimal_example": "import 'package:mcp_server/mcp_server.dart';\n\nvoid main() {\n  final server = Server(\n    name: 'Example Server',\n    version: '1.0.0',\n    capabilities: ServerCapabilities.simple(\n      tools: true,\n      resources: true,\n      prompts: true,\n    ),\n  );\n  final transportResult = McpServer.createStdioTransport();\n  final transport = transportResult.get();\n  server.connect(transport);\n}",
+    "confidence": 0.95
+  }
+}

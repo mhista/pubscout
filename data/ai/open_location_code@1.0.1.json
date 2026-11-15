@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "1.0.1",
+  "generatedAt": "2026-11-13T11:05:27.752Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Encode and decode Open Location Codes (Plus Codes) for latitude/longitude.",
+    "what_it_does": "Provides functions to convert a latitude/longitude pair into a Plus Code and back. It also supports shortening and expanding codes relative to a reference location, all offline.",
+    "use_when": [
+      "You need a street‑address‑like code for places without traditional addresses",
+      "You want an offline, no‑service location encoding",
+      "You need to generate or parse Plus Codes in a Dart/Flutter app"
+    ],
+    "avoid_when": [
+      "You require geocoding of place names to coordinates",
+      "You need dynamic reference locations that change frequently"
+    ],
+    "strengths": [
+      "Offline, no external services required",
+      "Simple API, no build_runner or codegen",
+      "Supports shortening and expanding codes"
+    ],
+    "weaknesses": [
+      "No built‑in geocoding, so reference locations must be supplied manually",
+      "Limited to Plus Code format only"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "```dart\nimport 'package:open_location_code/open_location_code.dart';\n\nfinal code = OpenLocationCode.encode(6.1, 36.2); // e.g., \"6GCRPR6C+24\"\nfinal location = OpenLocationCode.decode(code);\nprint(location.latitude); // 6.1\nprint(location.longitude); // 36.2\n```",
+    "confidence": 0.9
+  }
+}

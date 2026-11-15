@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "7.6.0",
+  "generatedAt": "2026-11-15T11:22:19.289Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Extends Flutter's State class with controllers, lifecycle events, and async support.",
+    "what_it_does": "Extends Flutter's State class to separate business logic and mutable properties into a StateXController. It includes built-in FutureBuilder and InheritedWidget capabilities, along with numerous lifecycle event handlers.",
+    "use_when": [
+      "You want to separate business logic from your State objects using controllers.",
+      "You need access to a comprehensive set of lifecycle events inside state or controller classes.",
+      "You require built-in FutureBuilder functionality for asynchronous initialization within your State objects."
+    ],
+    "avoid_when": [
+      "You prefer modern reactive state management libraries like Bloc, Provider, or Riverpod.",
+      "You want a framework built around GetX.",
+      "You need a lightweight alternative without extra wrapper classes for standard State management."
+    ],
+    "strengths": [
+      "Separates business logic cleanly from the UI and State objects.",
+      "Provides over 20 lifecycle event handlers for State and Controller.",
+      "Built-in asynchronous initialization support via initAsync()."
+    ],
+    "weaknesses": [
+      "Not compatible with GetX architecture despite similar controller naming.",
+      "Custom state management approach that deviates from standard Flutter paradigms."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "class MyHomePage extends StatefulWidget {\n  @override\n  StateX createState() => MyHomePageState();\n}\n\nclass MyHomePageState extends StateX {\n  MyHomePageState() : super(controller: MyHomePageController()) {\n    // Controller is available via controller\n  }\n\n  @override\n  Widget build(BuildContext context) {\n    return Scaffold(\n      appBar: AppBar(title: Text('StateX Example')),\n      body: Center(child: Text('Hello StateX')),\n    );\n  }\n}\n\nclass MyHomePageController extends StateXController {\n  // Business logic here\n}",
+    "confidence": 0.95
+  }
+}

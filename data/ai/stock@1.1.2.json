@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.1.2",
+  "generatedAt": "2026-11-15T11:20:01.910Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "Dart package for async data loading, caching, and combining local and network data sources.",
+    "what_it_does": "Stock manages data requests by coordinating remote fetchers and local sources of truth (like databases or memory caches). It prevents excessive calls to the network and disk cache by utilizing data streams, built-in caching layers, and safe error handling.",
+    "use_when": [
+      "You need to coordinate and cache data from both a local database and a remote API.",
+      "You want to avoid flooding your network with duplicate simultaneous requests for the same resource.",
+      "You need a robust stream-based approach to handle loading, data, and error states cleanly in your UI."
+    ],
+    "avoid_when": [
+      "You only need simple local key-value storage without network synchronization.",
+      "Your application architecture does not rely on repositories or caching layers."
+    ],
+    "strengths": [
+      "Combines local and network data sources seamlessly.",
+      "Catches errors and wraps them into stream responses instead of throwing unhandled exceptions.",
+      "Provides built-in memory caching via CachedSourceOfTruth for non-stream sources."
+    ],
+    "weaknesses": [
+      "Requires proper setup of custom fetchers, sources of truth, and potential mapping logic.",
+      "Does not replace a complete state management solution on its own."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires defining a Fetcher, a SourceOfTruth, and integrating with a local database or cache solution.",
+    "alternatives": [],
+    "minimal_example": "final stock = Stock<String, List<Tweet>>(\n    fetcher: fetcher,\n    sourceOfTruth: sourceOfTruth,\n);\n\nstock.stream('user_id', refresh: true).listen((response) {\n  response.when(\n    onLoading: (origin) => print('Loading...'),\n    onData: (origin, data) => print('Data: $data'),\n    onError: (origin, error, stacktrace) => print('Error: $error'),\n  );\n});",
+    "confidence": 1
+  }
+}

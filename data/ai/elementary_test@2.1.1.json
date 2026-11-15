@@ -1,0 +1,37 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.1.1",
+  "generatedAt": "2026-11-14T10:35:13.483Z",
+  "data": {
+    "primary_category": "testing",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Testing library for apps built with the Elementary architecture.",
+    "what_it_does": "Provides tools and the testWidgetModel function to easily test WidgetModels and manage their lifecycle phases when using the Elementary architecture package.",
+    "use_when": [
+      "You are building Flutter applications using the elementary architecture package",
+      "You need to test WidgetModels and manage their lifecycle events in tests"
+    ],
+    "avoid_when": [
+      "You are not using the elementary architecture package",
+      "You are looking for a general-purpose widget testing or BLoC testing library"
+    ],
+    "strengths": [
+      "Simplifies testing of Elementary WidgetModels",
+      "Provides lifecycle manipulation tools like tester.init() and tester.didChangeDependencies()"
+    ],
+    "weaknesses": [
+      "Strictly tied to the elementary ecosystem",
+      "Limited utility outside of the Elementary architecture"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "void main() {\n  testWidgetModel<TestPageWidgetModel, TestPageWidget>(\n    'calculatingState test',\n    setUpWm,\n    (wm, tester, context) async {\n      tester.init();\n      expect(wm.calculatingState.value, isFalse);\n    },\n  );\n}",
+    "confidence": 0.95
+  }
+}

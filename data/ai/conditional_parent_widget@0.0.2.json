@@ -1,0 +1,37 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.0.2",
+  "generatedAt": "2026-11-14T10:43:31.764Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "Conditionally wrap a widget with a parent widget.",
+    "what_it_does": "Conditionally wraps a child widget with a parent widget based on a boolean condition. It provides a parentBuilder and an optional parentBuilderElse to avoid repetitive ternary statements in the widget tree.",
+    "use_when": [
+      "You need to conditionally wrap a subtree with a parent widget inside a build method.",
+      "You want to avoid verbose ternary operators or if-else statements when returning widgets."
+    ],
+    "avoid_when": [
+      "You require a package that is actively maintained.",
+      "Complex state management is needed instead of simple conditional tree wrapping."
+    ],
+    "strengths": [
+      "Keeps widget tree code clean and readable.",
+      "Supports an optional parentBuilderElse for handling the false condition."
+    ],
+    "weaknesses": [
+      "The package is stable but not actively maintained."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "return ConditionalParentWidget(\n  condition: shouldIncludeParent,\n  parentBuilder: (Widget child) => SomeParentWidget(child: child),\n  child: Widget1(\n    child: Widget2(\n      child: Widget3(),\n    ),\n  ),\n);",
+    "confidence": 1
+  }
+}

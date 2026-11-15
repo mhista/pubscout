@@ -1,0 +1,51 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.3.2",
+  "generatedAt": "2026-11-14T10:33:37.943Z",
+  "data": {
+    "primary_category": "layout",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "Calculates Material Design responsive layout grid properties based on current screen size.",
+    "what_it_does": "Calculates standard Material Design responsive layout grid properties including columns, gutters, and margins. Identifies device classifications and window sizes using either LayoutConstraints or MediaQuery.",
+    "use_when": [
+      "You want to follow Material Design responsive layout guidelines",
+      "You need standard column counts, gutters, and margins based on screen width",
+      "You want a simple builder widget or manual calculations for adaptive layouts"
+    ],
+    "avoid_when": [
+      "You require complex custom breakpoint configurations outside of Material Design standards",
+      "You are using a different responsive framework that handles scaling entirely"
+    ],
+    "strengths": [
+      "Implements standard Material Design responsive layout grid system seamlessly",
+      "Supports both MediaQuery and BoxConstraints usage",
+      "Includes a convenient BreakpointBuilder widget"
+    ],
+    "weaknesses": [
+      "Limited to predefined Material Design breakpoints and columns",
+      "Does not provide automated scaling or font resizing features"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "responsive_framework",
+        "why_pick_it": "Choose it if you need advanced auto-scaling, text scaling, and a comprehensive suite of responsive layout tools."
+      },
+      {
+        "name": "responsive_builder",
+        "why_pick_it": "Choose it for widget-based screen type detection (mobile, tablet, desktop) and custom sizing queries."
+      }
+    ],
+    "minimal_example": "BreakpointBuilder(\n  builder: (context, breakpoint) {\n    return Container(\n      padding: EdgeInsets.all(breakpoint.margin), \n      child: GridView.builder(\n        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(\n          crossAxisCount: breakpoint.columns,\n          crossAxisSpacing: breakpoint.gutters,\n          mainAxisSpacing: breakpoint.gutters,\n        ),\n        itemBuilder: (context, index) => Container(),\n      ),\n    );\n  },\n)",
+    "confidence": 0.95
+  }
+}

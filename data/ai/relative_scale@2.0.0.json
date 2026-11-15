@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.0",
+  "generatedAt": "2026-11-13T11:12:40.530Z",
+  "data": {
+    "primary_category": "layout",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Custom sizing system for Flutter widgets to achieve the same physical sizes across different devices.",
+    "what_it_does": "Provides relative sizing methods (sy and sx) based on screen height and width through a RelativeBuilder widget, ensuring widgets maintain consistent physical proportions across various screen sizes.",
+    "use_when": [
+      "You want consistent widget physical sizing across different screen dimensions",
+      "Your application is locked to a single orientation (e.g., portrait only)"
+    ],
+    "avoid_when": [
+      "Your app needs to support both portrait and landscape orientations dynamically",
+      "You prefer standard Flutter responsive layout builders and constraints"
+    ],
+    "strengths": [
+      "Simple custom sizing API via sy and sx scaling methods",
+      "RelativeBuilder makes it easy to use in stateless widgets"
+    ],
+    "weaknesses": [
+      "Does not support orientation changes and can break when rotated",
+      "Requires locking device rotation for predictable behavior"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [],
+    "minimal_example": "RelativeBuilder(\n  builder: (context, height, width, sy, sx) {\n    return Scaffold(\n      appBar: AppBar(\n        title: Text(\n          'App Bar Title',\n          style: TextStyle(fontSize: sy(13)),\n        ),\n      ),\n      body: Container(\n        height: height,\n        width: width,\n        child: Text(\n          'Body Text',\n          style: TextStyle(fontSize: sy(11)),\n        ),\n      ),\n    );\n  },\n)",
+    "confidence": 1
+  }
+}

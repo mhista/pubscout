@@ -1,0 +1,50 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "2.0.4",
+  "generatedAt": "2026-11-13T11:09:55.967Z",
+  "data": {
+    "primary_category": "animation",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Provides add‑to‑cart animation for any widget in Flutter apps.",
+    "what_it_does": "The package lets you animate any widget moving into a cart icon, with optional badge updates. It offers configurable drag and jump animations, duration, and curves.",
+    "use_when": [
+      "You need a visual add‑to‑cart effect in a shopping or gamified UI",
+      "You want a ready‑made, cross‑platform animation without writing custom code"
+    ],
+    "avoid_when": [
+      "The UI is static and no cart interaction is required",
+      "You need a highly custom animation beyond the provided options"
+    ],
+    "strengths": [
+      "Simple API – just provide a GlobalKey and call the run function",
+      "Works on Android, iOS, web, desktop out of the box",
+      "Customizable duration, curve and badge visibility"
+    ],
+    "weaknesses": [
+      "Focused only on cart‑style animations, not a general animation framework",
+      "May add extra widget hierarchy and performance cost for simple lists",
+      "Limited documentation beyond the example"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "flutter_animate",
+        "why_pick_it": "General purpose animation library with many effects and a declarative API"
+      },
+      {
+        "name": "loading_animation_widget",
+        "why_pick_it": "Provides ready‑made loading animations if you only need simple visual feedback"
+      }
+    ],
+    "minimal_example": "import 'package:add_to_cart_animation/add_to_cart_animation.dart';\nimport 'package:flutter/material.dart';\n\nvoid main() => runApp(const MyApp());\n\nclass MyApp extends StatelessWidget {\n  const MyApp({super.key});\n  @override\n  Widget build(BuildContext context) => MaterialApp(home: const DemoPage());\n}\n\nclass DemoPage extends StatefulWidget {\n  const DemoPage({super.key});\n  @override\n  State<DemoPage> createState() => _DemoPageState();\n}\n\nclass _DemoPageState extends State<DemoPage> {\n  final GlobalKey<CartIconKey> cartKey = GlobalKey<CartIconKey>();\n  late Function(GlobalKey) runAddToCart;\n  int items = 0;\n\n  @override\n  Widget build(BuildContext context) => AddToCartAnimation(\n        cartKey: cartKey,\n        createAddToCartAnimation: (run) => runAddToCart = run,\n        child: Scaffold(\n          appBar: AppBar(\n            title: const Text('Demo'),\n            actions: [AddToCartIcon(key: cartKey)],\n          ),\n          body: ListTile(\n            leading: Container(\n              key: GlobalKey(),\n              width: 60,\n              height: 60,\n              child: const Icon(Icons.shopping_bag),\n            ),\n            title: const Text('Item'),\n            onTap: () async {\n              await runAddToCart(GlobalKey());\n              await cartKey.currentState!.runCartAnimation((++items).toString());\n            },\n          ),\n        ),\n      );\n}\n",
+    "confidence": 0.9
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.3.3",
+  "generatedAt": "2026-11-13T11:32:13.740Z",
+  "data": {
+    "primary_category": "web-desktop",
+    "secondary_categories": [
+      "files"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Cross-platform installation and auto-update framework for desktop apps",
+    "what_it_does": "Enables desktop apps to check for, download, and apply updates using Velopack and a Rust bridge. Supports release channels and downgrades.",
+    "use_when": [
+      "You are building a Flutter desktop application for Windows, macOS, or Linux",
+      "You need automated updates and installations outside of official app stores"
+    ],
+    "avoid_when": [
+      "You are building a mobile or web app",
+      "You rely entirely on Microsoft or Mac App Stores for distribution"
+    ],
+    "strengths": [
+      "Cross-platform desktop auto-updates",
+      "Supports release channels and downgrades",
+      "Provides update progress streams"
+    ],
+    "weaknesses": [
+      "Requires Rust toolchain and vpk packaging tooling",
+      "Linux implementation is currently untested",
+      "API functions throw exceptions if called outside a vpk packed release"
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Requires Rust installed on the machine, configuring flutter_rust_bridge, and packaging the app using the .NET vpk tool.",
+    "alternatives": [],
+    "minimal_example": "Future<void> main(List<String> args) async {\n  await initializeVelopack(url: 'https://example.com/releases');\n  runApp(const MyApp());\n}",
+    "confidence": 0.95
+  }
+}

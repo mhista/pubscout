@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.1.1",
+  "generatedAt": "2026-11-14T10:47:19.445Z",
+  "data": {
+    "primary_category": "devtools",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "In-app network inspector for Flutter to view and debug requests, responses, and failures.",
+    "what_it_does": "Peek records network calls made by your Flutter client and displays them inside the application. It supports searching, filtering, and exporting calls as cURL, HAR, Markdown, or text, with adapters for Dio, Chopper, package:http, and Talker.",
+    "use_when": [
+      "You want to inspect network traffic directly inside your mobile, desktop, or web app during development.",
+      "You need to export network logs as cURL or HAR for debugging or reporting issues."
+    ],
+    "avoid_when": [
+      "You are running in production and do not want network payloads stored in memory or exposed via UI overlays."
+    ],
+    "strengths": [
+      "Integrates easily with popular HTTP clients like Dio, Chopper, and package:http via adapters.",
+      "Supports multiple export formats including cURL, HAR, Markdown, and plain text.",
+      "Provides a live remote viewer via Peek Pro for watching network logs from a Mac."
+    ],
+    "weaknesses": [
+      "Keeps entries in memory, which requires setting limits (such as maxEntries and maxBodyBytes) to avoid high memory consumption."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the core package and an appropriate network client adapter package, then add the interceptor to your HTTP client and call showPeek(context).",
+    "alternatives": [],
+    "minimal_example": "final dio = Dio(BaseOptions(baseUrl: 'https://api.example.com'));\ndio.interceptors.add(PeekDioInterceptor(Peek.instance));\n\nshowPeek(context);",
+    "confidence": 1
+  }
+}

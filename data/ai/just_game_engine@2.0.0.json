@@ -1,0 +1,52 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.0",
+  "generatedAt": "2026-11-15T11:20:01.953Z",
+  "data": {
+    "primary_category": "games",
+    "secondary_categories": [
+      "animation",
+      "audio-video"
+    ],
+    "approach": [
+      "imperative",
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "A 2D and 3D game engine for Flutter featuring ECS, physics, audio, and level maps.",
+    "what_it_does": "Provides a comprehensive game engine built for Flutter that supports entities, components, and systems (ECS), 2D and 3D graphics, physics via Box2D and Jolt, audio, input actions, level maps, and particles. Games run inside an ordinary Flutter widget.",
+    "use_when": [
+      "You want to build a 2D or 3D game inside Flutter.",
+      "You need an ECS architecture with physics, audio, and asset-loaded levels."
+    ],
+    "avoid_when": [
+      "You are building a standard non-game Flutter UI application.",
+      "You need guaranteed iOS and macOS stability out of the box without verifying platform builds."
+    ],
+    "strengths": [
+      "Full-featured game engine with 2D and 3D physics, cameras, and audio.",
+      "Scene loading from JSON and support for Tiled maps.",
+      "Draws directly inside an ordinary Flutter widget."
+    ],
+    "weaknesses": [
+      "Linux, iOS, and macOS platforms are untested and unverified.",
+      "Requires specific pinned versions of Flutter and strict dependency locking."
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Requires specific Flutter minor releases (e.g. Flutter 3.47.1+), manual platform dependency installations for audio on Linux, and specific environment configuration.",
+    "alternatives": [
+      {
+        "name": "flame",
+        "why_pick_it": "A more mature and widely used 2D game engine for Flutter with a large ecosystem of plugins."
+      },
+      {
+        "name": "flutter_scene",
+        "why_pick_it": "If you primarily need 3D rendering in Flutter rather than a full ECS game engine."
+      }
+    ],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:just_game_engine/just_game_engine.dart';\n\nFuture<void> main() async {\n  WidgetsFlutterBinding.ensureInitialized();\n  final engine = Engine(\n    config: const EngineConfig(defaultSystems: DefaultSystems.all),\n  );\n  await engine.initialize();\n  engine.start();\n  runApp(MaterialApp(home: GameWidget(engine: engine)));\n}",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.6.0",
+  "generatedAt": "2026-11-14T10:59:00.785Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "A clean and robust undo/redo library for Dart and Flutter using the Command Pattern.",
+    "what_it_does": "Provides a stack-based history mechanism to manage state changes. It lets you easily roll back or replay actions using individual or batched changes, as well as a SimpleStack for tracking a single state object.",
+    "use_when": [
+      "You need to add undo and redo functionality to a Flutter or Dart application.",
+      "You want a lightweight history stack that works with any state management architecture like ChangeNotifier, Bloc, or Riverpod."
+    ],
+    "avoid_when": [
+      "You need an all-in-one state management framework rather than a dedicated undo/redo helper."
+    ],
+    "strengths": [
+      "Zero dependencies and minimal overhead",
+      "Supports batched and grouped changes",
+      "Flexible architecture that integrates with any state management solution"
+    ],
+    "weaknesses": [
+      "Requires manual tracking of old state values and change logic"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:undo/undo.dart';\n\nvoid main() {\n  final changes = ChangeStack();\n  var count = 0;\n\n  changes.add(\n    Change<int>(\n      count,\n      () => count++,\n      (oldVal) => count = oldVal,\n      description: 'Increment count',\n    ),\n  );\n\n  changes.undo();\n  changes.redo();\n}",
+    "confidence": 1
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.2.3",
+  "generatedAt": "2026-11-15T11:26:02.218Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "utils",
+      "device"
+    ],
+    "approach": [
+      "declarative",
+      "imperative"
+    ],
+    "one_liner": "Sends Modbus requests to remote devices via TCP/IP connections.",
+    "what_it_does": "Implements the Modbus TCP protocol for sending requests to remote devices over ethernet networks. It provides various Modbus element types like registers, coils, and discrete inputs, alongside auto-connection modes, timeout settings, and server discovery.",
+    "use_when": [
+      "You need to communicate with industrial devices or servers using Modbus TCP/IP.",
+      "You want support for various data element types like numeric registers, bit masks, enums, and file records."
+    ],
+    "avoid_when": [
+      "You are communicating over Serial ports or UDP instead of TCP/IP (use companion packages instead).",
+      "You do not need industrial Modbus protocol support."
+    ],
+    "strengths": [
+      "Includes built-in server discovery and connection timeout features for TCP.",
+      "Offers a rich variety of typed Modbus elements with built-in byte endianness and scaling support."
+    ],
+    "weaknesses": [
+      "Limited specifically to TCP/IP; requires separate packages for UDP or Serial communications.",
+      "Relies heavily on external Modbus server implementations and proper network configurations."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the package to pubspec.yaml and configure network permissions for TCP/IP socket access on target platforms.",
+    "alternatives": [],
+    "minimal_example": "import 'package:modbus_client/modbus_client.dart';\nimport 'package:modbus_client_tcp/modbus_client_tcp.dart';\n\nvoid main() async {\n  var batteryTemperature = ModbusInt16Register(\n      name: \"BatteryTemperature\",\n      type: ModbusElementType.inputRegister,\n      address: 22,\n      uom: \"°C\",\n      multiplier: 0.1,\n      onUpdate: (self) => print(self));\n\n  var serverIp = await ModbusClientTcp.discover(\"192.168.0.0\");\n  if (serverIp == null) return;\n  \n  var modbusClient = ModbusClientTcp(serverIp, unitId: 1);\n  await modbusClient.send(batteryTemperature.getReadRequest());\n  modbusClient.disconnect();\n}",
+    "confidence": 0.95
+  }
+}

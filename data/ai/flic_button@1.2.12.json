@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.2.12",
+  "generatedAt": "2026-11-15T11:30:14.162Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "audio-video"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Flutter interface for Flic2 Bluetooth buttons on Android and iOS.",
+    "what_it_does": "Wraps the official Flic2 native libraries to let Flutter applications search for, connect to, disconnect, and listen for press and release events from Flic 2 hardware buttons. Supports Android and iOS platforms.",
+    "use_when": [
+      "You need to integrate Flic 2 Bluetooth hardware buttons into your mobile app.",
+      "Your app needs to trigger actions based on button presses, double-presses, or holds from physical Flic buttons."
+    ],
+    "avoid_when": [
+      "You require a persistent background service to handle button presses while the Flutter application is completely destroyed.",
+      "You are using the original first-generation Flic buttons, which are not currently supported."
+    ],
+    "strengths": [
+      "Direct integration with official Flic2 Android and iOS SDKs.",
+      "Exposes search, connection management, and button click callbacks cleanly to Dart."
+    ],
+    "weaknesses": [
+      "Does not support background execution if the app is destroyed.",
+      "Requires manual configuration of native permissions for Bluetooth and Location on both Android and iOS."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires native configuration of Bluetooth and Location permissions in AndroidManifest.xml and iOS Info.plist, alongside minimum SDK adjustments and Gradle modifications.",
+    "alternatives": [],
+    "minimal_example": "import 'package:flic_button/flic_button.dart';\n\nclass ButtonListener with Flic2Listener {\n  void onButtonClicked(Flic2ButtonClick buttonClick) {\n    print('button ${buttonClick.button.uuid} clicked');\n  }\n}\n\nvoid main() {\n  final plugin = FlicButtonPlugin(flic2listener: ButtonListener());\n  plugin.invokation.then((value) {\n    return plugin.getFlic2Buttons();\n  }).then((value) {\n    if (value.isEmpty) {\n      plugin.scanForFlic2();\n    } else {\n      for (Flic2Button button in value) {\n        plugin.listenToFlic2Button(button.uuid);\n      }\n    }\n  });\n}",
+    "confidence": 0.95
+  }
+}

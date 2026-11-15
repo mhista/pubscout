@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.3.0",
+  "generatedAt": "2026-11-14T10:37:26.557Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "storage",
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Cache Dio HTTP responses using sqflite disk and LRU memory",
+    "what_it_does": "Stores HTTP responses locally and serves them based on maxAge and maxStale settings. It integrates as a Dio interceptor and can distinguish cache hits via a response header.",
+    "use_when": [
+      "Need offline support for Dio requests",
+      "Want to reduce network traffic for repeat requests",
+      "Require fine‑grained cache control per request"
+    ],
+    "avoid_when": [
+      "Working with non‑Dio HTTP clients",
+      "Need a global cache across multiple clients",
+      "Complex cache invalidation logic beyond maxAge/maxStale"
+    ],
+    "strengths": [
+      "Easy to add as a Dio interceptor",
+      "Configurable disk and memory cache limits",
+      "Supports custom primary/sub keys and encryption",
+      "Automatic stale handling and cache clearing"
+    ],
+    "weaknesses": [
+      "Depends on sqflite, adding a native dependency",
+      "Only works with Dio, not http or other clients",
+      "No built‑in support for cache purging policies beyond maxAge/maxStale"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dio_http_cache to pubspec, create DioCacheManager with CacheConfig, add its interceptor to Dio, optionally set buildCacheOptions on requests.",
+    "alternatives": [],
+    "minimal_example": "dio.interceptors.add(DioCacheManager(CacheConfig(baseUrl: \"https://api.example.com\")).interceptor);\n\nfinal response = await dio.get(\n  \"https://api.example.com/data\",\n  options: buildCacheOptions(Duration(days: 7)),\n);",
+    "confidence": 0.8
+  }
+}

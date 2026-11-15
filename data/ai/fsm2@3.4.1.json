@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "3.4.1",
+  "generatedAt": "2026-11-15T11:10:48.235Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "declarative",
+      "stream-based",
+      "no codegen"
+    ],
+    "one_liner": "A Dart library for building UML‑style finite state machines with nested states and guard conditions.",
+    "what_it_does": "FSM2 lets you define state machines using a builder API, supporting nested states, concurrent regions, guard conditions, and side‑effects. It provides runtime event handling and optional visualisation tools.",
+    "use_when": [
+      "You need a lightweight, code‑first state machine for app logic",
+      "You want declarative state definitions with support for guards and side‑effects",
+      "You prefer a Dart‑only solution without code generation"
+    ],
+    "avoid_when": [
+      "You require a full‑featured UI widget library",
+      "You need built‑in persistence or networking capabilities"
+    ],
+    "strengths": [
+      "Supports nested and concurrent states",
+      "Guard conditions and side‑effects are built‑in",
+      "No code generation required"
+    ],
+    "weaknesses": [
+      "Limited to state‑machine logic, no UI components",
+      "Documentation primarily on external site"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:fsm2/fsm2.dart';\n\nvoid main() {\n  final machine = StateMachine.create((g) => g\n    ..initialState(Solid())\n    ..state<Solid>((b) => b..on<OnMelted, Liquid>(sideEffect: (e) => print('Melted')))\n    ..state<Liquid>((b) => b..onEnter((s, e) => print('Enter Liquid'))));\n  machine.applyEvent(OnMelted());\n}",
+    "confidence": 0.9
+  }
+}

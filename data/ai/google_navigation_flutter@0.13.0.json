@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.13.0",
+  "generatedAt": "2026-11-14T10:28:23.513Z",
+  "data": {
+    "primary_category": "maps",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter plugin for Google Navigation and map widgets on Android and iOS.",
+    "what_it_does": "Provides Google Maps navigation and map view widgets for Flutter apps. Handles turn-by-turn navigation sessions, destination routing with route tokens, and map styling.",
+    "use_when": [
+      "You need to build turn-by-turn GPS navigation into your app.",
+      "You want to display Google Maps with integrated navigation functionality."
+    ],
+    "avoid_when": [
+      "You only need basic static maps without turn-by-turn navigation requirements.",
+      "You cannot meet the strict native requirements (iOS 17.0+, Android API 24+, and Google Cloud project with billing)."
+    ],
+    "strengths": [
+      "Official Google Navigation SDK bindings for Flutter.",
+      "Supports both Android and iOS platforms.",
+      "Includes features for route tokens, notifications, and custom display options."
+    ],
+    "weaknesses": [
+      "Requires a Google Cloud project with billing and specific API restrictions/keys.",
+      "High minimum setup requirements such as iOS 17.0+ and specific Gradle/AGP versions on Android.",
+      "Beta software status means breaking changes may occur."
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Requires a Google Cloud project, API keys configured for both Android and iOS, Swift Package Manager on iOS, core library desugaring on Android, background mode permissions, and specific SDK/Gradle versions.",
+    "alternatives": [],
+    "minimal_example": "class NavigationSample extends StatefulWidget {\n  const NavigationSample({super.key});\n\n  @override\n  State<NavigationSample> createState() => _NavigationSampleState();\n}\n\nclass _NavigationSampleState extends State<NavigationSample> {\n  bool _navigationSessionInitialized = false;\n\n  @override\n  void initState() {\n    super.initState();\n    _initializeNavigationSession();\n  } \n\n  Future<void> _initializeNavigationSession() async {\n    await GoogleMapsNavigator.initializeNavigationSession(taskRemovedBehavior: TaskRemovedBehavior.continueService);\n    setState(() {\n      _navigationSessionInitialized = true;\n    });\n  }\n\n  @override\n  Widget build(BuildContext context) {\n    return Scaffold(\n      body: _navigationSessionInitialized\n          ? GoogleMapsNavigationView(\n              onViewCreated: (controller) {\n                controller.setMyLocationEnabled(true);\n              },\n            )\n          : const Center(child: CircularProgressIndicator()),\n    );\n  }\n}",
+    "confidence": 0.95
+  }
+}

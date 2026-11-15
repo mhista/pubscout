@@ -1,0 +1,47 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.1.1",
+  "generatedAt": "2026-11-15T11:35:07.950Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [],
+    "approach": [
+      "stream-based",
+      "declarative"
+    ],
+    "one_liner": "Adds actions stream to Bloc and Cubit to process UI events like dialogs or snackbars.",
+    "what_it_does": "Extends Bloc and Cubit with a mixin to dispatch one-off UI actions that are separate from state changes. Provides a BlocActionListener widget to listen to and process these actions in the UI.",
+    "use_when": [
+      "You need to show dialogs or snackbars from a Bloc or Cubit without tying them to state changes",
+      "You want a dedicated UI action stream alongside your flutter_bloc architecture"
+    ],
+    "avoid_when": [
+      "State changes alone are sufficient for driving your UI side effects",
+      "You are not using flutter_bloc in your application"
+    ],
+    "strengths": [
+      "Simplifies triggering one-off UI events from business logic",
+      "Familiar API style matching standard flutter_bloc patterns"
+    ],
+    "weaknesses": [
+      "Adds an extra layer of abstraction for side effects",
+      "Limited to flutter_bloc ecosystem"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [
+      {
+        "name": "bloc",
+        "why_pick_it": "If you prefer managing state and side effects strictly via the standard state stream without a separate action mechanism."
+      },
+      {
+        "name": "flutter_bloc",
+        "why_pick_it": "If you want to rely purely on built-in state listeners for UI communication."
+      }
+    ],
+    "minimal_example": "BlocActionListener<ExampleCubit, ExampleAction>(\n  listener: (context, action) {\n    if (action is ShowSnackbarAction) {\n      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(action.content)));\n    }\n  },\n);",
+    "confidence": 1
+  }
+}

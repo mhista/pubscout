@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.6.1",
+  "generatedAt": "2026-11-14T10:45:19.915Z",
+  "data": {
+    "primary_category": "maps",
+    "secondary_categories": [
+      "device"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Track background location for Android and iOS",
+    "what_it_does": "Allows your Flutter application to continuously track device location in the background on both Android and iOS. It utilizes a background callback to process location updates even when the app is minimized or terminated.",
+    "use_when": [
+      "You need to continuously track user locations in the background on Android and iOS.",
+      "You require background callbacks to save or upload location updates while the app is closed."
+    ],
+    "avoid_when": [
+      "You only need foreground location tracking.",
+      "You do not want to configure native platform settings like Info.plist or Android SDK configurations."
+    ],
+    "strengths": [
+      "Supports both Android and iOS background location tracking.",
+      "Provides configuration options for tracking intervals, distance filters, and activity types."
+    ],
+    "weaknesses": [
+      "Requires manual native configuration steps on both Android and iOS.",
+      "Relies on deprecated setPluginRegistrantCallback patterns for older compatibility or specific iOS setups."
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Requires setting compile SDK to at least 29 and configuring foreground service permissions on Android. On iOS, you must add permission descriptions for location usage, UIBackgroundModes location setting, and update the AppDelegate to register background plugins.",
+    "alternatives": [
+      {
+        "name": "geolocator",
+        "why_pick_it": "A widely used, comprehensive geolocation plugin that supports background tasks and location streams."
+      }
+    ],
+    "minimal_example": "@pragma('vm:entry-point')\nvoid backgroundCallback() {\n  BackgroundLocationTrackerManager.handleBackgroundUpdated(\n    (data) async => Repo().update(data),\n  );\n}\n\nFuture<void> main() async {\n  WidgetsFlutterBinding.ensureInitialized();\n  await BackgroundLocationTrackerManager.initialize(\n    backgroundCallback,\n    config: const BackgroundLocationTrackerConfig(\n      loggingEnabled: true,\n      androidConfig: AndroidConfig(\n        notificationIcon: 'explore',\n        trackingInterval: Duration(seconds: 4),\n        distanceFilterMeters: null,\n      ),\n      iOSConfig: IOSConfig(\n        activityType: ActivityType.FITNESS,\n        distanceFilterMeters: null,\n        restartAfterKill: true,\n      ),\n    ),\n  );\n\n  runApp(MyApp());\n}",
+    "confidence": 0.95
+  }
+}

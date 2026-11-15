@@ -1,0 +1,37 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.2.0",
+  "generatedAt": "2026-11-14T10:33:07.533Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A wrapper for ListWheelScrollView that allows children to respond to tap events.",
+    "what_it_does": "It wraps a Flutter ListWheelScrollView to enable onTap gesture events on individual list items. It provides callbacks for item taps, supports scrolling on click, and allows handling loop delegates.",
+    "use_when": [
+      "You need a wheel-style scrolling list where individual items must be clickable.",
+      "You want to handle tap events on specific items inside a ListWheelScrollView."
+    ],
+    "avoid_when": [
+      "You are not using a ListWheelScrollView.",
+      "You require complex touch interactions other than standard tap events."
+    ],
+    "strengths": [
+      "Simple and lightweight wrapper for existing ListWheelScrollView widgets.",
+      "Supports item tap callbacks and automatic scrolling on click."
+    ],
+    "weaknesses": [
+      "Limited in scope, only solves tap handling for ListWheelScrollView.",
+      "Not documented with extensive custom gestures beyond standard taps."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "ClickableListWheelScrollView(\n  scrollController: _scrollController,\n  itemHeight: _itemHeight,\n  itemCount: _itemCount,\n  onItemTapCallback: (index) {\n    print(\"onItemTapCallback index: $index\");\n  },\n  child: ListWheelScrollView.useDelegate(\n    controller: _scrollController,\n    itemExtent: _itemHeight,\n    physics: FixedExtentScrollPhysics(),\n    childDelegate: ListWheelChildBuilderDelegate(\n      builder: (context, index) => _child(index),\n      childCount: _itemCount,\n    ),\n  ),\n)",
+    "confidence": 0.95
+  }
+}

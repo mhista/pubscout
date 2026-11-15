@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.6.0",
+  "generatedAt": "2026-11-14T10:30:50.747Z",
+  "data": {
+    "primary_category": "camera",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative",
+      "imperative"
+    ],
+    "one_liner": "Scan QR codes and barcodes within the widget tree and decode images from file paths.",
+    "what_it_does": "Provides a ScanView widget to scan QR codes and barcodes directly from the camera feed with custom styling options. Also allows decoding QR codes and barcodes from image file paths programmatically.",
+    "use_when": [
+      "You need to embed a QR or barcode scanner inside a custom widget layout.",
+      "You need to decode QR or barcode data from an existing image path on the device."
+    ],
+    "avoid_when": [
+      "You want to generate QR code images (use qr_flutter instead)."
+    ],
+    "strengths": [
+      "Customizable scan area scale and scan line colors.",
+      "Supports decoding barcodes and QR codes from image paths.",
+      "Includes torch toggle and pause/resume controller functions."
+    ],
+    "weaknesses": [
+      "Requires platform-specific configuration for camera usage on iOS and Android.",
+      "Limited to scanning and parsing functionalities."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires adding NSCameraUsageDescription and io.flutter.embedded_views_preview to iOS Info.plist, and the CAMERA permission to the Android Manifest.",
+    "alternatives": [
+      {
+        "name": "mobile_scanner",
+        "why_pick_it": "Alternative package for scanning QR codes and barcodes from the camera."
+      },
+      {
+        "name": "google_mlkit_barcode_scanning",
+        "why_pick_it": "Alternative solution using Google ML Kit for on-device barcode and QR code scanning."
+      }
+    ],
+    "minimal_example": "ScanController controller = ScanController();\nContainer(\n  width: 250,\n  height: 250,\n  child: ScanView(\n    controller: controller,\n    scanAreaScale: .7,\n    scanLineColor: Colors.green.shade400,\n    onCapture: (data) {},\n  ),\n);",
+    "confidence": 0.95
+  }
+}

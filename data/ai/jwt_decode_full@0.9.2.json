@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.9.2",
+  "generatedAt": "2026-11-13T11:05:19.099Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "auth"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "A JWT decoder to extract headers, payload, expiration date, and issued date.",
+    "what_it_does": "Decodes JSON Web Tokens (JWT) to extract the header, payload, expiration date, and issued date. It also provides a check to see if the token is expired.",
+    "use_when": [
+      "You need to read claims and expiration data from a JWT on the client side",
+      "You want a simple utility function to decode tokens without verification overhead"
+    ],
+    "avoid_when": [
+      "You need to cryptographically verify or sign JWTs on the client side",
+      "You require complex backend token generation and management"
+    ],
+    "strengths": [
+      "Simple and straightforward usage with a single main function",
+      "Extracts expiration and issued dates out of the box",
+      "Supports multiple platforms including Android, iOS, Web, Windows, macOS, and Linux"
+    ],
+    "weaknesses": [
+      "Limited to decoding and does not support token generation or cryptographic signature verification",
+      "Not documented for advanced security customization"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:jwt_decode_full/jwt_decode_full.dart';\n\nfinal jwtData = jwtDecode(myToken);\nprint('header: ${jwtData.header}');\nprint('payload: ${jwtData.payload}');\nprint('isExpired: ${jwtData.isExpired}');",
+    "confidence": 0.95
+  }
+}

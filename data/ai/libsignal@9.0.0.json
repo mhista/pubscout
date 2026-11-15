@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "9.0.0",
+  "generatedAt": "2026-11-14T10:33:13.648Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "auth"
+    ],
+    "approach": [
+      "code generation",
+      "imperative"
+    ],
+    "one_liner": "Dart wrapper for libsignal providing Signal Protocol end-to-end encryption.",
+    "what_it_does": "Provides Dart and Flutter bindings for libsignal, implementing the Signal Protocol for end-to-end encryption, sealed sender, group messaging, and cryptographic operations. It bridges native Rust code directly via Flutter Rust Bridge.",
+    "use_when": [
+      "You need Signal Protocol end-to-end encryption in a Dart or Flutter application.",
+      "You require secure group messaging or anonymous sealed sender features."
+    ],
+    "avoid_when": [
+      "You only need basic hashing or standard TLS encryption without the Signal Protocol.",
+      "Your project cannot use AGPL-3.0 licensed dependencies."
+    ],
+    "strengths": [
+      "Direct native Rust integration via Flutter Rust Bridge for high performance.",
+      "Comprehensive implementation of the Signal Protocol including Double Ratchet and X3DH."
+    ],
+    "weaknesses": [
+      "Strict AGPL-3.0 license may restrict commercial usage depending on distribution.",
+      "Certain native features like registration and server-side backup are not implemented."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Native libraries are downloaded automatically during build via Dart build hooks. No manual Rust toolchain is required for end users.",
+    "alternatives": [],
+    "minimal_example": "import 'package:libsignal/libsignal.dart';\n\nvoid main() async {\n  await LibSignal.init();\n  final identity = IdentityKeyPair.generate();\n  print('Identity public key: ${identity.publicKey.length} bytes');\n  LibSignal.cleanup();\n}",
+    "confidence": 0.95
+  }
+}

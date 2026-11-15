@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "3.3.3",
+  "generatedAt": "2026-11-14T10:41:14.808Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "no codegen"
+    ],
+    "one_liner": "Provides Dart constants for all HTTP status codes and helper methods.",
+    "what_it_does": "Defines a class with immutable constants for every HTTP status code defined in RFC1945, RFC2616 and RFC2518. Includes methods to convert from numeric codes and to check code ranges (informational, success, redirect, client error, server error).",
+    "use_when": [
+      "You need a lightweight, dependency‑free way to reference HTTP status codes.",
+      "You want compile‑time safety and helper methods for status‑code categories."
+    ],
+    "avoid_when": [
+      "You need a full HTTP client or server implementation.",
+      "You require dynamic status handling beyond the predefined constants."
+    ],
+    "strengths": [
+      "Complete set of standard HTTP status codes",
+      "Immutable and zero‑dependency",
+      "Helper methods for range checks"
+    ],
+    "weaknesses": [
+      "Only provides constants, no networking features",
+      "Cannot replace a full HTTP client"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:http_status/http_status.dart';\n\nvoid main() {\n  print(HttpStatus.ok); // 200\n  print(HttpStatus.fromCode(404)); // HttpStatus.notFound\n  print(HttpStatus.ok.isSuccessfulHttpStatusCode); // true\n}",
+    "confidence": 0.99
+  }
+}

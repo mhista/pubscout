@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.0",
+  "generatedAt": "2026-11-15T11:07:42.768Z",
+  "data": {
+    "primary_category": "auth",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "code generation"
+    ],
+    "one_liner": "Generate and verify TOTP and HOTP one-time passwords for 2FA and MFA.",
+    "what_it_does": "Generates and verifies time-based (TOTP) and counter-based (HOTP) one-time passwords adhering to RFC 6238 and RFC 4226. Supports parsing and generating Google Authenticator otpauth:// URIs, drift tolerance, and secure Base32 secret generation.",
+    "use_when": [
+      "You need to implement two-factor or multi-factor authentication in a Dart or Flutter application.",
+      "You need to generate or parse Google Authenticator otpauth:// URIs for QR codes."
+    ],
+    "avoid_when": [
+      "You require client-side storage or server-side counter persistence out of the box without building it yourself."
+    ],
+    "strengths": [
+      "RFC test-vector validated against RFC 4226 and RFC 6238 reference vectors.",
+      "Constant-time verification to prevent timing attacks.",
+      "Pure Dart with zero Flutter dependencies, supporting multiple algorithms (SHA-1, SHA-256, SHA-384, SHA-512)."
+    ],
+    "weaknesses": [
+      "Requires manual implementation of server-side counter persistence and secret management.",
+      "On the web, integers are exact only up to 2^53, so extremely large HOTP counters require a native-int target."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [],
+    "minimal_example": "import 'package:dart_dash_otp/dart_dash_otp.dart';\n\nvoid main() {\n  final totp = TOTP(secret: OTP.randomSecret());\n\n  final code = totp.now();\n  final ok = totp.verify(otp: code);\n\n  print('Code $code is valid: $ok');\n}",
+    "confidence": 0.95
+  }
+}

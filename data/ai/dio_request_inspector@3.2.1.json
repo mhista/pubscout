@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.2.1",
+  "generatedAt": "2026-11-14T10:29:56.275Z",
+  "data": {
+    "primary_category": "devtools",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "A HTTP inspector for Dio, which can intercept and log HTTP requests and responses.",
+    "what_it_does": "Intercepts and logs HTTP requests and responses for Dio. Provides a user interface to view, filter, search, and share request details directly inside the app.",
+    "use_when": [
+      "You need to debug and inspect network traffic in a Dio-based Flutter app",
+      "You want a built-in UI tool to view request headers, bodies, status codes, and copy data to cURL"
+    ],
+    "avoid_when": [
+      "You are not using Dio for networking",
+      "You prefer external network proxy tools like Charles or Fiddler over in-app inspectors"
+    ],
+    "strengths": [
+      "Provides a dedicated visual inspector UI with search and filtering capabilities",
+      "Supports optional password protection for the inspector",
+      "Allows copying requests directly to cURL format"
+    ],
+    "weaknesses": [
+      "Requires wrapping the app root with `DioRequestInspectorMain` and adding a navigator observer",
+      "Tied specifically to Dio"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the dependency, register the Dio interceptor, wrap your root app with DioRequestInspectorMain, and add DioRequestInspector.navigatorObserver to your MaterialApp.",
+    "alternatives": [
+      {
+        "name": "pretty_dio_logger",
+        "why_pick_it": "If you prefer console-based pretty logging for Dio instead of an in-app visual inspector UI."
+      },
+      {
+        "name": "talker",
+        "why_pick_it": "If you need a comprehensive, extensible logging and exception handling package with a visual payload viewer."
+      }
+    ],
+    "minimal_example": "final DioRequestInspector inspector = DioRequestInspector(\n  isInspectorEnabled: true,\n  password: '123456',\n  showSummary: true,\n);\ndio.interceptors.add(inspector.getDioRequestInterceptor());",
+    "confidence": 1
+  }
+}

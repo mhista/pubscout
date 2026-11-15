@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.3.16",
+  "generatedAt": "2026-11-15T11:05:06.754Z",
+  "data": {
+    "primary_category": "theming",
+    "secondary_categories": [
+      "state-management",
+      "storage"
+    ],
+    "approach": [
+      "declarative",
+      "stream-based"
+    ],
+    "one_liner": "Manage multiple themes, dark mode, and theme persistence in Flutter applications.",
+    "what_it_does": "It provides a ThemeManager, ThemeBuilder widget, and ThemeService to easily swap between multiple ThemeData configurations or toggle light and dark modes. It handles theme persistence using shared_preferences and includes status bar color updates.",
+    "use_when": [
+      "You need to manage more than just a simple light and dark theme (multiple themes)",
+      "You want automatic persistence of the user's selected theme across app restarts",
+      "You are using the Stacked architecture and want a ThemeService for your view models"
+    ],
+    "avoid_when": [
+      "you prefer using Riverpod or Bloc for all state management including themes",
+      "You only need standard Flutter ThemeMode toggling without extra utilities"
+    ],
+    "strengths": [
+      "Supports multiple themes beyond just light and dark",
+      "Built-in theme persistence via shared_preferences",
+      "Includes business logic access via ThemeService for ViewModels"
+    ],
+    "weaknesses": [
+      "Tied to the Stacked ecosystem conventions",
+      "Adds several third-party dependencies for what can be done natively"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Awaiting ThemeManager.initialise() in main function before running the app.",
+    "alternatives": [],
+    "minimal_example": "Future main() async {\n  await ThemeManager.initialise();\n  runApp(MyApp());\n}\n\nclass MyApp extends StatelessWidget {\n  @override\n  Widget build(BuildContext context) {\n    return ThemeBuilder(\n      builder: (context, regularTheme, darkTheme, themeMode) => MaterialApp(\n        title: 'Flutter Demo',\n        theme: regularTheme,\n        darkTheme: darkTheme,\n        themeMode: themeMode,\n      ),\n    );\n  }\n}",
+    "confidence": 0.95
+  }
+}

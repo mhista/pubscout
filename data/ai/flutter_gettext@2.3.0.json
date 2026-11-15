@@ -1,0 +1,53 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.3.0",
+  "generatedAt": "2026-11-15T11:31:01.473Z",
+  "data": {
+    "primary_category": "localization",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Translate Flutter applications using standard gettext .po files with positional and named arguments.",
+    "what_it_does": "Allows loading standard .po translation files as assets in a Flutter application. Provides translation extension methods with support for plurals, contexts, comments, and both positional and named arguments.",
+    "use_when": [
+      "You prefer standard gettext (.po) files for managing application translations.",
+      "You need pluralization and positional or named arguments within translated strings.",
+      "You want to avoid code-generation steps for localization files."
+    ],
+    "avoid_when": [
+      "You prefer type-safe generated keys as provided by packages like slang.",
+      "Your project relies heavily on the standard Flutter intl and ARB translation pipeline."
+    ],
+    "strengths": [
+      "Supports .po translation files compatible with standard gettext translation tools.",
+      "Supports positional arguments, named arguments, and plurals out of the box.",
+      "No code generation step required."
+    ],
+    "weaknesses": [
+      "Translation keys are plain strings rather than type-safe generated properties.",
+      "Dependent on asset loading for .po files."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the package and flutter_localizations, configure assets/i18n/ in pubspec.yaml, and add GettextLocalizationsDelegate to localizationsDelegates.",
+    "alternatives": [
+      {
+        "name": "intl",
+        "why_pick_it": "If you want standard official Flutter localization support using ARB files."
+      },
+      {
+        "name": "slang",
+        "why_pick_it": "If you want a strongly typed localization system with code generation."
+      },
+      {
+        "name": "easy_localization",
+        "why_pick_it": "If you want easy translation loading from JSON, CSV, or YAML files without code generation."
+      }
+    ],
+    "minimal_example": "Text(context.translate('There is {0} apple', keyPlural: 'There are {0} apples', pArgs: [1]));",
+    "confidence": 1
+  }
+}

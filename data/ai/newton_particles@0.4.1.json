@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.4.1",
+  "generatedAt": "2026-11-14T10:41:08.503Z",
+  "data": {
+    "primary_category": "animation",
+    "secondary_categories": [
+      "games",
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Configurable particle emitter for Flutter to create rain, smoke, and physics animations.",
+    "what_it_does": "Provides a customizable particle system with support for both deterministic and physics-based animations (powered by Chipmunk2D). It features interactive widget collisions, custom shapes, and an online visual configurator.",
+    "use_when": [
+      "You want to add visual particle effects like rain, snow, confetti, or smoke to your Flutter app.",
+      "Particles need to interact and collide with standard Flutter UI widgets."
+    ],
+    "avoid_when": [
+      "You require a full-fledged 2D game engine rather than just particle animations.",
+      "Targeting web with WASM requires additional script setup."
+    ],
+    "strengths": [
+      "Highly configurable particle options and custom shapes.",
+      "Chipmunk2D-backed physics integration for realistic gravity and collisions.",
+      "Includes a visual interactive configurator with code generation."
+    ],
+    "weaknesses": [
+      "Package is under active development with potential breaking changes before 1.0.0.",
+      "Requires extra web script setup for WASM builds using physics effects."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires calling initializeNewton() before running the app. For web with WASM and physics effects, a helper script must be added to web/index.html.",
+    "alternatives": [],
+    "minimal_example": "Newton(\n  effectConfigurations: [\n    PhysicsEffectConfiguration(\n      physicsProperties: const PhysicsProperties(\n        gravity: Gravity.earthGravity,\n        angle: NumRange.single(90),\n        velocity: NumRange.between(Velocity.stationary, Velocity.stationary),\n      ),\n      visualProperties: const VisualProperties(\n        endScale: NumRange.single(1),\n        fadeOutThreshold: NumRange.between(0.6, 0.8),\n      ),\n      emissionProperties: const EmissionProperties(\n        origin: Offset.zero,\n        maxOriginOffset: Offset(1, 0),\n        particleLifespan: DurationRange.between(Duration(seconds: 7), Duration(seconds: 10)),\n      ),\n      particleConfiguration: const ParticleConfiguration(\n        shape: CircleShape(),\n        size: Size(5, 5),\n      ),\n    ),\n  ],\n)",
+    "confidence": 0.95
+  }
+}

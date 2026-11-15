@@ -1,0 +1,51 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.5",
+  "generatedAt": "2026-11-13T11:19:02.828Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [
+      "files"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "A Flutter package for native audio conversion using Platform Channels on Android and iOS.",
+    "what_it_does": "A Flutter package for native audio conversion using Platform Channels. It supports conversion across multiple audio formats like WAV, AAC, MP3, M4A, and OGG on Android and iOS without external dependencies.",
+    "use_when": [
+      "You need native audio conversion or extraction between formats on Android and iOS.",
+      "You want to avoid heavy external dependencies like FFmpeg Kit.",
+      "You need basic audio operations such as trimming, applying fades, and extracting audio from video."
+    ],
+    "avoid_when": [
+      "You require true audio codec transcoding rather than file caching and format handling.",
+      "You need support for desktop or web platforms."
+    ],
+    "strengths": [
+      "Cross-platform support for Android and iOS via Platform Channels.",
+      "No external heavy dependencies.",
+      "Provides helper methods for trimming, fading, and extracting audio from video."
+    ],
+    "weaknesses": [
+      "Does not perform true format transcoding; it primarily copies files and manages metadata/durations.",
+      "Limited to Android and iOS platforms."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "No additional setup required for Android or iOS. The package handles everything automatically.",
+    "alternatives": [
+      {
+        "name": "just_audio",
+        "why_pick_it": "Pick just_audio if you need feature-rich audio playback with streaming capabilities."
+      },
+      {
+        "name": "audioplayers",
+        "why_pick_it": "Pick audioplayers for simpler cross-platform audio playback tasks."
+      }
+    ],
+    "minimal_example": "final result = await AudioConverterService.instance.convertToWAV(\n  inputPath: '/path/to/input.aac',\n  sampleRate: 44100,\n  channels: 2,\n);\n\nif (result.success) {\n  print('Conversion successful: ${result.outputPath}');\n}",
+    "confidence": 0.95
+  }
+}

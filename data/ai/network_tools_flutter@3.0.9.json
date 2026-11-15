@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.0.9",
+  "generatedAt": "2026-11-13T11:20:43.303Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "device"
+    ],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "Extended network tools and scanning features for Flutter supporting iOS and Android.",
+    "what_it_does": "Extends the network_tools package for Flutter to provide local network features such as pinging devices, scanning ports, ARP table lookup, and mDNS discovery. It runs host scans in a single isolate and handles background vendor table building.",
+    "use_when": [
+      "You need to discover host devices and pingable addresses on a local subnet within a Flutter app.",
+      "You need to scan ports and query ARP tables on iOS, Android, Windows, macOS, or Linux."
+    ],
+    "avoid_when": [
+      "You only need high-level REST, GraphQL, or WebSocket communication with remote servers.",
+      "You are building a sandboxed Mac App Store app where local network ARP access is restricted."
+    ],
+    "strengths": [
+      "Supports multi-platform local network discovery including iOS, Android, Windows, macOS, and Linux.",
+      "Performs heavy host scans in isolated worker threads to prevent UI jank.",
+      "Provides mDNS search and service-type enumeration features."
+    ],
+    "weaknesses": [
+      "Requires specific platform configurations and permissions (such as NSLocalNetworkUsageDescription and Bonjour services on iOS).",
+      "macOS sandboxing limitations can prevent MAC address lookup through the system ARP table."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires initializing the package with an application support directory path. Android and iOS require specific local network permissions and Bonjour service configuration in Info.plist / AndroidManifest.xml.",
+    "alternatives": [],
+    "minimal_example": "await configureNetworkToolsFlutter((await getApplicationSupportDirectory()).path);\n\nawait for (final host in HostScannerService.instance.getAllPingableDevices(subnet)) {\n  // Handle discovered host\n}",
+    "confidence": 0.95
+  }
+}

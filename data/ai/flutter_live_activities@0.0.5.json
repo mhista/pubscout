@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.0.5",
+  "generatedAt": "2026-11-14T10:37:13.741Z",
+  "data": {
+    "primary_category": "notifications",
+    "secondary_categories": [
+      "device"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Flutter plugin to create, update, and handle actions for iOS Live Activities and Dynamic Island.",
+    "what_it_does": "Allows Flutter applications to manage iOS Live Activities and Dynamic Island widgets. It provides methods to create, update, end activities, listen to deep link URI streams, and share local images with the widget extension via App Groups.",
+    "use_when": [
+      "You need to display real-time updates on the iOS Lock Screen or Dynamic Island from a Flutter app.",
+      "You want to handle deep links and actions originating from Live Activities."
+    ],
+    "avoid_when": [
+      "Your app does not target iOS.",
+      "You only need standard local or push notifications without Live Activities."
+    ],
+    "strengths": [
+      "Supports creating, updating, and ending Live Activities easily.",
+      "Includes support for URI deep linking and image sharing through App Groups."
+    ],
+    "weaknesses": [
+      "Requires manual setup of native Swift/SwiftUI widget extensions in Xcode.",
+      "Limited to iOS platforms supporting ActivityKit."
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Requires adding a Widget Extension in Xcode, configuring Info.plist with NSSupportsLiveActivities, setting up URL schemes for deep linking, and optionally configuring App Groups for image sharing.",
+    "alternatives": [
+      {
+        "name": "live_activities",
+        "why_pick_it": "Mentioned in the README as an alternative solution for managing Live Activities."
+      }
+    ],
+    "minimal_example": "final FlutterLiveActivities _liveActivities = FlutterLiveActivities();\nfinal String? activityId = await _liveActivities.createActivity(<String, String>{'text': 'Hello World'});",
+    "confidence": 0.95
+  }
+}

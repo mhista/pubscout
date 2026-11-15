@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.0",
+  "generatedAt": "2026-11-15T11:19:07.780Z",
+  "data": {
+    "primary_category": "devtools",
+    "secondary_categories": [
+      "testing"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "In-app performance diagnostics overlay surfacing jank, memory leaks, and bottlenecks.",
+    "what_it_does": "Sleuth runs an in-app overlay that detects jank, memory leaks, slow networks, GPU pressure, and widget anti-patterns. Every detected issue ships with a fix hint, source line, and causal relationships.",
+    "use_when": [
+      "You want to continuously monitor performance inside your Flutter app during development and profile runs.",
+      "You need structural checks like non-lazy list detection or missing repaint boundaries that standard DevTools might miss."
+    ],
+    "avoid_when": [
+      "You are running in a production release build where the overlay is automatically dropped.",
+      "You require detailed heap snapshot object graphs, which are better suited for DevTools."
+    ],
+    "strengths": [
+      "Runs directly inside the app without requiring an external tool connection for basic overlay views.",
+      "Provides actionable fix hints and source locations for every performance issue.",
+      "Includes 21 built-in detectors covering frames, layout, memory, network, and startup."
+    ],
+    "weaknesses": [
+      "VM-connected detectors require running with --no-dds and profile/debug modes.",
+      "Reading the VM timeline can add minor isolate overhead on lower-end physical devices or simulators."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the dependency, wrap your root app widget with Sleuth.track(child: MyApp()), and run with flutter run --profile --no-dds.",
+    "alternatives": [],
+    "minimal_example": "import 'package:sleuth/sleuth.dart';\n\nvoid main() => runApp(Sleuth.track(child: MyApp()));",
+    "confidence": 1
+  }
+}

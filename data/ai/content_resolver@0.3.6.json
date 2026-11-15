@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.3.6",
+  "generatedAt": "2026-11-14T10:35:55.384Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Plugin to read and write Android content URIs.",
+    "what_it_does": "Provides a simple API to resolve content URIs to a Content object and write data back to a content URI on Android. It handles platform-specific quirks such as non‑Dart Uri parsing.",
+    "use_when": [
+      "Need to access files via Android content URIs (e.g., from intent data or app links).",
+      "Want to write data to a content URI that is writable by the target provider."
+    ],
+    "avoid_when": [
+      "Targeting iOS, web, or other platforms; the plugin only works on Android."
+    ],
+    "strengths": [
+      "Simple, single‑method API for resolving and writing content.",
+      "Handles edge cases like non‑Dart Uri parsing and Android 16‑KB page size support.",
+      "No build_runner or code generation required.",
+      "MIT license."
+    ],
+    "weaknesses": [
+      "Android‑only; no support for other platforms.",
+      "Limited documentation on error handling and permissions.",
+      "No examples for complex use cases like batch writes."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dependency to pubspec and run flutter pub get. No additional native configuration required.",
+    "alternatives": [],
+    "minimal_example": "```dart\nfinal Content content = await ContentResolver.resolveContent(uri);\nawait ContentResolver.writeContent(uri.toString(), Uint8List.fromList(utf8.encode('Hello World')));\n```",
+    "confidence": 0.9
+  }
+}

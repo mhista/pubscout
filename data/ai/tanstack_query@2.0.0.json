@@ -1,0 +1,56 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.0",
+  "generatedAt": "2026-11-15T11:16:19.743Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [
+      "utils",
+      "networking"
+    ],
+    "approach": [
+      "hooks",
+      "declarative"
+    ],
+    "one_liner": "Flutter implementation of TanStack Query for caching, synchronizing, and updating server state.",
+    "what_it_does": "Provides asynchronous state management, caching, refetching, and pagination patterns modeled after TanStack React Query v5. Uses Flutter hooks like useQuery, useInfiniteQuery, and useMutation to interact with a centralized QueryClient.",
+    "use_when": [
+      "You want to manage, cache, and synchronize server-side or remote asynchronous data in Flutter.",
+      "You prefer the TanStack/React Query API design and patterns.",
+      "Your project heavily uses flutter_hooks for component logic."
+    ],
+    "avoid_when": [
+      "You are managing complex local UI or app state rather than asynchronous server state.",
+      "Your codebase does not use and does not want to adopt flutter_hooks."
+    ],
+    "strengths": [
+      "Protocol-agnostic fetching supporting REST, GraphQL, and custom promises.",
+      "Built-in caching, background updates, deduplication, and automatic query invalidation.",
+      "Familiar API for developers coming from TanStack React Query."
+    ],
+    "weaknesses": [
+      "Requires flutter_hooks to use the primary hook-based API.",
+      "Maintained by independent developers as a copycat of the JavaScript library rather than an official port."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Instantiate a QueryClient and wrap your application in a QueryClientProvider.",
+    "alternatives": [
+      {
+        "name": "riverpod",
+        "why_pick_it": "Offers robust built-in caching and asynchronous provider loading natively without depending on flutter_hooks."
+      },
+      {
+        "name": "flutter_riverpod",
+        "why_pick_it": "Provides a comprehensive state management and dependency injection solution with excellent async data support."
+      },
+      {
+        "name": "bloc",
+        "why_pick_it": "A predictable state management library using events and states for explicit and testable data flow."
+      }
+    ],
+    "minimal_example": "void main() {\n  var queryClient = QueryClient();\n  runApp(\n    QueryClientProvider(client: queryClient, child: const App()),\n  );\n}",
+    "confidence": 0.95
+  }
+}

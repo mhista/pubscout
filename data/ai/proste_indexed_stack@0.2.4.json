@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.2.4",
+  "generatedAt": "2026-11-13T11:15:04.290Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "layout"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A lazy‑loading IndexedStack widget for Flutter that loads pages only when first shown.",
+    "what_it_does": "ProsteIndexedStack behaves like the standard IndexedStack but creates each child only when it becomes visible for the first time. It also offers an optional preload flag for specific children.",
+    "use_when": [
+      "You want to keep multiple pages in memory but avoid building them all at startup",
+      "You need a drop‑in replacement for IndexedStack with lazy loading to improve initial load performance"
+    ],
+    "avoid_when": [
+      "All pages must be built immediately",
+      "You require complex navigation or animated transitions between pages"
+    ],
+    "strengths": [
+      "Reduces initial build cost by loading pages lazily",
+      "Simple API that mirrors IndexedStack usage",
+      "Allows selective preloading of specific children"
+    ],
+    "weaknesses": [
+      "Requires wrapping each child in IndexedStackChild",
+      "First‑time switch may be delayed in debug mode",
+      "Limited to lazy loading; no built‑in animation support"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "ProsteIndexedStack(\n  index: _current,\n  children: [\n    IndexedStackChild(child: HomePage()),\n    IndexedStackChild(child: Page2()),\n    IndexedStackChild(child: Page3(), preload: true),\n    IndexedStackChild(child: Page4()),\n  ],\n)",
+    "confidence": 0.97
+  }
+}

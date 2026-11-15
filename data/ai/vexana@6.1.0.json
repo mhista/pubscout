@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "6.1.0",
+  "generatedAt": "2026-11-14T10:54:05.747Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "storage"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Manage your network layer with dio, offering dynamic model parsing, caching, and refresh tokens.",
+    "what_it_does": "Vexana simplifies network operations built on top of Dio. It provides dynamic model parsing, base error models, request cancellation, file uploads and downloads, token refresh handling, and response caching.",
+    "use_when": [
+      "You want a structured network layer built on top of Dio with built-in model parsing.",
+      "You need automated refresh token handling and request locking on auth failures.",
+      "You require response caching with file or shared preferences backing."
+    ],
+    "avoid_when": [
+      "You prefer writing raw Dio code without wrapper classes or specific interfaces.",
+      "You use a fully generated networking client framework like Retrofit."
+    ],
+    "strengths": [
+      "Built-in token refresh mechanism that locks requests until tokens renew.",
+      "Built-in caching support with File and Shared Preferences options.",
+      "Structured result types using sealed classes via sendRequest."
+    ],
+    "weaknesses": [
+      "Requires wrapping response models with INetworkModel.",
+      "Tied specifically to the Dio client library."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Configure BaseOptions and NetworkManager with your base URL and optional error models.",
+    "alternatives": [],
+    "minimal_example": "INetworkManager networkManager = NetworkManager(\n  isEnableLogger: true,\n  options: BaseOptions(baseUrl: \"https://jsonplaceholder.typicode.com/\"),\n);\n\nfinal response = await networkManager.send<Todo, List<Todo>>(\n  \"/todos\",\n  parseModel: Todo(),\n  method: RequestType.GET,\n);",
+    "confidence": 0.95
+  }
+}

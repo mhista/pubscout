@@ -1,0 +1,52 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.22.0",
+  "generatedAt": "2026-11-13T11:15:47.057Z",
+  "data": {
+    "primary_category": "ui-kits",
+    "secondary_categories": [
+      "widgets",
+      "layout"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Native iOS 26 UI components for Flutter, with Flutter replicas on Android.",
+    "what_it_does": "Veneer provides real UIKit bars, sheets, glass effects and composers that stay in sync with Flutter layout. On iOS 26+ it renders natively; on older iOS and Android it renders Flutter replicas that match the native look.",
+    "use_when": [
+      "You need native iOS 26 UI elements like tab bars, navigation bars, sheets, glass effects, or native composers.",
+      "You want a single codebase that works on iOS 26+ and Android with matching UI.",
+      "You need native UIKit interactions such as gestures, accessibility and animations.",
+      "You want to avoid platform views per widget for performance."
+    ],
+    "avoid_when": [
+      "You target web, desktop or older iOS versions without iOS 26 SDK.",
+      "You need a fully cross‑platform UI kit that works on all platforms without native dependencies.",
+      "You are building a library that must be pure Dart with no native code."
+    ],
+    "strengths": [
+      "Real native UIKit components with true glass effects and animations.",
+      "Single native overlay keeps Flutter and native UI in sync every frame.",
+      "Flutter widgets control native UI declaratively, no platform view per widget.",
+      "Provides matching Flutter replicas for older iOS and Android."
+    ],
+    "weaknesses": [
+      "Not supported on web or desktop; requires dart:ffi.",
+      "Pre‑release; API may change.",
+      "Requires iOS 26 SDK and Xcode 26+ to build native parts.",
+      "Only works on iOS 26+ and Android; older iOS uses Flutter replicas."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add veneer to pubspec. Requires Xcode 26+ and iOS 26 SDK. Set iOS deployment target 15.0+. No Android setup needed. No build_runner or codegen.",
+    "alternatives": [
+      {
+        "name": "cupertino_ui",
+        "why_pick_it": "Provides Cupertino widgets for iOS, but without native UIKit integration or glass effects; use if you need pure Dart Cupertino UI."
+      }
+    ],
+    "minimal_example": "import 'package:veneer/veneer.dart';\n\nclass Home extends StatelessWidget {\n  const Home({super.key});\n  @override\n  Widget build(BuildContext context) => NativeChromeScope(\n    tabs: const [\n      NativeTabItem(title: 'Home', icon: NativeIcon.symbol('house')),\n      NativeTabItem(title: 'Inbox', icon: NativeIcon.symbol('tray')),\n    ],\n    selectedIndex: 0,\n    onTabSelected: (_) {},\n    child: const Scaffold(body: Center(child: Text('Hello'))),\n  );\n}\n",
+    "confidence": 0.8
+  }
+}

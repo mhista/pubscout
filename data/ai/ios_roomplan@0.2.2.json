@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.2.2",
+  "generatedAt": "2026-11-14T11:02:04.183Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "camera",
+      "files"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "iOS RoomPlan plugin for single/multi-room scans, 2D plans and 3D models.",
+    "what_it_does": "It is an iOS-only Flutter plugin that integrates Apple's RoomPlan framework to scan single or connected rooms. It captures room geometry, exports 2D floor-plan PDFs and 3D USDZ models, and exposes structured scan data.",
+    "use_when": [
+      "You need to scan rooms and generate 2D floor-plan PDFs or 3D USDZ models on iOS.",
+      "Your target iOS devices feature a LiDAR scanner and support RoomPlan."
+    ],
+    "avoid_when": [
+      "You need support for Android, web, or desktop platforms.",
+      "Target devices do not have a LiDAR scanner or run iOS versions prior to 16."
+    ],
+    "strengths": [
+      "Enables native Apple RoomPlan single and multi-room scanning in Flutter.",
+      "Exports both 2D PDFs and 3D USDZ models along with structured scan data.",
+      "Includes built-in scanning pages, model viewers, file sharing, and persistent scan libraries."
+    ],
+    "weaknesses": [
+      "Restricted to iOS only due to native RoomPlan framework requirements.",
+      "Requires physical devices with LiDAR hardware (such as iPhone Pro or iPad Pro models); does not work in the simulator."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires setting the iOS deployment target to 16.0 or later and adding a camera usage description (NSCameraUsageDescription) to Info.plist.",
+    "alternatives": [],
+    "minimal_example": "Future<void> scanRoom(BuildContext context) async {\n  final result = await Navigator.of(context).push<FloorRoomScanResult>(\n    MaterialPageRoute(\n      builder: (_) => const FloorRoomScanPage(initialName: 'Living room'),\n    ),\n  );\n\n  if (!context.mounted || result == null) return;\n\n  debugPrint('Room: ${result.name}');\n  debugPrint('2D plan: ${result.pdfFile.path}');\n  debugPrint('3D model: ${result.modelFile.path}');\n}",
+    "confidence": 1
+  }
+}

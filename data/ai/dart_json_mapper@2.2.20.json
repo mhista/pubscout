@@ -1,0 +1,52 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.2.20",
+  "generatedAt": "2026-11-14T10:35:14.047Z",
+  "data": {
+    "primary_category": "codegen",
+    "secondary_categories": [],
+    "approach": [
+      "code generation"
+    ],
+    "one_liner": "Annotate Dart objects to serialize and deserialize them from and to JSON.",
+    "what_it_does": "Allows developers to serialize and deserialize Dart objects to and from JSON using annotations. It generates a single mapping file for the entire project via code generation and avoids `dart:mirrors` for cross-platform compatibility.",
+    "use_when": [
+      "You want clean model classes free of manual JSON serialization logic.",
+      "You need advanced JSON mapping features like inheritance, polymorphism, and object cloning.",
+      "You prefer a single centralized mapping file over per-class generated files."
+    ],
+    "avoid_when": [
+      "You prefer the standard Google-backed `json_serializable` approach with per-class generated files.",
+      "You want to avoid setting up `build_runner` code generation."
+    ],
+    "strengths": [
+      "Keeps model classes clean with no boilerplate serialization methods inside them.",
+      "Rich out-of-the-box features like polymorphism, object cloning, and case style conversion.",
+      "Generates a single centralized mapper file for the whole project."
+    ],
+    "weaknesses": [
+      "Requires running a code generator (`build_runner`) whenever model classes change.",
+      "Less common choice in the Dart ecosystem compared to `json_serializable`."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding `build_runner` to dev_dependencies and configuring `build.yaml` to run code generation.",
+    "alternatives": [
+      {
+        "name": "json_annotation",
+        "why_pick_it": "It is the standard, widely adopted solution from the Dart team which generates per-class `*.g.dart` files."
+      },
+      {
+        "name": "built_value",
+        "why_pick_it": "If you want immutable value types with built-in serialization and runtime validation."
+      },
+      {
+        "name": "freezed_annotation",
+        "why_pick_it": "If you want union types, immutable classes, and pattern matching support along with JSON serialization."
+      }
+    ],
+    "minimal_example": "import 'package:dart_json_mapper/dart_json_mapper.dart' show JsonMapper, jsonSerializable;\nimport 'main.mapper.g.dart' show initializeJsonMapper;\n\n@jsonSerializable\nclass MyData {\n  int a = 123;\n  MyData(this.a);\n}\n\nvoid main() {\n  initializeJsonMapper();\n  print(JsonMapper.serialize(MyData(456)));\n}",
+    "confidence": 0.95
+  }
+}

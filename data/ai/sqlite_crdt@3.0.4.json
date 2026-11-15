@@ -1,0 +1,47 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.0.4",
+  "generatedAt": "2026-11-15T11:14:01.305Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "Dart implementation of Conflict-free Replicated Data Types (CRDTs) using Sqlite",
+    "what_it_does": "Implements Conflict-free Replicated Data Types (CRDTs) on top of SQLite for local-first data storage and synchronization. It intercepts SQL write queries to perform CRDT operations transparently and allows watching changed tables.",
+    "use_when": [
+      "You need local-first offline storage with synchronization capabilities",
+      "You want to use standard SQL queries alongside conflict-free data replication"
+    ],
+    "avoid_when": [
+      "You only need a simple key-value store without synchronization",
+      "Your architecture does not rely on SQLite"
+    ],
+    "strengths": [
+      "Transparently performs CRDT magic by intercepting SQL write queries",
+      "Supports watch methods to monitor table changes for atomic sync operations"
+    ],
+    "weaknesses": [
+      "Requires platform-specific SQLite library setup on native and desktop platforms",
+      "Web support is experimental and requires extra setup binaries"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires sqlite3_flutter_libs on mobile, system library packages on desktop/server, and running `dart run sqflite_common_ffi_web:setup` for web.",
+    "alternatives": [
+      {
+        "name": "sqflite",
+        "why_pick_it": "If you need a standard SQLite database without CRDT synchronization features."
+      },
+      {
+        "name": "drift",
+        "why_pick_it": "If you prefer a reactive, type-safe SQL database library with code generation."
+      }
+    ],
+    "minimal_example": "// Check example.dart for implementation details.",
+    "confidence": 0.95
+  }
+}

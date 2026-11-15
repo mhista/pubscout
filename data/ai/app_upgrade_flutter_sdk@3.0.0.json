@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.0.0",
+  "generatedAt": "2026-11-13T11:24:41.336Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "notifications"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Integrates with App Upgrade API to prompt users for soft or force app updates.",
+    "what_it_does": "Provides a widget that checks app version against the App Upgrade service and displays an upgrade alert dialog (Material or Cupertino). Supports custom store redirection for Android and iOS, localized messages, and update/later callbacks.",
+    "use_when": [
+      "You need to force or gracefully nudge users to update their mobile apps.",
+      "You want a hosted dashboard to manage version upgrade rules and custom messages.",
+      "You support alternative app stores like Amazon, Huawei, or custom URLs."
+    ],
+    "avoid_when": [
+      "You want a fully self-hosted version check mechanism without external API dependencies.",
+      "You are building for platforms outside of mobile/desktop stores where version checks are not applicable."
+    ],
+    "strengths": [
+      "Supports both soft and force upgrades.",
+      "Supports multiple app stores (Google Play, Apple App Store, Amazon, Huawei, custom marketplaces).",
+      "Easy widget-based integration via AppUpgradeAlert."
+    ],
+    "weaknesses": [
+      "Relies on a third-party paid/hosted service (App Upgrade).",
+      "May not function properly on simulators/emulators when attempting to open stores."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires registering on the App Upgrade website to obtain an x-api-key and wrapping your app body with AppUpgradeAlert.",
+    "alternatives": [],
+    "minimal_example": "AppUpgradeAlert(\n  xApiKey: 'YOUR_API_KEY',\n  appInfo: AppInfo(\n    appId: 'com.example.app',\n    appName: 'My App',\n    appVersion: '1.0.0',\n    platform: 'android',\n    environment: 'production',\n  ),\n  child: Center(child: Text('Hello World!')),\n)",
+    "confidence": 0.95
+  }
+}

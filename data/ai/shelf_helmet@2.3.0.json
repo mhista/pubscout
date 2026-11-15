@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.3.0",
+  "generatedAt": "2026-11-14T10:54:12.070Z",
+  "data": {
+    "primary_category": "backend",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Secure Dart Shelf and Dart Frog apps by setting HTTP security headers",
+    "what_it_does": "Port of the NodeJS helmet package to Dart, providing middleware for Shelf and Dart Frog that automatically sets various HTTP security headers like Content-Security-Policy, X-Frame-Options, and Strict-Transport-Security.",
+    "use_when": [
+      "You are building a backend or web application using Dart Shelf or Dart Frog.",
+      "You need to protect your web endpoints with standard HTTP security headers."
+    ],
+    "avoid_when": [
+      "Your application does not use Dart Shelf, Dart Frog, or compatible middleware frameworks.",
+      "You prefer to manually construct and assign all security response headers yourself."
+    ],
+    "strengths": [
+      "Wraps 13 individual security header middlewares into a single easy-to-use call.",
+      "Highly configurable options for individual headers and policies.",
+      "Out-of-the-box support for popular frameworks like Shelf, Dart Frog, and Pharaoh."
+    ],
+    "weaknesses": [
+      "Not a silver bullet for overall application security.",
+      "Requires careful tuning of options like CSP to avoid breaking legitimate web page resources."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the package via `dart pub add shelf_helmet` and integrate it into your middleware pipeline.",
+    "alternatives": [],
+    "minimal_example": "import 'package:shelf_helmet/shelf_helmet.dart';\n\nvar handler = const Pipeline()\n    .addMiddleware(helmet())\n    .addMiddleware(logRequests())\n    .addHandler(_echoRequest);",
+    "confidence": 1
+  }
+}

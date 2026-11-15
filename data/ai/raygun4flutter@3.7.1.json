@@ -1,0 +1,46 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.7.1",
+  "generatedAt": "2026-11-13T11:06:14.514Z",
+  "data": {
+    "primary_category": "devtools",
+    "secondary_categories": [
+      "device"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Official Raygun crash reporting provider for Flutter applications.",
+    "what_it_does": "Captures and sends errors, exceptions, and breadcrumbs from your Flutter app to Raygun. It supports automatic and manual error handling, version tracking, affected customer tracking, and local offline caching of reports.",
+    "use_when": [
+      "You are already using Raygun as your backend error tracking platform.",
+      "You need to capture uncaught Flutter framework errors and asynchronous Dart exceptions."
+    ],
+    "avoid_when": [
+      "You prefer using a different error monitoring service like Sentry.",
+      "Your application requires tracking cross-layer native crash reports without implementing native provider companions."
+    ],
+    "strengths": [
+      "Official Raygun client for Flutter.",
+      "Stores up to 64 crash reports locally when the device is offline and syncs them when reconnected.",
+      "Provides breadcrumbs and custom data payload attachments."
+    ],
+    "weaknesses": [
+      "Does not track native-level Android or iOS crashes out-of-the-box without separate native providers.",
+      "Limited to Raygun's backend ecosystem."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires adding INTERNET and ACCESS_NETWORK_STATE permissions in AndroidManifest.xml and initializing Raygun.init() on app startup.",
+    "alternatives": [
+      {
+        "name": "sentry_flutter",
+        "why_pick_it": "Alternative official crash reporting and error tracking package for the Sentry ecosystem."
+      }
+    ],
+    "minimal_example": "Raygun.init(apiKey:'12345');\n\nFlutterError.onError = (details) {\n  FlutterError.presentError(details);\n  Raygun.sendException(\n    error: details.exception,\n    stackTrace: details.stack,\n  );\n};",
+    "confidence": 1
+  }
+}

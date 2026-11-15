@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.0.9",
+  "generatedAt": "2026-11-13T11:31:18.077Z",
+  "data": {
+    "primary_category": "forms",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Adds mention and tagging capabilities to TextField or TextFormField widgets in Flutter.",
+    "what_it_does": "Extends standard text fields to support user mentions and tags using custom trigger symbols like '@' or '#'. It provides a custom controller to track mentions, retrieve data associated with tags, and handle custom styling or removal of mentions.",
+    "use_when": [
+      "You need to implement social media-style tagging or mentioning in a text input field.",
+      "You want to associate structured data (like user objects) with specific text mentions."
+    ],
+    "avoid_when": [
+      "You need complex rich-text editing beyond basic mentions and tags.",
+      "You are not using standard TextField or TextFormField widgets."
+    ],
+    "strengths": [
+      "Supports multiple mention symbols and custom styling per mention.",
+      "Handles automatic backspace removal and incremental mention deletion.",
+      "Provides initial mention support and easy access to mention data and text."
+    ],
+    "weaknesses": [
+      "Limited to mention and tagging use cases on top of existing text fields.",
+      "Requires manual removal through the controller rather than direct list manipulation."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "final MentionTagTextEditingController _controller = MentionTagTextEditingController();\n\nMentionTagTextField(\n  controller: _controller,\n  onMention: (value) async {\n    // Handle mention search results\n  },\n  mentionTagDecoration: MentionTagDecoration(\n    mentionStart: ['@', '#'],\n  ),\n)",
+    "confidence": 1
+  }
+}

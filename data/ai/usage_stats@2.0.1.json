@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.1",
+  "generatedAt": "2026-11-13T11:28:23.071Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "storage",
+      "networking"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Query Android app usage statistics, events, storage usage, and network data.",
+    "what_it_does": "Wraps Android's UsageStatsManager, NetworkStatsManager, StorageStatsManager, and PackageManager behind a single Dart facade. It enables querying per-app foreground usage, raw events, network usage, storage statistics, and app metadata.",
+    "use_when": [
+      "You are building an Android-only app that needs to monitor app usage or screen time.",
+      "You need to retrieve per-app network usage or on-device storage stats.",
+      "You need to inspect installed apps and their launch icons."
+    ],
+    "avoid_when": [
+      "Your application needs to support iOS or platforms other than Android.",
+      "You want to avoid requiring users to manually grant special permissions in system settings."
+    ],
+    "strengths": [
+      "Provides a comprehensive suite of Android usage statistics APIs in one plugin.",
+      "Includes typed getters on returned models to avoid manual parsing.",
+      "Degrades gracefully on older Android API levels."
+    ],
+    "weaknesses": [
+      "Android only; no iOS implementation exists.",
+      "Most queries require the special PACKAGE_USAGE_STATS permission, which must be granted manually in system settings."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding the PACKAGE_USAGE_STATS permission to AndroidManifest.xml and prompting users to enable it in system settings. Targets a minimum SDK of 23.",
+    "alternatives": [],
+    "minimal_example": "final endDate = DateTime.now();\nfinal startDate = endDate.subtract(const Duration(days: 1));\nList<UsageInfo> usage = await UsageStats.queryUsageStats(startDate, endDate);",
+    "confidence": 1
+  }
+}

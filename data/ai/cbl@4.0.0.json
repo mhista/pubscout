@@ -1,0 +1,55 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.0.0",
+  "generatedAt": "2026-11-13T11:33:02.150Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "An offline-first NoSQL document database with SQL++ queries, full-text search, and bi-directional sync.",
+    "what_it_does": "It provides an embedded NoSQL database for Dart and Flutter applications across multiple platforms. It supports SQL++ queries, live reactive queries, full-text search, and peer-to-peer or server data synchronization.",
+    "use_when": [
+      "You need an offline-first NoSQL database with complex querying capabilities.",
+      "You require bi-directional data synchronization with Couchbase Server or peer-to-peer devices.",
+      "You want reactive live queries that update automatically when data changes."
+    ],
+    "avoid_when": [
+      "You only need a simple key-value store or lightweight local SQLite database.",
+      "You are looking for a standard cloud backend without local offline database requirements."
+    ],
+    "strengths": [
+      "Supports robust offline-first functionality and local data persistence.",
+      "Offers bi-directional and peer-to-peer data sync features.",
+      "Includes powerful SQL++ query support and live queries."
+    ],
+    "weaknesses": [
+      "Features like vector search, peer-to-peer sync, and encryption require the Enterprise Edition.",
+      "Involves complex native tooling and FFI setup compared to pure Dart key-value stores."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add the dependency to pubspec.yaml. Community edition is default, while Enterprise edition requires configuration under hooks in pubspec.yaml.",
+    "alternatives": [
+      {
+        "name": "sqflite",
+        "why_pick_it": "Pick if you prefer a traditional local SQLite relational database instead of a NoSQL document database."
+      },
+      {
+        "name": "drift",
+        "why_pick_it": "Pick if you want a type-safe reactive SQLite database builder for Flutter."
+      },
+      {
+        "name": "shared_preferences",
+        "why_pick_it": "Pick if you only need a simple key-value store for preferences instead of a full document database."
+      }
+    ],
+    "minimal_example": "import 'package:cbl/cbl.dart';\n\nFuture<void> main() async {\n  final database = await Database.openAsync('my-database');\n  final collection = await database.createCollection('tasks');\n\n  await collection.saveDocument(\n    MutableDocument({'title': 'Learn Couchbase Lite', 'done': false}),\n  );\n\n  final query = await database.createQuery(\n    \"SELECT * FROM tasks WHERE done = false\",\n  );\n  final results = await (await query.execute()).allResults();\n  print('Pending tasks: ${results.length}');\n\n  await database.close();\n}",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.2",
+  "generatedAt": "2026-11-13T11:15:45.301Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Dart package providing simple access to the CoinGecko API (Version 3).",
+    "what_it_does": "Provides an asynchronous API wrapper divided into sections matching the CoinGecko API documentation. Allows fetching cryptocurrencies prices, coin data, historical market charts, exchanges, derivatives, NFTs, and global data.",
+    "use_when": [
+      "You need to fetch cryptocurrency market data, prices, or NFT stats from CoinGecko in your Dart or Flutter application."
+    ],
+    "avoid_when": [
+      "You need a general-purpose HTTP client or a backend client other than CoinGecko."
+    ],
+    "strengths": [
+      "Organized into sections mirroring the official CoinGecko API documentation",
+      "Uses CoinGeckoResult objects to easily handle success and error states"
+    ],
+    "weaknesses": [
+      "Tied exclusively to a single third-party API (CoinGecko)"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "http",
+        "why_pick_it": "If you prefer making custom raw HTTP requests instead of using a dedicated wrapper package."
+      },
+      {
+        "name": "dio",
+        "why_pick_it": "If you want a powerful HTTP client with interceptors for custom API integrations."
+      }
+    ],
+    "minimal_example": "CoinGeckoApi api = CoinGeckoApi();\nfinal marketChart = await api.coins.getCoinMarketChart(\n  id: 'bitcoin',\n  vsCurrency: 'usd',\n  days: 7,\n);\nif (!marketChart.isError) {\n  marketChart.data.forEach((item) {\n    print('Price: ${item.price}, Market Cap: ${item.marketCap}');\n  });\n}",
+    "confidence": 0.95
+  }
+}

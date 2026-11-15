@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.0.8",
+  "generatedAt": "2026-11-15T11:09:29.290Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "A modular pagination widget for Flutter with page indicators and navigation buttons.",
+    "what_it_does": "Provides a ready‑made pagination component that displays a configurable number of page buttons, next/previous icons, and allows custom styling for active and inactive pages. It notifies the parent widget when the selected page changes.",
+    "use_when": [
+      "You need a simple, customizable pagination UI in a Flutter app",
+      "You want to control page navigation manually via setState or a controller"
+    ],
+    "avoid_when": [
+      "You require infinite scrolling or server‑side paging logic",
+      "You need advanced features like lazy loading, page caching, or built‑in state management"
+    ],
+    "strengths": [
+      "Easy to drop‑in and use",
+      "Highly customizable appearance via ButtonStyle and TextStyle",
+      "Works on all Flutter platforms"
+    ],
+    "weaknesses": [
+      "Limited to static page counts; no built‑in data fetching",
+      "No integration with state‑management solutions",
+      "Lacks advanced paging features like ellipsis or dynamic range"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "dots_indicator",
+        "why_pick_it": "A widely used, lightweight page indicator that can be combined with custom navigation logic"
+      }
+    ],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:pagination_flutter/pagination_flutter.dart';\n\nclass MyHomePage extends StatefulWidget {const MyHomePage({Key? key}): super(key: key);}\nclass _MyHomePageState extends State<MyHomePage> {\n  int selectedPage = 1;\n  @override\n  Widget build(BuildContext context) {\n    return Scaffold(\n      appBar: AppBar(title: const Text('Flutter Pagination')),\n      body: Center(\n        child: Pagination(\n          numOfPages: 10,\n          selectedPage: selectedPage,\n          pagesVisible: 3,\n          onPageChanged: (page) => setState(() => selectedPage = page),\n          nextIcon: const Icon(Icons.arrow_forward_ios, color: Colors.blue, size: 14),\n          previousIcon: const Icon(Icons.arrow_back_ios, color: Colors.blue, size: 14),\n        ),\n      ),\n    );\n  }\n}",
+    "confidence": 0.78
+  }
+}

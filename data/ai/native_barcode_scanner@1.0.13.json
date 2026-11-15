@@ -1,0 +1,50 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.13",
+  "generatedAt": "2026-11-14T10:47:08.017Z",
+  "data": {
+    "primary_category": "camera",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Fast barcode, QR, text, and MRZ scanner plugin using PlatformView and native side processing.",
+    "what_it_does": "Provides a widget to scan barcodes, QR codes, text, and MRZ from the camera stream. It leverages native SDKs (Google ML Kit and AVFoundation) and PlatformViews to minimize data transfer overhead between Dart and native code.",
+    "use_when": [
+      "You need high-performance barcode or QR scanning via the camera.",
+      "You also need MRZ or text recognition from the camera on supported platforms.",
+      "You want to avoid performance penalties from transferring raw video frames across platform channels."
+    ],
+    "avoid_when": [
+      "You require MRZ or text recognition on iOS (not supported).",
+      "You need pure headless barcode processing without showing a camera preview widget."
+    ],
+    "strengths": [
+      "High performance due to PlatformView and native-side processing",
+      "Supports multiple formats of barcodes, text, and MRZ",
+      "Simple widget-based API"
+    ],
+    "weaknesses": [
+      "Platform support varies for text and MRZ features (Android only, iOS unsupported for those)",
+      "Uses PlatformViews which have certain platform-specific limitations and tradeoffs"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dependency to pubspec.yaml and use the BarcodeScannerWidget. Standard camera permissions apply.",
+    "alternatives": [
+      {
+        "name": "mobile_scanner",
+        "why_pick_it": "A popular alternative barcode and QR scanner for Flutter with extensive platform support."
+      },
+      {
+        "name": "google_mlkit_barcode_scanning",
+        "why_pick_it": "If you need direct control over Google ML Kit features for barcode scanning without using a PlatformView-based scanner widget."
+      }
+    ],
+    "minimal_example": "Widget build(BuildContext context) {\n  return BarcodeScannerWidget(\n      onBarcodeDetected: (barcode) {\n        print('Barcode detected: ${barcode.value} (format: ${barcode.format.name})');\n      }\n  );\n}",
+    "confidence": 0.95
+  }
+}

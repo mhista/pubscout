@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.5.13",
+  "generatedAt": "2026-11-13T11:36:25.639Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "storage"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Persistent, retryable task queue for Flutter and Dart that survives crashes and restarts.",
+    "what_it_does": "Manages background tasks through a persistent storage interface with automatic retries, concurrency limits, priorities, and dependency handling. It includes features like task scheduling, rate limiting, and failure recovery across app restarts.",
+    "use_when": [
+      "You need tasks like photo uploads or data syncing to survive app crashes and restarts",
+      "You require robust retry policies with exponential backoff and jitter",
+      "You need to handle offline waiting, task priorities, and dependencies between background tasks"
+    ],
+    "avoid_when": [
+      "You are looking for simple local key-value storage without queue or background processing needs",
+      "You do not need persistence across restarts"
+    ],
+    "strengths": [
+      "Survives process crashes, restarts, and offline periods",
+      "Rich feature set including priorities, dependencies, rate limits, and recurring tasks",
+      "Framework-free pure Dart core engine with pluggable storage integrations"
+    ],
+    "weaknesses": [
+      "Requires setting up persistent storage adapters for tasks to survive restarts",
+      "More complex than basic `try`/`catch` blocks for single operations"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dependencies to pubspec.yaml and register tasks with their types and decoders before use.",
+    "alternatives": [],
+    "minimal_example": "import 'package:durable_queue/durable_queue.dart';\n\nFuture<void> main() async {\n  final queue = DurableQueue(\n    storage: MemoryQueueStorage(),\n    maxConcurrentTasks: 3,\n  );\n  await queue.start();\n}",
+    "confidence": 0.95
+  }
+}

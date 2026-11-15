@@ -1,0 +1,50 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "6.0.8",
+  "generatedAt": "2026-11-15T11:08:19.402Z",
+  "data": {
+    "primary_category": "localization",
+    "secondary_categories": [
+      "storage"
+    ],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "Flutter localization library to manage translations from local assets or remote networks.",
+    "what_it_does": "It loads and manages app translation files from local JSON assets or network URLs. It provides context extensions to easily change locales, fetch current language codes, and translate keys using `.tr()`.",
+    "use_when": [
+      "You want to load localization files from local assets or remote servers dynamically.",
+      "You prefer a localization approach without code generation steps."
+    ],
+    "avoid_when": [
+      "You need robust compile-time safety for translation keys via code generation.",
+      "You rely on complex intl pluralization rules that require specific ICU message formats."
+    ],
+    "strengths": [
+      "Supports loading translation files over the network in addition to local assets.",
+      "Simple context extensions for retrieving and updating locales.",
+      "Built-in caching support using Hive."
+    ],
+    "weaknesses": [
+      "Does not use the standard `intl` package.",
+      "Documentation can be sparse for advanced pluralization features."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires adding translation asset folders to pubspec.yaml, initializing LocalizeAndTranslate in main, and adding supported locales to iOS Info.plist.",
+    "alternatives": [
+      {
+        "name": "easy_localization",
+        "why_pick_it": "It is a widely-used alternative for managing localized assets with easy context extensions."
+      },
+      {
+        "name": "slang",
+        "why_pick_it": "If you prefer type-safe translations generated at compile time."
+      }
+    ],
+    "minimal_example": "await LocalizeAndTranslate.init(\n    assetLoader: const AssetLoaderRootBundleJson('assets/lang/'),\n    supportedLanguageCodes: <String>['ar', 'en'],\n);\nrunApp(LocalizedApp(child: MaterialApp(home: MyHomePage())));",
+    "confidence": 0.95
+  }
+}

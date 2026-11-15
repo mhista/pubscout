@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.0",
+  "generatedAt": "2026-11-13T11:46:28.088Z",
+  "data": {
+    "primary_category": "payments",
+    "secondary_categories": [
+      "web-desktop"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter plugin for Paystack payments via WebView using public keys.",
+    "what_it_does": "Allows Flutter apps to accept payments through Paystack via an inline WebView or browser tab. Supports card, mobile money, bank transfers, USSD, and split payments using only a public key.",
+    "use_when": [
+      "You need to integrate Paystack payments into your Flutter application.",
+      "You want client-side payment flows using only the public key."
+    ],
+    "avoid_when": [
+      "You do not use Paystack as your payment gateway.",
+      "You want client-side transaction verification without a backend."
+    ],
+    "strengths": [
+      "Supports multiple payment channels including mobile money and card.",
+      "Eliminates the security risk of embedding secret keys in client code.",
+      "Cross-platform support for Android, iOS, Web, and macOS."
+    ],
+    "weaknesses": [
+      "Requires a separate backend server to verify transactions securely.",
+      "Relies on WebView implementation for mobile platforms."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Android requires updating the minSdkVersion to at least 19 in build.gradle. No extra iOS configuration required.",
+    "alternatives": [
+      {
+        "name": "flutter_stripe",
+        "why_pick_it": "If you are using Stripe instead of Paystack for payment processing."
+      },
+      {
+        "name": "in_app_purchase",
+        "why_pick_it": "If you need native Apple App Store and Google Play Store billing instead of web payment gateways."
+      }
+    ],
+    "minimal_example": "import 'package:pay_with_paystack/pay_with_paystack.dart';\n\nfinal ref = PayWithPayStack().generateUuidV4();\n\nawait PayWithPayStack().now(\n  context: context,\n  publicKey: '<api-key>',\n  customerEmail: 'user@example.com',\n  reference: ref,\n  currency: 'GHS',\n  amount: 50.00,\n  transactionCompleted: (PaymentData data) {\n    print('Paid: ${data.reference}');\n  },\n  transactionNotCompleted: (String reason) {\n    print('Failed: $reason');\n  },\n);",
+    "confidence": 0.95
+  }
+}

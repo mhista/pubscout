@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.0.16",
+  "generatedAt": "2026-11-13T11:07:01.917Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [
+      "images",
+      "web-desktop"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "A texture helper providing high and low level APIs to handle BGRA data for Flutter.",
+    "what_it_does": "Brings high and low-level APIs to handle BGRA data for Flutter textures on desktop platforms. Uses OpenGL implementations to achieve hardware acceleration and minimize frame copying.",
+    "use_when": [
+      "You need high-performance BGRA/RGBA rendering on desktop platforms like Linux, Windows, or macOS.",
+      "You are streaming or processing video/image frames that require native performance via FFI."
+    ],
+    "avoid_when": [
+      "You are building for mobile or web platforms (only Windows, macOS, and Linux are supported).",
+      "You do not need low-level raw texture rendering."
+    ],
+    "strengths": [
+      "Provides both Dart method channel and native FFI APIs for extreme performance optimization.",
+      "Hardware-accelerated rendering using OpenGL for desktop platforms.",
+      "Only one time frame copy required."
+    ],
+    "weaknesses": [
+      "Limited to desktop platforms (Linux, Windows, macOS).",
+      "Requires manual lifecycle management of native buffers when using the native FFI API."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires ensuring BGRA format is used for all platforms and managing buffer lifecycles if using the native API.",
+    "alternatives": [],
+    "minimal_example": "_textureRgbaRendererPlugin.createTexture(key).then((textureId) {\n      if (textureId != -1) {\n        debugPrint(\"Texture register success, textureId=$textureId\");\n        setState(() {\n          this.textureId = textureId;\n        });\n      } else {\n        return;\n      }\n    });",
+    "confidence": 0.95
+  }
+}

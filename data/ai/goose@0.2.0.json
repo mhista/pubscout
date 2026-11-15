@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.2.0",
+  "generatedAt": "2026-11-15T11:28:01.861Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "A minimalistic framework for managing code and database migrations.",
+    "what_it_does": "Goose provides a platform-agnostic structure for migrating code or databases up and down. It uses a programmable API with zero dependencies to track and execute migrations sequentially.",
+    "use_when": [
+      "You need to run sequential migrations for local databases or app data structures.",
+      "You want a zero-dependency migration runner that works across platforms."
+    ],
+    "avoid_when": [
+      "You are looking for automatic schema generation or an opinionated ORM migration tool.",
+      "You only need simple key-value persistence without migration history."
+    ],
+    "strengths": [
+      "Zero dependencies",
+      "Platform-agnostic and database-agnostic",
+      "Programmable API supporting up and down migrations with state streams"
+    ],
+    "weaknesses": [
+      "Requires manual implementation of storage and retrieval for migration keys",
+      "No built-in database drivers or out-of-the-box persistence adapters"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Simply add goose to pubspec.yaml and implement your migration logic and key storage functions.",
+    "alternatives": [],
+    "minimal_example": "class MyMigration extends Migration {\n  const MyMigration() : super('my_unique_migration_id');\n  Future<void> down() async {}\n  Future<void> up() async {}\n}\n\nvoid main() async {\n  int? migrationKey;\n  final goose = Goose(\n    retrieve: () async => migrationKey,\n    store: (key) async => migrationKey = key,\n    migrations: const [MyMigration()],\n  );\n  await goose.up();\n}",
+    "confidence": 1
+  }
+}

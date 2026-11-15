@@ -1,0 +1,52 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.14",
+  "generatedAt": "2026-11-15T11:18:19.436Z",
+  "data": {
+    "primary_category": "devtools",
+    "secondary_categories": [
+      "storage",
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "A logger utility utilizing Isolates to write console and file logs asynchronously.",
+    "what_it_does": "IsolateLogger provides message logging into both the console and persistent files using background Isolates. It helps track user events, warnings, errors, and custom file outputs while avoiding performance degradation on the main thread. It also includes capabilities for log cleanup, custom file paths, and exporting logs as ZIP archives.",
+    "use_when": [
+      "You need to log events and errors to files persistently without blocking the UI thread.",
+      "Your application requires exporting logs as ZIP archives for debugging or user support.",
+      "You want custom per-feature file logging alongside standard console outputs."
+    ],
+    "avoid_when": [
+      "You only require a simple console logger without file persistence or isolate support.",
+      "Your project targets a platform not supported by the package."
+    ],
+    "strengths": [
+      "Runs logging operations in an Isolate under the hood to prevent main thread blocking.",
+      "Supports custom file logging and log exporting to ZIP archives.",
+      "Includes auto-cleanup mechanisms for logs based on date."
+    ],
+    "weaknesses": [
+      "Requires explicit initialization before use, throwing an exception if called beforehand.",
+      "Adds overhead compared to simple synchronous loggers."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Not documented",
+    "alternatives": [
+      {
+        "name": "logger",
+        "why_pick_it": "If you want a simpler, highly customizable console logger that doesn't necessarily require Isolate-based file management."
+      },
+      {
+        "name": "talker_logger",
+        "why_pick_it": "If you prefer an advanced logging tool with extensive formatting and ecosystem integrations like Talker."
+      }
+    ],
+    "minimal_example": "await IsolateLogger.instance.initLogger(\n    timeFormat: LogTimeFormat.userFriendly,\n    logIntoFile: false,\n);\nIsolateLogger.instance.logInfo(\n    tag: \"Auth\",\n    message: \"User logged in successfully\",\n);",
+    "confidence": 0.95
+  }
+}

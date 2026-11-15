@@ -1,0 +1,54 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.8-flash",
+  "version": "0.9.11",
+  "generatedAt": "2026-11-14T10:30:09.208Z",
+  "data": {
+    "primary_category": "navigation",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "A Navigator 2 wrapper bringing back Navigator 1 style APIs with deep linking and URL routing.",
+    "what_it_does": "Simplifies Flutter's Navigator 2 routing system by reimplementing standard Navigator 1 methods like push, pop, and set on top of RouterDelegate and RouteInformationParser. It provides declarative route definitions using URL mapping with native support for query and path parameters. It also includes deep linking destination structures and arbitrary object passing through global data.",
+    "use_when": [
+      "You want Navigator 2 capabilities (like deep linking and web URL handling) without abandoning familiar imperative push/pop navigation calls.",
+      "You need path parameters and query parameter parsing without building custom Navigator 2 boilerplate.",
+      "You want deep linking configurations defined as data collections in a single location."
+    ],
+    "avoid_when": [
+      "You prefer compile-time type-safe code-generated routes.",
+      "Your project is already committed to popular industry-standard routing solutions like go_router or auto_route."
+    ],
+    "strengths": [
+      "Reimplements familiar Navigator 1 imperative methods (push, pop, pushNamed) over Navigator 2.",
+      "Handles URL stripping and rebundling to correctly support query parameters on the web.",
+      "No code generation step required, allowing fast iteration and straightforward setup."
+    ],
+    "weaknesses": [
+      "Global singleton NavigationManager pattern can complicate custom dependency injection setups.",
+      "URL query parameters and path parameters are passed as weakly typed strings, requiring manual parsing."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Initialize NavigationManager in main() and plug the delegate/parser into MaterialApp.router.",
+    "alternatives": [
+      {
+        "name": "go_router",
+        "why_pick_it": "Pick go_router if you prefer the official Flutter team-supported declarative routing package."
+      },
+      {
+        "name": "auto_route",
+        "why_pick_it": "Pick auto_route if you want strongly-typed routes, nested navigation guards, and compile-time code generation."
+      },
+      {
+        "name": "beamer",
+        "why_pick_it": "Pick beamer if you want state-driven navigation designed around discrete 'location' concepts."
+      }
+    ],
+    "minimal_example": "void main() {\n  final routes = [\n    NavigationData(\n      url: '/',\n      builder: (context, routeData, globalData) => const HomeScreen(),\n    ),\n    NavigationData(\n      url: '/details/:id',\n      builder: (context, routeData, globalData) => DetailsScreen(\n        id: routeData.pathParameters['id'],\n      ),\n    ),\n  ];\n\n  NavigationManager.init(\n    mainRouterDelegate: DefaultRouterDelegate(navigationDataRoutes: routes),\n    routeInformationParser: DefaultRouteInformationParser(),\n  );\n\n  runApp(MaterialApp.router(\n    routerDelegate: NavigationManager.instance.routerDelegate,\n    routeInformationParser: NavigationManager.instance.routeInformationParser,\n  ));\n}",
+    "confidence": 0.95
+  }
+}

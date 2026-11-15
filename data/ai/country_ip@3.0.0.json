@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.0.0",
+  "generatedAt": "2026-11-13T11:29:23.452Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "maps"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Find a user's country from their current or specified IP address.",
+    "what_it_does": "Fetches the country name, country code, and IP address using the country.is API. It supports finding the location of the current user or querying a specific IPv4 or IPv6 address.",
+    "use_when": [
+      "You need to determine a user's country based on their IP address.",
+      "You want a free IP geolocation API client that requires no API key."
+    ],
+    "avoid_when": [
+      "You need detailed geolocation data beyond just the country (like city, region, or coordinates).",
+      "You need offline IP lookup capabilities."
+    ],
+    "strengths": [
+      "Supports both IPv4 and IPv6 addresses.",
+      "No API key or authorization required.",
+      "Simple and straightforward API."
+    ],
+    "weaknesses": [
+      "Depends on an external web service (country.is).",
+      "Provides only country-level data."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Not documented",
+    "alternatives": [
+      {
+        "name": "http",
+        "why_pick_it": "If you prefer making custom HTTP calls to an IP geolocation provider directly without adding a wrapper package."
+      },
+      {
+        "name": "dio",
+        "why_pick_it": "If your project already uses Dio for HTTP requests and you want to implement custom API calls for IP geolocation."
+      }
+    ],
+    "minimal_example": "final countryIpResponse = await CountryIp.find();\nprint(\"User's country code : \\${countryIpResponse?.countryCode}\");",
+    "confidence": 1
+  }
+}

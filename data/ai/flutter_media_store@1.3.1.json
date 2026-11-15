@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.3.1",
+  "generatedAt": "2026-11-14T10:41:37.384Z",
+  "data": {
+    "primary_category": "files",
+    "secondary_categories": [
+      "device",
+      "storage"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Save, append, and pick files using Android MediaStore",
+    "what_it_does": "Allows Flutter apps to save files, append data, and pick files directly through Android's MediaStore and Scoped Storage system. It handles storage permissions automatically across different Android versions.",
+    "use_when": [
+      "You need to save files into Android's MediaStore in compliance with Scoped Storage",
+      "You need to append data to existing files stored in the MediaStore",
+      "You need to pick single or multiple files from the device storage on Android"
+    ],
+    "avoid_when": [
+      "Your application targets iOS or platforms other than Android",
+      "You only need general local file system path management without MediaStore integration"
+    ],
+    "strengths": [
+      "Seamless integration with Android Scoped Storage and MediaStore",
+      "Automatic permission handling based on the Android SDK version",
+      "Supports multi-file picking and appending data to existing files"
+    ],
+    "weaknesses": [
+      "Limited to Android platform",
+      "Requires manual addition of native permissions in AndroidManifest.xml"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add required Android permissions (READ_EXTERNAL_STORAGE, WRITE_EXTERNAL_STORAGE, or MANAGE_EXTERNAL_STORAGE) to AndroidManifest.xml depending on the target API levels.",
+    "alternatives": [],
+    "minimal_example": "FlutterMediaStore().pickFile(\n  multipleSelect: false,\n  onFilesPicked: (List<String> uris) {\n    print('Picked file URI: ${uris.first}');\n  },\n  onError: (String error) {\n    print('Failed to pick file');\n  },\n);",
+    "confidence": 0.95
+  }
+}

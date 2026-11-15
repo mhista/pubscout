@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.2.4",
+  "generatedAt": "2026-11-15T11:14:19.804Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "layout",
+      "forms"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Display a list of items grouped into a ListView, GridView, or custom scroll view.",
+    "what_it_does": "Provides a widget to display a grouped list of items using a provided list and grouper function. It supports sticky headers, custom headers and footers, and built-in checkbox or radio selection functionality within the scroll view.",
+    "use_when": [
+      "You need to display data grouped by a specific property (like year or category).",
+      "You want to render grouped items as a grid or a list with sticky headers.",
+      "You need built-in checkbox or radio selection features inside a grouped scroll view."
+    ],
+    "avoid_when": [
+      "You just need a standard un-grouped ListView or GridView.",
+      "You require complex state management solutions beyond simple item toggling."
+    ],
+    "strengths": [
+      "Supports both list and grid views for grouped data.",
+      "Includes sticky header, custom header, and custom footer builders.",
+      "Provides checkbox and radio toggle controller capabilities."
+    ],
+    "weaknesses": [
+      "Limited to grouping use cases.",
+      "Toggle controllers require manual disposal depending on the version flow."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "GroupedScrollView.list(\n  groupedOptions: GroupedScrollViewOptions(\n    itemGrouper: (Person person) => person.birthYear,\n    stickyHeaderBuilder: (BuildContext context, int year, int groupedIndex) => Text('$year'),\n  ),\n  itemBuilder: (BuildContext context, Person item) => Text(item.name),\n  data: DataCache.instance.persons,\n)",
+    "confidence": 0.95
+  }
+}

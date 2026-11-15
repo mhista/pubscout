@@ -1,0 +1,47 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.8-flash",
+  "version": "7.0.0",
+  "generatedAt": "2026-11-14T10:29:27.750Z",
+  "data": {
+    "primary_category": "forms",
+    "secondary_categories": [
+      "widgets",
+      "localization"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Material-style dialog for selecting months, month ranges, and years.",
+    "what_it_does": "Provides ready-to-use dialog functions to pick individual months, ranges of months, or years without selecting individual days. It integrates with Flutter's localization and the intl package to support internationalized month and year formats. The appearance and behavior of headers, grids, and action buttons are configurable through dedicated settings classes.",
+    "use_when": [
+      "You need a user to select only a month and year (e.g., credit card expiration or billing cycles) without day-level granularity.",
+      "You need month range selection in a dialog format.",
+      "You want a Material date picker interface localized to various languages."
+    ],
+    "avoid_when": [
+      "You need day-level date picking (standard Flutter showDatePicker or calendar pickers are better suited).",
+      "You need an inline calendar widget rather than a modal dialog."
+    ],
+    "strengths": [
+      "Supports single month, month range, and year-only selection modes.",
+      "Extensively customizable appearance through MonthPickerDialogSettings (header, dialog, buttons, action bar).",
+      "Built-in internationalization via the intl package and Flutter localization."
+    ],
+    "weaknesses": [
+      "Dialog-focused, offering no documented inline widget variant.",
+      "Requires managing potential version conflicts with the intl dependency."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires Flutter localization and intl configuration for non-English locales.",
+    "alternatives": [
+      {
+        "name": "calendar_date_picker2",
+        "why_pick_it": "Pick calendar_date_picker2 if you need standard day-level calendar views or inline picker widgets."
+      }
+    ],
+    "minimal_example": "FloatingActionButton(\n  onPressed: () {\n    showMonthPicker(\n      context: context,\n      initialDate: DateTime.now(),\n    ).then((date) {\n      if (date != null) {\n        setState(() {\n          selectedDate = date;\n        });\n      }\n    });\n  },\n  child: const Icon(Icons.calendar_today),\n)",
+    "confidence": 0.95
+  }
+}

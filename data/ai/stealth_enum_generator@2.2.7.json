@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.2.7",
+  "generatedAt": "2026-11-14T10:45:31.504Z",
+  "data": {
+    "primary_category": "codegen",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "code generation"
+    ],
+    "one_liner": "Code generator that transforms private enums into obfuscated extension types.",
+    "what_it_does": "The companion build_runner code generator for stealth_enum. It transforms @StealthEnum() annotated private Dart enums into zero-cost, obfuscated Dart 3 extension types to eliminate AOT binary metadata and neutralize reverse engineering pipelines.",
+    "use_when": [
+      "You want to eliminate AOT binary metadata for sensitive enums in Dart or Flutter apps.",
+      "You need deterministic 32-bit hex values derived via keyed HMAC-SHA256 for enum constants."
+    ],
+    "avoid_when": [
+      "You do not use code generation or build_runner in your project.",
+      "You want standard, native Dart enums without obfuscation layers."
+    ],
+    "strengths": [
+      "Zero-cost obfuscated extension types that remove AOT binary metadata.",
+      "Keyed HMAC-SHA256 derivation ensuring mathematical irreversibility.",
+      "Integrates seamlessly with SharedPartBuilder alongside other code generators."
+    ],
+    "weaknesses": [
+      "Requires build_runner and code generation setup.",
+      "Requires careful secret key management and build.yaml configuration."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add stealth_enum to dependencies, build_runner and stealth_enum_generator to dev_dependencies, and optionally configure a secret key in build.yaml.",
+    "alternatives": [],
+    "minimal_example": "dependencies:\n  stealth_enum: ^2.2.7\n\ndev_dependencies:\n  build_runner: ^2.4.0\n  stealth_enum_generator: ^2.2.7",
+    "confidence": 1
+  }
+}

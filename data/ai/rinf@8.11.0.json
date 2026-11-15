@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "8.11.0",
+  "generatedAt": "2026-11-13T11:04:04.423Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [],
+    "approach": [
+      "code generation",
+      "stream-based"
+    ],
+    "one_liner": "Framework for writing Rust business logic with type-safe messaging in Flutter apps",
+    "what_it_does": "Rinf integrates Rust into Flutter applications as the native business logic layer. It automatically generates type-safe Dart classes from Rust structs and handles messaging between Dart and Rust through FFI.",
+    "use_when": [
+      "You want to implement performance-critical business logic using Rust",
+      "You need cross-platform support across Android, iOS, Windows, macOS, Linux, and Web",
+      "You prefer an event-driven, stream-based approach for communication between GUI and backend"
+    ],
+    "avoid_when": [
+      "Your entire team only knows Dart and has no experience with Rust",
+      "You are building a simple app where native performance gains do not justify the build complexity"
+    ],
+    "strengths": [
+      "High-performance native execution via FFI without hidden web servers or webviews",
+      "Type-safe communication generated automatically from Rust structs",
+      "Supports all major Flutter platforms out of the box"
+    ],
+    "weaknesses": [
+      "Requires managing a Rust toolchain alongside Flutter",
+      "Project currently looking for a new maintainer"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires installing Rust toolchain and configuring the build framework for native Rust compilation.",
+    "alternatives": [],
+    "minimal_example": "StreamBuilder(\n  stream: MyMessage.rustSignalStream,\n  builder: (context, snapshot) {\n    final signalPack = snapshot.data;\n    if (signalPack == null) {\n      return Text('Nothing received yet');\n    }\n    final myMessage = signalPack.message;\n    return Text(myMessage.currentNumber.toString());\n  },\n)",
+    "confidence": 0.95
+  }
+}

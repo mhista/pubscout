@@ -1,0 +1,48 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.2.0",
+  "generatedAt": "2026-11-15T11:29:14.603Z",
+  "data": {
+    "primary_category": "theming",
+    "secondary_categories": [
+      "device",
+      "codegen"
+    ],
+    "approach": [
+      "code generation",
+      "declarative",
+      "imperative"
+    ],
+    "one_liner": "Dynamically change and reset app launcher icons at runtime on Android and iOS.",
+    "what_it_does": "A cross-platform Flutter plugin and CLI tool that lets you switch app launcher icons at runtime on Android and iOS. It automatically resizes source images into required multi-density assets and injects necessary native configurations into AndroidManifest.xml and Info.plist.",
+    "use_when": [
+      "You want to allow users to pick a custom app launcher icon from within your app settings.",
+      "You want an automated CLI tool to handle native asset resizing and configuration for app icons."
+    ],
+    "avoid_when": [
+      "You only need a single static app icon (use flutter_launcher_icons instead).",
+      "You are targeting platforms other than Android and iOS."
+    ],
+    "strengths": [
+      "Automates native boilerplate generation for both Android and iOS.",
+      "Provides a strongly-typed generated definitions file and reactive ValueNotifier.",
+      "Supports zero-manual-setup workflows via a CLI generator."
+    ],
+    "weaknesses": [
+      "Requires native platform support (Android 7.0+ and iOS 15.0+).",
+      "Requires running a CLI generation step for asset processing and manifest injections."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding a chameleon_icons block to pubspec.yaml and running the CLI generator dart run chameleon_icons:generate.",
+    "alternatives": [
+      {
+        "name": "flutter_launcher_icons",
+        "why_pick_it": "Pick this if you only need to generate static compile-time app launcher icons rather than switching them dynamically at runtime."
+      }
+    ],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:chameleon_icons/chameleon_icons.dart';\n\nfinal chameleon = ChameleonIcons();\n\nFuture<void> switchIcon() async {\n  final isSupported = await chameleon.isAlternateIconsSupported();\n  if (isSupported) {\n    await chameleon.changeIcon(\"MainActivityDark\");\n  }\n}",
+    "confidence": 1
+  }
+}

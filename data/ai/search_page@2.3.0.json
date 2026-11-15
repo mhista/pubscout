@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.3.0",
+  "generatedAt": "2026-11-14T11:00:19.995Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "forms"
+    ],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "Build custom search experiences using Flutter's SearchDelegate foundation.",
+    "what_it_does": "Provides a SearchPage class to easily filter lists of items, customize suggestions, handle empty results, and build Material search views.",
+    "use_when": [
+      "You want to add a search view to an existing list of objects with minimal boilerplate.",
+      "You need custom filtering logic over multiple fields of an object."
+    ],
+    "avoid_when": [
+      "You require complex asynchronous server-side search paging out of the box.",
+      "You are not using the Material design paradigm for your search UI."
+    ],
+    "strengths": [
+      "Simple API leveraging Flutter's native SearchDelegate.",
+      "Easy list filtering using custom string representation selectors."
+    ],
+    "weaknesses": [
+      "Limited to Flutter's Material search UI workflow.",
+      "GPL-3.0 license may restrict usage in certain proprietary contexts."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "FloatingActionButton(\n  child: Icon(Icons.search),\n  tooltip: 'Search people',\n  onPressed: () => showSearch(\n    context: context,\n    delegate: SearchPage<Person>(\n      items: people,\n      searchLabel: 'Search people',\n      suggestion: Center(\n        child: Text('Filter people by name, surname or age'),\n      ),\n      failure: Center(\n        child: Text('No person found :('),\n      ),\n      filter: (person) => [\n        person.name,\n        person.surname,\n        person.age.toString(),\n      ],\n      builder: (person) => ListTile(\n        title: Text(person.name),\n        subtitle: Text(person.surname),\n        trailing: Text('${person.age} yo'),\n      ),\n    ),\n  ),\n),",
+    "confidence": 0.95
+  }
+}

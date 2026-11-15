@@ -1,0 +1,52 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.3.0",
+  "generatedAt": "2026-11-15T11:31:14.211Z",
+  "data": {
+    "primary_category": "ai-ml",
+    "secondary_categories": [
+      "device"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Run Large Language Models on-device using Google's LiteRT-LM runtime.",
+    "what_it_does": "A Flutter plugin providing local on-device inference for Large Language Models using Google's LiteRT-LM runtime. It supports hardware acceleration via CPU, GPU (OpenCL), and NPU, offering streaming chat, multi-turn conversations, multimodal inputs, and tool calling without network dependencies.",
+    "use_when": [
+      "You need offline LLM execution in your app.",
+      "Prompts and data must remain strictly on-device for privacy.",
+      "You want to avoid per-token API costs and rate limits."
+    ],
+    "avoid_when": [
+      "Your target devices have insufficient RAM to load large model files.",
+      "You require cloud-scale models that cannot fit on mobile hardware."
+    ],
+    "strengths": [
+      "Fully offline execution with no API keys or token billing",
+      "Hardware acceleration via CPU, GPU (OpenCL), and NPU",
+      "Supports streaming responses, multimodal inputs, and tool calling"
+    ],
+    "weaknesses": [
+      "High memory usage can lead to out-of-memory crashes on large models",
+      "iOS requires a lengthy one-time local Bazel build process",
+      "iOS runtime currently limited to CPU backend only"
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Requires downloading large model files (.litertlm) and setting up writable storage paths. iOS builds require installing Bazelisk and running a manual framework build script that takes 30-60 minutes on first run.",
+    "alternatives": [
+      {
+        "name": "llamadart",
+        "why_pick_it": "Alternative on-device LLM solution if you prefer llama.cpp integration."
+      },
+      {
+        "name": "firebase_ai",
+        "why_pick_it": "If you prefer cloud-hosted Gemini models instead of running models locally."
+      }
+    ],
+    "minimal_example": "import 'package:flutter_litert_lm/flutter_litert_lm.dart';\n\nfinal engine = await LiteLmEngine.create(\n  LiteLmEngineConfig(\n    modelPath: '/storage/.../model.litertlm',\n    backend: LiteLmBackend.gpu,\n  ),\n);\n\nfinal conversation = await engine.createConversation();\nfinal reply = await conversation.sendMessage('What is Flutter?');\nprint(reply.text);\n\nawait conversation.dispose();\nawait engine.dispose();",
+    "confidence": 0.95
+  }
+}

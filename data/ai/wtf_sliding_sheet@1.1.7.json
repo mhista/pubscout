@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.1.7",
+  "generatedAt": "2026-11-13T11:30:02.108Z",
+  "data": {
+    "primary_category": "ui-kits",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative",
+      "widgets"
+    ],
+    "one_liner": "A draggable and scrollable sheet widget that snaps to a list of extents.",
+    "what_it_does": "Provides a SlidingSheet widget and BottomSheetDialog that can be dragged, scrolled in a single gesture, and snapped to custom extents. It supports headers, footers, parallax effects, and manual control via a SheetController.",
+    "use_when": [
+      "You need a bottom sheet that supports complex snapping behaviors and single-gesture dragging and scrolling.",
+      "You want to display a persistent sliding panel above your app body."
+    ],
+    "avoid_when": [
+      "You only need standard native Material bottom sheets without custom snapping or single-gesture scroll integration.",
+      "Your content has infinite or unbounded height without handling shrinkWrap and physics."
+    ],
+    "strengths": [
+      "Can be used either as a permanent widget in the tree or as a dialog via bottom sheet functions.",
+      "Supports custom snapping positions relative to available space, sheet height, or pixel offset.",
+      "Includes built-in header and footer support that remain fixed while content scrolls."
+    ],
+    "weaknesses": [
+      "Children like ListView or Column require specific height configurations (e.g., shrinkWrap) to prevent unbounded height errors."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "SlidingSheet(\n  elevation: 8,\n  cornerRadius: 16,\n  snapSpec: const SnapSpec(\n    snap: true,\n    snappings: [0.4, 0.7, 1.0],\n    positioning: SnapPositioning.relativeToAvailableSpace,\n  ),\n  builder: (context, state) {\n    return Container(\n      height: 500,\n      child: Center(\n        child: Text('This is the content of the sheet'),\n      ),\n    );\n  },\n)",
+    "confidence": 1
+  }
+}

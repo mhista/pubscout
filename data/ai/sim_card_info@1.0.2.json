@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "1.0.2",
+  "generatedAt": "2026-11-14T10:33:53.217Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Flutter plugin to retrieve SIM card details such as carrier name, phone number and country code.",
+    "what_it_does": "Provides a simple API to fetch SIM card information from Android, iOS, web and desktop platforms. Returns a list of SimInfo objects and handles platform exceptions gracefully.",
+    "use_when": [
+      "You need carrier name, phone number or country code from the device’s SIM card",
+      "Building telecom‑related or location‑aware apps that require basic SIM data"
+    ],
+    "avoid_when": [
+      "You require advanced telephony features beyond basic SIM info",
+      "You need a solution that works without native permissions"
+    ],
+    "strengths": [
+      "Simple, single‑method API",
+      "Cross‑platform support (mobile, web, desktop)",
+      "Handles PlatformException internally"
+    ],
+    "weaknesses": [
+      "Limited to basic SIM fields",
+      "Permission handling not detailed in docs",
+      "May not work on devices without SIM or restricted OS versions"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add required permissions (e.g., READ_PHONE_STATE on Android, appropriate keys in iOS Info.plist) and run flutter pub get",
+    "alternatives": [],
+    "minimal_example": "import 'package:sim_card_info/sim_card_info.dart';\n\nfinal plugin = SimCardInfo();\nList<SimInfo>? sims = await plugin.getSimInfo() ?? [];",
+    "confidence": 0.9
+  }
+}

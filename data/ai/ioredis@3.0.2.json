@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.0.2",
+  "generatedAt": "2026-11-13T11:31:06.814Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [
+      "backend"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Redis client for Dart with connection pooling, pub/sub, transactions, and pipelining.",
+    "what_it_does": "Provides a fully-featured Redis client supporting strings, hashes, lists, sets, sorted sets, scripting, and pub/sub. Includes automatic pipelining, connection pooling, reconnection logic, and TLS support via URL configuration.",
+    "use_when": [
+      "You need to connect a Dart or Flutter application directly to a Redis server",
+      "You require pub/sub messaging capabilities with binary or text payloads",
+      "You want automatic command pipelining and connection pooling"
+    ],
+    "avoid_when": [
+      "You need a local embedded key-value database specifically for local device storage without a running Redis server",
+      "Your application requires an offline-first NoSQL database like Hive or Isar"
+    ],
+    "strengths": [
+      "Supports pub/sub with both text and binary messages",
+      "Built-in connection pooling and auto-pipelining",
+      "Robust reconnection handling with retry strategies and handshake timeouts",
+      "Supports Redis URL configuration including TLS (rediss://)"
+    ],
+    "weaknesses": [
+      "Requires a running Redis server network connection",
+      "Not an embedded local storage solution"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires a running Redis server instance (or multiple for test suites).",
+    "alternatives": [],
+    "minimal_example": "Redis redis = new Redis(RedisOptions(host: '127.0.0.1', port: 6379));\nawait redis.set('key', 'value');\nString? value = await redis.get('key');",
+    "confidence": 1
+  }
+}

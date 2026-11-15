@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.0",
+  "generatedAt": "2026-11-13T11:23:55.563Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Check if the app is running for the first time.",
+    "what_it_does": "Provides methods to check if it is the first time the app runs or the first time a specific method is called. It relies internally on shared_preferences to persist the state. It also offers a reset function to clear the recorded state.",
+    "use_when": [
+      "You want to show an onboarding walkthrough on the first app launch",
+      "You need to trigger a one-time migration or setup task on the initial run"
+    ],
+    "avoid_when": [
+      "You already manage persistent preferences and want to minimize dependency overhead by implementing the check directly"
+    ],
+    "strengths": [
+      "Simple and straightforward API",
+      "Supports all major Flutter platforms (Android, iOS, Web, Windows, macOS, Linux)"
+    ],
+    "weaknesses": [
+      "Relies on shared_preferences, which may not be suitable if you require encrypted storage",
+      "Limited functionality beyond checking the first run state"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "shared_preferences",
+        "why_pick_it": "Allows you to implement first-run checks manually while gaining full control over all stored key-value preferences."
+      }
+    ],
+    "minimal_example": "import 'package:is_first_run/is_first_run.dart';\n\nbool firstRun = await IsFirstRun.isFirstRun();",
+    "confidence": 1
+  }
+}

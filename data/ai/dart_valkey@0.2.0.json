@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.2.0",
+  "generatedAt": "2026-11-14T10:58:48.701Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "storage"
+    ],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "A robust, type-safe Dart client for Valkey and Redis-compatible servers.",
+    "what_it_does": "It enables Dart applications to connect to Valkey or Redis servers, execute commands, manage Pub/Sub messaging, and interact with JSON modules with type safety.",
+    "use_when": [
+      "You need to connect a Dart or Flutter backend/client to Valkey or Redis.",
+      "You require Pub/Sub messaging support over Redis/Valkey.",
+      "You are working with RedisJSON modules and need typed document stores."
+    ],
+    "avoid_when": [
+      "You are looking for an on-device embedded SQL or key-value storage database like SQLite or SharedPreferences."
+    ],
+    "strengths": [
+      "Supports SSL certificate management including bad certificate callbacks.",
+      "Automatic reconnection with exponential backoff and auto-resubscribe for Pub/Sub.",
+      "Full support for RESP2 and RESP3 protocols automatically.",
+      "Comprehensive JSON module support with type-safe repository stores."
+    ],
+    "weaknesses": [
+      "Requires a running Valkey or Redis server instance for execution and integration testing."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires a running Valkey or Redis server instance accessible via host and port.",
+    "alternatives": [],
+    "minimal_example": "import 'package:dart_valkey/dart_valkey.dart';\n\nFuture<void> main() async {\n  final client = ValkeyCommandClient(\n    host: 'localhost',\n    port: 6379,\n  );\n\n  await client.connect();\n  await client.set('key', 'value');\n  final value = await client.get('key');\n  print('Value: $value');\n\n  await client.close();\n}",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.0",
+  "generatedAt": "2026-11-14T10:47:01.919Z",
+  "data": {
+    "primary_category": "dependency-injection",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Compile-time safe and easy to manage service locators for Dart and Flutter.",
+    "what_it_does": "Toor provides compile-time safe service location for Dart and Flutter. It supports factories, lazy singletons, mutable lazy singletons, async factories, and factories with parameters without requiring code generation.",
+    "use_when": [
+      "You want compile-time safe dependency injection without setting up code generation.",
+      "You need support for parameterized factories, async factories, and lazy singletons.",
+      "You want to easily override or reset dependencies during testing."
+    ],
+    "avoid_when": [
+      "You prefer annotation-driven dependency injection frameworks like get_it with injectable.",
+      "You require complex hierarchical module dependency graphs."
+    ],
+    "strengths": [
+      "Compile-time safety for service locators.",
+      "Supports multiple instances of Toor for isolated domains or testing.",
+      "No code generation setup required."
+    ],
+    "weaknesses": [
+      "Manual wiring of dependencies.",
+      "Lacks advanced dependency graph validation tools found in codegen-based DI."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "final toor = Toor.instance;\n\nfinal httpClientSingleton = toor.registerLazySingleton<IHttpClient>(\n  DioHttpClientImpl.new,\n);\n\nfinal authRepositoryFactory = toor.registerFactory<IAuthRepository>(\n  () => AuthRepositoryImpl(httpClient: httpClientSingleton()),\n);",
+    "confidence": 1
+  }
+}

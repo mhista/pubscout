@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.2.7",
+  "generatedAt": "2026-11-14T10:43:31.796Z",
+  "data": {
+    "primary_category": "codegen",
+    "secondary_categories": [
+      "utils",
+      "devtools"
+    ],
+    "approach": [
+      "code generation"
+    ],
+    "one_liner": "Obfuscates Dart enums into zero-cost extension types to eliminate metadata from binaries.",
+    "what_it_does": "Generates zero-overhead extension types from private enums using high-entropy integers. It removes enum names from compiled AOT binaries to protect against reverse engineering tools like Ghidra and Blutter.",
+    "use_when": [
+      "You want to prevent reverse engineering of app enums and business logic constants.",
+      "You need pattern matching and safe parsing for obfuscated enum states."
+    ],
+    "avoid_when": [
+      "You require traditional reflection or runtime metadata access on enums.",
+      "You do not use code generation tools in your development workflow."
+    ],
+    "strengths": [
+      "Removes enum identifier strings entirely from compiled AOT binaries.",
+      "Zero runtime overhead using extension types over primitive integers.",
+      "Compile-time exhaustiveness guarantees and safe parsing."
+    ],
+    "weaknesses": [
+      "Requires build_runner and code generation steps.",
+      "Enums must be defined privately with special annotations."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires adding build_dev dependencies and running build_runner code generation.",
+    "alternatives": [],
+    "minimal_example": "import 'package:stealth_enum/stealth_enum.dart';\n\npart 'security_clearance.g.dart';\n\n@StealthEnum()\nenum _SecurityClearance {\n  guest,\n  operator,\n  admin,\n  superAdmin,\n}",
+    "confidence": 0.95
+  }
+}

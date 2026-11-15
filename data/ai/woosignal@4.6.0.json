@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.6.0",
+  "generatedAt": "2026-11-15T11:30:07.718Z",
+  "data": {
+    "primary_category": "backend",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "WooCommerce REST API client for Dart to connect and build online stores.",
+    "what_it_does": "Provides a client interface to connect with a WooCommerce store via its REST API endpoints. Allows apps to fetch and manage products, orders, customers, coupons, shipping zones, and more.",
+    "use_when": [
+      "You are building a Flutter application that interacts with a WooCommerce backend.",
+      "You need to fetch products, handle cart or orders, and manage customers against an existing WooCommerce store."
+    ],
+    "avoid_when": [
+      "Your backend is not WooCommerce.",
+      "You need low-level generic HTTP networking without WooCommerce-specific wrappers."
+    ],
+    "strengths": [
+      "Extensive API coverage for WooCommerce endpoints including products, orders, customers, and reports.",
+      "Simple initialization and syntax for common e-commerce requests."
+    ],
+    "weaknesses": [
+      "Tied strictly to WooCommerce and the WooSignal service ecosystem.",
+      "Not customizable for arbitrary backend APIs."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires initializing WooSignal with an app key using WooSignal.instance.init().",
+    "alternatives": [],
+    "minimal_example": "import 'package:woosignal/woosignal.dart';\n\n_getProducts() async {\n  await WooSignal.instance.init(appKey: \"your app key\");\n  List<Product> products = await WooSignal.instance.getProducts();\n  print(products[0].name);\n}",
+    "confidence": 0.95
+  }
+}

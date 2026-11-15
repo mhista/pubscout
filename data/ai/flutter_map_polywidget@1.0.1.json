@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.1",
+  "generatedAt": "2026-11-14T10:47:37.898Z",
+  "data": {
+    "primary_category": "maps",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A flutter_map plugin for displaying custom widgets on specific geographic areas of the map.",
+    "what_it_does": "It allows developers to place any custom Flutter widget onto a flutter_map instance by specifying geographic coordinates, dimensions in meters, or corner points. Widgets can be constrained, made clickable, and configured to rotate or maintain fixed orientations.",
+    "use_when": [
+      "You need to render custom Flutter widgets overlaid on specific geographic locations inside a flutter_map.",
+      "You want widgets to scale and optionally rotate based on map zoom levels and orientation settings."
+    ],
+    "avoid_when": [
+      "You are using Google Maps instead of flutter_map.",
+      "You only need standard map markers and pins rather than complex layout widgets."
+    ],
+    "strengths": [
+      "Enables placement of arbitrary widgets on maps using geographic bounds or center points.",
+      "Supports size constraints and orientation forcing (portrait or landscape).",
+      "Widgets can be interactive and clickable."
+    ],
+    "weaknesses": [
+      "Tied strictly to `flutter_map`.",
+      "Performance may depend on the complexity and number of rendered widget overlays."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires adding the package dependency and integrating `PolyWidgetLayer` into your `FlutterMap` widget tree.",
+    "alternatives": [],
+    "minimal_example": "FlutterMap(\n  children: [\n    PolyWidgetLayer(\n      polyWidgets: [\n        PolyWidget(\n          center: LatLng(50.933465, 6.875109),\n          widthInMeters: 100,\n          heightInMeters: 200,\n          angle: 90,\n          child: Text('Custom Widget'),\n        ),\n      ],\n    ),\n  ],\n)",
+    "confidence": 1
+  }
+}

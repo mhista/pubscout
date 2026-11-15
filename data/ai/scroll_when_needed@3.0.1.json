@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.0.1",
+  "generatedAt": "2026-11-15T11:25:28.991Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "layout"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Custom scroll behavior and physics to scroll only when content exceeds available space.",
+    "what_it_does": "Provides a custom ScrollBehavior and scroll physics that enable platform-specific scrolling behavior only when there is not enough space inside a scrollable widget. It helps prevent unnecessary scrolling behavior on platforms where it is not desired when content fits completely.",
+    "use_when": [
+      "You want a scrollable widget to only scroll when its content exceeds the available space",
+      "You need platform-specific scrolling behavior based on content overflow"
+    ],
+    "avoid_when": [
+      "You always want scrolling enabled regardless of content size"
+    ],
+    "strengths": [
+      "Simple integration via ScrollConfiguration and ListView physics",
+      "Supports platform-specific scrolling behaviors"
+    ],
+    "weaknesses": [
+      "Limited documentation beyond basic usage",
+      "No topics specified on pub.dev"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "ScrollConfiguration(\n    behavior: ScrollWhenNeededBehavior(),\n    child: ListView(\n        physics: ScrollWhenNeededPhysics(targetPlatform: Theme.of(context).platform),\n        children: [\n            Container(\n                height: 100,\n                color: Colors.amber,\n            ),\n            TextField(),\n            Container(\n                height: 300,\n                color: Colors.amber,\n            ),\n        ],\n    ),\n),",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.3.0",
+  "generatedAt": "2026-11-14T10:39:31.640Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "backend"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "ActionCable client port in dart for web, dartVM and flutter",
+    "what_it_does": "Connects to Rails ActionCable websocket servers, handles subscriptions, and allows performing actions on channels. It supports web, dartVM, and Flutter platforms.",
+    "use_when": [
+      "You need to connect a Flutter or Dart app to a Ruby on Rails ActionCable backend",
+      "You require real-time websocket communication using the ActionCable protocol"
+    ],
+    "avoid_when": [
+      "You are using a standard REST API without WebSockets",
+      "Your backend uses a custom WebSocket protocol instead of Rails ActionCable"
+    ],
+    "strengths": [
+      "Native Dart port of the ActionCable protocol",
+      "Supports web, dartVM, and Flutter",
+      "Easy connection and channel subscription methods"
+    ],
+    "weaknesses": [
+      "Limited to the ActionCable protocol",
+      "Minimal configuration documentation beyond basic usage"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add web_socket_channel dependency and use ActionCable.connect with your websocket URL.",
+    "alternatives": [
+      {
+        "name": "web_socket_channel",
+        "why_pick_it": "If you want raw WebSocket communication without being tied to the Rails ActionCable protocol."
+      },
+      {
+        "name": "dio",
+        "why_pick_it": "If your backend primarily uses HTTP REST requests rather than real-time WebSockets."
+      }
+    ],
+    "minimal_example": "cable = ActionCable.connect(\n  \"ws://10.0.2.2:3000/cable\",\n  onConnected: () {\n    print(\"connected\");\n  },\n);",
+    "confidence": 1
+  }
+}

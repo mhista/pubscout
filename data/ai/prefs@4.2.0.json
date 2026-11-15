@@ -1,0 +1,47 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.2.0",
+  "generatedAt": "2026-11-15T11:27:00.238Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "A static wrapper around shared_preferences for reading and writing app preferences.",
+    "what_it_does": "It wraps the shared_preferences plugin to store and read key-value preferences across Android, iOS, Web, Windows, macOS, and Linux. It provides a static class interface to easily get and set values without needing an instance.",
+    "use_when": [
+      "You want a simpler static interface over shared_preferences",
+      "You need to store simple key-value data on the device"
+    ],
+    "avoid_when": [
+      "You need secure storage for sensitive data like passwords or tokens",
+      "You are looking for a robust type-safe ORM or NoSQL database"
+    ],
+    "strengths": [
+      "Static function calls make it accessible anywhere in the app",
+      "Supports multiple platforms including Android, iOS, Web, Windows, macOS, and Linux"
+    ],
+    "weaknesses": [
+      "Relies on shared_preferences which does not guarantee writes to disk",
+      "Not suitable for critical data storage"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Initialize the class library using Prefs.init() or Prefs.initAsync() in your app's initState() and clean up with Prefs.dispose() in dispose().",
+    "alternatives": [
+      {
+        "name": "shared_preferences",
+        "why_pick_it": "You prefer using the official low-level plugin directly without a third-party static wrapper."
+      },
+      {
+        "name": "flutter_secure_storage",
+        "why_pick_it": "You need secure encrypted storage instead of plain key-value preferences."
+      }
+    ],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:prefs/prefs.dart';\n\nvoid main() async {\n  WidgetsFlutterBinding.ensureInitialized();\n  await Prefs.init();\n  runApp(MyApp());\n}\n\nclass MyApp extends StatelessWidget {\n  @override\n  Widget build(BuildContext context) {\n    return MaterialApp(\n      home: Scaffold(\n        body: Center(\n          child: Text('Prefs initialized'),\n        ),\n      ),\n    );\n  }\n}",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.0.1",
+  "generatedAt": "2026-11-15T11:25:35.428Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "utils",
+      "widgets"
+    ],
+    "approach": [
+      "declarative",
+      "stream-based",
+      "no codegen"
+    ],
+    "one_liner": "Zero-dependency internet connectivity checker with blocking screens and banners.",
+    "what_it_does": "Monitors real internet access using parallel TCP handshakes and DNS probes. Provides global app wrappers, local widgets, and banners to handle offline states without losing app navigation state.",
+    "use_when": [
+      "You need to detect actual internet reachability rather than just local Wi-Fi or cellular connection status.",
+      "You want to automatically show blocking offline pages or floating banners when the connection drops.",
+      "You need WASM and cross-platform support with zero external dependencies."
+    ],
+    "avoid_when": [
+      "You only need basic device connectivity notifications and prefer a native platform plugin like connectivity_plus.",
+      "Your environment blocks outgoing TCP and HTTP probes."
+    ],
+    "strengths": [
+      "Zero external dependencies and pure Dart implementation with WASM support.",
+      "Preserves app navigation stack and form state while offline.",
+      "Parallel probing avoids DNS-cache false positives and detects offline state quickly."
+    ],
+    "weaknesses": [
+      "Relies on external hosts and IP addresses for probing, which might require CSP configurations on web or custom health checks for restricted networks.",
+      "Periodic polling can consume battery if not carefully managed."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires adding the INTERNET permission on Android and the network client entitlement on macOS.",
+    "alternatives": [
+      {
+        "name": "connectivity_plus",
+        "why_pick_it": "Pick connectivity_plus if you need standard platform-level connection type updates (Wi-Fi, mobile, ethernet) rather than real reachability probing."
+      }
+    ],
+    "minimal_example": "MaterialApp(\n  navigatorObservers: [InternetCheckerObserver()],\n  builder: (context, child) => InternetChecker(child: child!),\n  home: const HomeScreen(),\n)",
+    "confidence": 0.95
+  }
+}

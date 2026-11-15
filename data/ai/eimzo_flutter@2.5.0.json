@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.5.0",
+  "generatedAt": "2026-11-14T10:37:01.964Z",
+  "data": {
+    "primary_category": "auth",
+    "secondary_categories": [
+      "payments"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter wrapper for the E-IMZO Mobile SDK for electronic signatures in Uzbekistan.",
+    "what_it_does": "Wraps the official E-IMZO Mobile SDK to handle digital signatures, key management, PFX files, QR codes, ID cards, and USB tokens via the YT gateway in Uzbekistan. Allows launching native UI signing flows or listing keys directly via API.",
+    "use_when": [
+      "You need to integrate official electronic signatures (E-IMZO) into a Flutter app in Uzbekistan.",
+      "Your app requires signing transactions or documents using PFX, ID cards, QR codes, or hardware tokens."
+    ],
+    "avoid_when": [
+      "You are developing outside of Uzbekistan or require standard western OAuth/biometric sign-in.",
+      "Your app cannot complete the mandatory app registration process with YT (info@yt.uz)."
+    ],
+    "strengths": [
+      "Official wrapper for the E-IMZO Mobile SDK supporting Android and iOS.",
+      "Supports multiple key types including PFX, ID cards, and USB tokens.",
+      "Includes Keys API for programmatic key listing and custom signing flows."
+    ],
+    "weaknesses": [
+      "Requires manual registration of the app's app attestation/certificates with YT gateway.",
+      "Specific platform requirements like Java 17, core library desugaring, and NFC entitlements.",
+      "Device compatibility restrictions in production (e.g., requires locked bootloader and hardware-backed attestation on Android)."
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Requires Java 17 and core library desugaring on Android, iOS Podfile platform 16.0+, NFC entitlements configuration, and registering the app package/bundle ID with YT via email (info@yt.uz).",
+    "alternatives": [],
+    "minimal_example": "final allowed = await EimzoFlutter.instance.init(config: const EimzoConfig(environment: EimzoEnvironment.prod));\nif (allowed) {\n  await EimzoFlutter.instance.openSignUi();\n}",
+    "confidence": 0.95
+  }
+}

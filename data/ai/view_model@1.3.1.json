@@ -1,0 +1,55 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.3.1",
+  "generatedAt": "2026-11-15T11:10:08.351Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [
+      "dependency-injection"
+    ],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "A view model library with automatic lifecycle management and dependency resolution.",
+    "what_it_does": "Manage state, lifecycle, and dependency composition using ViewModels and bindings. It prevents memory leaks and shares state across widgets or plain Dart classes without needing a widget tree.",
+    "use_when": [
+      "You want automatic lifecycle management and disposal for view models.",
+      "You need to share state and manage dependencies outside the widget tree.",
+      "You want explicit ownership models for view model instances."
+    ],
+    "avoid_when": [
+      "You prefer stream-based architecture like BLoC.",
+      "You are already heavily invested in Provider or Riverpod for your architecture."
+    ],
+    "strengths": [
+      "Independent of the widget tree, usable in plain Dart classes.",
+      "Automatic lifecycle management prevents memory leaks.",
+      "Supports composition of modules through ownership bindings."
+    ],
+    "weaknesses": [
+      "Global registry and configuration are process-global, requiring sequential tests.",
+      "Requires understanding specific spec and binding rules."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Optionally enable the view_model_lint analyzer plugin in analysis_options.yaml.",
+    "alternatives": [
+      {
+        "name": "riverpod",
+        "why_pick_it": "If you prefer a compile-safe, provider-based dependency injection and state management solution."
+      },
+      {
+        "name": "bloc",
+        "why_pick_it": "If you prefer a strict, predictable event-to-state stream-based architecture."
+      },
+      {
+        "name": "provider",
+        "why_pick_it": "If you want a lightweight and traditional Flutter dependency injection and state propagation tool."
+      }
+    ],
+    "minimal_example": "import 'package:view_model/view_model.dart';\n\nclass CounterViewModel with ViewModel {\n  int count = 0;\n\n  void increment() => update(() {\n        count += 1;\n      });\n}\n\nfinal counterSpec = ViewModelSpec<CounterViewModel>(\n  builder: CounterViewModel.new,\n);",
+    "confidence": 0.9
+  }
+}

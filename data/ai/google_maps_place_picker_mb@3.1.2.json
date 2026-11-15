@@ -1,0 +1,56 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "3.1.2",
+  "generatedAt": "2026-11-14T10:32:16.180Z",
+  "data": {
+    "primary_category": "maps",
+    "secondary_categories": [
+      "widgets",
+      "ui-kits"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "A Flutter widget that lets users pick a location using Google Maps.",
+    "what_it_does": "It displays a Google Map, shows the user's current location, and returns the selected place details. It also supports restricting selection to a circular area and custom zoom controls.",
+    "use_when": [
+      "You need an interactive map for users to select a place",
+      "You want built‑in handling of location permissions and place details",
+      "You prefer a ready‑made UI over building it from google_maps_flutter yourself"
+    ],
+    "avoid_when": [
+      "You only need a static map or simple marker placement",
+      "You require a fully custom UI without the provided picker overlay"
+    ],
+    "strengths": [
+      "Integrates Google Maps, Geolocator and Places APIs in one widget",
+      "Provides extra features like circular restriction and custom zoom controls",
+      "Handles permission requests and location fetching out of the box"
+    ],
+    "weaknesses": [
+      "Relies on multiple native APIs, increasing setup complexity",
+      "Limited customization compared to building your own picker",
+      "Package maintenance may lag behind upstream dependencies"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add Google Maps API keys for Android (AndroidManifest) and iOS (AppDelegate/Info.plist). Enable location permissions in Info.plist and Android manifest. Enable AndroidX and set compileSdkVersion >=28. Optionally enable embedded views preview on iOS.",
+    "alternatives": [
+      {
+        "name": "google_maps_flutter",
+        "why_pick_it": "Provides the raw map widget; you can build a custom picker with full control"
+      },
+      {
+        "name": "flutter_map",
+        "why_pick_it": "Open‑source map solution without Google API keys, useful for offline or non‑Google maps"
+      },
+      {
+        "name": "geolocator",
+        "why_pick_it": "If you only need location fetching without the map UI"
+      }
+    ],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:google_maps_place_picker_mb/google_maps_place_picker.dart';\n\nvoid main() => runApp(MyApp());\n\nclass MyApp extends StatelessWidget {\n  @override\n  Widget build(BuildContext context) {\n    return MaterialApp(\n      home: Scaffold(\n        body: PlacePicker(\n          apiKey: 'YOUR_GOOGLE_API_KEY',\n          initialPosition: LatLng(37.7749, -122.4194),\n          onPlacePicked: (result) {\n            // handle selected place\n          },\n        ),\n      ),\n    );\n  }\n}",
+    "confidence": 0.87
+  }
+}

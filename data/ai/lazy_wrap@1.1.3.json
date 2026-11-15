@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.1.3",
+  "generatedAt": "2026-11-15T11:25:29.253Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "layout"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A Flutter widget for lazy Wrap-style layouts with fixed or variable item sizes.",
+    "what_it_does": "lazy_wrap brings lazy rendering to wrap-like Flutter layouts. It allows displaying large collections of chips, tags, cards, and tiles without eagerly building every child by offering fixed and dynamic rendering modes.",
+    "use_when": [
+      "You have large collections of chips, tags, or cards arranged in a wrap layout.",
+      "You need lazy rendering for wrap-like layouts with either fixed or variable item dimensions."
+    ],
+    "avoid_when": [
+      "You are looking for standard grid or vertical lists where GridView.builder or ListView.builder suffice.",
+      "You need complex multi-axis scroll behaviors outside of standard wrap orientations."
+    ],
+    "strengths": [
+      "Supports both fixed and dynamic item sizes.",
+      "Improves performance over eager building for large collections of wrap items.",
+      "Offers offstage measurement and optional fade-in animations for dynamic items."
+    ],
+    "weaknesses": [
+      "Dynamic mode requires offstage measurement passes or experimental sliver implementations.",
+      "Changing layout revisions can reset the internal scroll position if using the internal controller."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "flutter_staggered_grid_view",
+        "why_pick_it": "Provides advanced staggered grid layouts if you need complex grid arrangements instead of a simple wrap."
+      }
+    ],
+    "minimal_example": "LazyWrap.fixed(\n  itemCount: 10000,\n  estimatedItemWidth: 120,\n  estimatedItemHeight: 96,\n  spacing: 8,\n  runSpacing: 8,\n  padding: const EdgeInsets.all(16),\n  itemBuilder: (context, index) {\n    return ProductCard(index: index);\n  },\n)",
+    "confidence": 1
+  }
+}

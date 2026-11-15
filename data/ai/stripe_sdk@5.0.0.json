@@ -1,0 +1,52 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "5.0.0",
+  "generatedAt": "2026-11-14T10:39:38.241Z",
+  "data": {
+    "primary_category": "payments",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Access Stripe API directly in Flutter with support for SCA/PSD2 and payment intents.",
+    "what_it_does": "Provides a native Dart interface to the Stripe REST API, handling payment intents, setup intents, customer management, and SCA/PSD2 authentication flows via web browsers.",
+    "use_when": [
+      "You need direct access to the Stripe API without wrapping official native Stripe SDKs.",
+      "You require full support for SCA/PSD2 authentication flows on iOS, Android, and web.",
+      "You want to manage Stripe payment intents and customer sessions."
+    ],
+    "avoid_when": [
+      "You want a fully packaged pre-built UI for adding payment methods (consider flutter_stripe instead).",
+      "You are using backend-only flows that do not require mobile payment gateway integrations."
+    ],
+    "strengths": [
+      "Complete support for SCA, 3DS, 3DS2, and BankID authentication.",
+      "Direct REST API access with web support.",
+      "Supports Google Pay and Apple Pay through the pay library."
+    ],
+    "weaknesses": [
+      "Most UI components and screens have been removed in version 5.0.",
+      "Adding payment methods directly through this library may require completing a PCI SAQ-D form."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires intent filters for deep links in AndroidManifest.xml and URL schemes in Info.plist for SCA return URLs.",
+    "alternatives": [
+      {
+        "name": "flutter_stripe",
+        "why_pick_it": "Recommended for adding payment methods to benefit from Stripe's PCI compliance and official bindings."
+      },
+      {
+        "name": "adyen_checkout",
+        "why_pick_it": "If you are using Adyen as your payment gateway instead of Stripe."
+      },
+      {
+        "name": "pay",
+        "why_pick_it": "If you only need standard Apple Pay and Google Pay integration without Stripe-specific SDK logic."
+      }
+    ],
+    "minimal_example": "Stripe.init('pk_xxx', returnUrlForSca: 'stripesdk://3ds.stripesdk.io');\nfinal clientSecret = await server.createPaymentIntent(Stripe.instance.getReturnUrlForSca());\nfinal paymentIntent = await Stripe.instance.confirmPayment(clientSecret, paymentMethodId: 'pm_card_visa');",
+    "confidence": 0.95
+  }
+}

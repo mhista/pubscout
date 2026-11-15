@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.5.8",
+  "generatedAt": "2026-11-15T11:02:37.336Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "navigation",
+      "maps"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Type-safe external deeplinks into apps with automatic store and web fallbacks",
+    "what_it_does": "Allows you to launch external apps or specific screens inside them from your Flutter application using strongly-typed Dart calls. It automatically handles checking app installation and falling back to the appropriate app store or web URL when the target app is missing.",
+    "use_when": [
+      "You need to deep-link users out of your app into external applications like WhatsApp, Telegram, or YouTube.",
+      "You want to open maps, search places, or trigger turn-by-turn navigation across multiple providers with fallback handling.",
+      "You want to programmatically redirect users to specific app store listings across multiple platforms without writing platform checks."
+    ],
+    "avoid_when": [
+      "You are trying to handle incoming deep links or universal links into your own app.",
+      "You need raw URL string manipulation without type-safe action definitions."
+    ],
+    "strengths": [
+      "Strongly-typed API for 42+ apps and navigation providers.",
+      "Smart three-tier fallback mechanism (native app -> app store -> web).",
+      "Built-in installation checking before launching apps.",
+      "Cross-platform support spanning iOS, Android, macOS, Windows, Linux, and Web."
+    ],
+    "weaknesses": [
+      "Requires platform-specific configuration like query schemes in Info.plist and package visibility in AndroidManifest.xml.",
+      "Built for external app launching, so it does not solve inbound routing needs."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires adding query schemes in ios/Runner/Info.plist and package visibility tags in android/app/src/main/AndroidManifest.xml for the apps you target.",
+    "alternatives": [
+      {
+        "name": "flutter_custom_tabs",
+        "why_pick_it": "If you want to open web links inside customized in-app browser tabs rather than launching external installed apps."
+      }
+    ],
+    "minimal_example": "final deeplinkX = DeeplinkX();\n\nawait deeplinkX.launchAction(\n  Telegram.openProfile(username: 'username', fallbackToStore: true),\n);",
+    "confidence": 1
+  }
+}

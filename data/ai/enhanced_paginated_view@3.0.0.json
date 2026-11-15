@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.0.0",
+  "generatedAt": "2026-11-13T11:27:36.473Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A customizable Flutter widget for paginated lists, grids, and slivers with pull-to-refresh.",
+    "what_it_does": "Provides a widget that handles pagination, infinite scrolling, pull-to-refresh, item deduplication, and loading/error/empty states for lists, grids, and slivers. It separates data handling via a delegate from presentation configuration via an options class, while letting developers retain control over state management.",
+    "use_when": [
+      "You need paginated lists or grids with infinite scrolling and pull-to-refresh.",
+      "You want built-in handling for empty, error, and loading states without writing boilerplate scroll listeners."
+    ],
+    "avoid_when": [
+      "You are not using pagination and simply need a standard, small static list or grid.",
+      "You prefer an entirely custom low-level scroll listener implementation."
+    ],
+    "strengths": [
+      "Supports box and sliver layouts for ListView and GridView.",
+      "Built-in support for pull-to-refresh, deduplication, and tunable load-more thresholds.",
+      "State management agnostic (works with BLoC, Riverpod, Provider, or setState)."
+    ],
+    "weaknesses": [
+      "Requires adherence to its specific delegate and status lifecycle contract.",
+      "Box-based views render eagerly inside a single scrollable unless using the sliver-based variant."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "EnhancedPaginatedView(\n  onLoadMore: (page) {},\n  hasReachedMax: state.hasReachedMax,\n  delegate: EnhancedDelegate(\n    listOfData: yourDataList,\n    status: EnhancedStatus.loaded,\n  ),\n  builder: (items, physics, reverse, shrinkWrap) {\n    return ListView.builder(\n      itemCount: items.length,\n      physics: physics,\n      shrinkWrap: shrinkWrap,\n      reverse: reverse,\n      itemBuilder: (context, index) {\n        return ListTile(title: Text(items[index].toString()));\n      },\n    );\n  },\n)",
+    "confidence": 1
+  }
+}

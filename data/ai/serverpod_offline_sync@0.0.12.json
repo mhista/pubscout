@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.0.12",
+  "generatedAt": "2026-11-13T11:27:31.803Z",
+  "data": {
+    "primary_category": "backend",
+    "secondary_categories": [
+      "storage",
+      "utils"
+    ],
+    "approach": [
+      "code generation",
+      "stream-based"
+    ],
+    "one_liner": "Offline-first sync engine for Serverpod using Conflict-free Replicated Data Types.",
+    "what_it_does": "Turns an ordinary Serverpod backend into an offline-first, collaborative system using delta-CRDTs. It automatically handles data synchronization between client and server databases while maintaining relational integrity and unique constraints.",
+    "use_when": [
+      "You are building a Serverpod application that needs to work fully offline.",
+      "You want automatic conflict resolution and space-based data sharing without writing custom merge logic."
+    ],
+    "avoid_when": [
+      "You are not using Serverpod as your backend.",
+      "Your project cannot adhere to the package's specific data modeling limitations and reserved values."
+    ],
+    "strengths": [
+      "Runs the exact same CRDT merge code on both client SQLite and server Postgres.",
+      "Preserves foreign-key actions and relational integrity automatically during merges.",
+      "Provides both one-shot sync and continuous real-time streaming sync."
+    ],
+    "weaknesses": [
+      "Imposes strict data modeling limitations and reserved values on database schemas.",
+      "Tight coupling to the Serverpod ecosystem."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding client and server packages, configuring the offline_sync module in generator.yaml, and enabling experimental database sync.",
+    "alternatives": [],
+    "minimal_example": "final session = await client.createSyncSession(databasePath);\nawait client.offlineSync.syncOnce(session);",
+    "confidence": 0.95
+  }
+}

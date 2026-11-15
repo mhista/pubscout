@@ -1,0 +1,50 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.6.13",
+  "generatedAt": "2026-11-15T11:32:20.075Z",
+  "data": {
+    "primary_category": "camera",
+    "secondary_categories": [
+      "images",
+      "files"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Capture and crop document images with a customizable camera interface and edge detection.",
+    "what_it_does": "Provides a Flutter widget for scanning, cropping, and extracting text from physical documents. Features live camera preview, edge detection, perspective correction, on-device OCR, and multiple export formats.",
+    "use_when": [
+      "You need to scan physical documents or IDs with edge detection.",
+      "You want on-device OCR without external API dependencies."
+    ],
+    "avoid_when": [
+      "You require non-Latin OCR support like Arabic.",
+      "You need basic barcode or QR scanning instead of full document capture."
+    ],
+    "strengths": [
+      "Offline-first with zero external network calls.",
+      "Supports multiple UI modes including native CamScanner delegation.",
+      "Multiple export formats including JPG, PNG, PDF, and TIFF."
+    ],
+    "weaknesses": [
+      "OCR is Latin-only.",
+      "Requires specific Android SDK versions (minSdk 24, compileSdk 36)."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires Android compileSdk 36 and minSdk 24 for the camera implementation.",
+    "alternatives": [
+      {
+        "name": "mobile_scanner",
+        "why_pick_it": "If you primarily need QR and barcode scanning rather than full document capture and perspective correction."
+      },
+      {
+        "name": "camera",
+        "why_pick_it": "If you need low-level custom camera controls rather than a pre-built document scanning UI."
+      }
+    ],
+    "minimal_example": "Future<void> launchCamera(BuildContext context) async {\n  final DocumentCaptureData? result = await Navigator.push<DocumentCaptureData>(\n    context,\n    MaterialPageRoute(\n      builder: (_) => DocumentCameraFrame(\n        frameWidth: 320,\n        frameHeight: 200,\n        requireBothSides: true,\n      ),\n    ),\n  );\n}",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.3.11",
+  "generatedAt": "2026-11-13T11:45:39.392Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "ui-kits"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A toolbar that aligns to the bottom of a widget and expands into a bottom sheet.",
+    "what_it_does": "Provides a BottomSheetBar widget that sits at the bottom of a screen or widget as a collapsible toolbar and expands into a full bottom sheet. Supports a body widget underneath, custom content through an expandedBuilder, and a controller to manage its state programmatically.",
+    "use_when": [
+      "You want a persistent bottom toolbar that expands into a full bottom sheet.",
+      "You need scrollable or complex content to reveal from the bottom of the screen upon user interaction."
+    ],
+    "avoid_when": [
+      "You only need a standard Material bottom navigation bar or standard modal bottom sheet.",
+      "You do not need a toolbar-to-sheet expanding mechanism."
+    ],
+    "strengths": [
+      "Smooth transition between collapsed toolbar and expanded bottom sheet.",
+      "Includes a controller to listen to events and programmatically expand or collapse.",
+      "Supports customizable border radiuses, shadows, backdrop colors, and safe area wrapping."
+    ],
+    "weaknesses": [
+      "Limited to bottom-aligned toolbars/sheets.",
+      "Relies on external measure_size package."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "BottomSheetBar(\n    expandedBuilder: (scrollController) => ListView.builder(\n        controller: scrollController, \n        itemBuilder: (context, index) => ListTile(title: index.toString()),\n        itemCount: 50,\n    ),\n    collapsed: Text('Collapsed toolbar widget'),\n    body: Text('Content overlayed by toolbar and bottom sheet'),\n);",
+    "confidence": 0.95
+  }
+}

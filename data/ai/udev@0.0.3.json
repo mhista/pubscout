@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.0.3",
+  "generatedAt": "2026-11-13T11:45:16.478Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "web-desktop"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "API for enumerating and introspecting local devices on Linux using libudev.",
+    "what_it_does": "Provides a Dart interface to libudev for querying, enumerating, and monitoring local devices on Linux systems. Allows filtering devices by subsystems and reading syspaths or device numbers.",
+    "use_when": [
+      "You are building a Linux-targeted Flutter or Dart application that needs to interact with hardware devices.",
+      "You need to monitor local device connection and disconnection events via streams.",
+      "You need to enumerate system devices and inspect their properties."
+    ],
+    "avoid_when": [
+      "Your application targets platforms other than Linux, such as Android, iOS, Windows, or macOS.",
+      "You only need high-level device information without interacting with system-level Linux device management."
+    ],
+    "strengths": [
+      "Direct binding to libudev for comprehensive Linux hardware access.",
+      "Supports stream-based monitoring of device connection events.",
+      "Simple and straightforward API for querying system paths and device attributes."
+    ],
+    "weaknesses": [
+      "Restricted strictly to Linux platforms.",
+      "Requires proper native system setup and dependencies for libudev."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires libudev available on the host Linux system and the standard ffi package setup.",
+    "alternatives": [],
+    "minimal_example": "final context = UdevContext();\n\nfinal syspaths = context.enumerateDevices(subsystems: ['usb']);\nfor (final syspath in syspaths) {\n  final device = UdevDevice.fromSyspath(syspath, context: context);\n  print(device);\n}",
+    "confidence": 0.95
+  }
+}

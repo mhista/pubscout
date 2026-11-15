@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.8.0",
+  "generatedAt": "2026-11-13T11:31:12.318Z",
+  "data": {
+    "primary_category": "auth",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "declarative",
+      "imperative"
+    ],
+    "one_liner": "An authorization library supporting access control models like ACL, RBAC, and ABAC.",
+    "what_it_does": "Casbin is an authorization library that enforces access control policies using models based on the PERM metamodel (Policy, Effect, Request, Matchers). It manages role-user mappings, role hierarchies, and evaluates access requests against configured rules.",
+    "use_when": [
+      "You need flexible access control models like ACL, RBAC, or ABAC in your Dart or Flutter application",
+      "You want to manage permissions via configuration files or at runtime using standard APIs"
+    ],
+    "avoid_when": [
+      "You need user authentication (verifying usernames and passwords)",
+      "You need a password container or user management database"
+    ],
+    "strengths": [
+      "Supports multiple access control models (ACL, RBAC, ABAC, RESTful, etc.)",
+      "Allows switching authorization mechanisms simply by modifying configuration files",
+      "Provides both primitive management APIs and friendly RBAC APIs"
+    ],
+    "weaknesses": [
+      "Does not handle authentication or user login management",
+      "Requires managing users and roles externally or via provided mapping APIs"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the dependency to pubspec.yaml and initialize the Enforcer with a model file and a policy file.",
+    "alternatives": [],
+    "minimal_example": "import 'package:casbin/casbin.dart';\n\nvar e = Enforcer.fromModelPathAndPolicyFile('path/to/model.conf', 'path/to/policy.csv');\n\nvar sub = 'alice';\nvar obj = 'data1';\nvar act = 'read';\n\nif (e.enforce([sub, obj, act])) {\n    // permit access\n} else {\n    // deny access\n}",
+    "confidence": 1
+  }
+}

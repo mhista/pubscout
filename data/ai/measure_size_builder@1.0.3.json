@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.3",
+  "generatedAt": "2026-11-13T11:05:37.516Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "layout"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A widget that measures the rendering size of its child dynamically.",
+    "what_it_does": "MeasureSizeBuilder wraps a child widget and provides its dynamically computed size through a builder function. It detects when the widget size changes and can return updated size values in real time based on a configurable sensitivity duration.",
+    "use_when": [
+      "You need to access the dynamic width or height of a widget at runtime",
+      "You want to conditionally alter UI layout or styling based on a widget's measured size"
+    ],
+    "avoid_when": [
+      "You only need standard layout constraints without explicitly reading pixel dimensions"
+    ],
+    "strengths": [
+      "Easy to use with a builder pattern",
+      "Detects changed size dynamically when child widgets change",
+      "Configurable sensitivity duration to control update frequency"
+    ],
+    "weaknesses": [
+      "Frequent size changes and short sensitivity durations can trigger excessive widget re-renders"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "MeasureSizeBuilder(\n  builder: (context, size) {\n    return Container(\n      color: size.height > 300 ? Colors.red : Colors.blue,\n      child: SomeWidget(),\n    );\n  },\n)",
+    "confidence": 1
+  }
+}

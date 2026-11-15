@@ -1,0 +1,37 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.2.0",
+  "generatedAt": "2026-11-14T10:51:02.311Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Provides Kotlin-familiar scope functions like let, run, and also for Dart.",
+    "what_it_does": "It implements Kotlin-like scope functions (let, run, also) as static extension methods in Dart. These functions help structure code blocks around objects, particularly handling null values and executing concise conditional expressions.",
+    "use_when": [
+      "You want to use Kotlin-style scope functions such as let, also, and run in your Dart projects.",
+      "You need to execute code blocks conditionally on non-null values with clean syntax."
+    ],
+    "avoid_when": [
+      "You prefer standard Dart control flow and null-aware operators without extension-based scope functions.",
+      "You require a large suite of Kotlin standard library utilities beyond let, run, and also."
+    ],
+    "strengths": [
+      "Brings familiar Kotlin scoping constructs to Dart.",
+      "Lightweight with no external dependencies."
+    ],
+    "weaknesses": [
+      "Very limited feature set consisting only of let, run, and also.",
+      "Not widely recognized or standard in the Dart ecosystem."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "none",
+    "alternatives": [],
+    "minimal_example": "import 'package:kotlin_flavor/scope_functions.dart';\n\nbool handle(Shop selectedShop) {\n  return selectedShop?.let((shop) {\n    navigateTo(shop.location);\n    return true;\n  }) ?? run(() {\n    navigateToDefaultPosition();\n    return false;\n  });\n}",
+    "confidence": 0.9
+  }
+}

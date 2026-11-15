@@ -1,0 +1,46 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.2.0",
+  "generatedAt": "2026-11-14T10:41:26.174Z",
+  "data": {
+    "primary_category": "payments",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "A Flutter plugin for integrating the HyperPay payment gateway on Android and iOS.",
+    "what_it_does": "It enables seamless integration with the HyperPay payment gateway, supporting both ReadyUI and CustomUI with payment methods like VISA, MasterCard, MADA, STC, and Apple Pay.",
+    "use_when": [
+      "You need to integrate HyperPay payment gateway in a Flutter mobile app.",
+      "You require support for ReadyUI and CustomUI flows including Apple Pay and MADA."
+    ],
+    "avoid_when": [
+      "You are using a payment gateway other than HyperPay, such as Stripe or Adyen."
+    ],
+    "strengths": [
+      "Supports multiple payment brands including VISA, MasterCard, MADA, STC, and Apple Pay.",
+      "Provides both ReadyUI and CustomUI implementations.",
+      "Actively updated with native SDK versions."
+    ],
+    "weaknesses": [
+      "Requires manual native configuration on both Android (build.gradle, AndroidManifest.xml) and iOS (Podfile, URL schemes).",
+      "STC CustomUI for iOS is not currently supported."
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Requires native setup steps in Android (adding specific aar dependencies, setting minSdkVersion to 21, and configuring intent filters) and iOS (modifying Podfile to include the hyperpay_sdk git repo and configuring static framework bindings and URL schemes).",
+    "alternatives": [
+      {
+        "name": "flutter_stripe",
+        "why_pick_it": "Choose this if you are using Stripe instead of HyperPay for payment processing."
+      },
+      {
+        "name": "adyen_checkout",
+        "why_pick_it": "Choose this if you are using Adyen as your payment gateway instead of HyperPay."
+      }
+    ],
+    "minimal_example": "late FlutterHyperPay flutterHyperPay;\nflutterHyperPay = FlutterHyperPay(\n  shopperResultUrl: InAppPaymentSetting.shopperResultUrl,\n  paymentMode: PaymentMode.test,\n  lang: InAppPaymentSetting.getLang(),\n);",
+    "confidence": 0.95
+  }
+}

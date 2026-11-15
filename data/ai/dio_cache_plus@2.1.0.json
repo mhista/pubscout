@@ -1,0 +1,51 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "2.1.0",
+  "generatedAt": "2026-11-15T11:07:55.254Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Advanced Dio interceptor that adds flexible caching, expiry and deduplication.",
+    "what_it_does": "Provides per‑request control over caching, conditional rules, absolute or relative expiry, and request deduplication for Dio HTTP calls. Stores cached responses persistently using Hive and adds standard Cache‑Status headers.",
+    "use_when": [
+      "You need fine‑grained caching for Dio requests",
+      "You want automatic cache expiry and deduplication"
+    ],
+    "avoid_when": [
+      "You are not using Dio as your HTTP client",
+      "You need a lightweight solution without persistent storage"
+    ],
+    "strengths": [
+      "Highly configurable per‑request caching",
+      "Supports both duration and absolute expiry",
+      "Persistent cross‑platform storage with Hive",
+      "Request deduplication reduces network load"
+    ],
+    "weaknesses": [
+      "Adds complexity compared to plain Dio",
+      "Relies on Hive which may increase app size",
+      "Only works with Dio, not other HTTP clients"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "dio",
+        "why_pick_it": "Simpler setup if you don't need caching features"
+      },
+      {
+        "name": "http",
+        "why_pick_it": "Lightweight HTTP client without caching overhead"
+      }
+    ],
+    "minimal_example": "import 'package:dio/dio.dart';\nimport 'package:dio_cache_plus/dio_cache_plus.dart';\n\nfinal dio = Dio();\n dio.interceptors.add(DioCachePlusInterceptor(cacheAll:false,commonCacheDuration:const Duration(minutes:5)));\nfinal response = await dio.get('/api/data',options: Options().setCaching(enableCache:true));",
+    "confidence": 0.9
+  }
+}

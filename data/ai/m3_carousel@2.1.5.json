@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.1.5",
+  "generatedAt": "2026-11-15T11:05:36.944Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "ui-kits"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A Material Design 3 carousel implementation for Flutter.",
+    "what_it_does": "Provides a Flutter implementation of the Material Design 3 carousel component, supporting hero, contained, and uncontained layouts. It offers horizontal and vertical scrolling, custom alignment, and theme extensions for customization.",
+    "use_when": [
+      "You need Material Design 3 compliant carousels in your Flutter application.",
+      "You want to display hero, contained, or uncontained carousel layouts with configurable axes."
+    ],
+    "avoid_when": [
+      "Your project cannot use the material_ui package dependency.",
+      "You need simple standard page views or list views without M3 carousel specifications."
+    ],
+    "strengths": [
+      "Supports multiple M3 carousel types (hero, contained, uncontained, fullScreen).",
+      "Allows horizontal or vertical scrolling directions.",
+      "Theme customization via M3CarouselTheme extensions."
+    ],
+    "weaknesses": [
+      "Requires the material_ui package instead of standard package:flutter/material.dart imports.",
+      "Strict Dart and Flutter version constraints."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add material_ui and m3_carousel to your pubspec.yaml and replace standard material imports with material_ui.",
+    "alternatives": [
+      {
+        "name": "material_ui",
+        "why_pick_it": "Provides foundational UI components and material themes."
+      }
+    ],
+    "minimal_example": "import \"package:m3_carousel/m3_carousel.dart\";\nimport \"package:material_ui/material_ui.dart\";\n\nM3Carousel(\n  type: M3CarouselType.hero,\n  heroAlignment: M3HeroAlignment.center,\n  axis: Axis.horizontal,\n  children: List<M3CarouselItem>.generate(10, (int index) {\n    return M3CarouselItem(\n      image: Image.asset(\"assets/i${index % 6 + 1}.png\", fit: BoxFit.cover),\n      title: Text(\"Item $index\"),\n    );\n  }),\n);",
+    "confidence": 0.95
+  }
+}

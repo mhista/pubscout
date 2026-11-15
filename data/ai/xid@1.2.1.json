@@ -1,0 +1,46 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "1.2.1",
+  "generatedAt": "2026-11-13T11:00:36.883Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Generates compact, sortable, URL‑safe 20‑character IDs based on MongoDB ObjectID algorithm.",
+    "what_it_does": "Provides a Dart implementation of the Xid algorithm, creating 12‑byte (96‑bit) identifiers encoded in base32 hex. The IDs are k‑ordered, include a timestamp, and require no configuration or central server.",
+    "use_when": [
+      "You need short, sortable IDs without external services",
+      "You want IDs that embed time and are URL‑safe",
+      "You prefer a pure‑Dart solution that works on all platforms"
+    ],
+    "avoid_when": [
+      "You need cryptographically secure random IDs",
+      "You require UUID format or compatibility with existing UUID tooling"
+    ],
+    "strengths": [
+      "Very small string representation (20 chars)",
+      "Sortable and time‑ordered",
+      "No configuration or external dependencies"
+    ],
+    "weaknesses": [
+      "Not a standard UUID, may not interoperate with UUID‑only systems",
+      "Only 1‑second timestamp precision",
+      "Not cryptographically random"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "uuid",
+        "why_pick_it": "Standard 128‑bit UUIDs with wide ecosystem support and familiar format"
+      }
+    ],
+    "minimal_example": "import 'package:xid/xid.dart';\n\nvoid main() {\n  var id = Xid();\n  print('generated id: $id');\n}",
+    "confidence": 0.97
+  }
+}

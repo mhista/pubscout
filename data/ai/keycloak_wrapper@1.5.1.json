@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.5.1",
+  "generatedAt": "2026-11-13T11:47:57.167Z",
+  "data": {
+    "primary_category": "auth",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Keycloak Single Sign-On authentication package for Flutter.",
+    "what_it_does": "Integrates Keycloak Single Sign-On (SSO) authentication into Flutter apps using OAuth 2.0 and OpenID Connect. Manages tokens automatically under the hood and provides a user authentication state stream.",
+    "use_when": [
+      "You need to authenticate users via Keycloak in your Flutter application.",
+      "You want automatic token management and secure token storage using Keychain or Keystore."
+    ],
+    "avoid_when": [
+      "You are using Firebase or Supabase authentication instead of Keycloak.",
+      "You need automated tests for the authentication flow, which are unsupported due to the webview login requirement."
+    ],
+    "strengths": [
+      "Provides an authentication state stream to keep the app in sync with login status changes.",
+      "Automatically manages and securely stores tokens under the hood.",
+      "Supports custom iOS/macOS web authentication session settings."
+    ],
+    "weaknesses": [
+      "All test files were removed because users must log in via the webview, making it untestable.",
+      "Requires native configuration adjustments on Android, iOS, and macOS."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding a valid redirect URI in the Keycloak console, setting up custom schemes in Android build.gradle (manifestPlaceholders) and iOS/macOS Info.plist, and removing android:taskAffinity='' from AndroidManifest.xml if using Flutter v3.22.0 or newer.",
+    "alternatives": [],
+    "minimal_example": "final keycloakWrapper = KeycloakWrapper();\n\nvoid main() {\n  WidgetsFlutterBinding.ensureInitialized();\n  keycloakWrapper.initialize(\n    config: KeycloakConfig(\n      bundleIdentifier: '<bundle_identifier>',\n      clientId: '<client_id>',\n      frontendUrl: '<frontend_url>',\n      realm: '<realm>',\n    ),\n  );\n  runApp(const MyApp());\n}",
+    "confidence": 1
+  }
+}

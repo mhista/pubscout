@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.1.1",
+  "generatedAt": "2026-11-15T11:12:19.737Z",
+  "data": {
+    "primary_category": "camera",
+    "secondary_categories": [
+      "audio-video"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Extends the Flutter camera plugin to stream live video over RTMP on Android and iOS.",
+    "what_it_does": "Extends the official Flutter camera plugin with methods to stream live video directly to an RTMP endpoint. It supports features like starting/pausing streams, simultaneous video recording, and retrieving stream statistics.",
+    "use_when": [
+      "You need to build a live streaming application that pushes video via RTMP.",
+      "You are already using the camera plugin and want RTMP broadcasting without changing your camera UI flow."
+    ],
+    "avoid_when": [
+      "You need web support (the package explicitly states web is not supported).",
+      "You require an alternative protocol like WebRTC or HLS without RTMP broadcasting."
+    ],
+    "strengths": [
+      "Familiar API mirroring the standard Flutter camera plugin.",
+      "Supports simultaneous recording to a local file while streaming.",
+      "Handles complex native RTMP client implementations under the hood."
+    ],
+    "weaknesses": [
+      "Web is not supported.",
+      "Under active development with potential breaking changes between versions."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding NSCameraUsageDescription and NSMicrophoneUsageDescription keys to Info.plist on iOS, and setting minSdkVersion to 21 or higher in Android build.gradle.",
+    "alternatives": [],
+    "minimal_example": "final controller = CameraController(cameras[0], ResolutionPreset.medium);\nawait controller.initialize();\nawait controller.startVideoStreaming('rtmp://your-endpoint/live/stream_key');",
+    "confidence": 0.95
+  }
+}

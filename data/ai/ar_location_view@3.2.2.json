@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.2.2",
+  "generatedAt": "2026-11-15T11:29:20.246Z",
+  "data": {
+    "primary_category": "maps",
+    "secondary_categories": [
+      "camera",
+      "device"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Location-based augmented reality labels overlaying the camera preview for points of interest.",
+    "what_it_does": "Shows geolocated points of interest as labels over the camera preview, matched to the device's 3D orientation. Automatically stacks overlapping labels and handles smoothed compass and GPS filters.",
+    "use_when": [
+      "Building an AR experience centered around static geolocated points of interest",
+      "Displaying directional labels over a live camera preview based on user location and compass heading"
+    ],
+    "avoid_when": [
+      "Needing general interactive map rendering without camera overlays",
+      "Apps that do not require device sensors or geolocation permissions"
+    ],
+    "strengths": [
+      "Automatic vertical stacking of overlapping labels with stable positioning",
+      "Configurable smoothed compass and GPS attitude/location filters",
+      "Includes built-in radar and customizable annotation views"
+    ],
+    "weaknesses": [
+      "Requires proper native permission configuration and specific iOS/Android setup",
+      "Depends heavily on device hardware capabilities like compass, gyroscope, and GPS"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding camera and location usage descriptions to iOS Info.plist and Podfile preprocessor definitions. Android SDK configuration might be needed depending on the permission_handler version.",
+    "alternatives": [],
+    "minimal_example": "ArLocationWidget(\n  annotations: pois,\n  annotationWidth: 180,\n  annotationHeight: 60,\n  annotationViewBuilder: (context, annotation) {\n    final poi = annotation as Poi;\n    return Card(\n      child: ListTile(\n        title: Text(poi.name),\n        subtitle: Text('${poi.distanceFromUser.round()} m'),\n      ),\n    );\n  },\n  onLocationChange: (position) => loadPoisAround(position),\n)",
+    "confidence": 0.95
+  }
+}

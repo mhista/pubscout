@@ -1,0 +1,36 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.1.2-nullsafety.1",
+  "generatedAt": "2026-11-15T11:33:25.385Z",
+  "data": {
+    "primary_category": "games",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "A word search puzzle generator and solver built with Dart.",
+    "what_it_does": "Allows you to create a word search puzzle from a list of input words arranged in various orientations. It also includes functionality to solve the generated puzzle for a given word list.",
+    "use_when": [
+      "You need to generate word search puzzles programmatically in Dart or Flutter.",
+      "You want to solve or verify word search puzzles within your application."
+    ],
+    "avoid_when": [
+      "You are building complex action or real-time games that require a full game engine."
+    ],
+    "strengths": [
+      "Supports multiple word orientations like horizontal, vertical, and diagonal.",
+      "Provides built-in puzzle solving and error checking for unplaced words."
+    ],
+    "weaknesses": [
+      "Limited documentation outside of basic example usage.",
+      "No topics or advanced configuration explicitly documented."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [],
+    "minimal_example": "import 'package:word_search/word_search.dart';\n\nvoid main() {\n  final List<String> wl = ['hello', 'world', 'foo', 'bar', 'baz', 'dart'];\n  final WSSettings ws = WSSettings(\n    width: 10,\n    height: 10,\n    orientations: List.from([\n      WSOrientation.horizontal,\n      WSOrientation.vertical,\n      WSOrientation.diagonal,\n    ]),\n  );\n  final WordSearchSafety wordSearch = WordSearchSafety();\n  final WSNewPuzzle newPuzzle = wordSearch.newPuzzle(wl, ws);\n  if (newPuzzle.errors.isEmpty) {\n    print(newPuzzle.toString());\n  }\n}",
+    "confidence": 0.9
+  }
+}

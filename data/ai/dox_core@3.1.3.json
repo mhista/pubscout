@@ -1,0 +1,56 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "3.1.3",
+  "generatedAt": "2026-11-13T11:20:54.220Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "backend",
+      "utils"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Dart web backend framework core with HTTP server, router, DTO validation, caching, OpenAPI and WebSocket support",
+    "what_it_does": "Provides a native HTTP server, routing, typed DTO input validation, caching, OpenAPI docs, and WebSocket handling for building scalable Dart APIs.",
+    "use_when": [
+      "Building a full‑stack Dart backend API",
+      "Need typed request validation and automatic 422 responses",
+      "Want built‑in caching and OpenAPI docs",
+      "Require WebSocket support on the same port"
+    ],
+    "avoid_when": [
+      "You only need a simple HTTP client",
+      "You prefer a minimal server like shelf",
+      "You are building a Flutter mobile app"
+    ],
+    "strengths": [
+      "Full feature set (router, DTO, cache, OpenAPI, WebSocket)",
+      "Typed DTO validation with code generation",
+      "Native Rust HTTP server for performance",
+      "Built‑in caching and rate limiting"
+    ],
+    "weaknesses": [
+      "Not a client library",
+      "Requires build_runner for DTO code generation",
+      "Heavier than minimal servers like shelf",
+      "Learning curve for framework concepts"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add dox_core to pubspec, run `dart run build_runner build` for DTO generation, configure AppConfig in main, optionally add dox_cache or dox_storage for caching.",
+    "alternatives": [
+      {
+        "name": "shelf",
+        "why_pick_it": "Lightweight server for simple HTTP APIs without DTO validation or OpenAPI"
+      },
+      {
+        "name": "firebase_core",
+        "why_pick_it": "If you need Firebase backend services instead of a custom server"
+      }
+    ],
+    "minimal_example": "import 'package:dox_core/dox_core.dart';\n\nclass ApiRouter extends Router {\n  @override\n  String get prefix => 'api';\n  @override\n  void register() {\n    Route.get('/ping', (DoxRequest req) => 'pong');\n  }\n}\n\nvoid main() async {\n  Dox().initialize(AppConfig(\n    appKey: Env.get('APP_KEY'),\n    serverPort: 3000,\n    routers: <Router>[ApiRouter()],\n  ));\n  await Dox().startServer();\n}\n",
+    "confidence": 0.9
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.5",
+  "generatedAt": "2026-11-14T11:00:02.112Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "A State for StatefulWidgets that provides visibility awareness similar to Android activity lifecycles.",
+    "what_it_does": "Provides a VisibilityAwareState class for StatefulWidgets that detects when widgets become visible, invisible, pushed, popped, or when the app enters the background. It allows developers to override onVisibilityChanged to handle these lifecycle events and check current visibility.",
+    "use_when": [
+      "You need screen view tracking when widgets become visible.",
+      "You need to automatically refresh data when a user returns to a screen.",
+      "You want Android-like onResume lifecycle callbacks for Flutter widgets."
+    ],
+    "avoid_when": [
+      "You are managing complex global application state across multiple independent features.",
+      "You prefer reactive stream-based architecture over stateful mixins."
+    ],
+    "strengths": [
+      "Simple API similar to Android activity lifecycle methods.",
+      "Tracks whether the app is in the background or foreground automatically.",
+      "Provides helper methods like finish() and isVisible()."
+    ],
+    "weaknesses": [
+      "Limited to managing widget visibility state rather than general app state management.",
+      "Relies on extending a specific custom State class rather than composition or hooks."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Not documented",
+    "alternatives": [],
+    "minimal_example": "class _ExampleState extends VisibilityAwareState<Example> {\n  @override\n  Widget build(BuildContext context) {\n    return Scaffold(\n      appBar: AppBar(title: Text('Example app')),\n      body: Center(child: Text('Welcome.')),\n    );\n  }\n\n  @override\n  void onVisibilityChanged(WidgetVisibility visibility) {\n    super.onVisibilityChanged(visibility);\n  }\n}",
+    "confidence": 0.95
+  }
+}

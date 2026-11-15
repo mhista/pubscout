@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.0.0",
+  "generatedAt": "2026-11-14T10:43:07.930Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "ui-kits",
+      "theming"
+    ],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "Turn any widget into frosted glass or Apple-style liquid glass with a single asGlass() call.",
+    "what_it_does": "Converts any standard Flutter widget into a glassmorphic element using a backdrop blur, tint, and frosted noise texture. It also supports experimental Apple-style liquid glass effects with edge refraction and rim lighting.",
+    "use_when": [
+      "You want to implement glassmorphism design or Apple-style liquid glass effects on UI elements.",
+      "You need to blur background content behind cards, bottom sheets, or navigation bars."
+    ],
+    "avoid_when": [
+      "You need complex physics-based continuous squircle shapes instead of standard circular or elliptical corner arcs.",
+      "You have many overlapping glass elements without grouping, which can severely impact scrolling performance."
+    ],
+    "strengths": [
+      "Extremely simple API accessed via an extension method (.asGlass()).",
+      "Supports performance optimization for lists and multiple instances via BackdropGroup.",
+      "Safe fallback to plain blur on web and Skia renderers when fragment shaders aren't available."
+    ],
+    "weaknesses": [
+      "Liquid glass refraction and rim features require Impeller and are not fully functional on the Skia renderer or web.",
+      "Multiple unoptimized glass widgets on screen can hurt scrolling performance.",
+      "Corners use circular or elliptical arcs rather than Apple's continuous squircle shape."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires Flutter 3.29 or newer. Optional precaching can be done via LiquidGlass.precache() in main().",
+    "alternatives": [],
+    "minimal_example": "Container(\n    child: someChild,\n).asGlass()",
+    "confidence": 1
+  }
+}

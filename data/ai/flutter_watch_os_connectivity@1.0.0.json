@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "1.0.0",
+  "generatedAt": "2026-11-13T11:08:46.865Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "stream-based"
+    ],
+    "one_liner": "Flutter plugin to communicate with WatchOS apps via Apple Watch Connectivity.",
+    "what_it_does": "Provides a wrapper around the Watch Connectivity framework allowing Flutter iOS apps to send messages, application context, user info, and files to a paired WatchOS app. It also exposes activation state and device reachability information.",
+    "use_when": [
+      "You need bidirectional communication between an iOS Flutter app and its WatchOS companion.",
+      "You want to transfer small messages, app context, user data, or files to a watch.",
+      "You need to monitor watch reachability and activation state."
+    ],
+    "avoid_when": [
+      "Your app targets Android or other platforms only.",
+      "You require cross‑platform watch support (e.g., Wear OS) without separate implementations."
+    ],
+    "strengths": [
+      "Uses native Watch Connectivity for reliable Apple ecosystem communication",
+      "Rich feature set: messages, context, user info, file transfer",
+      "Provides streams for activation and reachability changes"
+    ],
+    "weaknesses": [
+      "iOS‑only; no support for Android or web",
+      "Requires a WatchOS companion app with matching bundle ID",
+      "Limited documentation beyond README"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add the plugin to pubspec, ensure a WatchOS companion app exists, configure bundle ID (YOUR_IOS_BUNDLE_ID.watchkitapp) and enable Watch Connectivity in Xcode.",
+    "alternatives": [
+      {
+        "name": "connectivity_plus",
+        "why_pick_it": "Provides generic network connectivity status across platforms, but not watch‑specific communication."
+      }
+    ],
+    "minimal_example": "import 'package:flutter_watch_os_connectivity/flutter_watch_os_connectivity.dart';\n\nfinal watch = FlutterWatchOsConnectivity();\nawait watch.activate();\nwatch.activationStateStream.listen((state) => print('Activation: $state'));\nwatch.sendMessage({'key':'value'}).then((reply)=>print('Reply: $reply'));",
+    "confidence": 0.8
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.2.3",
+  "generatedAt": "2026-11-15T11:07:06.080Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "animation",
+      "utils"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A customizable timer widget with millisecond support and a controller.",
+    "what_it_does": "Provides a customizable timer widget and controller to handle count up or count down scenarios. Supports millisecond precision, custom builders, and runtime manipulations like start, pause, reset, jump, and interval changes.",
+    "use_when": [
+      "You need a custom countdown or count-up timer widget with flexible formatting.",
+      "You require runtime control over a timer such as pausing, starting, and jumping to specific durations."
+    ],
+    "avoid_when": [
+      "You need background services or alarms that persist when the app is terminated."
+    ],
+    "strengths": [
+      "Includes a robust controller for timer manipulation (start, pause, reset, finish, add, subtract, jumpTo).",
+      "Supports millisecond precision and customizable intervals.",
+      "Provides a clean custom builder pattern for UI rendering."
+    ],
+    "weaknesses": [
+      "Requires SingleTickerProviderStateMixin in the parent widget for ticker provision.",
+      "Lacks background persistence out of the box."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "CustomTimer(\n  controller: _controller,\n  builder: (state, time) {\n    return Text(\n      \"${time.hours}:${time.minutes}:${time.seconds}.${time.milliseconds}\",\n      style: TextStyle(fontSize: 24.0)\n    );\n  }\n)",
+    "confidence": 0.95
+  }
+}

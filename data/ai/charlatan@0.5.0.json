@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.5.0",
+  "generatedAt": "2026-11-13T11:36:31.544Z",
+  "data": {
+    "primary_category": "testing",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "imperative",
+      "declarative"
+    ],
+    "one_liner": "Configure and provide fake HTTP responses to the dio HTTP client for testing.",
+    "what_it_does": "Allows you to configure fake HTTP responses for Dio based on HTTP methods and URI templates. It includes a custom HttpClientAdapter to route Dio requests through the configured fakes without using traditional mocking frameworks.",
+    "use_when": [
+      "You are writing tests for code that interacts with HTTP services via Dio.",
+      "You want to avoid complex mocking libraries for testing network requests."
+    ],
+    "avoid_when": [
+      "You are not using the Dio HTTP client.",
+      "You need a full-fledged backend server mock over actual sockets rather than an HTTP client adapter."
+    ],
+    "strengths": [
+      "Makes testing Dio HTTP calls straightforward and readable.",
+      "Supports URI templates and custom request matching logic."
+    ],
+    "weaknesses": [
+      "Limited specifically to the Dio HTTP client.",
+      "Not documented to support complex mock server scenarios beyond adapter-level faking."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add charlatan to dev_dependencies in pubspec.yaml.",
+    "alternatives": [],
+    "minimal_example": "final charlatan = Charlatan();\ncharlatan.whenGet('/users/{id}', charlatanResponse(body: { 'name': 'bilbo' }));\nfinal dio = Dio()..httpClientAdapter = charlatan.toFakeHttpClientAdapter();",
+    "confidence": 1
+  }
+}

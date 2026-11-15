@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.0.1",
+  "generatedAt": "2026-11-15T11:30:19.760Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter plugin to redirect users to app stores for updates and reviews on Android and iOS.",
+    "what_it_does": "Allows apps to programmatically open the app store detail page, review list, or write-review page. On Android, it automatically detects installed vendor app markets or falls back to the generic market protocol.",
+    "use_when": [
+      "You want to prompt users to update your app via the store.",
+      "You need to direct users to the app review or feedback page."
+    ],
+    "avoid_when": [
+      "You need in-app downloading and installation of APK files directly from your server.",
+      "Targeting Android devices with a minSdk below 24 or iOS below 15.0."
+    ],
+    "strengths": [
+      "Automatic vendor app market detection on Android (Huawei, Honor, Xiaomi, OPPO, vivo, Meizu, Samsung).",
+      "Pre-launch capability checks to verify the link can be handled before attempting a jump."
+    ],
+    "weaknesses": [
+      "Review list page is not supported on Android and throws an UnsupportedError.",
+      "Review deep links on Android are restricted to specific vendor markets (OPPO, vivo, Honor)."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires SDK 3.11.0+, Flutter 3.41.0+, Android minSdk 24, and iOS deployment target 15.0.",
+    "alternatives": [
+      {
+        "name": "url_launcher",
+        "why_pick_it": "If you prefer manually crafting store URLs using url_launcher instead of using a dedicated helper package."
+      }
+    ],
+    "minimal_example": "final bool opened = await UpgradeUtil.launch(\n  type: UpgradeOpenType.detail,\n  packageName: 'com.tencent.mm',\n  appleID: '414478124',\n);",
+    "confidence": 0.95
+  }
+}

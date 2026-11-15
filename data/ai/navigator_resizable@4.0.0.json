@@ -1,0 +1,56 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "4.0.0",
+  "generatedAt": "2026-11-15T10:55:00.145Z",
+  "data": {
+    "primary_category": "navigation",
+    "secondary_categories": [
+      "widgets",
+      "layout"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "A widget that resizes a child Navigator to its current route's intrinsic size.",
+    "what_it_does": "NavigatorResizable wraps a Navigator and automatically adjusts its size to match the content of the active route. It works with standard navigation APIs and the Pages API, fixing size lag and assertion issues.",
+    "use_when": [
+      "You need a Navigator that does not occupy the full screen size",
+      "You want the surrounding layout to adapt to route content size",
+      "You use go_router or auto_route and need intrinsic sizing"
+    ],
+    "avoid_when": [
+      "Your app relies on the default full‑screen Navigator behavior",
+      "You cannot migrate to material_ui due to widget incompatibilities"
+    ],
+    "strengths": [
+      "Provides intrinsic sizing for nested navigators",
+      "Fixes flicker and assertion bugs on iOS and overlays",
+      "Compatible with common navigation packages"
+    ],
+    "weaknesses": [
+      "Requires migration to material_ui which may cause runtime conflicts",
+      "Only works on Flutter 3.5+",
+      "Limited to resizing; does not add navigation features"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add navigator_resizable and material_ui to pubspec, migrate existing material imports to material_ui as described in the migration guide.",
+    "alternatives": [
+      {
+        "name": "go_router",
+        "why_pick_it": "Full‑featured routing solution with built‑in navigation and URL handling"
+      },
+      {
+        "name": "auto_route",
+        "why_pick_it": "Code‑generated routes with type‑safe navigation and deep linking"
+      },
+      {
+        "name": "beamer",
+        "why_pick_it": "Declarative routing with support for nested navigators"
+      }
+    ],
+    "minimal_example": "```dart\nimport 'package:flutter/material.dart';\nimport 'package:navigator_resizable/navigator_resizable.dart';\n\nvoid main() => runApp(const MyApp());\n\nclass MyApp extends StatelessWidget {\n  const MyApp({super.key});\n  @override\n  Widget build(BuildContext context) {\n    return MaterialApp(\n      home: NavigatorResizable(\n        child: Navigator(\n          onGenerateRoute: (settings) => MaterialPageRoute(\n            builder: (_) => const HomePage(),\n          ),\n        ),\n      ),\n    );\n  }\n}\n\nclass HomePage extends StatelessWidget {\n  const HomePage({super.key});\n  @override\n  Widget build(BuildContext context) => const Scaffold(body: Center(child: Text('Hello')));\n}\n```",
+    "confidence": 0.92
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.6",
+  "generatedAt": "2026-11-14T10:41:01.465Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "ui-kits"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Create interactive tutorials and onboarding flows with widget highlights and tooltips.",
+    "what_it_does": "Allows developers to build step-by-step guided tours and user instruction overlays in Flutter apps. It highlights specific target widgets using GlobalKeys, displays customizable tooltips, and offers callbacks for user interactions at each step.",
+    "use_when": [
+      "You need to guide new users through app features during an onboarding flow.",
+      "You want to highlight specific UI elements with step-by-step tooltips and descriptions."
+    ],
+    "avoid_when": [
+      "You require complex state management or dependency injection.",
+      "You are building a game that requires custom game-loop rendering."
+    ],
+    "strengths": [
+      "Easy integration using just a GlobalKey for target widgets.",
+      "Flexible styling for tooltips, highlights, blur effects, and buttons.",
+      "Step-specific callbacks for tracking and analytics."
+    ],
+    "weaknesses": [
+      "Relies on GlobalKeys to locate targets, which may require refactoring widget trees.",
+      "Limited to overlay tooltips and guided tours."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "final GlobalKey _buttonKey = GlobalKey();\n\nfinal steps = [\n  TutorialStep(\n    targetKey: _buttonKey,\n    title: \"Welcome!\",\n    description: \"This is your main action button.\",\n  ),\n];\n\nfinal tutorial = TutorialOverlay(\n  context: context,\n  steps: steps,\n);\ntutorial.show();",
+    "confidence": 0.95
+  }
+}

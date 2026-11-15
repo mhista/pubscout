@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.1",
+  "generatedAt": "2026-11-13T11:34:12.981Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "maps"
+    ],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "Flutter compass plugin offering true heading, accuracy, and calibration needs.",
+    "what_it_does": "Provides reliable compass data streams including heading relative to true north, sensor accuracy, and calibration requirements. It supports Android and iOS platforms.",
+    "use_when": [
+      "You need to display true heading or orientation relative to north in your app.",
+      "You want to check if the device compass needs calibration."
+    ],
+    "avoid_when": [
+      "You are running tests exclusively on iOS simulators, which cannot use the heading sensor.",
+      "Your app requires heading support in landscape orientation, as heading currently only supports portrait mode."
+    ],
+    "strengths": [
+      "Provides accuracy metrics and calibration indicators.",
+      "Stream-based API integrates easily with Flutter widgets."
+    ],
+    "weaknesses": [
+      "Heading currently supports only portrait mode.",
+      "Requires real device testing as iOS simulators cannot use the heading sensor."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires setting minimum SDK (iOS 12, Android 21), configuring location permissions via permission_handler and AndroidManifest.xml for Android, and fixing device orientation to portrait.",
+    "alternatives": [
+      {
+        "name": "sensors_plus",
+        "why_pick_it": "Provides access to standard device sensors like accelerometer, magnetometer, gyroscope, and user accelerometer."
+      }
+    ],
+    "minimal_example": "StreamBuilder<CompassXEvent>(\n  stream: CompassX.events,\n  builder: (context, snapshot) {\n    if (!snapshot.hasData) return const Text('No data');\n    final compass = snapshot.data!;\n    return Text('Heading: ${compass.heading}');\n  },\n)",
+    "confidence": 0.95
+  }
+}

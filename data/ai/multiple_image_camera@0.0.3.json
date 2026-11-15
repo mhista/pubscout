@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.0.3",
+  "generatedAt": "2026-11-15T11:10:32.024Z",
+  "data": {
+    "primary_category": "camera",
+    "secondary_categories": [
+      "images"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Capture multiple photos in one camera session on Android and iOS with previews and custom done widget.",
+    "what_it_does": "Opens a full-screen camera preview enabling users to capture multiple photos in a single session. It provides pinch-to-zoom, camera switching, captured-image thumbnails, and returns the selected media list to the app.",
+    "use_when": [
+      "You need to capture multiple photos in a single camera workflow.",
+      "You want built-in features like front/rear switching and image previews before returning files."
+    ],
+    "avoid_when": [
+      "You need video recording or audio capture.",
+      "You require Flutter web support."
+    ],
+    "strengths": [
+      "Allows multiple photo captures in one continuous session.",
+      "Includes built-in image previews and a customizable Done action widget."
+    ],
+    "weaknesses": [
+      "Closing the route without Done returns an empty list rather than preserving state.",
+      "The removal control deletes only the latest image from the capture list.",
+      "Zoom gestures are not clamped to the camera's supported zoom range."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add NSCameraUsageDescription in iOS Info.plist and set minimum Android SDK to at least 21.",
+    "alternatives": [
+      {
+        "name": "image_picker",
+        "why_pick_it": "If you prefer the standard system image picker instead of a custom multi-capture camera session."
+      }
+    ],
+    "minimal_example": "final images = await MultipleImageCamera.capture(context: context);",
+    "confidence": 0.95
+  }
+}

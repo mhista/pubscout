@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.0.3",
+  "generatedAt": "2026-11-14T10:43:37.968Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "files"
+    ],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "Receive shared content, media files, documents, text, and URLs from external apps via Android and iOS.",
+    "what_it_does": "Implements Android Intent and iOS Share Extension handlers so your Flutter app can receive incoming media, text, files, and URLs shared from other external applications. Provides streams and methods to fetch both active and initial shared content.",
+    "use_when": [
+      "Your app needs to receive shared files, images, videos, or text from other applications on Android and iOS.",
+      "You want a WhatsApp-style seamless share extension on iOS without a compose dialog popup."
+    ],
+    "avoid_when": [
+      "You only need to share content outward from your app (use share_plus instead).",
+      "You require direct photo library asset identifiers on iOS (PHAsset identifiers are not supported)."
+    ],
+    "strengths": [
+      "Supports both Android Intents and iOS Share Extensions.",
+      "Does not require the NSPhotoLibraryUsageDescription permission on iOS since it shares files via file URLs.",
+      "Provides both a seamless modern share view controller and a legacy compose dialog controller on iOS."
+    ],
+    "weaknesses": [
+      "Requires manual native setup on both Android (AndroidManifest.xml) and iOS (Share Extension target, Info.plist, entitlements, Podfile, and Swift view controller subclassing).",
+      "Photo library asset identifiers return null instead of file paths on iOS."
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Requires modifying AndroidManifest.xml intent filters, creating an iOS Share Extension target, configuring App Groups, Podfile updates, and writing custom Swift view controller subclasses.",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'dart:async';\nimport 'package:file_share_intent/file_share_intent.dart';\n\nvoid main() => runApp(MyApp());\n\nclass MyApp extends StatefulWidget {\n  @override\n  _MyAppState createState() => _MyAppState();\n}\n\nclass _MyAppState extends State<MyApp> {\n  late StreamSubscription _intentSub;\n  final _sharedFiles = <SharedMediaFile>[];\n\n  @override\n  void initState() {\n    super.initState();\n    _intentSub = FileShareIntent.instance.getMediaStream().listen((value) {\n      setState(() {\n        _sharedFiles.clear();\n        _sharedFiles.addAll(value);\n      });\n    });\n  }\n\n  @override\n  Widget build(BuildContext context) => MaterialApp(home: Scaffold(body: Center(child: Text('Shared files: ${_sharedFiles.length}'))));\n}",
+    "confidence": 0.95
+  }
+}

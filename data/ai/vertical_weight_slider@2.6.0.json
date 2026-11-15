@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.6.0",
+  "generatedAt": "2026-11-15T11:32:08.176Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "forms"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "An easy-to-use and scrollable vertical weight slider for Flutter apps.",
+    "what_it_does": "Provides a scrollable vertical slider widget specifically designed for selecting weight values. Includes a controller to manage the initial weight, minimum weight, and intervals, as well as customizable decorations.",
+    "use_when": [
+      "You need a dedicated vertical slider UI component for picking weight or similar measurements.",
+      "You want support for Android, iOS, and Web platforms out of the box."
+    ],
+    "avoid_when": [
+      "You need a standard horizontal slider component.",
+      "You require a complex form builder integration rather than a standalone UI widget."
+    ],
+    "strengths": [
+      "Scrollable vertical interface optimized for weight input.",
+      "Supports customizable pointer decoration and indicators.",
+      "Compatible with Android, iOS, and Web."
+    ],
+    "weaknesses": [
+      "Very narrow and specialized scope of functionality.",
+      "Limited built-in layout features beyond its primary use case."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:vertical_weight_slider/vertical_weight_slider.dart';\n\nvoid main() {\n  runApp(const MaterialApp(home: MyApp()));\n}\n\nclass MyApp extends StatefulWidget {\n  const MyApp({Key? key}) : super(key: key);\n  @override\n  _MyAppState createState() => _MyAppState();\n}\n\nclass _MyAppState extends State<MyApp> {\n  late WeightSliderController _controller;\n  double _weight = 30.0;\n\n  @override\n  void initState() {\n    super.initState();\n    _controller = WeightSliderController(initialWeight: _weight, minWeight: 0, interval: 0.1);\n  }\n\n  @override\n  void dispose() {\n    _controller.dispose();\n    super.dispose();\n  }\n\n  @override\n  Widget build(BuildContext context) {\n    return Scaffold(\n      body: VerticalWeightSlider(\n        controller: _controller,\n        onChanged: (double value) {\n          setState(() {\n            _weight = value;\n          });\n        },\n      ),\n    );\n  }\n}",
+    "confidence": 0.95
+  }
+}

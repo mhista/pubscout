@@ -1,0 +1,48 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.0.0",
+  "generatedAt": "2026-11-13T11:35:30.610Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [
+      "utils",
+      "device"
+    ],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "Extends Riverpod ref types with helpers like caching, debouncing, and auto-refreshing.",
+    "what_it_does": "Provides useful extension methods on Riverpod ref types to easily add common functionalities to providers. Features include caching data durations, debouncing computations, auto-refreshing intervals, and refreshing when returning to the foreground or when the network becomes available.",
+    "use_when": [
+      "You want to prevent a provider from being disposed immediately using cacheFor or cacheDataFor.",
+      "You need automatic periodic refreshing or network-aware refreshing for your providers.",
+      "You want to debounce provider computations or refresh AsyncNotifiers when the app returns to the foreground."
+    ],
+    "avoid_when": [
+      "You are using Riverpod version 2 (version 3.0.0 requires Riverpod 3).",
+      "You do not use Riverpod in your application."
+    ],
+    "strengths": [
+      "Simplifies common provider lifecycle and caching patterns in Riverpod.",
+      "Includes helpful connectivity and lifecycle-aware refresh triggers.",
+      "Compatible with both traditional providers and code generation."
+    ],
+    "weaknesses": [
+      "Strictly tied to Riverpod 3 in version 3.0.0.",
+      "Some methods are limited to specific ref types like AsyncNotifier."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Simply add the package dependency and import it in your Dart files where Riverpod ref is used.",
+    "alternatives": [
+      {
+        "name": "riverpod",
+        "why_pick_it": "Riverpod core features can sometimes handle provider behaviors natively without community extension wrappers."
+      }
+    ],
+    "minimal_example": "import 'package:riverpod_community_extensions/riverpod_community_extensions.dart';\nimport 'package:riverpod/riverpod.dart';\n\nfinal dataProvider = AsyncNotifierProvider<DataNotifier, int>(\n  DataNotifier.new,\n  isAutoDispose: true,\n);\nclass DataNotifier extends AutoDisposeAsyncNotifier<int> {\n  @override\n  Future<int> build() async {\n    ref.cacheDataFor(const Duration(minutes: 5));\n    return await fetchDataFromApi();\n  }\n}",
+    "confidence": 1
+  }
+}

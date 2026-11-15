@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.7.7",
+  "generatedAt": "2026-11-14T10:39:07.631Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A Flutter grid that supports both dragging and tapping to select its items.",
+    "what_it_does": "Provides a GridView alternative that enables users to select multiple grid items by tapping or dragging across them. It tracks the selection state via a controller and supports auto-scrolling during drag gestures.",
+    "use_when": [
+      "You need a photo gallery or file manager style multi-selection grid.",
+      "Users need to select items by tapping or dragging across multiple items."
+    ],
+    "avoid_when": [
+      "You only need a standard non-selectable grid view.",
+      "You require complex drag-and-drop reordering rather than item selection."
+    ],
+    "strengths": [
+      "Supports both drag and tap selection mechanics out of the box.",
+      "Includes auto-scroll capabilities when dragging near the edges of the grid."
+    ],
+    "weaknesses": [
+      "Requires writing supplementary custom widgets like selection app bars or item wrappers to achieve a full UX.",
+      "API is closely tied to standard GridView.builder patterns."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "flutter_staggered_grid_view",
+        "why_pick_it": "Choose this if you need staggered or varying-size grid layouts rather than standard select-to-drag grids."
+      }
+    ],
+    "minimal_example": "final controller = DragSelectGridViewController();\n\nDragSelectGridView(\n  gridController: controller,\n  itemCount: 20,\n  itemBuilder: (context, index, selected) {\n    return SelectableItem(\n      index: index,\n      selected: selected,\n    );\n  },\n  gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(\n    maxCrossAxisExtent: 80,\n  ),\n);",
+    "confidence": 1
+  }
+}

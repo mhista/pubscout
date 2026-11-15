@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.2.2",
+  "generatedAt": "2026-11-14T11:00:08.281Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "navigation"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Shows platform dialogs via route overlays without creating new routes.",
+    "what_it_does": "A Flutter package that allows developers to show Material, Cupertino, or custom dialogs directly on the current route's overlay. This avoids creating new routes, which helps preserve page lifecycle events and simplifies rapid open and close handling.",
+    "use_when": [
+      "You need dialogs that do not trigger route changes or interfere with ModalRoute.of(context).isCurrent checks",
+      "You want to rapidly open and close dialogs using a singleton helper without managing complex async states",
+      "You need to display Material or Cupertino alert and progress dialogs using standard theme setups"
+    ],
+    "avoid_when": [
+      "You rely on standard Navigator route stacks for dialogs",
+      "You need a production-ready package that guarantees stable APIs before version 1.0"
+    ],
+    "strengths": [
+      "Avoids creating new routes for dialogs, keeping page lifecycles clean",
+      "Supports both Material and Cupertino styling based on app theme",
+      "Provides a singleton DialogHelper for simple show and hide logic"
+    ],
+    "weaknesses": [
+      "API may change as development is ongoing prior to version 1.0",
+      "License is unknown in pubspec metadata",
+      "Missing some features like input dialogs and custom animations (listed in todos)"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "DialogWidget.alert(\n  closable: true,\n  style: DialogStyle.material,\n  title: \"Title\",\n  content: \"Content\",\n  actions: [\n    DialogAction(\n      title: \"Button One\",\n      handler: buttonOneHandler,\n      isDestructive: true,\n    ),\n  ],\n)",
+    "confidence": 0.95
+  }
+}

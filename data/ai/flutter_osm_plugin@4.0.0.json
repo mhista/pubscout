@@ -1,0 +1,46 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "4.0.0",
+  "generatedAt": "2026-11-14T10:28:32.783Z",
+  "data": {
+    "primary_category": "maps",
+    "secondary_categories": [
+      "navigation"
+    ],
+    "approach": [
+      "declarative",
+      "imperative"
+    ],
+    "one_liner": "OpenStreetMap plugin for Flutter with native Android, iOS, macOS and Web support",
+    "what_it_does": "Provides a Map widget that displays OpenStreetMap tiles and supports markers, routes, shapes and address search. It exposes a MapController for imperative control and event streams for reactive updates.",
+    "use_when": [
+      "You need a fully native map widget with OSM tiles",
+      "You require routing, distance calculation or address suggestions",
+      "You want to customize markers, tiles or draw roads and shapes"
+    ],
+    "avoid_when": [
+      "You only need a simple static map image",
+      "Your project targets very low Android API levels (<26)",
+      "You prefer a pure Dart map implementation without native dependencies"
+    ],
+    "strengths": [
+      "Native performance across Android, iOS, macOS and Web",
+      "Supports vector tiles, satellite and custom tile layers",
+      "Built-in routing, distance, duration and address suggestion APIs",
+      "Declarative widget API with imperative MapController"
+    ],
+    "weaknesses": [
+      "Requires native build setup (AGP 9.3+, Gradle 9.5+)",
+      "High minimum Android API (26) and iOS 15.6, macOS 12.0",
+      "Complex native integration for Web (PointerInterceptor)",
+      "No code generation support"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add dependency, run `flutter pub get`. For Android, ensure minSdk 26, compileSdk 37, AGP 9.3.1+, Gradle 9.5.0+. iOS uses Swift Package Manager; macOS requires SPM. Permissions for location are handled via permission_handler. No build_runner needed.",
+    "alternatives": [],
+    "minimal_example": "```dart\nimport 'package:flutter_osm_plugin/flutter_osm_plugin.dart';\n\nclass MapPage extends StatelessWidget {\n  @override\n  Widget build(BuildContext context) {\n    return OSMFlutter(\n      controller: MapController(),\n      initZoom: 13,\n      initCenter: GeoPoint(latitude: 48.8566, longitude: 2.3522),\n      userTrackingOption: UserTrackingOption(enabled: true),\n    );\n  }\n}\n```",
+    "confidence": 0.9
+  }
+}

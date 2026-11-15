@@ -1,0 +1,54 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.0",
+  "generatedAt": "2026-11-13T11:08:13.886Z",
+  "data": {
+    "primary_category": "navigation",
+    "secondary_categories": [],
+    "approach": [
+      "declarative",
+      "imperative"
+    ],
+    "one_liner": "Router for Flutter with nested routes and navigation without context",
+    "what_it_does": "Helps manage project routing, navigation, deep linking, route parameters, and nested routes using Navigator 2.0. Allows navigating without context from anywhere in the app.",
+    "use_when": [
+      "You need complex nested routing or nested navigators.",
+      "You want to navigate between pages without needing a BuildContext.",
+      "You need robust middleware handling for route entry, exit, matching, and redirection."
+    ],
+    "avoid_when": [
+      "You prefer sticking purely to the standard go_router setup without extra router-specific paradigms.",
+      "You are using a Flutter version older than 3.24 and cannot upgrade or use version 1.12.4."
+    ],
+    "strengths": [
+      "Allows navigation without context from anywhere in the code.",
+      "Supports nested navigators and nested routes easily.",
+      "Advanced parameter management with path, query, and hidden params.",
+      "Comprehensive middleware system with priority and lifecycle hooks."
+    ],
+    "weaknesses": [
+      "Requires updating to newer Flutter versions (3.24+) for version 2.0.0.",
+      "Routing concepts and API differ from standard go_router or auto_route, requiring a learning curve."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires setting up MaterialApp.router with QRouteInformationParser and QRouterDelegate.",
+    "alternatives": [
+      {
+        "name": "go_router",
+        "why_pick_it": "Official declarative routing package supported by the Flutter team with widespread adoption."
+      },
+      {
+        "name": "auto_route",
+        "why_pick_it": "Code-generation based routing approach for strong typing and straightforward parameter passing."
+      },
+      {
+        "name": "beamer",
+        "why_pick_it": "URL-centric navigation delegate using Router API for dynamic nested routing."
+      }
+    ],
+    "minimal_example": "class AppRoutes {\n  final routes = [\n    QRoute(path: '/', builder: () => HomePage()),\n    QRoute(path: '/user/:userId', builder: () => UserPage()),\n  ];\n}\n\nclass MyApp extends StatelessWidget {\n  @override\n  Widget build(BuildContext context) => MaterialApp.router(\n      routeInformationParser: QRouteInformationParser(),\n      routerDelegate: QRouterDelegate(AppRoutes().routes));\n}",
+    "confidence": 1
+  }
+}

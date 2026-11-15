@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.3.0",
+  "generatedAt": "2026-11-13T11:38:17.153Z",
+  "data": {
+    "primary_category": "animation",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative",
+      "imperative"
+    ],
+    "one_liner": "Smooth, animated scrolling for mouse wheels, trackpads, keyboards, and programmatic scrolls.",
+    "what_it_does": "Provides smooth scroll animations ported from Chromium for mouse wheels, trackpads, keyboards, and programmatic scrolls in Flutter. It includes built-in curves like ChromiumEaseInOut and ChromiumImpulse, alongside controllers and actions to handle customized scroll animations dynamically.",
+    "use_when": [
+      "You want smooth scrolling behavior on desktop or web resembling Chromium browsers.",
+      "You need keyboard and programmatic scrolls to animate smoothly with automatically calculated durations.",
+      "You want custom physics-based scroll animations for trackpads and mouse wheels."
+    ],
+    "avoid_when": [
+      "You only need the default platform-specific Flutter scroll physics.",
+      "You are building a mobile-first app where custom desktop/web scroll behaviors are unnecessary."
+    ],
+    "strengths": [
+      "Ported directly from Chromium for identical browser-like smooth scrolling behavior.",
+      "Handles both precise trackpads and coarse mouse wheels uniformly.",
+      "Supports keyboard shortcut integrations via custom ScrollIntent actions."
+    ],
+    "weaknesses": [
+      "Global usage with AnimatedPrimaryScrollController requires care if multiple scrollables share the primary controller.",
+      "Limited documentation outside of the provided example code."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Not documented",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:scroll_animator/scroll_animator.dart';\n\nvoid main() => runApp(const ExampleApp());\n\nclass ExampleApp extends StatelessWidget {\n  const ExampleApp({super.key});\n\n  @override\n  Widget build(BuildContext context) => MaterialApp(\n        home: AnimatedPrimaryScrollController(\n          animationFactory: const ChromiumEaseInOut(),\n          child: Scaffold(\n            body: ListView.builder(\n              itemCount: 100,\n              itemBuilder: (context, index) => ListTile(\n                title: Text('Item $index'),\n              ),\n            ),\n          ),\n        ),\n      );\n}",
+    "confidence": 0.95
+  }
+}

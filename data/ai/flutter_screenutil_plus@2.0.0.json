@@ -1,0 +1,48 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.0",
+  "generatedAt": "2026-11-13T11:13:27.128Z",
+  "data": {
+    "primary_category": "layout",
+    "secondary_categories": [
+      "ui-kits",
+      "widgets"
+    ],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "Adaptive screen and font scaling with CSS-like breakpoints and container-aware layouts.",
+    "what_it_does": "Scales UI elements, text sizes, and padding based on design draft dimensions and screen constraints. Provides CSS-like media query breakpoints, SwiftUI-style size classes, and nested layout scoping.",
+    "use_when": [
+      "You need to adapt layouts and font sizes across different mobile and desktop screen dimensions",
+      "You want CSS-like breakpoints or SwiftUI-style size classes for responsive Flutter UI",
+      "You require container-aware responsive panes via LayoutScope"
+    ],
+    "avoid_when": [
+      "You are using the standard material library and cannot migrate your app imports to the standalone material_ui package",
+      "You prefer pure Flutter layout primitives without third-party scaling extensions"
+    ],
+    "strengths": [
+      "Comprehensive suite of responsive extensions, widgets, and breakpoint builders",
+      "Performance optimized with optional autoRebuild: false and context-aware extensions",
+      "Container-aware LayoutScope for nested panes and sidebars"
+    ],
+    "weaknesses": [
+      "Requires switching Material imports to the standalone material_ui package",
+      "Strict SDK constraints requiring Dart 3.13+ and Flutter 3.47+"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires adding package, importing material_ui instead of standard material, and wrapping the app with ScreenUtilPlusInit.",
+    "alternatives": [
+      {
+        "name": "flutter_screenutil",
+        "why_pick_it": "If you want standard screen adaptation without replacing standard Flutter Material imports or package constraints."
+      }
+    ],
+    "minimal_example": "void main() => runApp(MyApp());\n\nclass MyApp extends StatelessWidget {\n  @override\n  Widget build(BuildContext context) {\n    return ScreenUtilPlusInit(\n      designSize: const Size(360, 690),\n      builder: (context, child) {\n        return MaterialApp(\n          home: HomePage(),\n        );\n      },\n    );\n  }\n}",
+    "confidence": 0.95
+  }
+}

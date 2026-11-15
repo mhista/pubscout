@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.6.1",
+  "generatedAt": "2026-11-14T10:47:19.722Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "backend"
+    ],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "A Dart library interfacing with the latest Telegram Bot API.",
+    "what_it_does": "TeleDart is a client library for creating Telegram bots using the Telegram Bot API. It allows developers to handle messages, commands, inline queries, and manage bot events via Dart streams.",
+    "use_when": [
+      "You want to build a Telegram bot in Dart",
+      "You prefer stream-based handling of Telegram messages and bot commands"
+    ],
+    "avoid_when": [
+      "You are building apps for platforms other than Telegram",
+      "You need a backend client for services other than Telegram"
+    ],
+    "strengths": [
+      "Clean and easy implementation of the Telegram Bot API",
+      "Stream-based message and command handling",
+      "Supports latest Telegram Bot API versions"
+    ],
+    "weaknesses": [
+      "Limited to Telegram bots only",
+      "GPL-3.0 license may not suit all projects"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires a bot token from @BotFather on Telegram.",
+    "alternatives": [],
+    "minimal_example": "import 'package:teledart/teledart.dart';\nimport 'package:teledart/telegram.dart';\n\nvoid main() async {\n  var BOT_TOKEN = 'YOUR_BOT_TOKEN_FROM_BOT_FATHER';\n  final username = (await Telegram(BOT_TOKEN).getMe()).username;\n  var teledart = TeleDart(BOT_TOKEN, Event(username!));\n\n  teledart.start();\n  \n  teledart.onCommand('glory')\n      .listen((message) => message.reply('to Ukraine!'));\n}",
+    "confidence": 0.95
+  }
+}

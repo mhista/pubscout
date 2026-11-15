@@ -1,0 +1,37 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.5.0",
+  "generatedAt": "2026-11-14T11:03:27.099Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [],
+    "approach": [
+      "code generation"
+    ],
+    "one_liner": "Dart service wrapper for the isbndb.com REST API to retrieve book details.",
+    "what_it_does": "Provides a Dart client for the ISBNdb API to fetch book details by ISBN, search for books, authors, publishers, and subjects, and inspect API usage stats and updated book feeds.",
+    "use_when": [
+      "Your Flutter app needs to look up books or fetch publication details via ISBNdb.",
+      "You want pre-configured API models and error handling for ISBNdb REST endpoints."
+    ],
+    "avoid_when": [
+      "You do not have a paid or trial ISBNdb API key.",
+      "You need an offline database of books instead of a hosted cloud API."
+    ],
+    "strengths": [
+      "Covers main ISBNdb features including books, authors, publishers, and recent update feeds.",
+      "Provides typed exception handling with clear status codes and error codes."
+    ],
+    "weaknesses": [
+      "Requires a third-party paid subscription API key for production use.",
+      "Depends on an external hosted web service."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires obtaining an API key from isbndb.com and initializing the service class with it.",
+    "alternatives": [],
+    "minimal_example": "final isbnDb = ISBNdb(\"your_key_here\");\ntry {\n  final book = await isbnDb.getBook(\"9781092297370\");\n} on ISBNdbException catch (e) {\n  print(\"ISBNdb error: ${e.message}\");\n}",
+    "confidence": 1
+  }
+}

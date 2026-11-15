@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.14",
+  "generatedAt": "2026-11-15T11:20:07.665Z",
+  "data": {
+    "primary_category": "ui-kits",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Dynamically change the status bar color based on the background or current route.",
+    "what_it_does": "A Flutter package for dynamically changing the status bar color based on the background. It works with static colors and images, and can automatically update when the current route changes using a navigator observer.",
+    "use_when": [
+      "You need the status bar color to automatically adapt to background colors or images.",
+      "You want automatic status bar updates on route changes via navigator observers."
+    ],
+    "avoid_when": [
+      "You only need a static, globally fixed status bar color configured once in your app theme.",
+      "You do not use standard Navigator routing."
+    ],
+    "strengths": [
+      "Supports automatic status bar updates on route changes.",
+      "Works with both static colors and images.",
+      "Allows manual refresh and direct setting of light/dark status bars."
+    ],
+    "weaknesses": [
+      "Requires placing `StatusbarzCapturer` above the `MaterialApp`.",
+      "Limited documentation on advanced configurations."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Place StatusbarzCapturer above your MaterialApp and optionally add Statusbarz.instance.observer to navigatorObservers.",
+    "alternatives": [],
+    "minimal_example": "void main() {\n  runApp(\n    StatusbarzCapturer(\n      child: MaterialApp(\n        navigatorObservers: [Statusbarz.instance.observer],\n        home: Container(),\n      ),\n    ),\n  );\n}",
+    "confidence": 0.95
+  }
+}

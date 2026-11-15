@@ -1,0 +1,48 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.0.3",
+  "generatedAt": "2026-11-14T10:30:20.212Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Generate short YouTube-looking IDs from numbers and decode them back.",
+    "what_it_does": "Generates short, URL-safe identifiers from one or several non-negative numbers using the Sqids algorithm. It allows customization of minimum length, custom alphabets, and blocklists to prevent specific words in generated IDs.",
+    "use_when": [
+      "You need to generate public-facing IDs for URLs or link shortening",
+      "You want to encode internal sequential numbers into nonconsecutive IDs"
+    ],
+    "avoid_when": [
+      "You are handling sensitive data that requires proper encryption",
+      "You are generating user IDs where revealing the count of users via decoding is undesirable"
+    ],
+    "strengths": [
+      "Fast encoding and decoding performance",
+      "URL safe with auto-generated prevention of common profanity",
+      "Supports custom alphabets and blocklists"
+    ],
+    "weaknesses": [
+      "Multiple IDs can decode back into the same sequence of numbers, meaning they are not strictly canonical without manual checks",
+      "Not suitable for cryptography or sensitive data protection"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "none",
+    "alternatives": [
+      {
+        "name": "uuid",
+        "why_pick_it": "If you need universally unique identifiers (UUIDs) rather than short numeric ID hashes."
+      },
+      {
+        "name": "crypto",
+        "why_pick_it": "If you need actual cryptographic hashing functions like SHA or MD5."
+      }
+    ],
+    "minimal_example": "final sqids = Sqids();\nconst id = sqids.encode([1, 2, 3]);\nconst numbers = sqids.decode(id);",
+    "confidence": 1
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.17.0",
+  "generatedAt": "2026-11-14T10:39:08.441Z",
+  "data": {
+    "primary_category": "ai-ml",
+    "secondary_categories": [
+      "audio-video"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Run ML models on-device or in the cloud with hybrid routing and streaming inference.",
+    "what_it_does": "The Xybrid Flutter SDK lets developers run large language models, text-to-speech, automated speech recognition, and embeddings natively on-device or in the cloud. It features intelligent hybrid routing, streaming inference, model downloading with progress, and conversation context management.",
+    "use_when": [
+      "You need to run LLMs, ASR, or TTS locally on-device without relying on a cloud backend.",
+      "You want support for model downloading, progress tracking, and caching.",
+      "You need multi-turn conversation memory with automated history management."
+    ],
+    "avoid_when": [
+      "Your application targets older platform versions than iOS 16.0, macOS 14.0, or Android API 28.",
+      "You want a pure Dart implementation without precompiled native Rust and C++ libraries."
+    ],
+    "strengths": [
+      "Runs models completely on-device for privacy and offline usage.",
+      "Supports streaming inference, tool calling, and structured JSON schema output.",
+      "Handles automatic model downloading, caching, and progress tracking."
+    ],
+    "weaknesses": [
+      "Requires high platform minimums (iOS 16.0, macOS 14.0, Android API 28).",
+      "First builds require downloading large precompiled native binaries per platform."
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Requires raising app minimums: minSdk 28 for Android, iOS 16.0 for iOS, and macOS 14.0 for macOS. First builds download precompiled native libraries.",
+    "alternatives": [
+      {
+        "name": "tflite_flutter",
+        "why_pick_it": "If you prefer running TensorFlow Lite models directly on device."
+      },
+      {
+        "name": "llamadart",
+        "why_pick_it": "If you specifically want a Dart-focused interface for llama models."
+      }
+    ],
+    "minimal_example": "import 'package:xybrid_flutter/xybrid_flutter.dart';\n\nFuture<void> main() async {\n  WidgetsFlutterBinding.ensureInitialized();\n  await Xybrid.init();\n  final model = await XybridModelLoader.fromRegistry('kokoro-82m').load();\n  final result = await model.run(XybridEnvelope.text('Hello from Xybrid!'));\n  print('Audio: ${result.audioBytes?.length} bytes');\n}",
+    "confidence": 0.95
+  }
+}

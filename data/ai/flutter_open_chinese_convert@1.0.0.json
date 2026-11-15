@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "1.0.0",
+  "generatedAt": "2026-11-14T10:41:46.005Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Bridges OpenCC to Flutter for converting Simplified/Traditional Chinese text.",
+    "what_it_does": "Provides a Dart API to convert Chinese text between Simplified and Traditional forms with regional standards. Supports Android, iOS, and Web, with optional background processing and web‑specific fallback handling.",
+    "use_when": [
+      "You need offline or on‑device Chinese script conversion",
+      "You target multiple platforms (mobile and web) and want a single API",
+      "You want to process large texts without blocking the UI"
+    ],
+    "avoid_when": [
+      "You require full translation or language understanding",
+      "You need idiom conversion on web without fallback"
+    ],
+    "strengths": [
+      "Multiple conversion options covering regional standards",
+      "Background thread support for large inputs",
+      "Works on Android, iOS, and Web with automatic CDN loading"
+    ],
+    "weaknesses": [
+      "Web implementation lacks some idiom options (e.g., TW2Sp)",
+      "First web conversion requires internet to load the CDN library"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the package to pubspec.yaml; for web you may optionally preload the opencc-js script in index.html.",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter_open_chinese_convert/flutter_open_chinese_convert.dart';\n\nvoid main() async {\n  var text = '鼠标里面的硅二极管坏了，导致光标分辨率降低。';\n  var result = await ChineseConverter.convert(text, S2TWp());\n  print(result); // 滑鼠裡面的矽二極體壞了，導致游標解析度降低。\n}",
+    "confidence": 0.97
+  }
+}

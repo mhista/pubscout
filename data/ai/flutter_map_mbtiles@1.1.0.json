@@ -1,0 +1,47 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "1.1.0",
+  "generatedAt": "2026-11-13T11:06:46.233Z",
+  "data": {
+    "primary_category": "maps",
+    "secondary_categories": [
+      "storage"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Offline raster tile provider for flutter_map using MBTiles",
+    "what_it_does": "Provides a TileProvider that reads raster tiles (jpg, png, webp) from an MBTiles SQLite database. It can be used with flutter_map to display fully offline maps.",
+    "use_when": [
+      "You need offline map support with raster tiles",
+      "You already use flutter_map and want to avoid network requests",
+      "Your tile data is stored in an MBTiles file"
+    ],
+    "avoid_when": [
+      "You need vector tiles (use vector_map_tiles_mbtiles)",
+      "You target web platform (no SQLite support)"
+    ],
+    "strengths": [
+      "Zero extra setup on supported platforms",
+      "Supports multiple raster formats",
+      "Easy integration with flutter_map"
+    ],
+    "weaknesses": [
+      "Web not supported",
+      "Requires file system access and permissions",
+      "No vector tile support"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add flutter_map_mbtiles to pubspec, provide path to .mbtiles file, call dispose() when done",
+    "alternatives": [
+      {
+        "name": "vector_map_tiles_mbtiles",
+        "why_pick_it": "Use for vector tiles instead of raster"
+      }
+    ],
+    "minimal_example": "final tileProvider = MbTilesTileProvider.fromPath(path: 'path/to/file.mbtiles');\n\n@override\nWidget build(BuildContext context) {\n  return FlutterMap(\n    options: const MapOptions(),\n    children: [\n      TileLayer(tileProvider: tileProvider),\n    ],\n  );\n}\n\n@override\nvoid dispose() {\n  tileProvider.dispose();\n  super.dispose();\n}",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "9.0.0",
+  "generatedAt": "2026-11-14T10:53:02.555Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "backend"
+    ],
+    "approach": [
+      "declarative",
+      "stream-based",
+      "no codegen"
+    ],
+    "one_liner": "Base package for executing GraphQL queries, mutations, and subscriptions against a schema.",
+    "what_it_does": "Executes GraphQL queries, mutations, and subscriptions against a defined schema with support for introspection. It operates without a framework or dart:mirrors, supporting AOT compilation and standard Dart execution. It also implements both graphql-transport-ws and subscriptions-transport-ws WebSocket protocols.",
+    "use_when": [
+      "You need to build a GraphQL backend or server in Dart without relying on dart:mirrors.",
+      "You want to handle GraphQL subscriptions over WebSockets using standard stream channels."
+    ],
+    "avoid_when": [
+      "You need an all-in-one HTTP server integration out of the box (requires a framework adapter like angel3_graphql).",
+      "You want automatic reflection-based object mapping without defining resolvers or using generators."
+    ],
+    "strengths": [
+      "Framework-agnostic and compatible with AOT compilation.",
+      "Implements modern and legacy GraphQL WebSocket subscription protocols.",
+      "Supports full schema introspection."
+    ],
+    "weaknesses": [
+      "Does not include built-in HTTP handling out of the box.",
+      "Requires manual resolvers or a default field resolver when working with model objects instead of Maps."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add `graphql_schema2` and `graphql_server2` to your pubspec.yaml.",
+    "alternatives": [],
+    "minimal_example": "import 'package:graphql_schema2/graphql_schema2.dart';\nimport 'package:graphql_server2/graphql_server2.dart';\n\nvoid main() async {\n  var schema = graphQLSchema(\n    queryType: objectType(\n      'Query',\n      fields: [\n        field(\n          'greet',\n          graphQLString,\n          inputs: [GraphQLFieldInput('name', graphQLString.nonNullable())],\n          resolve: (_, args) => 'Hello, ${args['name']}!',\n        ),\n      ],\n    ),\n  );\n  var graphQL = GraphQL(schema);\n\n  var data = await graphQL.parseAndExecute(\n    r'query Greet($name: String!) { greet(name: $name) }',\n    variableValues: {'name': 'Dart'},\n  );\n  print({'data': data});\n}",
+    "confidence": 0.95
+  }
+}

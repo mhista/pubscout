@@ -1,0 +1,47 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "35.0.0",
+  "generatedAt": "2026-11-13T10:59:36.275Z",
+  "data": {
+    "primary_category": "codegen",
+    "secondary_categories": [
+      "testing"
+    ],
+    "approach": [
+      "code generation",
+      "stream-based"
+    ],
+    "one_liner": "Dart types and helpers for Cucumber message protocol (NDJSON).",
+    "what_it_does": "Provides generated Dart classes for all Cucumber message schemas. Includes utilities for reading and writing NDJSON streams, timestamps, and durations.",
+    "use_when": [
+      "You need to exchange Cucumber messages between processes in Dart/Flutter",
+      "You want strongly‑typed access to Cucumber JSON schema data",
+      "You need NDJSON stream support for test results"
+    ],
+    "avoid_when": [
+      "You only need simple JSON parsing without generated models",
+      "You are not using Cucumber or BDD testing"
+    ],
+    "strengths": [
+      "Fully generated from official Cucumber JSON schemas",
+      "Zero runtime dependencies",
+      "Supports NDJSON streaming out of the box"
+    ],
+    "weaknesses": [
+      "No runtime features beyond generated models",
+      "No built‑in test runner or BDD framework"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "json_annotation",
+        "why_pick_it": "If you prefer manual JSON serialization with annotations instead of generated schema types"
+      }
+    ],
+    "minimal_example": "import 'package:cucumber_messages/cucumber_messages.dart';\n\nvoid main() async {\n  final stream = NDJsonReader(stdin);\n  await for (final message in stream.read()) {\n    if (message is Envelope) {\n      print('Got ${message.messageCase}');\n    }\n  }\n}",
+    "confidence": 0.87
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "1.5.3",
+  "generatedAt": "2026-11-14T10:32:35.892Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Platform‑independent HTTP client for browser, console and curl with SOCKS proxy support",
+    "what_it_does": "Provides a single Client API that works on web, mobile, desktop and console. It can use the browser fetch API, a console implementation or curl for SOCKS proxies. The API mimics the package:http Client interface.",
+    "use_when": [
+      "Need a single HTTP client that works across all Dart platforms",
+      "Want to use curl for SOCKS proxy support",
+      "Building a library that should be platform‑agnostic",
+      "Need a lightweight alternative to dio for simple requests"
+    ],
+    "avoid_when": [
+      "Already using dio or http for all platforms",
+      "Require advanced features like interceptors, multipart, or reactive streams"
+    ],
+    "strengths": [
+      "Platform‑agnostic API",
+      "Supports browser, console, and curl with SOCKS proxy",
+      "Low dependency footprint",
+      "Simple drop‑in replacement for package:http Client"
+    ],
+    "weaknesses": [
+      "Limited feature set compared to dio (no interceptors, multipart, etc.)",
+      "No built‑in retry or timeout configuration beyond basic options",
+      "Documentation is minimal"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dependency in pubspec and import the desired implementation (console.dart, browser.dart, or http_client.dart). No build_runner or permissions required.",
+    "alternatives": [
+      {
+        "name": "http",
+        "why_pick_it": "Standard HTTP client with broad community support"
+      },
+      {
+        "name": "dio",
+        "why_pick_it": "Feature‑rich client with interceptors, transformers, and advanced request handling"
+      }
+    ],
+    "minimal_example": "import 'package:http_client/http_client.dart' as http;\n\nclass MyServiceClient {\n  final http.Client httpClient;\n  MyServiceClient(this.httpClient);\n}\n\nvoid main() async {\n  final client = http.ConsoleClient();\n  final response = await client.get(Uri.parse('https://example.com'));\n  print(response.body);\n  await client.close();\n}\n",
+    "confidence": 0.8
+  }
+}

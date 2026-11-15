@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "1.3.0",
+  "generatedAt": "2026-11-14T10:29:52.596Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Button that shows a progress indicator while awaiting async work.",
+    "what_it_does": "AwaitableButton widgets replace normal buttons when an async operation is triggered. They automatically display an indicator, prevent double taps, and expose callbacks for completion or error handling.",
+    "use_when": [
+      "Need to prevent multiple taps during async work",
+      "Want a quick loading indicator on a button",
+      "Need error handling callbacks on button press"
+    ],
+    "avoid_when": [
+      "You need a fully custom animation or state machine beyond a simple loading indicator",
+      "You are building a complex form that requires more advanced state management"
+    ],
+    "strengths": [
+      "Easy to integrate, no extra dependencies",
+      "Supports multiple Material button styles",
+      "Customizable indicator, color, size, and executing child",
+      "Handles success and error callbacks"
+    ],
+    "weaknesses": [
+      "Only works with Flutter, not web-only widgets",
+      "Limited to simple async patterns, no stream support",
+      "No built‑in theming beyond buttonStyle"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "```dart\nimport 'package:awaitable_button/awaitable_button.dart';\n\nAwaitableElevatedButton(\n  onPressed: () async {\n    await Future.delayed(const Duration(seconds: 2));\n  },\n  child: const Text('Load'),\n  indicator: const CircularProgressIndicator(),\n);\n```",
+    "confidence": 0.95
+  }
+}

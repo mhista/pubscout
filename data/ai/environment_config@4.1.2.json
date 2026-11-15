@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.1.2",
+  "generatedAt": "2026-11-13T11:18:16.718Z",
+  "data": {
+    "primary_category": "codegen",
+    "secondary_categories": [],
+    "approach": [
+      "code generation"
+    ],
+    "one_liner": "Environment-specific configuration and .env file generator for Flutter and Dart builds.",
+    "what_it_does": "Generates a Dart configuration class and optional .env files based on environment configuration specified during CI/CD builds or command line execution. It supports patterns, defaults, and global environment variables.",
+    "use_when": [
+      "You need to inject environment-specific variables during CI/CD builds without async file reading.",
+      "You want to automatically generate both a Dart config class and a .env file from a YAML schema."
+    ],
+    "avoid_when": [
+      "You are using Flutter 1.17 or higher and prefer native compile-time variables over a package generator.",
+      "You need to obfuscate or fully secure highly sensitive credentials from reverse engineering."
+    ],
+    "strengths": [
+      "Sync reading of configuration values to decrease app start time.",
+      "Supports custom field patterns, default values, and global environment variables.",
+      "Can generate both Dart classes and .env files simultaneously."
+    ],
+    "weaknesses": [
+      "Does not obfuscate or encrypt config values by default.",
+      "Flutter developers on version 1.17+ are advised to use built-in compile-time variables instead."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the package as a dependency, create an environment_config.yaml file, and run the generator command via CLI.",
+    "alternatives": [],
+    "minimal_example": "environment_config:\n  path: environment_config.dart\n  class: EnvironmentConfig\n  fields:\n    some_key:\n      type: String\n      default: 'default_value'",
+    "confidence": 0.95
+  }
+}

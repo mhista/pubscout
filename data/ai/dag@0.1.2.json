@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.1.2",
+  "generatedAt": "2026-11-14T10:49:07.832Z",
+  "data": {
+    "primary_category": "codegen",
+    "secondary_categories": [],
+    "approach": [
+      "code generation"
+    ],
+    "one_liner": "Transpiles .dag files containing text and embedded Dart code into plain .dart source files.",
+    "what_it_does": "Transpiles .dag files—which mix literal output text with embedded Dart code PHP-style—into plain .dart source code. It features whitespace control, parameter definitions, hoisting of imports, and supports compilation via a CLI tool or package:build.",
+    "use_when": [
+      "You want to generate text, HTML, or code using PHP-style template files where the file compiles directly to Dart code.",
+      "You want compile-time transpilation of text-with-code files rather than runtime template interpretation."
+    ],
+    "avoid_when": [
+      "You need a standard runtime template engine.",
+      "Your project cannot use code generation or the provided CLI tools."
+    ],
+    "strengths": [
+      "Compiles directly to real Dart code with zero runtime interpretation overhead.",
+      "Supports both a CLI tool and a package:build Builder via build_runner.",
+      "Provides helpful DagError traceback reporting exact .dag file line numbers."
+    ],
+    "weaknesses": [
+      "A literal '?>' inside a tag's Dart code will close the tag early.",
+      "Requires a build pipeline or CLI step during development."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the package via pub add dag and either use the CLI tool or integrate with build_runner.",
+    "alternatives": [],
+    "minimal_example": "import 'package:dag/dag.dart';\n\nfinal dartSource = transpile(dagSource);",
+    "confidence": 1
+  }
+}

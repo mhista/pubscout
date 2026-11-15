@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.0.9",
+  "generatedAt": "2026-11-15T11:15:49.322Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "imperative",
+      "declarative"
+    ],
+    "one_liner": "A Dart port of Polly for resilience and transient-fault handling like Retry and Circuit Breaker.",
+    "what_it_does": "Provides resilience strategies such as Retry, Circuit Breaker, Timeout, Rate Limiter, Hedging, and Fallback in a fluent and thread-safe manner. Allows developers to execute operations wrapped in robust resilience pipelines.",
+    "use_when": [
+      "You need to retry failing network or database operations with exponential backoff.",
+      "You want to protect downstream services using a circuit breaker.",
+      "You need to handle rate limiting, timeouts, and fallbacks cleanly."
+    ],
+    "avoid_when": [
+      "Your application is entirely local and does not deal with transient failures or external APIs.",
+      "You only need basic try-catch blocks for straightforward error handling."
+    ],
+    "strengths": [
+      "Comprehensive feature set mirroring .NET Polly resilience strategies.",
+      "Fluent builder API for creating custom resilience pipelines.",
+      "Supports multiple strategies like Retry, Circuit Breaker, Hedging, and Rate Limiter."
+    ],
+    "weaknesses": [
+      "Adds an extra layer of abstraction to asynchronous operations.",
+      "Requires careful tuning of strategy parameters like delays and failure ratios."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:polly_dart/polly_dart.dart';\n\nfinal pipeline = ResiliencePipelineBuilder()\n    .addRetry(RetryStrategyOptions(maxRetryAttempts: 3))\n    .addTimeout(Duration(seconds: 10))\n    .build();\n\nfinal result = await pipeline.execute((context) async {\n  return await someAsyncOperation();\n});",
+    "confidence": 0.95
+  }
+}

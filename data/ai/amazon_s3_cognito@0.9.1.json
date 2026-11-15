@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.9.1",
+  "generatedAt": "2026-11-15T11:16:23.818Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [
+      "backend"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Upload, delete and manage files on Amazon S3 using Cognito authentication.",
+    "what_it_does": "Allows Flutter apps to upload single or multiple files (images, PDFs, etc.) directly to an Amazon S3 bucket using Amazon Cognito. It supports progress tracking via streams and file deletion.",
+    "use_when": [
+      "Your Flutter app needs to upload images or documents directly to Amazon S3.",
+      "You authenticate users with Amazon Cognito and need to integrate S3 storage."
+    ],
+    "avoid_when": [
+      "You use a backend other than AWS S3.",
+      "You need a general-purpose local storage database rather than cloud object storage."
+    ],
+    "strengths": [
+      "Supports uploading multiple files with progress updates via event streams.",
+      "Works on both Android and iOS platforms.",
+      "Supports large file transfers using multipart upload."
+    ],
+    "weaknesses": [
+      "Requires manual native platform configurations on both Android and iOS.",
+      "Unofficial plugin with platform-specific limitations mentioned in history."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Android requires registering TransferService in AndroidManifest.xml. iOS requires adding a background URL session implementation in AppDelegate.",
+    "alternatives": [],
+    "minimal_example": "ImageData imageData = ImageData(\"uniqueFileName\", filePath, uniqueId: \"uniqueIdToTrackImage\", imageUploadFolder: \"folder to upload inside bucket\");\nString uploadedImageUrl = await AmazonS3Cognito.upload(bucket, identity, region, subRegion, imageData);",
+    "confidence": 0.95
+  }
+}

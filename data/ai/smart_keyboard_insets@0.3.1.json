@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.3.1",
+  "generatedAt": "2026-11-14T11:00:08.016Z",
+  "data": {
+    "primary_category": "ui-kits",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative",
+      "stream-based"
+    ],
+    "one_liner": "Accurate keyboard height and safe-area insets for Flutter native on Android and iOS.",
+    "what_it_does": "Provides accurate keyboard height and safe-area bottom inset detection, natively on Android and iOS with fallbacks on web and desktop. Includes helper widgets like AnimatedKeyboardPadding and Stream/ValueNotifier APIs to size emoji panels and keep chat composers above the keyboard.",
+    "use_when": [
+      "Building chat applications where composers and sticker panels need to match the keyboard height perfectly.",
+      "You need keyboard height before the open animation completely finishes."
+    ],
+    "avoid_when": [
+      "Your app only needs basic form layouts where standard MediaQuery.viewInsets is already sufficient."
+    ],
+    "strengths": [
+      "Provides keyboard height as soon as the keyboard starts to appear rather than after it settles.",
+      "Includes ready-made layout widgets like KeyboardPadding and AnimatedKeyboardPadding.",
+      "Offers multiple API styles including Streams, ValueNotifiers, and one-time queries."
+    ],
+    "weaknesses": [
+      "Requires disabling default Scaffold resize behavior in certain layouts.",
+      "Native implementations are platform-specific to Android and iOS."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the dependency to pubspec.yaml and optionally set resizeToAvoidBottomInset: false on Scaffold when using padding widgets.",
+    "alternatives": [],
+    "minimal_example": "Scaffold(\n  resizeToAvoidBottomInset: false,\n  body: Column(\n    children: [\n      Expanded(child: MessageList()),\n      AnimatedKeyboardPadding(\n        child: ComposerWidget(),\n      ),\n    ],\n  ),\n)",
+    "confidence": 1
+  }
+}

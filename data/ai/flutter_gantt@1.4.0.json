@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "1.4.0",
+  "generatedAt": "2026-11-15T10:56:35.777Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "charts"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Interactive Gantt chart widget for Flutter",
+    "what_it_does": "Renders a scrollable, draggable Gantt chart with hierarchical tasks, custom styling, and date utilities.",
+    "use_when": [
+      "Building project management or scheduling UIs",
+      "Need a responsive, cross‑platform Gantt chart with drag‑and‑drop",
+      "Want to display nested tasks with progress and custom builders"
+    ],
+    "avoid_when": [
+      "You only need a static timeline image",
+      "Your app targets only web and you prefer a lightweight JS chart"
+    ],
+    "strengths": [
+      "Highly customizable theme and cell builders",
+      "Supports hierarchical activities and progress indicators",
+      "Optimized for performance and responsive across platforms"
+    ],
+    "weaknesses": [
+      "No built‑in persistence or backend integration",
+      "Requires manual data fetching and state management",
+      "Large dependency set (intl, provider) may increase bundle size"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add flutter_gantt to pubspec and run flutter pub get",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter_gantt/flutter_gantt.dart';\n\nGantt(\n  theme: GanttTheme.of(context),\n  activitiesAsync: (start, end, act) async => _activities,\n  holidaysAsync: (start, end, hol) async => _holidays,\n  onActivityChanged: (activity, start, end) {\n    if (start != null && end != null) {\n      debugPrint('$activity was moved');\n    }\n  },\n)",
+    "confidence": 0.9
+  }
+}

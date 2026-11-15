@@ -1,0 +1,48 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "6.0.1",
+  "generatedAt": "2026-11-13T11:07:08.154Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [],
+    "approach": [
+      "stream-based",
+      "code generation"
+    ],
+    "one_liner": "A BLoC design pattern implementation using reactive streams.",
+    "what_it_does": "Helps implement the BLoC design pattern using reactive streams from RxDart. It separates business logic from the UI layer via event and state contracts, with support for zero-boilerplate generation.",
+    "use_when": [
+      "You want to implement the BLoC pattern using RxDart reactive streams",
+      "You need a clear separation of events, states, and business logic"
+    ],
+    "avoid_when": [
+      "You prefer simpler state management solutions like Provider",
+      "You do not want to use reactive streams or RxDart"
+    ],
+    "strengths": [
+      "Strong decoupling of UI and business logic",
+      "Built-in result handling for loading and error states",
+      "Zero-boilerplate capabilities via code generation"
+    ],
+    "weaknesses": [
+      "Requires familiarity with RxDart and reactive programming",
+      "Requires code generation setup for optimal usage"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding build_runner and rx_bloc_generator to dev_dependencies and running the code generator.",
+    "alternatives": [
+      {
+        "name": "bloc",
+        "why_pick_it": "If you want the standard BLoC library implementation without relying heavily on RxDart."
+      },
+      {
+        "name": "riverpod",
+        "why_pick_it": "If you prefer a compile-safe, provider-based state management approach instead of streams."
+      }
+    ],
+    "minimal_example": "@RxBloc()\nclass CounterBloc extends $CounterBloc {\n  @override\n  Stream<int> _mapToCountState() => _$incrementEvent.map((_) => 1);\n}",
+    "confidence": 0.95
+  }
+}

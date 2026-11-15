@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "4.0.10",
+  "generatedAt": "2026-11-15T11:20:41.706Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Adapter that connects the graphql package to an Nhost.io GraphQL backend",
+    "what_it_does": "It provides a thin wrapper around the graphql client, preconfiguring links and headers for Nhost services. The package handles authentication tokens and endpoint URLs automatically, so you can start issuing queries and mutations right away.",
+    "use_when": [
+      "You need to talk to an Nhost GraphQL backend in a Dart or Flutter app",
+      "You already use the graphql package and want minimal boilerplate for Nhost"
+    ],
+    "avoid_when": [
+      "You are using a different GraphQL client such as graphql_flutter or a custom HTTP client",
+      "You need advanced GraphQL features not exposed by the adapter"
+    ],
+    "strengths": [
+      "Zero configuration beyond adding the dependency",
+      "Automatic handling of auth tokens and endpoint URLs",
+      "Works on all supported platforms"
+    ],
+    "weaknesses": [
+      "Only supports Nhost backends",
+      "No code generation or schema introspection support",
+      "Limited to the graphql package API"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add `nhost_graphql_adapter: ^4.0.10` to pubspec.yaml and import the package. No build_runner or permissions required.",
+    "alternatives": [],
+    "minimal_example": "```dart\nimport 'package:nhost_graphql_adapter/nhost_graphql_adapter.dart';\n\nfinal client = NhostGraphQLAdapter();\nfinal result = await client.query(\n  QueryOptions(document: gql('query { hello }')),\n);\nprint(result.data);\n```",
+    "confidence": 0.9
+  }
+}

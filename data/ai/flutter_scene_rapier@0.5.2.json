@@ -1,0 +1,50 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.5.2",
+  "generatedAt": "2026-11-13T11:36:19.735Z",
+  "data": {
+    "primary_category": "games",
+    "secondary_categories": [
+      "animation"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Rapier 3D physics backend for flutter_scene using FFI and WebAssembly",
+    "what_it_does": "Implements the abstract physics contract from flutter_scene against the Rapier 3D engine over dart:ffi for native platforms and WebAssembly for the web. Supports rigid bodies, colliders, joints, queries, and collision events.",
+    "use_when": [
+      "You are building 3D games or simulations with flutter_scene",
+      "You need 3D rigid body physics, collision detection, and raycasting in Flutter"
+    ],
+    "avoid_when": [
+      "You are building a 2D game where a 2D physics engine like forge2d is more appropriate",
+      "You do not use flutter_scene"
+    ],
+    "strengths": [
+      "Provides high-performance 3D physics via Rapier",
+      "Supports multiple platforms including Android, iOS, Web, macOS, Linux, and Windows via prebuilt binaries",
+      "Includes support for world snapshots and full restoration for rollback prediction"
+    ],
+    "weaknesses": [
+      "Experimental status means APIs may change between releases",
+      "Requires building from source with a Rust toolchain for unsupported targets or when editing native code"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires initializing RapierWorld before use and managing native binaries or web WebAssembly modules.",
+    "alternatives": [
+      {
+        "name": "forge2d",
+        "why_pick_it": "Pick forge2d if you need 2D physics instead of 3D physics."
+      },
+      {
+        "name": "flame",
+        "why_pick_it": "Pick flame if you want a complete 2D game engine rather than just a 3D physics backend for flutter_scene."
+      }
+    ],
+    "minimal_example": "await RapierWorld.ensureInitialized();\nfinal scene = Scene();\nfinal world = PhysicsWorld(RapierWorld(gravity: Vector3(0, -9.81, 0)));\nscene.root.addComponent(world);",
+    "confidence": 1
+  }
+}

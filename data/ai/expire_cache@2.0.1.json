@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.1",
+  "generatedAt": "2026-11-13T11:40:32.782Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "FIFO cache with time-based expiration and mutex-like in-flight locking for async searches.",
+    "what_it_does": "Provides a FIFO cache implementation where entries expire automatically according to time and size limits. It also includes mutex-like methods to prevent redundant concurrent fetches for the same cache key.",
+    "use_when": [
+      "You need to cache search results to avoid redundant backend requests",
+      "You want time-based expiration alongside a FIFO size limit",
+      "You need to prevent multiple concurrent operations from fetching the same key simultaneously"
+    ],
+    "avoid_when": [
+      "You need complex LRU or LFU cache eviction policies",
+      "You need persistent disk storage"
+    ],
+    "strengths": [
+      "Includes built-in time-based expiration and FIFO size limits",
+      "Provides in-flight key tracking for mutex-like search usage"
+    ],
+    "weaknesses": [
+      "In-memory cache only with no built-in persistence",
+      "Limited eviction strategies beyond FIFO"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "final expireDuration = Duration(seconds: 120);\nExpireCache<int, int> cache = ExpireCache<int, int>(expireDuration: expireDuration, sizeLimit: 3);\ncache.set(0, 0);\nprint(cache.get(0));",
+    "confidence": 0.95
+  }
+}

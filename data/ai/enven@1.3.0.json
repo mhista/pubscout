@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.3.0",
+  "generatedAt": "2026-11-15T11:06:07.281Z",
+  "data": {
+    "primary_category": "codegen",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "code generation"
+    ],
+    "one_liner": "Generate environment variables from a .env file at compile time with optional obfuscation.",
+    "what_it_does": "Enven reads a .env file during development and generates a Dart file containing typed environment variables at compile time. It supports optional obfuscation, custom types, multiple environment file overrides, and mocking for tests.",
+    "use_when": [
+      "You need to embed API keys or secrets securely into your app with optional obfuscation.",
+      "You want a DRY alternative to envied that only requires a .env file.",
+      "You need support for multiple environment override files (like .env.prod)."
+    ],
+    "avoid_when": [
+      "You prefer loading environment variables at runtime rather than compile time.",
+      "You are already using an alternative environment generation tool and don't wish to migrate."
+    ],
+    "strengths": [
+      "Generates compile-time environment variables directly from a .env file without verbose configuration.",
+      "Supports optional obfuscation of sensitive values to prevent easy reverse engineering.",
+      "Provides built-in support for mocking environment variables during tests."
+    ],
+    "weaknesses": [
+      "Subsequent changes may not trigger rebuilds automatically unless build_runner is used in a specific way, and build_runner integration may only work once per change depending on execution.",
+      "Variables marked with const cannot be overridden via mocking."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add enven to dev_dependencies, create a .env file in the project root directory, and run `dart run enven`.",
+    "alternatives": [],
+    "minimal_example": "import 'package:your_package/gen/env.g.dart';\n\nint apiKey = Env.apiKey;\nString apiEndpoint = Env.apiEndpoint;",
+    "confidence": 1
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "1.0.1",
+  "generatedAt": "2026-11-14T10:31:03.408Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Build and run sequential data processing pipelines in Dart.",
+    "what_it_does": "The package lets you define a series of steps where each step receives the output of the previous one. Steps can be synchronous or asynchronous, and the whole pipeline is executed with a single call. It returns the final result after all steps have run.",
+    "use_when": [
+      "You need to transform data through multiple stages without external state management",
+      "You want a lightweight way to compose async/sync functions in a linear flow"
+    ],
+    "avoid_when": [
+      "Complex state management or UI logic is required",
+      "You need reactive streams or built‑in error propagation"
+    ],
+    "strengths": [
+      "Very small, zero dependencies",
+      "Simple, chainable API for sync and async steps",
+      "Clear separation of pipeline definition and execution"
+    ],
+    "weaknesses": [
+      "Limited to linear pipelines; no branching or parallelism",
+      "No built‑in error handling or cancellation support",
+      "Not a full reactive or state‑management solution"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "async",
+        "why_pick_it": "Provides Stream and Future utilities for composing asynchronous operations, useful if you need reactive streams instead of linear pipelines"
+      }
+    ],
+    "minimal_example": "final pipeline = Pipeliner.create(() => 1)\n    .pipe((int v) => (v + 1).toString())\n    .pipe((String s) => int.parse(s) + 1);\nfinal result = await pipeline.call(); // result == 3",
+    "confidence": 0.9
+  }
+}

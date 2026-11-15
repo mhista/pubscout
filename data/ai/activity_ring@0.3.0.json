@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.8-flash",
+  "version": "0.3.0",
+  "generatedAt": "2026-11-15T10:56:43.682Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "charts"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Renders Apple Watch-style circular progress rings with customizable colors and gradients.",
+    "what_it_does": "Provides a widget to display circular progress bars resembling Apple Watch activity rings. It supports multi-ring wrapping when progress exceeds 100%, allowing custom colors and gradients for each layer. It can also render child widgets in the center of the ring.",
+    "use_when": [
+      "Building fitness or activity tracking interfaces that emulate Apple Watch rings.",
+      "Displaying progress that can exceed 100% and wrap into multiple overlapping concentric rings."
+    ],
+    "avoid_when": [
+      "Needing non-circular progress indicators like linear bars.",
+      "Relying on auto-brightening colors with more than 3 rings, as it triggers a runtime exception."
+    ],
+    "strengths": [
+      "Supports multiple overlapping laps/rings when percent exceeds 100%.",
+      "Flexible color schemes supporting solid colors, single gradients, and distinct gradients per ring layer.",
+      "Easily nests custom child widgets inside the ring center."
+    ],
+    "weaknesses": [
+      "Known runtime exception if auto-brightening colors exceed 3 rings.",
+      "Lacks comprehensive automated tests and test coverage as noted in the roadmap."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "percent_indicator",
+        "why_pick_it": "Offers broader options including standard circular and linear progress indicators with mature community support."
+      }
+    ],
+    "minimal_example": "Ring(\n  percent: 90,\n  color: RingColorScheme(ringColor: Colors.red),\n  radius: 80,\n  width: 10,\n  child: Center(child: Text('90%')),\n)",
+    "confidence": 0.95
+  }
+}

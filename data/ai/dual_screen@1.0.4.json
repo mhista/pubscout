@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.4",
+  "generatedAt": "2026-11-14T10:56:14.021Z",
+  "data": {
+    "primary_category": "layout",
+    "secondary_categories": [
+      "device"
+    ],
+    "approach": [
+      "declarative",
+      "stream-based"
+    ],
+    "one_liner": "Foldable and dual-screen support with the TwoPane widget and hinge angle sensor data.",
+    "what_it_does": "Provides the TwoPane layout widget for handling foldables and dual screens, and access to hinge angle sensor data via DualScreenInfo. It adapts layouts based on display features like hinges automatically.",
+    "use_when": [
+      "Building apps optimized for foldable devices or dual-screen hardware like the Surface Duo",
+      "Implementing side-by-side or top-and-bottom pane layouts that snap to hinges",
+      "Reading real-time hinge angle sensor data"
+    ],
+    "avoid_when": [
+      "Targeting strictly traditional single-screen non-foldable devices",
+      "Needing complex state management or navigation solutions"
+    ],
+    "strengths": [
+      "Simplifies dual-screen and foldable layouts with TwoPane",
+      "Provides direct access to hinge angle sensor events",
+      "Integrates seamlessly with MediaQuery display features"
+    ],
+    "weaknesses": [
+      "Only fully utilized on devices with actual hardware hinges or foldable screens",
+      "Limited to specific dual-screen and foldable form factors"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dual_screen as a dependency in pubspec.yaml and import 'package:dual_screen/dual_screen.dart'.",
+    "alternatives": [],
+    "minimal_example": "Widget build(BuildContext context) {\n  return TwoPane(\n    startPane: _widgetA(),\n    endPane: _widgetB(),\n    paneProportion: 0.3,\n    panePriority: MediaQuery.of(context).size.width > 500 ? TwoPanePriority.both : TwoPanePriority.pane1,\n  );\n}",
+    "confidence": 1
+  }
+}

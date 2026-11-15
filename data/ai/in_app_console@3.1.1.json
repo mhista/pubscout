@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.1.1",
+  "generatedAt": "2026-11-15T11:28:19.541Z",
+  "data": {
+    "primary_category": "devtools",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "In-app console for real-time log viewing across modules with custom plugins.",
+    "what_it_does": "Provides an in-app console UI for viewing and filtering real-time logs across different modules or micro-frontends in a Flutter application. Supports a draggable floating bubble interface and an extension system for additional diagnostics like network inspection, performance monitoring, and device info.",
+    "use_when": [
+      "You need real-time log viewing inside the app for testers and developers",
+      "Your app uses a modular or micro-frontend architecture with isolated loggers",
+      "You want to inspect logs, errors, and custom extension metrics without external tooling"
+    ],
+    "avoid_when": [
+      "You only require standard console printing without an in-app UI",
+      "Production diagnostics without UI overlays are preferred"
+    ],
+    "strengths": [
+      "Unified history with tagging for micro-frontend or modular architectures",
+      "Extensible plugin/extension system for network, statistics, and device info",
+      "Includes a draggable floating bubble for quick console access"
+    ],
+    "weaknesses": [
+      "Adds UI elements and logging overhead directly into the application binary",
+      "Requires manual addition of loggers and registration of extensions"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Not documented",
+    "alternatives": [],
+    "minimal_example": "final logger = InAppLogger();\nlogger.setLabel('Chat module');\nInAppConsole.kEnableConsole = true;\nInAppConsole.instance.addLogger(logger);\nInAppConsole.instance.openConsole(context);",
+    "confidence": 1
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "2.2.0",
+  "generatedAt": "2026-11-15T11:12:29.708Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "animation"
+    ],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "Swipeable card stack widget with flip animations and optional haptics.",
+    "what_it_does": "Provides a stack of cards that can be flipped and swiped with smooth physics‑based animations. Supports haptic feedback, keyboard accessibility, and preserves each card's state during flips.",
+    "use_when": [
+      "You need an interactive card deck with flip and swipe gestures",
+      "You want built‑in haptic feedback and accessibility support",
+      "You prefer a single‑purpose widget without extra dependencies"
+    ],
+    "avoid_when": [
+      "You require non‑Flutter native implementations",
+      "You need complex data fetching or state‑management logic inside the widget"
+    ],
+    "strengths": [
+      "Smooth, customizable flip animations",
+      "Haptic feedback and accessibility built in",
+      "State of each card is preserved across flips",
+      "No additional dependencies"
+    ],
+    "weaknesses": [
+      "Limited to card‑stack UI use cases",
+      "Only works on Flutter platforms"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:flip_card_swiper/flip_card_swiper.dart';\n\nvoid main() => runApp(MyApp());\n\nclass MyApp extends StatelessWidget {\n  final List<Map<String, dynamic>> cards = [\n    {'color': Colors.blue, 'text': 'Card 1'},\n    {'color': Colors.red, 'text': 'Card 2'},\n    {'color': Colors.green, 'text': 'Card 3'},\n  ];\n\n  @override\n  Widget build(BuildContext context) {\n    return MaterialApp(\n      home: Scaffold(\n        body: Center(\n          child: FlipCardSwiper(\n            cardData: cards,\n            onCardChange: (i) {},\n            cardBuilder: (context, index, visibleIndex) {\n              final card = cards[index];\n              return Container(\n                key: ValueKey(index),\n                width: 300,\n                height: 200,\n                decoration: BoxDecoration(\n                  color: card['color'],\n                  borderRadius: BorderRadius.circular(12),\n                ),\n                alignment: Alignment.center,\n                child: Text(card['text'], style: const TextStyle(fontSize: 24, color: Colors.white)),\n              );\n            },\n          ),\n        ),\n      ),\n    );\n  }\n}",
+    "confidence": 0.97
+  }
+}

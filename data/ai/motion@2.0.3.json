@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.3",
+  "generatedAt": "2026-11-15T11:25:41.111Z",
+  "data": {
+    "primary_category": "animation",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Applies a gyroscope or hover-based motion effect to Flutter widgets.",
+    "what_it_does": "The package provides a Motion widget that applies a gyroscope-based tilt effect to its child on mobile platforms, and a hover-based effect on web or desktop. It supports customizable elevation, shadow, and glare effects with damping options.",
+    "use_when": [
+      "You want to add 3D-like gyroscope tilt effects to cards or UI components.",
+      "You want pointer-based hover motion effects for web or desktop targets."
+    ],
+    "avoid_when": [
+      "You are targeting environments where device motion sensors or pointer events are not suitable.",
+      "You need standard physics-based animations or layout transitions."
+    ],
+    "strengths": [
+      "Supports both gyroscope and hover events seamlessly.",
+      "Provides customizable configurations for shadows, elevation, glare, and damping."
+    ],
+    "weaknesses": [
+      "Requires explicit initialization before running the Flutter app.",
+      "Safari iOS has specific permission and gradient rendering limitations."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Initialize the plugin at Dart runtime using Motion.instance.initialize() before running the app.",
+    "alternatives": [
+      {
+        "name": "flutter_animate",
+        "why_pick_it": "If you need a general-purpose animation library for timeline and effect sequencing rather than sensor-driven motion."
+      }
+    ],
+    "minimal_example": "Future<void> main() async {\n  await Motion.instance.initialize();\n  runApp(const MyApp());\n}\n\n// Inside your widget:\nMotion(child: myWidget);",
+    "confidence": 1
+  }
+}

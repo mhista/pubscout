@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.28.14",
+  "generatedAt": "2026-11-14T10:49:02.404Z",
+  "data": {
+    "primary_category": "codegen",
+    "secondary_categories": [
+      "ui-kits",
+      "images"
+    ],
+    "approach": [
+      "code generation",
+      "declarative"
+    ],
+    "one_liner": "Config-driven CLI to generate launcher icons and splash screens from a single SVG.",
+    "what_it_does": "flutter_adaptive_studio is a command-line tool that generates adaptive app icons, themed icons, iOS app icon sets, native Android/iOS splash screens, and an optional in-app Flutter splash from a single SVG file. It parses configuration files and safely updates native resources.",
+    "use_when": [
+      "You want to generate both launcher icons and splash screens from a single SVG source.",
+      "You need Android adaptive icons, Android 13 monochrome icons, and iOS 18 dark/tinted app icons.",
+      "You want to configure flavors easily with deep-merging resource overlays."
+    ],
+    "avoid_when": [
+      "Your project targets the web and you require the generated in-app splash to run there without platform guarding.",
+      "You strictly want a Flutter runtime plugin rather than a CLI tool."
+    ],
+    "strengths": [
+      "Vector-native pipeline avoids manual PNG resizing and fits art into the adaptive safe zone automatically.",
+      "Generates both launcher icons and splash screens for Android and iOS simultaneously.",
+      "Idempotent CLI tool with safe native XML and plist parsing."
+    ],
+    "weaknesses": [
+      "iOS launch screens are static due to Apple design limits.",
+      "Android splash requires compileSdk 34.",
+      "In-app splash Android-API gate uses dart:ffi, making it a no-op on web."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Install globally via `dart pub global activate flutter_adaptive_studio`, run `fas init` to create the configuration file, and set `compileSdk` to 34 in `android/app/build.gradle` for the Android splash.",
+    "alternatives": [],
+    "minimal_example": "fas init\nfas generate",
+    "confidence": 0.95
+  }
+}

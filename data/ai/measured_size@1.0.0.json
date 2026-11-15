@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.0",
+  "generatedAt": "2026-11-14T10:56:20.131Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "A Flutter widget that calculates the size of its child at runtime.",
+    "what_it_does": "MeasuredSize wraps a child widget and provides an onChange callback that triggers whenever the child's size changes. It ensures the callback is only executed when the size actually changes and ignores zero sizes.",
+    "use_when": [
+      "You need to dynamically adjust layout based on the rendered size of a child widget.",
+      "You want to react to runtime size changes of specific widgets."
+    ],
+    "avoid_when": [
+      "You can accomplish the same layout using standard constraints like LayoutBuilder.",
+      "You do not need to read the size of the child programmatically."
+    ],
+    "strengths": [
+      "Simple and straightforward API.",
+      "Prevents duplicate size change notifications by filtering out identical sizes and Size.zero."
+    ],
+    "weaknesses": [
+      "Limited documentation and features beyond basic size observation.",
+      "Older package version with no recent updates."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "none",
+    "alternatives": [],
+    "minimal_example": "MeasuredSize(\n              onChange: (Size size) {\n                setState(() {\n                  print(size);\n                });\n              },\n              child: Text(\n                '$_counter',\n                style: Theme.of(context).textTheme.headline4,\n              ),\n            );",
+    "confidence": 0.95
+  }
+}

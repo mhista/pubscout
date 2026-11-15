@@ -1,0 +1,37 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.2.3",
+  "generatedAt": "2026-11-15T11:05:30.823Z",
+  "data": {
+    "primary_category": "auth",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Library for login with LinkedIn OAuth V2 service with OpenID Connect.",
+    "what_it_does": "Provides Flutter widgets and services to authenticate users using LinkedIn OAuth 2.0 and OpenID Connect. It handles retrieving user profile details and authorization codes via a web view.",
+    "use_when": [
+      "You need to implement Sign In with LinkedIn using OpenID Connect in your Flutter app.",
+      "You want to retrieve LinkedIn profile information and access tokens directly through widgets."
+    ],
+    "avoid_when": [
+      "You are building a web application (web is not supported).",
+      "You require Firebase authentication integration out-of-the-box for LinkedIn."
+    ],
+    "strengths": [
+      "Supports modern LinkedIn OpenID Connect authentication flow.",
+      "Provides ready-to-use widgets like LinkedInUserWidget and LinkedInAuthCodeWidget."
+    ],
+    "weaknesses": [
+      "Web platform is not supported due to iframe and JS limitations.",
+      "No out-of-the-box integration with Firebase."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires creating an app on LinkedIn developers console, configuring redirect URL, client ID, client secret, and checking minSdkVersion (at least 19 for Hybrid Composition).",
+    "alternatives": [],
+    "minimal_example": "LinkedInUserWidget(\n   redirectUrl: redirectUrl,\n   clientId: clientId,\n   clientSecret: clientSecret,\n   onGetUserProfile:\n       (UserSucceededAction linkedInUser) {\n            print('Access token ${linkedInUser.user.token}');\n   },\n   onError: (UserFailedAction e) {\n            print('Error: ${e.toString()}');\n   },\n)",
+    "confidence": 0.95
+  }
+}

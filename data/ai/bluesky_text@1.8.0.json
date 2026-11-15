@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.8.0",
+  "generatedAt": "2026-11-13T11:06:12.234Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Analyze text for Bluesky Social to detect handles, links, and tags, and generate facets.",
+    "what_it_does": "Provides tools to parse text for Bluesky Social, automatically detecting handles, links, and tags while supporting Unicode grapheme clusters and safe text splitting. It converts detected entities into Bluesky-compatible facets and handles link facade warnings.",
+    "use_when": [
+      "Building a Bluesky client or integration in Dart and Flutter",
+      "Extracting handles, links, and hashtags from user input posts",
+      "Generating rich-text facets for Bluesky social posts"
+    ],
+    "avoid_when": [
+      "Building generic non-Bluesky text parsing applications",
+      "Needing general Markdown rendering without Bluesky social specific rules"
+    ],
+    "strengths": [
+      "Automatic detection of handles, links, and tags",
+      "100% compatible with the bluesky package",
+      "Supports Unicode grapheme clusters and safe text splitting",
+      "Zero external domain dependencies outside basic networking"
+    ],
+    "weaknesses": [
+      "Scoped strictly to Bluesky Social text structures",
+      "Relies on network calls or a resolver to convert handles to DIDs"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:bluesky_text/bluesky_text.dart';\n\nFuture<void> main() async {\n  final text = BlueskyText('Hello @shinyakato.bsky.social! Visit https://shinyakato.dev.');\n  final data = await text.toPostData();\n  print(data.text);\n  print(data.facets);\n}",
+    "confidence": 0.95
+  }
+}

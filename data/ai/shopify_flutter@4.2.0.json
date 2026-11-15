@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.2.0",
+  "generatedAt": "2026-11-13T11:26:00.342Z",
+  "data": {
+    "primary_category": "backend",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Connects your Shopify store with your Flutter application using the Storefront API.",
+    "what_it_does": "Acts as a bridge between Shopify and Flutter, providing methods for authentication, product catalogs, carts, orders, and custom GraphQL queries. It wraps GraphQL requests and handles Shopify-specific data models like products, variants, collections, and carts.",
+    "use_when": [
+      "You are building a custom e-commerce mobile or web app powered by Shopify.",
+      "You need to manage Shopify storefront authentication, cart operations, and product queries directly in Dart."
+    ],
+    "avoid_when": [
+      "You are using old Shopify Checkout APIs (which have been shut down; use Carts instead).",
+      "You prefer a generic GraphQL client and want to write all GraphQL queries manually without a wrapper."
+    ],
+    "strengths": [
+      "Covers a comprehensive set of Shopify Storefront features (Auth, Store, Cart, Order, Customer, Blog, Page).",
+      "Unified error handling via `ShopifyException` covering both network issues and GraphQL/user errors.",
+      "Supports custom queries and mutations for advanced use cases."
+    ],
+    "weaknesses": [
+      "Requires maintaining exact field compatibility if you modify models and their corresponding GraphQL documents.",
+      "Tied tightly to Shopify's versioning and API schemas."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Configure ShopifyConfig in main() with your storefront access token and store URL.",
+    "alternatives": [],
+    "minimal_example": "void main() {\n  ShopifyConfig.setConfig(\n    storefrontAccessToken: '*******************',\n    storeUrl: '*****.myshopify.com',\n  );\n  runApp(MyApp());\n}",
+    "confidence": 0.95
+  }
+}

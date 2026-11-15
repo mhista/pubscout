@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.4",
+  "generatedAt": "2026-11-14T10:45:25.377Z",
+  "data": {
+    "primary_category": "images",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Flutter image compression and resizing for Mobile, Desktop, and Web.",
+    "what_it_does": "Provides a unified API for compressing and resizing JPG, PNG, and WEBP images across mobile, desktop, and web platforms. It combines native mobile compression with cross-platform desktop and web packages under the hood.",
+    "use_when": [
+      "You need to compress or resize images before uploading them on mobile, desktop, or web.",
+      "You want a single cross-platform API that handles different underlying compressors per platform."
+    ],
+    "avoid_when": [
+      "You only need basic image rendering or caching.",
+      "You need complex image editing operations beyond compression and resizing."
+    ],
+    "strengths": [
+      "Cross-platform support including mobile, desktop, and web.",
+      "Supports JPG, PNG, and WEBP formats.",
+      "Accepts XFile as input image."
+    ],
+    "weaknesses": [
+      "License is unknown.",
+      "Relies on different underlying packages per platform (native vs cross-platform)."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [
+      {
+        "name": "image",
+        "why_pick_it": "Provides a pure Dart solution for image processing without relying on platform-specific native plugins."
+      }
+    ],
+    "minimal_example": "ImageFile input;\nConfiguration config = Configuration(\n   outputType: ImageOutputType.webpThenJpg,\n   useJpgPngNativeCompressor: false,\n   quality: 40,\n);\n\nfinal param = ImageFileConfiguration(input: input, config: config);\nfinal output = await compressor.compress(param);",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.0",
+  "generatedAt": "2026-11-13T11:23:20.421Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "layout",
+      "ui-kits"
+    ],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "Widgets and slivers for rendering hierarchical tree structures and handling drag-and-drop.",
+    "what_it_does": "Provides a collection of widgets and slivers to bring hierarchical data to life. It traverses data in depth-first order to lazily render tree nodes with customizable indentation guides, animations, and drag-and-drop support.",
+    "use_when": [
+      "You need to display hierarchical file systems or directory trees in Flutter.",
+      "You want expandable and collapsible tree views with custom indentation lines.",
+      "You require tree nodes with drag-and-drop reordering capabilities."
+    ],
+    "avoid_when": [
+      "You are using Flutter's built-in Material library directly without migrating to material_ui.",
+      "You don't have hierarchical or nested data structures to display."
+    ],
+    "strengths": [
+      "Supports indentation guides, connect lines, and expand/collapse animations.",
+      "Includes rudimentary drag-and-drop support with auto-scrolling and auto-expanding nodes.",
+      "Efficiently renders tree nodes using slivers."
+    ],
+    "weaknesses": [
+      "Requires migration to the standalone material_ui package in version 2.0.",
+      "Major breaking changes compared to older 1.x versions."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires adding material_ui: ^1.11.0 to dependencies and importing material_ui.dart instead of flutter/material.dart.",
+    "alternatives": [],
+    "minimal_example": "final treeController = TreeController<MyTreeNode>(\n  roots: roots,\n  childrenProvider: (MyTreeNode node) => node.children,\n);\n\nAnimatedTreeView<MyTreeNode>(\n  treeController: treeController,\n  nodeBuilder: (BuildContext context, TreeEntry<MyTreeNode> entry) {\n    return InkWell(\n      onTap: () => treeController.toggleExpansion(entry.node),\n      child: TreeIndentation(\n        entry: entry,\n        child: Text(entry.node.title),\n      ),\n    );\n  },\n)",
+    "confidence": 0.95
+  }
+}

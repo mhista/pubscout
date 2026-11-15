@@ -1,0 +1,52 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.1.0",
+  "generatedAt": "2026-11-13T11:46:02.968Z",
+  "data": {
+    "primary_category": "backend",
+    "secondary_categories": [
+      "storage",
+      "codegen"
+    ],
+    "approach": [
+      "code generation",
+      "stream-based"
+    ],
+    "one_liner": "Routes data fetching through local providers before Supabase with offline caching.",
+    "what_it_does": "It provides an Offline-First repository domain that integrates Supabase with local SQLite storage. It enables offline request queuing, automatic local caching, and synchronization with Supabase realtime events.",
+    "use_when": [
+      "You are building an app with Supabase that requires offline data access and caching.",
+      "You want automatic synchronization with Supabase realtime changes using a local-first architecture."
+    ],
+    "avoid_when": [
+      "You are not using Supabase as your backend.",
+      "Your application does not require local persistence or offline capabilities."
+    ],
+    "strengths": [
+      "Seamless offline-first caching with SQLite for Supabase apps.",
+      "Built-in offline request queue that retries requests upon reconnection.",
+      "Supports Supabase realtime events to keep local data synchronized."
+    ],
+    "weaknesses": [
+      "Brittle offline queue configuration when ignoring core Supabase paths like auth or storage.",
+      "Complex nullable associations can cause PostgREST to return unfiltered or all results.",
+      "Requires code generation and specific repository boilerplate."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires databaseFactory setup, model dictionary generation using build_runner, and defining models extending OfflineFirstWithSupabaseModel.",
+    "alternatives": [
+      {
+        "name": "supabase",
+        "why_pick_it": "If you want to use the official Supabase Dart client directly without an offline-first local SQLite cache layer."
+      },
+      {
+        "name": "cloud_firestore",
+        "why_pick_it": "If you are using Firebase Firestore instead of Supabase for your backend and offline database needs."
+      }
+    ],
+    "minimal_example": "class MyRepository extends OfflineFirstWithSupabaseRepository {\n  MyRepository._({required super.supabaseProvider, required super.sqliteProvider, required super.migrations, required super.offlineRequestQueue, super.memoryCacheProvider});\n}",
+    "confidence": 0.95
+  }
+}

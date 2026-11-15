@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.2.0",
+  "generatedAt": "2026-11-13T11:25:49.777Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Access SIM card details, mobile network info, eSIM status, and multi-SIM info in Flutter.",
+    "what_it_does": "A Flutter plugin providing access to cellular network operators, country codes, SIM states, device IDs, eSIM support, and multi-SIM information on Android and iOS. It also supports reactive change streams for monitoring SIM insertions, removals, and network switching.",
+    "use_when": [
+      "You need to read SIM card details, operator names, or country codes.",
+      "Your app needs to detect multi-SIM setups and look up individual subscription IDs.",
+      "You need to listen for live SIM or network roaming changes."
+    ],
+    "avoid_when": [
+      "Targeting iOS platforms where phone number, IMEI, ICCID, and roaming are restricted by privacy limits.",
+      "You cannot handle native Android permissions like READ_PHONE_STATE."
+    ],
+    "strengths": [
+      "Supports both multi-SIM and eSIM information lookup.",
+      "Provides reactive stream updates for SIM and network state changes.",
+      "Typed network info enums for generation (2G-5G) and type."
+    ],
+    "weaknesses": [
+      "iOS has platform-level privacy limitations hiding phone numbers, IMEIs, and ICCIDs.",
+      "Requires runtime Android permissions for full phone state access."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Android requires adding the READ_PHONE_STATE permission to AndroidManifest.xml and requesting it at runtime. iOS 13.0+ requires the esim-access entitlement for supportsEsim.",
+    "alternatives": [],
+    "minimal_example": "import 'package:sim_card_code/sim_card_code.dart';\n\nfinal country = await SimCardManager.simCountryCode;\nfinal net = await SimCardManager.networkInfo;\nfinal esim = await SimCardManager.isEsim;\n\nSimCardManager.onChanged.listen((e) => print('changed: ${e.type}'));",
+    "confidence": 0.95
+  }
+}

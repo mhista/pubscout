@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "5.0.0",
+  "generatedAt": "2026-11-15T10:56:25.519Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "notifications"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Integrate EaseMob IM global instant messaging services into Flutter apps",
+    "what_it_does": "Provides APIs to integrate one-to-one chat, group chat, chat rooms, and other instant messaging features into a Flutter application. It uses a federated plugin architecture supporting Android and iOS platforms.",
+    "use_when": [
+      "You need to build instant messaging capabilities like one-to-one or group chats in your app.",
+      "You are using the EaseMob IM backend services."
+    ],
+    "avoid_when": [
+      "You require password-based client login, as version 5.0.0 only supports token-based login managed by your server.",
+      "You are looking for an open-source self-hosted chat backend without third-party dependencies."
+    ],
+    "strengths": [
+      "High reliability, ultra-low latency, and high concurrency IM support.",
+      "Federated plugin architecture cleanly separating platform implementations."
+    ],
+    "weaknesses": [
+      "Requires an EaseMob IM developer account and server-side infrastructure for token generation.",
+      "Version 5.0.0 contains significant breaking changes requiring updates to login flows and read receipts."
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Requires setting minimum SDK versions (API 21 for Android, iOS 13), ProGuard keep rules on Android, an EaseMob developer account, and configuring app keys.",
+    "alternatives": [],
+    "minimal_example": "import 'package:im_flutter_sdk/im_flutter_sdk.dart';\n\nFuture<void> initSDK() async {\n  ChatOptions options = ChatOptions(\n    appKey: \"your AppKey\",\n  );\n  await ChatClient.getInstance.init(options);\n  await ChatClient.getInstance.startCallback();\n}",
+    "confidence": 0.95
+  }
+}

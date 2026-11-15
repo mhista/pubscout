@@ -1,0 +1,56 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "5.0.1",
+  "generatedAt": "2026-11-13T11:00:57.315Z",
+  "data": {
+    "primary_category": "devtools",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Cross‑platform logger with simple API for console output and optional colorization.",
+    "what_it_does": "Provides global logging functions (e.g., l.s, l.e, l.v) that write to the console on all supported platforms. It can capture prints, customize output, and expose a broadcast stream of log events.",
+    "use_when": [
+      "You need quick, zero‑boilerplate logging across mobile, web, and desktop.",
+      "You want colored console output and the ability to listen to log streams."
+    ],
+    "avoid_when": [
+      "You require structured logging with JSON output to external services without additional setup.",
+      "You need log persistence to files or databases out of the box."
+    ],
+    "strengths": [
+      "Zero‑setup global API",
+      "Supports colorized output and custom formatting",
+      "Works on all major Flutter platforms",
+      "Provides a broadcast stream for reactive handling"
+    ],
+    "weaknesses": [
+      "Limited built‑in log destinations (console only)",
+      "No built‑in file or remote logging support",
+      "Customization requires writing your own handlers"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "logger",
+        "why_pick_it": "Mature, feature‑rich logger with file output and hierarchical logging levels."
+      },
+      {
+        "name": "mason_logger",
+        "why_pick_it": "Simple logger focused on CLI tools with built‑in progress bars and emojis."
+      },
+      {
+        "name": "talker_logger",
+        "why_pick_it": "Offers structured logs, theming, and integration with Talker devtools."
+      }
+    ],
+    "minimal_example": "import 'package:l/l.dart';\n\nvoid main() {\n  l.s('shout');\n  l.e('error');\n  l.v('verbose level 1');\n  l.forEach((log) => print('* ${log.level}: ${log.message}'));\n}",
+    "confidence": 0.97
+  }
+}

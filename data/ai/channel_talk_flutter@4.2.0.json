@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "4.2.0",
+  "generatedAt": "2026-11-14T10:32:54.086Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter wrapper for Channel Talk chat SDK",
+    "what_it_does": "Provides a chat widget, event listeners, and push notification integration for Android, iOS, web, and macOS.",
+    "use_when": [
+      "You need in‑app chat support",
+      "You want to integrate push notifications via Channel Talk",
+      "You prefer a single plugin for all platforms"
+    ],
+    "avoid_when": [
+      "You already use the official Channel Talk SDK directly",
+      "You need a fully supported, officially maintained package"
+    ],
+    "strengths": [
+      "Cross‑platform support",
+      "Easy event handling via setListener",
+      "Built‑in push notification integration"
+    ],
+    "weaknesses": [
+      "Unofficial, may lag behind official SDK updates",
+      "Limited documentation and community support"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add AndroidManifest service entry, iOS Podfile entry for ChannelIOSDK, update info.plist permissions, and optionally configure firebase_messaging for push. No build_runner needed.",
+    "alternatives": [],
+    "minimal_example": "import 'package:channel_talk_flutter/channel_talk_flutter.dart';\n\nvoid main() async {\n  await ChannelTalk.boot(\n    pluginKey: 'pluginKey',\n    memberId: 'memberId',\n    memberHash: 'memberHash',\n    email: 'email',\n    name: 'name',\n    mobileNumber: 'mobileNumber',\n    avatarUrl: 'avatarUrl',\n    hidePopup: false,\n    appearance: Appearance.dark,\n  );\n  ChannelTalk.setListener((event, args) {\n    // handle events\n  });\n  runApp(const App());\n}\n\nclass App extends StatelessWidget {\n  const App({super.key});\n  @override\n  Widget build(BuildContext context) {\n    return ElevatedButton(\n      onPressed: () => ChannelTalk.showMessenger(),\n      child: const Text('Open Channel Talk'),\n    );\n  }\n}",
+    "confidence": 0.8
+  }
+}

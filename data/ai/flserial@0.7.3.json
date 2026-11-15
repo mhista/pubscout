@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.7.3",
+  "generatedAt": "2026-11-14T10:58:48.833Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "web-desktop"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "A high-performance, asynchronous serial port plugin for Flutter using Dart FFI and Native Assets.",
+    "what_it_does": "It enables communication with serial and RS232 devices across Windows, Linux, macOS, Android, and Web. It uses a native C++ worker thread for async I/O and provides a reactive stream for incoming data and device events.",
+    "use_when": [
+      "You need to communicate with RS232, USB-serial adapters, or hardware COM ports from Flutter.",
+      "You require cross-platform serial port support including desktop, Android, and web browsers."
+    ],
+    "avoid_when": [
+      "You are targeting Firefox or Safari on the web, as they do not support the Web Serial API.",
+      "You only need high-level network communication (such as HTTP or WebSockets)."
+    ],
+    "strengths": [
+      "Asynchronous I/O via native C++ worker thread keeps the UI thread free.",
+      "Reactive stream interface for incoming data and events.",
+      "Supports Native Assets on desktop and Android USB Host API without manual library copying."
+    ],
+    "weaknesses": [
+      "Modem control lines and some configurations are not supported on the web platform.",
+      "Android requires specific USB host permissions configured in the manifest."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "For Android, add the uses-feature tag for usb.host in AndroidManifest.xml. On the web, works in Chrome and Edge 89+.",
+    "alternatives": [],
+    "minimal_example": "import 'dart:typed_data';\nimport 'package:flserial/flserial.dart';\n\nfinal serial = FlSerial();\n\nserial.events.listen((event) {\n  if (event.type == SerialEventType.data) {\n    print('Received: ${String.fromCharCodes(event.data as Uint8List)}');\n  }\n});\n\nfinal ports = await FlSerial.availablePorts();\nfinal ok = await serial.open(ports.first.path, SerialConfig(baudRate: 115200));",
+    "confidence": 0.95
+  }
+}

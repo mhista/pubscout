@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "5.0.0",
+  "generatedAt": "2026-11-13T10:59:59.737Z",
+  "data": {
+    "primary_category": "maps",
+    "secondary_categories": [
+      "device",
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Plugin to access device location on Android, iOS, and Web",
+    "what_it_does": "Provides APIs to request location permission, get the current location, and subscribe to real‑time location and service status streams. It supports foreground and background location on all three platforms.",
+    "use_when": [
+      "When you need to request location permission and get the current location",
+      "When you need continuous location updates via a stream",
+      "When you need to monitor location services status changes"
+    ],
+    "avoid_when": [
+      "When you only need a one‑time location without permission handling",
+      "When you need advanced geofencing or mapping features"
+    ],
+    "strengths": [
+      "Cross‑platform support (Android, iOS, Web)",
+      "Real‑time streams for location and service status",
+      "Background location support with flutter_foreground_task"
+    ],
+    "weaknesses": [
+      "Requires manual permission configuration",
+      "No built‑in mapping or geofencing features",
+      "Limited to basic location data"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add Android permissions (ACCESS_COARSE_LOCATION, ACCESS_FINE_LOCATION, optional ACCESS_BACKGROUND_LOCATION) to AndroidManifest.xml; add iOS usage descriptions to Info.plist; no build_runner needed.",
+    "alternatives": [
+      {
+        "name": "geolocator",
+        "why_pick_it": "More mature, widely used, and includes additional features like geofencing and distance calculations"
+      }
+    ],
+    "minimal_example": "```dart\nimport 'package:fl_location/fl_location.dart';\n\nFuture<void> getLocation() async {\n  if (await FlLocation.isLocationServicesEnabled) {\n    final loc = await FlLocation.getLocation();\n    print('Lat: ${loc.latitude}, Lng: ${loc.longitude}');\n  }\n}\n```",
+    "confidence": 0.9
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.4.0",
+  "generatedAt": "2026-11-13T11:45:30.958Z",
+  "data": {
+    "primary_category": "files",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "A template engine for generating Microsoft Word .docx files.",
+    "what_it_does": "Allows developers to load a Microsoft Word template containing custom content control tags and generate a populated .docx file by passing structured content like text, lists, tables, and images.",
+    "use_when": [
+      "You need to programmatically generate filled Word documents (.docx) from templates.",
+      "Your workflow relies on Microsoft Word content control tags."
+    ],
+    "avoid_when": [
+      "You need to use LibreOffice or other office programs that lack a content control tag system.",
+      "You need to edit documents outside of Microsoft Word's tag creation toolset."
+    ],
+    "strengths": [
+      "Supports lists, tables, text, plain blocks, images, and hyperlinks.",
+      "Compatible across multiple platforms including Android, iOS, Web, Windows, macOS, and Linux.",
+      "Allows custom tag and image policies during generation."
+    ],
+    "weaknesses": [
+      "Requires Microsoft Word to set up and edit content control tags.",
+      "LibreOffice and other non-Word office programs are not supported."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires downloading a template file, opening it in Microsoft Word, enabling Developer mode, and configuring content control tags.",
+    "alternatives": [],
+    "minimal_example": "  final f = File(\"template.docx\");\n  final docx = await DocxTemplate.fromBytes(await f.readAsBytes());\n  Content c = Content();\n  c.add(TextContent(\"docname\", \"Simple docname\"));\n  final d = await docx.generate(c);\n  final of = File('generated.docx');\n  if (d != null) await of.writeAsBytes(d);",
+    "confidence": 0.95
+  }
+}

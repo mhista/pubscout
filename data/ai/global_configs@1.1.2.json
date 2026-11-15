@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "1.1.2",
+  "generatedAt": "2026-11-14T10:39:57.429Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Flutter package to manage app configurations via a singleton pattern.",
+    "what_it_does": "Loads configuration data from a Map or JSON file and stores it in a global singleton. Provides get, set, and unset methods to access nested config values using dot‑separated paths.",
+    "use_when": [
+      "You need a simple, centralized place for runtime configuration values.",
+      "You want to load configs from assets or code without additional tooling."
+    ],
+    "avoid_when": [
+      "You require reactive updates when config changes.",
+      "You need secure or encrypted storage for sensitive data."
+    ],
+    "strengths": [
+      "Very easy to integrate and use.",
+      "Supports nested paths for hierarchical configs.",
+      "Works on all Flutter platforms out of the box."
+    ],
+    "weaknesses": [
+      "No built‑in change notification mechanism.",
+      "Manual type casting required for custom types."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "yaml",
+        "why_pick_it": "Provides a lightweight way to load and parse configuration files without a singleton wrapper."
+      }
+    ],
+    "minimal_example": "import 'package:global_configs/global_configs.dart';\n\nvoid main() async {\n  WidgetsFlutterBinding.ensureInitialized();\n  GlobalConfigs().loadFromMap({\n    'appearance': {'defaultTheme': 'Dark'}\n  });\n  var theme = GlobalConfigs().get<String>('appearance.defaultTheme');\n  print(theme); // Dark\n}",
+    "confidence": 0.9
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.7.6",
+  "generatedAt": "2026-11-14T10:39:19.824Z",
+  "data": {
+    "primary_category": "web3",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "code generation",
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "A Web3 library for Dart to interact with Ethereum nodes via HTTP or WebSocket.",
+    "what_it_does": "It allows Dart and Flutter developers to connect to local or remote Ethereum nodes, call contract functions, listen for contract events, manage credentials, and send signed transactions. It also includes support for custom credentials providers like WalletConnect and Metamask, alongside ABI-based code generation.",
+    "use_when": [
+      "You need to interact with Ethereum or EVM-compatible blockchains in a Dart/Flutter application.",
+      "You want to generate Dart bindings from smart contract ABIs using build_runner.",
+      "You require custom credential providers like MetaMask or WalletConnect."
+    ],
+    "avoid_when": [
+      "You need support for non-Ethereum blockchains that this library does not cover.",
+      "You prefer a strictly lightweight library without external build dependencies."
+    ],
+    "strengths": [
+      "Supports connecting to Ethereum nodes via HTTP and WebSocket.",
+      "Built-in smart contract ABI code generator for type-safe interactions.",
+      "Supports WalletConnect and Metamask integrations."
+    ],
+    "weaknesses": [
+      "Some advanced solidity types might have limited support.",
+      "Requires build_runner configuration for code generation features."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding contract ABI JSON files and running build_runner for code generation if using smart contract bindings.",
+    "alternatives": [
+      {
+        "name": "web3dart",
+        "why_pick_it": "WebThree is a fork of web3dart; you may choose the original package depending on your stability or maintenance preferences."
+      },
+      {
+        "name": "blockchain_utils",
+        "why_pick_it": "Provides a comprehensive set of cryptographic and serialization utilities for multi-chain blockchain development."
+      }
+    ],
+    "minimal_example": "import 'package:http/http.dart';\nimport 'package:webthree/webthree.dart';\n\nvar apiUrl = \"http://localhost:7545\";\nvar httpClient = Client();\nvar ethClient = Web3Client(apiUrl, httpClient);\n\nvar credentials = EthPrivateKey.fromHex(\"0x...\");\nvar address = await credentials.address;\nEtherAmount balance = ethClient.getBalance(address);",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.16.0",
+  "generatedAt": "2026-11-14T10:45:01.800Z",
+  "data": {
+    "primary_category": "theming",
+    "secondary_categories": [
+      "codegen",
+      "utils"
+    ],
+    "approach": [
+      "code generation",
+      "declarative"
+    ],
+    "one_liner": "Generates Flutter app launcher icons across all platforms from a source image.",
+    "what_it_does": "A command-line tool that creates and integrates app launcher icons for Android, iOS, Web, Windows, macOS, and Linux from a single high-resolution source image. It supports flavors, native configuration wiring, and modern icon variants like Android monochrome layers and iOS dark/tinted appearances.",
+    "use_when": [
+      "You need to generate and set up app launcher icons across multiple platforms automatically.",
+      "Your project utilizes build flavors and requires distinct launcher icons per flavor."
+    ],
+    "avoid_when": [
+      "You prefer to manually design and place every platform-specific native icon asset by hand."
+    ],
+    "strengths": [
+      "Actively maintained fork with comprehensive multi-platform support including web and desktop.",
+      "Supports build flavors out-of-the-box across all platforms.",
+      "Performs deep native wiring with safe cleanup and strict validation."
+    ],
+    "weaknesses": [
+      "The built-in SVG renderer is beta quality and has limitations with complex text or filters.",
+      "Diverged heavily from older tools and features a breaking config schema."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add launcher_icons to dev_dependencies, create a configuration file or use pubspec.yaml, and run `dart run launcher_icons`.",
+    "alternatives": [
+      {
+        "name": "flutter_launcher_icons",
+        "why_pick_it": "The original legacy tool, if you rely on older configuration schemas and are not using this maintained fork."
+      }
+    ],
+    "minimal_example": "dev_dependencies:\n  launcher_icons: \"^0.16.0\"\n\nlauncher_icons:\n  image_path: \"assets/icon/icon.png\"\n  android:\n    generate: true\n  ios:\n    generate: true",
+    "confidence": 1
+  }
+}

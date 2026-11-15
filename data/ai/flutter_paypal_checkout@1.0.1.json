@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "1.0.1",
+  "generatedAt": "2026-11-14T10:35:34.831Z",
+  "data": {
+    "primary_category": "payments",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter widget that launches a PayPal checkout flow via an in‑app webview.",
+    "what_it_does": "The package opens a PayPal payment page inside a WebView, lets the user complete the transaction, and returns success, error, or cancel events through callbacks. It handles sandbox and live modes and requires only client‑id and secret key configuration.",
+    "use_when": [
+      "You need to accept PayPal payments in a Flutter app without native SDKs",
+      "You prefer a simple plug‑and‑play widget with callback handling"
+    ],
+    "avoid_when": [
+      "You require native PayPal SDK features like Apple Pay or advanced fraud protection",
+      "You cannot expose client secret in the app for security reasons",
+      "You need extensive UI customization beyond the provided WebView"
+    ],
+    "strengths": [
+      "Very easy to add – just a widget and callbacks",
+      "Works on both Android and iOS out of the box",
+      "Supports sandbox mode for testing"
+    ],
+    "weaknesses": [
+      "Relies on a WebView, which may be less performant than native SDKs",
+      "Client secret is stored in the app, posing security concerns",
+      "Limited customization and feature set compared to official PayPal SDKs"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add flutter_inappwebview and http dependencies; ensure Android minSdkVersion >=17; no extra iOS configuration required",
+    "alternatives": [
+      {
+        "name": "pay",
+        "why_pick_it": "Provides a unified API for multiple payment gateways, including PayPal, with more options and better security handling"
+      }
+    ],
+    "minimal_example": "Navigator.of(context).push(MaterialPageRoute(builder: (_) => PaypalCheckout(\n  sandboxMode:true,\n  clientId:\"YOUR_CLIENT_ID\",\n  secretKey:\"YOUR_SECRET_KEY\",\n  returnURL:\"YOUR_RETURN_URL\",\n  cancelURL:\"YOUR_CANCEL_URL\",\n  transactions:[{\n    \"amount\":{\"total\":\"70\",\"currency\":\"USD\",\"details\":{\"subtotal\":\"70\",\"shipping\":\"0\",\"shipping_discount\":0}},\n    \"description\":\"The payment transaction description.\"\n  }],\n  onSuccess:(params)=>print(params),\n  onError:(e)=>print(e),\n  onCancel:()=>print('cancelled'),\n)))",
+    "confidence": 0.78
+  }
+}

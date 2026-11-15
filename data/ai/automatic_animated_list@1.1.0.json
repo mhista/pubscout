@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.1.0",
+  "generatedAt": "2026-11-13T11:17:24.078Z",
+  "data": {
+    "primary_category": "animation",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "An AnimatedList that automatically computes item deltas and animates list changes.",
+    "what_it_does": "AutomaticAnimatedList takes an underlying list of items and a keying function, automatically computing the differences using diffutil_dart when the list updates. It then triggers insertion and removal animations for the list tiles without requiring manual AnimatedListState calls.",
+    "use_when": [
+      "You have a dynamic list of items that frequently updates and you want automatic animations.",
+      "You want to avoid manually managing AnimatedList insertion and removal states."
+    ],
+    "avoid_when": [
+      "You are not using a list structure that benefits from diff-based animations.",
+      "You need custom imperative control over every single list animation step."
+    ],
+    "strengths": [
+      "Automatically computes item deltas on list updates.",
+      "Simplifies AnimatedList usage by eliminating manual state manipulation."
+    ],
+    "weaknesses": [
+      "Relies on the provided keying function to accurately track items.",
+      "Limited documentation regarding advanced customization."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "return AutomaticAnimatedList<ItemModel>(\n  items: items,\n  insertDuration: Duration(seconds: 1),\n  removeDuration: Duration(seconds: 1),\n  keyingFunction: (ItemModel item) => Key(item.id),\n  itemBuilder: (BuildContext context, ItemModel item, Animation<double> animation) {\n    return FadeTransition(\n      key: Key(item.id),\n      opacity: animation,\n      child: SizeTransition(\n        sizeFactor: animation,\n        child: ListTile(title: Text(item.name)),\n      ),\n    );\n  },\n);",
+    "confidence": 0.95
+  }
+}

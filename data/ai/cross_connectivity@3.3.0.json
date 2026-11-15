@@ -1,0 +1,48 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "3.3.0",
+  "generatedAt": "2026-11-14T10:38:09.495Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "stream-based"
+    ],
+    "one_liner": "Flutter plugin to monitor real network connectivity across mobile, web, and desktop.",
+    "what_it_does": "Provides streams and one‑time checks for real network connectivity. It also offers a widget builder for UI updates.",
+    "use_when": [
+      "Need real network status across iOS, Android, Web, Windows, Linux, macOS",
+      "Require stream‑based updates for UI",
+      "Want a single plugin for all platforms"
+    ],
+    "avoid_when": [
+      "Only need simple connectivity check",
+      "Need Wi‑Fi SSID or BSSID info (removed APIs)"
+    ],
+    "strengths": [
+      "Cross‑platform support",
+      "Stream‑based API for reactive UI",
+      "Simple one‑liner usage",
+      "No code generation required"
+    ],
+    "weaknesses": [
+      "Removed Wi‑Fi info APIs",
+      "Depends on connectivity_plus",
+      "Requires Flutter SDK >=3.5.0"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dependency in pubspec, import package, no special permissions needed",
+    "alternatives": [
+      {
+        "name": "connectivity_plus",
+        "why_pick_it": "Direct connectivity status without wrapper"
+      }
+    ],
+    "minimal_example": "import 'package:cross_connectivity/cross_connectivity.dart';\n\nfinal isConnected = CrossConnectivity.isConnected;\nfinal status = CrossConnectivity.onConnectivityChanged;\n\nCrossConnectivity.checkConnection().then((connected) => print(connected));",
+    "confidence": 0.9
+  }
+}

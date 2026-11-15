@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.0.4",
+  "generatedAt": "2026-11-15T11:12:35.212Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Plugin to read current app flavor from native code",
+    "what_it_does": "Flavor Getter allows Flutter code to query the flavor (variant) the app is running in. It exposes a simple async method that returns a string representing the flavor set in the native build configuration.",
+    "use_when": [
+      "When you need to branch logic based on the current flavor",
+      "During debugging or logging to verify the active flavor",
+      "When building a single codebase for multiple environments (dev, prod, staging)"
+    ],
+    "avoid_when": [
+      "When your project does not use flavors",
+      "When you prefer to hardcode environment values instead of querying at runtime"
+    ],
+    "strengths": [
+      "Simple API, no code generation",
+      "Supports both Android and iOS",
+      "Requires minimal dependencies"
+    ],
+    "weaknesses": [
+      "Only works on Android and iOS",
+      "Needs native build configuration steps",
+      "No support for web or desktop"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding a FLAVOR build setting and Info.plist entry on iOS, and defining productFlavors and buildFeatures in Android Gradle. No permissions or build_runner needed.",
+    "alternatives": [],
+    "minimal_example": "import 'package:flavor_getter/flavor_getter.dart';\n\nvoid main() async {\n  String flavor = await FlavorGetter().getFlavor();\n  print('Running in flavor: $flavor');\n}",
+    "confidence": 0.9
+  }
+}

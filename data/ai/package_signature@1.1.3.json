@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "1.1.3",
+  "generatedAt": "2026-11-14T10:46:26.404Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Retrieve Android package signature (SHA1/SHA256) in a Flutter app.",
+    "what_it_does": "This plugin exposes a simple API to obtain the Android package signature. It returns the signature as SHA1 and SHA256 hashes in base64, hex, and byte array formats. It works on Android devices running API level 9 and above.",
+    "use_when": [
+      "You need to verify the app’s signature for security checks or API key validation.",
+      "You want to log or display the app’s SHA1/SHA256 for debugging or integration with services that require it."
+    ],
+    "avoid_when": [
+      "You are targeting iOS or other platforms where Android signatures are irrelevant.",
+      "You need a cross-platform signature solution that also works on Android, iOS, and web."
+    ],
+    "strengths": [
+      "Simple, single-method API.",
+      "Supports both SHA1 and SHA256 in multiple formats.",
+      "Handles Android <9 crashes with a fix.",
+      "No build_runner or code generation required."
+    ],
+    "weaknesses": [
+      "Only works on Android; no iOS or web support.",
+      "No additional features beyond signature retrieval.",
+      "Requires the app to be built for Android to function."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "```dart\nSignature? signature = await PackageSignature().signature;\nString sha256Base64 = signature.sha256base64;\n```",
+    "confidence": 0.95
+  }
+}

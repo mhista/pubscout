@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.0.10",
+  "generatedAt": "2026-11-13T11:42:05.382Z",
+  "data": {
+    "primary_category": "testing",
+    "secondary_categories": [
+      "state-management"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A testing utility library for StateNotifier and Riverpod",
+    "what_it_does": "Provides the stateNotifierTest function to easily test StateNotifier state emissions, actions, seeding, and verification, ported from bloc_test.",
+    "use_when": [
+      "You are using state_notifier, riverpod, or flutter_riverpod in your project",
+      "You want a structured, readable syntax for testing state changes in StateNotifiers"
+    ],
+    "avoid_when": [
+      "You are not using StateNotifier or Riverpod for state management",
+      "You prefer standard Flutter test assertions without helper wrappers"
+    ],
+    "strengths": [
+      "Clear, declarative syntax for testing emitted states",
+      "Supports seeding initial states, skipping emissions, and custom verifications"
+    ],
+    "weaknesses": [
+      "Relies on a third-party port of bloc_test which may lag behind official bloc_test updates",
+      "Limited to StateNotifier architectures"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add state_notifier_test to dev_dependencies in pubspec.yaml.",
+    "alternatives": [],
+    "minimal_example": "stateNotifierTest(\n  'CounterNotifier emits [9,10] when seeded with 9',\n  build: () => CounterNotifier(),\n  seed: () => [9],\n  actions: (stateNotifier) => stateNotifier.increment(),\n  expect: () => [9,10],\n);",
+    "confidence": 0.95
+  }
+}

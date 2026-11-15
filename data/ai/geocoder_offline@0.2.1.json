@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.2.1",
+  "generatedAt": "2026-11-14T11:03:14.267Z",
+  "data": {
+    "primary_category": "maps",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Package for super-fast offline reverse geocoding using a custom data file.",
+    "what_it_does": "It performs offline reverse geocoding by searching through a provided data file using a k-d tree. Once initialized, location searches take about 4-5 milliseconds.",
+    "use_when": [
+      "You need fast reverse geocoding without an internet connection",
+      "You want to supply your own custom place data file such as GeoNames or USGS data"
+    ],
+    "avoid_when": [
+      "You require an out-of-the-box global reverse geocoding database without managing your own data file",
+      "You need online-only features or real-time updates from a live mapping server"
+    ],
+    "strengths": [
+      "Super-fast lookups taking around 4-5 milliseconds",
+      "Supports running searches in an isolate",
+      "Works entirely offline using custom delimited files"
+    ],
+    "weaknesses": [
+      "Requires you to supply and format your own place data file",
+      "Does not include pre-bundled global maps or default offline databases"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "No native permissions or build_runner required. You only need to provide a data file asset or string to initialize the library.",
+    "alternatives": [
+      {
+        "name": "geocoding",
+        "why_pick_it": "If you prefer online-based geocoding and reverse geocoding without managing raw offline data files."
+      }
+    ],
+    "minimal_example": "var geocoder = GeocodeData(\n    File('/example/NationalFedCodes_20191101.csv').readAsStringSync(),\n    'FEATURE_NAME',\n    'STATE_ALPHA',\n    'PRIMARY_LATITUDE',\n    'PRIMARY_LONGITUDE',\n    fieldDelimiter: ',',\n    eol: '\\n');\n\nList<LocationResult> result = geocoder.search(41.881832, -87.623177);",
+    "confidence": 0.95
+  }
+}

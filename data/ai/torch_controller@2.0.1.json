@@ -1,0 +1,37 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.1",
+  "generatedAt": "2026-11-13T11:46:27.225Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "singleton"
+    ],
+    "one_liner": "A Flutter plugin to manage and toggle the device torch or flashlight.",
+    "what_it_does": "Provides a controller to natively check torch status, toggle flashlight on and off, and access native resources. It requires initialization before the app runs.",
+    "use_when": [
+      "You need to build a flashlight utility app.",
+      "Your application requires turning the device's torch on or off programmatically."
+    ],
+    "avoid_when": [
+      "You need camera preview or QR code scanning capabilities rather than just flash control."
+    ],
+    "strengths": [
+      "Simple singleton controller interface",
+      "Supports toggling lights and returning current state easily"
+    ],
+    "weaknesses": [
+      "Requires explicit initialization before runApp",
+      "Limited to flashlight control functionality"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Initialize TorchController by calling TorchController().initialize() before your runApp in main.dart.",
+    "alternatives": [],
+    "minimal_example": "void main() {\n  TorchController().initialize();\n  runApp(const MyApp());\n}\n\nfinal torchController = TorchController();\nbool active = torchController.toggle();",
+    "confidence": 0.95
+  }
+}

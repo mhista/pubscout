@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.4",
+  "generatedAt": "2026-11-15T11:07:12.225Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "ui-kits"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Draggable, scrollable, and snapping bottom sheet widget for Flutter.",
+    "what_it_does": "Provides a customizable bottom sheet widget that supports snapping to multiple extents, scrolling content, headers, footers, and can be used as a permanent widget or a dialog.",
+    "use_when": [
+      "You need a bottom sheet that can snap to multiple height positions.",
+      "You want custom headers and footers that remain fixed while the content scrolls inside the sheet."
+    ],
+    "avoid_when": [
+      "You only need the standard Material persistent or modal bottom sheets provided by Flutter SDK."
+    ],
+    "strengths": [
+      "Supports multiple snap positions and custom positioning modes.",
+      "Includes built-in support for fixed headers and footers.",
+      "Can be used directly in the widget tree or shown as a dialog."
+    ],
+    "weaknesses": [
+      "Children like ListViews require specific configurations (like shrinkWrap and NeverScrollableScrollPhysics) to avoid layout errors.",
+      "Limited documentation outside of the README."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "SnappingBottomSheet(\n  elevation: 8,\n  cornerRadius: 16,\n  snapSpec: const SnapSpec(\n    snap: true,\n    snappings: [0.4, 0.7, 1.0],\n    positioning: SnapPositioning.relativeToAvailableSpace,\n  ),\n  body: Center(\n    child: Text('Body widget'),\n  ),\n  builder: (context, state) {\n    return Container(\n      height: 500,\n      child: Center(\n        child: Text('Sheet content'),\n      ),\n    );\n  },\n)",
+    "confidence": 1
+  }
+}

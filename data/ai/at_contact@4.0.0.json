@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "4.0.0",
+  "generatedAt": "2026-11-14T10:31:34.639Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Dart library for persisting and managing contacts on the atPlatform.",
+    "what_it_does": "Provides CRUD operations for contacts stored in a decentralized personal data store. It uses at_client for communication and ensures end‑to‑end encryption.",
+    "use_when": [
+      "You need to store contacts without a traditional backend",
+      "You want encrypted, user‑controlled data storage",
+      "You are already using at_client in your app"
+    ],
+    "avoid_when": [
+      "You need a cloud‑based contact sync like Firebase",
+      "You require advanced UI widgets for contacts"
+    ],
+    "strengths": [
+      "Zero‑config backend, fully encrypted",
+      "Easy integration with at_client",
+      "Supports multiple platforms"
+    ],
+    "weaknesses": [
+      "No UI components",
+      "Limited to atPlatform ecosystem"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dependency, run dart pub add at_contact, instantiate AtContactsImpl with AtClientManager",
+    "alternatives": [],
+    "minimal_example": "```dart\nimport 'package:at_contact/at_contact.dart';\n\nfinal atClient = AtClientManager.getInstance().atClient;\nfinal contacts = AtContactsImpl(atClient, atClient.getCurrentAtSign());\n\nfinal contact = AtContact()\n  ..atSign = '@example'\n  ..createdOn = DateTime.now()\n  ..type = ContactType.Individual;\nawait contacts.add(contact);\n```",
+    "confidence": 0.85
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.1.0",
+  "generatedAt": "2026-11-14T10:56:01.909Z",
+  "data": {
+    "primary_category": "animation",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A simple animation listview widget that shows list items by sliding and bouncing.",
+    "what_it_does": "Provides an AnimationList widget that displays children with sliding, bouncing, and opacity animations when built. It wraps standard ListView capabilities and supports vertical, horizontal, or both animation directions.",
+    "use_when": [
+      "You want a list view where items animate into view with a sliding and bouncing effect.",
+      "You need configurable animation duration, bounce depth, and opacity ranges for list items."
+    ],
+    "avoid_when": [
+      "You need complex physics-based motion or advanced choreography like Rive or Lottie.",
+      "You require fine-grained item-removal animations beyond standard list scrolling behavior."
+    ],
+    "strengths": [
+      "Easy to use with a familiar API similar to standard list views.",
+      "Supports multiple animation directions including vertical, horizontal, and both.",
+      "Exposes ListView native parameters."
+    ],
+    "weaknesses": [
+      "Limited to specific sliding and bouncing entrance animations.",
+      "No documentation on fine-grained individual item insert/remove animations."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [
+      {
+        "name": "flutter_animate",
+        "why_pick_it": "Provides a comprehensive and flexible animation system for any widget including lists, rather than being restricted to a single list view widget."
+      },
+      {
+        "name": "animate_do",
+        "why_pick_it": "Offers ready-to-use entrance animations for individual widgets if you want to compose custom animated lists manually."
+      }
+    ],
+    "minimal_example": "AnimationList(\n    animationDirection: AnimationDirection.horizontal,\n    duration: 1000,\n    reBounceDepth: 10.0,\n    children: data.map((item) {\n      return _buildTile(item['title'], item['backgroundColor']);\n    }).toList())",
+    "confidence": 0.95
+  }
+}

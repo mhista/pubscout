@@ -1,0 +1,48 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.8.3",
+  "generatedAt": "2026-11-14T10:54:12.001Z",
+  "data": {
+    "primary_category": "ai-ml",
+    "secondary_categories": [
+      "camera",
+      "images",
+      "audio-video",
+      "device"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based",
+      "no codegen"
+    ],
+    "one_liner": "On-device NSFW and explicit content detection for images, videos, and camera feeds.",
+    "what_it_does": "Analyzes images, videos, picked media, photo libraries, and camera frames on-device for NSFW content using machine learning models. It operates completely locally without server uploads or telemetry.",
+    "use_when": [
+      "You need to moderate user-uploaded media or camera streams directly on the device.",
+      "Privacy and data compliance require that media never leaves the user's phone.",
+      "You want to scan local video files, photo libraries, or picked media items."
+    ],
+    "avoid_when": [
+      "You are targeting web platforms for anything other than one-shot file and byte scanning.",
+      "You cannot accept the app bundle size overhead of bundled or downloadable ML models.",
+      "Your application depends on features requiring cloud-based neural networks."
+    ],
+    "strengths": [
+      "Runs entirely on-device with no media uploads or external telemetry.",
+      "Supports both image and video files, camera feeds, URLs, and photo library assets.",
+      "Includes customizable ensembles, per-category thresholds, and decision stores."
+    ],
+    "weaknesses": [
+      "Model weights increase app size or require dynamic downloading.",
+      "Detection is probabilistic and must be treated as a single moderation signal.",
+      "Photo library and camera scanning require strict platform permission configurations."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires platform-specific usage descriptions in Info.plist (iOS) and permissions in AndroidManifest.xml for camera and photo library access.",
+    "alternatives": [],
+    "minimal_example": "import 'package:nsfw_detect/nsfw_detect.dart';\n\nfinal result = await NsfwDetector.instance.scanFile('/path/to/file.jpg');\nif (result.isNsfw) {\n  // Handle NSFW content\n}",
+    "confidence": 0.95
+  }
+}

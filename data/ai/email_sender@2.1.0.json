@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.1.0",
+  "generatedAt": "2026-11-13T11:25:33.220Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Send plain and HTML emails or OTPs directly from a Flutter app.",
+    "what_it_does": "Email Sender is a lightweight Flutter package that lets you integrate email functionality directly into your application. It supports sending basic emails, OTP verification messages, custom messages, raw HTML strings, and HTML templates using your own email credentials.",
+    "use_when": [
+      "You need to send verification OTPs directly from the client app.",
+      "You want to send rich HTML emails or templates without managing a separate backend server.",
+      "You need a simple API to dispatch basic emails from Flutter."
+    ],
+    "avoid_when": [
+      "You require secure handling of sensitive email credentials (like app passwords) without exposing them in client-side code.",
+      "You need complex attachment handling or background email queueing."
+    ],
+    "strengths": [
+      "Supports sending plain text and rich HTML emails.",
+      "Includes built-in helpers for OTP verification.",
+      "Simple and developer-friendly API."
+    ],
+    "weaknesses": [
+      "Requires embedding credentials directly in the app or client-side code, which is insecure for production.",
+      "Limited feature set focused only on basic email dispatch."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires email credentials (e.g., Gmail App Password) to authenticate and send emails.",
+    "alternatives": [
+      {
+        "name": "http",
+        "why_pick_it": "If you want to handle all network requests, including custom backend email endpoints, directly using HTTP clients."
+      }
+    ],
+    "minimal_example": "EmailSender emailsender = EmailSender();\nvar response = await emailsender.send(\"toemail@gmail.com\");\nprint(response[\"message\"]);",
+    "confidence": 0.95
+  }
+}

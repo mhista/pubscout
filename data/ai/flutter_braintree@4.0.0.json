@@ -1,0 +1,53 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.0.0",
+  "generatedAt": "2026-11-14T11:03:15.023Z",
+  "data": {
+    "primary_category": "payments",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter plugin wrapping native Braintree SDKs for payments with cards, PayPal, and Google Pay.",
+    "what_it_does": "Wraps native Braintree SDKs to enable payment processing inside Flutter applications. It supports both a ready-made Drop-in UI and granular custom Flutter UI flows for credit cards, PayPal, Google Pay, and Apple Pay.",
+    "use_when": [
+      "You need to accept payments via Braintree in a Flutter app.",
+      "You want to use Braintree's native Drop-in UI for quick setup.",
+      "You want to implement a custom payment UI while using Braintree for tokenization."
+    ],
+    "avoid_when": [
+      "You use Stripe instead of Braintree for your payment backend.",
+      "You are implementing standard in-app purchases via App Store or Google Play billing."
+    ],
+    "strengths": [
+      "Supports both native Drop-in UI and custom tokenization flows.",
+      "Handles multiple payment methods including credit cards, PayPal, Apple Pay, and Google Pay.",
+      "Active maintenance with updates to native Braintree and Drop-In SDKs."
+    ],
+    "weaknesses": [
+      "Device data collection is not yet supported for iOS.",
+      "Custom PayPal tokenization may have stability warnings in certain pre-releases.",
+      "Requires platform-specific configuration for URL schemes and Activities on Android and iOS."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires setting minimum Android SDK to at least 21, adding intent filters and URL schemes for browser switches (PayPal/Venmo/3DS), updating iOS Podfile platform target to '12.0', and registering CFBundleURLTypes in Info.plist.",
+    "alternatives": [
+      {
+        "name": "flutter_stripe",
+        "why_pick_it": "Pick this if your payment gateway is Stripe instead of Braintree."
+      },
+      {
+        "name": "in_app_purchase",
+        "why_pick_it": "Pick this if you need digital goods billing via Apple App Store or Google Play Store rather than a payment gateway."
+      },
+      {
+        "name": "adyen_checkout",
+        "why_pick_it": "Pick this if you prefer Adyen as your payment gateway provider."
+      }
+    ],
+    "minimal_example": "final request = BraintreeDropInRequest(\n  clientToken: '<Insert your client token here>',\n  collectDeviceData: true,\n  googlePaymentRequest: BraintreeGooglePaymentRequest(\n    totalPrice: '4.20',\n    currencyCode: 'USD',\n    billingAddressRequired: false,\n  ),\n);\nBraintreeDropInResult result = await BraintreeDropIn.start(request);",
+    "confidence": 1
+  }
+}

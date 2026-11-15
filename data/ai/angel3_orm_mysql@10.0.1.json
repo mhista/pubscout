@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "10.0.1",
+  "generatedAt": "2026-11-14T10:59:00.509Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [
+      "backend"
+    ],
+    "approach": [
+      "code generation"
+    ],
+    "one_liner": "MySQL and MariaDB support for Angel3 ORM, including querying and transactions.",
+    "what_it_does": "Provides SQL executors (MySqlExecutor and MariaDbExecutor) for Angel3 ORM using the mysql_dart driver. It allows running queries, managing transactions, and handling migrations against MySQL and MariaDB databases.",
+    "use_when": [
+      "You are building an application with Angel3 ORM and need to connect to MySQL or MariaDB.",
+      "You need support for database transactions and schema migrations in an Angel3 app."
+    ],
+    "avoid_when": [
+      "You are using a database other than MySQL or MariaDB.",
+      "You are not using the Angel3 ORM ecosystem."
+    ],
+    "strengths": [
+      "Native integration with Angel3 ORM.",
+      "Supports both MySQL and MariaDB with dedicated executors for proper DateTime handling.",
+      "Includes transaction and migration support."
+    ],
+    "weaknesses": [
+      "Blob data type mapping is not supported.",
+      "Requires specific minimum database versions (MySQL 8.0+ or MariaDB 10.2+)."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires running build_runner to generate entity persistence code and configuring a MySQL or MariaDB database connection.",
+    "alternatives": [
+      {
+        "name": "drift",
+        "why_pick_it": "If you want a robust, reactive SQLite ORM and query builder for Dart and Flutter without relying on the Angel3 ecosystem."
+      },
+      {
+        "name": "sqflite",
+        "why_pick_it": "If you just need standard SQLite persistence on mobile/desktop without a heavy ORM layer."
+      }
+    ],
+    "minimal_example": "import 'package:angel3_orm_mysql/angel3_orm_mysql.dart';\nimport 'package:mysql_dart/mysql_dart.dart';\n\nvoid main() async {\n  var conn = await MySQLConnection.createConnection(\n      databaseName: 'orm_test',\n      port: 3306,\n      host: 'localhost',\n      userName: 'test',\n      password: 'Test123',\n      secure: true);\n  await conn.connect(timeoutMs: 10000);\n\n  var executor = MySqlExecutor(conn);\n}",
+    "confidence": 0.95
+  }
+}

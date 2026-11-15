@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "4.1.0",
+  "generatedAt": "2026-11-14T10:30:31.661Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Flutter plugin to detect headset plug/unplug and Bluetooth connection events.",
+    "what_it_does": "Provides APIs to get the current headset state and listen for changes when a headset is plugged or unplugged. Supports both physical and Bluetooth headsets on Android and iOS.",
+    "use_when": [
+      "You need to react to headset plug/unplug events in your app",
+      "You need to know whether a Bluetooth headset is connected"
+    ],
+    "avoid_when": [
+      "You only need basic audio playback without headset awareness",
+      "You prefer a stream‑based API instead of callbacks"
+    ],
+    "strengths": [
+      "Supports physical and Bluetooth headsets on both platforms",
+      "Simple callback‑based API",
+      "Null‑safe implementation"
+    ],
+    "weaknesses": [
+      "Requires manual AndroidManifest changes and permission handling",
+      "No stream or reactive API"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Update compileSdkVersion to 33, add a receiver and exported activity in AndroidManifest, request BLUETOOTH_CONNECT permission (e.g., via permission_handler).",
+    "alternatives": [],
+    "minimal_example": "import 'package:headset_connection_event/headset_event.dart';\n\nHeadsetEvent headsetPlugin = HeadsetEvent();\nHeadsetState headsetEvent;\n\nheadsetPlugin.getCurrentState.then((_val){\n  setState(() => headsetEvent = _val);\n});\n\nheadsetPlugin.setListener((_val){\n  setState(() => headsetEvent = _val);\n});",
+    "confidence": 0.95
+  }
+}

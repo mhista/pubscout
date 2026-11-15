@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "2.1.0",
+  "generatedAt": "2026-11-14T10:34:39.259Z",
+  "data": {
+    "primary_category": "auth",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "OAuth 1.0 client implementation for Dart",
+    "what_it_does": "Provides classes to perform the OAuth 1.0 flow, request temporary credentials, authorize the user, and obtain access tokens to call protected APIs.",
+    "use_when": [
+      "Need OAuth 1.0 authentication for services like Twitter",
+      "Integrating with legacy APIs that require OAuth 1.0"
+    ],
+    "avoid_when": [
+      "Using OAuth 2.0 only",
+      "Already have another OAuth1 library"
+    ],
+    "strengths": [
+      "Supports null safety",
+      "Compatible with http package",
+      "Simple, straightforward API"
+    ],
+    "weaknesses": [
+      "No code generation support",
+      "Limited to OAuth 1.0 only"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'dart:io';\nimport 'package:oauth1/oauth1.dart' as oauth1;\n\nvoid main() {\n  var platform = oauth1.Platform(\n    'https://api.twitter.com/oauth/request_token',\n    'https://api.twitter.com/oauth/authorize',\n    'https://api.twitter.com/oauth/access_token',\n    oauth1.SignatureMethods.hmacSha1,\n  );\n  const String apiKey = 'YOUR_KEY';\n  const String apiSecret = 'YOUR_SECRET';\n  var clientCredentials = oauth1.ClientCredentials(apiKey, apiSecret);\n  var auth = oauth1.Authorization(clientCredentials, platform);\n  auth.requestTemporaryCredentials('oob').then((res) {\n    print('Open browser: ${auth.getResourceOwnerAuthorizationURI(res.credentials.token)}');\n    stdout.write('PIN: ');\n    String verifier = stdin.readLineSync();\n    return auth.requestTokenCredentials(res.credentials, verifier);\n  }).then((res) {\n    var client = oauth1.Client(platform.signatureMethod, clientCredentials, res.credentials);\n    client.get('https://api.twitter.com/1.1/statuses/home_timeline.json?count=1').then((res) {\n      print(res.body);\n    });\n  });\n}",
+    "confidence": 0.9
+  }
+}

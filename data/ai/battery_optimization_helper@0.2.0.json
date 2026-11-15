@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.2.0",
+  "generatedAt": "2026-11-14T10:33:13.475Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Detect and request disabling Android battery optimization with OEM auto-start shortcuts.",
+    "what_it_does": "A Flutter plugin for Android that checks if battery optimization is enabled, prompts the user to disable it, and opens system settings. It also includes best-effort shortcuts for OEM-specific auto-start and background execution settings.",
+    "use_when": [
+      "Your app requires reliable background execution on Android devices.",
+      "You need to check battery restriction status or prompt users to ignore battery optimizations."
+    ],
+    "avoid_when": [
+      "You are targeting iOS or non-Android platforms where battery optimization controls do not apply.",
+      "Your app does not perform background work."
+    ],
+    "strengths": [
+      "Provides typed optimization outcomes for clearer user flows.",
+      "Includes a diagnostics snapshot API for inspecting device manufacturer and power save state.",
+      "Covers multiple OEM background and auto-start settings paths."
+    ],
+    "weaknesses": [
+      "OEM auto-start settings paths differ by device and may fail or return false depending on the hardware.",
+      "Android-only functionality."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Declares REQUEST_IGNORE_BATTERY_OPTIMIZATIONS permission by default, which can be modified via manifest merge rules if needed.",
+    "alternatives": [],
+    "minimal_example": "import 'package:battery_optimization_helper/battery_optimization_helper.dart';\n\nFuture<void> example() async {\n  final outcome = await BatteryOptimizationHelper.ensureOptimizationDisabledDetailed(\n    openSettingsIfDirectRequestNotPossible: true,\n  );\n  final snapshot = await BatteryOptimizationHelper.getBatteryRestrictionSnapshot();\n}",
+    "confidence": 1
+  }
+}

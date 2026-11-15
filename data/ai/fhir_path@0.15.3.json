@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.15.3",
+  "generatedAt": "2026-11-13T11:40:00.866Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Model-independent FHIRPath evaluation engine in Dart, port of the Java reference implementation.",
+    "what_it_does": "Evaluates FHIRPath expressions against data models using the FhirNode reflection contract. It provides core parsing, lexing, and expression evaluation for healthcare interoperability standards.",
+    "use_when": [
+      "You need to evaluate FHIRPath expressions across arbitrary FHIR data models",
+      "You are building a custom FHIR binding over a non-fhir_r* data model",
+      "You need to parse or validate FHIRPath expressions in Dart"
+    ],
+    "avoid_when": [
+      "You are writing a standard Flutter application and can use version-specific bindings like fhir_r4_path directly",
+      "You are not working with healthcare or FHIR interoperability data"
+    ],
+    "strengths": [
+      "Zero coupling to any specific FHIR version",
+      "Direct port of the official Java reference FHIRPath engine",
+      "Supports validation and evaluation of expressions via FhirNode contract"
+    ],
+    "weaknesses": [
+      "Requires a binding or custom implementation of worker contexts for version-specific types",
+      "Niche domain-specific utility with no general-purpose application"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add to pubspec.yaml and import the package or its bindings.",
+    "alternatives": [],
+    "minimal_example": "import 'package:fhir_r4_path/fhir_r4_path.dart';\n\nfinal engine = await FHIRPathEngine.create(WorkerContext());\nfinal expr = engine.parse('Patient.name.given');\nfinal List<FhirNode> result = await engine.evaluate(patient, expr);",
+    "confidence": 0.95
+  }
+}

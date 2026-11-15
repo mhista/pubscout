@@ -1,0 +1,48 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.2.1",
+  "generatedAt": "2026-11-15T11:28:19.909Z",
+  "data": {
+    "primary_category": "charts",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A data visualization library based on Apache ECharts for Flutter.",
+    "what_it_does": "Graphify bridges Flutter and Apache ECharts, enabling developers to render advanced charts like WebGL 3D, bar, line, candlestick, radar, and graphs using JSON configurations.",
+    "use_when": [
+      "You need advanced charts like WebGL 3D, candlestick, or graphs using Apache ECharts.",
+      "You prefer configuring charts via JSON objects based on the ECharts documentation."
+    ],
+    "avoid_when": [
+      "You require pure Dart chart rendering without webviews.",
+      "You need a lightweight native charting solution with zero web dependencies."
+    ],
+    "strengths": [
+      "Leverages the full feature set of Apache ECharts.",
+      "Supports advanced visualizations like WebGL 3D, tree, and radar charts."
+    ],
+    "weaknesses": [
+      "Relies on webview_flutter under the hood.",
+      "Chart configurations are passed as dynamic JSON maps rather than typed Dart models."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "None specified beyond standard installation.",
+    "alternatives": [
+      {
+        "name": "fl_chart",
+        "why_pick_it": "If you want a pure Flutter charting library without webview dependencies."
+      },
+      {
+        "name": "syncfusion_flutter_charts",
+        "why_pick_it": "If you need a comprehensive, native, enterprise-grade charting library."
+      }
+    ],
+    "minimal_example": "class BasicBarChart extends StatefulWidget {\n  const BasicBarChart({super.key});\n\n  @override\n  State<BasicBarChart> createState() => _BasicBarChartState();\n}\n\nclass _BasicBarChartState extends State<BasicBarChart> {\n\n  final controller = GraphifyController();\n\n  @override\n  Widget build(BuildContext context) {\n    return GraphifyView(\n      controller: controller,\n      initialOptions: const {\n        \"xAxis\": {\n          \"type\": \"category\",\n          \"data\": [\"Mon\", \"Tue\", \"Wed\", \"Thu\", \"Fri\", \"Sat\", \"Sun\"]\n        },\n        \"yAxis\": {\n          \"type\": \"value\"\n        },\n        \"series\": [\n          {\n            \"data\": [120, 200, 150, 80, 70, 110, 130],\n            \"type\": \"bar\"\n          }\n        ]\n      },\n    );\n  }\n\n  @override\n  void dispose() {\n    controller.dispose();\n    super.dispose();\n  }\n\n}",
+    "confidence": 0.95
+  }
+}

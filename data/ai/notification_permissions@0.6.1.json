@@ -1,0 +1,55 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.6.1",
+  "generatedAt": "2026-11-15T10:55:19.961Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "notifications"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Check and request notification permissions on iOS and Android.",
+    "what_it_does": "Provides static methods to query the current notification permission status and to request permission from the user. Handles platform‑specific behaviours such as provisional status on iOS and opening app settings on denial.",
+    "use_when": [
+      "You need to know if the user has allowed notifications before scheduling them",
+      "You want to prompt the user for notification permission at a custom point in the app flow",
+      "You need a lightweight way to manage only the permission aspect without a full notification library"
+    ],
+    "avoid_when": [
+      "You already use a full‑featured notification package that includes its own permission handling",
+      "You need advanced push‑notification features like remote messaging or background handling"
+    ],
+    "strengths": [
+      "Simple, small API focused on permissions",
+      "Supports iOS provisional status and Android settings redirection",
+      "Null‑safe and works with the latest Android embedding"
+    ],
+    "weaknesses": [
+      "Only manages permissions, not actual notification display",
+      "Requires manual Podfile edit for Objective‑C projects",
+      "No built‑in handling for remote push tokens"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add use_frameworks! to the iOS Podfile for Objective‑C projects; on Android the plugin opens app settings when denied; no additional Gradle changes required.",
+    "alternatives": [
+      {
+        "name": "firebase_messaging",
+        "why_pick_it": "Provides full push‑notification handling plus permission management in one package"
+      },
+      {
+        "name": "flutter_local_notifications",
+        "why_pick_it": "Offers comprehensive local notification features and includes permission APIs"
+      },
+      {
+        "name": "onesignal_flutter",
+        "why_pick_it": "Handles remote notifications, permission prompts, and analytics together"
+      }
+    ],
+    "minimal_example": "import 'package:notification_permissions/notification_permissions.dart';\n\nFuture<void> checkPermission() async {\n  final status = await NotificationPermissions.getNotificationPermissionStatus();\n  if (status == PermissionStatus.denied || status == PermissionStatus.unknown) {\n    await NotificationPermissions.requestNotificationPermissions();\n  }\n}",
+    "confidence": 0.93
+  }
+}

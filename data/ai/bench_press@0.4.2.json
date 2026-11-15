@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.4.2",
+  "generatedAt": "2026-11-15T11:19:08.197Z",
+  "data": {
+    "primary_category": "testing",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "A statistical multi-runtime benchmarking framework for Dart and Flutter.",
+    "what_it_does": "A benchmarking framework that runs tests across VM JIT, Native AOT, WebAssembly, and JavaScript with adaptive warmup, dead code elimination barriers, and Fieller confidence intervals.",
+    "use_when": [
+      "You need to measure and compare performance of Dart or Flutter code across multiple runtimes.",
+      "You require statistically rigorous benchmarks with variance decomposition and equivalence testing."
+    ],
+    "avoid_when": [
+      "You are looking for UI widget testing or integration testing tools.",
+      "You need standard unit testing assertions rather than performance benchmarking."
+    ],
+    "strengths": [
+      "Supports multi-runtime orchestration (JIT, AOT, Wasm, JS).",
+      "Provides statistical rigor with Fieller confidence intervals and adaptive warmup.",
+      "Includes multi-process benchmark capabilities to isolate OS-level variance."
+    ],
+    "weaknesses": [
+      "Not documented for general app testing or widget assertions.",
+      "Requires careful configuration to minimize OS noise for sub-3% speedups."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add bench_press to dev_dependencies in pubspec.yaml.",
+    "alternatives": [],
+    "minimal_example": "import 'package:bench_press/bench_press.dart';\n\nfinal class JsonDecodeBenchmark extends Benchmark {\n  JsonDecodeBenchmark()\n      : super('json_decode', config: const BenchmarkConfig(trials: 16));\n\n  @override\n  void run() {\n    Blackhole.consume(42);\n  }\n}\n\nvoid main(List<String> args) => mainBenchmark(JsonDecodeBenchmark(), args);",
+    "confidence": 0.95
+  }
+}

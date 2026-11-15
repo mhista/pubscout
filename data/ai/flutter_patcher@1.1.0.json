@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.1.0",
+  "generatedAt": "2026-11-14T10:45:07.503Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [],
+    "one_liner": "Self-hosted OTA hotfix tool for Flutter with signed code and asset patches.",
+    "what_it_does": "Allows shipping critical bug fixes and asset updates directly from your own servers or CDN without waiting for app store reviews. Patches apply on the next cold start and roll back automatically if they fail.",
+    "use_when": [
+      "You need to push critical bug fixes to Dart code or assets without waiting for app store reviews",
+      "You want self-hosted over-the-air hotfixes for Android and iOS"
+    ],
+    "avoid_when": [
+      "Your updates involve native code changes, platform plugins, FFI packages, or Flutter SDK version upgrades",
+      "App store policies or regulated industries restrict downloading executable code"
+    ],
+    "strengths": [
+      "Enables self-hosted over-the-air updates for Flutter apps",
+      "Supports signed patches and automatic rollback capabilities"
+    ],
+    "weaknesses": [
+      "Cannot patch native code, platform plugins, or FFI packages",
+      "Requires careful adherence to store guidelines regarding dynamic code loading"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires running initialization CLI commands and configuring build targets for Android and iOS.",
+    "alternatives": [
+      {
+        "name": "shorebird_code_push",
+        "why_pick_it": "An alternative code push solution for Flutter."
+      }
+    ],
+    "minimal_example": "Future<void> main() async {\n  WidgetsFlutterBinding.ensureInitialized();\n  await FlutterPatcher.init();\n  runApp(const MyApp());\n}",
+    "confidence": 0.95
+  }
+}

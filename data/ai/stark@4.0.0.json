@@ -1,0 +1,47 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "4.0.0",
+  "generatedAt": "2026-11-15T11:15:44.356Z",
+  "data": {
+    "primary_category": "dependency-injection",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "A lightweight, reflection‑free DI framework for Dart and Flutter.",
+    "what_it_does": "Stark lets you register singletons and factories, retrieve them anywhere, and optionally scope them to widget lifecycles. It supports named injections, dynamic parameters, and disposable objects.",
+    "use_when": [
+      "You need simple DI without code generation or reflection",
+      "You want scoped lifetimes tied to widget state",
+      "You prefer a small API surface over feature‑rich containers"
+    ],
+    "avoid_when": [
+      "You require compile‑time safety via code‑gen (e.g., injectable)",
+      "You need advanced features like lazy async factories or multi‑binding",
+      "You already use a DI solution integrated with other libraries"
+    ],
+    "strengths": [
+      "No reflection – works on all Flutter platforms",
+      "Supports scoped lifetimes and disposable cleanup",
+      "Simple, easy‑to‑read API"
+    ],
+    "weaknesses": [
+      "No compile‑time checks, runtime errors if types mismatch",
+      "Limited advanced features compared to larger containers",
+      "Manual registration can become verbose in large apps"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "get_it",
+        "why_pick_it": "Mature, zero‑codegen DI with similar API and broader community support"
+      }
+    ],
+    "minimal_example": "import 'package:stark/stark.dart';\n\nfinal appModule = {\n  single((i) => Api()),\n  factory((i) => UseCase(i.get()))\n};\n\nvoid main(){\n  Stark.init([appModule]);\n  final useCase = Stark.get<UseCase>();\n}",
+    "confidence": 0.92
+  }
+}

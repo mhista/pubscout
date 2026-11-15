@@ -1,0 +1,53 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.9.0",
+  "generatedAt": "2026-11-13T11:00:17.258Z",
+  "data": {
+    "primary_category": "ai-ml",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "A Dart/Flutter library for building LLM‑powered applications with LangChain patterns.",
+    "what_it_does": "Provides unified APIs for LLM providers, retrieval, agents, and chaining components. Includes core abstractions and higher‑level chains to simplify building chatbots, RAG, and other generative AI use cases.",
+    "use_when": [
+      "You need to integrate multiple LLM providers in a Flutter app",
+      "You want a composable, chain‑based architecture for AI features",
+      "You require retrieval‑augmented generation or agent tooling"
+    ],
+    "avoid_when": [
+      "You only need a single, lightweight LLM client without extra abstractions",
+      "You prefer a minimal pure‑http wrapper instead of a full framework"
+    ],
+    "strengths": [
+      "Comprehensive LangChain‑style API for Dart",
+      "Modular design lets you import only needed parts",
+      "Supports many providers and retrieval/agent patterns"
+    ],
+    "weaknesses": [
+      "Adds a learning curve compared to simple HTTP clients",
+      "Potentially larger bundle size for full feature set",
+      "Breaking changes between major versions may require migration"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add the package to pubspec.yaml; optionally include integration packages (e.g., langchain_openai). No special permissions required beyond network access.",
+    "alternatives": [
+      {
+        "name": "llamadart",
+        "why_pick_it": "A lightweight Dart client for LLaMA models, suitable if you only need a single LLM backend"
+      },
+      {
+        "name": "firebase_ai",
+        "why_pick_it": "Provides Firebase‑hosted AI services with tighter integration to other Firebase features"
+      },
+      {
+        "name": "gpt_markdown",
+        "why_pick_it": "Simpler wrapper focused on OpenAI GPT and markdown generation, less overhead than full LangChain"
+      }
+    ],
+    "minimal_example": "import 'package:langchain/langchain.dart';\n\nfinal llm = OpenAIChatModel(apiKey: 'YOUR_KEY');\nfinal chain = LLMChain(promptTemplate: PromptTemplate.fromTemplate('Summarize: {text}'), llm: llm);\nfinal result = await chain.run({'text': 'Long article content...'});\nprint(result);",
+    "confidence": 0.92
+  }
+}

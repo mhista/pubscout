@@ -1,0 +1,48 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "1.1.1",
+  "generatedAt": "2026-11-15T11:20:05.327Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "devtools"
+    ],
+    "approach": [
+      "imperative",
+      "hooks"
+    ],
+    "one_liner": "A Dart-based task runner and build system for defining and executing tasks.",
+    "what_it_does": "Dartle lets you declare tasks in plain Dart code and runs only the tasks that need to run based on input/output changes. It executes tasks in parallel isolates and supports custom run conditions.",
+    "use_when": [
+      "You need a lightweight, pure‑Dart build system for Dart/Flutter projects",
+      "You want incremental builds with up‑to‑date checking",
+      "You prefer defining build logic in code rather than DSLs"
+    ],
+    "avoid_when": [
+      "You need a full‑featured GUI CI tool",
+      "Your build involves non‑Dart languages or native toolchains"
+    ],
+    "strengths": [
+      "Incremental up‑to‑date detection",
+      "Parallel task execution in isolates",
+      "Pure Dart, no external binaries"
+    ],
+    "weaknesses": [
+      "Limited to Dart ecosystem",
+      "Less mature than established tools like Gradle",
+      "No built‑in support for non‑Dart tasks"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dartle to dev_dependencies, import package:dartle/dartle.dart, define Task objects and call run() in a dartle.dart file.",
+    "alternatives": [
+      {
+        "name": "watcher",
+        "why_pick_it": "Provides file‑system watching without the full task‑runner features, useful if you only need change detection"
+      }
+    ],
+    "minimal_example": "import 'package:dartle/dartle.dart';\n\nfinal helloTask = Task((args) => print('Hello ${args.isEmpty ? 'World' : args[0]}'));\n\nvoid main(List<String> args) async => run(args, tasks: {helloTask});",
+    "confidence": 0.9
+  }
+}

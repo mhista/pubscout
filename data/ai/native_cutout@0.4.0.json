@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.4.0",
+  "generatedAt": "2026-11-14T10:33:37.667Z",
+  "data": {
+    "primary_category": "ai-ml",
+    "secondary_categories": [
+      "images"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "On-device background removal for iOS and Android using native vision and segmentation APIs.",
+    "what_it_does": "Removes the background from a local image file entirely on-device, producing a transparent PNG. It uses the iOS Vision framework and Google Android ML Kit subject segmentation, supporting optional subject cropping and model download management.",
+    "use_when": [
+      "You need to remove image backgrounds locally without external APIs or keys.",
+      "You target iOS 17+ and Android devices with Google Play services."
+    ],
+    "avoid_when": [
+      "You need to run on older iOS versions below 17.0.",
+      "You require background removal to work on the iOS simulator."
+    ],
+    "strengths": [
+      "Fully on-device processing with no external APIs or upload steps required.",
+      "Provides optional caching, in-memory bytes, and bounding box extraction.",
+      "Includes Android model download progress monitoring and lifecycle helpers."
+    ],
+    "weaknesses": [
+      "iOS runtime processing requires iOS 17+ and a real device.",
+      "Android model requires an initial on-demand download via Google Play services."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "No Podfile or AndroidManifest changes required. Android requires Google Play services for on-demand ML Kit model downloads.",
+    "alternatives": [],
+    "minimal_example": "import 'package:native_cutout/native_cutout.dart';\n\nfinal result = await NativeCutout.removeBackground(imagePath);\nif (result is CutoutFileSuccess) {\n  print('Saved to: ${result.path}');\n}",
+    "confidence": 1
+  }
+}

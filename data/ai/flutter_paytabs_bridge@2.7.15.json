@@ -1,0 +1,47 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.7.15",
+  "generatedAt": "2026-11-14T10:49:14.218Z",
+  "data": {
+    "primary_category": "payments",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter plugin for PayTabs payment gateway supporting cards, Apple Pay, and APMs.",
+    "what_it_does": "Wraps native Android and iOS PayTabs SDKs to let apps handle payments using credit cards, Apple Pay, Samsung Pay, and alternative payment methods like STCPay. Supports tokenization, 3DS, transaction queries, and discounts.",
+    "use_when": [
+      "You need to integrate PayTabs payment gateway into a Flutter app.",
+      "You require card payments, tokenized transactions, Apple Pay, or regional APMs on Android and iOS."
+    ],
+    "avoid_when": [
+      "You use a payment gateway other than PayTabs.",
+      "You need a pure Dart implementation without native SDK wrappers."
+    ],
+    "strengths": [
+      "Supports multiple payment methods including cards, Apple Pay, Samsung Pay, and various APMs.",
+      "Provides built-in tokenization and 3DS secure payments.",
+      "Allows theme customization for iOS and Android."
+    ],
+    "weaknesses": [
+      "Depends on native Android and iOS SDK updates.",
+      "Requires platform-specific configuration (like Info.plist keys for iOS assets)."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding assets and modifying Info.plist on iOS for logos, along with native PayTabs SDK integration.",
+    "alternatives": [
+      {
+        "name": "flutter_stripe",
+        "why_pick_it": "If you are using Stripe instead of PayTabs as your payment gateway."
+      },
+      {
+        "name": "adyen_checkout",
+        "why_pick_it": "If you prefer Adyen for processing payments."
+      }
+    ],
+    "minimal_example": "var billingDetails = BillingDetails(\"name\", \"email\", \"phone\", \"address\", \"country\", \"city\", \"state\", \"zip\");\nvar configuration = PaymentSdkConfigurationDetails(profileId: \"id\", serverKey: \"key\", clientKey: \"clientKey\", cartId: \"cartId\", cartDescription: \"desc\", merchantName: \"merchant\", screentTitle: \"Pay\", billingDetails: billingDetails, amount: 10.0, currencyCode: \"USD\", merchantCountryCode: \"US\");\nFlutterPaytabsBridge.startCardPayment(configuration, (event) {});",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,54 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.6.5",
+  "generatedAt": "2026-11-14T10:47:32.195Z",
+  "data": {
+    "primary_category": "notifications",
+    "secondary_categories": [
+      "backend"
+    ],
+    "approach": [
+      "imperative",
+      "declarative"
+    ],
+    "one_liner": "Merges firebase_messaging and flutter_local_notifications for handling FCM notifications.",
+    "what_it_does": "Merges the firebase_messaging package and flutter_local_notifications to make handling, displaying, and interacting with FCM notifications easier. It provides widgets and mixins to listen to incoming notifications and notification taps, as well as handling background messages.",
+    "use_when": [
+      "You want to display FCM notifications while the app is in the foreground using local notifications.",
+      "You need an easier way to handle incoming notification events and notification clicks anywhere in your app."
+    ],
+    "avoid_when": [
+      "You only need basic background messaging without local notification UI rendering.",
+      "You prefer to manually wire up flutter_local_notifications and firebase_messaging yourself."
+    ],
+    "strengths": [
+      "Simplifies foreground notification display for Firebase Cloud Messaging.",
+      "Provides mixins and widgets like FCMNotificationListener and FCMNotificationMixin for easy handling.",
+      "Supports Android, iOS, macOS, and Web platforms."
+    ],
+    "weaknesses": [
+      "Requires manual native setup steps for Android, iOS, macOS, and Web as documented by Firebase.",
+      "Limited documentation outside of basic setup and listener examples."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires following Firebase installation guides for Android, iOS, macOS, and Web, adding meta-data to AndroidManifest.xml, and adding firebase-messaging-sw.js for web.",
+    "alternatives": [
+      {
+        "name": "firebase_messaging",
+        "why_pick_it": "If you want official Firebase messaging support without the local notification wrapper layer."
+      },
+      {
+        "name": "flutter_local_notifications",
+        "why_pick_it": "If you need a dedicated local notifications plugin without Firebase integration."
+      },
+      {
+        "name": "onesignal_flutter",
+        "why_pick_it": "If you prefer using OneSignal instead of Firebase for push notifications."
+      }
+    ],
+    "minimal_example": "void main() async {\n      await FCMConfig.instance\n      .init(\n          defaultAndroidForegroundIcon: '@mipmap/ic_launcher',\n          defaultAndroidChannel: AndroidNotificationChannel(\n            'high_importance_channel',\n            'Fcm config',\n            importance: Importance.high,\n          ),\n      );\n      runApp(MaterialApp(\n        home: MyHomePage(),\n      ));\n}",
+    "confidence": 0.95
+  }
+}

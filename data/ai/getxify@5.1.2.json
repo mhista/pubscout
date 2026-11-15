@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "5.1.2",
+  "generatedAt": "2026-11-15T11:33:01.853Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [
+      "dependency-injection",
+      "navigation"
+    ],
+    "approach": [
+      "imperative",
+      "reactive",
+      "no codegen"
+    ],
+    "one_liner": "A toolkit for reactive state management, dependency injection, and routing without code generation.",
+    "what_it_does": "Provides tools for managing app state using reactive observables (.obs) and Obx widgets, handling dependency injection lifecycle, and managing contextless or named navigation.",
+    "use_when": [
+      "You want lightweight reactive state management without boilerplate or code generation",
+      "You prefer contextless navigation and named route management",
+      "You are migrating from legacy GetX to a modernized Dart 3 compatible framework"
+    ],
+    "avoid_when": [
+      "Your team prefers strict unidirectional data flow architectures like BLoC or Redux",
+      "You want a modular ecosystem where routing and state management are decoupled"
+    ],
+    "strengths": [
+      "Zero-boilerplate syntax with .obs and Obx widgets",
+      "Built-in lifecycle-aware dependency injection",
+      "Supports both contextless and nested route management with deep linking"
+    ],
+    "weaknesses": [
+      "Global state access patterns can lead to tightly coupled code if misused",
+      "Relies heavily on global singletons for dependency injection"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Not documented",
+    "alternatives": [
+      {
+        "name": "go_router",
+        "why_pick_it": "If you prefer official, declarative routing rather than GetXify's imperative navigation."
+      }
+    ],
+    "minimal_example": "void main() => runApp(GetMaterialApp(home: Home()));\n\nclass CounterController extends GetxController {\n  var count = 0.obs;\n  void increment() => count++;\n}\n\nclass Home extends StatelessWidget {\n  final c = Get.put(CounterController());\n\n  @override\n  Widget build(BuildContext context) {\n    return Scaffold(\n      appBar: AppBar(title: Obx(() => Text('Clicks: ${c.count}'))),\n      floatingActionButton: FloatingActionButton(\n        onPressed: c.increment,\n        child: const Icon(Icons.add),\n      ),\n    );\n  }\n}",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.8",
+  "generatedAt": "2026-11-13T11:22:19.361Z",
+  "data": {
+    "primary_category": "maps",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Parses GeoJSON spatial data into Flutter Map markers, polylines, and polygons.",
+    "what_it_does": "Parses GeoJSON formatted spatial data strings into lists of spatial objects like Markers, Polylines, Polygons, and CircleMarkers compatible with flutter_map. Supports custom callback functions for object creation and property filtering.",
+    "use_when": [
+      "You are using flutter_map and need to display GeoJSON spatial data.",
+      "You need to convert points, lines, and polygons from GeoJSON into Flutter Map layers."
+    ],
+    "avoid_when": [
+      "You are using Google Maps instead of flutter_map.",
+      "You need complex geographic data analysis or manipulation beyond simple rendering."
+    ],
+    "strengths": [
+      "Supports multiple geometry types including Point, LineString, Polygon, and Multi variants.",
+      "Allows custom callback functions for customized rendering of spatial objects.",
+      "Supports filtering functions based on properties."
+    ],
+    "weaknesses": [
+      "Tied specifically to the flutter_map ecosystem.",
+      "Limited to parsing data provided as Strings."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "GeoJsonParser myGeoJson = GeoJsonParser();\nmyGeoJson.parseGeoJsonAsString(testGeoJson);\n\nFlutterMap(\n  options: MapOptions(center: LatLng(45.993807, 14.483972), zoom: 14),\n  children: [\n    PolygonLayer(polygons: myGeoJson.polygons),\n    PolylineLayer(polylines: myGeoJson.polylines),\n    MarkerLayer(markers: myGeoJson.markers)\n  ],\n);",
+    "confidence": 1
+  }
+}

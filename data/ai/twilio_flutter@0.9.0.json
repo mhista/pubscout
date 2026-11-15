@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.9.0",
+  "generatedAt": "2026-11-13T11:27:23.748Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "backend"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "A Dart package that helps integrate Twilio API services like SMS, WhatsApp, and verification.",
+    "what_it_does": "Allows Flutter applications to programmatically send and schedule SMS and WhatsApp messages, manage Twilio verification services, and interact with Facebook Messenger via Twilio APIs. It wraps requests into a custom TwilioResponse object.",
+    "use_when": [
+      "You need to send SMS or WhatsApp messages from a Flutter app using Twilio.",
+      "You require Twilio verify service integration for user authentication.",
+      "You want to manage scheduled SMS and WhatsApp messages."
+    ],
+    "avoid_when": [
+      "You need a full backend server to securely handle Twilio API keys instead of exposing them in client-side code.",
+      "You need advanced offline-first messaging capabilities."
+    ],
+    "strengths": [
+      "Supports multiple communication channels including SMS, WhatsApp, and Facebook Messenger.",
+      "Provides scheduling and cancellation features for messages.",
+      "Includes built-in Twilio verification service flows."
+    ],
+    "weaknesses": [
+      "Exposes Twilio auth tokens and account SIDs within client applications if not carefully managed via a backend.",
+      "Lacks email sending support and message update/delete resource features."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires adding the dependency to pubspec.yaml and obtaining Account SID, Auth Token, and Twilio phone numbers or service SIDs from the Twilio Console.",
+    "alternatives": [],
+    "minimal_example": "final TwilioFlutter twilioFlutter = TwilioFlutter(\n    accountSid: 'ACCOUNT_SID',\n    authToken: 'AUTH_TOKEN',\n    twilioNumber: 'TWILIO_NUMBER'\n);\n\nTwilioResponse response = await twilioFlutter.sendSMS(\n  toNumber: '+1234567890',\n  messageBody: 'Hello world'\n);",
+    "confidence": 0.95
+  }
+}

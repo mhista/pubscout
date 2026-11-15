@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.0.0",
+  "generatedAt": "2026-11-15T11:25:24.149Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "ui-kits",
+      "widgets"
+    ],
+    "approach": [
+      "imperative",
+      "declarative",
+      "stream-based"
+    ],
+    "one_liner": "Floating chathead overlays for Android and iOS with draggable bubbles and custom widgets.",
+    "what_it_does": "Provides floating, draggable chathead bubbles that appear on top of your app (or other apps on Android) and expand into any custom Flutter widget. It handles platform permissions, spring-physics edge snapping, and bidirectional messaging between the main app and the overlay.",
+    "use_when": [
+      "You want to build Facebook Messenger-style chat bubbles or floating mini-players.",
+      "You need an overlay panel that runs in a separate engine and survives app closure on Android."
+    ],
+    "avoid_when": [
+      "You only need standard in-app overlays or dialogs that don't require system-wide floating windows.",
+      "You want to support platforms other than Android and iOS."
+    ],
+    "strengths": [
+      "Unified cross-platform API for Android and iOS",
+      "Supports any arbitrary Flutter widget inside the expanded panel",
+      "Built-in spring physics for edge snapping and draggable motions",
+      "Bidirectional communication streams between main app and overlay"
+    ],
+    "weaknesses": [
+      "Requires system-level alert window permissions on Android",
+      "Android foreground service requires a Google Play special use declaration"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Native permissions and service configurations are bundled by the plugin automatically; Google Play requires a special use declaration for the foreground service.",
+    "alternatives": [],
+    "minimal_example": "import 'package:floaty_chatheads/floaty_chatheads.dart';\nimport 'package:flutter/material.dart';\n\nvoid main() => runApp(const MaterialApp(home: Home()));\n\n@pragma('vm:entry-point')\nvoid overlayMain() => FloatyOverlayApp.run(\n  const FloatySimplePanel(\n    title: 'Hello',\n    child: Text('I am a floating overlay!'),\n  ),\n);\n\nclass Home extends StatelessWidget {\n  const Home({super.key});\n  @override\n  Widget build(BuildContext context) => Scaffold(\n    body: Center(\n      child: ElevatedButton(\n        onPressed: () => Floaty.show(title: 'My Chathead'),\n        child: const Text('Show Chathead'),\n      ),\n    ),\n  );\n}",
+    "confidence": 1
+  }
+}

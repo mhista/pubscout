@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.3.2",
+  "generatedAt": "2026-11-15T11:27:12.095Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "networking",
+      "forms",
+      "devtools",
+      "device"
+    ],
+    "approach": [
+      "no codegen",
+      "declarative"
+    ],
+    "one_liner": "Dart extensions, utilities, form validators, responsive helpers, API models, and an in-app DevTools panel.",
+    "what_it_does": "Provides a comprehensive set of Dart and Flutter utilities including null-safe checks, type conversion extensions, form validators, responsive layout helpers, an API json model mixin without code generation, and an in-app DevTools overlay for inspecting network requests and logs.",
+    "use_when": [
+      "You want common extensions and utilities without importing multiple small packages.",
+      "You need an easy way to define JSON API models with zero code generation.",
+      "You want a lightweight in-app DevTools panel to inspect network traffic and logs on device."
+    ],
+    "avoid_when": [
+      "You need strictly typed code-generated models via build_runner like freezed or json_serializable.",
+      "You only need a single isolated helper function and want to avoid adding a large dependency."
+    ],
+    "strengths": [
+      "Includes a wide variety of helpful utilities in a single package (extensions, validators, responsive helpers, devtools).",
+      "API models mixin parses JSON safely with zero code generation requirements.",
+      "In-app DevTools panel works seamlessly on device with search and filtering."
+    ],
+    "weaknesses": [
+      "A single package containing many unrelated utilities may increase scope if you only need a small portion.",
+      "Relies on mixins and runtime parsing for models rather than compile-time generated code."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Simply add the dependency and optionally attach the DevTools overlay and interceptor to your MaterialApp and Dio instances.",
+    "alternatives": [],
+    "minimal_example": "class UserModel with CorextraJsonModel {\n  UserModel.fromJson(this.json);\n  @override\n  final Map<String, dynamic> json;\n  int? get id => read('id');\n  String get name => read('name') ?? '';\n}",
+    "confidence": 0.95
+  }
+}

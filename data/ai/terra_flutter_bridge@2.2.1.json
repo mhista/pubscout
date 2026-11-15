@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.2.1",
+  "generatedAt": "2026-11-13T11:21:40.434Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "maps"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Terra health SDK for Flutter accessing Apple Health and Health Connect",
+    "what_it_does": "Terra's health SDK for Flutter, providing a bridge to Apple Health on iOS and Health Connect on Android. It allows apps to request health permissions, connect data sources, and read daily health data or stream information.",
+    "use_when": [
+      "You need to integrate Apple Health or Health Connect data into your Flutter application.",
+      "You want to read daily health metrics like steps from supported health platforms."
+    ],
+    "avoid_when": [
+      "You are targeting platforms other than iOS and Android.",
+      "You want a pure Dart health solution without native bridge requirements."
+    ],
+    "strengths": [
+      "Supports both Apple Health and Android Health Connect through a unified API.",
+      "Handles health data syncing and streams."
+    ],
+    "weaknesses": [
+      "Requires platform-specific native configuration in Info.plist and AndroidManifest.xml.",
+      "Requires specific minimum versions like Flutter 3.24, iOS 15, and Android API 28."
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Requires native setup including Info.plist configurations, BGTaskScheduler identifiers, MainActivity extending FlutterFragmentActivity, minSdk 28, and a native bootstrap call.",
+    "alternatives": [],
+    "minimal_example": "WidgetsFlutterBinding.ensureInitialized();\nfinal terra = createTerra(tokenProvider: fetchTokenFromYourBackend);\nawait terra.permissions.request(read: [DataCategory.daily]);\nawait terra.connect(Source.health, const EndUser.reference(id: 'user-123'));\nfinal steps = await terra.daily.steps(const TimeRange.today());",
+    "confidence": 0.95
+  }
+}

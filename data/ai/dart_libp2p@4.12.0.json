@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.12.0",
+  "generatedAt": "2026-11-13T11:46:20.246Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "utils",
+      "web3"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "A Dart implementation of the libp2p networking stack for peer-to-peer applications.",
+    "what_it_does": "Provides a modular networking stack supporting multiple transports like TCP and UDX, Noise security protocol, stream multiplexing via Yamux, and peer discovery. It enables building decentralized peer-to-peer applications and protocols in Dart.",
+    "use_when": [
+      "You are building a peer-to-peer application in Dart or Flutter.",
+      "You need encrypted and authenticated connections using the Noise protocol.",
+      "You require customizable transport layers like TCP or UDX."
+    ],
+    "avoid_when": [
+      "You only need a simple client to talk to a traditional REST, GraphQL, or WebSocket backend.",
+      "You require built-in QUIC transport support."
+    ],
+    "strengths": [
+      "Modular architecture with pluggable transports, security, and multiplexers.",
+      "Built-in NAT traversal tools including hole punching and relay support.",
+      "Comprehensive suite of core libp2p protocols and event systems."
+    ],
+    "weaknesses": [
+      "Does not support the QUIC transport protocol.",
+      "Some advanced integration tests and features require external tools or separate packages."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add the dependency to pubspec.yaml and configure transports, security, and options in code when initializing the Libp2p host.",
+    "alternatives": [],
+    "minimal_example": "import 'package:dart_libp2p/dart_libp2p.dart';\nimport 'package:dart_libp2p/config/config.dart' as p2p_config;\nimport 'package:dart_libp2p/core/crypto/ed25519.dart' as crypto_ed25519;\nimport 'package:dart_libp2p/p2p/security/noise/noise_protocol.dart';\nimport 'package:dart_libp2p/p2p/transport/udx_transport.dart';\nimport 'package:dart_libp2p/p2p/transport/connection_manager.dart' as p2p_conn_manager;\n\nvoid main() async {\n  final keyPair = await crypto_ed25519.generateEd25519KeyPair();\n  final connMgr = p2p_conn_manager.ConnectionManager();\n  final options = [\n    p2p_config.Libp2p.identity(keyPair),\n    p2p_config.Libp2p.connManager(connMgr),\n    p2p_config.Libp2p.transport(UDXTransport(connManager: connMgr)),\n    p2p_config.Libp2p.security(await NoiseSecurity.create(keyPair)),\n  ];\n  final host = await p2p_config.Libp2p.new_(options);\n  await host.start();\n  print('Host ID: \\${host.id}');\n  await host.close();\n}",
+    "confidence": 0.95
+  }
+}

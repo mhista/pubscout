@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "1.3.1",
+  "generatedAt": "2026-11-15T11:06:25.803Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter plugin to run shell commands via Shizuku without root",
+    "what_it_does": "It lets a Flutter app execute ADB shell commands on Android by communicating with the Shizuku service. The plugin handles permission checks, requests, and runs commands on a background thread.",
+    "use_when": [
+      "Need to uninstall or modify system apps without root",
+      "Want to run arbitrary ADB shell commands from a Flutter app",
+      "Require background execution of shell commands"
+    ],
+    "avoid_when": [
+      "Targeting iOS or non-Android platforms",
+      "Shizuku app not installed or not running",
+      "Device SDK below 24"
+    ],
+    "strengths": [
+      "Runs commands on a background thread, avoiding UI blocking",
+      "Handles permission dialogs and rationale flow",
+      "Provides a binder status stream and various info getters"
+    ],
+    "weaknesses": [
+      "Only works on Android with Shizuku installed",
+      "Requires manual manifest provider entry",
+      "No support for iOS or other platforms"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add provider to AndroidManifest.xml, set minSdk to 24, ensure Shizuku app is installed and running",
+    "alternatives": [],
+    "minimal_example": "```dart\nfinal api = ShizukuApi();\nif (await api.checkPermission() ?? false) {\n  await api.runCommand('pm uninstall --user 0 com.android.chrome');\n}\n```",
+    "confidence": 0.9
+  }
+}

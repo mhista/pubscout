@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.1.1",
+  "generatedAt": "2026-11-15T11:17:01.875Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "ui-kits",
+      "widgets"
+    ],
+    "approach": [
+      "declarative",
+      "imperative"
+    ],
+    "one_liner": "Check app version against app stores or remote JSON and display update dialogs.",
+    "what_it_does": "Checks the currently installed app version against the Apple App Store, Google Play Store, or a custom remote JSON config. Provides built-in presentation layers like Material/Cupertino dialogs, bottom sheets, full-screen pages, and an UpdateGate widget to handle force updates and smart snooze.",
+    "use_when": [
+      "You need to enforce minimum app versions or prompt users for soft updates.",
+      "You want to query App Store and Google Play directly without setting up a backend.",
+      "You want a declarative widget wrapper to check updates automatically on startup and resume."
+    ],
+    "avoid_when": [
+      "Your app is deployed exclusively via enterprise or private distribution channels that lack store lookups or custom JSON configuration.",
+      "You want completely custom state management for update flows rather than the library's built-in dialogs and logic."
+    ],
+    "strengths": [
+      "Zero-backend store lookup directly from Apple App Store and Google Play Store.",
+      "Supports multiple platforms including Android, iOS, Web, macOS, Windows, and Linux.",
+      "Includes declarative UpdateGate widget with lifecycle check-on-resume support.",
+      "Smart snooze and skip-version logic to reduce update fatigue."
+    ],
+    "weaknesses": [
+      "Relies on scraping store pages or third-party store metadata which can occasionally break if stores change their layout.",
+      "Limited to update checking and built-in UI prompts."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Not documented",
+    "alternatives": [],
+    "minimal_example": "Future<void> checkForUpdates(BuildContext context) async {\n  final decision = await CheckAppVersion.get('https://example.com/version.json');\n  if (decision.shouldUpdate && context.mounted) {\n    CheckAppVersion.showUpdateDialog(context, decision: decision, onOpenStore: () {});\n  }\n}",
+    "confidence": 0.95
+  }
+}

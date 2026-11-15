@@ -1,0 +1,46 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.6",
+  "generatedAt": "2026-11-13T11:10:08.050Z",
+  "data": {
+    "primary_category": "images",
+    "secondary_categories": [
+      "audio-video",
+      "camera"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Select local pictures and videos, preview media, and save to albums",
+    "what_it_does": "Supports local picture and video multi-selection, capturing photos or videos via camera, previewing media files, and saving network or local images and videos to device albums.",
+    "use_when": [
+      "You need multi-selection for both local images and videos.",
+      "You need to save network images/videos or screenshots directly to the gallery."
+    ],
+    "avoid_when": [
+      "You need a cross-platform solution with robust web support (this is Android/iOS only).",
+      "You are using older Android target SDK versions without upgrading to targetSdkVersion 34."
+    ],
+    "strengths": [
+      "Supports multi-selection of both images and videos",
+      "Built-in media preview and saving functions for network media and screenshots"
+    ],
+    "weaknesses": [
+      "Limited to Android and iOS platforms",
+      "Requires specific Android target/compile SDK configurations for Android 13+"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires iOS Info.plist permissions (NSMicrophoneUsageDescription, NSCameraUsageDescription, etc.) and Android targetSdkVersion/compileSdkVersion 34.",
+    "alternatives": [
+      {
+        "name": "image_picker",
+        "why_pick_it": "Official and more widely used package for picking images and videos from the gallery or taking them with the camera."
+      }
+    ],
+    "minimal_example": "Future<void> selectImages() async {\n    List<Media> _listImagePaths = await ImagePickers.pickerPaths(\n              galleryMode: GalleryMode.image,\n              selectCount: 2,\n              showGif: false,\n              showCamera: true,\n              compressSize: 500,\n              uiConfig: UIConfig(uiThemeColor: Color(0xffff0f50)),\n              cropConfig: CropConfig(enableCrop: false, width: 2, height: 1));\n  }",
+    "confidence": 0.95
+  }
+}

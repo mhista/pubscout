@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.2.0",
+  "generatedAt": "2026-11-14T10:53:13.717Z",
+  "data": {
+    "primary_category": "forms",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "Create custom dropdowns with styling, animations, and flexible data sources in Flutter.",
+    "what_it_does": "The package enables you to easily implement dropdown menus with custom styling, custom animations, and data sources. It provides a RawFlexDropDown widget that utilizes OverlayPortal for flexible positioning and menu control.",
+    "use_when": [
+      "You need to build a custom dropdown widget with precise positioning and custom button or menu layouts.",
+      "You want to manage dropdown visibility with an OverlayPortalController."
+    ],
+    "avoid_when": [
+      "You are looking for a fully styled Material Design dropdown out of the box without building custom widgets.",
+      "You need a simple standard form dropdown field and don't need custom styling or animations."
+    ],
+    "strengths": [
+      "Supports custom styling and animations for dropdown menus.",
+      "Precise positioning and dismissal on tap outside.",
+      "Uses OverlayPortal for smooth rendering over other widgets."
+    ],
+    "weaknesses": [
+      "Requires writing custom button and menu builders rather than providing a plug-and-play standard dropdown field.",
+      "Not documented with extensive pre-built UI themes."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "final OverlayPortalController _controller = OverlayPortalController();\n\n@override\nWidget build(BuildContext context) {\n  return RawFlexDropDown(\n    controller: _controller,\n    dismissOnTapOutside: true,\n    buttonBuilder: (context, onTap) {\n      return ButtonWidget(\n        width: 500,\n        onTap: onTap,\n      );\n    },\n    menuBuilder: (context, width) {\n      return Padding(\n        padding: const EdgeInsets.only(top: 4),\n        child: MenuWidget(\n          width: width,\n          onItemTap: () {\n            _controller.hide();\n          },\n        ),\n      );\n    },\n  );\n}",
+    "confidence": 0.95
+  }
+}

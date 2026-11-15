@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.1.1",
+  "generatedAt": "2026-11-15T10:55:35.439Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "layout"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A new way to fit children of Wrap using Wrap2 and Wrapped widgets.",
+    "what_it_does": "The package provides a new way to fit children of a Wrap widget. It allows developers to stretch a child of Wrap2 to fill the remaining space of the current run using different WrapFit options.",
+    "use_when": [
+      "You need to stretch children of a Wrap widget to fill remaining run space",
+      "You want to use features from Flutter PR #136161 before they land in stable Flutter"
+    ],
+    "avoid_when": [
+      "The WrapFit feature becomes natively available in the stable Flutter release",
+      "You are concerned about packages that might be archived if an upstream PR is not merged"
+    ],
+    "strengths": [
+      "Allows fine-grained control over wrapping behavior with runTight, runLoose, tight, and loose fits",
+      "Simple migration path to stable Flutter implementation when available"
+    ],
+    "weaknesses": [
+      "May be archived once the feature is available in stable Flutter or if the upstream PR does not get merged",
+      "Relies on a non-standard Wrap2 and Wrapped replacement rather than enhancing the core Flutter Wrap"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the package to dependencies and replace Wrap with Wrap2.",
+    "alternatives": [],
+    "minimal_example": "Wrap2(\n    children: [\n        Text(\"Default (loose)\"),\n        Wrapped(\n            fit: WrapFit.runTight,\n            child: Text(\"runTight\"),\n        ),\n    ]\n)",
+    "confidence": 0.95
+  }
+}

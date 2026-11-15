@@ -1,0 +1,51 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "1.6.0",
+  "generatedAt": "2026-11-13T11:01:37.449Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Provides root, jailbreak, debugger, screenshot, VPN and other security checks for Flutter apps.",
+    "what_it_does": "Offers a set of native‑level detections (root/jailbreak, hooking, debugger, screen capture, overlay attacks, VPN, app‑store source, etc.) as Futures or Streams. The API is modular, letting you compose the signals into your own UI without bundled widgets.",
+    "use_when": [
+      "You need to detect device compromise or tampering on Android/iOS",
+      "You want a zero‑dependency security toolkit that returns raw data/streams",
+      "You require tiered risk levels for root or emulator detection"
+    ],
+    "avoid_when": [
+      "You need cross‑platform UI components for security (e.g., secure text fields)",
+      "Your app runs only on web or desktop where these checks aren’t applicable"
+    ],
+    "strengths": [
+      "Comprehensive native security signals",
+      "No third‑party runtime dependencies",
+      "Tiered risk model for flexible policy",
+      "Provides both simple booleans and detailed results"
+    ],
+    "weaknesses": [
+      "Limited to Android and iOS platforms",
+      "Requires native permissions and Gradle/Pod configuration",
+      "No built‑in UI widgets, you must implement your own"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add the plugin, request Android permissions (e.g., READ_EXTERNAL_STORAGE for root checks) and iOS entitlements if needed; no build_runner required.",
+    "alternatives": [
+      {
+        "name": "device_info_plus",
+        "why_pick_it": "Provides basic device information without the extensive security checks, useful if you only need generic info"
+      },
+      {
+        "name": "permission_handler",
+        "why_pick_it": "Manages runtime permissions needed by security checks, can be used alongside or instead of this package for permission handling"
+      }
+    ],
+    "minimal_example": "import 'package:device_safety_info/device_safety_info.dart';\n\nFuture<void> checkSecurity() async {\n  final isRooted = await DeviceSafetyInfo.isRooted();\n  final isEmulator = await DeviceSafetyInfo.isEmulator();\n  final isDebugger = await DeviceSafetyInfo.isDebuggerAttached;\n  print('Rooted: $isRooted, Emulator: $isEmulator, Debugger: $isDebugger');\n}",
+    "confidence": 0.97
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.1.0",
+  "generatedAt": "2026-11-13T11:39:16.934Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "auth"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Generates device attestation tokens via Apple App Attest and Google Play Integrity.",
+    "what_it_does": "Simplifies app attestation by using Apple's App Attest and Google's Play Integrity to generate tokens. These tokens can be sent to your server for decryption and verification of reliable device access.",
+    "use_when": [
+      "You need to verify app and device integrity before allowing sensitive operations.",
+      "Your backend needs to validate tokens from Apple App Attest or Google Play Integrity."
+    ],
+    "avoid_when": [
+      "You do not have a backend server capable of verifying Apple App Attest or Google Play Integrity tokens.",
+      "You need a general-purpose device information package rather than security attestation."
+    ],
+    "strengths": [
+      "Simplifies native app attestation APIs into a unified plugin interface.",
+      "Provides support for both major platforms (iOS App Attest and Android Play Integrity)."
+    ],
+    "weaknesses": [
+      "Requires significant server-side implementation to decrypt and verify the generated tokens.",
+      "Android implementation strictly requires linking a GCP Project ID and Google Play Console setup."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires setting up Apple App Attest and configuring a GCP Project ID linked with the Google Play Console for Android.",
+    "alternatives": [
+      {
+        "name": "device_info_plus",
+        "why_pick_it": "If you only need standard device and OS metadata rather than cryptographically secure app attestation tokens."
+      }
+    ],
+    "minimal_example": "final _appAttestationPlugin = AppDeviceIntegrity();\n\nString sessionId = '550e8400-e29b-41d4-a716-446655440000';\nint gpc = 0000000000;\n\nif (Platform.isAndroid) {  \n  tokenReceived = await _appAttestationPlugin.getAttestationServiceSupport(challengeString: sessionId, gcp: gpc);  \n  return;\n}\n\ntokenReceived = await _appAttestationPlugin.getAttestationServiceSupport(challengeString: sessionId);",
+    "confidence": 0.95
+  }
+}

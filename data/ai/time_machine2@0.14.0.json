@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.14.0",
+  "generatedAt": "2026-11-13T11:05:06.759Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "localization"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Comprehensive date and time library with support for timezones, calendars, cultures, and parsing.",
+    "what_it_does": "Provides an alternative date and time API over Dart Core with support for time zones, calendars, cultures, formatting, and parsing. It includes an embedded copy of the IANA time zone database and Unicode CLDR patterns, avoiding simplistic platform limitations.",
+    "use_when": [
+      "You need precise date and time arithmetic across multiple calendars and time zones.",
+      "You require robust parsing and formatting with locale-aware cultures."
+    ],
+    "avoid_when": [
+      "You only need basic, current local time or simple UTC timestamps without time zone mapping.",
+      "You want to avoid initializing library assets at startup."
+    ],
+    "strengths": [
+      "Includes embedded IANA time zone database and culture rules.",
+      "Type-safe classes prevent mixing timestamps incorrectly.",
+      "Supports platforms across Flutter, Web, and Server."
+    ],
+    "weaknesses": [
+      "Requires manual asynchronous initialization before use.",
+      "API can be complex compared to native DateTime."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Must call await TimeMachine.initialize() early in main. For Flutter, rootBundle must be provided in the initialization map.",
+    "alternatives": [],
+    "minimal_example": "await TimeMachine.initialize();\nfinal now = Instant.now();\nfinal tomorrow = now.add(Time(days: 1));",
+    "confidence": 0.95
+  }
+}

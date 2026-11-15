@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.2.1",
+  "generatedAt": "2026-11-14T10:47:01.801Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "files"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Calculates file checksums as MD5 hashes using platform native implementations.",
+    "what_it_does": "A Flutter plugin that computes an MD5 hash checksum for a given file path using native Android and iOS code. It executes hash calculation in a background thread to prevent blocking the main UI thread.",
+    "use_when": [
+      "You need native MD5 file checksum calculation in a Flutter application",
+      "You want to process file hashing off the main thread"
+    ],
+    "avoid_when": [
+      "You want a pure Dart implementation, as the author notes native implementation is no longer necessary",
+      "You are starting a new project, because this project is archived and will no longer be updated"
+    ],
+    "strengths": [
+      "Calculates hashes in the background thread",
+      "Simple and straightforward API usage"
+    ],
+    "weaknesses": [
+      "The project is officially archived and will not receive updates",
+      "Pure Dart alternatives using crypto package are now considered comparable in performance"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Minimum iOS deployment target is 12.0.",
+    "alternatives": [
+      {
+        "name": "crypto",
+        "why_pick_it": "Provides pure Dart implementations of cryptographic hashes like MD5 without needing a native plugin, and the author suggests it as a modern alternative."
+      }
+    ],
+    "minimal_example": "try {\n  final fileChecksum = await Md5FileChecksum.getFileChecksum(filePath: filePath);\n} catch (exception) {\n  print('Unable to generate file checksum: $exception');\n}",
+    "confidence": 0.95
+  }
+}

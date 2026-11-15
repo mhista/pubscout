@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.1.7",
+  "generatedAt": "2026-11-15T11:06:08.157Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Plugin to programmatically enable Bluetooth in Flutter apps",
+    "what_it_does": "BluetoothEnable allows an app to request turning on Bluetooth and optionally show a custom dialog. It returns a string indicating success or failure.",
+    "use_when": [
+      "When an app needs to enable Bluetooth without user navigating to settings",
+      "When a custom alert is desired before enabling Bluetooth",
+      "When targeting Android 13+ for Bluetooth activation"
+    ],
+    "avoid_when": [
+      "When only needing to check Bluetooth status",
+      "When building a full Bluetooth communication stack"
+    ],
+    "strengths": [
+      "Simple API with Future returning result",
+      "Customizable alert dialog",
+      "Supports Android 13 and iOS",
+      "No external dependencies"
+    ],
+    "weaknesses": [
+      "Only enables Bluetooth, no status or scanning APIs",
+      "Returns string instead of bool",
+      "No documentation on error handling"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dependency to pubspec, import package, call BluetoothEnable.enableBluetooth or customBluetoothRequest",
+    "alternatives": [],
+    "minimal_example": "import 'package:bluetooth_enable_fork/bluetooth_enable.dart';\n\nBluetoothEnable.enableBluetooth.then((result) {\n  if (result == \"true\") {\n    // Bluetooth enabled\n  }\n});",
+    "confidence": 0.9
+  }
+}

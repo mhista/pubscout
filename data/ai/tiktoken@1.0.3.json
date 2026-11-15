@@ -1,0 +1,47 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "1.0.3",
+  "generatedAt": "2026-11-15T11:07:35.129Z",
+  "data": {
+    "primary_category": "ai-ml",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "A Dart BPE tokeniser for OpenAI models to encode and decode text.",
+    "what_it_does": "Provides functions to encode text into token IDs and decode token IDs back to text. Includes model‑specific encodings and utilities to count tokens for API calls.",
+    "use_when": [
+      "You need to count tokens for OpenAI API usage",
+      "You want to encode/decode text with the same tokenisation as OpenAI models",
+      "You need a lightweight, pure‑Dart solution without native dependencies"
+    ],
+    "avoid_when": [
+      "You require a full‑featured LLM client rather than just tokenisation",
+      "You need GPU‑accelerated tokenisation or Rust‑level performance"
+    ],
+    "strengths": [
+      "Pure Dart, works on all Flutter platforms",
+      "No native dependencies, small footprint",
+      "Supports multiple OpenAI model encodings"
+    ],
+    "weaknesses": [
+      "Only handles tokenisation, no higher‑level API client",
+      "May be slower than native Rust/Python implementations"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "llamadart",
+        "why_pick_it": "Provides broader LLM client features including tokenisation"
+      }
+    ],
+    "minimal_example": "import 'package:tiktoken/tiktoken.dart';\nfinal enc = encodingForModel('gpt-4');\nprint(enc.encode('tiktoken is great!')); // [83,1609,5963,374,2294,0]\nprint(enc.decode([83,1609,5963,374,2294,0])); // 'tiktoken is great!'",
+    "confidence": 0.92
+  }
+}

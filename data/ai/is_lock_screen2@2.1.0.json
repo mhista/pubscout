@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.1.0",
+  "generatedAt": "2026-11-13T11:08:12.917Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Detects whether an Android or iOS device is currently in the lock screen state.",
+    "what_it_does": "Provides a method to check if the device is locked using platform-specific APIs on Android and a heuristic combining protected data and screen brightness on iOS. It helps determine whether the app entered the background because the user locked the screen or left the app.",
+    "use_when": [
+      "You need to know if the app went to the background because the user locked the device screen.",
+      "You want to handle app lifecycle changes differently depending on whether the device is locked."
+    ],
+    "avoid_when": [
+      "You require a bulletproof, 100% reliable security source of truth on iOS, as iOS detection relies on a heuristic.",
+      "You are running tests on an iOS simulator, since it only works on physical devices for iOS."
+    ],
+    "strengths": [
+      "Distinguishes between app minimization and screen locking.",
+      "Provides both a nullable API and a throwing API for handling errors.",
+      "Uses safe native APIs instead of private APIs that violate App Store guidelines."
+    ],
+    "weaknesses": [
+      "iOS implementation is purely heuristic and does not use a stable public lock-screen API.",
+      "Does not work on iOS simulators (physical device required)."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Not documented",
+    "alternatives": [],
+    "minimal_example": "bool? result = await isLockScreen();",
+    "confidence": 0.95
+  }
+}

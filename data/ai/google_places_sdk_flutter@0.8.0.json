@@ -1,0 +1,52 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.8.0",
+  "generatedAt": "2026-11-13T11:41:54.019Z",
+  "data": {
+    "primary_category": "maps",
+    "secondary_categories": [
+      "forms",
+      "networking"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Google Places autocomplete for addresses and locations returning coordinates and parsed addresses.",
+    "what_it_does": "Provides search fields, form fields, overlays, and a Places API client to handle Google Places autocomplete, place details, and photo fetching. Automatically handles billing sessions, localization, and multi-platform pure Dart execution.",
+    "use_when": [
+      "You need users to search and select an address or location by text input",
+      "You want coordinates and a parsed address (street, city, postal code, country) from a single selection",
+      "You want built-in session billing management for Google Places API"
+    ],
+    "avoid_when": [
+      "Your users need to pick a point visually by dropping a pin on a map",
+      "You require full interactive map viewing capabilities"
+    ],
+    "strengths": [
+      "Pure Dart implementation working across Android, iOS, web, macOS, Windows, and Linux",
+      "Handles billing sessions automatically",
+      "Multi-language text support and layout handling out of the box",
+      "No location permissions required"
+    ],
+    "weaknesses": [
+      "Only supports text search, not map-based point selection",
+      "Requires a Google Cloud project with Places API (New) and billing enabled"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Enable Places API (New) in the Google Cloud console and obtain an API key.",
+    "alternatives": [
+      {
+        "name": "google_maps_flutter",
+        "why_pick_it": "Pick an exact point on a full interactive Google Map rather than searching by text."
+      },
+      {
+        "name": "geocoding",
+        "why_pick_it": "Convert between coordinates and addresses without requiring the Google Places autocomplete API."
+      }
+    ],
+    "minimal_example": "import 'package:google_places_sdk_flutter/google_places_sdk_flutter.dart';\n\nconst apiKey = String.fromEnvironment('GOOGLE_MAPS_API_KEY');\n\nPlacesAutocompleteField(\n  apiKey: apiKey,\n  onSelection: (selection) {\n    debugPrint(selection.displayText);\n    debugPrint('${selection.place?.location}');\n  },\n)",
+    "confidence": 1
+  }
+}

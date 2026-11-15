@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "5.0.0",
+  "generatedAt": "2026-11-15T11:07:18.154Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [
+      "utils",
+      "widgets"
+    ],
+    "approach": [
+      "hooks",
+      "imperative"
+    ],
+    "one_liner": "Easily add application lifecycle state hooks using mixins or widgets.",
+    "what_it_does": "Provides a LifecycleMixin and LifecycleHooksSubscriber widget that wrap AppLifecycleListener to handle application lifecycle states like resume, pause, show, and hide. It also offers an onContextReady callback where the BuildContext is available.",
+    "use_when": [
+      "You need to easily listen to application lifecycle events inside a State object.",
+      "You want a widget-based alternative to listen to lifecycle states without polluting widget namespaces."
+    ],
+    "avoid_when": [
+      "You are not using Flutter.",
+      "You require complex state management solutions that handle business logic beyond just lifecycle observation."
+    ],
+    "strengths": [
+      "Simplifies working with AppLifecycleListener via mixins and widgets.",
+      "Provides an onContextReady method as a replacement for afterFirstRender.",
+      "Cross-platform support including Android, iOS, Web, Windows, macOS, and Linux."
+    ],
+    "weaknesses": [
+      "Limited to handling lifecycle hooks and context readiness.",
+      "Web support for certain hooks was only added recently."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Not documented",
+    "alternatives": [],
+    "minimal_example": "class _AppState extends State<App> with LifecycleMixin {\n  @override\n  Widget build(BuildContext context) {\n    return MaterialApp(\n      home: Scaffold(\n        body: Center(\n          child: Text(\n            currentLifecycleState.toString(),\n          ),\n        ),\n      ),\n    );\n  }\n\n  @override\n  void onResume() {\n    print('did resume');\n  }\n}",
+    "confidence": 0.95
+  }
+}

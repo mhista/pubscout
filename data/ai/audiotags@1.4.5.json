@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.4.5",
+  "generatedAt": "2026-11-13T11:06:19.242Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [
+      "files"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Read and write audio file metadata across multiple formats.",
+    "what_it_does": "Allows reading and writing tags such as title, artist, album, genre, year, track numbers, and embedded pictures in audio files. It uses a Rust backend to support multiple audio formats.",
+    "use_when": [
+      "You need to read or update audio tags (ID3, etc.) directly in files.",
+      "You are building a music player or file manager that needs to display track metadata and embedded cover art."
+    ],
+    "avoid_when": [
+      "You only need to stream or play audio without modifying its tags.",
+      "You are targeting web platform (not supported by this plugin)."
+    ],
+    "strengths": [
+      "Supports multiple audio formats via the lofty Rust crate.",
+      "Provides methods for both reading and writing metadata.",
+      "Handles embedded pictures and lyrics."
+    ],
+    "weaknesses": [
+      "Relies on FFI and Rust components which may add build complexity.",
+      "Web platform is not supported."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Relies on flutter_rust_bridge and FFI; standard plugin installation applies for supported platforms (android, ios, windows, macos, linux).",
+    "alternatives": [],
+    "minimal_example": "Tag? tag = await AudioTags.read(path);\nString? title = tag?.title;\nString? album = tag?.album;",
+    "confidence": 0.95
+  }
+}

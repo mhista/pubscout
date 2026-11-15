@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.4.0",
+  "generatedAt": "2026-11-15T11:29:02.036Z",
+  "data": {
+    "primary_category": "notifications",
+    "secondary_categories": [
+      "device"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Flutter plugin to listen for all incoming notifications on Android.",
+    "what_it_does": "Allows Android applications to listen to incoming status bar notifications in real-time. It supports running background callbacks, interactive notification actions, and auto-starting after device reboots.",
+    "use_when": [
+      "You need to build a notification reader, custom notification log, or automation app on Android.",
+      "You need to handle or reply to incoming notifications from other apps programmatically."
+    ],
+    "avoid_when": [
+      "You need to support platforms other than Android (e.g., iOS).",
+      "You only want to send local or push notifications to your own app."
+    ],
+    "strengths": [
+      "Supports background execution via static callback functions.",
+      "Provides access to notification fields, icons, actions, and quick replies.",
+      "Supports auto-starting the service after system reboot."
+    ],
+    "weaknesses": [
+      "Android-only plugin.",
+      "Requires manual setup of Android Manifest permissions and service configuration."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding the NotificationsHandlerService and specific permissions (WAKE_LOCK, FOREGROUND_SERVICE, POST_NOTIFICATIONS, etc.) to AndroidManifest.xml, plus requesting notification permissions at runtime.",
+    "alternatives": [],
+    "minimal_example": "void onData(NotificationEvent event) {\n    print(event.toString());\n}\n\nFuture<void> initPlatformState() async {\n    NotificationsListener.initialize();\n    NotificationsListener.receivePort.listen((evt) => onData(evt));\n}",
+    "confidence": 0.95
+  }
+}

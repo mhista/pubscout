@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.1",
+  "generatedAt": "2026-11-15T11:11:13.559Z",
+  "data": {
+    "primary_category": "auth",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Authenticate users with LinkedIn and retrieve secure profile data in Flutter.",
+    "what_it_does": "A Flutter package that enables LinkedIn authentication using OpenID Connect. It allows users to sign in, retrieve authorization codes, access tokens, and user profile data across multiple platforms including Android, iOS, web, and macOS.",
+    "use_when": [
+      "You want to allow users to sign in to your Flutter app using their LinkedIn accounts.",
+      "You need to securely retrieve LinkedIn user profile data."
+    ],
+    "avoid_when": [
+      "You are using the deprecated 3-legged OAuth flow without the v2/userinfo endpoint.",
+      "You require a built-in pre-designed Sign in with LinkedIn button widget."
+    ],
+    "strengths": [
+      "Supports multiple platforms including Android, iOS, Web, and macOS.",
+      "Uses the updated v2 OpenID Connect flow instead of deprecated legacy methods.",
+      "Provides granular methods for authorization codes, access tokens, and user info."
+    ],
+    "weaknesses": [
+      "Web support is limited to getting the authorization code due to CORS restrictions, requiring a backend for direct REST API calls.",
+      "Does not include predefined UI buttons or widgets."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires creating an app on the LinkedIn Developer Portal with a company page, enabling 'Sign In with LinkedIn using OpenID Connect', configuring redirect URLs, and setting up web redirects for the web platform.",
+    "alternatives": [],
+    "minimal_example": "final linkedInConfig = LinkedInConfig(\n  clientId: '<<CLIENT ID>>',\n  clientSecret: '<<CLIENT SECRET>>',\n  redirectUrl: '<<REDIRECT URL>>',\n  scope: ['openid', 'profile', 'email'],\n);\n\nfinal linkedin = SignInWithLinkedIn(config: linkedInConfig);\n\nfinal (authCode, error) = await linkedin.getAuthorizationCode(context: context);",
+    "confidence": 0.95
+  }
+}

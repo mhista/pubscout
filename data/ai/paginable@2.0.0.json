@@ -1,0 +1,37 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.0",
+  "generatedAt": "2026-11-14T10:48:02.796Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A Flutter package providing pagination features on top of native list and scroll widgets.",
+    "what_it_does": "It wraps native scrollable widgets like ListView and CustomScrollView to trigger an async loadMore function when scrolling near the end. It also handles displaying progress indicator widgets and error indicator widgets with retry functionality.",
+    "use_when": [
+      "You need simple scroll-based pagination for ListView or CustomScrollView.",
+      "You want to easily attach loadMore callbacks, progress indicators, and error widgets with retry logic to lists."
+    ],
+    "avoid_when": [
+      "You expect the package to automatically manage your data state or pagination logic.",
+      "You need non-list scrollable pagination architectures not supported by the package."
+    ],
+    "strengths": [
+      "Provides drop-in paginable versions of standard Flutter widgets like ListView and CustomScrollView.",
+      "Built-in error handling with try-again callbacks and progress indicators."
+    ],
+    "weaknesses": [
+      "Does not handle state management; you must wire up your own state and data fetching logic.",
+      "Limited to the specific widgets and builders provided by the library."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "PaginableListView.builder(\n  loadMore: () async {},\n  errorIndicatorWidget: (exception, tryAgain) => Text(exception.toString()),\n  progressIndicatorWidget: const CircularProgressIndicator(),\n  itemBuilder: (context, index) => ListTile(title: Text('Item $index')),\n  itemCount: 20,\n)",
+    "confidence": 1
+  }
+}

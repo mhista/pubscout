@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "2.1.0",
+  "generatedAt": "2026-11-13T11:19:11.655Z",
+  "data": {
+    "primary_category": "notifications",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter plugin to set, clear, and query app icon badge counts on iOS, macOS, and Android.",
+    "what_it_does": "Provides a Dart API to display numeric badges or a red dot on the app icon, clear the badge, and request the required notification permissions. It abstracts the native badge implementations for iOS, macOS, and Android launchers.",
+    "use_when": [
+      "You need a native app‑icon badge on iOS, macOS, or Android without writing platform code",
+      "You want a simple, synchronous check for badge support and a unified API across platforms"
+    ],
+    "avoid_when": [
+      "Your app runs only on web or desktop platforms that don’t show app‑icon badges",
+      "You need custom in‑app notification UI or full notification handling beyond a badge"
+    ],
+    "strengths": [
+      "Cross‑platform (iOS, macOS, Android) support",
+      "Handles Android launcher differences automatically",
+      "Simple, imperative API with no code generation"
+    ],
+    "weaknesses": [
+      "Android implementation uses a silent notification that may appear in the shade",
+      "getBadgeCount is deprecated on iOS and returns only the last set value on Android",
+      "No web support"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add POST_NOTIFICATIONS permission to AndroidManifest for API 33+, call requestPermission() on iOS/macOS as needed; optional Swift Package Manager or CocoaPods for iOS/macOS integration",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter_native_badge/flutter_native_badge.dart';\n\nif (FlutterNativeBadge.isSupported) {\n  await FlutterNativeBadge.requestPermission();\n  await FlutterNativeBadge.setBadgeCount(5);\n  await FlutterNativeBadge.clearBadgeCount();\n}",
+    "confidence": 0.97
+  }
+}

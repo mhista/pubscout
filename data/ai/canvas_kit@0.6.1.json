@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.6.1",
+  "generatedAt": "2026-11-13T11:05:32.159Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "animation"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Composable infinite pan/zoom canvas widget for Flutter with camera control.",
+    "what_it_does": "Provides a zoomable and pannable 2D coordinate space for Flutter. It supports draggable world items, fixed viewport overlays, boundary constraints, and programmatic camera navigation.",
+    "use_when": [
+      "Building node editors, flowcharts, or mind maps",
+      "Developing design tools, whiteboards, or visual planning apps",
+      "Displaying large data visualizations or network diagrams"
+    ],
+    "avoid_when": [
+      "Creating simple scrolling lists or grids",
+      "Working with fixed-size content where regular layouts are simpler",
+      "Building text-heavy interfaces where zooming can hurt readability"
+    ],
+    "strengths": [
+      "Drop-in solution working with any Flutter widgets",
+      "Handles complex gesture conflicts between panning, zooming, and item dragging",
+      "Supports world and viewport mixing for fixed UI elements",
+      "Performance optimized with world-space culling"
+    ],
+    "weaknesses": [
+      "Early version with an evolving public API that may include breaking changes",
+      "Most testing has been done on desktop and web, requiring validation on mobile"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:canvas_kit/canvas_kit.dart';\n\nclass MyCanvasPage extends StatefulWidget {\n  @override\n  State<MyCanvasPage> createState() => _MyCanvasPageState();\n}\n\nclass _MyCanvasPageState extends State<MyCanvasPage> {\n  late final CanvasKitController _controller;\n\n  @override\n  void initState() {\n    super.initState();\n    _controller = CanvasKitController();\n  }\n\n  @override\n  Widget build(BuildContext context) {\n    return Scaffold(\n      appBar: AppBar(title: const Text('My Canvas Kit')),\n      body: CanvasKit(\n        controller: _controller,\n        children: [],\n      ),\n    );\n  }\n}",
+    "confidence": 1
+  }
+}

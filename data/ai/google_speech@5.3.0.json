@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "5.3.0",
+  "generatedAt": "2026-11-14T10:33:31.785Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "audio-video"
+    ],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "Flutter plugin for the Google Cloud gRPC Speech-to-Text API.",
+    "what_it_does": "Allows Flutter apps to communicate with the Google Cloud Speech-to-Text API using gRPC. It supports audio transcription via file recognition, real-time streaming recognition, and endless stream support.",
+    "use_when": [
+      "You need to transcribe audio files to text using Google Cloud Speech-to-Text in a Flutter app.",
+      "You require real-time streaming audio transcription or endless stream support."
+    ],
+    "avoid_when": [
+      "You need local, on-device speech-to-text processing without a cloud backend.",
+      "You cannot configure Google Cloud credentials, service accounts, or tokens."
+    ],
+    "strengths": [
+      "Pure Dart implementation utilizing gRPC for streaming transcription support.",
+      "Supports multiple authentication methods including service accounts, tokens, and third-party authenticators.",
+      "Supports Google Speech V1, Beta, and V2 APIs."
+    ],
+    "weaknesses": [
+      "Requires an active Google Cloud account and properly configured credentials.",
+      "Streaming audio quality issues or incorrect formats can lead to empty API responses."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires creating a Google Cloud account, activating the Speech API, generating a service account JSON file, and configuring permissions/credentials in the app.",
+    "alternates": [],
+    "minimal_example": "import 'package:google_speech/speech_client_authenticator.dart';\n\nfinal serviceAccount = ServiceAccount.fromString(r'''{YOUR_JSON_STRING}''');\nfinal speechToText = SpeechToText.viaServiceAccount(serviceAccount);\n\nfinal config = RecognitionConfig(\n  encoding: AudioEncoding.LINEAR16,\n  sampleRateHertz: 16000,\n  languageCode: 'en-US'\n);\n\nfinal response = await speechToText.recognize(config, audioBytes);",
+    "confidence": 0.95,
+    "alternatives": []
+  }
+}

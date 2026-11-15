@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.9.2",
+  "generatedAt": "2026-11-15T11:31:19.254Z",
+  "data": {
+    "primary_category": "localization",
+    "secondary_categories": [
+      "files",
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Proper Bangla text shaping, rendering, and extraction for PDF documents in Flutter.",
+    "what_it_does": "Corrects Bangla text shaping (conjuncts, reph, and vowel signs) for PDF generation using package:pdf drop-in widgets, and provides robust PDF text extraction and Bijoy decoding.",
+    "use_when": [
+      "You need to generate PDFs containing accurate Bangla text, numbers, and currency.",
+      "You want to extract or search Bangla text from existing PDFs, including scanned or Word-exported files."
+    ],
+    "avoid_when": [
+      "You do not work with PDFs or Bengali localization."
+    ],
+    "strengths": [
+      "Real OpenType shaping for Bangla conjuncts and vowel signs with correct selection and searchability.",
+      "Drop-in replacement for standard package:pdf widgets via a single import.",
+      "Extracts text from complex PDFs including Word exports and legacy Bijoy documents."
+    ],
+    "weaknesses": [
+      "Limited to PDF generation and extraction workflows.",
+      "Non-Bangla glyphs require explicit font fallbacks."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:bangla_pdf/widgets.dart' as pw;\n\nfinal pdf = pw.Document();\npdf.addPage(\n  pw.Page(\n    build: (context) => pw.Text('আমার সোনার বাংলা'),\n  ),\n);\nfinal bytes = await pdf.save();",
+    "confidence": 1
+  }
+}

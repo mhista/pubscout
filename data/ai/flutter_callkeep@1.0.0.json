@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.0",
+  "generatedAt": "2026-11-14T11:02:56.401Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [
+      "device"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "iOS CallKit and Android ConnectionService bindings for Flutter",
+    "what_it_does": "Provides native iOS CallKit and Android ConnectionService bindings to show native incoming call screens and handle audio calls in Flutter apps. Supports displaying incoming calls, making outgoing calls, and handling call events.",
+    "use_when": [
+      "You are building a VoIP, audio, or video calling app in Flutter",
+      "You need native incoming call integration on iOS using CallKit",
+      "You need native connection management on Android"
+    ],
+    "avoid_when": [
+      "Your app does not involve real-time phone calls or VoIP",
+      "You only need local push notifications without native call UI behavior"
+    ],
+    "strengths": [
+      "Integrates with platform-native calling interfaces like iOS CallKit",
+      "Supports Android custom UI and ConnectionService bindings",
+      "Allows event handling for call acceptance, declining, and starting"
+    ],
+    "weaknesses": [
+      "Requires significant native setup for both Android (permissions, activity launch mode) and iOS (PushKit, AppDelegate configuration)",
+      "Push handling on iOS must be written in native Swift code due to restrictions"
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Requires modifying AndroidManifest.xml (singleInstance launchMode, notification permissions), Info.plist (background modes), and AppDelegate.swift for iOS PushKit VoIP handling.",
+    "alternatives": [],
+    "minimal_example": "final data = CallEvent(\n  uuid: uuid,\n  callerName: 'Test User',\n  handle: '0123456789',\n  hasVideo: false,\n  duration: 30000,\n  extra: <String, dynamic>{'userId': '1a2b3c4d'},\n);\n\nawait CallKeep.instance.displayIncomingCall(data);",
+    "confidence": 1
+  }
+}

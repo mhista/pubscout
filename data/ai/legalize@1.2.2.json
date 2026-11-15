@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "1.2.2",
+  "generatedAt": "2026-11-15T11:21:28.869Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Provides functions to validate and sanitize filenames for various operating systems.",
+    "what_it_does": "The package checks filenames against OS-specific restrictions and can remove or replace illegal characters. It offers both validation and sanitization helpers for Windows, macOS/iOS (HFS), Android (FAT), and POSIX systems.",
+    "use_when": [
+      "You need to ensure filenames are safe before saving them on disk",
+      "You support multiple platforms and want a single API for filename rules"
+    ],
+    "avoid_when": [
+      "You require advanced filesystem features beyond basic character checks",
+      "You need real-time streaming validation of filenames"
+    ],
+    "strengths": [
+      "Covers major OS filename rules in one library",
+      "Simple, zero‑dependency API",
+      "Allows custom control‑character handling"
+    ],
+    "weaknesses": [
+      "Limited to character sanitization, no path handling",
+      "Package is still marked as in development"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:legalize/legalize.dart';\n\nvoid main() {\n  const someFilename = 'my?/?/?File.txt';\n  final sanitized = legalizeFilename(someFilename);\n  print(sanitized); // myFile.txt\n}",
+    "confidence": 0.9
+  }
+}

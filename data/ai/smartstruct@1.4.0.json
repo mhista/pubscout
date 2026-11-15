@@ -1,0 +1,48 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.4.0",
+  "generatedAt": "2026-11-15T11:23:51.554Z",
+  "data": {
+    "primary_category": "codegen",
+    "secondary_categories": [],
+    "approach": [
+      "code generation"
+    ],
+    "one_liner": "A Dart bean mapper annotation processor for generating type-safe mappers.",
+    "what_it_does": "Smartstruct is a code generator that creates type-safe bean mappers in Dart, inspired by MapStruct. It automates mapping properties between different model and entity classes.",
+    "use_when": [
+      "You need to map data between models, DTOs, and domain entities",
+      "You want compile-time type safety for object-to-object mapping",
+      "You prefer annotation-driven code generation over manual mapping"
+    ],
+    "avoid_when": [
+      "You prefer manual mapping without using build_runner",
+      "Your project does not use objects that require mapping between layers"
+    ],
+    "strengths": [
+      "Type-safe object mapping at compile-time",
+      "Supports nested bean mapping, lists, and custom function mappings",
+      "Integrates well with build_runner and injectable"
+    ],
+    "weaknesses": [
+      "Requires running code generation via build_runner",
+      "Manual workarounds needed for specific third-party libraries like freezed"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add smartstruct to dependencies and smartstruct_generator along with build_runner to dev_dependencies, then run build_runner.",
+    "alternatives": [
+      {
+        "name": "built_value",
+        "why_pick_it": "Choose built_value if you want immutable value classes with built-in serialization and builder patterns."
+      },
+      {
+        "name": "freezed_annotation",
+        "why_pick_it": "Choose freezed if you primarily want union types, pattern matching, and immutable data classes with copyWith."
+      }
+    ],
+    "minimal_example": "part 'dogmapper.mapper.g.dart';\n\n@Mapper()\nabstract class DogMapper {\n    Dog fromModel(DogModel model);\n}",
+    "confidence": 0.95
+  }
+}

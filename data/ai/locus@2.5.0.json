@@ -1,0 +1,57 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "2.5.0",
+  "generatedAt": "2026-11-15T11:06:25.892Z",
+  "data": {
+    "primary_category": "maps",
+    "secondary_categories": [
+      "device",
+      "storage",
+      "networking"
+    ],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "Background geolocation SDK for Flutter with tracking, geofencing, activity recognition and HTTP sync",
+    "what_it_does": "Provides continuous background location updates, activity detection, geofencing (circular and polygon), privacy zones, trip detection, and optional HTTP sync. Data is persisted locally in SQLite and can be queried with native filtering and pagination.",
+    "use_when": [
+      "You need reliable background location tracking on Android and iOS",
+      "You require geofencing with enter/exit/dwell events",
+      "You want activity recognition (walking, running, driving)",
+      "You need to sync location data to a backend with retry and batching"
+    ],
+    "avoid_when": [
+      "You only need simple foreground location updates",
+      "You are building a web or desktop app",
+      "You prefer a lightweight package without native code"
+    ],
+    "strengths": [
+      "Deterministic service-based API",
+      "Full test suite and production-ready tooling",
+      "Supports polygon geofences and privacy zones",
+      "Built-in HTTP sync with retry and batching"
+    ],
+    "weaknesses": [
+      "Requires native setup (permissions, Gradle/Pod changes)",
+      "Large plugin footprint due to native code",
+      "No support for web/desktop"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add permissions in AndroidManifest and Info.plist, run `dart run locus:setup` for native config, initialize with `Locus.ready()` before starting tracking",
+    "alternatives": [
+      {
+        "name": "geolocator",
+        "why_pick_it": "Simpler foreground tracking without native background support"
+      },
+      {
+        "name": "google_maps_flutter",
+        "why_pick_it": "Provides map UI but not background tracking or geofencing"
+      }
+    ],
+    "minimal_example": "```dart\nimport 'package:locus/locus.dart';\n\nvoid main() async {\n  await Locus.ready(ConfigPresets.balanced);\n  await Locus.start();\n  Locus.location.stream.listen((loc) {\n    print('Lat: ${loc.coords.latitude}, Lng: ${loc.coords.longitude}');\n  });\n}\n```",
+    "confidence": 0.92
+  }
+}

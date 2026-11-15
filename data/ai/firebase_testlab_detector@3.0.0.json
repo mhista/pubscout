@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.0.0",
+  "generatedAt": "2026-11-13T11:28:07.063Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "backend"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Determines whether the app is running within Firebase Test Lab on Android.",
+    "what_it_does": "This plugin for Android detects if the application is executing within Firebase Test Lab during Google Play Pre-Launch Reports. It checks the system property firebase.test.lab and returns a boolean value or null on unsupported platforms.",
+    "use_when": [
+      "You want to disable analytics or tracking during Firebase Test Lab runs.",
+      "You need to differentiate between regular user usage and automated pre-launch report tests."
+    ],
+    "avoid_when": [
+      "Your app targets platforms other than Android where this plugin returns null.",
+      "You need features beyond detecting Firebase Test Lab environments."
+    ],
+    "strengths": [
+      "Simple API with a single check method.",
+      "Prevents skewed analytics data from automated pre-launch reports."
+    ],
+    "weaknesses": [
+      "Only works on Android.",
+      "Requires Flutter 3.47 and Android API 24 or newer."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires Flutter 3.47 or newer and Android API 24 or newer. Android builds require AGP 9 with built-in Kotlin support.",
+    "alternatives": [],
+    "minimal_example": "final isRunningInTestlab = await FirebaseTestlabDetector.isAppRunningInTestlab() ?? false;",
+    "confidence": 0.95
+  }
+}

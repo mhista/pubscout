@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.9.0",
+  "generatedAt": "2026-11-13T11:44:25.511Z",
+  "data": {
+    "primary_category": "testing",
+    "secondary_categories": [
+      "backend"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Mock library to write unit tests for Firebase Realtime Database.",
+    "what_it_does": "Provides a mock implementation of FirebaseDatabase that keeps data in memory during tests. Allows developers to pre-populate fake data and test read, write, update, and remove operations without connecting to a live Firebase backend.",
+    "use_when": [
+      "You need to write unit tests for code interacting with Firebase Realtime Database.",
+      "You want to test Firebase database interactions without network latency or live credentials."
+    ],
+    "avoid_when": [
+      "You are using backend services other than Firebase Realtime Database.",
+      "You require complex database features or event types not supported by the mock library."
+    ],
+    "strengths": [
+      "Enables simple in-memory unit testing for FirebaseDatabase.",
+      "Requires no Firebase initialization or TestWidgetsFlutterBinding for basic usage.",
+      "Supports common database operations like ref, child, get, set, update, remove, and once."
+    ],
+    "weaknesses": [
+      "Data persistence disabling feature is currently experimental and may have issues.",
+      "Only supports `DatabaseEventType.value` for `once()`.",
+      "Limited to a subset of getters and methods defined in the mock classes."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [],
+    "minimal_example": "import 'package:firebase_database/firebase_database.dart';\nimport 'package:firebase_database_mocks/firebase_database_mocks.dart';\nimport 'package:flutter_test/flutter_test.dart';\n\nvoid main() {\n  test('Should get user name', () async {\n    const fakeData = {\n      'users': {\n        'userId': {\n          'name': 'Elon musk',\n        }\n      }\n    };\n    MockFirebaseDatabase.instance.ref().set(fakeData);\n    \n    final snapshot = await MockFirebaseDatabase.instance.ref().child('users/userId/name').once();\n    expect(snapshot.snapshot.value, equals('Elon musk'));\n  });\n}",
+    "confidence": 1
+  }
+}

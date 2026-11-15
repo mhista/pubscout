@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.1.0",
+  "generatedAt": "2026-11-14T10:35:43.916Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter plugin for Wi-Fi provisioning of ESP32 modules over Bluetooth Low Energy (BLE).",
+    "what_it_does": "Provides a transport-agnostic Dart library to provision ESP32 modules over Bluetooth Low Energy using Espressif's protocomm protocol. It handles secure key exchanges, Wi-Fi network scanning, credential delivery, and status checking.",
+    "use_when": [
+      "You need to provision ESP32 microcontrollers over BLE from a Flutter application.",
+      "You want support for secure sessions using Curve25519 and Proof-of-Possession."
+    ],
+    "avoid_when": [
+      "You are provisioning ESP32 modules over Wi-Fi SoftAP instead of Bluetooth LE.",
+      "You require Security 2 (SRP6a + AES-GCM) which is not yet implemented."
+    ],
+    "strengths": [
+      "Transport-agnostic architecture lets you plug in any BLE stack (such as flutter_blue_plus).",
+      "Supports secure session establishment with Security 1 and Proof-of-Possession.",
+      "Handles Wi-Fi scanning, credential application, and custom data exchange."
+    ],
+    "weaknesses": [
+      "Requires you to implement your own `ProvTransport` layer using a separate BLE package.",
+      "Security 2 and Security 0 are not fully available yet."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding the package and integrating a BLE package like flutter_blue_plus to provide the `ProvTransport` implementation.",
+    "alternatives": [],
+    "minimal_example": "final prov = EspProv(\n  transport: TransportBLE(peripheral),\n  security: Security1(pop: pop),\n);\nfinal status = await prov.establishSession();",
+    "confidence": 1
+  }
+}

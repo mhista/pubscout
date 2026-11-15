@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "2.5.1",
+  "generatedAt": "2026-11-13T11:13:16.200Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter plugin to share files and text with other apps",
+    "what_it_does": "Provides methods to share text, files from storage or memory, and multiple files. It handles temporary file cleanup and supports separate activity mode on Android.",
+    "use_when": [
+      "You need to share images, PDFs, or other files from your app",
+      "You want to share plain text or a combination of text and files",
+      "You need automatic cleanup of temporary files after sharing"
+    ],
+    "avoid_when": [
+      "You are building a pure iOS app that cannot use Swift plugins",
+      "You need to share very large files from memory",
+      "You require a single‑activity share flow without separate Android activity"
+    ],
+    "strengths": [
+      "Easy initialization with Share.init()",
+      "Automatic temporary file cleanup",
+      "Supports separate activity mode for Android navigation",
+      "Provides both storage and memory sharing APIs"
+    ],
+    "weaknesses": [
+      "Requires Swift for iOS projects",
+      "Separate activity mode is default on Android, limiting result handling",
+      "Memory sharing methods can cause OOM for large files"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Call Share.init() at app startup. For iOS, ensure the Flutter app is created with Swift or adjust Podfile to set SWIFT_VERSION. No build_runner needed.",
+    "alternatives": [
+      {
+        "name": "share_plus",
+        "why_pick_it": "Officially maintained, supports more platforms and has broader community support"
+      }
+    ],
+    "minimal_example": "import 'package:esys_flutter_share_plus/esys_flutter_share_plus.dart';\nawait Share.init();\nawait EsysFlutterShare.fileFromStorage('Share File','example.pdf','/path/example.pdf','application/pdf',text:'Check it out!');",
+    "confidence": 0.8
+  }
+}

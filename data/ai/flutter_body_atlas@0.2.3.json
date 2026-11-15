@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.2.3",
+  "generatedAt": "2026-11-14T10:29:21.003Z",
+  "data": {
+    "primary_category": "ui-kits",
+    "secondary_categories": [
+      "widgets",
+      "images"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "An interactive SVG-based human body and muscle atlas widget for Flutter.",
+    "what_it_does": "Renders high-fidelity anatomical diagrams of the human musculoskeletal system with built-in support for hit testing, dynamic coloring, and custom integrations. It allows developers to handle taps and hovers on specific muscles or groups using stable IDs.",
+    "use_when": [
+      "Building fitness or workout tracking apps",
+      "Creating medical visualizations and educational anatomy tools"
+    ],
+    "avoid_when": [
+      "Needing non-muscle anatomical layers like skeletal, organ systems, or skin which are currently on the roadmap",
+      "Needing a non-SVG anatomical rendering solution"
+    ],
+    "strengths": [
+      "Stable public contract for SVG element IDs across versions",
+      "Built-in support for mouse hover on desktop/web and touch interactions on mobile",
+      "Aggregate ID support for parts of muscles like digitations"
+    ],
+    "weaknesses": [
+      "Currently focused only on muscles, lacking organ systems, skin, and bones",
+      "Overlapping paths may require fine-tuning for hit-testing"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires proper attribution to Ryan Graves under the CC BY 4.0 license when displaying the assets.",
+    "alternatives": [],
+    "minimal_example": "BodyAtlasView<MuscleInfo>(\n  view: AtlasAsset.musclesFront,\n  resolver: const MuscleResolver(),\n  colorMapping: {\n    MuscleCatalog.byIdOrThrow('biceps_brachii_caput_longum_l'): Colors.orange,\n  },\n  onTapElement: (muscle) {\n    print('Tapped on: ${muscle.displayName}');\n  },\n)",
+    "confidence": 0.95
+  }
+}

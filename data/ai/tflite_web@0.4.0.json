@@ -1,0 +1,46 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.4.0",
+  "generatedAt": "2026-11-13T11:06:17.041Z",
+  "data": {
+    "primary_category": "ai-ml",
+    "secondary_categories": [
+      "web-desktop"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Run TensorFlow Lite models in the browser using WebAssembly.",
+    "what_it_does": "Provides a Dart API to load TensorFlow Lite models via TFLite JS/WASM and run inference in a web environment. Models can be loaded from URLs or memory and predictions are returned as tensors.",
+    "use_when": [
+      "You need on‑device ML inference in a Flutter web app",
+      "You want to avoid native plugins and keep everything in the browser"
+    ],
+    "avoid_when": [
+      "You target mobile or desktop where native tflite_flutter offers better performance",
+      "You require GPU‑accelerated inference not available in WASM"
+    ],
+    "strengths": [
+      "Runs purely in the browser, no native code",
+      "Supports loading scripts from a CDN or custom hosting",
+      "WASM backend gives reasonable performance for many models"
+    ],
+    "weaknesses": [
+      "Limited to web platforms only",
+      "Performance may be lower than native implementations",
+      "API changed in 0.4.0 (breaking change)"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Call TFLiteWeb.initializeUsingCDN() (or initialize() for custom scripts) before loading models; add the 'web' dependency in pubspec.",
+    "alternatives": [
+      {
+        "name": "tflite_flutter",
+        "why_pick_it": "Native Flutter plugin for mobile/desktop with better performance and broader platform support"
+      }
+    ],
+    "minimal_example": "await TFLiteWeb.initializeUsingCDN();\nfinal model = await TFLiteModel.fromUrl('model_url');\nfinal input = Tensor(data, shape, dataType);\nfinal outputs = model.predict(input);",
+    "confidence": 0.93
+  }
+}

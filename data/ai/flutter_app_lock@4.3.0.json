@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.3.0",
+  "generatedAt": "2026-11-13T11:36:03.573Z",
+  "data": {
+    "primary_category": "auth",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Shows a customizable lock screen on app open, pause, and inactive states.",
+    "what_it_does": "Shows a lock screen widget when the application launches or returns from the background/inactive state. It prevents access to the underlying app content until a successful unlock action is triggered. It also supports background lock latency and inactive state builders.",
+    "use_when": [
+      "You need to secure your app with a passcode, PIN, or biometric lock screen on startup and resume.",
+      "You want to hide sensitive app contents when the user opens the device app switcher."
+    ],
+    "avoid_when": [
+      "You need backend authentication services or OAuth flows rather than a UI app lock overlay."
+    ],
+    "strengths": [
+      "Integrates easily into MaterialApp, CupertinoApp, or WidgetsApp builders.",
+      "Supports background lock latency and custom inactive state builders.",
+      "Allows passing launch arguments from the unlock screen to the rest of the app."
+    ],
+    "weaknesses": [
+      "Requires manual implementation of the actual login/authentication logic inside your own lock screen widget."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [],
+    "minimal_example": "MaterialApp(\n  builder: (context, child) => AppLock(\n    builder: (context, arg) => child!,\n    lockScreenBuilder: (context) => LockScreen(),\n  ),\n)",
+    "confidence": 0.95
+  }
+}

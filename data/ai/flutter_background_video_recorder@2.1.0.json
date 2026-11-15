@@ -1,0 +1,53 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.1.0",
+  "generatedAt": "2026-11-15T11:29:14.552Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [
+      "camera",
+      "device"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Record video and audio on Android from a foreground service, with raw frame and audio streams.",
+    "what_it_does": "Records video or audio on Android inside a foreground service, allowing operations to continue in the background or when the screen is locked. It provides live preview widgets, camera selection, zoom controls, and raw frame or microphone audio data streams via native memory.",
+    "use_when": [
+      "You need background or locked-screen video/audio recording on Android.",
+      "You need raw camera frames or microphone streams for custom processing.",
+      "You need camera switching and zoom capabilities during recordings."
+    ],
+    "avoid_when": [
+      "You are targeting iOS or platforms other than Android.",
+      "You only need simple in-app video playback."
+    ],
+    "strengths": [
+      "Continues recording in the background, closed app, or locked screen via a foreground service.",
+      "Provides raw frames via shared native memory (dart:ffi) to avoid serialization overhead.",
+      "Supports camera selection, zoom, and live previews."
+    ],
+    "weaknesses": [
+      "Android only; not available on iOS.",
+      "Requires native build tooling (NDK and CMake) for raw frame streams.",
+      "Hot restarts can lock camera/microphone resources until the app is fully restarted."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires Android minSdk 31 or higher, Flutter 3.29+, and the Android NDK and CMake installed. Handles most permissions automatically but requires manual manifest declarations for optional location features.",
+    "alternatives": [
+      {
+        "name": "video_player",
+        "why_pick_it": "If you need to play back media rather than record it."
+      },
+      {
+        "name": "record",
+        "why_pick_it": "If you need cross-platform audio-only recording including iOS."
+      }
+    ],
+    "minimal_example": "import 'package:flutter_background_video_recorder/flutter_background_video_recorder.dart';\n\nfinal recorder = FlutterBackgroundVideoRecorder();\nfinal result = await recorder.startVideoRecording(\n  folderName: 'My Videos',\n  cameraFacing: CameraFacing.rearCamera,\n  notificationTitle: 'Recording video',\n  notificationText: 'Tap to return to the app',\n);\nfinal media = await recorder.stopRecording();",
+    "confidence": 1
+  }
+}

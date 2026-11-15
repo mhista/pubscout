@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.1.0",
+  "generatedAt": "2026-11-13T11:40:29.622Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "notifications"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "A plugin for dynamically changing app icons and app badge numbers.",
+    "what_it_does": "Allows Flutter applications to programmatically change their app icon at runtime and update the application icon badge number.",
+    "use_when": [
+      "You want to give users the ability to customize the app icon from within the app settings",
+      "You need to manage and update application badge numbers"
+    ],
+    "avoid_when": [
+      "You require cross-platform dynamic app icon support without iOS limitations",
+      "You are not prepared to manually configure platform-specific settings like Info.plist"
+    ],
+    "strengths": [
+      "Supports changing app icons dynamically",
+      "Allows setting and retrieving badge numbers",
+      "Null safety support"
+    ],
+    "weaknesses": [
+      "Requires manual native configuration in Info.plist for iOS",
+      "Changing icons via private API uses unsupported methods that risk App Store rejection"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires configuring alternate icon files outside of Assets.xcassets and modifying Info.plist on iOS.",
+    "alternatives": [],
+    "minimal_example": "try {\n  if (await FlutterDynamicIcon.supportsAlternateIcons) {\n    await FlutterDynamicIcon.setAlternateIconName(\"photos\");\n  }\n} on PlatformException {} catch (e) {}",
+    "confidence": 0.95
+  }
+}

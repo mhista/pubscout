@@ -1,0 +1,52 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "1.0.4",
+  "generatedAt": "2026-11-15T11:06:54.883Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "animation"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Auto‑scrolling end credits widget for Flutter",
+    "what_it_does": "Provides a scrollable list of arbitrary widgets that automatically scrolls over a set duration. It supports pause on touch, custom timing, styling, and callbacks when finished.",
+    "use_when": [
+      "You need a cinematic credits sequence in a Flutter app",
+      "You want to use any widgets (text, images, logos) as credit items",
+      "You need pause on touch or replay functionality"
+    ],
+    "avoid_when": [
+      "You need complex animation beyond linear scrolling",
+      "You require integration with other animation libraries like Lottie or Rive"
+    ],
+    "strengths": [
+      "Simple API, no external dependencies",
+      "Fully customizable children and timing",
+      "Works on all Flutter platforms",
+      "Pause on touch built‑in"
+    ],
+    "weaknesses": [
+      "Only linear scroll, no advanced physics or custom curves beyond Curves",
+      "No built‑in support for dynamic content changes during scroll",
+      "Limited to scrolling, not other animation types"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dependency via flutter pub add credits",
+    "alternatives": [
+      {
+        "name": "lottie",
+        "why_pick_it": "Use for complex animated credits with Lottie files"
+      },
+      {
+        "name": "flutter_animate",
+        "why_pick_it": "Provides more animation options but not dedicated to credits"
+      }
+    ],
+    "minimal_example": "Scaffold(\n  body: Credits(\n    duration: const Duration(seconds: 24),\n    delay: const Duration(milliseconds: 400),\n    onFinished: () => debugPrint('That’s a wrap!'),\n    children: const [\n      Text('Made together.', style: TextStyle(fontSize: 40, color: Colors.white)),\n      SizedBox(height: 32),\n      FlutterLogo(size: 48),\n      SizedBox(height: 32),\n      Text('Thank you.', style: TextStyle(color: Colors.white)),\n    ],\n  ),\n)",
+    "confidence": 0.95
+  }
+}

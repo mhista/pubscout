@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.0.0",
+  "generatedAt": "2026-11-15T11:34:01.451Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "animation"
+    ],
+    "approach": [
+      "declarative",
+      "imperative"
+    ],
+    "one_liner": "Hides or shows a bottom navigation bar while scrolling.",
+    "what_it_does": "Allows developers to attach a ScrollController to automatically show or hide a bottom navigation bar when scrolling up or down. Supports additional features like snap behavior, pinning, FAB, and snackbars.",
+    "use_when": [
+      "You want to maximize screen estate by hiding the bottom navigation bar during scrolling.",
+      "You need snap behavior or pin/unpin controls for a bottom navigation bar."
+    ],
+    "avoid_when": [
+      "You do not need scroll-aware bottom navigation hiding.",
+      "Your application architecture relies entirely on platform primitives that handle this natively without custom scroll controllers."
+    ],
+    "strengths": [
+      "Supports snap behavior, pin/unpin states, FABs, and snackbars.",
+      "Simple integration via extensions on ScrollController."
+    ],
+    "weaknesses": [
+      "Limited to bottom navigation bars tied to a custom ScrollController extension.",
+      "Few recent updates documented beyond the null-safety release in v4.0.0."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "final controller = ScrollController();\n\nScaffold(\n  body: ListView.builder(\n    controller: controller,\n    itemBuilder: ...,\n  ),\n  bottomNavigationBar: ScrollBottomNavigationBar(\n    controller: controller,\n    items: ...,\n  ),\n);",
+    "confidence": 0.95
+  }
+}

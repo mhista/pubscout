@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "1.0.9",
+  "generatedAt": "2026-11-13T10:59:57.754Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [
+      "device"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Flutter plugin to get and set system volume, ringer and audio modes on Android and iOS.",
+    "what_it_does": "Provides APIs to read and change volume levels for different stream types, query and modify ringer and audio modes, and listen for changes. Includes helpers for Do Not Disturb permission handling on Android and limited iOS support.",
+    "use_when": [
+      "You need to read or adjust the device's volume or ringer mode programmatically",
+      "You want to react to volume or ringer changes in real time",
+      "Your app must manage Do Not Disturb access on Android"
+    ],
+    "avoid_when": [
+      "You need full audio playback capabilities or advanced audio processing",
+      "You require cross‑platform volume UI components",
+      "You need a pure Dart solution without native code"
+    ],
+    "strengths": [
+      "Simple API for common volume and ringer tasks",
+      "Supports listeners for real‑time changes",
+      "Works on both Android and iOS"
+    ],
+    "weaknesses": [
+      "iOS stream type is ignored, limiting granularity",
+      "Some functions (e.g., set audio mode) are incomplete",
+      "Requires native permission handling for DND"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add <uses-permission android:name=\"android.permission.ACCESS_NOTIFICATION_POLICY\"/> to AndroidManifest and request Do Not Disturb access at runtime; iOS listeners require careful subscription order.",
+    "alternatives": [
+      {
+        "name": "audio_session",
+        "why_pick_it": "Manages audio focus and mode with a pure‑Dart API and fewer native permissions"
+      }
+    ],
+    "minimal_example": "import 'package:real_volume/real_volume.dart';\n\nvoid main() async {\n  double? vol = await RealVolume.getCurrentVol(StreamType.MUSIC);\n  print('Music volume: $vol');\n  RealVolume.onVolumeChanged.listen((e) => print('Changed: ${e.volumeLevel}'));\n}",
+    "confidence": 0.9
+  }
+}

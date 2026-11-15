@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "2.3.2",
+  "generatedAt": "2026-11-14T10:36:14.057Z",
+  "data": {
+    "primary_category": "devtools",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Cross‑platform high‑performance logging using mmap and optional AES encryption via FFI.",
+    "what_it_does": "Provides synchronous file logging on iOS, Android, macOS, Windows and HarmonyOS with optional AES‑CFB‑128 encryption. It uses a native C/C++ core accessed through dart:ffi for fast writes and includes log‑file management and parsing utilities.",
+    "use_when": [
+      "Need fast native logging without Dart overhead",
+      "Require encrypted log files on mobile/desktop",
+      "Want a single logger shared between Dart and native code"
+    ],
+    "avoid_when": [
+      "Targeting web platforms",
+      "Prefer remote or cloud‑based logging services",
+      "Want a pure‑Dart solution with no native binaries"
+    ],
+    "strengths": [
+      "Very low‑latency native writes via mmap",
+      "Optional AES encryption for security",
+      "Supports iOS, Android, macOS, Windows and HarmonyOS",
+      "Provides tools for parsing and analyzing log files"
+    ],
+    "weaknesses": [
+      "Requires native build steps and platform‑specific configuration",
+      "Increases app binary size with native libraries",
+      "No support for web or pure Dart logging"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "On iOS/macOS set Xcode Strip Style to 'Non‑Global Symbols' to keep FFI symbols. Ensure the bundled libmxlogger.so (Android/HarmonyOS) or mxlogger_ffi.dll (Windows) is included. No extra permissions beyond normal file storage are needed.",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter_mxlogger/flutter_mxlogger.dart';\n\nfinal logger = await MXLogger.initialize(\n  nameSpace: \"flutter.mxlogger\",\n  storagePolicy: MXStoragePolicyType.yyyyMMddHH,\n  consoleEnable: true,\n  cryptKey: \"abcuioqbsdguijlk\", // 16‑byte key\n);\n\nlogger.debug('debug message');\nlogger.info('info message');\nlogger.error('error message');",
+    "confidence": 0.93
+  }
+}

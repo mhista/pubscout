@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "1.0.8",
+  "generatedAt": "2026-11-14T10:44:40.284Z",
+  "data": {
+    "primary_category": "animation",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "stream-based",
+      "declarative"
+    ],
+    "one_liner": "Provides a typewriter text animation widget driven by a stream.",
+    "what_it_does": "The package offers a StatefulWidget that animates text like a typewriter, updating as new data arrives from a Stream. It supports maxLines, overflow handling, and optional haptic feedback during animation.",
+    "use_when": [
+      "You need a typewriter effect for text that updates in real‑time via a Stream",
+      "You want built‑in haptic feedback while the text animates",
+      "You prefer a ready‑made widget without writing custom animation code"
+    ],
+    "avoid_when": [
+      "The text is static and does not require streaming",
+      "You need extensive styling or custom animation beyond the provided options",
+      "Performance is critical for very large bodies of text"
+    ],
+    "strengths": [
+      "Easy to drop‑in with just an import",
+      "Handles maxLines and overflow gracefully",
+      "Adds haptic feedback during animation"
+    ],
+    "weaknesses": [
+      "Limited customization compared to building your own animation",
+      "Only works with streams, not plain strings",
+      "Relies on animated_text_kit, adding an extra dependency"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "StreamBuilder(\n  stream: _streamController.stream,\n  builder: (context, snapshot) {\n    final text = snapshot.data ?? '';\n    return StreamTypewriterAnimatedText(\n      text: text,\n      style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold, color: Colors.black),\n      maxLines: 5,\n      overflow: TextOverflow.ellipsis,\n    );\n  },\n);",
+    "confidence": 0.9
+  }
+}

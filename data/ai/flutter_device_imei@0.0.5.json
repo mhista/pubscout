@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.0.5",
+  "generatedAt": "2026-11-14T10:28:58.764Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Retrieve device IMEI on Android <10 or ANDROID_ID on newer, and UUID on iOS.",
+    "what_it_does": "This plugin exposes a single method to get a unique device identifier. On Android it returns the IMEI for devices below Android 10, or the ANDROID_ID for newer versions. On iOS it returns a consistent UUID string.",
+    "use_when": [
+      "You need a stable device identifier for analytics or feature gating.",
+      "You need to identify a device across app launches without storing data locally."
+    ],
+    "avoid_when": [
+      "You are concerned about privacy or need to comply with regulations that restrict IMEI usage.",
+      "You only need a generic device ID that can be reset, such as for testing."
+    ],
+    "strengths": [
+      "Simple API, single method call.",
+      "Supports both Android and iOS with consistent behavior.",
+      "No build_runner or code generation required."
+    ],
+    "weaknesses": [
+      "Requires READ_PHONE_STATE permission on Android <10.",
+      "IMEI is not available on Android 10+; falls back to ANDROID_ID which may change on factory reset."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add <uses-permission android:name=\"android.permission.READ_PHONE_STATE\"/> to AndroidManifest.xml for Android <10. No additional native steps required.",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter_device_imei/flutter_device_imei.dart';\n\nFuture<void> getDeviceIMEI() async {\n  String imei = await FlutterDeviceImei.instance.getIMEI();\n  print(\"Device IMEI/Identifier: $imei\");\n}",
+    "confidence": 0.9
+  }
+}

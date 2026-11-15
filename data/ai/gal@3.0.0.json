@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "3.0.0",
+  "generatedAt": "2026-11-13T10:58:56.649Z",
+  "data": {
+    "primary_category": "files",
+    "secondary_categories": [
+      "device"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Save images and videos to the device gallery with a single call and built‑in permission handling.",
+    "what_it_does": "The package provides static methods to write image or video files (or raw bytes) into the user's photo library on Android, iOS, macOS, and Windows. It also offers helpers to check and request the required storage permissions.",
+    "use_when": [
+      "You need to store media captured or downloaded by the app into the user's gallery.",
+      "You want a simple API that abstracts platform‑specific permission and album handling."
+    ],
+    "avoid_when": [
+      "You require fine‑grained control over media metadata beyond what the plugin offers.",
+      "You need cross‑platform support for Linux (only available via a separate community plugin)."
+    ],
+    "strengths": [
+      "Very small and easy‑to‑use API.",
+      "Handles permissions automatically.",
+      "Supports saving to named albums and preserves metadata."
+    ],
+    "weaknesses": [
+      "Linux not officially supported (requires extra plugin).",
+      "Limited to saving media; does not provide picking or editing capabilities."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add platform‑specific permission keys to iOS/macOS Info.plist and WRITE_EXTERNAL_STORAGE permission to AndroidManifest.xml; Windows may need latest Visual Studio/C++20 toolchain.",
+    "alternatives": [],
+    "minimal_example": "import 'package:gal/gal.dart';\nawait Gal.putImage('/path/to/image.jpg');\nawait Gal.putVideo('/path/to/video.mp4');\nawait Gal.hasPermission();\nawait Gal.requestPermission();",
+    "confidence": 0.97
+  }
+}

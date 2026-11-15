@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.1.0",
+  "generatedAt": "2026-11-13T11:04:09.475Z",
+  "data": {
+    "primary_category": "navigation",
+    "secondary_categories": [
+      "payments"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Catch deferred deep links from Facebook ads using the FB App Links SDK.",
+    "what_it_does": "A Flutter plugin that enables catching deferred deep links sent from Facebook after an app is installed via a Facebook ad. It interacts with the native Facebook SDK to retrieve deep link URLs and handle tracking.",
+    "use_when": [
+      "You are running Facebook ad campaigns and need to handle deferred deep links upon first app launch",
+      "You need to route users to specific screens inside your app based on Facebook ad clicks"
+    ],
+    "avoid_when": [
+      "You only need standard deep linking without Facebook SDK integration",
+      "You cannot comply with Facebook's privacy and GDPR user consent requirements prior to SDK initialization"
+    ],
+    "strengths": [
+      "Direct integration with Facebook App Links SDK for Android and iOS",
+      "Provides explicit methods to initialize and fetch deferred deep links"
+    ],
+    "weaknesses": [
+      "Requires manual platform-specific configuration in Android Strings/Manifest and iOS Info.plist",
+      "Requires explicit user consent handling for GDPR compliance before calling initialization methods"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding Facebook App ID and Client Token to Android's strings.xml and AndroidManifest.xml, and configuring URL schemes and keys in iOS Info.plist.",
+    "alternatives": [],
+    "minimal_example": "void initFBDeferredDeeplinks() async {\n  try {\n    String deepLinkUrl = await FlutterFacebookAppLinks.initFBLinks();\n    if (Platform.isIOS) {\n      deepLinkUrl = await FlutterFacebookAppLinks.getDeepLink();\n    }\n  } catch (e) {\n    // handle error\n  }\n}",
+    "confidence": 0.95
+  }
+}

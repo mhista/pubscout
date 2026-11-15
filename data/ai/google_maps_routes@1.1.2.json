@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "1.1.2",
+  "generatedAt": "2026-11-15T10:57:17.771Z",
+  "data": {
+    "primary_category": "maps",
+    "secondary_categories": [
+      "utils",
+      "networking"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Draw routes on Google Maps using the Directions API",
+    "what_it_does": "This package uses the Google Directions API to generate polylines and display them on a GoogleMap widget. It also provides a distance calculator for the route.",
+    "use_when": [
+      "You need to show driving, walking, bicycling or transit routes on a Google Map",
+      "You want to calculate the distance of a route",
+      "You want a simple API to add polylines to a map"
+    ],
+    "avoid_when": [
+      "You are not using google_maps_flutter or you need a non‑Google map solution",
+      "You need advanced routing features like turn‑by‑turn navigation"
+    ],
+    "strengths": [
+      "Easy to integrate with google_maps_flutter",
+      "Supports multiple travel modes",
+      "Provides a built‑in distance calculator",
+      "No code generation required"
+    ],
+    "weaknesses": [
+      "Only works with Google Maps and the Directions API",
+      "Requires a Google API key and billing enabled",
+      "No offline routing support"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add google_maps_routes, google_maps_flutter, and flutter_polyline_points to pubspec. Provide a Google Directions API key. No build_runner or native permissions needed.",
+    "alternatives": [],
+    "minimal_example": "import 'package:google_maps_routes/google_maps_routes.dart';\n\nList<LatLng> points = [LatLng(37.7749, -122.4194), LatLng(34.0522, -118.2437)];\nMapsRoutes route = MapsRoutes();\nawait route.drawRoute(points, 'Route', Colors.blue, 'YOUR_API_KEY');\nGoogleMap(polylines: route.routes);",
+    "confidence": 0.9
+  }
+}

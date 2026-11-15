@@ -1,0 +1,52 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.0.1",
+  "generatedAt": "2026-11-15T11:23:40.173Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "A wrapper around hive_ce for easy local data storage and encryption.",
+    "what_it_does": "It wraps hive_ce and flutter_secure_storage to provide an easy interface for storing, encrypting, and caching local key-value data and custom models. It features per-box locks, custom box opening, and error recovery for corrupted boxes.",
+    "use_when": [
+      "You need encrypted local storage or key-value caching in Flutter.",
+      "You want to manage custom typed models in Hive boxes with built-in encryption key management."
+    ],
+    "avoid_when": [
+      "You require complex relational database queries or SQL support.",
+      "You need native multi-process database access."
+    ],
+    "strengths": [
+      "Automatic encryption key storage via flutter_secure_storage",
+      "Per-box locks for improved write performance",
+      "Handles corrupted cache boxes automatically during initialization"
+    ],
+    "weaknesses": [
+      "Relies on Hive and requires code generation for complex custom objects",
+      "Breaking changes removed the built-0in session/token management in version 3.0.0"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Initialize via LocalStorage.initialize(). Optionally use hive_ce_generator and build_runner for custom object adapters.",
+    "alternatives": [
+      {
+        "name": "hive",
+        "why_pick_it": "If you prefer the original Hive package instead of the community fork (hive_ce)."
+      },
+      {
+        "name": "shared_preferences",
+        "why_pick_it": "For simple key-value storage without heavy NoSQL setup."
+      },
+      {
+        "name": "sqflite",
+        "why_pick_it": "If you need a traditional SQLite relational database."
+      }
+    ],
+    "minimal_example": "await LocalStorage.initialize();\nawait LocalStorage.i.put<int>(key: 'count', value: 0);\nfinal count = LocalStorage.i.get<int>(key: 'count');",
+    "confidence": 0.95
+  }
+}

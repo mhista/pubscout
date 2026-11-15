@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.4.0",
+  "generatedAt": "2026-11-14T10:58:54.384Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Performant hierarchical state machine framework inspired by UML.",
+    "what_it_does": "Implements type-safe hierarchical state machines using static blueprints and runtime instances. Supports advanced features like orthogonal regions, history semantics, pseudo-states, event deferral, and serialization.",
+    "use_when": [
+      "You have complex state logic that suffers from state explosion in flat state machines",
+      "You need UML-compliant statecharts with hierarchy, concurrency, and history"
+    ],
+    "avoid_when": [
+      "You only need simple UI state holding or basic widget rebuilding",
+      "You prefer stream-based or simple bloc/cubit patterns for your application logic"
+    ],
+    "strengths": [
+      "Prevents state explosion with hierarchical parent/child states",
+      "Immutable blueprints validated during compilation",
+      "Supports orthogonal regions, history semantics, and serialization"
+    ],
+    "weaknesses": [
+      "Steeper learning curve compared to standard state management packages",
+      "Requires careful definition of states, events, and transitions"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [],
+    "minimal_example": "enum States { root, locked, unlocked, blinking }\nenum Events { coin, push, timer }\n\nfinal blueprint = MachineBlueprint<States, Events>(\n  name: 'Turnstile',\n  root: .composite(\n    id: .root,\n    initial: .locked,\n    children: [\n      .composite(\n        id: .locked,\n        on: { .coin: .to(guard: (e, d) => d == 0.25, target: .unlocked) },\n      ),\n      .composite(\n        id: .unlocked,\n        on: { .push: .to(target: .locked) },\n      ),\n    ],\n  ),\n);\n\nfinal (hsm, errors) = blueprint.compile();\nhsm!.start();",
+    "confidence": 0.95
+  }
+}

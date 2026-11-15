@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.0.13",
+  "generatedAt": "2026-11-13T11:08:29.209Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "ui-kits"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Core widgets for connecting floating overlays and tooltips to anchor widgets.",
+    "what_it_does": "Provides foundational widgets like Anchor and RawAnchor for positioning floating overlays relative to an anchor widget. It supports trigger modes like tap, hover, focus, and manual triggers with customizable positioning middlewares.",
+    "use_when": [
+      "You need custom tooltips, popovers, or context menus with precise positioning.",
+      "You want trigger-based overlays for focus, hover, or taps without pre-styled containers."
+    ],
+    "avoid_when": [
+      "You want pre-styled UI components out of the box (use anchor_ui instead).",
+      "You cannot tolerate a one-frame measurement delay on first overlay appearance without explicit sizing."
+    ],
+    "strengths": [
+      "Flexible positioning pipeline using customizable middlewares like flip and shift.",
+      "Multiple trigger modes including tap, hover, focus, and manual."
+    ],
+    "weaknesses": [
+      "No default styling or pre-styled containers are provided.",
+      "First-time overlay appearance may have a one-frame measurement delay unless sizes are provided in advance."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "final _controller = AnchorController();\n\nAnchor(\n  controller: _controller,\n  triggerMode: const AnchorTriggerMode.manual(),\n  placement: Placement.bottomStart,\n  overlayBuilder: (context) => Container(padding: const EdgeInsets.all(8), child: const Text('Menu Content')),\n  child: IconButton(\n    icon: const Icon(Icons.menu),\n    onPressed: () => _controller.toggle(),\n  ),\n)",
+    "confidence": 0.95
+  }
+}

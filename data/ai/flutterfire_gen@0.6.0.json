@@ -1,0 +1,51 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.6.0",
+  "generatedAt": "2026-11-15T11:18:08.675Z",
+  "data": {
+    "primary_category": "codegen",
+    "secondary_categories": [
+      "backend"
+    ],
+    "approach": [
+      "code generation"
+    ],
+    "one_liner": "Generates type‑safe CRUD code for Cloud Firestore documents in Flutter.",
+    "what_it_does": "flutterfire_gen reads Dart classes annotated with @FirestoreDocument and produces query and model helpers for reading, creating, updating, and deleting Firestore documents. It handles default values, server timestamps, and FieldValue operations automatically.",
+    "use_when": [
+      "You need compile‑time, type‑safe Firestore access without writing boilerplate.",
+      "You want automatic handling of server timestamps and FieldValue operations.",
+      "You prefer a single source of truth for document schema in Dart."
+    ],
+    "avoid_when": [
+      "You only need runtime Firestore access and prefer a lightweight wrapper.",
+      "Your project targets non‑Flutter platforms only."
+    ],
+    "strengths": [
+      "Eliminates repetitive Firestore CRUD code",
+      "Ensures compile‑time type safety",
+      "Supports default values and FieldValue annotations"
+    ],
+    "weaknesses": [
+      "Requires build_runner and code‑gen step",
+      "Breaks on major version bumps of analyzer/source_gen",
+      "Tied to specific Firestore schema annotations"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add flutterfire_gen, flutterfire_gen_annotation, flutterfire_gen_utils to dev_dependencies, run build_runner, include part file in source.",
+    "alternatives": [
+      {
+        "name": "built_value",
+        "why_pick_it": "Provides code‑gen for immutable models and serialization without Firestore‑specific helpers."
+      },
+      {
+        "name": "freezed_annotation",
+        "why_pick_it": "Generates immutable data classes and unions; can be combined with custom Firestore wrappers."
+      }
+    ],
+    "minimal_example": "import 'package:cloud_firestore/cloud_firestore.dart';\nimport 'package:flutterfire_gen_annotation/flutterfire_gen_annotation.dart';\n\npart 'todo.flutterfire_gen.dart';\n\n@FirestoreDocument(path: 'todos/{todoId}')\nclass Todo {\n  const Todo({required this.title, required this.isCompleted, this.createdAt, this.updatedAt});\n  final String title;\n  @ReadDefault(false)\n  @CreateDefault(false)\n  final bool isCompleted;\n  @alwaysUseFieldValueServerTimestampWhenCreating\n  final DateTime? createdAt;\n  @alwaysUseFieldValueServerTimestampWhenCreating\n  @alwaysUseFieldValueServerTimestampWhenUpdating\n  final DateTime? updatedAt;\n}\n\n// After running build_runner, use TodoQuery to fetch or add documents.\n",
+    "confidence": 0.85
+  }
+}

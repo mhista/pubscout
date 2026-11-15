@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.0.0",
+  "generatedAt": "2026-11-15T11:32:14.568Z",
+  "data": {
+    "primary_category": "ui-kits",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Flutter package to build chat UIs with multiple message kinds like text, image, HTML, and carousels.",
+    "what_it_does": "Provides a comprehensive set of widgets and controllers to build chat interfaces supporting multiple message types, quick replies, carousels, custom messages, and built-in themes. It handles message rendering, scrolling, and input fields out of the box.",
+    "use_when": [
+      "You need to quickly implement a chat interface with support for various message types like text, images, and HTML.",
+      "You want built-in support for quick replies, carousels, and custom message rendering."
+    ],
+    "avoid_when": [
+      "You require a fully custom chat layout that drastically diverges from standard chat bubble paradigms.",
+      "You are using a Flutter version older than 3.41.0."
+    ],
+    "strengths": [
+      "Supports multiple message kinds including text, image, HTML, quick replies, and carousels.",
+      "Includes M3 design system integration and responsive utilities.",
+      "Provides a ChatController for imperative actions like scrolling to the bottom."
+    ],
+    "weaknesses": [
+      "Requires a recent Flutter version (3.41.0 or later).",
+      "Limited documentation outside of provided markdown files and example apps."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:swifty_chat/swifty_chat.dart';\n\nvoid main() => runApp(const MaterialApp(home: ChatExample()));\n\nclass AppUser extends ChatUser {\n  AppUser(String name) : super(userName: name);\n}\n\nclass AppMessage extends Message {\n  const AppMessage({\n    required super.user,\n    required super.id,\n    required super.isMe,\n    required super.messageKind,\n    required super.date,\n  });\n}\n\nclass ChatExample extends StatefulWidget {\n  const ChatExample({super.key});\n\n  @override\n  State<ChatExample> createState() => _ChatExampleState();\n}\n\nclass _ChatExampleState extends State<ChatExample> {\n  final _messages = <Message>[];\n  final _controller = ChatController();\n  final _me = AppUser('You');\n\n  @override\n  Widget build(BuildContext context) => Scaffold(\n    body: Chat(\n      controller: _controller,\n      messages: _messages,\n      chatMessageInputField: MessageInputField(\n        sendButtonTapped: (text) {\n          final now = DateTime.now();\n          setState(\n            () => _messages.insert(\n              0,\n              AppMessage(\n                user: _me,\n                id: now.microsecondsSinceEpoch.toString(),\n                isMe: true,\n                messageKind: MessageKind.text(text),\n                date: now,\n              ),\n            ),\n          );\n          _controller.scrollToBottom();\n        },\n      ),\n    ),\n  );\n}",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.15.3",
+  "generatedAt": "2026-11-14T10:56:37.915Z",
+  "data": {
+    "primary_category": "payments",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter wrapper for the SumUp SDK to connect to terminals and accept card payments.",
+    "what_it_does": "Allows your Flutter application to connect to a SumUp card reader terminal or use Tap-to-Pay on Android and iOS. It handles merchant login, settings configuration, and processing card checkouts.",
+    "use_when": [
+      "You need to accept physical card payments or Tap-to-Pay using SumUp hardware or supported devices.",
+      "Building a point-of-sale (POS) application in Flutter for Android and iOS."
+    ],
+    "avoid_when": [
+      "You are implementing in-app purchases or subscriptions for digital goods.",
+      "You need an online payment gateway like Stripe rather than in-person card readers."
+    ],
+    "strengths": [
+      "Supports both traditional SumUp card readers and Tap-to-Pay on Android and iOS.",
+      "Provides straightforward methods for initialization, login, and checkout."
+    ],
+    "weaknesses": [
+      "Requires platform-specific configuration and native SDK requirements (such as specific Android minSdk and Kotlin versions for Tap-to-Pay).",
+      "Android Tap-to-Pay requires private Maven credentials."
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Requires a SumUp merchant account, Affiliate Key, configuring native deployment targets (iOS 16+, Android minSdk 26 or 30 for Tap-to-Pay), Java 17, and specific build configurations.",
+    "alternatives": [
+      {
+        "name": "flutter_stripe",
+        "why_pick_it": "Choose Stripe if you need to process online payments or use Stripe Terminal instead of SumUp."
+      },
+      {
+        "name": "adyen_checkout",
+        "why_pick_it": "Choose Adyen if your integration requires the Adyen payment platform."
+      }
+    ],
+    "minimal_example": "await Sumup.init(affiliateKey);\nawait Sumup.login();\nvar payment = SumupPayment(title: 'Coffee', total: 3.50, currency: 'EUR');\nvar checkout = await Sumup.checkout(SumupPaymentRequest(payment));",
+    "confidence": 1
+  }
+}

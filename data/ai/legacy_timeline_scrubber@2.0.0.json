@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "2.0.0",
+  "generatedAt": "2026-11-14T10:32:16.579Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "A customizable Flutter timeline scrubber widget for navigating time‑based data.",
+    "what_it_does": "Provides a scrollable, zoomable timeline with draggable handles to change the visible date range. Displays tasks on the timeline and notifies when the window changes.",
+    "use_when": [
+      "You need a simple timeline scrubber for Gantt charts, video/audio editors, or similar time‑based UI.",
+      "You want a lightweight, platform‑agnostic widget with customizable appearance and zoom support."
+    ],
+    "avoid_when": [
+      "You require full‑featured charting or analytics beyond a basic scrubber.",
+      "You need built‑in data fetching, state management, or heavy performance optimizations for massive datasets."
+    ],
+    "strengths": [
+      "Highly customizable appearance and behavior",
+      "Supports zooming and anchored scaling",
+      "Works on all Flutter platforms",
+      "Simple API with callbacks"
+    ],
+    "weaknesses": [
+      "Limited to timeline scrubber functionality",
+      "No built‑in data source or advanced chart features",
+      "May need additional logic for large task sets"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:legacy_timeline_scrubber/legacy_timeline_scrubber.dart';\n\nclass MyTimeline extends StatefulWidget {\n  @override\n  _MyTimelineState createState() => _MyTimelineState();\n}\n\nclass _MyTimelineState extends State<MyTimeline> {\n  late DateTime totalStartDate;\n  late DateTime totalEndDate;\n  late DateTime visibleStartDate;\n  late DateTime visibleEndDate;\n  final List<LegacyGanttTask> tasks = [];\n\n  @override\n  void initState() {\n    super.initState();\n    final now = DateTime.now();\n    totalStartDate = now.subtract(const Duration(days: 10));\n    totalEndDate = now.add(const Duration(days: 10));\n    visibleStartDate = now.subtract(const Duration(days: 2));\n    visibleEndDate = now.add(const Duration(days: 2));\n    tasks.add(LegacyGanttTask(id: '1', rowId: 'row1', start: now.subtract(const Duration(days: 5)), end: now.subtract(const Duration(days: 3)), name: 'Task 1'));\n  }\n\n  void onWindowChanged(DateTime start, DateTime end, ScrubberHandle handle) {\n    setState(() {\n      visibleStartDate = start;\n      visibleEndDate = end;\n    });\n  }\n\n  @override\n  Widget build(BuildContext context) {\n    return SizedBox(\n      height: 100,\n      child: LegacyGanttTimelineScrubber(\n        totalStartDate: totalStartDate,\n        totalEndDate: totalEndDate,\n        visibleStartDate: visibleStartDate,\n        visibleEndDate: visibleEndDate,\n        onWindowChanged: onWindowChanged,\n        tasks: tasks,\n      ),\n    );\n  }\n}",
+    "confidence": 0.9
+  }
+}

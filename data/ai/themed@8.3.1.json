@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "8.3.1",
+  "generatedAt": "2026-11-13T11:16:31.979Z",
+  "data": {
+    "primary_category": "theming",
+    "secondary_categories": [
+      "ui-kits"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Define themes with const values and change them dynamically at runtime.",
+    "what_it_does": "Allows developers to define themes using const ColorRef and TextStyleRef values that can still be updated dynamically. It also provides widgets and extensions to modify color properties like brightness, saturation, and hue.",
+    "use_when": [
+      "You want to use const values for theme references in constructors and default parameters",
+      "You need to change themes dynamically without relying exclusively on Theme.of(context)",
+      "You want to apply color adjustments like brightness, saturation, or contrast to specific widgets or images"
+    ],
+    "avoid_when": [
+      "You prefer sticking purely to Flutter's native ThemeData and Theme.of(context) architecture",
+      "You are not using Flutter"
+    ],
+    "strengths": [
+      "Enables const theme references",
+      "No need to pass context for accessing theme values",
+      "Includes helpful color and text style extension methods and transformation tools"
+    ],
+    "weaknesses": [
+      "Doesn't completely replace Flutter's native ThemeData system, meaning integration can sometimes require additional boilerplate"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Wrap your widget tree with the Themed widget above the MaterialApp.",
+    "alternatives": [],
+    "minimal_example": "static const myColor = ColorRef(Colors.white);\n\nContainer(\n  color: myColor,\n  child: const Text('Hello'),\n);\n\nThemed.currentTheme = {\n  myColor: Colors.blue,\n};",
+    "confidence": 1
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "1.0.1",
+  "generatedAt": "2026-11-14T10:45:54.226Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "stream-based"
+    ],
+    "one_liner": "Flutter plugin to listen for Android volume button presses and block default behavior.",
+    "what_it_does": "Provides a stream of hardware volume button events on Android. While listening, the buttons are prevented from changing the system volume. Stops listening restores normal button functionality.",
+    "use_when": [
+      "You need to react to volume up/down presses in a Flutter app on Android",
+      "You want to intercept volume keys for custom shortcuts or UI controls"
+    ],
+    "avoid_when": [
+      "The app must run on iOS or other platforms",
+      "You need the volume buttons to keep controlling the system volume"
+    ],
+    "strengths": [
+      "Simple API with a Dart stream",
+      "No extra permissions required",
+      "Compatible with Flutter 3.27"
+    ],
+    "weaknesses": [
+      "Android‑only plugin",
+      "Requires MainActivity to extend a custom class",
+      "Blocks normal volume control while active"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Change MainActivity.java or MainActivity.kt to extend FlutterAndroidVolumeKeydownActivity",
+    "alternatives": [],
+    "minimal_example": "var subscription = FlutterAndroidVolumeKeydown.stream.listen((event) {\n  if (event == HardwareButton.volume_down) {\n    print('Volume down received');\n  } else if (event == HardwareButton.volume_up) {\n    print('Volume up received');\n  }\n});\n// later\nsubscription?.cancel();",
+    "confidence": 0.97
+  }
+}

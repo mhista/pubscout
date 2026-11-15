@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.1.0",
+  "generatedAt": "2026-11-15T11:27:05.939Z",
+  "data": {
+    "primary_category": "localization",
+    "secondary_categories": [
+      "codegen"
+    ],
+    "approach": [
+      "code generation"
+    ],
+    "one_liner": "Generate ARB localization files from CSV files.",
+    "what_it_does": "A Dart tool that reads localization strings from CSV files and outputs them into Flutter-compatible ARB format files. It supports ICU message syntax, plurals, selects, descriptions, and optional placeholder metadata.",
+    "use_when": [
+      "You prefer managing translations in spreadsheet tools or CSV format.",
+      "You want to feed generated ARB files into the official Flutter intl localization pipeline."
+    ],
+    "avoid_when": [
+      "You manage localization files directly as ARB, JSON, or YAML without a CSV intermediary.",
+      "You want a fully-featured runtime localization framework rather than just a conversion script."
+    ],
+    "strengths": [
+      "Simplifies working with translators who use CSV spreadsheets.",
+      "Supports ICU placeholders, plurals, and select rules.",
+      "Compatible with the standard Flutter intl localization system."
+    ],
+    "weaknesses": [
+      "Requires a separate CSV conversion step during development.",
+      "Limited to file conversion rather than full in-app runtime translation management."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add as a dev dependency, configure settings in pubspec.yaml, and run via dart run arb_generator.",
+    "alternatives": [
+      {
+        "name": "slang",
+        "why_pick_it": "If you want a type-safe localization solution using JSON/YAML files instead of generating ARB files."
+      },
+      {
+        "name": "easy_localization",
+        "why_pick_it": "If you prefer loading translation files directly at runtime without code generation."
+      }
+    ],
+    "minimal_example": "arb_generator:\n  input_filepath: \"assets_dev/test.csv\"\n  output_directory: \"lib/l10n\"",
+    "confidence": 0.95
+  }
+}

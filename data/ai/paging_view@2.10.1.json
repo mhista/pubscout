@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "2.10.1",
+  "generatedAt": "2026-11-13T11:05:30.513Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Flutter widgets for infinite‑scroll, paginated lists, grids and slivers with data‑source control.",
+    "what_it_does": "Provides PagingList, PagingGrid and their sliver equivalents that load data page‑by‑page using a DataSource. Supports refresh, append, prepend and real‑time item updates.",
+    "use_when": [
+      "You need infinite scrolling or paginated UI without writing load‑logic in the widget tree",
+      "You want fine‑grained control over loading states and item updates"
+    ],
+    "avoid_when": [
+      "You only need a simple ListView without pagination",
+      "You require a backend‑specific client (e.g., Firebase paging)"
+    ],
+    "strengths": [
+      "Clear separation of data loading via DataSource",
+      "Supports both list and grid layouts, including slivers",
+      "Built‑in grouped lists with sticky headers",
+      "Customizable loading/error/empty widgets"
+    ],
+    "weaknesses": [
+      "Adds extra abstraction layer that may be overkill for tiny lists",
+      "No built‑in network client – you must implement data fetching yourself"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "class Demo extends StatefulWidget{const Demo({super.key});@override State<Demo> createState()=>_DemoState();}\nclass _DemoState extends State<Demo>{late final ExampleDataSource _src;@override void initState(){super.initState();_src=ExampleDataSource();}\n@override void dispose(){_src.dispose();super.dispose();}\n@override Widget build(BuildContext context){return RefreshIndicator(onRefresh:()=>_src.refresh(),child:PagingList(dataSource:_src,initialLoadingWidget:Center(child:CircularProgressIndicator())));}}",
+    "confidence": 0.9
+  }
+}

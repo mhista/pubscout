@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.4.1",
+  "generatedAt": "2026-11-15T11:20:13.845Z",
+  "data": {
+    "primary_category": "images",
+    "secondary_categories": [
+      "storage"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Load and cache network images to disk and memory to avoid display delays.",
+    "what_it_does": "Provides a widget and manager to load, disk-cache, and memory-precache network images in Flutter applications. It helps prevent flash screens or flickering caused by network image download delays across iOS, Android, and Web.",
+    "use_when": [
+      "You want to avoid network image loading delay and flashing/flickering on screen.",
+      "You need dual-layer caching (memory and disk) for network images with explicit precaching control."
+    ],
+    "avoid_when": [
+      "You require advanced image manipulation features like cropping or complex transformations.",
+      "You are already using a comprehensive image handling solution like cached_network_image."
+    ],
+    "strengths": [
+      "Supports dual-layer caching with memory and disk storage.",
+      "Provides manual precaching controls via a manager class.",
+      "Supports multi-platform including iOS, Android, and Web."
+    ],
+    "weaknesses": [
+      "Lacks advanced image transformations, cropping, or editing features.",
+      "Relies on manual manager calls for advanced precaching workflows."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [
+      {
+        "name": "cached_network_image",
+        "why_pick_it": "It is a more widely adopted, robust package for downloading, caching, and displaying network images."
+      },
+      {
+        "name": "octo_image",
+        "why_pick_it": "It provides advanced placeholder and error building strategies for network images."
+      }
+    ],
+    "minimal_example": "PrecachedNetworkImage(\n  url: 'https://picsum.photos/200',\n  width: 200, \n  height: 200,\n  precache: true,\n  fit: BoxFit.fill,\n  placeholder: (context, url) => const Icon(Icons.person),\n  errorWidget: (context, url, error) => const Icon(Icons.error),\n)",
+    "confidence": 0.95
+  }
+}

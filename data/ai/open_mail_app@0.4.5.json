@@ -1,0 +1,36 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.4.5",
+  "generatedAt": "2026-11-14T10:33:01.618Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Query the device for installed email apps and open them.",
+    "what_it_does": "Provides the ability to query the device for installed email apps and open specific mail apps. Allows presenting a picker dialog when multiple mail apps are found on iOS or Android.",
+    "use_when": [
+      "You need to let users choose which installed email app to open on their device",
+      "You need to handle devices with multiple email clients installed, especially on iOS"
+    ],
+    "avoid_when": [
+      "You only need to open a generic mailto link and don't care which app handles it"
+    ],
+    "strengths": [
+      "Enables querying available email apps on both Android and iOS",
+      "Provides a customizable picker dialog for iOS when multiple clients exist",
+      "Supports mocking the platform during testing"
+    ],
+    "weaknesses": [
+      "Requires manual configuration of LSApplicationQueriesSchemes in iOS Info.plist for each supported email app"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "iOS requires you to list the URL schemes you would like to query in the Info.plist file.",
+    "alternatives": [],
+    "minimal_example": "var result = await OpenMailApp.openMailApp();\nif (!result.didOpen && result.canOpen) {\n  showDialog(\n    context: context,\n    builder: (_) => MailAppPickerDialog(mailApps: result.options),\n  );\n}",
+    "confidence": 1
+  }
+}

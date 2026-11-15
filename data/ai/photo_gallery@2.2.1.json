@@ -1,0 +1,50 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "2.2.1",
+  "generatedAt": "2026-11-14T10:31:26.475Z",
+  "data": {
+    "primary_category": "images",
+    "secondary_categories": [
+      "device"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "A Flutter plugin to list, retrieve, and display images and videos from the native mobile gallery.",
+    "what_it_does": "It provides APIs to list albums, fetch media items, obtain files, thumbnails, and full‑size images from the device's photo library. It also includes widgets for displaying thumbnails and full images.",
+    "use_when": [
+      "You need to access the device's photo gallery for browsing or selecting media.",
+      "You want platform‑specific thumbnail generation and file access without building native code yourself."
+    ],
+    "avoid_when": [
+      "You only need to pick a single image or video (use image_picker).",
+      "You require cross‑platform web support (this plugin is Android/iOS only)."
+    ],
+    "strengths": [
+      "Comprehensive album and media listing APIs",
+      "Built‑in thumbnail providers for efficient image display",
+      "Supports both images and videos"
+    ],
+    "weaknesses": [
+      "Requires native permission configuration on both platforms",
+      "No web or desktop support",
+      "Limited to gallery access; no camera capture"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add NSPhotoLibraryUsageDescription to iOS Info.plist; add READ_EXTERNAL_STORAGE, READ_MEDIA_IMAGES, READ_MEDIA_VIDEO permissions to AndroidManifest.xml; no build_runner needed.",
+    "alternatives": [
+      {
+        "name": "image_picker",
+        "why_pick_it": "Simpler API for picking a single image or video without album browsing."
+      },
+      {
+        "name": "photo_view",
+        "why_pick_it": "Provides advanced image zooming and panning for displaying full‑size images."
+      }
+    ],
+    "minimal_example": "final albums = await PhotoGallery.listAlbums();\nfinal firstAlbum = albums.first;\nfinal mediaPage = await firstAlbum.listMedia();\nfinal firstMedium = mediaPage.items.first;\nfinal file = await firstMedium.getFile();",
+    "confidence": 0.92
+  }
+}

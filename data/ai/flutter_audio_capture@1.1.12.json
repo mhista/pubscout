@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.1.12",
+  "generatedAt": "2026-11-14T10:54:17.979Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Capture raw audio stream buffer through microphone for iOS, Android, and Linux.",
+    "what_it_does": "Allows developers to capture the raw audio buffer stream directly from the device's microphone. Provides callbacks to handle the captured stream as Float64List data along with sample rate and buffer size controls.",
+    "use_when": [
+      "You need raw audio buffer streams from the microphone for processing, visualization, or analysis.",
+      "You are targeting iOS, Android, or Linux."
+    ],
+    "avoid_when": [
+      "You simply want to record and save audio files to disk without processing raw buffers.",
+      "You only need high-level media playback."
+    ],
+    "strengths": [
+      "Supports customizable sample rate and buffer sizes.",
+      "Cross-platform support for iOS, Android, and Linux."
+    ],
+    "weaknesses": [
+      "Requires manual platform-specific permission configuration for microphone usage.",
+      "Limited to Float64List audio buffer format currently."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires adding RECORD_AUDIO permission in AndroidManifest.xml and NSMicrophoneUsageDescription in Info.plist for iOS. On Linux, ensure pulseaudio is installed.",
+    "alternatives": [
+      {
+        "name": "record",
+        "why_pick_it": "Pick record if you want a feature-rich package primarily meant for recording and encoding audio to files rather than extracting raw low-level buffers."
+      }
+    ],
+    "minimal_example": "FlutterAudioCapture plugin = new FlutterAudioCapture();\nvoid listener(dynamic obj) {\n  var buffer = Float64List.fromList(obj.cast<double>());\n  print(buffer);\n}\nvoid onError(Object e) {\n  print(e);\n}\nawait plugin.start(listener, onError, sampleRate: 16000, bufferSize: 3000);",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,55 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.4.1",
+  "generatedAt": "2026-11-14T10:35:37.919Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [
+      "dependency-injection"
+    ],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "An atomic dependency and state management toolkit for Dart and Flutter.",
+    "what_it_does": "Nucleus provides an atomic model for managing application state and dependencies. It allows creating simple state atoms, derived atoms, async future/stream atoms, and features built-in support for families and storage persistence.",
+    "use_when": [
+      "You want a lightweight, atomic state management and dependency injection system.",
+      "You need automatic disposal and lazy initialization of states.",
+      "You want to easily derive state from other atoms or handle futures/streams reactively."
+    ],
+    "avoid_when": [
+      "You prefer established massive ecosystem packages like Provider, Riverpod, or Bloc.",
+      "You want compile-time code generation for atoms."
+    ],
+    "strengths": [
+      "Simple and composable API design",
+      "Built-in support for future, stream, and persisted storage atoms",
+      "Automatic disposal and lazy loading of atoms"
+    ],
+    "weaknesses": [
+      "Smaller community and ecosystem compared to Riverpod or Bloc",
+      "Less documentation for advanced use cases like writableAtom"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Simply add flutter_nucleus or nucleus to pubspec.yaml. Wrap your app in AtomScope if using initial values like shared preferences.",
+    "alternatives": [
+      {
+        "name": "riverpod",
+        "why_pick_it": "Riverpod is a more mature and widely adopted atomic state management library with a very similar conceptual model."
+      },
+      {
+        "name": "provider",
+        "why_pick_it": "Provider is a standard, simple dependency injection and state management solution built on InheritedWidget."
+      },
+      {
+        "name": "bloc",
+        "why_pick_it": "BLoC provides strict unidirectional data flow and event-driven state management for larger applications."
+      }
+    ],
+    "minimal_example": "final counter = stateAtom(0);\n\nclass CounterText extends StatelessWidget {\n  @override\n  Widget build(BuildContext context) {\n    return AtomBuilder((context, get, child) {\n      final count = get(counter);\n      return Text(count.toString());\n    });\n  }\n}",
+    "confidence": 0.95
+  }
+}

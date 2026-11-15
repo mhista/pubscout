@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.0.0",
+  "generatedAt": "2026-11-15T11:18:19.111Z",
+  "data": {
+    "primary_category": "animation",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Splash screen utility using Flare animations during app initialization.",
+    "what_it_does": "It displays a splash screen with a Flare animation while your app performs startup tasks or waits for a loading state. Once initialization completes or the animation finishes, it automatically navigates to the next screen or triggers a callback.",
+    "use_when": [
+      "You want a splash screen powered by a Flare animation.",
+      "You need to run asynchronous initialization tasks during app startup before showing the main screen."
+    ],
+    "avoid_when": [
+      "You are using Rive instead of Flare (use rive_splash_screen instead).",
+      "You do not need animations for your app's splash screen."
+    ],
+    "strengths": [
+      "Simplifies animated splash screen setup with flexible animation modes (intro, loop, end).",
+      "Supports both callback-based and declarative navigation builders."
+    ],
+    "weaknesses": [
+      "Relies on the older Flare format which has been largely superseded by Rive.",
+      "Limited to splash screens and loading initialization flows."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [
+      {
+        "name": "rive",
+        "why_pick_it": "Pick rive if you are using modern Rive animations instead of the legacy Flare format."
+      }
+    ],
+    "minimal_example": "SplashScreen.navigate(\n    name: 'intro.flr',\n    next: (_) => MyHomePage(title: 'Flutter Demo Home Page'),\n    until: () => Future.delayed(Duration(seconds: 5)),\n    startAnimation: '1',\n),",
+    "confidence": 0.95
+  }
+}

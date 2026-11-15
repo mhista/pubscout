@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.4.5",
+  "generatedAt": "2026-11-15T11:16:12.865Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Base Modbus client package for sending requests via Serial and TCP/IP.",
+    "what_it_does": "Provides the core implementation for Modbus clients communicating with remote Modbus servers over TCP, UDP, or Serial (ASCII/RTU) connections. Supports a wide range of element types, endianness configurations, and file records.",
+    "use_when": [
+      "You need to communicate with Modbus servers/devices over TCP, UDP, or Serial in Dart or Flutter.",
+      "You require granular element definitions like registers, coils, and bit masks with custom scaling and multipliers."
+    ],
+    "avoid_when": [
+      "You are building web or mobile apps that do not require industrial hardware communication protocols."
+    ],
+    "strengths": [
+      "Supports multiple transport protocols via companion packages (TCP, UDP, Serial).",
+      "Comprehensive support for various Modbus element types and custom requests."
+    ],
+    "weaknesses": [
+      "Requires platform-specific serial libraries (like flutter_libserialport) for serial communication in Flutter/Dart.",
+      "Protocol and library limits apply for byte sizes and frame lengths."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "For serial implementations in Flutter projects, you need to add the flutter_libserialport package to your own project.",
+    "alternatives": [],
+    "minimal_example": "import 'package:modbus_client/modbus_client.dart';\nimport 'package:modbus_client_tcp/modbus_client_tcp.dart';\n\nvoid main() async {\n  var batteryTemperature = ModbusInt16Register(\n      name: \"BatteryTemperature\",\n      type: ModbusElementType.inputRegister,\n      address: 22);\n  var modbusClient = ModbusClientTcp(\"192.168.0.1\", unitId: 1);\n  await modbusClient.send(batteryTemperature.getReadRequest());\n  modbusClient.disconnect();\n}",
+    "confidence": 0.95
+  }
+}

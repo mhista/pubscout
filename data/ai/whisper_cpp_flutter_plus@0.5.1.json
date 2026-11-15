@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.5.1",
+  "generatedAt": "2026-11-13T11:31:06.645Z",
+  "data": {
+    "primary_category": "ai-ml",
+    "secondary_categories": [
+      "audio-video"
+    ],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "Offline whisper.cpp bindings for speech-to-text, translation, and VAD in Flutter",
+    "what_it_does": "Provides native Android and iOS bindings for whisper.cpp, allowing offline transcription, translation, microphone streaming, and voice activity detection. Audio remains completely on the device after model download.",
+    "use_when": [
+      "You need private, completely offline speech-to-text transcription on mobile devices.",
+      "You want to process audio files or microphone live streams using whisper.cpp models."
+    ],
+    "avoid_when": [
+      "You need to support web, macOS, Windows, or Linux desktop platforms.",
+      "You cannot afford the storage and processing overhead of local GGML machine learning models."
+    ],
+    "strengths": [
+      "Fully offline and private operation without external server dependencies.",
+      "Supports live microphone streaming, WAV file processing, and Silero VAD."
+    ],
+    "weaknesses": [
+      "Limited to Android and iOS platforms.",
+      "Requires managing large external model files."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires RECORD_AUDIO permission on Android and microphone usage description in Info.plist on iOS. Models must be downloaded separately.",
+    "alternatives": [],
+    "minimal_example": "final modelPath = await downloadModelToAppStorage();\nfinal engine = await WhisperEngine.load(modelPath);\nfinal samples = await WhisperAudio.readWav(File('/path/to/audio.wav'));\nfinal task = engine.transcribe(samples);\nfinal result = await task.result;\nprint(result.text);",
+    "confidence": 1
+  }
+}

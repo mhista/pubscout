@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.1.9",
+  "generatedAt": "2026-11-14T10:43:37.937Z",
+  "data": {
+    "primary_category": "ai-ml",
+    "secondary_categories": [
+      "networking",
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based",
+      "hooks"
+    ],
+    "one_liner": "Mobile-first Dart library for building stateful, tool-using AI agents with LLM and MCP support.",
+    "what_it_does": "Provides a full agentic loop supporting tool usage, state persistence, multi-turn memory, context compression, and Model Context Protocol (MCP) connections. It coordinates mainstream LLM providers entirely in Dart without requiring a backend.",
+    "use_when": [
+      "You want to build stateful AI agents directly inside a Flutter mobile, web, or desktop application.",
+      "You need multi-provider LLM support with tool calling and context compression.",
+      "You want to connect local or remote Model Context Protocol (MCP) servers."
+    ],
+    "avoid_when": [
+      "You only need a simple stateless text completion without tool calling or agentic loops.",
+      "You prefer running agent orchestration entirely on a Python or Node.js backend rather than on-device."
+    ],
+    "strengths": [
+      "Runs natively on all six Dart/Flutter platforms including Web and WASM.",
+      "Unified LLMClient interface supporting OpenAI, Gemini, Anthropic Claude, Bedrock, and various compatible APIs.",
+      "Comprehensive feature set including tool execution, sub-agents, planning, MCP, and agent evals."
+    ],
+    "weaknesses": [
+      "Requires proper API key management on client platforms like the web.",
+      "File system storage features require specific platform adapters when deployed on the web."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the dependency to pubspec.yaml and configure your provider API keys or local base URLs.",
+    "alternatives": [],
+    "minimal_example": "import 'package:dart_agent_core/dart_agent_core.dart';\n\nvoid main() async {\n  final client = OpenAIClient(apiKey: 'YOUR_API_KEY');\n  final agent = StatefulAgent(\n    name: 'assistant',\n    client: client,\n    modelConfig: ModelConfig(model: 'gpt-4o-mini'),\n    state: AgentState.empty(),\n  );\n  final responses = await agent.run([UserMessage.text('Hello!')]);\n  print((responses.last as ModelMessage).textOutput);\n}",
+    "confidence": 1
+  }
+}

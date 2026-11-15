@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "9.2.1",
+  "generatedAt": "2026-11-14T10:37:07.856Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "code generation"
+    ],
+    "one_liner": "A CoAP (Constrained Application Protocol) library providing an IPv4/v6 client in Dart.",
+    "what_it_does": "It implements the Constrained Application Protocol (CoAP) for resource-constrained networks and nodes. It provides a CoAP client supporting UDP, observe resources, block-wise transfers, and custom methods like FETCH and PATCH.",
+    "use_when": [
+      "You need to communicate with IoT devices using the CoAP protocol.",
+      "You need support for CoAP over UDP, block-wise transfers, or observing resources."
+    ],
+    "avoid_when": [
+      "You are communicating with standard REST APIs over HTTP or HTTPS.",
+      "You require robust background connectivity without manually managing app lifecycle states."
+    ],
+    "strengths": [
+      "Full implementation of an IPv4/6 CoAP client with RFC compliance.",
+      "Supports advanced features like block-wise transfers, observe resources, and multicast over UDP."
+    ],
+    "weaknesses": [
+      "Futures may not survive when the app runs in the background or screen is off without manual lifecycle handling.",
+      "DTLS support is experimental and requires shipping OpenSSL binaries for platforms like iOS and Windows."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding dependencies and running build_runner to generate the configuration class from a YAML file. DTLS usage requires native OpenSSL binaries on certain platforms.",
+    "alternatives": [],
+    "minimal_example": "FutureOr<void> main() async {\n  final conf = CoapConfig();\n  final baseUri = Uri(scheme: 'coap', host: 'coap.me', port: conf.defaultPort);\n  final client = CoapClient(baseUri, conf);\n\n  try {\n    final response =\n        await client.get('multi-format', accept: CoapMediaType.textPlain);\n    print('/multi-format response payload: ${response.payloadString}');\n  } on Exception catch (e) {\n    print('CoAP encountered an exception: $e');\n  }\n\n  client.close();\n}",
+    "confidence": 1
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.1.1",
+  "generatedAt": "2026-11-13T11:40:32.262Z",
+  "data": {
+    "primary_category": "backend",
+    "secondary_categories": [
+      "codegen",
+      "storage"
+    ],
+    "approach": [
+      "code generation",
+      "declarative"
+    ],
+    "one_liner": "Supabase connector for the Brick data persistence library.",
+    "what_it_does": "Connects the Brick data persistence framework to Supabase, providing annotations, adapters, models, and providers to handle serialization, querying, and realtime data.",
+    "use_when": [
+      "You are already using Brick as your data persistence layer and want to integrate Supabase.",
+      "You need structured models with annotations for Supabase tables, fields, and foreign keys."
+    ],
+    "avoid_when": [
+      "You are building a standard app using the official Supabase Flutter client directly without Brick.",
+      "Your project does not use the Brick persistence ecosystem."
+    ],
+    "strengths": [
+      "Seamless integration with Brick's querying and offline-first ecosystem.",
+      "Built-in annotations for table mapping, field renaming, and foreign key relations.",
+      "Includes testing utilities and mock servers for Supabase requests."
+    ],
+    "weaknesses": [
+      "Does not support all Supabase filtering methods.",
+      "Does not support nested List types or many-to-many associations directly.",
+      "Tied strictly to the Brick persistence architecture."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding brick_supabase and configuring code generation along with Supabase initialization.",
+    "alternatives": [
+      {
+        "name": "supabase",
+        "why_pick_it": "If you want to use the official, direct Supabase client without the overhead and abstraction of the Brick framework."
+      }
+    ],
+    "minimal_example": "@SupabaseSerializable(tableName: 'users')\nclass User extends OfflineFirstWithSupabaseModel {\n  @Supabase(unique: true, name: 'uuid')\n  final String supabaseUuid;\n  final String name;\n  User({required this.supabaseUuid, required this.name});\n}",
+    "confidence": 0.95
+  }
+}

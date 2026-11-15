@@ -1,0 +1,47 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.2.0",
+  "generatedAt": "2026-11-14T10:37:14.267Z",
+  "data": {
+    "primary_category": "notifications",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter plugin for integrating Aliyun Push notification service on Android and iOS.",
+    "what_it_does": "Simplifies the integration of the native Aliyun Push SDK for Android and iOS into a Flutter application. Provides a unified Dart API for initialization, device IDs, account binding, aliases, tags, and handling messages.",
+    "use_when": [
+      "You are building a Flutter app that requires push notifications powered by Alibaba Cloud (Aliyun).",
+      "You need cross-platform support for Aliyun Push on both Android and iOS."
+    ],
+    "avoid_when": [
+      "Your backend relies on Firebase Cloud Messaging instead of Aliyun Push.",
+      "You only need local notifications without any hosted push backend."
+    ],
+    "strengths": [
+      "Deeply integrates native Aliyun Push SDKs for stable and reliable delivery.",
+      "Provides a consistent Dart API across Android and iOS.",
+      "Supports multiple third-party Android push channels (Huawei, VIVO, OPPO, Xiaomi, Meizu, FCM)."
+    ],
+    "weaknesses": [
+      "Requires manual native configuration in AndroidManifest.xml and Podfile.",
+      "Platform-specific setup can be complex due to vendor-specific push channels."
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Requires adding Aliyun specs to Podfile for iOS, configuring Info/Manifest metadata and ProGuard rules for Android, and passing AppKey and AppSecret during initialization.",
+    "alternatives": [
+      {
+        "name": "firebase_messaging",
+        "why_pick_it": "Choose this if your backend uses Firebase instead of Alibaba Cloud for push notifications."
+      },
+      {
+        "name": "onesignal_flutter",
+        "why_pick_it": "Choose this if you prefer using OneSignal as a cross-platform push notification provider."
+      }
+    ],
+    "minimal_example": "import 'package:aliyun_push/aliyun_push.dart';\n\nfinal _aliyunPush = AliyunPush();\n\nFuture<void> initAliyunPush() async {\n  _aliyunPush.initPush(appKey: \"YOUR_APP_KEY\", appSecret: \"YOUR_APP_SECRET\").then((initResult) {\n    var code = initResult['code'];\n    if (code == kAliyunPushSuccessCode) {\n      print('Init Aliyun Push successfully');\n    }\n  });\n}",
+    "confidence": 0.95
+  }
+}

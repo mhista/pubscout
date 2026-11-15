@@ -1,0 +1,51 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "6.0.0",
+  "generatedAt": "2026-11-14T10:51:13.928Z",
+  "data": {
+    "primary_category": "ai-ml",
+    "secondary_categories": [
+      "audio-video"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Run local LLMs, vision, embeddings, RAG, tool calling, STT, and TTS on mobile and desktop.",
+    "what_it_does": "Allows developers to run large language models, vision models, speech-to-text, text-to-speech, and voice activity detection completely offline and on-device using GGUF and ONNX models with Metal/Vulkan acceleration.",
+    "use_when": [
+      "You need offline and on-device AI inference without relying on cloud APIs.",
+      "Your app needs local RAG, semantic search, or tool calling capabilities.",
+      "You want to process speech-to-text or text-to-speech locally within the app."
+    ],
+    "avoid_when": [
+      "You target low-end devices with limited RAM that cannot handle model sizes.",
+      "You want to keep your application binary size extremely small."
+    ],
+    "strengths": [
+      "Runs completely offline with no API keys required.",
+      "Supports text, vision, audio, embeddings, RAG, and tool calling in one library.",
+      "Hardware acceleration via Metal and Vulkan."
+    ],
+    "weaknesses": [
+      "Large model sizes significantly increase app download or memory footprints.",
+      "Performance depends heavily on the user's device specs and available RAM."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Initialize the engine via nobodywho.NobodyWho.init() in main.dart and provide local or downloaded GGUF/ONNX models.",
+    "alternatives": [
+      {
+        "name": "llamadart",
+        "why_pick_it": "If you want a lightweight Dart-focused solution for running llama.cpp models."
+      },
+      {
+        "name": "tflite_flutter",
+        "why_pick_it": "If you prefer deploying TensorFlow Lite models for custom ML tasks."
+      }
+    ],
+    "minimal_example": "import 'package:nobodywho/nobodywho.dart' as nobodywho;\n\nvoid main() async {\n  WidgetsFlutterBinding.ensureInitialized();\n  await nobodywho.NobodyWho.init();\n  final chat = await nobodywho.Chat.fromPath(modelPath: './model.gguf');\n  final msg = await chat.ask('Is water wet?').completed();\n  print(msg);\n}",
+    "confidence": 0.95
+  }
+}

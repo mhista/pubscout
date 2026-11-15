@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.1.2",
+  "generatedAt": "2026-11-14T10:51:13.804Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "layout"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A Flutter widget that synchronizes a ScrollView and a custom tab view.",
+    "what_it_does": "Synchronizes a vertical ScrollView with a custom tab view so that scrolling updates the active tab index, and tapping tabs scrolls the list to the corresponding section. It exposes both Scrollbar and CustomScrollView parameters.",
+    "use_when": [
+      "You need a settings or catalog screen with category headers that automatically highlight the corresponding tab as the user scrolls.",
+      "You want to combine a SliverAppBar with a TabBar that tracks scroll position."
+    ],
+    "avoid_when": [
+      "You only need a standard horizontal tab view without scroll synchronization.",
+      "You are using a non-scrollable layout."
+    ],
+    "strengths": [
+      "Synchronizes tab views and scroll positions out of the box.",
+      "Exposes standard Scrollbar and CustomScrollView parameters.",
+      "Supports multiple platforms including Android, iOS, and Web."
+    ],
+    "weaknesses": [
+      "Requires explicit management of both TabController and AutoScrollController.",
+      "List items must be provided as a List<dynamic> type."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires adding vertical_scrollable_tabview and scroll_to_index to pubspec.yaml.",
+    "alternatives": [],
+    "minimal_example": "VerticalScrollableTabView(\n    autoScrollController: autoScrollController,\n    tabController: tabController,\n    listItemData: data,\n    verticalScrollPosition: VerticalScrollPosition.begin,\n    eachItemChild: (object, index) => CategorySection(category: object as Category),\n    slivers: [\n      SliverAppBar(\n        bottom: TabBar(\n          controller: tabController,\n          tabs: data.map((e) => Tab(text: e.title)).toList(),\n          onTap: (index) {\n            VerticalScrollableTabBarStatus.setIndex(index);\n          },\n        ),\n      ),\n    ],\n  )",
+    "confidence": 0.95
+  }
+}

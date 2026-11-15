@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.2.2",
+  "generatedAt": "2026-11-13T11:27:07.840Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "stream-based",
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "A forward-only event-based package for parsing large JSON files and objects in Dart.",
+    "what_it_does": "Processes large JSON files in a forward-only way and emits events based on encountered tokens. Provides mixins like JsonObjectTraverser and JsonArrayTraverser to easily parse streams into typed objects.",
+    "use_when": [
+      "You need to parse very large JSON files that would consume too much memory if loaded all at once.",
+      "You are processing JSON from a Stream or String in a forward-only event-driven manner."
+    ],
+    "avoid_when": [
+      "You need simple static JSON serialization with code generation (use built_value or freezed).",
+      "You are working on the web and need to handle very large numbers that exceed JavaScript number compatibility."
+    ],
+    "strengths": [
+      "Memory efficient for large JSON structures through stream transformation and forward-only processing.",
+      "Provides mixins for clean custom object and array parsing."
+    ],
+    "weaknesses": [
+      "Web platform has limitations with very big numbers due to JavaScript compatibility.",
+      "Manual setup of traversal logic is required compared to automated code-generation libraries."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "Stream<String> s = Stream.value(...);\n\nawait for (JsonEvent je in s.transform(const JsonEventDecoder()).flatten()) {\n  print(\"Event Type: ${je.type.name} Value: ${je.value}\");\n}",
+    "confidence": 0.95
+  }
+}

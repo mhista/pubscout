@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.2.8",
+  "generatedAt": "2026-11-15T11:06:04.228Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "Client for connecting to PackageKit to manage Linux software packages.",
+    "what_it_does": "Provides a Dart API over D-Bus to communicate with the PackageKit service. It can query the daemon, list packages, install, remove and get details about software on Linux systems.",
+    "use_when": [
+      "You need to install, remove or query Linux packages from a Flutter/Dart app",
+      "You require direct D-Bus interaction with PackageKit without writing low‑level D-Bus code"
+    ],
+    "avoid_when": [
+      "Your app runs on non‑Linux platforms",
+      "You need a UI‑focused package manager or cross‑platform solution"
+    ],
+    "strengths": [
+      "Full access to PackageKit features",
+      "Stream API for property changes",
+      "Keeps up with latest dbus package"
+    ],
+    "weaknesses": [
+      "Linux‑only, no support for other OSes",
+      "Relies on the system's PackageKit daemon being present",
+      "Documentation is minimal"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add packagekit to pubspec, ensure the PackageKit service is running on the target Linux system; no extra build steps required.",
+    "alternatives": [
+      {
+        "name": "dbus",
+        "why_pick_it": "Provides lower‑level D‑Bus access if you prefer to implement PackageKit calls yourself"
+      }
+    ],
+    "minimal_example": "import 'package:packagekit/packagekit.dart';\n\nvar client = PackageKitClient();\nawait client.connect();\nprint('Server version: ${client.versionMajor}.${client.versionMinor}.${client.versionMicro}');\nawait client.close();",
+    "confidence": 0.93
+  }
+}

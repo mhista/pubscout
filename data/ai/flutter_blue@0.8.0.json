@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.8.0",
+  "generatedAt": "2026-11-13T11:31:12.230Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "Connect and communicate with Bluetooth Low Energy devices on Android and iOS.",
+    "what_it_does": "Flutter plugin for scanning, connecting, and interacting with Bluetooth Low Energy (BLE) devices. It lets you discover services, read and write characteristics and descriptors, and listen to value changes.",
+    "use_when": [
+      "You need to build a Flutter application that interacts with BLE peripherals",
+      "You want cross-platform BLE support for Android and iOS"
+    ],
+    "avoid_when": [
+      "You are looking for a stable API without breaking changes (the library is still evolving towards 1.0)",
+      "You only need standard networking or local storage"
+    ],
+    "strengths": [
+      "Comprehensive coverage of BLE actions (scan, connect, discover services, read/write characteristics and descriptors)",
+      "Stream-based architecture using rxdart for reactive state changes"
+    ],
+    "weaknesses": [
+      "API is subject to breaking changes as it moves toward version 1.0",
+      "Must be tested on a real device rather than an emulator for reliable BLE testing"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires changing minSdkVersion to 19 for Android, adding Bluetooth and Location permissions in AndroidManifest.xml, and adding Bluetooth and Location usage descriptions in Info.plist for iOS.",
+    "alternatives": [],
+    "minimal_example": "FlutterBlue flutterBlue = FlutterBlue.instance;\nflutterBlue.startScan(timeout: Duration(seconds: 4));\nvar subscription = flutterBlue.scanResults.listen((results) {\n    for (ScanResult r in results) {\n        print('${r.device.name} found! rssi: ${r.rssi}');\n    }\n});\nflutterBlue.stopScan();",
+    "confidence": 0.95
+  }
+}

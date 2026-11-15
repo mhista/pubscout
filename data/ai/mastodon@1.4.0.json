@@ -1,0 +1,53 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "1.4.0",
+  "generatedAt": "2026-11-14T10:34:59.067Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "codegen"
+    ],
+    "approach": [
+      "code generation"
+    ],
+    "one_liner": "Unofficial Mastodon API client generated from OpenAPI spec",
+    "what_it_does": "Provides typed Dart classes and Dio-based HTTP clients for Mastodon endpoints. Handles pagination via Link headers and supports all public API routes.",
+    "use_when": [
+      "You need a fully typed client for Mastodon in a Flutter or Dart project",
+      "You prefer auto-generated code to avoid manual API wrappers",
+      "You want pagination support out of the box"
+    ],
+    "avoid_when": [
+      "You want a lightweight HTTP client without generated boilerplate",
+      "You need custom request handling not covered by the generated methods"
+    ],
+    "strengths": [
+      "Fully typed API surface",
+      "Automatic pagination parsing",
+      "Up-to-date with Mastodon spec via generator",
+      "Supports all platforms (web, mobile, desktop)"
+    ],
+    "weaknesses": [
+      "Large generated codebase",
+      "Requires Dio dependency",
+      "No custom interceptors beyond Dio",
+      "No built-in auth helpers"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add dio and json_annotation to pubspec, run flutter pub get. No build_runner needed as code is pre-generated.",
+    "alternatives": [
+      {
+        "name": "dio",
+        "why_pick_it": "Base HTTP client used by this package; can replace if you want manual API calls"
+      },
+      {
+        "name": "http",
+        "why_pick_it": "Simpler HTTP client if you prefer not to use Dio"
+      }
+    ],
+    "minimal_example": "import 'package:mastodon/mastodon.dart';\nfinal api = Mastodon().getAccountsApi();\nfinal response = await api.getAccount('123');\nprint(response);",
+    "confidence": 0.85
+  }
+}

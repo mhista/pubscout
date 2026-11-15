@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.0.8",
+  "generatedAt": "2026-11-13T11:10:22.179Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "images"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Capture full‑page Flutter screenshots, including off‑screen content, via a simple API.",
+    "what_it_does": "The package renders a widget tree to an image, scrolling internally to capture content that is not visible on screen. It returns the screenshot as a Base64 string and can also save it automatically.",
+    "use_when": [
+      "You need to export a complete view of a scrollable widget as an image",
+      "You want a quick way to share or archive long lists or pages",
+      "Cross‑platform support (Android, iOS, Windows, macOS, Linux) is required"
+    ],
+    "avoid_when": [
+      "Real‑time video or animation capture is needed",
+      "You require fine‑grained control over image format or compression beyond Base64"
+    ],
+    "strengths": [
+      "Very simple API – just call captureAndSaveScreenshot with a GlobalKey",
+      "Works on all major Flutter platforms",
+      "No additional native setup or permissions required"
+    ],
+    "weaknesses": [
+      "May be memory‑intensive for very large scrollable content",
+      "Limited to static screenshots – no video or animated capture"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:scroll_screenshot/scroll_screenshot.dart';\n\nfinal GlobalKey key = GlobalKey();\n\nFuture<void> capture() async {\n  final base64 = await ScrollScreenshot.captureAndSaveScreenshot(key);\n  print(base64);\n}\n",
+    "confidence": 0.9
+  }
+}

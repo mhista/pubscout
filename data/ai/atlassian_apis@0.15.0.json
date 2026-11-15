@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.15.0",
+  "generatedAt": "2026-11-13T11:14:31.643Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [],
+    "approach": [
+      "code generation"
+    ],
+    "one_liner": "Dart client for Atlassian REST APIs (Jira, Confluence, Service Desk, Cloud Admin).",
+    "what_it_does": "It wraps Atlassian’s OpenAPI definitions into typed Dart classes, handling authentication, request building, and response parsing. The client supports all major Atlassian services and can upload files via multipart requests.",
+    "use_when": [
+      "You need to integrate with Jira, Confluence, or Service Desk from a Dart/Flutter app.",
+      "You prefer a fully typed API client generated from OpenAPI schemas.",
+      "You want to avoid writing boilerplate HTTP code for Atlassian endpoints."
+    ],
+    "avoid_when": [
+      "You only need a few specific endpoints and want a lightweight solution.",
+      "You are already using another HTTP client like dio and prefer to keep a single HTTP layer."
+    ],
+    "strengths": [
+      "Fully typed, generated from official OpenAPI specs; reduces manual coding.",
+      "Supports authentication via API token or OAuth, and multipart uploads for attachments.",
+      "Cross‑platform (Android, iOS, web, desktop)."
+    ],
+    "weaknesses": [
+      "Relies on http package; no advanced features like interceptors or retry logic.",
+      "Requires manual updates when Atlassian changes schemas; you must bump the package version.",
+      "No built‑in caching or offline support."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dependency, create ApiClient with basicAuthentication, instantiate JiraPlatformApi or ConfluenceApi, call methods. No build_runner needed.",
+    "alternatives": [
+      {
+        "name": "http",
+        "why_pick_it": "Basic HTTP client used internally; simpler if you only need raw requests."
+      }
+    ],
+    "minimal_example": "import 'dart:io';\nimport 'package:atlassian_apis/jira_platform.dart';\n\nvoid main() async {\n  var user = Platform.environment['ATLASSIAN_USER']!;\n  var token = Platform.environment['ATLASSIAN_API_TOKEN']!;\n  var client = ApiClient.basicAuthentication(\n      Uri.https('<your-account>.atlassian.net', ''),\n      user: user,\n      apiToken: token);\n  var jira = JiraPlatformApi(client);\n  var projects = await jira.projects.searchProjects();\n  print(projects);\n  client.close();\n}",
+    "confidence": 0.9
+  }
+}

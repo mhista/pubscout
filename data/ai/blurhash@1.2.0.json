@@ -1,0 +1,48 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.2.0",
+  "generatedAt": "2026-11-13T11:27:25.718Z",
+  "data": {
+    "primary_category": "images",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "A very compact representation of a placeholder for an image.",
+    "what_it_does": "Provides encoding and decoding capabilities for BlurHash strings. Allows generating a compact placeholder hash from raw image bytes and decoding a hash back into image bytes.",
+    "use_when": [
+      "You need compact string placeholders for images while they load",
+      "You want to encode images to BlurHash on supported platforms"
+    ],
+    "avoid_when": [
+      "You do not need image placeholders",
+      "You need high-level cached image widgets instead of low-level decoding"
+    ],
+    "strengths": [
+      "Supports Android, iOS, and Web",
+      "Compact representation for placeholders"
+    ],
+    "weaknesses": [
+      "Limited documentation beyond basic README examples",
+      "Platform-specific exceptions can be thrown during decoding"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add blurhash as a dependency in pubspec.yaml.",
+    "alternatives": [
+      {
+        "name": "cached_network_image",
+        "why_pick_it": "Provides complete image loading and caching with built-in placeholder support."
+      },
+      {
+        "name": "octo_image",
+        "why_pick_it": "Offers advanced image placeholder and error widget builders."
+      }
+    ],
+    "minimal_example": "void blurHashDecode() async {\n  Uint8List? imageDataBytes;\n  try {\n    imageDataBytes = await BlurHash.decode(blurhash, 20, 12);\n  } on PlatformException catch (e) {\n    throw Exception(e.message);\n  }\n}",
+    "confidence": 0.9
+  }
+}

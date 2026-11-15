@@ -1,0 +1,46 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "1.16.2",
+  "generatedAt": "2026-11-13T11:18:00.893Z",
+  "data": {
+    "primary_category": "layout",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Flutter layout for docking widgets into split and tabbed views.",
+    "what_it_does": "Provides a set of widgets to arrange child widgets in docking areas that can be split horizontally or vertically and grouped into tabbed panels. Supports saving and loading the layout state as a string.",
+    "use_when": [
+      "You need a dynamic workspace with resizable split panes and tabbed sections, like IDEs or dashboards.",
+      "You want to let users rearrange panels at runtime via drag‑and‑drop."
+    ],
+    "avoid_when": [
+      "The UI is static and does not require runtime rearrangement.",
+      "You prefer a lightweight layout without additional dependencies."
+    ],
+    "strengths": [
+      "Flexible split‑view and tabbed docking system",
+      "Built‑in save/load of layout state",
+      "Allows disabling drag‑and‑drop per widget"
+    ],
+    "weaknesses": [
+      "Relies on the external tabbed_view package, which may cause compatibility issues",
+      "Documentation is limited to a demo site",
+      "Potential bugs in drag‑and‑drop handling"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "assorted_layout_widgets",
+        "why_pick_it": "Offers a collection of layout widgets (grids, stacks, etc.) that can replace basic docking needs without extra dependencies."
+      }
+    ],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:docking/docking.dart';\n\nvoid main() => runApp(const MyApp());\n\nclass MyApp extends StatelessWidget {\n  const MyApp({super.key});\n  @override\n  Widget build(BuildContext context) {\n    return MaterialApp(\n      home: Scaffold(\n        body: Docking(\n          layout: DockingLayout(\n            areas: [\n              DockingArea(\n                id: 'root',\n                children: [\n                  DockingTabs(\n                    children: [\n                      DockingItem(id: 'a', child: const Text('Panel A')),\n                      DockingItem(id: 'b', child: const Text('Panel B')),\n                    ],\n                  ),\n                ],\n              ),\n            ],\n          ),\n        ),\n      ),\n    );\n  }\n}\n",
+    "confidence": 0.85
+  }
+}

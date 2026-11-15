@@ -1,0 +1,46 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.2.0",
+  "generatedAt": "2026-11-14T10:49:20.044Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "layout",
+      "widgets"
+    ],
+    "approach": [
+      "imperative",
+      "declarative"
+    ],
+    "one_liner": "Detects the running platform, browser type, and operating system with utility widgets.",
+    "what_it_does": "Identifies the platform (web, mobile, desktop, mobile browser, desktop browser) on which a Flutter application is running. Provides utility methods, conditional check functions, and widgets to render platform-specific UI.",
+    "use_when": [
+      "You need to conditionally render different UI components based on whether the app runs on a mobile device, web, or desktop.",
+      "You need to detect browser-specific environments like Web Android or Web iOS."
+    ],
+    "avoid_when": [
+      "You only need standard Flutter platform checks available out of the box via targetPlatform.",
+      "You are writing non-Flutter Dart code."
+    ],
+    "strengths": [
+      "Provides fine-grained detection including mobile vs desktop browsers.",
+      "Includes helpful widgets like PlatformDetectByType and PlatformDetectByName for declarative rendering."
+    ],
+    "weaknesses": [
+      "Relies on universal_html which might add unnecessary dependencies if web browser detection is not needed.",
+      "Duplicates functionality that can be achieved via Flutter's core libraries and universal_platform."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the dependency to pubspec.yaml and import the library.",
+    "alternatives": [
+      {
+        "name": "universal_platform",
+        "why_pick_it": "If you just need standard platform detection across web and native platforms without extra UI widgets."
+      }
+    ],
+    "minimal_example": "final PlatformType currentPlatformType = PlatformDetector.platform.type;\n\nPlatformDetectByType(\n  web: YourWebWidget(),\n  mobile: YourMobileWidget(),\n  desktop: YourDesktopWidget(),\n);",
+    "confidence": 0.95
+  }
+}

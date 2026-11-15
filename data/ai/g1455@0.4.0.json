@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.4.0",
+  "generatedAt": "2026-11-15T11:10:50.073Z",
+  "data": {
+    "primary_category": "ui-kits",
+    "secondary_categories": [
+      "widgets",
+      "theming"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Liquid Glass for Flutter with refraction, blur, tint, and shared capture.",
+    "what_it_does": "Provides a performant Liquid Glass UI implementation for Flutter using a shared capture host. It offers glass refraction, blur, tints, rims, and a suite of UI components like bars, tabs, switches, sliders, menus, sheets, and dialogs.",
+    "use_when": [
+      "You want glassmorphic UI components with high performance and shared background captures.",
+      "Your app targets Flutter 3.47 or later and requires liquid glass finishes."
+    ],
+    "avoid_when": [
+      "You need to support older versions of Flutter below 3.47.",
+      "You prefer standard Material Design widgets without glass styling."
+    ],
+    "strengths": [
+      "Shares a single capture atlas across multiple glass components to optimize GPU cost.",
+      "Skips capture updates when underlying content hasn't changed.",
+      "Includes a rich set of drop-in glass widgets like bars, tabs, switches, and alerts."
+    ],
+    "weaknesses": [
+      "API is in the 0.x stage and minor version changes may require code updates.",
+      "Relies heavily on recent Flutter and Impeller engine capabilities for best performance."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the dependency via pub add and place a GlassHost above your navigator.",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:g1455/g1455.dart';\n\nvoid main() => runApp(const App());\n\nclass App extends StatelessWidget {\n  const App({super.key});\n\n  @override\n  Widget build(BuildContext context) => MaterialApp(\n    builder: (BuildContext context, Widget? navigator) => GlassHost(\n      child: navigator!,\n    ),\n    home: Scaffold(\n      body: Center(\n        child: GlassBar(child: Text('Liquid Glass'))\n      ),\n    ),\n  );\n}",
+    "confidence": 0.95
+  }
+}

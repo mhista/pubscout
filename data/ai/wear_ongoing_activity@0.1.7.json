@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.1.7",
+  "generatedAt": "2026-11-14T10:30:02.404Z",
+  "data": {
+    "primary_category": "notifications",
+    "secondary_categories": [
+      "device"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Create and maintain ongoing activity notifications on Wear OS.",
+    "what_it_does": "Allows Flutter apps to create, update, and stop ongoing activity notifications specifically for Wear OS devices. It manages custom templates, stopwatch parts, and timer parts to display active states.",
+    "use_when": [
+      "You are developing a Wear OS app in Flutter that needs ongoing activities.",
+      "You need to show live workouts, timers, or countdowns in the Wear OS UI."
+    ],
+    "avoid_when": [
+      "Your target platform is standard mobile or desktop instead of Wear OS.",
+      "You only need standard local push notifications."
+    ],
+    "strengths": [
+      "Specialized for Wear OS ongoing activities.",
+      "Provides simple start, update, and stop methods."
+    ],
+    "weaknesses": [
+      "Requires manual Android manifest configuration and foreground service permissions.",
+      "Platform-specific to Android/Wear OS."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding foreground service permissions and the OngoingActivityService to AndroidManifest.xml.",
+    "alternatives": [],
+    "minimal_example": "import 'package:wear_ongoing_activity/wear_ongoing_activity.dart';\n\nvoid main() {\n  WearOngoingActivity.start(\n    channelId: 'ongoing_activity',\n    channelName: 'Ongoing Activity',\n    notificationId: 12345,\n    category: NotificationCategory.workout,\n    smallIcon: 'ic_launcher',\n    staticIcon: 'ic_launcher',\n    status: OngoingActivityStatus(\n      templates: ['#type#: #time#'],\n      parts: [\n        TextPart(name: 'type', text: 'countup'),\n        StopwatchPart(name: 'time', timeZero: DateTime.now()),\n      ],\n    ),\n  );\n}",
+    "confidence": 0.95
+  }
+}

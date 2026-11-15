@@ -1,0 +1,56 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "2.0.0",
+  "generatedAt": "2026-11-14T10:47:35.314Z",
+  "data": {
+    "primary_category": "notifications",
+    "secondary_categories": [
+      "backend",
+      "ui-kits"
+    ],
+    "approach": [
+      "stream-based",
+      "declarative"
+    ],
+    "one_liner": "Unified Firebase Cloud Messaging handler with inbox, scheduling, and in‑app messaging for Flutter",
+    "what_it_does": "It wraps firebase_messaging and flutter_local_notifications to provide a single API for receiving, displaying, and managing push notifications, including local scheduling, inbox persistence, and in‑app message rendering.",
+    "use_when": [
+      "You need a consistent notification flow across platforms",
+      "You want an inbox or preference center for notifications",
+      "You need local scheduling or inline replies",
+      "You want a single payload contract for server and client"
+    ],
+    "avoid_when": [
+      "You only need basic FCM delivery",
+      "You prefer to handle notifications entirely manually",
+      "You are targeting a platform that does not support the required native features"
+    ],
+    "strengths": [
+      "Comprehensive notification lifecycle management",
+      "Built‑in inbox and preference center",
+      "Supports local scheduling and inline replies",
+      "Provides runtime capability reporting and diagnostics"
+    ],
+    "weaknesses": [
+      "Adds dependency on multiple native plugins",
+      "Requires platform configuration and permissions",
+      "May be overkill for simple notification needs"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add firebase_core, firebase_messaging, flutter_local_notifications, and configure platform files (google-services.json, AppDelegate, etc.). Request runtime notification permission on Android 13+. No build_runner needed.",
+    "alternatives": [
+      {
+        "name": "firebase_messaging",
+        "why_pick_it": "Use only basic FCM delivery without inbox or scheduling"
+      },
+      {
+        "name": "flutter_local_notifications",
+        "why_pick_it": "Handle local notifications only, no FCM integration"
+      }
+    ],
+    "minimal_example": "```dart\nimport 'package:firebase_messaging_handler/firebase_messaging_handler.dart';\n\nawait FirebaseMessagingHandler.instance.initialize();\nFirebaseMessagingHandler.instance.onNotificationOpened.listen((event) {\n  // navigate to appropriate screen\n});\n```",
+    "confidence": 0.8
+  }
+}

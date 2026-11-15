@@ -1,0 +1,53 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "5.15.0",
+  "generatedAt": "2026-11-15T11:09:02.445Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "networking",
+      "utils",
+      "theming"
+    ],
+    "approach": [
+      "declarative",
+      "imperative"
+    ],
+    "one_liner": "Utility package with networking, logging, theme system, and common UI components.",
+    "what_it_does": "Provides a comprehensive collection of tools for Flutter app development including an HTTP client (built on Dio), a robust file/console logging system, customizable theme extensions, unified multi-state layouts, and global toasts.",
+    "use_when": [
+      "You want an all-in-one common utility package for networking, logging, and styling.",
+      "You need built-in debug panels to inspect networking, logs, and storage.",
+      "You require customizable theme structures and global context-free toasts."
+    ],
+    "avoid_when": [
+      "You prefer keeping your utilities modular instead of depending on a single heavy all-in-one package.",
+      "You are building web applications where file-based logging is unsupported."
+    ],
+    "strengths": [
+      "Includes out-of-the-box enterprise-grade logging and networking with Dio.",
+      "Comes with helpful debug overlays for network and logs inspection.",
+      "Provides a rich set of built-in widgets such as marquees, popups, and smart refresh layouts."
+    ],
+    "weaknesses": [
+      "High coupling due to combining networking, logging, state layout, and UI components into a single package.",
+      "File logging relies on IO runtime and does not support web."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Initialize global singletons like SpUtil, Log, HttpClient, and ComContext in main() before running the app.",
+    "alternatives": [
+      {
+        "name": "dio",
+        "why_pick_it": "If you only need a powerful HTTP client without the extra UI components and logging utilities of this package."
+      },
+      {
+        "name": "http",
+        "why_pick_it": "If you need a lightweight, standard HTTP networking library instead of a heavy all-in-one toolkit."
+      }
+    ],
+    "minimal_example": "final navigatorKey = GlobalKey<NavigatorState>();\n\nvoid main() async {\n  WidgetsFlutterBinding.ensureInitialized();\n  await SpUtil.init();\n  HttpClient.init(\n    config: HttpConfig(\n      baseUrl: 'https://api.example.com',\n    ),\n  );\n  ComContext.init(navigatorKey);\n  runApp(MyApp());\n}",
+    "confidence": 0.95
+  }
+}

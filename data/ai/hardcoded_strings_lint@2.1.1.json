@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.1.1",
+  "generatedAt": "2026-11-14T10:43:02.632Z",
+  "data": {
+    "primary_category": "testing",
+    "secondary_categories": [
+      "localization"
+    ],
+    "approach": [
+      "no codegen"
+    ],
+    "one_liner": "A custom Dart analyzer plugin that detects hardcoded strings in widget constructors.",
+    "what_it_does": "Identifies hardcoded strings passed directly to Flutter widget constructor arguments and provides quick fixes for ignoring or extracting them. It skips technical patterns, short strings, map keys, and acceptable widget properties.",
+    "use_when": [
+      "You want to enforce internationalization practices across your Flutter codebase",
+      "You want automated quick fixes to extract literals to constants or add ignore comments"
+    ],
+    "avoid_when": [
+      "You rely strictly on `flutter analyze` instead of `dart analyze` or your IDE (as `flutter analyze` does not run analyzer plugins)",
+      "Your project does not require localization or strict code maintainability rules"
+    ],
+    "strengths": [
+      "Integrates natively with `dart analyze` and the Dart Analysis Server without extra CLI commands",
+      "Smart filtering skips technical patterns like URLs, emails, hex colors, and file paths",
+      "Provides quick fixes including extracting to variables and updating `analysis_options.yaml`"
+    ],
+    "weaknesses": [
+      "Does not run under `flutter analyze`",
+      "Requires updating `analysis_options.yaml` with top-level `plugins` block"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Configure the plugin under the top-level `plugins:` block in `analysis_options.yaml` and restart your IDE or run `dart pub get`.",
+    "alternatives": [
+      {
+        "name": "lints",
+        "why_pick_it": "If you prefer official Dart lint rules rather than a custom third-party analyzer plugin."
+      },
+      {
+        "name": "flutter_lints",
+        "why_pick_it": "If you only need the recommended Flutter lint rules set."
+      }
+    ],
+    "minimal_example": "class WelcomeScreen extends StatelessWidget {\n  @override\n  Widget build(BuildContext context) {\n    return Scaffold(\n      appBar: AppBar(\n        title: Text('Welcome to Our App'), // flagged\n      ),\n    );\n  }\n}",
+    "confidence": 0.95
+  }
+}

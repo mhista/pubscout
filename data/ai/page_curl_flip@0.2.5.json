@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.2.5",
+  "generatedAt": "2026-11-15T11:25:35.081Z",
+  "data": {
+    "primary_category": "animation",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A realistic cylindrical page-curl animation and multi-page book viewer for Flutter.",
+    "what_it_does": "Provides a cylindrical page-curl animation with perspective, shadows, and specular sheen. Includes a complete multi-page book widget with text layout, table of contents, bookmarks, reader marks, read-aloud support, and custom route transitions.",
+    "use_when": [
+      "You need a realistic book reader experience with page curl animations",
+      "You want a custom Navigator screen transition that peels the previous screen away",
+      "You need an RTL-aware page turning mechanism with zero third-party dependencies"
+    ],
+    "avoid_when": [
+      "You need pages to follow your finger mid-drag instead of using a fling gesture",
+      "You need widgets used as page bodies to scroll natively inside the book layout"
+    ],
+    "strengths": [
+      "Zero dependencies",
+      "RTL-aware with automatic mirroring",
+      "Flexible entry points including FlipBook, PageCurlRoute, and CurlOverlay"
+    ],
+    "weaknesses": [
+      "Swipes fling rather than following the finger mid-drag",
+      "Widget bodies inside pages do not automatically scroll",
+      "Flips show a snapshot where animating content freezes during the curl"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "FlipBook(\n  onClose: () => Navigator.of(context).pop(),\n  pages: FlipBookPages(\n    items: const [\n      FlipBookPage(\n        title: 'A Tiny Book',\n        tagline: 'a line under it',\n        bodySegments: ['Hello.', 'Goodbye.'],\n      ),\n    ],\n  ),\n)",
+    "confidence": 1
+  }
+}

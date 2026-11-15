@@ -1,0 +1,48 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.3.5",
+  "generatedAt": "2026-11-14T10:54:29.829Z",
+  "data": {
+    "primary_category": "ai-ml",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Run Qwen 2.5 LLMs locally on device using Metal and CPU.",
+    "what_it_does": "Runs on-device LLM inference for Flutter and Dart applications locally without using a cloud backend or API key. Supports streaming, multi-turn chat, sampling config, and custom UQFF models.",
+    "use_when": [
+      "You need fully offline LLM inference inside a Flutter application.",
+      "You want to run Qwen 2.5 models locally on iOS, macOS, Android, Windows, or Linux."
+    ],
+    "avoid_when": [
+      "You are targeting web browsers, which are not supported.",
+      "You want a lightweight package without large native binaries and Rust toolchain requirements."
+    ],
+    "strengths": [
+      "No cloud dependency, API keys, or data leaving the device.",
+      "Supports hardware acceleration via Metal on iOS and macOS.",
+      "Provides streaming and multi-turn chat capabilities."
+    ],
+    "weaknesses": [
+      "Requires a working Rust toolchain and compiling large native dependency trees during build.",
+      "CPU-bound inference on Android and desktop platforms can be slow."
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Requires a working Rust toolchain, flutter_rust_bridge setup, and cargo-ndk for Android builds.",
+    "alternatives": [
+      {
+        "name": "llamadart",
+        "why_pick_it": "Alternative library for running local LLMs in Dart."
+      },
+      {
+        "name": "tflite_flutter",
+        "why_pick_it": "Alternative for running TensorFlow Lite models on-device."
+      }
+    ],
+    "minimal_example": "Future<void> main() async {\n  WidgetsFlutterBinding.ensureInitialized();\n  await OndeInference.init();\n  final engine = OndeChatEngine();\n  await engine.loadDefaultModel(systemPrompt: 'You are a helpful assistant.');\n  final result = await engine.sendMessage(message: 'What is Rust ownership?');\n  print(result.text);\n}",
+    "confidence": 1
+  }
+}

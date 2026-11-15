@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.7.2",
+  "generatedAt": "2026-11-13T11:29:33.280Z",
+  "data": {
+    "primary_category": "testing",
+    "secondary_categories": [
+      "devtools"
+    ],
+    "approach": [
+      "cli",
+      "static-analysis"
+    ],
+    "one_liner": "Dead code detector for Dart and Flutter that finds and removes unused declarations.",
+    "what_it_does": "Analyzes Dart and Flutter source code to find unused classes, functions, methods, fields, and enum values. It can generate reports in various formats or automatically remove the dead code.",
+    "use_when": [
+      "Cleaning up legacy codebases and removing obsolete classes or functions",
+      "Integrating dead code detection into CI pipelines to prevent accumulation of unused code"
+    ],
+    "avoid_when": [
+      "Working with heavy reflection or dynamic invocation patterns that cannot be statically resolved",
+      "Relying fully on automated removal without manual review"
+    ],
+    "strengths": [
+      "Supports automatic removal of found dead code with interactive prompts or force options",
+      "Understands framework entry points, generated files, and avoids many false positives",
+      "Integrates into multiple CI formats like GitHub Actions, Azure, and SARIF"
+    ],
+    "weaknesses": [
+      "Static heuristic-based analysis can still yield false positives requiring manual code review",
+      "May struggle to detect references used only through dynamic code or complex reflection"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Install as a global tool or add as a dev dependency in pubspec.yaml and run dart run ciach.",
+    "alternatives": [],
+    "minimal_example": "import 'package:ciach/ciach.dart';\n\nfinal result = await Ciach(\n  FinderOptions(rootPath: 'path/to/package', includePublic: false),\n).run();\nfor (final decl in result.unused) {\n  print('${decl.filePath}:${decl.line} ${decl.qualifiedName}');\n}",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.1.2",
+  "generatedAt": "2026-11-14T10:43:06.115Z",
+  "data": {
+    "primary_category": "layout",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Flutter widgets for iPhone Duo and foldable devices that handle navigation, split‑view and dialog placement.",
+    "what_it_does": "Provides FoldGeometry, FoldScaffold, FoldSplitView and FoldAnchor to adapt UI to folds while preserving widget state. Handles insets, keyboard and dialog anchoring automatically.",
+    "use_when": [
+      "Building apps for dual‑screen or foldable phones",
+      "Need custom UI that keeps state across folding/unfolding"
+    ],
+    "avoid_when": [
+      "App targets only single‑screen devices",
+      "You prefer a full UI kit that supplies its own widgets"
+    ],
+    "strengths": [
+      "State survives folding/unfolding",
+      "No double insets and correct keyboard handling",
+      "Dialogs open in the correct half",
+      "Works on any device, not just iPhone Duo"
+    ],
+    "weaknesses": [
+      "iOS fold support requires extra plugin and specific SDK",
+      "Only provides layout helpers, no ready‑made UI components",
+      "Setup can be verbose for iOS"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "iOS 27.1 SDK required, enable UIScene lifecycle, add FoldableProvider (e.g., from the foldable package) for iOS fold data; no extra permissions needed",
+    "alternatives": [
+      {
+        "name": "responsive_framework",
+        "why_pick_it": "Offers breakpoint‑based adaptive layouts for multiple screen sizes, including foldables"
+      }
+    ],
+    "minimal_example": "FoldScaffold(\n  body: SafeArea(bottom: false, child: page),\n  navigationBuilder: (context, placement) => MyNavigationBar(\n    axis: placement.axis,\n  ),\n);",
+    "confidence": 0.93
+  }
+}

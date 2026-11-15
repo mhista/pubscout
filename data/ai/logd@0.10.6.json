@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.10.6",
+  "generatedAt": "2026-11-14T10:45:25.814Z",
+  "data": {
+    "primary_category": "devtools",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "declarative"
+    ],
+    "one_liner": "Modular hierarchical logging engine for Dart and Flutter with background pipelines.",
+    "what_it_does": "logd provides structured, hierarchical logging for Dart and Flutter applications. It features modular pipeline processing, ambient context propagation, O(1) configuration resolution, and support for offloading I/O to background isolates.",
+    "use_when": [
+      "You need hierarchical, dot-separated loggers with parent-child configuration inheritance.",
+      "You want to offload formatting and disk or network I/O to background isolates to prevent UI hitching.",
+      "You need ambient structured context propagation across async boundaries without boilerplate parameter threading."
+    ],
+    "avoid_when": [
+      "You only need a simple, single-file print wrapper with no requirements for structure or performance.",
+      "Your project avoids extra dependencies and can rely solely on standard print or basic packages."
+    ],
+    "strengths": [
+      "Background isolate offloading for sinks prevents blocking the UI thread.",
+      "Hierarchical configuration with pattern-matching globs.",
+      "Ambient structured context (MDC) flows automatically through microtasks and async boundaries."
+    ],
+    "weaknesses": [
+      "Requires learning its custom pipeline and handler configuration model.",
+      "Advanced output features rely on separate satellite packages (e.g., logd_dio, logd_sqlite)."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [],
+    "minimal_example": "import 'package:logd/logd.dart';\n\nvoid main() {\n  final logger = Logger.get('app');\n  logger.info('Server started');\n  logger.warning('Disk space low', context: {'freeGb': 1.2});\n  logger.error('Connection failed', error: e, stackTrace: st);\n}",
+    "confidence": 0.95
+  }
+}

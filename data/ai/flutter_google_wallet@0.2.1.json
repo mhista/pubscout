@@ -1,0 +1,48 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.2.1",
+  "generatedAt": "2026-11-15T11:10:44.207Z",
+  "data": {
+    "primary_category": "payments",
+    "secondary_categories": [
+      "web3"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "A Flutter plugin to integrate Google Wallet and save tickets or passes.",
+    "what_it_does": "Allows checking Google Wallet availability on a device and saving passes or tickets into the Google Wallet app using an API client and provided button widgets.",
+    "use_when": [
+      "You need to add event tickets or passes to Google Wallet on Android devices.",
+      "You want to display the official 'Add to Google Wallet' button inside your Flutter app."
+    ],
+    "avoid_when": [
+      "Your application targets iOS primarily without needing Android Google Wallet integration.",
+      "You need a comprehensive cross-platform digital wallet solution supporting both Apple PassKit and Google Wallet in a single unified API."
+    ],
+    "strengths": [
+      "Provides pre-built UI components like the 'Add to Google Wallet' button with localization support.",
+      "Easily checks wallet API availability on the target Android device."
+    ],
+    "weaknesses": [
+      "Limited platform scope (specifically built for Google Wallet on Android).",
+      "Requires manual addition of specific SVG assets and localizations in pubspec and MaterialApp configuration."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding specific SVG assets for the Google Wallet buttons to pubspec.yaml and configuring I18nGoogleWallet localizations delegate in MaterialApp.",
+    "alternatives": [
+      {
+        "name": "wallet",
+        "why_pick_it": "Alternative package for handling generic digital wallet functionality."
+      },
+      {
+        "name": "apple_passkit",
+        "why_pick_it": "If you need pass management specifically for Apple Wallet instead of Google Wallet."
+      }
+    ],
+    "minimal_example": "final flutterGoogleWalletPlugin = FlutterGoogleWalletPlugin();\nflutterGoogleWalletPlugin.initWalletClient();\nfinal isAvailable = await flutterGoogleWalletPlugin.getWalletApiAvailabilityStatus();",
+    "confidence": 0.95
+  }
+}

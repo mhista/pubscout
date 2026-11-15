@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.5.6",
+  "generatedAt": "2026-11-13T11:41:53.735Z",
+  "data": {
+    "primary_category": "files",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Dart bindings to libgit2 for working with Git repositories via FFI.",
+    "what_it_does": "Provides a null-safe Dart API for interacting with Git repositories directly via libgit2 through FFI. Supports repository lifecycle, git objects, working trees, indexes, references, and remotes without shelling out to the git executable.",
+    "use_when": [
+      "You need to build desktop Flutter apps or CLI tools that perform Git operations.",
+      "You want to manage Git repositories natively without calling the system `git` command-line tool."
+    ],
+    "avoid_when": [
+      "You are building web applications (not supported by FFI library bindings to libgit2).",
+      "You only need simple file operations and have no requirement for Git integration."
+    ],
+    "strengths": [
+      "Comprehensive coverage of libgit2 functionality including branches, remotes, merge, rebase, and status.",
+      "Prebuilt binaries and generated FFI bindings simplify setup across supported platforms."
+    ],
+    "weaknesses": [
+      "Requires platform-specific native dependencies (like OpenSSL and PCRE on Linux) to be installed.",
+      "Manual memory management (calling `free()`) is required for long-running tools and apps to prevent leaks."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires platform setup (e.g. OpenSSL and PCRE on Linux, Homebrew OpenSSL on macOS, Chocolatey OpenSSL on Windows) and mobile platform initialization via PlatformSpecific.initialize().",
+    "alternatives": [],
+    "minimal_example": "import 'dart:io';\nimport 'package:git2dart/git2dart.dart';\n\nFuture<void> main() async {\n  print('libgit2 ${Libgit2.version}');\n  final directory = await Directory.systemTemp.createTemp('git2dart-example');\n  final repo = Repository.init(path: directory.path);\n  final oid = Blob.create(repo: repo, content: 'Hello from git2dart\\n');\n  final blob = Blob.lookup(repo: repo, oid: oid);\n  print('Repository: ${repo.path}');\n  print('Blob: ${blob.oid.sha}');\n  blob.free();\n  repo.free();\n  await directory.delete(recursive: true);\n}",
+    "confidence": 0.95
+  }
+}

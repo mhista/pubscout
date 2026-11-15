@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.6.0",
+  "generatedAt": "2026-11-13T11:43:00.495Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Tizen implementation of the video_player plugin.",
+    "what_it_does": "Provides a Tizen-specific implementation for the video_player plugin based on the Tizen Media Player API. It allows playing videos on Galaxy Watch devices and Smart TVs running Tizen 5.5 or above.",
+    "use_when": [
+      "You are building a Flutter application targeting Tizen devices such as Smart TVs or Galaxy Watches.",
+      "You need to play video files or network URLs inside a Tizen Flutter application using the standard video_player API."
+    ],
+    "avoid_when": [
+      "You are targeting platforms other than Tizen, such as Android or iOS.",
+      "You are running your app on TV emulators."
+    ],
+    "strengths": [
+      "Enables video playback on Tizen devices using the familiar video_player plugin interface.",
+      "Supports audio track selection and display sleep prevention options."
+    ],
+    "weaknesses": [
+      "Not supported on TV emulators.",
+      "Certain options and methods such as background playback and video track selection are not supported.",
+      "Has specific limitations regarding seekTo accuracy and httpHeaders support."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Include video_player and video_player_tizen in pubspec.yaml. Declare necessary privileges like mediastorage, externalstorage, and internet in tizen-manifest.xml.",
+    "alternatives": [
+      {
+        "name": "video_player",
+        "why_pick_it": "The core platform-agnostic package required alongside video_player_tizen."
+      }
+    ],
+    "minimal_example": "dependencies:\n  video_player: ^2.14.0\n  video_player_tizen: ^2.6.0",
+    "confidence": 1
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "10.1.0",
+  "generatedAt": "2026-11-14T10:56:37.846Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "codegen"
+    ],
+    "approach": [
+      "code generation",
+      "declarative"
+    ],
+    "one_liner": "Code generation of .proto and Dart mapper classes for using PODOs with gRPC.",
+    "what_it_does": "Generates Protocol Buffer .proto files and Dart mapper classes from plain old Dart objects annotated with @proto and @ProtoField. It facilitates seamless serialization between your custom Dart models and gRPC messages, including support for polymorphism and well-known types.",
+    "use_when": [
+      "You are building a Dart/Flutter application that communicates with gRPC backends",
+      "You want to avoid manually writing boilerplate mapping code between Dart models and gRPC protobuf messages"
+    ],
+    "avoid_when": [
+      "You are not using gRPC or protocol buffers in your project",
+      "You prefer writing manual serialization mappers instead of relying on build_runner"
+    ],
+    "strengths": [
+      "Significantly reduces boilerplate for gRPC model mapping",
+      "Supports polymorphism and class inheritance mapping",
+      "Compatible with primary constructors and Google Well Known Types"
+    ],
+    "weaknesses": [
+      "Requires maintaining external tools like protoc compiler and build_runner",
+      "Additional setup steps required outside of standard pub dependency management"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding proto_annotations and proto_generator, installing the Dart protoc plugin, running build_runner, and compiling proto files manually using protoc.",
+    "alternatives": [],
+    "minimal_example": "import 'package:proto_annotations/proto_annotations.dart';\n\npart 'ingredient.proto.dart';\n\n@proto\nclass Ingredient {\n  const Ingredient({\n    required this.description,\n    required this.quantity,\n  });\n\n  @ProtoField(2)\n  final String description;\n\n  @ProtoField(3)\n  final double quantity;\n}",
+    "confidence": 1
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.2.0",
+  "generatedAt": "2026-11-15T11:13:01.878Z",
+  "data": {
+    "primary_category": "payments",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "A pure Dart implementation of RevenueCat for in-app purchases and subscriptions with Web Billing.",
+    "what_it_does": "Facilitates in-app purchases and subscriptions using Web Billing. It provides APIs to configure the client, retrieve customer info and offerings, get web checkout URLs, and manage virtual currencies.",
+    "use_when": [
+      "You want to integrate RevenueCat Web Billing in a Flutter or pure Dart application.",
+      "You need to manage subscriptions and in-app purchases across multiple platforms including web."
+    ],
+    "avoid_when": [
+      "You are using the old Stripe-based configuration, which was removed in version 2.0.0.",
+      "You only need standard native store purchases without Web Billing."
+    ],
+    "strengths": [
+      "Closely follows native APIs from purchases_flutter.",
+      "Supports cross-platform apps including web, mobile, and desktop."
+    ],
+    "weaknesses": [
+      "Requires external tools like url_launcher and app_links to handle web checkouts and deep links.",
+      "Web purchases require configuring Web Purchase Links in the RevenueCat Dashboard."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires configuring PurchasesDart with a Web Billing API key and an appUserId, along with setting up Web Purchase Links in the RevenueCat dashboard.",
+    "alternatives": [
+      {
+        "name": "in_app_purchase",
+        "why_pick_it": "If you want official Flutter support for standard native App Store and Google Play billing instead of RevenueCat Web Billing."
+      },
+      {
+        "name": "adapty_flutter",
+        "why_pick_it": "If you prefer using Adapty as an alternative subscription management platform."
+      }
+    ],
+    "minimal_example": "await PurchasesDart.configure(\n  PurchasesDartConfiguration(\n    apiKey: WEB_BILLING_API_KEY,\n    appUserId: \"MY_USER_ID\",\n  ),\n);",
+    "confidence": 0.95
+  }
+}

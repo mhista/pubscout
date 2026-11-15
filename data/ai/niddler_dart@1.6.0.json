@@ -1,0 +1,54 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "1.6.0",
+  "generatedAt": "2026-11-15T11:14:50.030Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "devtools"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Network inspector for Dart/Flutter that captures and visualizes HTTP requests during development.",
+    "what_it_does": "It starts a local Niddler server that intercepts HTTP traffic from your app and forwards it to the Niddler IntelliJ/Android Studio plugin. It can capture request stack traces and replay responses from saved HAR files.",
+    "use_when": [
+      "You need to debug and inspect network calls in a Flutter or Dart app",
+      "You want request‑site stack traces or the ability to replay responses",
+      "You are developing on desktop/mobile and can run the IntelliJ plugin"
+    ],
+    "avoid_when": [
+      "Running in production where performance overhead matters",
+      "You cannot install the Niddler IDE plugin",
+      "You prefer a pure logging solution without a UI"
+    ],
+    "strengths": [
+      "Deep integration with IntelliJ/Android Studio plugin",
+      "Supports stack‑trace capture and HAR replay",
+      "Works across all major Flutter platforms",
+      "Provides explicit debugger‑wait functionality"
+    ],
+    "weaknesses": [
+      "Adds runtime overhead, not suited for release builds",
+      "Requires additional IDE plugin setup",
+      "Limited to Dart/Flutter ecosystem"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add the package, create a NiddlerBuilder, call start() (optionally with waitForDebugger), and install the Niddler plugin in IntelliJ/Android Studio. Wrap main with Chain.capture for full stack‑trace support.",
+    "alternatives": [
+      {
+        "name": "pretty_dio_logger",
+        "why_pick_it": "Lightweight logger that prints HTTP requests/responses without needing a separate IDE plugin"
+      },
+      {
+        "name": "talker_logger",
+        "why_pick_it": "Provides structured logging and can be combined with other Talker tools for debugging"
+      }
+    ],
+    "minimal_example": "import 'package:niddler_dart/niddler_dart.dart';\nimport 'package:stack_trace/stack_trace.dart';\n\nvoid main() async {\n  await Chain.capture(() async {\n    final niddler = NiddlerBuilder()\n        ..bundleId = 'com.example.app'\n        ..includeStackTrace = true\n        .build();\n    await niddler.start();\n    niddler.install();\n    // make HTTP requests here\n    await niddler.stop();\n  });\n}",
+    "confidence": 0.9
+  }
+}

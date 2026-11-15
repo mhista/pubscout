@@ -1,0 +1,46 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.0",
+  "generatedAt": "2026-11-15T11:27:17.689Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Flexible upgrade and downgrade migrations for sqflite databases.",
+    "what_it_does": "Defines a structured migration plan with versioned lists of operations. Integrates directly into sqflite's openDatabase callback arguments for onCreate, onUpgrade, and onDowngrade.",
+    "use_when": [
+      "You need structured schema upgrades and downgrades for sqflite",
+      "You want a clear, version-mapped syntax for managing database migrations"
+    ],
+    "avoid_when": [
+      "You are using a different storage solution like Drift or plain SQL without sqflite"
+    ],
+    "strengths": [
+      "Clear, concise syntax mapping versions to lists of migrations",
+      "Supports both upgrades and downgrades with reverse operations",
+      "Provides error handling strategies like throwing or ignoring exceptions"
+    ],
+    "weaknesses": [
+      "Relies on sqflite and its transaction model",
+      "Downgrade scenarios are rarely used in production"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [
+      {
+        "name": "sqflite",
+        "why_pick_it": "Handle migrations manually using sqflite's built-in onUpgrade callback without extra abstractions."
+      },
+      {
+        "name": "drift",
+        "why_pick_it": "A reactive SQLite library for Dart and Flutter with built-in schema migration tools and type safety."
+      }
+    ],
+    "minimal_example": "MigrationPlan myMigrationPlan = MigrationPlan({\n  2: [\n    SqlMigration('CREATE TABLE my_table ( id INTEGER PRIMARY KEY )', reverseSql: 'DROP TABLE my_table')\n  ]\n});",
+    "confidence": 0.95
+  }
+}

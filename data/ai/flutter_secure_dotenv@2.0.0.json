@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "2.0.0",
+  "generatedAt": "2026-11-13T11:17:11.224Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "code generation"
+    ],
+    "one_liner": "Securely load and decrypt .env files in Flutter/Dart using AES encryption.",
+    "what_it_does": "It generates Dart classes from encrypted .env files, providing typed access to environment variables. The package handles key/IV management and decryption at runtime.",
+    "use_when": [
+      "You need to keep secrets out of plain text in your repo",
+      "You want compile‑time type safety for env variables",
+      "You are building a Flutter or Dart app that requires secure config"
+    ],
+    "avoid_when": [
+      "You need secrets that must never be in the binary (use server‑side key fetch)",
+      "You prefer a simple, non‑encrypted dotenv solution"
+    ],
+    "strengths": [
+      "Strong encryption with AES‑CBC and key/IV handling",
+      "Zero‑runtime dependency on external services",
+      "Full code‑gen support for typed env classes",
+      "Comprehensive security guidance in SECURITY.md"
+    ],
+    "weaknesses": [
+      "Key must be stored in binary unless fetched from server",
+      "Requires build_runner for code generation",
+      "No runtime key rotation support"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add dependency, dev_dependencies (build_runner, flutter_secure_dotenv_generator), run build_runner with --define to generate key file, copy key to git‑ignored env.dart, delete key file, then use generated Env class.",
+    "alternatives": [],
+    "minimal_example": "```dart\nimport 'package:flutter_secure_dotenv/flutter_secure_dotenv.dart';\n\nfinal env = Env.create();\nprint(env.apiKey);\n```",
+    "confidence": 0.92
+  }
+}

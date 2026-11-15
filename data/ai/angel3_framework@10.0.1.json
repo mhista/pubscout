@@ -1,0 +1,48 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "10.0.1",
+  "generatedAt": "2026-11-14T10:29:17.177Z",
+  "data": {
+    "primary_category": "backend",
+    "secondary_categories": [
+      "dependency-injection"
+    ],
+    "approach": [
+      "imperative",
+      "hooks"
+    ],
+    "one_liner": "A high‑powered Dart HTTP server framework with DI, routing and extensible plugins.",
+    "what_it_does": "Provides a minimal core for building server‑side applications, offering dependency injection, sophisticated routing, middleware, and optional features like authentication, ORM, and GraphQL via plugins. It runs on the Dart VM and can be compiled AOT without mirrors.",
+    "use_when": [
+      "You need a full‑stack Dart backend with customizable plugins",
+      "You want DI and flexible routing on the server side",
+      "You prefer a framework that can be AOT‑compiled for production"
+    ],
+    "avoid_when": [
+      "You are building only a Flutter client app",
+      "You need a lightweight client‑side HTTP client rather than a server"
+    ],
+    "strengths": [
+      "Extensible through many plugin packages",
+      "Supports DI and advanced routing out of the box",
+      "Works with AOT compilation and without dart:mirrors"
+    ],
+    "weaknesses": [
+      "Primarily server‑side, not useful for Flutter UI code",
+      "Learning curve due to many optional plugins",
+      "Documentation focuses on server use cases"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add angel3_framework to pubspec, optionally add angel3_cli for project scaffolding; no native permissions required",
+    "alternatives": [
+      {
+        "name": "shelf_router",
+        "why_pick_it": "A lightweight router for the Shelf server ecosystem, easier to integrate if you already use Shelf"
+      }
+    ],
+    "minimal_example": "import 'package:angel3_framework/angel3_framework.dart';\nimport 'package:angel3_framework/http.dart';\n\nvoid main() async {\n  var app = Angel();\n  app.get('/', (req, res) => 'Hello World');\n  var http = AngelHttp(app);\n  await http.startServer('127.0.0.1', 3000);\n  print('Listening at ${http.uri}');\n}",
+    "confidence": 0.92
+  }
+}

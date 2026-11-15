@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "2.3.2",
+  "generatedAt": "2026-11-13T11:08:23.519Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Detects whether the device location is being simulated or faked.",
+    "what_it_does": "The plugin checks if the current location comes from software simulation or an external accessory. It provides an optional iOS‑only flag to ignore accessory‑based locations.",
+    "use_when": [
+      "You need to guard location‑based features against spoofed data",
+      "Compliance or security requirements demand detection of mock locations"
+    ],
+    "avoid_when": [
+      "You only need raw location data without spoof detection",
+      "Targeting platforms earlier than iOS 15 where detection isn’t possible"
+    ],
+    "strengths": [
+      "Simple API with a single async call",
+      "Supports both software‑simulated and accessory‑based detection",
+      "Configurable iOS option to reduce false positives"
+    ],
+    "weaknesses": [
+      "iOS detection requires iOS 15+",
+      "No Android‑specific detection beyond permission handling",
+      "Limited to detection only, no mitigation"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add detect_fake_location to pubspec, request location permissions (permission_handler), and include iOS/Android location permissions in Info.plist and AndroidManifest.xml.",
+    "alternatives": [],
+    "minimal_example": "bool isFake = await DetectFakeLocation().detectFakeLocation();",
+    "confidence": 0.92
+  }
+}

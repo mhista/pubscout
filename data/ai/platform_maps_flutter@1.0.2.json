@@ -1,0 +1,53 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "1.0.2",
+  "generatedAt": "2026-11-13T11:01:04.509Z",
+  "data": {
+    "primary_category": "maps",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Cross‑platform native map widget for Android and iOS using Google and Apple Maps.",
+    "what_it_does": "Provides a single PlatformMap widget that renders native maps on Android and iOS, supporting camera movement, markers, polylines, polygons, circles, and various map gestures.",
+    "use_when": [
+      "Need a native map on both Android and iOS with a unified API",
+      "Require markers, camera control, and custom info windows",
+      "Want to avoid web or hybrid map solutions"
+    ],
+    "avoid_when": [
+      "Only targeting a single platform",
+      "Using a web or Flutter web map",
+      "You need advanced map analytics or offline map tiles"
+    ],
+    "strengths": [
+      "Native performance on both platforms",
+      "Unified API for markers, camera, and gestures",
+      "Supports custom marker images and info windows",
+      "Includes snapshot capability and memory‑leak fixes"
+    ],
+    "weaknesses": [
+      "Requires Flutter embedded views preview (developer preview)",
+      "Setup involves platform‑specific configuration",
+      "Limited to Android and iOS only"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add API key to AndroidManifest.xml; add io.flutter.embedded_views_preview and location usage description to iOS Info.plist; ensure Google Maps API key and Apple Maps usage description are set.",
+    "alternatives": [
+      {
+        "name": "google_maps_flutter",
+        "why_pick_it": "Use if only targeting Android or if you prefer a mature single‑platform solution"
+      },
+      {
+        "name": "apple_maps_flutter",
+        "why_pick_it": "Use if only targeting iOS or if you need Apple‑specific features"
+      }
+    ],
+    "minimal_example": "class HomePage extends StatelessWidget {\n  @override\n  Widget build(BuildContext context) {\n    return Scaffold(\n      body: PlatformMap(\n        initialCameraPosition: CameraPosition(\n          target: const LatLng(47.6, 8.8796),\n          zoom: 16.0,\n        ),\n        markers: Set<Marker>.of([\n          Marker(\n            markerId: MarkerId('marker_1'),\n            position: LatLng(47.6, 8.8796),\n            consumeTapEvents: true,\n            infoWindow: InfoWindow(\n              title: 'PlatformMarker',\n              snippet: \"Hi I'm a Platform Marker\",\n            ),\n            onTap: () => print(\"Marker tapped\"),\n          ),\n        ]),\n        myLocationEnabled: true,\n        myLocationButtonEnabled: true,\n        onTap: (location) => print('onTap: $location'),\n        onCameraMove: (cameraUpdate) => print('onCameraMove: $cameraUpdate'),\n        compassEnabled: true,\n        onMapCreated: (controller) {\n          Future.delayed(Duration(seconds: 2)).then((_) {\n            controller.animateCamera(\n              CameraUpdate.newCameraPosition(\n                const CameraPosition(\n                  bearing: 270.0,\n                  target: LatLng(51.5160895, -0.1294527),\n                  tilt: 30.0,\n                  zoom: 18,\n                ),\n              ),\n            );\n          });\n        },\n      ),\n    );\n  }\n}",
+    "confidence": 0.9
+  }
+}

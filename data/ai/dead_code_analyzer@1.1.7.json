@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.1.7",
+  "generatedAt": "2026-11-15T11:05:42.758Z",
+  "data": {
+    "primary_category": "testing",
+    "secondary_categories": [
+      "devtools"
+    ],
+    "approach": [
+      "imperative",
+      "cli"
+    ],
+    "one_liner": "A command-line tool to identify and clean up dead or unused code in Dart and Flutter projects.",
+    "what_it_does": "Dead Code Analyzer scans Dart and Flutter codebases to identify unused classes, functions, and variables. It tracks internal and external references, generates reports in TXT, HTML, or Markdown, and can automatically clean up files containing only dead code.",
+    "use_when": [
+      "You want to clean up unused code and reduce technical debt in a Dart or Flutter project.",
+      "You need to generate static analysis reports regarding dead code for CI/CD pipelines."
+    ],
+    "avoid_when": [
+      "Your project heavily relies on reflection, dynamic code execution, or `dart:mirrors` which can cause false positives.",
+      "You require 100% precise AST-based analysis without regex limitations."
+    ],
+    "strengths": [
+      "Supports multiple report formats including TXT, HTML, and Markdown.",
+      "Provides automated cleanup for files containing only dead or commented-out code.",
+      "Integrates easily into CI/CD pipelines via GitHub Actions or GitLab CI."
+    ],
+    "weaknesses": [
+      "Current version uses a regex-based analysis which may misreport references for classes with constructors.",
+      "May produce false positives with string references, dynamic invocations, or JSON serialization."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add as a dev dependency via pub add --dev dead_code_analyzer or activate globally using dart pub global activate dead_code_analyzer.",
+    "alternatives": [],
+    "minimal_example": "dead_code_analyzer -p . --funcs -s html -o ./reports",
+    "confidence": 0.95
+  }
+}

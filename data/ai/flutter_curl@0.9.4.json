@@ -1,0 +1,47 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.9.4",
+  "generatedAt": "2026-11-15T11:22:28.942Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter plugin to use libcurl for HTTP calls in Android, iOS and macOS.",
+    "what_it_does": "Provides a Flutter plugin using libcurl via FFI for making HTTP requests in Android, iOS, and macOS apps. Supports advanced connectivity features like HTTP2, ALPN, Brotli compression, and experimental HTTP3.",
+    "use_when": [
+      "You need advanced networking features like HTTP2, ALPN, or Brotli compression not available in standard dart:io.",
+      "You want to use libcurl bindings via FFI for HTTP operations on Android, iOS, and macOS."
+    ],
+    "avoid_when": [
+      "You need a pure Dart HTTP client without native library binaries.",
+      "You are targeting platforms other than Android, iOS, and macOS."
+    ],
+    "strengths": [
+      "Supports HTTP2 and ALPN automatic upgrades.",
+      "Supports Brotli compression and experimental HTTP3.",
+      "Runs cURL APIs in a separate isolate using dart:Ffi to prevent app blocking."
+    ],
+    "weaknesses": [
+      "Relies on pre-built native binaries for Android, iOS, and macOS which can increase app size.",
+      "Experimental support for HTTP3 and alt-svc."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Downloads Curl binaries via Gradle for Android and via pod install/SPM for iOS. Android minimum SDK is 21 and iOS minimum version is 12.2.",
+    "alternatives": [
+      {
+        "name": "http",
+        "why_pick_it": "A pure Dart portable HTTP client backed by dart:io."
+      },
+      {
+        "name": "dio",
+        "why_pick_it": "A powerful HTTP client for Dart with interceptors, global configuration, and FormData support."
+      }
+    ],
+    "minimal_example": "Client client = Client(verbose: true);\nawait client.init();\nfinal res = await client.send(Request(method: \"GET\", url: \"https://ajinasokan.com/\"));\nprint(res.text());",
+    "confidence": 0.95
+  }
+}

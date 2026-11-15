@@ -1,0 +1,37 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.3.1+5",
+  "generatedAt": "2026-11-14T10:45:01.393Z",
+  "data": {
+    "primary_category": "backend",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "A pure Dart implementation of the Firebase Admin SDK.",
+    "what_it_does": "Provides a pure, idiomatic Dart port of the Firebase Admin SDK. Currently supports admin methods for authentication and the realtime database.",
+    "use_when": [
+      "You need to interact with Firebase Authentication or Realtime Database from a backend or pure Dart environment.",
+      "You want to use Firebase admin capabilities using service accounts or default credentials in Dart."
+    ],
+    "avoid_when": [
+      "You need official Firebase Admin support for services other than authentication and realtime database.",
+      "You are building a standard client-side Flutter app using standard Firebase plugins."
+    ],
+    "strengths": [
+      "Written in pure, idiomatic Dart code.",
+      "Supports service accounts and default credentials natively."
+    ],
+    "weaknesses": [
+      "Limited service support compared to the official Node.js Admin SDK (currently only auth and realtime database).",
+      "Requires manual maintenance of credentials and configuration."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires either a service account JSON file or application default credentials configured via environment variables or gcloud.",
+    "alternatives": [],
+    "minimal_example": "import 'package:firebase_admin/firebase_admin.dart';\n\nmain() async {\n  var app = FirebaseAdmin.instance.initializeApp(AppOptions(\n    credential: ServiceAccountCredential('service-account.json'),\n  ));\n\n  var link = await app.auth().generateSignInWithEmailLink('jane@doe.com',\n      ActionCodeSettings(url: 'https://example.com'));\n\n  print(link);\n}",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,37 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "5.0.0",
+  "generatedAt": "2026-11-13T11:26:27.267Z",
+  "data": {
+    "primary_category": "devtools",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Bugfender reporting and logging plugin for Flutter apps.",
+    "what_it_does": "Enables Bugfender remote logging, crash reporting, and network request logging across iOS, Android, and web. Captures uncaught errors and allows sending manual logs and user feedback.",
+    "use_when": [
+      "You want to track remote logs and crashes using Bugfender in your Flutter app.",
+      "You need to capture network traffic from iOS, Android, and web for debugging purposes."
+    ],
+    "avoid_when": [
+      "You are using a crash reporting and logging platform other than Bugfender.",
+      "You do not require remote logging or error tracking."
+    ],
+    "strengths": [
+      "Supports iOS, Android, and web platforms.",
+      "Includes helpful error-handling wrappers and network request logging APIs."
+    ],
+    "weaknesses": [
+      "Provided by the community as-is, with potential limits on official support.",
+      "Requires platform-specific configuration for native logging (e.g., OkHttp interceptor on Android)."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding the package to pubspec.yaml, initializing with an application key, and optional native setup steps depending on platform and features like network logging.",
+    "alternatives": [],
+    "minimal_example": "void main() {\n  FlutterBugfender.handleUncaughtErrors(() async {\n    await FlutterBugfender.init(\"YOUR_APP_KEY\",\n        enableCrashReporting: true,\n        enableUIEventLogging: true,\n        enableAndroidLogcatLogging: true);\n    FlutterBugfender.log(\"hello world!\");\n    runApp(new MyApp());\n  });\n}",
+    "confidence": 0.95
+  }
+}

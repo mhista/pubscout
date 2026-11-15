@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.9",
+  "generatedAt": "2026-11-14T10:37:19.756Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Check and request app permissions across Android, iOS, Web, Windows, macOS, and Linux.",
+    "what_it_does": "Provides a unified API to check, request, and listen to permission states across multiple platforms. Supports a wide range of specific permissions including camera, location, Bluetooth, and platform-specific options like battery optimization or notifications.",
+    "use_when": [
+      "You need to handle device permissions across all six Flutter platforms with a single API.",
+      "Your application requires streaming permission status changes in real-time."
+    ],
+    "avoid_when": [
+      "You are already using an established ecosystem alternative like permission_handler and do not require cross-platform support for Linux/Windows via this specific plugin."
+    ],
+    "strengths": [
+      "Supports all six Flutter platforms including Linux and Windows.",
+      "Real-time updates via permission status streams.",
+      "Granular support for Android 13 media permissions and specialized options."
+    ],
+    "weaknesses": [
+      "Requires manual configuration of platform-specific files like AndroidManifest.xml, Info.plist, and macOS entitlements.",
+      "Some permissions are limited or unsupported on specific platforms like the Web."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding permissions and usage descriptions to AndroidManifest.xml, iOS Info.plist, and macOS Info.plist/Entitlements files.",
+    "alternatives": [
+      {
+        "name": "permission_handler",
+        "why_pick_it": "It is the most popular, battle-tested permission management plugin in the Flutter ecosystem."
+      }
+    ],
+    "minimal_example": "import 'package:permission_manager/permission_manager.dart';\n\nfinal status = await PermissionManager.request(\n  PermissionManagerPermission.camera,\n);\n\nif (status == PermissionManagerStatus.granted) {\n  // Permission granted\n}",
+    "confidence": 1
+  }
+}

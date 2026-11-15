@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.0",
+  "generatedAt": "2026-11-14T10:45:19.548Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "auth"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Dio interceptor for automatic token refresh and retry on API failures",
+    "what_it_does": "Provides a Dio interceptor that intercepts failed requests, triggers a token refresh callback using a singleton token manager, and retries the original requests. It also proactively validates tokens before requests are sent.",
+    "use_when": [
+      "Your Flutter app uses Dio for HTTP requests and requires automatic OAuth token refreshing.",
+      "You need to handle concurrent 401/403 errors cleanly by sharing a single refresh lock."
+    ],
+    "avoid_when": [
+      "You are not using the Dio HTTP client.",
+      "Your backend does not implement a token refresh endpoint."
+    ],
+    "strengths": [
+      "Automatic token refresh and request retrying on API failures",
+      "Handles concurrent failures with a shared refresh lock to avoid duplicate refresh calls",
+      "Supports custom token validation and header generation"
+    ],
+    "weaknesses": [
+      "Tight coupling to the Dio HTTP client package",
+      "Uses a singleton TokenManager pattern which may limit multiple distinct auth sessions"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Not documented",
+    "alternatives": [
+      {
+        "name": "dio",
+        "why_pick_it": "You can implement custom interceptor logic manually without adding a dedicated refresh package."
+      }
+    ],
+    "minimal_example": "import 'package:dio/dio.dart';\nimport 'package:dio_refresh/dio_refresh.dart';\n\nvoid main() {\n  final dio = Dio();\n  final tokenManager = TokenManager.instance;\n  \n  dio.interceptors.add(DioRefreshInterceptor(\n    tokenManager: tokenManager,\n    authHeader: (tokenStore) => {'Authorization': 'Bearer ${tokenStore.accessToken}'},\n    shouldRefresh: (response) => response?.statusCode == 401,\n    onRefresh: (dio, tokenStore) async {\n      final response = await dio.post('/refresh', data: {'refresh_token': tokenStore.refreshToken});\n      return TokenStore(accessToken: response.data['accessToken'], refreshToken: response.data['refreshToken']);\n    },\n  ));\n}",
+    "confidence": 1
+  }
+}

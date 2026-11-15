@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.4.0",
+  "generatedAt": "2026-11-14T10:50:01.790Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "declarative",
+      "imperative"
+    ],
+    "one_liner": "A Dart package for parsing text flexibly using multiple regular expression patterns.",
+    "what_it_does": "It parses text into a structured list of text elements based on preset or custom regular expression patterns. It supports features like groups capture, synchronous parsing, and background execution using isolates.",
+    "use_when": [
+      "You need to detect and extract URLs, email addresses, or phone numbers from text.",
+      "You want to parse custom markdown or HTML elements using regular expressions.",
+      "You need to parse large texts without blocking the main UI thread."
+    ],
+    "avoid_when": [
+      "You need a full context-free grammar parser (use petitparser instead).",
+      "You are parsing heavy structured documents like arbitrary XML or complex JSON where dedicated parsers are safer."
+    ],
+    "strengths": [
+      "Includes useful preset matchers for URLs, emails, and phone numbers.",
+      "Supports running parsing tasks in an isolate to prevent UI jank.",
+      "Allows custom matchers and exact string matching with escaped regex characters."
+    ],
+    "weaknesses": [
+      "Reliance on regular expressions can become hard to maintain for highly complex nested grammars.",
+      "Named capture groups lose their names in the resulting groups list."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "petitparser",
+        "why_pick_it": "Choose petitparser if you need a robust grammar-based parser rather than regular expression matching."
+      },
+      {
+        "name": "xml",
+        "why_pick_it": "Choose xml if your specific parsing target is XML instead of generic text patterns."
+      }
+    ],
+    "minimal_example": "import 'package:text_parser/text_parser.dart';\n\nvoid main() {\n  const text = 'Contact us at support@example.com or visit https://example.com';\n  final parser = TextParser(\n    matchers: const [\n      EmailMatcher(),\n      UrlMatcher(),\n    ],\n  );\n  final elements = parser.parseSync(text);\n  elements.forEach(print);\n}",
+    "confidence": 1
+  }
+}

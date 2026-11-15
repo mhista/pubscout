@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.5",
+  "generatedAt": "2026-11-14T11:02:56.497Z",
+  "data": {
+    "primary_category": "layout",
+    "secondary_categories": [
+      "device",
+      "widgets"
+    ],
+    "approach": [
+      "declarative",
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "Foldable posture, hinge angle, and reserved screen regions for Android foldables and the iPhone Duo.",
+    "what_it_does": "Provides fold posture, hinge angle, fold direction, and reserved screen regions like cameras and status pills for Android foldables and the iPhone Duo. Delivers data over an EventChannel and includes utility widgets like FoldSafeArea to keep content clear of hardware obstructions.",
+    "use_when": [
+      "Building adaptive layouts for Android foldables and the iPhone Duo",
+      "Handling hinge angles, postures, and active folds in Flutter applications",
+      "Keeping content clear of cameras, status pills, and screen folds using custom safety widgets"
+    ],
+    "avoid_when": [
+      "Targeting platforms other than Android and iOS 27.1+",
+      "You only need basic responsive breakpoints without hardware foldable awareness"
+    ],
+    "strengths": [
+      "Supports both Android foldables and iOS 27.1+ iPhone Duo devices",
+      "Provides dedicated widgets like FoldSafeArea for padding content away from hardware cutouts",
+      "Tracks hinge angles, posturing, and active occlusion regions"
+    ],
+    "weaknesses": [
+      "Requires minimum iOS 15.0 and Xcode 27.1+ for iOS features",
+      "Flutter's own built-in iOS engine does not automatically populate MediaQuery.displayFeatures"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires calling FoldableHelper.initialize() in main(), placing FoldableScope above MaterialApp, and forcing iOS deployment target to 15.0 in Podfile if necessary.",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:foldable_device/foldable_device.dart';\n\nvoid main() {\n  WidgetsFlutterBinding.ensureInitialized();\n  FoldableHelper.initialize();\n  runApp(FoldableScope(\n    child: const MaterialApp(home: HomeScreen()),\n  ));\n}\n\nclass HomeScreen extends StatelessWidget {\n  const HomeScreen({super.key});\n\n  @override\n  Widget build(BuildContext context) {\n    FoldableScope.watch(context);\n\n    if (FoldableHelper.isFoldActive) {\n      return const Text('two panes, one per side of the fold');\n    }\n    return const Text('one continuous layout');\n  }\n}",
+    "confidence": 0.95
+  }
+}

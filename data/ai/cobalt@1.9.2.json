@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.9.2",
+  "generatedAt": "2026-11-14T11:03:20.445Z",
+  "data": {
+    "primary_category": "dependency-injection",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "code generation"
+    ],
+    "one_liner": "Dependency injection for Dart and Flutter with scopes, async ordering, and tests.",
+    "what_it_does": "Registers services in scopes, resolves dependencies, and manages lifecycle teardown deterministically. Supports async startup graphs and optional code generation via build_runner.",
+    "use_when": [
+      "You need hierarchical dependency scopes that clean up resources on dispose",
+      "You have complex async initialization orders between services",
+      "You want a pure Dart DI solution that works across Flutter, CLI, and server"
+    ],
+    "avoid_when": [
+      "You prefer global service locators without explicit scoping",
+      "You want a complete state management framework rather than just DI"
+    ],
+    "strengths": [
+      "Deterministic teardown in reverse creation order",
+      "Topological sorting for async dependency startup",
+      "Optional code generation allowing manual and generated factories to mix"
+    ],
+    "weaknesses": [
+      "Scopes dropped without dispose leak resources by design",
+      "Requires explicit teardown handling for third-party objects that do not implement Disposable"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add cobalt to pubspec.yaml. Optional use of build_runner for code generation.",
+    "alternatives": [
+      {
+        "name": "get_it",
+        "why_pick_it": "If you prefer a simpler global service locator without explicit scope hierarchies."
+      },
+      {
+        "name": "injectable",
+        "why_pick_it": "If you want annotation-driven dependency injection with get_it as the underlying locator."
+      }
+    ],
+    "minimal_example": "Future<void> main() async {\n  final app = CobaltScope.root(name: 'app')\n    ..registerLazySingleton<Clock>(const ClockFactory())\n    ..registerLazySingleton<Greeter>(const GreeterFactory());\n\n  await app.init();\n  print(app.get<Greeter>().greet('Cobalt'));\n  await app.dispose();\n}",
+    "confidence": 0.95
+  }
+}

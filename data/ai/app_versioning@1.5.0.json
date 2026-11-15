@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "1.5.0",
+  "generatedAt": "2026-11-15T11:09:36.692Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Tracks app version and prompts users to update via Play/App Store",
+    "what_it_does": "It checks the current app version against a minimum version defined in a backend or Firebase Remote Config. If an update is available it can force or suggest the user to update the app.",
+    "use_when": [
+      "You need to enforce a minimum app version for security or feature reasons",
+      "You want to offer optional or mandatory update prompts on Android and iOS",
+      "You need to track version history for onboarding or migrations"
+    ],
+    "avoid_when": [
+      "You only need a simple in-app update check without backend integration",
+      "You prefer a lightweight solution without external dependencies"
+    ],
+    "strengths": [
+      "Easy to integrate with both Android and iOS",
+      "Supports optional and mandatory updates",
+      "Customizable via API or Firebase Remote Config",
+      "Tracks version history for analytics or migrations"
+    ],
+    "weaknesses": [
+      "Depends on several external packages (in_app_update, upgrader, version_tracker)",
+      "Requires Firebase setup if using the Firebase backend",
+      "May add extra weight to the app"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add the package to pubspec, configure Firebase if using that backend, provide app store IDs, and call AppVersioning.initialise in main.",
+    "alternatives": [],
+    "minimal_example": "```dart\nfinal appVersioning = AppVersioning.firebaseService(\n  remoteConfigKeys: const RemoteConfigKeys(\n    minimumIosVersionKey: \"minimumIosVersion\",\n    minimumAndroidVersionKey: \"minimumAndroidVersion\",\n  ),\n  updateConfig: const UpdateConfig(\n    appStoreAppId: \"1234567890\",\n    playStoreAppId: \"org.example.versioning\",\n    appstoreCountryCode: 'US',\n  ),\n);\nawait appVersioning.tracker.track();\nfinal info = await appVersioning.getAppUpdateInfo();\nif (info.isUpdateAvailable) {\n  // show update prompt\n}\n```",
+    "confidence": 0.85
+  }
+}

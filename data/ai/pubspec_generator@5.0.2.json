@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "5.0.2",
+  "generatedAt": "2026-11-13T11:45:06.084Z",
+  "data": {
+    "primary_category": "codegen",
+    "secondary_categories": [],
+    "approach": [
+      "code generation"
+    ],
+    "one_liner": "Generates a Dart class containing information from pubspec.yaml.",
+    "what_it_does": "Auto-generates a Dart class from your pubspec.yaml file, containing app description, dependencies, and version. This keeps application metadata up-to-date across your project via build_runner or a CLI utility.",
+    "use_when": [
+      "You need to access app version and description programmatically in your code.",
+      "You want consistent app metadata across multiple platforms automatically."
+    ],
+    "avoid_when": [
+      "You do not use build_runner or code generation in your project workflow.",
+      "You only need standard package info without generated files."
+    ],
+    "strengths": [
+      "Automates keeping app metadata synchronized with pubspec.yaml.",
+      "Supports cross-platform compatibility and command-line usage."
+    ],
+    "weaknesses": [
+      "Requires setting up build_runner configuration in a build.yaml file.",
+      "Adds an extra generated file to your codebase."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add build_runner and pubspec_generator to dev_dependencies, create a build.yaml file for output path configuration, and run build_runner.",
+    "alternatives": [
+      {
+        "name": "pubspec_parse",
+        "why_pick_it": "Parses pubspec.yaml files programmatically without requiring code generation."
+      }
+    ],
+    "minimal_example": "dev_dependencies:\n  build_runner: ^2.4.0\n  pubspec_generator: ^5.0.2\n\n# Run:\n# dart run build_runner build --delete-conflicting-outputs",
+    "confidence": 1
+  }
+}

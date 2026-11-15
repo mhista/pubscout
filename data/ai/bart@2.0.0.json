@@ -1,0 +1,54 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.0",
+  "generatedAt": "2026-11-14T10:47:26.308Z",
+  "data": {
+    "primary_category": "navigation",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A bottom navigation bar and tabulation system using Navigator for switching tabs.",
+    "what_it_does": "Bart provides a bottom navigation bar solution supporting inner routing inside tabs, parent routing, and state caching. It includes Material and Cupertino themes with automatic switching.",
+    "use_when": [
+      "You need a bottom navigation bar with inner routing per tab",
+      "You require tab state caching and persistence",
+      "You want support for both Material and Cupertino bottom bar styles"
+    ],
+    "avoid_when": [
+      "Your app does not use a tab-based navigation layout",
+      "You are using a package that conflicts with material_ui and cupertino_ui requirements"
+    ],
+    "strengths": [
+      "Supports both Material and Cupertino themes with automatic switching",
+      "Built-in state caching via PageStorageKey",
+      "Provides animated show/hide for both AppBar and bottom bar"
+    ],
+    "weaknesses": [
+      "Requires specific usage of the material_ui and cupertino_ui packages rather than standard flutter Material widgets",
+      "Minimum constraints require Dart 3.12 / Flutter 3.44 or newer"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires adding bart and material_ui dependencies and importing material_ui instead of standard flutter material.",
+    "alternatives": [
+      {
+        "name": "go_router",
+        "why_pick_it": "For official and robust declarative routing including shell routes for bottom navigation."
+      },
+      {
+        "name": "auto_route",
+        "why_pick_it": "For code-generation based robust routing and nested tabs."
+      },
+      {
+        "name": "beamer",
+        "why_pick_it": "For URI-based routing and delegate navigation."
+      }
+    ],
+    "minimal_example": "class MainPageMenu extends StatelessWidget {\n  const MainPageMenu({Key? key}) : super(key: key);\n\n  @override\n  Widget build(BuildContext context) {\n    return BartScaffold(\n      routesBuilder: subRoutes,\n      bottomBar: BartBottomBar.adaptive(),\n    );\n  }\n}",
+    "confidence": 0.95
+  }
+}

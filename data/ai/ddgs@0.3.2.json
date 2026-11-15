@@ -1,0 +1,50 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.3.2",
+  "generatedAt": "2026-11-15T11:27:12.201Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Aggregates web search results from multiple search engines including DuckDuckGo, Google, and Bing.",
+    "what_it_does": "A professional metasearch library that queries multiple search engines and provides text, image, video, and news search capabilities. It supports result caching, rate limiting, proxy configuration, and includes a command-line interface.",
+    "use_when": [
+      "You need to fetch search results programmatically from engines like DuckDuckGo, Google, or Bing",
+      "You require features like result caching, rate limiting, and proxy support for search queries"
+    ],
+    "avoid_when": [
+      "You are looking for an official API client for a single search engine's paid web-search developer service",
+      "You need high-volume automated scraping where search engines might apply strict anti-bot measures"
+    ],
+    "strengths": [
+      "Supports multiple search engines and specialized search types (text, images, videos, news)",
+      "Includes built-in result caching, rate limiting, and proxy support",
+      "Provides both a Dart library API and a command-line interface"
+    ],
+    "weaknesses": [
+      "Search engines may implement anti-scraping measures causing potential flakiness",
+      "Relying on web scraping can break if search engine HTML structures change"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [
+      {
+        "name": "http",
+        "why_pick_it": "If you prefer building custom HTTP requests and parsing search pages manually instead of using a dedicated metasearch library."
+      },
+      {
+        "name": "dio",
+        "why_pick_it": "If you need a robust HTTP client with advanced interceptors and global configuration for handling web requests."
+      }
+    ],
+    "minimal_example": "import 'package:ddgs/ddgs.dart';\n\nvoid main() async {\n  final ddgs = DDGS();\n\n  try {\n    final results = await ddgs.text(\n      'Dart programming',\n      maxResults: 5,\n      backend: 'duckduckgo',\n    );\n    \n    for (final result in results) {\n      print('${result['title']}: ${result['href']}');\n    }\n  } finally {\n    ddgs.close();\n  }\n}",
+    "confidence": 1
+  }
+}

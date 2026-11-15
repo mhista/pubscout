@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.8-flash",
+  "version": "3.0.0",
+  "generatedAt": "2026-11-15T11:11:28.030Z",
+  "data": {
+    "primary_category": "camera",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Drop-in camera UI widget for taking photos with zoom, flash, and camera switching.",
+    "what_it_does": "Provides a ready-to-use camera widget wrapped around the official camera plugin. It manages the preview, zoom, flash mode, and switching camera sides, returning the captured image file via a callback. Developers can embed it directly into a widget tree or open it in a modal route.",
+    "use_when": [
+      "You need a quick, turnkey camera screen to take photos without building custom camera preview and control UI.",
+      "You want simple file callbacks for captured photos on Android and iOS."
+    ],
+    "avoid_when": [
+      "You need extensive customization of the camera UI and layout.",
+      "You need video recording or exposure control (not yet supported according to roadmap).",
+      "You need advanced barcode scanning or MLKit integration."
+    ],
+    "strengths": [
+      "Simple declarative usage via a single CameraCamera widget.",
+      "Built-in support for flash control, zoom, and toggling front/back cameras.",
+      "Returns captured images directly via an onFile callback."
+    ],
+    "weaknesses": [
+      "Lacks custom layout support and advanced camera controls like manual exposure.",
+      "Platform support in pubspec metadata is limited to Android and iOS despite beta web support notes."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires setting minSdkVersion 21 in Android build.gradle, and NSCameraUsageDescription and NSMicrophoneUsageDescription keys in iOS Info.plist.",
+    "alternatives": [
+      {
+        "name": "camera",
+        "why_pick_it": "Use camera directly for full lower-level control over the camera stream, UI, video recording, and custom layouts."
+      }
+    ],
+    "minimal_example": "CameraCamera(\n  onFile: (file) {\n    print(file);\n    Navigator.pop(context);\n  },\n)",
+    "confidence": 0.85
+  }
+}

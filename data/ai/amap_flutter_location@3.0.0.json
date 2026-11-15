@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.0.0",
+  "generatedAt": "2026-11-15T11:27:06.304Z",
+  "data": {
+    "primary_category": "maps",
+    "secondary_categories": [
+      "device"
+    ],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "Flutter plugin for AMap Location SDK providing geolocation services on Android and iOS",
+    "what_it_does": "It allows Flutter applications to obtain location data using the AMap (高德) Location SDK. It supports configuring parameters like accuracy, interval, and address details, and exposes location changes via a Stream.",
+    "use_when": [
+      "You need geolocation services specifically tailored or optimized for regions using AMap data.",
+      "Your application requires continuous or single-shot location updates on Android and iOS."
+    ],
+    "avoid_when": [
+      "You need a general-purpose global mapping or geolocation solution without regional vendor lock-in.",
+      "You want a declarative widget-based location wrapper rather than an imperative plugin controller."
+    ],
+    "strengths": [
+      "Provides direct integration with AMap Location SDK for Android and iOS.",
+      "Supports fine-grained location options such as address lookup, intervals, and iOS 14 accuracy authorizations."
+    ],
+    "weaknesses": [
+      "Requires manual configuration of keys on the AMap developer platform for both Android and iOS.",
+      "Requires compliance setup for privacy policies as mandated by AMap SDK."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires registering for Android and iOS keys on the AMap Developer Portal, configuring platform-specific settings, and handling privacy compliance methods (updatePrivacyShow, updatePrivacyAgree) before calling location APIs.",
+    "alternatives": [
+      {
+        "name": "geolocator",
+        "why_pick_it": "A generic, cross-platform geolocation plugin that does not depend on regional map providers like AMap."
+      }
+    ],
+    "minimal_example": "import 'package:amap_flutter_location/amap_flutter_location.dart';\nimport 'package:amap_flutter_location/amap_location_option.dart';\n\nfinal AMapFlutterLocation _locationPlugin = AMapFlutterLocation();\n\nvoid start() {\n  _locationPlugin.setLocationOption(AMapLocationOption()..onceLocation = false);\n  _locationPlugin.onLocationChanged().listen((Map<String, Object> result) {\n    print(result);\n  });\n  _locationPlugin.startLocation();\n}",
+    "confidence": 0.95
+  }
+}

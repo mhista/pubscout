@@ -1,0 +1,57 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.0-alpha.10",
+  "generatedAt": "2026-11-14T10:43:26.459Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [
+      "dependency-injection"
+    ],
+    "approach": [
+      "no codegen",
+      "declarative",
+      "imperative"
+    ],
+    "one_liner": "Self-optimizing state management and dependency injection engine for Flutter with zero code generation.",
+    "what_it_does": "Combines structured domain models with micro-rebuild precision using register-level CPU bitmask diffing. Allows you to update mutable state via standard cascades while rebuilding only the exact UI slots that read changed properties.",
+    "use_when": [
+      "You want granular widget rebuilds without writing manual buildWhen conditions",
+      "You prefer structured domain models over fragmented reactive primitives without needing code generation",
+      "You need clean zero-wrapper route lifecycle dependency scoping"
+    ],
+    "avoid_when": [
+      "You strictly follow immutable-only state paradigms with copyWith",
+      "You prefer mature, stream-based architectures like BLoC or atomic providers like Riverpod"
+    ],
+    "strengths": [
+      "Zero code generation required for models",
+      "Surgical field-level UI rebuild precision via bitmask diffing",
+      "Lazy universal dependency injection with type-safe scopes",
+      "Synchronous frame-0 persistence hydration"
+    ],
+    "weaknesses": [
+      "Relies on mutable state classes and cascade assignments",
+      "Alpha stability level with potential API shifts"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add graft and optional custom_lint / graft_lint package to pubspec.yaml, and enable custom_lint in analysis_options.yaml.",
+    "alternatives": [
+      {
+        "name": "bloc",
+        "why_pick_it": "You prefer predictable, stream-based, immutable state transitions with explicit events."
+      },
+      {
+        "name": "riverpod",
+        "why_pick_it": "You prefer compile-safe global providers and immutable reactive state graphs."
+      },
+      {
+        "name": "provider",
+        "why_pick_it": "You want a classic, widely adopted dependency injection and simple inheritance-based change notification system."
+      }
+    ],
+    "minimal_example": "class UserState extends GraftState {\n  String name = 'Alice';\n  int points = 0;\n\n  @override\n  GraftProps get props => propsOf(name, points);\n}\n\nclass UserGraft extends Graft<UserState> {\n  UserGraft() : super(UserState());\n\n  void addPoint() {\n    state\n      ..points += 1\n      ..update();\n  }\n}",
+    "confidence": 1
+  }
+}

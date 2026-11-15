@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.2.0",
+  "generatedAt": "2026-11-13T11:31:00.401Z",
+  "data": {
+    "primary_category": "camera",
+    "secondary_categories": [
+      "networking",
+      "audio-video"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Dart implementation of ONVIF IP camera and NVR client for device control and streaming.",
+    "what_it_does": "Allows Dart and Flutter applications to integrate with a variety of ONVIF compatible devices, such as IP cameras and network video recorders (NVRs). It supports device management, PTZ (pan-tilt-zoom) control, preset management, imaging, and streaming controls.",
+    "use_when": [
+      "You need to connect and control ONVIF-compliant IP cameras or NVRs in Flutter or Dart.",
+      "You need to manage pan-tilt-zoom (PTZ) camera movements and presets programmatically.",
+      "You want to retrieve device information, stream URIs, and network settings from security cameras."
+    ],
+    "avoid_when": [
+      "You are streaming standard media files or non-ONVIF video sources.",
+      "You only need local device camera access rather than remote network IP cameras."
+    ],
+    "strengths": [
+      "Comprehensive coverage of ONVIF operations including Device Management, Media, PTZ, Imaging, and Recording.",
+      "Provides low-level request fallbacks for custom ONVIF operations.",
+      "Web platform compatibility."
+    ],
+    "weaknesses": [
+      "Requires proper authentication and network privileges (such as Administrator access) on the ONVIF device to avoid unexpected errors.",
+      "Relies on specific device implementations which can occasionally introduce ONVIF protocol inconsistencies."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the dependency to pubspec.yaml and connect to the ONVIF device using host, username, and password credentials.",
+    "alternatives": [],
+    "minimal_example": "import 'package:easy_onvif/onvif.dart';\n\nfinal onvif = await Onvif.connect(\n host: '192.168.1.100',\n username: 'admin',\n password: 'password');\n\nvar deviceInfo = await onvif.deviceManagement.getDeviceInformation();\nprint(deviceInfo.model);",
+    "confidence": 0.95
+  }
+}

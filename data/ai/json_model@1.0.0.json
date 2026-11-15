@@ -1,0 +1,47 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.0",
+  "generatedAt": "2026-11-13T11:36:19.638Z",
+  "data": {
+    "primary_category": "codegen",
+    "secondary_categories": [],
+    "approach": [
+      "code generation"
+    ],
+    "one_liner": "Generate Dart model classes from JSON files with a single command.",
+    "what_it_does": "Parses JSON files stored in a designated directory and automatically generates corresponding Dart model classes complete with json_serializable support. It allows referencing other models via special syntax and configuring rules through metadata inside the JSON files.",
+    "use_when": [
+      "You prefer maintaining raw JSON files instead of UI tools or Dart classes for data structures",
+      "You want to generate JSON serialization code effortlessly using a command line tool"
+    ],
+    "avoid_when": [
+      "You prefer writing your immutable Dart models manually using tools like freezed or json_annotation",
+      "You need complex custom serialization logic that cannot be derived from a raw JSON file structure"
+    ],
+    "strengths": [
+      "Keeps raw JSON files as the single source of truth for your models",
+      "Supports referencing other models and arrays using a simple syntax",
+      "Allows fine-tuning generation rules via `$meta` configurations and ignores"
+    ],
+    "weaknesses": [
+      "License is unknown",
+      "Relies on external JSON files rather than Dart-first code definitions"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add json_model and json_serializable to dev_dependencies and run via pub run json_model.",
+    "alternatives": [
+      {
+        "name": "freezed_annotation",
+        "why_pick_it": "Pick freezed if you prefer defining models in Dart code with immutability and union types rather than managing separate raw JSON files."
+      },
+      {
+        "name": "json_annotation",
+        "why_pick_it": "Pick json_annotation with json_serializable if you want to write standard Dart classes and annotate them directly for JSON serialization."
+      }
+    ],
+    "minimal_example": "import 'package:json_model/json_model.dart';\nvoid main() {\n  run(['src=jsons']);\n}",
+    "confidence": 0.95
+  }
+}
