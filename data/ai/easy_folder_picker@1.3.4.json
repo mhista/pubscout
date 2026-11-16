@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.3.4",
+  "generatedAt": "2026-11-16T11:52:52.466Z",
+  "data": {
+    "primary_category": "files",
+    "secondary_categories": [
+      "device"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Easy directory picker and folder creation tool for Flutter on Android.",
+    "what_it_does": "Allows users to pick directories and create new folders within a Flutter application. Handles permission requests required for storage access on Android.",
+    "use_when": [
+      "You need to let users select directories on Android",
+      "You need folder creation functionality inside your folder picker",
+      "You want a simple folder selection dialog with automatic permission checks"
+    ],
+    "avoid_when": [
+      "You need cross-platform support for iOS, Web, or Desktop (supports Android only)",
+      "You need to pick individual files instead of directories"
+    ],
+    "strengths": [
+      "Includes folder creation support",
+      "Handles runtime storage permissions out of the box",
+      "Simple API with a clear dialog usage pattern"
+    ],
+    "weaknesses": [
+      "Only supports Android",
+      "Requires manual configuration of native AndroidManifest permissions and legacy storage flags"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding READ_EXTERNAL_STORAGE and WRITE_EXTERNAL_STORAGE permissions to android/app/src/main/AndroidManifest.xml, and handling Android 10/11 storage flags and runtime permissions.",
+    "alternatives": [],
+    "minimal_example": "Future<void> _pickDirectory(BuildContext context) async {\n  Directory directory = selectedDirectory;\n  if (directory == null) {\n    directory = Directory(FolderPicker.ROOTPATH);\n  }\n\n  Directory newDirectory = await FolderPicker.pick(\n      allowFolderCreation: true,\n      context: context,\n      rootDirectory: directory,\n      shape: RoundedRectangleBorder(\n          borderRadius: BorderRadius.all(Radius.circular(10))));\n  setState(() {\n    selectedDirectory = newDirectory;\n    print(selectedDirectory);\n  });\n}",
+    "confidence": 0.95
+  }
+}

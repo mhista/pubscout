@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.2.1",
+  "generatedAt": "2026-11-16T12:07:23.580Z",
+  "data": {
+    "primary_category": "camera",
+    "secondary_categories": [
+      "files"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A Flutter plugin that creates a native platform view to scan documents.",
+    "what_it_does": "It provides a widget that integrates native platform document scanning functionality directly into Flutter applications. The package captures documents and returns the scanned result via callback.",
+    "use_when": [
+      "You need a native document scanning widget inside an Android or iOS Flutter app.",
+      "You want to capture scanned documents and retrieve them as files or image paths."
+    ],
+    "avoid_when": [
+      "You need heavy customization of the document scanner options, as customization currently does not work.",
+      "You need scanning capabilities on web or desktop platforms."
+    ],
+    "strengths": [
+      "Simplifies adding document scanning capabilities via native platform views.",
+      "Returns structured image objects with file conversion helpers."
+    ],
+    "weaknesses": [
+      "Document scanner customization options are currently not working.",
+      "Only supports Android and iOS platforms."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires handling camera permissions. For iOS, add io.flutter.embedded_views_preview and NSCameraUsageDescription keys to Info.plist. For Android, ensure minSdkVersion is at least 19.",
+    "alternatives": [],
+    "minimal_example": "DocumentScanner(\n    onDocumentScanned: (ScannedImage scannedImage) {\n        print(\"document : \" + scannedImage.croppedImage);\n        File scannedDocument = scannedImage.getScannedDocumentAsFile();\n    },\n)",
+    "confidence": 0.95
+  }
+}

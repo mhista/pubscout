@@ -1,0 +1,48 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.1",
+  "generatedAt": "2026-11-16T12:07:30.253Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "audio-video"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "A Dart client for the Genius.com API to fetch song, artist, and lyrics data.",
+    "what_it_does": "Provides a simple interface to query Genius.com for artists, songs, albums, and their corresponding lyrics. It allows developers to search data and save lyrics to local files.",
+    "use_when": [
+      "You need to fetch song lyrics or artist data from Genius.com in your Dart or Flutter app.",
+      "You want to search for albums and tracks using the Genius API."
+    ],
+    "avoid_when": [
+      "You are streaming music or handling actual audio/video playback.",
+      "You need a backend client for services other than Genius.com."
+    ],
+    "strengths": [
+      "Simple interface inspired by the LyricsGenixir Python library.",
+      "Supports searching by artist, song title, and album with options to include featured tracks."
+    ],
+    "weaknesses": [
+      "Requires a free Genius API access token to function.",
+      "Tied exclusively to the Genius.com platform."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Sign up for a free Genius account to obtain an access token for the Genius API.",
+    "alternatives": [
+      {
+        "name": "http",
+        "why_pick_it": "If you prefer making raw HTTP requests to the Genius API directly without using a wrapper package."
+      },
+      {
+        "name": "dio",
+        "why_pick_it": "If you need a robust HTTP client with advanced features like interceptors for calling the Genius API."
+      }
+    ],
+    "minimal_example": "import 'package:genius_lyrics/genius_lyrics.dart';\n\nvoid main(List<String> args) async {\n  Genius genius = Genius(accessToken: 'YOUR_TOKEN');\n  Song? song = await genius.searchSong(artist: 'J. Cole', title: 'KOD');\n  if (song != null) {\n    print(song.lyrics);\n  }\n}",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "1.2.0",
+  "generatedAt": "2026-11-16T11:41:45.292Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Set Android wallpaper from a URL, file, bytes or asset.",
+    "what_it_does": "Downloads an image (optionally with progress) and uses Android WallpaperManager to apply it as home, lock, both, or system wallpaper. Provides APIs to query recommended size and open the system chooser.",
+    "use_when": [
+      "You need to change the device's wallpaper on Android",
+      "You want to download images with progress and apply them as wallpapers"
+    ],
+    "avoid_when": [
+      "You target iOS or other platforms",
+      "You need cross‑platform wallpaper support"
+    ],
+    "strengths": [
+      "Handles download, caching and progress streams",
+      "Supports multiple targets (home, lock, both, system)",
+      "Provides typed, cancellable download API",
+      "No extra storage permissions required"
+    ],
+    "weaknesses": [
+      "Android‑only; no iOS support",
+      "Relies on native WallpaperManager which may behave differently across manufacturers"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the plugin to pubspec and run flutter pub get; Android permissions (INTERNET, SET_WALLPAPER) are declared automatically.",
+    "alternatives": [],
+    "minimal_example": "import 'package:wallpaper/wallpaper.dart';\n\nawait Wallpaper.download('https://example.com/img.jpg').completed;\nawait Wallpaper.homeScreen(location: DownloadLocation.applicationDirectory);",
+    "confidence": 0.93
+  }
+}

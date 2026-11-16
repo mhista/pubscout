@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "1.8.1",
+  "generatedAt": "2026-11-16T11:21:17.601Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Dart client for Firebird SQL using FFI, providing async API and low‑level bindings.",
+    "what_it_does": "It connects to a Firebird database via the native client library, lets you execute queries, manage transactions, blobs and batches, and streams results asynchronously.",
+    "use_when": [
+      "You need to access a Firebird database from a Dart or Flutter app.",
+      "You want a fully asynchronous API with isolates and streams for performance."
+    ],
+    "avoid_when": [
+      "You are targeting web or environments without a native Firebird client library.",
+      "You need a cross‑platform database that works out of the box without external binaries."
+    ],
+    "strengths": [
+      "Fully async with isolates and streams",
+      "Supports transactions, BLOBs, batch execution",
+      "Open‑source BSD‑3 license",
+      "Provides both high‑level and low‑level APIs"
+    ],
+    "weaknesses": [
+      "Requires native Firebird client library and its dependencies",
+      "Not supported on web",
+      "Platform setup can be complex"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Place the appropriate fbclient.dll (Windows), libfbclient.so (Linux) or libfbclient.dylib (macOS) in the application directory and ensure any required runtime dependencies (e.g., VC++ redistributables on Windows).",
+    "alternatives": [],
+    "minimal_example": "import \"package:fbdb/fbdb.dart\";\n\nvoid main() async {\n  FbDb db = await FbDb.attach(\n    host: \"localhost\",\n    database: \"employee\",\n    user: \"SYSDBA\",\n    password: \"masterkey\",\n  );\n  final q = db.query();\n  await q.openCursor(\n      sql: \"select FIRST_NAME, LAST_NAME from EMPLOYEE order by LAST_NAME rows 10 \",\n  );\n  await for (var r in q.rows()) {\n    print(\"${r['LAST_NAME']}, ${r['FIRST_NAME']}\");\n  }\n  await q.close();\n  await db.detach();\n}",
+    "confidence": 0.8
+  }
+}

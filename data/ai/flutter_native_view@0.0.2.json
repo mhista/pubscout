@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.0.2",
+  "generatedAt": "2026-11-16T11:54:19.638Z",
+  "data": {
+    "primary_category": "web-desktop",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "imperative",
+      "declarative"
+    ],
+    "one_liner": "Embed native Windows windows and components directly into a Flutter window.",
+    "what_it_does": "Allows embedding arbitrary Win32 HWND windows into a Flutter application as a standard Widget. It uses Win32 APIs without intermediate pixel buffer copying to keep performance high.",
+    "use_when": [
+      "You need to embed existing third-party native Windows windows into a Flutter desktop app.",
+      "You are building Windows desktop applications with Flutter and need performant native window embedding."
+    ],
+    "avoid_when": [
+      "You are targeting platforms other than Windows, such as mobile or web.",
+      "You require fully stable interactive support with the embedded native views out of the box."
+    ],
+    "strengths": [
+      "Very performant as it avoids texture or intermediate pixel buffer copying.",
+      "Supports placing other Flutter widgets on top of the native view.",
+      "Supports multiple instances of NativeView and placement inside scrollables."
+    ],
+    "weaknesses": [
+      "Currently restricted to Windows only.",
+      "Interactability (hit-testing) is marked as unstable.",
+      "Requires manual native C++ setup in `windows/runner/main.cpp`."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires modifying windows/runner/main.cpp to include the plugin header and initialize NativeViewContainer.",
+    "alternatives": [],
+    "minimal_example": "Future<void> main() async {\n  WidgetsFlutterBinding.ensureInitialized();\n  await FlutterNativeView.ensureInitialized();\n  runApp(const MyApp());\n}",
+    "confidence": 0.95
+  }
+}

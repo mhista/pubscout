@@ -1,0 +1,47 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.8.1",
+  "generatedAt": "2026-11-16T11:58:26.216Z",
+  "data": {
+    "primary_category": "theming",
+    "secondary_categories": [
+      "ui-kits",
+      "layout"
+    ],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "A Material Design 3 contract enforcing design tokens via type-safe Dart APIs.",
+    "what_it_does": "Enforces Material Design 3 tokens system-wide by replacing free primitives with type-safe equivalents like M3SpacingValue, M3TypeScale, and M3Shape. It maps spacing, shapes, elevations, colors, and motion directly into type checks so off-scale values cause compile errors.",
+    "use_when": [
+      "You want strict enforcement of Material Design 3 token scales across your entire app.",
+      "You want design parameters like spacing, text sizes, and elevations to be caught at compile-time if they violate guidelines."
+    ],
+    "avoid_when": [
+      "You are building a custom design system that does not follow Material Design 3.",
+      "You prefer using standard Flutter primitives without strict type safety wrappers."
+    ],
+    "strengths": [
+      "Catches design non-compliance at compile time instead of via code review.",
+      "Zero runtime cost through compile-time extension types.",
+      "Comprehensive coverage of M3 specs including spacing, typography, colors, iconography, and motion springs."
+    ],
+    "weaknesses": [
+      "Locks your codebase into strict Material Design 3 conventions.",
+      "Requires learning a new vocabulary of custom token widgets and types."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires Flutter >=3.27.0 and Dart >=3.6.0. Simply add the package to dependencies and import it.",
+    "alternatives": [
+      {
+        "name": "material_ui",
+        "why_pick_it": "If you want standard Material components without strict compile-time design contract constraints."
+      }
+    ],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:material_design/material_design.dart';\n\nMaterialApp(\n  theme: M3TextTheme.applyToTheme(\n    ThemeData(\n      useMaterial3: true,\n      colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF6750A4)),\n    ),\n  ),\n  home: const Scaffold(\n    body: M3Padding(\n      padding: M3EdgeInsets.all(M3Spacings.s16),\n      child: Text('Title', style: M3TypeScale.titleMedium),\n    ),\n  ),\n);",
+    "confidence": 1
+  }
+}

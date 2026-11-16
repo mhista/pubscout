@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.1.0",
+  "generatedAt": "2026-11-16T11:27:52.035Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [
+      "files"
+    ],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "Spring Boot-inspired local SQLite CRUD and file helpers for Flutter entities.",
+    "what_it_does": "Automatically generates SQLite CRUD statements from plain Dart entity classes without manual SQL or repository boilerplate. Provides file system helpers for reading, writing, and managing binary files and paths. Supports optional database and file encryption.",
+    "use_when": [
+      "You want local SQLite persistence without writing hand-written SQL or repositories",
+      "You need file system helpers alongside local database storage",
+      "You want optional encryption for your local database and files"
+    ],
+    "avoid_when": [
+      "You need a cloud-synced backend database",
+      "You require a full ORM with complex relationship mapping"
+    ],
+    "strengths": [
+      "No hand-written SQL or repository boilerplate required",
+      "Handles both local SQLite CRUD and file system storage",
+      "Supports cross-platform including mobile, desktop, and web"
+    ],
+    "weaknesses": [
+      "Requires careful exception handling as most entity methods throw when tables do not exist",
+      "First access creates a default database named sqlf_easy.db unless changed"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Make sure Flutter bindings are initialized with WidgetsFlutterBinding.ensureInitialized() before calling methods that need the application documents directory.",
+    "alternatives": [],
+    "minimal_example": "class Person {\n  String? idPers;\n  String? firstName;\n  String? lastName;\n  bool? sex;\n  DateTime? dateOfBirth;\n\n  MapEntry<String, bool> get pKeyAuto => const MapEntry('idPers', false);\n  List<String> get notNulls => <String>['firstName', 'lastName', 'sex', 'dateOfBirth'];\n\n  Person([this.idPers, this.firstName, this.lastName, this.sex, this.dateOfBirth]);\n\n  Map<String, dynamic> toMap() => {\n        'idPers': idPers ?? ColumnType.String,\n        'firstName': firstName ?? ColumnType.String,\n        'lastName': lastName ?? ColumnType.String,\n        'sex': sex ?? ColumnType.bool,\n        'dateOfBirth': dateOfBirth ?? ColumnType.DateTime,\n      };\n\n  Person.fromMap(Map<String, Object?> json, {bool isInt = true}) {\n    idPers = json['idPers'] as String?;\n    firstName = json['firstName'] as String?;\n    lastName = json['lastName'] as String?;\n    sex = boolean(json['sex'], isInt: isInt);\n    dateOfBirth = dateTime(json['dateOfBirth'] as String?);\n  }\n\n  Person fromMap(Map<String, Object?> json) => Person.fromMap(json);\n}",
+    "confidence": 0.95
+  }
+}

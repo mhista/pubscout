@@ -1,0 +1,53 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.2",
+  "generatedAt": "2026-11-16T12:12:52.244Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "A lightweight, modern state management library with a Flutter-like API.",
+    "what_it_does": "June provides shared, reactive state that works similarly to Flutter's native state management without needing widget tree dependencies. It supports global state access, tags for multiple instances, and partial rebuilds via IDs.",
+    "use_when": [
+      "You want state management that feels like native Flutter setState",
+      "You need global or per-widget state without heavy boilerplate",
+      "You want support for multiple instances using tags and selective rebuilds using IDs"
+    ],
+    "avoid_when": [
+      "You prefer strict immutable state stores like BLoC or Redux",
+      "You require built-in stream-based architectures"
+    ],
+    "strengths": [
+      "Very simple and quick to set up with minimal boilerplate",
+      "No MaterialApp wrapper or manual initialization required",
+      "Supports multiple tagged instances and per-widget local state"
+    ],
+    "weaknesses": [
+      "Relies on mutable state modification followed by setState() calls",
+      "Smaller ecosystem and community compared to alternatives like Provider, Riverpod, or Bloc"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "provider",
+        "why_pick_it": "If you want the classic InheritedWidget-based approach backed by the Flutter community."
+      },
+      {
+        "name": "riverpod",
+        "why_pick_it": "If you want compile-safe global state management without BuildContext."
+      },
+      {
+        "name": "flutter_bloc",
+        "why_pick_it": "If you prefer a strict event-driven, predictable state machine architecture."
+      }
+    ],
+    "minimal_example": "class CounterVM extends JuneState {\n  int count = 0;\n\n  void increment() {\n    count++;\n    setState();\n  }\n}\n\nJuneBuilder(\n  () => CounterVM(),\n  builder: (vm) => Text('${vm.count}'),\n)",
+    "confidence": 1
+  }
+}

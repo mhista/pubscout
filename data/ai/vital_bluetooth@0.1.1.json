@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.1.1",
+  "generatedAt": "2026-11-16T11:36:53.030Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "Bluetooth LE plugin for Flutter with background support and automatic reconnect",
+    "what_it_does": "Provides scanning, connecting, GATT operations, notifications, and background mode with queued operations and typed errors.",
+    "use_when": [
+      "Wearable or healthcare apps needing continuous BLE data",
+      "Apps that must stay connected in background",
+      "Projects requiring automatic reconnect and operation queuing"
+    ],
+    "avoid_when": [
+      "Simple BLE demos without background needs",
+      "Apps that only need one-time reads/writes"
+    ],
+    "strengths": [
+      "Background mode with foreground service",
+      "Automatic reconnect with backoff",
+      "Queued GATT operations per device",
+      "Typed error hierarchy"
+    ],
+    "weaknesses": [
+      "Only BLE (no classic yet)",
+      "Requires platform-specific permissions and setup",
+      "Limited to Flutter 3.29+ and Dart 3.7+"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add Android permissions (BLUETOOTH_SCAN, BLUETOOTH_CONNECT, FOREGROUND_SERVICE, etc.) and iOS Info.plist keys (NSBluetoothAlwaysUsageDescription, UIBackgroundModes). Set minSdk to 24. No build_runner needed.",
+    "alternatives": [],
+    "minimal_example": "import 'package:vital_bluetooth/vital_bluetooth.dart';\n\nfinal bluetooth = VitalBluetooth();\n\nfinal status = await bluetooth.requestPermissions();\nif (!status.isGranted) return;\n\nfinal result = await bluetooth.scan(withServices: ['180d'], timeout: const Duration(seconds: 10)).first;\nfinal device = result.device;\nawait device.connect();\nfinal heartRate = device.characteristic('180d', '2a37')!;\nawait heartRate.setNotify(true);\nheartRate.values.listen((bytes) => print('HR packet: $bytes'));\n",
+    "confidence": 0.9
+  }
+}

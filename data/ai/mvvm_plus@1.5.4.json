@@ -1,0 +1,54 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.5.4",
+  "generatedAt": "2026-11-16T12:02:02.496Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [
+      "dependency-injection"
+    ],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "Lightweight Flutter MVVM implementation with state sharing via global registry or inherited widgets.",
+    "what_it_does": "Organizes UI into View widgets and business logic into ViewModels extending ChangeNotifier. It includes a built-in locator for sharing states either globally or through inherited widgets, along with convenience property types like ValueNotifier, FutureProperty, and StreamProperty.",
+    "use_when": [
+      "You want to structure your Flutter application using the MVVM pattern.",
+      "You need lightweight state management combined with a simple dependency locator similar to GetIt or Provider."
+    ],
+    "avoid_when": [
+      "You prefer strict event-driven state architectures like BLoC/Cubit.",
+      "Your project standardizes entirely around Riverpod for state management."
+    ],
+    "strengths": [
+      "Simple and small API extending native Flutter classes.",
+      "Supports both global registry and widget tree (inherited) locations for ViewModels.",
+      "Includes specialized properties like FutureProperty and StreamProperty for easy async data handling."
+    ],
+    "weaknesses": [
+      "Requires learning its specific MVVM widget and view model extension patterns.",
+      "Less ecosystem tooling compared to major state management libraries like Provider or Riverpod."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "provider",
+        "why_pick_it": "If you prefer standard InheritedWidget-based dependency injection and state management without the strict MVVM class hierarchy."
+      },
+      {
+        "name": "riverpod",
+        "why_pick_it": "If you want compile-safe global state management without relying on BuildContext or registries."
+      },
+      {
+        "name": "flutter_bloc",
+        "why_pick_it": "If you need a strict predictable state machine architecture separating events and states."
+      }
+    ],
+    "minimal_example": "class MyWidgetViewModel extends ViewModel {\n  String someText = 'Hello';\n}\n\nclass MyWidget extends ViewWidget<MyWidgetViewModel> {\n  MyWidget({super.key}) : super(builder: () => MyWidgetViewModel());\n\n  @override\n  Widget build(BuildContext context) {\n    return Text(viewModel.someText);\n  }\n}",
+    "confidence": 0.95
+  }
+}

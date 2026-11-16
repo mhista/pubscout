@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.4.0",
+  "generatedAt": "2026-11-16T11:42:15.642Z",
+  "data": {
+    "primary_category": "codegen",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "code generation"
+    ],
+    "one_liner": "Generates documentation for Flutter widgets via annotations and a preview app.",
+    "what_it_does": "The package provides an annotation to mark widgets for documentation. A build_runner code generator creates files describing widget parameters, snippets, and metadata, which can be displayed in a preview application.",
+    "use_when": [
+      "You want automatically generated docs for a library of custom widgets.",
+      "You need a quick way to preview widget usage examples without writing manual docs."
+    ],
+    "avoid_when": [
+      "You prefer runtime reflection or manual documentation.",
+      "Your project cannot add a build step or extra dependencies."
+    ],
+    "strengths": [
+      "Zero‑manual doc writing – generated from code.",
+      "Integrated preview UI for desktop, web, and mobile.",
+      "Supports null‑safety and default values."
+    ],
+    "weaknesses": [
+      "Requires build_runner and a separate builder package.",
+      "Only works for Flutter widgets, not pure Dart code.",
+      "Adds extra generated files to the repo."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add doc_widget and doc_widget_builder to dependencies, include build_runner in dev_dependencies, then run flutter pub run build_runner build to generate docs.",
+    "alternatives": [],
+    "minimal_example": "@docWidget\nclass Button extends StatelessWidget {\n  Button(this.text, {required this.onPressed, this.color = const Color(0xff007aff)});\n  final String text;\n  final void Function() onPressed;\n  final Color color;\n  @override\n  Widget build(BuildContext context) => CupertinoButton(color: color, onPressed: onPressed, child: Text(text));\n}\n// Then run:\n// flutter pub run build_runner build",
+    "confidence": 0.9
+  }
+}

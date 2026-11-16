@@ -1,0 +1,56 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.6.0",
+  "generatedAt": "2026-11-16T12:14:02.400Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based",
+      "no codegen"
+    ],
+    "one_liner": "Embedded NoSQL database for Dart and Flutter with LSM storage, ACID transactions, and encryption.",
+    "what_it_does": "Provides a pure Dart embedded NoSQL database featuring a write-ahead log, queries, indexes, ACID transactions, AES-256-GCM encryption, TTL, and change streams. Runs without native dependencies across mobile, desktop, and the Dart VM.",
+    "use_when": [
+      "You need an embedded NoSQL database in pure Dart with query capabilities and ACID transactions",
+      "You require secure AES-256-GCM encryption for stored data",
+      "You need live updates and change streams to rebuild your UI"
+    ],
+    "avoid_when": [
+      "You need web platform support (IndexedDB)",
+      "You require the absolute fastest iteration over everything stored compared to Hive"
+    ],
+    "strengths": [
+      "Every write is flushed to disk before returning by default",
+      "Supports queries, indexes, and ACID transactions",
+      "Pure Dart with no native dependencies and optional background isolate execution"
+    ],
+    "weaknesses": [
+      "Does not run on the web",
+      "Opening takes longer and memory usage grows if keepInMemory is used"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "No native dependencies or code generation required. Add the package to pubspec and initialize with an absolute path or ReaxFlutter.",
+    "alternatives": [
+      {
+        "name": "hive",
+        "why_pick_it": "Pick Hive if you need web support or maximum iteration speed over stored values."
+      },
+      {
+        "name": "sqflite",
+        "why_pick_it": "Pick sqflite if you prefer a traditional SQLite relational database."
+      },
+      {
+        "name": "drift",
+        "why_pick_it": "Pick drift if you want a type-safe SQL database builder for Dart and Flutter."
+      }
+    ],
+    "minimal_example": "final db = await ReaxDB.open(path: '/absolute/path/to/data');\nawait db.put('user:1', {'name': 'Ada', 'age': 36});\nfinal user = await db.get<Map<String, dynamic>>('user:1');",
+    "confidence": 1
+  }
+}

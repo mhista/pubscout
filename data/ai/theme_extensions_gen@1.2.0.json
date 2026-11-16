@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.2.0",
+  "generatedAt": "2026-11-16T12:07:17.879Z",
+  "data": {
+    "primary_category": "theming",
+    "secondary_categories": [
+      "codegen"
+    ],
+    "approach": [
+      "code generation",
+      "declarative"
+    ],
+    "one_liner": "Generate Flutter ThemeExtensions from annotated templates with context accessors and no boilerplate.",
+    "what_it_does": "Generates concrete ThemeExtension classes, copyWith, lerp, equality, debugFillProperties, and BuildContext extensions from abstract templates. Also aggregates theme implementations automatically via build_runner.",
+    "use_when": [
+      "You want to avoid boilerplate code when implementing Flutter ThemeExtensions.",
+      "You need automatic aggregation of theme extensions into ThemeData.",
+      "You want context accessors for your custom theme extensions."
+    ],
+    "avoid_when": [
+      "Your project does not use code generation or build_runner.",
+      "You prefer writing ThemeExtension classes manually."
+    ],
+    "strengths": [
+      "Automates copyWith, lerp, equality, and hash code generation.",
+      "Generates BuildContext extensions for quick theme property access.",
+      "Aggregates all theme implementations into lists automatically."
+    ],
+    "weaknesses": [
+      "Requires running build_runner after making changes to theme templates.",
+      "Template constraints require specific constructor signatures."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add theme_extensions_gen_annotations, theme_extensions_gen, and build_runner to your pubspec, then run dart run build_runner watch.",
+    "alternatives": [],
+    "minimal_example": "@ThemeExtensionTemplate()\nabstract interface class ThemedButtonTheme extends ThemeExtension<ThemedButtonTheme>\n    with _$ThemedButtonThemeMixin, Diagnosticable {\n  const factory ThemedButtonTheme({\n    required Decoration decoration,\n    required TextStyle textStyle,\n    required EdgeInsets padding,\n  }) = _$ThemedButtonTheme;\n}",
+    "confidence": 0.95
+  }
+}

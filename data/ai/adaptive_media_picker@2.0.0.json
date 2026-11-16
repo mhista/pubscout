@@ -1,0 +1,54 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "2.0.0",
+  "generatedAt": "2026-11-16T11:28:57.173Z",
+  "data": {
+    "primary_category": "images",
+    "secondary_categories": [
+      "device",
+      "widgets"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Flutter package to pick images or videos with permissions, source sheet, cropping and validation on all platforms.",
+    "what_it_does": "Provides a single API that handles permission requests, lets the user choose camera or gallery, optionally crops the media, and validates size and MIME type. It works on Android, iOS, Web, macOS, Windows and Linux and returns typed results instead of throwing exceptions.",
+    "use_when": [
+      "You need a unified media picker with built‑in permission handling and cropping",
+      "You want validation of file size or type before upload",
+      "You target multiple platforms including Web and desktop"
+    ],
+    "avoid_when": [
+      "You only need a simple file picker and want minimal dependencies",
+      "You require a fully custom UI for the picker flow"
+    ],
+    "strengths": [
+      "Cross‑platform support including Web and desktop",
+      "Built‑in permission dialogs and source sheet",
+      "Cropping available on every platform, including circle crop",
+      "File‑size and MIME‑type validation out of the box"
+    ],
+    "weaknesses": [
+      "Adds several native dependencies (image_cropper, smart_permission, etc.)",
+      "Larger bundle size compared to using image_picker alone",
+      "Customization of the UI beyond provided options is limited"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add camera and photo library permissions to AndroidManifest and iOS Info.plist, configure image_cropper native libraries if needed, and follow the package's platform‑setup guide for Web/WASM.",
+    "alternatives": [
+      {
+        "name": "image_picker",
+        "why_pick_it": "Lightweight picker without built‑in cropping or validation, suitable for simple use cases"
+      },
+      {
+        "name": "photo_manager",
+        "why_pick_it": "Provides low‑level access to media assets and permissions, useful if you need custom UI or advanced media handling"
+      }
+    ],
+    "minimal_example": "final picker = AdaptiveMediaPicker();\nfinal result = await picker.pickImage(context: context);\nif (result.item != null) {\n  final bytes = await result.item!.readAsBytes();\n}",
+    "confidence": 0.92
+  }
+}

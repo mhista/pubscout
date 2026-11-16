@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "2.2.0",
+  "generatedAt": "2026-11-16T11:33:56.469Z",
+  "data": {
+    "primary_category": "devtools",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "A structured logging library with context, middleware, and multiple output channels.",
+    "what_it_does": "Provides hierarchical named loggers, flexible formatting (JSON, logfmt, colored), and supports custom drivers. Allows adding context, middleware, and asynchronous batching for efficient log processing.",
+    "use_when": [
+      "You need structured, multi‑channel logging in a Dart/Flutter app",
+      "You want context propagation and hierarchical loggers",
+      "You require custom formatting or middleware for logs"
+    ],
+    "avoid_when": [
+      "You only need simple console prints",
+      "You prefer a built‑in Flutter logger without extra configuration"
+    ],
+    "strengths": [
+      "Rich context and hierarchical logger support",
+      "Multiple output drivers and per‑channel formatters",
+      "Middleware and async batching for performance"
+    ],
+    "weaknesses": [
+      "Adds extra dependency and setup compared to basic print statements",
+      "May be overkill for tiny projects",
+      "Learning curve for configuration and channel management"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add the package to pubspec, then create a Logger and optionally configure channels/formatters; no native permissions required",
+    "alternatives": [],
+    "minimal_example": "import 'package:contextual/contextual.dart';\n\nvoid main() {\n  final logger = Logger(level: Level.info)..withContext({'app':'MyApp'});\n  logger.info('Application started');\n  logger.error('Something went wrong');\n}",
+    "confidence": 0.97
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.1.0",
+  "generatedAt": "2026-11-16T12:13:39.699Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A bottom sheet widget that expands upward as the user scrolls.",
+    "what_it_does": "Provides a slinky-like panel that aligns to the bottom of a widget and responds to drag and scroll gestures. It includes a mask layer for the body and allows configuring size bounds, rounded corners, and scroll animations.",
+    "use_when": [
+      "You need a bottom sheet panel that interacts with vertical scroll content",
+      "You want a panel that expands upwards when scrolled and masks the background body"
+    ],
+    "avoid_when": [
+      "You need standard material modal bottom sheets without scroll expansion behavior",
+      "You are not using Sliver widgets inside the panel contents"
+    ],
+    "strengths": [
+      "Easy to configure with controllers and parameters",
+      "Supports customizable max/min sizes and border radius",
+      "Includes barrier dismissal and masking out of the box"
+    ],
+    "weaknesses": [
+      "Panel contents strictly require Sliver widgets",
+      "Very limited documentation beyond basic examples"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "SlinkyView(\n  controller: SlinkyController(),\n  panelParameter: SlinkyPanelParameter(\n    contents: [\n      SliverFixedExtentList(\n        itemExtent: 150.0,\n        delegate: SliverChildListDelegate([const Text('test')]),\n      ),\n    ],\n  ),\n  body: Container(\n    color: Colors.blue.shade100,\n  ),\n);",
+    "confidence": 0.95
+  }
+}

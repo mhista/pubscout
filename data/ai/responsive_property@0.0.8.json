@@ -1,0 +1,56 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.0.8",
+  "generatedAt": "2026-11-16T11:27:14.750Z",
+  "data": {
+    "primary_category": "layout",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Responsive values and widgets based on screen size using ScreenScope and Responsive classes",
+    "what_it_does": "It lets you map screen scopes to values or widgets and resolve the appropriate one at runtime. It also provides a ScreenBuilder helper for quick widget switching.",
+    "use_when": [
+      "You need responsive values for non-widget types (int, double, TextStyle, etc.)",
+      "You want a single source of truth for screen size based values",
+      "You prefer a declarative API over manual MediaQuery checks"
+    ],
+    "avoid_when": [
+      "You only need a few breakpoints and prefer hardcoded values",
+      "You need complex stateful logic that changes outside of screen size"
+    ],
+    "strengths": [
+      "Simple API, works with any design system",
+      "Supports any type via generics",
+      "Provides JSON serialization",
+      "No extra dependencies beyond Flutter widgets"
+    ],
+    "weaknesses": [
+      "No built‑in theming or layout helpers beyond screen size",
+      "Limited to screen width/height and orientation only",
+      "Requires manual map ordering for breakpoint precedence"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "responsive_framework",
+        "why_pick_it": "Provides a more comprehensive responsive layout system with breakpoints and adaptive widgets"
+      },
+      {
+        "name": "responsive_builder",
+        "why_pick_it": "Offers similar screen size based widgets and helpers"
+      },
+      {
+        "name": "sizer",
+        "why_pick_it": "Simpler API for sizing widgets based on screen dimensions"
+      }
+    ],
+    "minimal_example": "final responsive = Responsive<int>({\n  mobileScreenScope: 2,\n  tabletScreenScope: 4,\n  desktopScreenScope: 6,\n});\nint count = responsive.resolve(context) ?? 6;",
+    "confidence": 0.92
+  }
+}

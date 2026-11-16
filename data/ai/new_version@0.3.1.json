@@ -1,0 +1,50 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.3.1",
+  "generatedAt": "2026-11-16T11:48:55.835Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "networking",
+      "device"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Checks if the user has the latest app version and prompts an update link.",
+    "what_it_does": "The plugin queries the app store for the current version of the app and compares it to the installed version. If an update is available it can show a platform‑specific alert with a link to the store.",
+    "use_when": [
+      "You need to ensure users run the newest version of your app",
+      "You want a simple way to prompt updates without building custom store‑lookup logic"
+    ],
+    "avoid_when": [
+      "Your app does not have store listings (e.g., internal distribution)",
+      "You require complex update policies beyond a simple version check"
+    ],
+    "strengths": [
+      "Lightweight and easy to integrate",
+      "Handles both iOS and Android store lookups",
+      "Customizable alert dialog"
+    ],
+    "weaknesses": [
+      "Relies on external store APIs which may change",
+      "Limited to basic version comparison, no staged rollouts"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "http",
+        "why_pick_it": "If you prefer to implement your own store‑lookup logic using raw HTTP requests"
+      },
+      {
+        "name": "dio",
+        "why_pick_it": "Provides more advanced networking features if you need custom request handling"
+      }
+    ],
+    "minimal_example": "final newVersion = NewVersion();\nawait newVersion.showAlertIfNecessary(context: context);",
+    "confidence": 0.97
+  }
+}

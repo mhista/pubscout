@@ -1,0 +1,37 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.0.1",
+  "generatedAt": "2026-11-16T12:17:13.371Z",
+  "data": {
+    "primary_category": "payments",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "A Flutter plugin to perform UPI transactions through different apps in Android.",
+    "what_it_does": "Allows Android applications to query installed UPI apps and initiate payments using UPI IDs or account numbers. It handles responses and returns transaction statuses such as success, submission, or failure.",
+    "use_when": [
+      "You are building an Android app that needs to accept UPI payments.",
+      "You want to allow users to pay using popular UPI apps like Google Pay, PhonePe, or Paytm."
+    ],
+    "avoid_when": [
+      "You need iOS support, as this plugin is Android-only.",
+      "You are looking for non-UPI payment gateways."
+    ],
+    "strengths": [
+      "Supports a wide range of verified and non-verified UPI apps on Android.",
+      "Provides custom exception handling for common transaction errors."
+    ],
+    "weaknesses": [
+      "Restricted to Android only.",
+      "Some major apps like Google Pay and PhonePe may occasionally report errors like maximum limit exceeded."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Android only. Requires integrating with Android UPI intent handling.",
+    "alternatives": [],
+    "minimal_example": "UpiIndia _upiIndia = UpiIndia();\nFuture<UpiResponse> initiateTransaction(UpiApp app) async {\n  return _upiIndia.startTransaction(\n    app: app,\n    receiverUpiId: \"9078600498@ybl\",\n    receiverName: 'Md Azharuddin',\n    transactionRefId: 'TestingUpiIndiaPlugin',\n    transactionNote: 'Not actual. Just an example.',\n    amount: 1.00,\n  );\n}",
+    "confidence": 0.95
+  }
+}

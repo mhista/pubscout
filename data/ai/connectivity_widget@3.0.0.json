@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.0.0",
+  "generatedAt": "2026-11-16T11:58:07.372Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative",
+      "stream-based"
+    ],
+    "one_liner": "A Flutter widget and utility to monitor internet connectivity status by pinging a remote server.",
+    "what_it_does": "It provides a ConnectivityWidget with a builder to display different UIs depending on whether the phone has internet access. It verifies actual internet availability by pinging a remote server alongside network/WiFi status, and offers a ConnectivityUtils class for stream-based and future-based checks.",
+    "use_when": [
+      "You need to display online or offline UI states based on real internet connectivity rather than just network interface status.",
+      "You want to execute callbacks when the device transitions between online and offline states."
+    ],
+    "avoid_when": [
+      "You are targeting web applications where browser request caching can lead to uncertain connection verification results.",
+      "You only need local network interface type detection without pinging external endpoints."
+    ],
+    "strengths": [
+      "Verifies true internet connectivity by pinging a remote server instead of just checking local network state.",
+      "Provides both UI builder widgets and utility streams for checking connection status anywhere in the app."
+    ],
+    "weaknesses": [
+      "Web browser request caching can interfere with reliable connection verification.",
+      "Relies on external server availability for ping checks."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [],
+    "minimal_example": "ConnectivityWidget(\n  builder: (context, isOnline) => Center(\n    child: Text(isOnline ? 'Online' : 'Offline'),\n  ),\n)",
+    "confidence": 0.95
+  }
+}

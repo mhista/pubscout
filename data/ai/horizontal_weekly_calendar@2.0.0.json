@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.0",
+  "generatedAt": "2026-11-16T12:17:31.652Z",
+  "data": {
+    "primary_category": "ui-kits",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Horizontal calendar UI kit for Flutter with agendas, timelines, and month grids.",
+    "what_it_does": "Provides a comprehensive calendar UI kit featuring horizontal weekly strips, date carousels, month grids, timelines, foldables, and streak trackers. Built on a robust date engine designed to handle timezones and civil dates correctly across all platforms.",
+    "use_when": [
+      "You need a horizontal weekly calendar or week strip in your Flutter app.",
+      "Your UI requires date pickers, agendas, timelines, or foldable month views.",
+      "You need reliable date calculations that handle daylight saving and tricky timezones."
+    ],
+    "avoid_when": [
+      "You only need a basic built-in Material date picker.",
+      "You do not want any custom calendar UI elements in your app."
+    ],
+    "strengths": [
+      "Extensive suite of calendar surfaces and widgets (strip, carousel, timeline, foldable, agenda, heatmap).",
+      "Precise timezone and leap-year handling using integer day numbers.",
+      "Supports home-screen widgets for Android and iOS."
+    ],
+    "weaknesses": [
+      "Native home-screen widgets require manual setup and platform configuration outside of Dart.",
+      "Large API surface with many specialized configuration options."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Dart dependencies are straightforward, but setting up native home-screen widgets requires configuring Android RemoteViews and iOS WidgetKit targets with App Group identifiers.",
+    "alternatives": [],
+    "minimal_example": "class Agenda extends StatefulWidget {\n  const Agenda({super.key});\n\n  @override\n  State<Agenda> createState() => _AgendaState();\n}\n\nclass _AgendaState extends State<Agenda> {\n  DateTime _selected = DateTime.now();\n\n  @override\n  Widget build(BuildContext context) {\n    return HorizontalCalendar(\n      selectedDate: _selected,\n      onDateSelected: (date) => setState(() => _selected = date),\n    );\n  }\n}",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.0.5",
+  "generatedAt": "2026-11-16T12:13:50.995Z",
+  "data": {
+    "primary_category": "animation",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "VisualEffect API for Flutter to easily add paint effects on your widgets.",
+    "what_it_does": "Provides a VisualEffect API for Flutter to easily apply paint effects and scroll animations on your widgets. It includes features like grayscale, scaling, and translation based on scroll phases.",
+    "use_when": [
+      "You want to apply custom scroll animations and paint effects to widgets.",
+      "You need to create card stack or similar scroll-driven visual effects."
+    ],
+    "avoid_when": [
+      "You need a stable, production-ready API since the package is currently experimental.",
+      "You cannot set `addRepaintBoundaries` to false in parent Slivers or ScrollViews."
+    ],
+    "strengths": [
+      "Easy to apply scroll animations and visual paint effects.",
+      "Flexible modifier extensions like grayscale, scale, and translate."
+    ],
+    "weaknesses": [
+      "Experimental package with APIs that can change at any time.",
+      "Requires `addRepaintBoundaries` to be set to false in parent ScrollViews/Slivers."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [],
+    "minimal_example": "ScrollEffect(\n  onGenerateVisualEffect: (effect, phase) {\n    return effect\n        .grayscale(phase.leadingLerp(to: 0.5))\n        .scale(\n          x: phase.isLeading ? phase.leadingLerp(from: 1, to: 0.9) : 1,\n          anchor: Alignment.topCenter,\n        )\n        .translate(y: effect.childSize.height * phase.leading);\n  },\n  child: const _CardItem(),\n)",
+    "confidence": 0.95
+  }
+}

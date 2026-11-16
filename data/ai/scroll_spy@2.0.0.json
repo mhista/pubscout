@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.0",
+  "generatedAt": "2026-11-16T12:08:27.478Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "audio-video"
+    ],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "Detect visible items and select one stable primary item in Flutter scrollables.",
+    "what_it_does": "Scroll_spy measures item positions in scrollable viewports, determines which items intersect a configurable attention region, and selects a single stable primary item using customizable policies and anti-flicker stability rules. It exposes granular notifiers for visibility, focus, and primary winner states without requiring manual geometry math.",
+    "use_when": [
+      "You are building a video feed that needs autoplay for exactly one visible card at a time.",
+      "You need to highlight reading position or table of contents items based on viewport focus.",
+      "Multiple items are visible and you need hysteresis and anti-flicker rules to prevent rapid switching."
+    ],
+    "avoid_when": [
+      "You only need basic visibility percentages for individual widgets without choosing a single primary winner.",
+      "Your application targets SDKs older than Flutter 3.47.7 and Dart 3.13.5."
+    ],
+    "strengths": [
+      "O(1) position derivation during steady scrolling using a cached scroll model without render-tree walks.",
+      "Built-in stability rules like hysteresis and minimum primary duration to prevent UI flickering.",
+      "Granular, lazy, and diff-optimized notifiers for high scroll performance."
+    ],
+    "weaknesses": [
+      "Requires updating to Flutter 3.47.7+ and Dart 3.13.5+ for version 2.0.0.",
+      "Adds overhead compared to raw visibility checks if you only need simple widget visibility reporting."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "Scroll_spyListView<int>.builder(\n  controller: _spy,\n  region: ScrollSpyRegion.zone(\n    anchor: const ScrollSpyAnchor.fraction(0.5),\n    extentPx: 200,\n  ),\n  policy: const ScrollSpyPolicy<int>.closestToAnchor(),\n  itemCount: 60,\n  itemExtent: 220,\n  itemBuilder: (context, index) {\n    return ScrollSpyItem<int>(\n      id: index,\n      child: FeedCardBody(index: index),\n    );\n  },\n)",
+    "confidence": 1
+  }
+}

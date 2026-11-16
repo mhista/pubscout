@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.2.0",
+  "generatedAt": "2026-11-16T11:27:05.062Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "maps"
+    ],
+    "approach": [
+      "no codegen"
+    ],
+    "one_liner": "Offline Bangladesh geographic dataset with bilingual search and lookup utilities.",
+    "what_it_does": "Provides const Dart objects for all Bangladesh administrative units (Divisions, Districts, Upazilas, Unions, Post Offices). Includes synchronous ID lookup, hierarchical navigation, bilingual/legacy‑spelling search, postcode validation, address formatting and distance calculations.",
+    "use_when": [
+      "Need Bangladesh location data without network calls",
+      "Require fast, zero‑dependency lookups for addresses or postal codes",
+      "Building forms or validators that need Bangladeshi administrative hierarchy"
+    ],
+    "avoid_when": [
+      "Need worldwide or dynamic geographic data",
+      "Require map tiles or live geofencing",
+      "Dataset must be updated frequently from a remote source"
+    ],
+    "strengths": [
+      "Zero external dependencies",
+      "100 % offline and synchronous access",
+      "Bilingual (English & Bengali) names and legacy spelling support",
+      "Full hierarchical navigation and address formatting"
+    ],
+    "weaknesses": [
+      "Covers only Bangladesh",
+      "Static dataset – no automatic updates",
+      "No map or UI components"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:bd_locations/bd_locations.dart';\n\nvoid main(){\n  final dhaka = BdLocations.getDistrictById(47);\n  print('District: ${dhaka?.nameEn} (${dhaka?.nameBn})');\n  final nearest = BdLocations.findNearestDistrict(23.81, 90.41);\n  print('Nearest district: ${nearest?.nameEn}');\n}",
+    "confidence": 0.97
+  }
+}

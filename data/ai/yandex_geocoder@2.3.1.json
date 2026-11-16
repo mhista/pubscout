@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.3.1",
+  "generatedAt": "2026-11-16T11:28:09.394Z",
+  "data": {
+    "primary_category": "maps",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "API to translate geographic coordinates into an address and vice versa using Yandex.",
+    "what_it_does": "Allows direct geocoding to convert addresses into coordinates and reverse geocoding to get addresses from coordinates using the Yandex API. Supports specifying answer languages, regional features, and search area restrictions.",
+    "use_when": [
+      "You need to implement address search and reverse geocoding using Yandex maps data.",
+      "Your application targets regions where Yandex map data provides superior accuracy."
+    ],
+    "avoid_when": [
+      "You require offline geocoding capabilities without network access.",
+      "You prefer to use alternative mapping providers like Google Maps or OpenStreetMap."
+    ],
+    "strengths": [
+      "Supports both direct and reverse geocoding.",
+      "Handles common misprints in address search and offers multiple variants.",
+      "Cross-platform support across Android, iOS, Web, Windows, macOS, and Linux."
+    ],
+    "weaknesses": [
+      "Requires a Yandex API key to function.",
+      "Dependent on an external network API service."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Obtain a Yandex API key from the developer personal account and provide it to the YandexGeocoder constructor.",
+    "alternatives": [],
+    "minimal_example": "final YandexGeocoder geocoder = YandexGeocoder(apiKey: 'Your Api Key');\n\nfinal GeocodeResponse geocodeFromAddress = await geocoder.getGeocode(DirectGeocodeRequest(\n    addressGeocode: 'Moscow, 4th Tverskaya-Yamskaya street, 7',\n    lang: Lang.enEn,\n));",
+    "confidence": 0.95
+  }
+}

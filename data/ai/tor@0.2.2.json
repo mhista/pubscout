@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.2.2",
+  "generatedAt": "2026-11-16T11:38:09.259Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [],
+    "approach": [
+      "code generation"
+    ],
+    "one_liner": "Flutter plugin to manage a Tor proxy using the arti Rust library",
+    "what_it_does": "Provides a Dart API to start, stop, and configure a Tor proxy on Android, iOS, macOS, Windows, and Linux. It exposes SOCKS and HTTP endpoints for onion routing and allows setting a custom data directory.",
+    "use_when": [
+      "You need a privacy‑enhanced network layer in a Flutter app",
+      "You want to route traffic through Tor without writing native code"
+    ],
+    "avoid_when": [
+      "You only need simple HTTP requests or a different VPN solution",
+      "You cannot install Rust or native build tools"
+    ],
+    "strengths": [
+      "Cross‑platform support via Rust and flutter_rust_bridge",
+      "High performance native implementation",
+      "Full control over Tor configuration",
+      "Open source MIT license"
+    ],
+    "weaknesses": [
+      "Requires Rust toolchain and cargo ndk for native builds",
+      "Complex setup and potential platform‑specific issues",
+      "No built‑in UI components"
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Install Rust (rustup), cargo ndk, run `cargo install flutter_rust_bridge_codegen`, then `flutter_rust_bridge_codegen generate` and `flutter run`. No build_runner needed.",
+    "alternatives": [],
+    "minimal_example": "import 'package:tor/tor.dart';\n\nfinal tor = Tor();\nawait tor.start();\n// use tor.socksPort for connections\nawait tor.stop();",
+    "confidence": 0.8
+  }
+}

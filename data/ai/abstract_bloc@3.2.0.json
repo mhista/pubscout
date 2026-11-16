@@ -1,0 +1,52 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.2.0",
+  "generatedAt": "2026-11-16T11:40:02.058Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [
+      "forms",
+      "networking"
+    ],
+    "approach": [
+      "stream-based",
+      "declarative"
+    ],
+    "one_liner": "Abstract base classes and widgets for implementing BLoC pattern with pagination, items, and forms.",
+    "what_it_does": "Provides abstract base classes and ready-to-use widgets for common flutter_bloc use cases including paginated lists, single items, and forms with validation. It standardizes data flow with features like cache-first strategies, snapshot/revert states, and event bus integration.",
+    "use_when": [
+      "You are using flutter_bloc and want to reduce boilerplate for paginated lists, detail items, and validated forms",
+      "You need built-in cache-first data loading strategies with local or remote fallback",
+      "You want standardized UI widgets that automatically handle loading, error, and empty states for lists and forms"
+    ],
+    "avoid_when": [
+      "You prefer Riverpod or Provider for state management",
+      "You need completely custom state architectures that do not fit the list/item/form abstraction pattern"
+    ],
+    "strengths": [
+      "Eliminates boilerplate for common BLoC patterns like pagination and forms",
+      "Includes ready-to-use UI builder widgets with built-in state handling",
+      "Supports cache-first strategies and snapshot/revert state patterns out of the box"
+    ],
+    "weaknesses": [
+      "Tightly coupled to flutter_bloc and specific package base classes",
+      "Opinionated structure may feel restrictive for highly customized data flows"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [
+      {
+        "name": "bloc",
+        "why_pick_it": "If you want standard BLoC state management without the opinionated abstractions and built-in widget builders provided by this package."
+      },
+      {
+        "name": "flutter_bloc",
+        "why_pick_it": "If you prefer building your own custom state classes and UI integration widgets directly on top of core flutter_bloc primitives."
+      }
+    ],
+    "minimal_example": "class UsersCubit extends AbstractListCubit<UsersState> {\n  final UsersRepository _repository;\n\n  UsersCubit(this._repository) : super(_initialState());\n\n  @override\n  Future<Result<GridResult<User>>> resolveData() {\n    return _repository.getUsers(state.searchModel);\n  }\n}",
+    "confidence": 0.95
+  }
+}

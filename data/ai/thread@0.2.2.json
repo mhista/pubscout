@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.2.2",
+  "generatedAt": "2026-11-16T11:21:34.552Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Type-safe isolated thread with event emitter for async communication",
+    "what_it_does": "Provides a lightweight wrapper around Dart Isolates that uses a type‑safe EventEmitter to send and receive data. It supports starting, pausing, resuming, and stopping the isolate, as well as running single tasks via compute methods.",
+    "use_when": [
+      "Need to offload CPU‑heavy work to a background isolate",
+      "Require event‑driven communication between isolate and main thread",
+      "Want to pause or resume isolate execution",
+      "Need a simple API without external dependencies"
+    ],
+    "avoid_when": [
+      "Simple single‑threaded async work",
+      "When performance of starting/stopping isolates is critical",
+      "When you already use a more feature‑rich concurrency library"
+    ],
+    "strengths": [
+      "Type‑safe event communication",
+      "Built‑in pause/resume and lifecycle control",
+      "Compute methods for one‑off tasks",
+      "No external code generation required"
+    ],
+    "weaknesses": [
+      "Recent breaking changes in file structure and imports",
+      "Limited documentation on edge cases",
+      "Not widely adopted, community support is small"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dependency, import 'package:thread/thread.dart'; no special permissions or build_runner needed",
+    "alternatives": [],
+    "minimal_example": "import 'package:thread/thread.dart';\n\nvoid main() async {\n  final thread = Thread((events) {\n    events.on('data', (String data) async {\n      await Future.delayed(const Duration(seconds: 1));\n      events.emit('result', '<Computed> $data');\n    });\n  });\n\n  thread.on('result', (String data) => print(data));\n  thread.emit('data', 'Hello world!');\n  print(await thread.compute(() => 'Hello world!'));\n}\n",
+    "confidence": 0.8
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "2.1.1",
+  "generatedAt": "2026-11-16T11:41:03.009Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Provides a Flutter widget to integrate Google reCAPTCHA v3 on iOS and Android.",
+    "what_it_does": "The plugin loads a WebView that renders the reCAPTCHA v3 challenge and returns a token after execution. Developers can then verify the token on their backend using Google’s verification API.",
+    "use_when": [
+      "You need to protect form submissions or sensitive actions from bots in a Flutter mobile app",
+      "You want a simple way to obtain a reCAPTCHA v3 token without building a custom WebView solution"
+    ],
+    "avoid_when": [
+      "You target platforms other than Android or iOS (e.g., web, desktop)",
+      "You require a fully native CAPTCHA implementation without WebView"
+    ],
+    "strengths": [
+      "Lightweight integration using existing webview_flutter",
+      "Handles token generation and provides easy getter",
+      "Supports custom hosted index.html for production URLs"
+    ],
+    "weaknesses": [
+      "Relies on WebView, which may affect performance",
+      "Only works on mobile platforms; no web/desktop support"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter_gcaptcha_v3/flutter_gcaptcha_v3.dart';\n\nfinal controller = GCaptchaController();\n\nGCaptchaWebView(\n  controller: controller,\n  siteKey: 'YOUR_SITE_KEY',\n  url: 'https://yourdomain.com/index.html',\n);\n\n// Later, after execute:\nString token = await controller.getCaptchaToken();",
+    "confidence": 0.78
+  }
+}

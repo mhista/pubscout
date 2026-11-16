@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.1",
+  "generatedAt": "2026-11-16T11:27:42.671Z",
+  "data": {
+    "primary_category": "navigation",
+    "secondary_categories": [
+      "device"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Enables Android Install Referrer and iOS clipboard deferred deep linking.",
+    "what_it_does": "Extracts referral metadata and deep link parameters on Android using the Play Install Referrer API and on iOS using clipboard pattern matching. It enables landing users on exact screens after app installation without requiring third-party attribution SDKs.",
+    "use_when": [
+      "You need deferred deep linking without heavy attribution SDKs like Branch or Adjust.",
+      "You want to extract Android install referral parameters or read iOS clipboard deep links on first launch."
+    ],
+    "avoid_when": [
+      "You need direct runtime deep linking for already installed apps.",
+      "You require web or desktop support for deferred linking."
+    ],
+    "strengths": [
+      "Lightweight and 100% offline with no network calls or external tracking SDKs.",
+      "Works out-of-the-box on Android and handles iOS Private Relay limitations via clipboard reading."
+    ],
+    "weaknesses": [
+      "Unsupported on Web, Desktop, and iOS when clipboard deep links are not present or disabled.",
+      "Requires manual website/backend setup to pass referral links into the Play Store or clipboard."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "No permissions required on Android or iOS. Android includes the required install referrer library automatically.",
+    "alternatives": [],
+    "minimal_example": "Future<void> _init() async {\n  if (Platform.isAndroid) {\n    final info = await StackDeferredLink.getInstallReferrerAndroid();\n    final params = info.asQueryParameters;\n  } else if (Platform.isIOS) {\n    final res = await StackDeferredLink.getInstallReferrerIos(\n      deepLinks: [\"example.com\", \"example.com/profile\"],\n    );\n  }\n}",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.1.1",
+  "generatedAt": "2026-11-16T12:12:00.746Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Check network connectivity status on Android and iOS devices.",
+    "what_it_does": "Allows Flutter apps to check if the device is currently online or offline using native network capabilities and monitors. It uses NetworkCapabilities for Android and NetworkMonitor for iOS.",
+    "use_when": [
+      "You need to check if the device's internet connection is online or offline.",
+      "You want a simple asynchronous method to verify network availability."
+    ],
+    "avoid_when": [
+      "You need detailed continuous stream monitoring of connectivity changes.",
+      "You require advanced network topology information beyond simple online/offline checks."
+    ],
+    "strengths": [
+      "Simple API using ConfirmConnection.confirmConnection().",
+      "Uses native Android NetworkCapabilities and iOS NetworkMonitor."
+    ],
+    "weaknesses": [
+      "Lacks documented continuous streaming of status changes in the core example.",
+      "Limited information regarding features for desktop platforms despite platform declarations."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires INTERNET and ACCESS_NETWORK_STATE permissions in the Android Manifest. Minimum Android SDK version 16 and iOS version 10.0 required.",
+    "alternatives": [
+      {
+        "name": "connectivity_plus",
+        "why_pick_it": "More widely adopted, actively maintained by the Flutter team/community, and provides comprehensive stream-based connectivity updates across multiple platforms."
+      }
+    ],
+    "minimal_example": "checkConnection() async {\n  if (await ConfirmConnection.confirmConnection()) {\n    print(\"you are online\");\n  } else {\n    print(\"you are offline\");\n  }\n}",
+    "confidence": 0.95
+  }
+}

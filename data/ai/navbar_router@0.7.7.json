@@ -1,0 +1,50 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.7.7",
+  "generatedAt": "2026-11-16T12:00:08.457Z",
+  "data": {
+    "primary_category": "navigation",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Advanced bottom navigation bar with minimal code, nested routing, and history management.",
+    "what_it_does": "NavbarRouter simplifies creating advanced bottom navigation bars in Flutter by handling nested navigation, tab history, snackbars, and multiple navbar styles. It allows you to specify navbar items and their respective routes, managing the navigation stack automatically.",
+    "use_when": [
+      "You need a bottom navigation bar with nested navigation per tab.",
+      "You want to remember navigation history and persist state across bottom navigation tabs.",
+      "You need to programmatically control the bottom navigation state from anywhere in the widget tree."
+    ],
+    "avoid_when": [
+      "You are already using a full application router like go_router and want it to manage the entire navigation schema natively without this package.",
+      "Your app does not use a bottom navigation bar."
+    ],
+    "strengths": [
+      "Supports multiple navigation bar types (standard, notched, material3, floating).",
+      "Handles Android back button history and exit interception natively.",
+      "Built-in support for animated badges and floating snackbars on top of the navbar."
+    ],
+    "weaknesses": [
+      "Limited to bottom navigation bar use cases rather than general application routing.",
+      "Requires wrapping within a builder for snackbars to work properly."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "No special native permissions or build_runner configuration required.",
+    "alternatives": [
+      {
+        "name": "go_router",
+        "why_pick_it": "If you prefer the official declarative routing solution that handles deep linking, shell routes, and complex navigation graphs."
+      },
+      {
+        "name": "auto_route",
+        "why_pick_it": "If you want generated strongly-typed routing with built-in support for nested bottom navigation tabs."
+      }
+    ],
+    "minimal_example": "NavbarRouter(\n  errorBuilder: (context) {\n    return const Center(child: Text('Error 404'));\n  },\n  destinations: [\n    DestinationRouter(\n      navbarItem: NavbarItem(Icons.home, 'Home'),\n      destinations: [\n        Destination(route: '/', widget: HomePage()),\n      ],\n      initialRoute: '/',\n    ),\n  ],\n)",
+    "confidence": 0.95
+  }
+}

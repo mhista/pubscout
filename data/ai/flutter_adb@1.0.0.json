@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "1.0.0",
+  "generatedAt": "2026-11-16T11:46:05.647Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "device"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Pure Dart client for network ADB communication, including wireless pairing and shell access",
+    "what_it_does": "Provides a Dart implementation of the Android Debug Bridge protocol over TCP, supporting wireless pairing, QR pairing, and shell streams. It can generate RSA keys for authentication and persist them if desired.",
+    "use_when": [
+      "You need to control an Android device over the network from a Flutter or Dart app",
+      "You want to avoid native ADB binaries and use pure Dart",
+      "You need wireless debugging or QR pairing in your app"
+    ],
+    "avoid_when": [
+      "You only need to run ADB commands locally on the same machine",
+      "You prefer a higher-level backend SDK that hides ADB details"
+    ],
+    "strengths": [
+      "Pure Dart, no native dependencies",
+      "Supports Android 11+ wireless and QR pairing",
+      "Provides key generation and persistence helpers",
+      "Works on all Flutter platforms"
+    ],
+    "weaknesses": [
+      "No built‑in UI components",
+      "Requires manual key persistence for repeat use",
+      "Limited to ADB protocol, not a full device management SDK"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dependency, import package, create AdbCrypto, optionally persist keypair, then use AdbConnection or Adb.sendSingleCommand",
+    "alternatives": [],
+    "minimal_example": "final crypto = AdbCrypto(adbKeyName: 'my-app@dart');\nfinal conn = AdbConnection('192.168.1.10', 5555, crypto, verbose: true);\nawait conn.connect();\nfinal shell = await conn.openShell();\nshell.onPayload.listen((p) => print(utf8.decode(p)));\nawait shell.writeString('pm list packages\\n');\nawait shell.sendClose();\nawait conn.disconnect();",
+    "confidence": 0.92
+  }
+}

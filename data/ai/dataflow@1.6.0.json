@@ -1,0 +1,52 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.6.0",
+  "generatedAt": "2026-11-16T11:37:06.957Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [],
+    "approach": [
+      "stream-based",
+      "declarative"
+    ],
+    "one_liner": "A reactive state management library for Flutter using DataStore, DataAction, and streams.",
+    "what_it_does": "DataFlow provides centralized state management through a DataStore and handles asynchronous operations via DataAction classes. It includes UI binding widgets like DataSync and DataSyncNotifier to automatically rebuild widgets based on action execution status, and supports middleware for interception.",
+    "use_when": [
+      "You want centralized state management with explicit asynchronous actions.",
+      "You prefer a reactive approach driven by Dart streams and middleware support."
+    ],
+    "avoid_when": [
+      "You are already heavily invested in alternative state management solutions like Provider, Riverpod, or Bloc.",
+      "You need a minimal-boilerplate solution without explicit action classes."
+    ],
+    "strengths": [
+      "Clear separation of actions and state stores.",
+      "Built-in middleware support for logging and error interception.",
+      "Per-action error tracking and status reset capabilities."
+    ],
+    "weaknesses": [
+      "Requires writing boilerplate classes for each DataAction.",
+      "Smaller ecosystem and community support compared to established alternatives like Bloc or Riverpod."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Initialize DataFlow with your DataStore in the main function before running the app.",
+    "alternatives": [
+      {
+        "name": "flutter_bloc",
+        "why_pick_it": "Industry standard for predictable state management with robust event-to-state mapping and testing tools."
+      },
+      {
+        "name": "riverpod",
+        "why_pick_it": "Compile-safe, provider-based state management that avoids widget tree lookup issues."
+      },
+      {
+        "name": "provider",
+        "why_pick_it": "Simple and lightweight dependency injection and state management built directly on inherited widgets."
+      }
+    ],
+    "minimal_example": "void main() {\n  DataFlow.init(MyDataStore());\n  runApp(MyApp());\n}",
+    "confidence": 0.95
+  }
+}

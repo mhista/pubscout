@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.0.1+1",
+  "generatedAt": "2026-11-16T11:37:27.392Z",
+  "data": {
+    "primary_category": "maps",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "High-performance interactive 3D sphere rendering for Flutter with shader materials and annotations.",
+    "what_it_does": "Renders high-performance interactive 3D spheres in Flutter using GPU fragment shaders. Allows placing geographic nodes, surface markers, side annotations, and curved connections with a camera pose system.",
+    "use_when": [
+      "You need to display an interactive 3D globe or planet in a Flutter application.",
+      "You want to render geographic coordinates, surface markers, or connected network nodes on a 3D sphere.",
+      "You require custom sphere materials like textures, lighting, atmosphere, and camera animations."
+    ],
+    "avoid_when": [
+      "You need a standard flat 2D map or full geographic information system (GIS) with tile loading.",
+      "Your project uses a Flutter version older than 3.44.0."
+    ],
+    "strengths": [
+      "High-performance GPU fragment shader rendering for the textured sphere.",
+      "Supports interactive Flutter widgets as surface markers or annotations.",
+      "Includes camera pose system, animated focus, automatic spin, lighting, and curved connections."
+    ],
+    "weaknesses": [
+      "Requires a relatively recent Flutter version (3.44.0 or newer).",
+      "Limited to spherical 3D rendering rather than generic 3D model loading."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires Flutter 3.44.0 or newer. No additional native permission setup documented.",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:flutter_globe_3d/flutter_globe_3d.dart';\n\nclass InteractiveSphere extends StatefulWidget {\n  const InteractiveSphere({super.key});\n\n  @override\n  State<InteractiveSphere> createState() => _InteractiveSphereState();\n}\n\nclass _InteractiveSphereState extends State<InteractiveSphere> {\n  late final controller = SphereController();\n\n  @override\n  void dispose() {\n    controller.dispose();\n    super.dispose();\n  }\n\n  @override\n  Widget build(BuildContext context) => SizedBox(\n        width: 360,\n        height: 360,\n        child: SphereView.earth(controller: controller),\n      );\n}",
+    "confidence": 0.95
+  }
+}

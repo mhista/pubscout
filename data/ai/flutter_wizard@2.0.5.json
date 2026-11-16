@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.5",
+  "generatedAt": "2026-11-16T12:14:55.349Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "forms"
+    ],
+    "approach": [
+      "declarative",
+      "stream-based"
+    ],
+    "one_liner": "A library for creating custom multi-step wizards with full control over appearance.",
+    "what_it_does": "It helps you build custom wizards by managing wizard steps, controllers, step states, and navigation events. You get complete control over the UI of each step and access to reactive streams for step indices and enabled actions.",
+    "use_when": [
+      "You need to build a multi-step form or onboarding flow with custom UI.",
+      "You want full control over wizard appearance, step navigation, and validation states."
+    ],
+    "avoid_when": [
+      "You only need a simple linear page view without step-based controllers or reactive state requirements."
+    ],
+    "strengths": [
+      "100% control over the appearance of your wizard.",
+      "Built-in step state management using mixins with blocs, cubits, or providers.",
+      "Rich set of controllers and event listeners to manage step navigation."
+    ],
+    "weaknesses": [
+      "Requires manual setup of step controllers and state handlers.",
+      "Relies on external state management approaches for individual steps."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "No native setup required. Simply wrap your widgets in DefaultWizardController and mix WizardStep into your state objects.",
+    "alternatives": [],
+    "minimal_example": "DefaultWizardController(\n  stepControllers: [\n    WizardStepController(\n      step: provider.stepOneProvider,\n    ),\n  ],\n  child: Wizard(\n    stepBuilder: (context, state) {\n      if (state is StepOneProvider) {\n        return StepOne(provider: state);\n      }\n      return Container();\n    },\n  ),\n)",
+    "confidence": 0.95
+  }
+}

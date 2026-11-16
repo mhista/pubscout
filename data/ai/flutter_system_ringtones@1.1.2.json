@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "1.1.2",
+  "generatedAt": "2026-11-16T11:43:19.001Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter plugin to list and preview system ringtones, alarms and notifications on Android and iOS.",
+    "what_it_does": "Provides APIs to fetch lists of system ringtones, alarms and notification sounds, and to play or stop a preview of any selected sound natively. It uses Android’s RingtoneManager and iOS’s AVAudioPlayer under the hood.",
+    "use_when": [
+      "You need to display or let users preview the device’s built‑in ringtones, alarms or notification sounds.",
+      "You want a lightweight solution with no runtime dependencies for simple sound enumeration and previewing.",
+      "You are targeting Android and iOS and need native playback without adding a full audio player package."
+    ],
+    "avoid_when": [
+      "You need advanced audio playback features such as streaming, equalizer, or custom audio effects.",
+      "You require a completion callback or event stream for when a preview finishes.",
+      "You are building a cross‑platform app that also needs to record audio or stream from a remote source."
+    ],
+    "strengths": [
+      "Zero runtime dependencies – no extra packages bundled.",
+      "Native preview playback with a single API call.",
+      "Simple, imperative API that works out of the box on Android and iOS.",
+      "Supports both Android and iOS with minimal platform‑specific code."
+    ],
+    "weaknesses": [
+      "iOS system sound path is undocumented and may change between iOS versions.",
+      "No completion or progress callbacks for preview playback.",
+      "Only one sound can play at a time; no event stream for state changes."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter_system_ringtones/flutter_system_ringtones.dart';\n\nfinal ringtones = await FlutterSystemRingtones.getRingtoneSounds();\nawait FlutterSystemRingtones.play(ringtones.first);",
+    "confidence": 0.9
+  }
+}

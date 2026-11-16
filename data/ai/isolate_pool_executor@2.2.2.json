@@ -1,0 +1,47 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "2.2.2",
+  "generatedAt": "2026-11-16T11:27:25.296Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "async"
+    ],
+    "one_liner": "Manages a pool of Dart isolates to run CPU‑intensive tasks without blocking the main isolate.",
+    "what_it_does": "Provides thread‑pool‑like APIs (single, fixed, cached) for creating and reusing isolates. Allows custom core/maximum sizes, keep‑alive times, task queues and rejection policies. Supports passing Flutter tokens for MethodChannel use in isolates.",
+    "use_when": [
+      "You need to run heavy CPU‑bound work off the UI thread and want to limit the number of isolates.",
+      "You want automatic reuse and cleanup of isolates to reduce startup overhead.",
+      "You need to call platform plugins (e.g., SharedPreferences) from background isolates in Flutter."
+    ],
+    "avoid_when": [
+      "The work is I/O‑bound and can be handled with simple async Futures.",
+      "You only need a single isolate via compute() and don’t require pooling.",
+      "You prefer a widget‑focused solution or need UI components."
+    ],
+    "strengths": [
+      "Reduces isolate creation cost by reusing them.",
+      "Highly configurable pool parameters (core size, max size, keep‑alive, custom handlers).",
+      "Supports Flutter MethodChannel usage in isolates."
+    ],
+    "weaknesses": [
+      "Adds complexity compared to plain compute() or async Futures.",
+      "Limited to Dart/Flutter; no built‑in task prioritization or scheduling beyond a simple queue.",
+      "Documentation is concise; advanced features may require reading source code."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires Flutter SDK >=3.7 for MethodChannel support; just add the package and import it.",
+    "alternatives": [
+      {
+        "name": "async",
+        "why_pick_it": "Provides basic Future and Stream utilities but lacks isolate pooling; could be used for simple async tasks without extra overhead."
+      }
+    ],
+    "minimal_example": "import 'package:isolate_pool_executor/isolate_pool_executor.dart';\n\nint _doTask(int count){\n  int sum=0;final r=Random();\n  for(int i=0;i<count;i++) sum+=r.nextInt(10000);\n  return sum;\n}\n\nvoid main() async{\n  final pool=IsolatePoolExecutor.newFixedIsolatePool(3);\n  final result=await pool.compute(_doTask,1000000);\n  print(result);\n  pool.shutdown();\n}",
+    "confidence": 0.93
+  }
+}

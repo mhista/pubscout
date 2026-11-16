@@ -1,0 +1,50 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "10.1.0+1",
+  "generatedAt": "2026-11-16T11:38:01.980Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "backend"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "A library for communication with CQRS-compatible backends using queries and commands.",
+    "what_it_does": "Provides a client and abstractions to send queries, commands, and operations to a CQRS-compatible backend. It handles request execution and returns structured results including command successes and validation failures.",
+    "use_when": [
+      "Your backend architecture follows the CQRS pattern.",
+      "You need to send strongly typed queries and commands over HTTP."
+    ],
+    "avoid_when": [
+      "Your backend uses standard REST or GraphQL without CQRS.",
+      "You are looking for a general-purpose HTTP client."
+    ],
+    "strengths": [
+      "Strongly typed query and command contracts.",
+      "Built-in handling for validation errors and command execution states.",
+      "No-throw guarantee API returning results explicitly."
+    ],
+    "weaknesses": [
+      "Requires a specifically CQRS-compatible backend architecture.",
+      "Limited to HTTP transport using the provided client."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires setting up an HTTP client and a base API Uri, then instantiating the Cqrs class.",
+    "alternatives": [
+      {
+        "name": "http",
+        "why_pick_it": "If you prefer making standard raw HTTP requests instead of a structured CQRS architecture."
+      },
+      {
+        "name": "dio",
+        "why_pick_it": "If you need a fully-featured general HTTP client with interceptors and advanced request management."
+      }
+    ],
+    "minimal_example": "final apiUri = Uri.parse('https://flowers.garden/api/');\nfinal cqrs = Cqrs(loginClient, apiUri);\nfinal flowers = await cqrs.get(AllFlowers(page: 1));",
+    "confidence": 0.95
+  }
+}

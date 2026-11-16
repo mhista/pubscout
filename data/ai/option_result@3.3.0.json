@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.3.0",
+  "generatedAt": "2026-11-16T11:38:20.007Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Rust-like Option and Result types for Dart with exhaustive pattern matching support.",
+    "what_it_does": "A lightweight Dart library that brings Rust's Option and Result types, providing methods for composition and supporting Dart 3's exhaustive pattern matching for safe error and absence handling.",
+    "use_when": [
+      "You want Rust-style error handling with Result types instead of try/catch blocks.",
+      "You want to handle the presence or absence of values composably using Option types.",
+      "You want to use Dart 3 exhaustive pattern matching for error and value branching."
+    ],
+    "avoid_when": [
+      "You prefer idiomatic Dart null-safety and standard exceptions.",
+      "Your team is not familiar with Rust-like monads or functional error handling."
+    ],
+    "strengths": [
+      "Brings Rust-like Option and Result semantics and combinators to Dart.",
+      "Supports Dart 3 exhaustive pattern matching.",
+      "Supports const factory constructors and immutability for better performance."
+    ],
+    "weaknesses": [
+      "Requires adopting a non-standard error handling paradigm in Dart.",
+      "None/Err propagation requires explicit helper blocks like catchOption/catchResult."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "Option<int> divideBy2(int i) => switch (i) {\n  0 => None(),\n  _ => Some(i ~/ 2)\n};\n\nOption<int> a = Some(10);\nOption<int> b = a.andThen(divideBy2);",
+    "confidence": 1
+  }
+}

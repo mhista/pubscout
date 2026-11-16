@@ -1,0 +1,50 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.2.8",
+  "generatedAt": "2026-11-16T11:38:38.090Z",
+  "data": {
+    "primary_category": "payments",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Paytm All-in-One payment gateway SDK for Flutter.",
+    "what_it_does": "Provides a plugin for the Paytm All-in-One SDK to enable payments on Android and iOS. Allows developers to start transactions using transaction tokens and merchant details.",
+    "use_when": [
+      "You need to integrate Paytm payments into your Flutter application",
+      "Targeting Android and iOS platforms with Paytm All-in-One SDK"
+    ],
+    "avoid_when": [
+      "You are using payment gateways other than Paytm",
+      "You need in-app purchases through Apple/Google app stores rather than a payment gateway"
+    ],
+    "strengths": [
+      "Official integration support for Paytm payments",
+      "Supports UPI intent and various bug fixes up to JDK 17"
+    ],
+    "weaknesses": [
+      "Limited documentation outside of basic transaction invocation",
+      "Platform-specific dependency on native Paytm SDKs"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding the dependency to pubspec.yaml and configuring native Android and iOS settings as required by Paytm's SDK.",
+    "alternatives": [
+      {
+        "name": "flutter_stripe",
+        "why_pick_it": "Pick if you want to integrate Stripe payments instead of Paytm."
+      },
+      {
+        "name": "pay",
+        "why_pick_it": "Pick if you want to support Apple Pay and Google Pay natively."
+      },
+      {
+        "name": "adyen_checkout",
+        "why_pick_it": "Pick if you are using Adyen as your payment gateway provider."
+      }
+    ],
+    "minimal_example": "    try {\n      var response = AllInOneSdk.startTransaction(\n          mid, orderId, amount, txnToken, \"\", isStaging, restrictAppInvoke);\n      response.then((value) {\n        print(value);\n        setState(() {\n          result = value.toString();\n        });\n      }).catchError((onError) {\n        if (onError is PlatformException) {\n          setState(() {\n            result = onError.message + \" \\n  \" + onError.details.toString();\n          });\n        } else {\n          setState(() {\n            result = onError.toString();\n          });\n        }\n      });\n    } catch (err) {\n      result = err.message;\n    }",
+    "confidence": 0.95
+  }
+}

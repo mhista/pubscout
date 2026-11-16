@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "4.3.0",
+  "generatedAt": "2026-11-16T11:49:44.124Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "Bluetooth plugin for printing text, images, QR codes and barcodes to thermal printers on iOS and Android.",
+    "what_it_does": "The package scans for BLE devices, connects to a selected printer, and sends ESC/POS commands to print receipts or labels. It supports printing plain text, images, QR codes and barcodes via a simple API.",
+    "use_when": [
+      "You need to print receipts or labels from a Flutter app using a Bluetooth thermal printer.",
+      "Cross‑platform (iOS/Android) support is required without writing native code."
+    ],
+    "avoid_when": [
+      "You target web, desktop, or platforms without Bluetooth support.",
+      "You need advanced layout control like arbitrary x,y positioning not yet implemented."
+    ],
+    "strengths": [
+      "Works on both Android and iOS out of the box",
+      "Provides a stream of connection state for reactive UI",
+      "Supports text, image, QR code and barcode printing"
+    ],
+    "weaknesses": [
+      "Limited to thermal printers; no support for arbitrary positioning yet",
+      "Requires manual permission configuration on each platform",
+      "No web or desktop support"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add BLUETOOTH, BLUETOOTH_SCAN, BLUETOOTH_CONNECT, BLUETOOTH_ADMIN and location permissions in AndroidManifest.xml; add NSBluetooth* and NSLocation* keys in iOS Info.plist.",
+    "alternatives": [],
+    "minimal_example": "import 'package:bluetooth_print/bluetooth_print.dart';\n\nfinal bluetoothPrint = BluetoothPrint.instance;\n\n// Scan for devices\nbluetoothPrint.startScan(timeout: Duration(seconds: 4));\n\n// Connect to a selected device\nawait bluetoothPrint.connect(selectedDevice);\n\n// Print a simple receipt\nawait bluetoothPrint.printReceipt({}, [\n  LineText(type: LineText.TYPE_TEXT, content: 'Hello', align: LineText.ALIGN_CENTER),\n]);",
+    "confidence": 0.93
+  }
+}

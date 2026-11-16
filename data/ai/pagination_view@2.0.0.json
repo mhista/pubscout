@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "2.0.0",
+  "generatedAt": "2026-11-16T11:45:58.682Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "state-management"
+    ],
+    "approach": [
+      "stream-based"
+    ],
+    "one_liner": "Provides a ready‑made widget to paginate lists or grids with built‑in loading, error and empty states.",
+    "what_it_does": "PaginationView handles fetching pages of data, displaying them in a ListView or GridView, and shows loaders, headers, footers, and error widgets. It integrates with bloc for state management and supports pull‑to‑refresh and custom scroll controllers.",
+    "use_when": [
+      "You need infinite scrolling or paginated lists without writing boilerplate code.",
+      "You already use bloc or flutter_bloc for state management."
+    ],
+    "avoid_when": [
+      "You prefer a pure provider/riverpod solution without bloc.",
+      "You need highly custom pagination logic not covered by the widget."
+    ],
+    "strengths": [
+      "Simple API for common pagination patterns",
+      "Built‑in support for headers, footers, loaders and error handling",
+      "Works with both ListView and GridView",
+      "Integrates with bloc for state handling"
+    ],
+    "weaknesses": [
+      "Tightly coupled to bloc, limiting use with other state‑management approaches",
+      "Limited customization beyond provided callbacks",
+      "Breaking changes in major versions may require code updates"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "PaginationView<User>(\n  preloadedItems: [User('Alice','alice@example.com')],\n  itemBuilder: (ctx, user, idx) => ListTile(title: Text(user.name), subtitle: Text(user.email)),\n  pageFetch: (page) async => [],\n);",
+    "confidence": 0.9
+  }
+}

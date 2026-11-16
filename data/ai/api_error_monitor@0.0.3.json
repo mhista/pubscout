@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.0.3",
+  "generatedAt": "2026-11-16T11:21:18.114Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "devtools",
+      "files"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Detects API response parsing errors and sends reports to Discord webhooks.",
+    "what_it_does": "Intercepts Dio and HTTP client requests to automatically catch JSON parsing issues, type mismatches, and missing keys. It logs these errors locally and forwards them to a Discord webhook with retry support.",
+    "use_when": [
+      "You want to automatically track API data-mismatch and parsing errors in production",
+      "You use Dio or the http package and want quick Discord alerts for malformed backend responses"
+    ],
+    "avoid_when": [
+      "You require complex state management solutions",
+      "You do not use Discord for error logging or webhook alerts"
+    ],
+    "strengths": [
+      "Built-in integrations for both Dio and the http package",
+      "Automatic type mismatch and missing key detection",
+      "Supports local file logging and automatic webhook retry queues"
+    ],
+    "weaknesses": [
+      "Limited to Discord webhook integration out of the box",
+      "Relies on heuristics and exception analysis which might miss edge-case errors"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires a Discord webhook URL and initialization of the ApiErrorMonitor instance or package interceptors.",
+    "alternatives": [],
+    "minimal_example": "import 'package:api_error_monitor/api_error_monitor.dart';\n\nfinal errorMonitor = ApiErrorMonitor(\n  appName: \"MyApp\",\n  discordWebhookUrl: \"https://discord.com/api/webhooks/xxxx\",\n);",
+    "confidence": 0.95
+  }
+}

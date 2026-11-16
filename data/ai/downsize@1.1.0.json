@@ -1,0 +1,46 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.1.0",
+  "generatedAt": "2026-11-16T12:00:02.200Z",
+  "data": {
+    "primary_category": "images",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Pure Dart image compression across multiple formats like JPG, PNG, GIF, BMP, TIFF, TGA, PVR, and ICO.",
+    "what_it_does": "Downsize is a pure Dart image compression library that reduces image file sizes while maintaining quality. It offers dynamic resizing, format-specific compression, and built-in extensions for File and Uint8List objects.",
+    "use_when": [
+      "You need to compress various image formats in pure Dart without platform-specific native dependencies.",
+      "You want to optimize image sizes for web or mobile apps by targeting specific file sizes or minimum quality."
+    ],
+    "avoid_when": [
+      "You require advanced image editing features like cropping or filters, which are not the primary focus.",
+      "You need a UI component for loading and caching images from the network."
+    ],
+    "strengths": [
+      "Supports a wide range of image formats including JPG, PNG, GIF, BMP, TIFF, TGA, PVR, and ICO.",
+      "Pure Dart implementation works across multiple platforms (Android, iOS, Web, Windows, macOS, Linux).",
+      "Easy-to-use extensions directly on File and Uint8List classes."
+    ],
+    "weaknesses": [
+      "Relies entirely on the underlying image package capabilities.",
+      "Limited built-in documentation on advanced configuration options beyond basic size and quality settings."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "image",
+        "why_pick_it": "It is the underlying package used by downsize, offering comprehensive low-level image processing and manipulation APIs."
+      }
+    ],
+    "minimal_example": "import 'dart:io';\nimport 'package:downsize/downsize.dart';\n\nvoid main() async {\n  File imageFile = File('path/to/your/image.jpg');\n  Uint8List imageData = await imageFile.readAsBytes();\n  Uint8List? compressedData = await Downsize.downsize(data: imageData, maxSize: 500, minQuality: 60);\n}",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.0",
+  "generatedAt": "2026-11-16T11:45:56.111Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Run scheduled refresh tasks and immediate background tasks on Android and iOS.",
+    "what_it_does": "This plugin executes background tasks by spinning up new Flutter engines. It supports both scheduled refresh tasks using WorkManager on Android and BackgroundTasks on iOS, as well as immediate background tasks with optional inter-task messaging and task management controls.",
+    "use_when": [
+      "You need to run scheduled background data sync or refresh tasks.",
+      "You need to trigger and manage immediate background execution tasks.",
+      "You need communication between the main app and background tasks."
+    ],
+    "avoid_when": [
+      "You are using Flutter SDK older than 3.0.0 or Dart older than 2.17.0.",
+      "You need to communicate with scheduled refresh tasks (communication is limited to immediate tasks).",
+      "Libraries used inside your background tasks are not compatible with multiple Flutter engines."
+    ],
+    "strengths": [
+      "Supports both scheduled refresh and immediate tasks natively on Android and iOS.",
+      "Provides inter-task messaging and execution management (checking status and stopping tasks).",
+      "Exposes configurable options for battery, network, storage, and delays on Android."
+    ],
+    "weaknesses": [
+      "Scheduled refresh tasks cannot communicate with other tasks.",
+      "iOS requires specific AppDelegate or UserDefaults configuration and native capability setup.",
+      "Some libraries may not work correctly out-of-the-box when run inside a secondary background Flutter engine."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding Background Modes capabilities ('Background fetch' and 'Background processing') and configuring BGTaskSchedulerPermittedIdentifiers in Info.plist for iOS. Android requires SDK 21+.",
+    "alternatives": [],
+    "minimal_example": "await FlutterBackgroundExecutor().createRefreshTask(\n  callback: refresh,\n  settings: RefreshTaskSettings(\n    androidDetails: AndroidRefreshTaskDetails(),\n    iosDetails: IosRefreshTaskDetails(taskIdentifier: 'com.dsr_corporation.refresh-task'),\n  ),\n);\n\n@pragma('vm:entry-point')\nFuture<void> refresh() async {\n  print('Called refresh task');\n}",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.6.0",
+  "generatedAt": "2026-11-16T11:48:51.687Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "auth",
+      "storage"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Dio-based networking client for Flutter with built-in token refresh management.",
+    "what_it_does": "Provides a base ApiClient class built on top of Dio to structure API requests, handle responses, map JSON data using isolates, and manage authentication tokens securely.",
+    "use_when": [
+      "You are building a Flutter application that requires structured REST API integration.",
+      "You need built-in handling for authorization tokens and automatic refresh flows."
+    ],
+    "avoid_when": [
+      "You prefer using pure Dio without extra wrappers.",
+      "You are working with GraphQL or WebSockets rather than a standard REST API backend."
+    ],
+    "strengths": [
+      "Built-in authentication token management and storage",
+      "Background isolate execution for response mappers",
+      "Built on top of the popular Dio package"
+    ],
+    "weaknesses": [
+      "Requires writing custom response mappers and API client classes",
+      "Tied closely to Dash-Kit patterns and conventions"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires creating an ApiClient subclass, setting up an ApiEnvironment, and configuring Dio instances.",
+    "alternatives": [
+      {
+        "name": "dio",
+        "why_pick_it": "If you prefer using the raw Dio HTTP client without additional Dash-Kit abstractions and token management wrappers."
+      },
+      {
+        "name": "http",
+        "why_pick_it": "If you want a simpler, built-in low-level HTTP client rather than a feature-rich networking stack."
+      }
+    ],
+    "minimal_example": "class ApplicationApi extends ApiClient {\n  ApplicationApi({\n    required ApiEnvironment environment,\n    required Dio dio,\n  }) : super(environment: environment, dio: dio);\n\n  Future<UsersResponseModel> getUserList() => get(\n        path: 'users',\n        responseMapper: response_mappers.users,\n      );\n}",
+    "confidence": 0.95
+  }
+}

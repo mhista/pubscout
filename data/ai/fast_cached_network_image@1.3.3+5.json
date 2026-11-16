@@ -1,0 +1,58 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "1.3.3+5",
+  "generatedAt": "2026-11-16T11:42:56.033Z",
+  "data": {
+    "primary_category": "images",
+    "secondary_categories": [
+      "networking",
+      "storage"
+    ],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "Widget to display network images with caching, loading indicators and fade transitions.",
+    "what_it_does": "FastCachedNetworkImage downloads images, stores them in a Hive cache, and serves them from local storage on subsequent loads. It provides customizable loading and error widgets, progress reporting, and fade‑in animations.",
+    "use_when": [
+      "You need offline access to frequently used images",
+      "You want built‑in progress indicators or custom loaders",
+      "You target multiple platforms including web and desktop"
+    ],
+    "avoid_when": [
+      "App size must be minimal and you can’t afford extra dependencies",
+      "You need fine‑grained cache policies beyond simple TTL",
+      "You require advanced image manipulation or transformations"
+    ],
+    "strengths": [
+      "Simple API with built‑in caching",
+      "Supports progress, error handling and fade animations",
+      "Works on mobile, web and desktop out of the box"
+    ],
+    "weaknesses": [
+      "Relies on Hive for storage, adding another dependency",
+      "Cache management is limited to clear‑all or per‑image deletion",
+      "Large images may still consume significant disk space"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Call FastCachedImageConfig.init() (optionally with subDir and clearCacheAfter) before runApp; ensure hive_ce_flutter is added; no special permissions required.",
+    "alternatives": [
+      {
+        "name": "cached_network_image",
+        "why_pick_it": "Mature package with extensive caching options and fewer dependencies"
+      },
+      {
+        "name": "octo_image",
+        "why_pick_it": "Provides placeholders, error widgets and fade effects with a flexible API"
+      },
+      {
+        "name": "photo_view",
+        "why_pick_it": "Adds pinch‑to‑zoom and pan capabilities on top of cached images"
+      }
+    ],
+    "minimal_example": "import 'package:fast_cached_network_image/fast_cached_network_image.dart';\nimport 'package:flutter/material.dart';\n\nvoid main() async {\n  WidgetsFlutterBinding.ensureInitialized();\n  await FastCachedImageConfig.init();\n  runApp(const MyApp());\n}\n\nclass MyApp extends StatelessWidget {\n  const MyApp({super.key});\n  @override\n  Widget build(BuildContext context) => MaterialApp(\n    home: Scaffold(\n      body: Center(\n        child: FastCachedImage(\n          url: 'https://example.com/image.jpg',\n          fit: BoxFit.cover,\n        ),\n      ),\n    ),\n  );\n}",
+    "confidence": 0.93
+  }
+}

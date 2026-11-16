@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.2.17",
+  "generatedAt": "2026-11-16T11:54:14.006Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "Config-based scraper for web pages and APIs using chainable parsers and transforms.",
+    "what_it_does": "Extracts data from web pages and APIs using simple key/value configurations and chained parsers. It supports over 15 built-in parsers including HTML, CSS selectors, JSONPath, tables, and response headers.",
+    "use_when": [
+      "You need to scrape web pages or APIs using configuration-driven patterns.",
+      "You want to extract structured data from HTML tables or JSON endpoints without writing boilerplate parsing logic."
+    ],
+    "avoid_when": [
+      "You need a full headless browser solution to execute complex client-side JavaScript interactions.",
+      "You are scraping heavily authenticated applications requiring complex session management."
+    ],
+    "strengths": [
+      "Over 15 built-in parsers with support for elements, attributes, text, JSON paths, and headers.",
+      "Automatic browser-like request headers and user-agent generation.",
+      "Supports data cleaning and transformations."
+    ],
+    "weaknesses": [
+      "Relies on static HTML fetching and cannot execute JavaScript-heavy Single Page Applications natively.",
+      "Config-based approach may become difficult to maintain for extremely complex scraping workflows."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:dart_web_scraper/dart_web_scraper.dart';\n\nvoid main() async {\n  WebScraper webScraper = WebScraper();\n\n  Map<String, Object> result = await webScraper.scrape(\n    url: Uri.parse(\"https://quotes.toscrape.com\"),\n    scraperConfig: ScraperConfig(\n      parsers: [\n        Parser(\n          id: \"quotes\",\n          parents: [\"_root\"],\n          type: ParserType.element,\n          selectors: [\".quote\"],\n          multiple: true,\n        ),\n        Parser(\n          id: \"quote\",\n          parents: [\"quotes\"],\n          type: ParserType.text,\n          selectors: [\"span.text\"],\n        ),\n      ],\n    ),\n  );\n\n  print(result);\n}",
+    "confidence": 0.95
+  }
+}

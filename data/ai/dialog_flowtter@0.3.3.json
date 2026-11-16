@@ -1,0 +1,50 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.3.3",
+  "generatedAt": "2026-11-16T11:36:33.593Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "ai-ml"
+    ],
+    "approach": [
+      "code generation",
+      "imperative"
+    ],
+    "one_liner": "Flutter client for Dialogflow API with authentication and intent detection",
+    "what_it_does": "Provides a null‑safe wrapper around Dialogflow's REST API. Handles Google service‑account authentication, builds an authenticated HTTP client, and maps responses to Dart models. Lets you detect intents and retrieve text, rich messages, or audio responses.",
+    "use_when": [
+      "You need to integrate Dialogflow conversational agents into a Flutter app",
+      "Cross‑platform support (Android, iOS, Web) is required",
+      "You want a ready‑made model layer and authentication helper"
+    ],
+    "avoid_when": [
+      "You need offline or on‑device NLU processing",
+      "You require support for platforms not yet stable (Windows, Linux, macOS)",
+      "You need a more generic HTTP client without Dialogflow‑specific abstractions"
+    ],
+    "strengths": [
+      "Simple authentication via service‑account JSON",
+      "Null‑safety and web support out of the box",
+      "Rich response handling (text, cards, audio)",
+      "Convenient model classes generated with json_serializable"
+    ],
+    "weaknesses": [
+      "Limited to Dialogflow; not a general AI/ML client",
+      "Platform support for desktop is still experimental",
+      "Relies on googleapis_auth; may need extra setup for custom auth flows"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add dialog_flowtter to pubspec, include your Dialogflow service‑account JSON as an asset, and reference it in flutter assets. No native permissions required.",
+    "alternatives": [
+      {
+        "name": "http",
+        "why_pick_it": "If you only need raw HTTP calls and want full control over request/response handling without Dialogflow‑specific abstractions."
+      }
+    ],
+    "minimal_example": "```dart\nfinal credentials = await DialogAuthCredentials.fromFile('assets/dialog_flow_auth.json');\nfinal dialog = DialogFlowtter(credentials: credentials, sessionId: 'my_session');\nfinal response = await dialog.detectIntent(\n  queryInput: QueryInput(text: TextInput(text: 'Hi', languageCode: 'en')),\n);\nprint(response.text);\n```",
+    "confidence": 0.9
+  }
+}

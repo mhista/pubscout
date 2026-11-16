@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.2.1",
+  "generatedAt": "2026-11-16T12:08:20.863Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "ai-ml"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Integrates Google Vision REST API features for image analysis and OCR.",
+    "what_it_does": "Allows developers to add Google Vision features including image labeling, face, logo, and landmark detection, optical character recognition (OCR), and explicit content detection into cross-platform applications.",
+    "use_when": [
+      "You need to integrate Google Cloud Vision API features into a Dart or Flutter application.",
+      "You want built-in support for OCR, document text to markdown conversion, and face or label detection."
+    ],
+    "avoid_when": [
+      "You require on-device machine learning models that do not depend on cloud connectivity or API keys.",
+      "You are looking for general image picking or cropping tools without cloud analysis."
+    ],
+    "strengths": [
+      "Comprehensive coverage of Google Vision REST API features.",
+      "Includes retry utilities, input validation, and secure logging interceptors.",
+      "Supports multiple authentication methods including JWT and API keys."
+    ],
+    "weaknesses": [
+      "Requires an active internet connection and a Google Cloud account with Vision API enabled.",
+      "May involve ongoing costs depending on Google Cloud Vision API usage pricing."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires obtaining a Google Cloud project, enabling the Cloud Vision API, and configuring an API key or service account JSON file.",
+    "alternatives": [],
+    "minimal_example": "final googleVision = await GoogleVision().withApiKey('[YOUR API KEY]');\n\nfinal faceAnnotationResponses = await googleVision.image.faceDetection(\n    JsonImage.fromGsUri('gs://gvision-demo/young-man-smiling-and-thumbs-up.jpg'));\n\nfor (var faceAnnotation in faceAnnotationResponses) {\n  print('Face - ${faceAnnotation.detectionConfidence}');\n}",
+    "confidence": 0.95
+  }
+}

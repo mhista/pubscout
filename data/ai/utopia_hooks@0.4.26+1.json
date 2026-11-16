@@ -1,0 +1,53 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.4.26+1",
+  "generatedAt": "2026-11-16T11:52:59.388Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [],
+    "approach": [
+      "hooks",
+      "declarative"
+    ],
+    "one_liner": "State management solution inspired by React Hooks for local and global states.",
+    "what_it_does": "It provides a comprehensive state management and architecture solution based on hooks. It covers local and global states, side effects, and application architecture patterns.",
+    "use_when": [
+      "You want a React Hooks-inspired architecture for your Flutter application.",
+      "You need a solution that handles both local component state and global app state using hooks.",
+      "You want to organize your code around custom composable hooks."
+    ],
+    "avoid_when": [
+      "You prefer traditional BLoC, Riverpod, or Provider architectures.",
+      "You are not comfortable following strict rules regarding hook execution order."
+    ],
+    "strengths": [
+      "Encourages reusable and composable business logic.",
+      "Supports both local widget state and global state container hierarchies.",
+      "Clean separation of state, hooks, views, and coordinators."
+    ],
+    "weaknesses": [
+      "Requires strict adherence to hook calling rules.",
+      "Can be unfamiliar to developers coming from standard Flutter state management paradigms."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Not documented",
+    "alternatives": [
+      {
+        "name": "riverpod",
+        "why_pick_it": "If you want compile-safe global state management without relying on widget trees for dependency lookup."
+      },
+      {
+        "name": "provider",
+        "why_pick_it": "If you prefer standard Flutter dependency injection and state inheritance patterns."
+      },
+      {
+        "name": "bloc",
+        "why_pick_it": "If you prefer a strict event-driven state management approach with explicit state transitions."
+      }
+    ],
+    "minimal_example": "class CounterButton extends HookWidget {\n  @override\n  Widget build(BuildContext context) {\n    final counter = useState(0);\n    return ElevatedButton(\n      child: Text('Counter: ${counter.value}'),\n      onPressed: () => counter.value++,\n    );\n  }\n}",
+    "confidence": 0.95
+  }
+}

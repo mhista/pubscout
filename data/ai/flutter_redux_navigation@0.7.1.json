@@ -1,0 +1,51 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.7.1",
+  "generatedAt": "2026-11-16T11:44:58.205Z",
+  "data": {
+    "primary_category": "navigation",
+    "secondary_categories": [
+      "state-management"
+    ],
+    "approach": [
+      "imperative",
+      "hooks"
+    ],
+    "one_liner": "A Redux middleware that enables navigation actions in Flutter apps.",
+    "what_it_does": "It adds a middleware to a Redux store that listens for navigation actions and performs Flutter navigation. Developers dispatch NavigateToAction (push, replace, etc.) and can provide pre‑ and post‑navigation callbacks. It works with the standard Navigator via a global navigatorKey.",
+    "use_when": [
+      "You are already using Redux for state management and want navigation driven by actions.",
+      "You need pre/post navigation side‑effects like showing loaders or analytics."
+    ],
+    "avoid_when": [
+      "You are not using Redux or prefer a different state‑management solution.",
+      "You need a full‑featured router with URL parsing, nested routes, or web‑specific features."
+    ],
+    "strengths": [
+      "Seamlessly integrates with Redux middleware pipeline",
+      "Supports pre‑ and post‑navigation hooks",
+      "Null‑safe and works on all Flutter platforms"
+    ],
+    "weaknesses": [
+      "Tied exclusively to Redux, not usable with other state solutions",
+      "No built‑in route definitions or deep‑link handling",
+      "Small community and limited documentation"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add NavigationMiddleware to your Store middleware list and set NavigatorHolder.navigatorKey on MaterialApp.",
+    "alternatives": [
+      {
+        "name": "bloc",
+        "why_pick_it": "Provides a similar action‑based navigation pattern using Bloc listeners"
+      },
+      {
+        "name": "flutter_bloc",
+        "why_pick_it": "Integrates Bloc with Flutter widgets and can handle navigation via Bloc state changes"
+      }
+    ],
+    "minimal_example": "final store = Store<AppState>(appReducer, initialState: AppState.initial(), middleware: [NavigationMiddleware<AppState>()]);\n\nclass MyApp extends StatelessWidget {\n  @override\n  Widget build(BuildContext context) {\n    return StoreProvider<AppState>(\n      store: store,\n      child: MaterialApp(\n        navigatorKey: NavigatorHolder.navigatorKey,\n        home: LoginPage(),\n      ),\n    );\n  }\n}",
+    "confidence": 0.9
+  }
+}

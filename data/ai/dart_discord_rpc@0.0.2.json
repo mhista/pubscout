@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.0.2",
+  "generatedAt": "2026-11-16T11:40:01.467Z",
+  "data": {
+    "primary_category": "games",
+    "secondary_categories": [
+      "web-desktop"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Discord Rich Presence integration for Flutter and Dart apps and games.",
+    "what_it_does": "Allows Flutter and Dart apps and games to integrate Discord Rich Presence. You can initialize the Discord RPC client, set or update user presence with details and images, clear presence, and listen to events through a stream.",
+    "use_when": [
+      "You want to display rich presence status on Discord for a desktop app or game.",
+      "You need to handle Discord RPC events like ready, errors, or game joins."
+    ],
+    "avoid_when": [
+      "You are targeting macOS or iOS platforms, which are unsupported.",
+      "You do not need Discord integration."
+    ],
+    "strengths": [
+      "Stream-based event handling for Discord events.",
+      "Easy to initialize and update presence states."
+    ],
+    "weaknesses": [
+      "Limited platform support (macOS, iOS, and Linux are unsupported or coming soon depending on the context).",
+      "Early version release (0.0.2)."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "You must create an application at the Discord Developer Portal to obtain an application ID.",
+    "alternatives": [],
+    "minimal_example": "void main() {\n    DiscordRPC.initialize();\n    runApp(MyApp());\n}\n\nDiscordRPC rpc = DiscordRPC(\n    applicationId: 'APPLICATION_ID',\n);\n\nrpc.start(autoRegister: true);\nrpc.updatePresence(\n    DiscordPresence(\n        state: 'Discord Rich Presence from Dart. 🎯',\n        details: 'github.com/alexmercerind/dart_discord_rpc',\n    ),\n);",
+    "confidence": 0.95
+  }
+}

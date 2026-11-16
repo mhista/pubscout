@@ -1,0 +1,53 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.1.0",
+  "generatedAt": "2026-11-16T12:05:31.628Z",
+  "data": {
+    "primary_category": "layout",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A responsive layout system with scaling extensions, grids, container queries, and adaptive widgets.",
+    "what_it_does": "Provides an intelligent scaling engine for Flutter apps. It scales UI across Mobile, Web, and Desktop using simple extensions, smart container queries, screen breakpoints, and zero overhead.",
+    "use_when": [
+      "You need to scale UI elements, spacing, and text uniformly across different screen sizes.",
+      "You require a complete responsive design system with breakpoints, grids, and adaptive widgets like navigation and tables."
+    ],
+    "avoid_when": [
+      "You prefer a strictly standard Material layout without design-to-screen pixel scaling.",
+      "You are already heavily invested in another responsive layout package."
+    ],
+    "strengths": [
+      "Zero external dependencies and O(1) inline math.",
+      "Comprehensive suite of responsive widgets including container queries, slivers, and adaptive navigation.",
+      "Built-in 4K/ultra-wide screen dampening protection."
+    ],
+    "weaknesses": [
+      "Global scaling can sometimes alter text scaling expectations if not configured carefully.",
+      "Requires adherence to specific design baseline dimensions."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Wrap your app with ScalifyProvider and provide your design dimensions.",
+    "alternatives": [
+      {
+        "name": "responsive_framework",
+        "why_pick_it": "If you prefer auto-scaling via wrapping screens with UI scaling breakpoints rather than granular extension math."
+      },
+      {
+        "name": "responsive_builder",
+        "why_pick_it": "If you prefer a simpler builder-based layout selection for screen sizes."
+      },
+      {
+        "name": "sizer",
+        "why_pick_it": "If you only need basic percentage-based sizing extensions without a full layout engine."
+      }
+    ],
+    "minimal_example": "void main() => runApp(const MyApp());\n\nclass MyApp extends StatelessWidget {\n  const MyApp({super.key});\n\n  @override\n  Widget build(BuildContext context) {\n    return ScalifyProvider(\n      config: const ScalifyConfig(\n        designWidth: 375,\n        designHeight: 812,\n      ),\n      builder: (context, child) => MaterialApp(\n        theme: ThemeData.light().scale(context),\n        home: child,\n      ),\n      child: const HomeScreen(),\n    );\n  }\n}",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.0.1",
+  "generatedAt": "2026-11-16T11:40:01.635Z",
+  "data": {
+    "primary_category": "layout",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Create responsive and nested responsive layouts using a 12-column grid system.",
+    "what_it_does": "Provides Responsive and Div widgets that split the screen into a 12-column system similar to Bootstrap or Materialize. It enables setting column sizes and offsets for different screen breakpoints (extra small, small, medium, large, extra large) and supports nested responsive layouts.",
+    "use_when": [
+      "You want a Bootstrap-like 12-column responsive layout system in Flutter.",
+      "You need nested responsive layouts inside specific parent containers."
+    ],
+    "avoid_when": [
+      "You are placing the responsive layout directly inside a horizontal scroll widget.",
+      "You prefer flex/percentage-based adaptive layouts without a fixed 12-column grid."
+    ],
+    "strengths": [
+      "Familiar 12-column grid system inspired by web frameworks like Bootstrap.",
+      "Supports customizable global breakpoints.",
+      "Allows nested responsive widgets."
+    ],
+    "weaknesses": [
+      "Requires a finite width to work properly and cannot be placed directly inside horizontal scroll views.",
+      "Sum of offsets and column sizes must not exceed 12."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "responsive_framework",
+        "why_pick_it": "If you need automatic UI scaling, resizing, and responsive breakpoints across the entire app rather than just a 12-column grid."
+      },
+      {
+        "name": "responsive_builder",
+        "why_pick_it": "If you prefer building responsive UIs using ScreenTypeLayout and builder functions instead of a column grid."
+      }
+    ],
+    "minimal_example": "Responsive(\n    children: <Widget>[\n        Div(\n            division: Division(\n                colS: 5,\n                offsetL: 2,\n            ),\n            child: Card(child: Icon(Icons.game))\n        ),\n        Div(\n            division: Division(\n                colS: 12,\n                colM: 6,\n                colL: 4,\n            ),  \n            child: Text('responsive ui')\n        )          \n    ]\n)",
+    "confidence": 1
+  }
+}

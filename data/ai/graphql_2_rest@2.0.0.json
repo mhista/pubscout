@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "2.0.0",
+  "generatedAt": "2026-11-16T11:28:27.495Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Converts GraphQL queries into REST-compatible POST bodies for any HTTP client.",
+    "what_it_does": "The library transforms GraphQL query strings into a format that can be sent via a standard HTTP POST request. It replaces argument and input placeholders with actual values supplied by a payload object.",
+    "use_when": [
+      "You need to call a GraphQL endpoint using a plain HTTP client like Dio or http.",
+      "You want to avoid adding a full GraphQL client dependency to your project.",
+      "You need a lightweight solution for converting queries on the fly."
+    ],
+    "avoid_when": [
+      "You already use a dedicated GraphQL client such as graphql_flutter or Artemis.",
+      "You require automatic response parsing or schema validation."
+    ],
+    "strengths": [
+      "No external dependencies beyond Dart SDK.",
+      "Works with any HTTP client, including Dio, http, or custom clients.",
+      "Simple API with payload classes for arguments and inputs."
+    ],
+    "weaknesses": [
+      "Does not handle GraphQL responses or errors automatically.",
+      "No schema validation or type safety for queries.",
+      "Limited to POST requests; does not support subscriptions or websockets."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "final dio = Dio(BaseOptions(baseUrl: 'https://endpoint/'));\nfinal queryBuilder = GraphQLQueryBuilder(\n  transformer: (q) => q.replaceAll(RegExp(r'\\s+'), ' ').trim(),\n);\nawait dio.post<dynamic>(\n  'graphql/',\n  data: queryBuilder.build(\n    queryA,\n    UserQueryPayloadA(27, 'John'),\n  ),\n);",
+    "confidence": 0.9
+  }
+}

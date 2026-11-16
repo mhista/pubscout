@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.0.0",
+  "generatedAt": "2026-11-16T12:17:19.595Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "animation"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A Flutter refresh library for pull-down refresh and pull-up load with customizable indicators.",
+    "what_it_does": "Provides a SmartRefresher widget that wraps scroll components like ListView and GridView to support pull-down refresh, pull-up load, custom animations, and physics configurations. It includes multiple indicators like classic, water drop, and material styles.",
+    "use_when": [
+      "You need custom pull-to-refresh and load-more behaviors on scroll views.",
+      "You want advanced overscroll and spring physics customization.",
+      "You require global indicator configurations for your app's refresh components."
+    ],
+    "avoid_when": [
+      "You are using a setup where the SmartRefresher cannot be the direct parent of the ScrollView.",
+      "You only need the built-in RefreshIndicator from Material."
+    ],
+    "strengths": [
+      "Supports almost all ScrollWidgets like ListView, GridView, and CustomScrollView.",
+      "Provides numerous built-in refresh styles, indicators, and two-level refresh effects.",
+      "Extensive global configuration options for physics, spring animations, and behaviors."
+    ],
+    "weaknesses": [
+      "Strict requirement that the ScrollView must be the direct child of SmartRefresher without nesting intermediates.",
+      "Can be incompatible with certain PageView and TabBarView configurations depending on settings."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Not documented",
+    "alternatives": [],
+    "minimal_example": "RefreshController _refreshController = RefreshController(initialRefresh: false);\n\nSmartRefresher(\n  enablePullDown: true,\n  enablePullUp: true,\n  controller: _refreshController,\n  onRefresh: _onRefresh,\n  onLoading: _onLoading,\n  child: ListView.builder(\n    itemBuilder: (c, i) => Card(child: Center(child: Text('Item $i'))),\n    itemCount: 10,\n  ),\n)",
+    "confidence": 0.95
+  }
+}

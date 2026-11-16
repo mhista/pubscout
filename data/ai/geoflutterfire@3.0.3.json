@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.0.3",
+  "generatedAt": "2026-11-16T11:37:33.593Z",
+  "data": {
+    "primary_category": "maps",
+    "secondary_categories": [
+      "backend"
+    ],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "Store and query Firestore documents based on geographic location in real time.",
+    "what_it_does": "GeoFlutterFire is a lightweight add-on library for Cloud Firestore that lets you save geographical locations and query documents within a given radius. It uses geohashes to perform queries and returns real-time streams of document snapshots.",
+    "use_when": [
+      "You need real-time location-based queries using Firebase Firestore",
+      "You want to filter documents within a specific radius from a center point"
+    ],
+    "avoid_when": [
+      "You need complex range queries on multiple fields alongside geoqueries",
+      "You rely heavily on built-in server-side limit() or orderBy() combined with location filtering"
+    ],
+    "strengths": [
+      "Real-time streaming of geographic query results",
+      "Seamless integration with cloud_firestore and support for `withConverter`",
+      "Supports strict mode filtering and nested location fields"
+    ],
+    "weaknesses": [
+      "Does not support limit() or orderBy() out of the box",
+      "Strict mode filtering happens on the client side which may cause unnecessary document reads at large radii"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires a Firebase project with Cloud Firestore set up.",
+    "alternatives": [],
+    "minimal_example": "final geo = Geoflutterfire();\nfinal _firestore = FirebaseFirestore.instance;\nGeoFirePoint center = geo.point(latitude: 12.960632, longitude: 77.641603);\nvar collectionReference = _firestore.collection('locations');\nStream<List<DocumentSnapshot>> stream = geo.collection(collectionRef: collectionReference).within(center: center, radius: 50, field: 'position');",
+    "confidence": 1
+  }
+}

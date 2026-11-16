@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.6.13",
+  "generatedAt": "2026-11-16T11:43:38.038Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Run workout sessions and stream live health data from Wear OS and Tizen.",
+    "what_it_does": "The package lets you start a workout session on Wear OS or Tizen and receive real‑time data such as heart rate, calories, steps, speed and distance. It also provides a method to launch a watchOS app from iOS.",
+    "use_when": [
+      "Need live health metrics on Wear OS or Tizen",
+      "Want a single plugin for multiple wearable platforms",
+      "Require integration with Flutter without writing native code"
+    ],
+    "avoid_when": [
+      "You only need Android sensor data",
+      "You need a fully featured iOS watchOS app",
+      "You want a lightweight solution without native permissions"
+    ],
+    "strengths": [
+      "Supports multiple wearable OSes (Wear OS, Tizen, watchOS via iOS)",
+      "Provides real‑time streaming of key fitness metrics",
+      "Minimal dependencies, easy to add to existing projects"
+    ],
+    "weaknesses": [
+      "Requires native permission configuration and platform‑specific setup",
+      "No support for Android phones alone (only wearables)",
+      "Limited to health data, no other sensor types"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add BODY_SENSORS, ACTIVITY_RECOGNITION, ACCESS_FINE_LOCATION permissions in AndroidManifest; add healthinfo privilege and sensor features in Tizen manifest; enable HealthKit entitlement and Workout Processing background mode on iOS.",
+    "alternatives": [],
+    "minimal_example": "Workout.start(\n  type: ExerciseType.running,\n  onReading: (reading) {\n    print('Heart rate: ${reading.heartRate}');\n  },\n);",
+    "confidence": 0.8
+  }
+}

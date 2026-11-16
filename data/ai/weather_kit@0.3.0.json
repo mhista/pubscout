@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.3.0",
+  "generatedAt": "2026-11-16T11:58:07.536Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "maps"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "A Dart library for interfacing with the Apple WeatherKit API.",
+    "what_it_does": "Provides a client interface to communicate with the Apple WeatherKit API. Allows generating JWT tokens using Apple developer credentials and fetching weather data for specific coordinates.",
+    "use_when": [
+      "You need to fetch weather forecasts or current weather from Apple's WeatherKit API.",
+      "You are a member of the Apple Developer Program and have configured a WeatherKit key."
+    ],
+    "avoid_when": [
+      "You are not a member of the Apple Developer Program.",
+      "You need a weather API provider that does not require Apple credentials and JWT generation."
+    ],
+    "strengths": [
+      "Simplifies integration with Apple WeatherKit API in Dart and Flutter.",
+      "Includes helper methods for generating JWT tokens required by Apple."
+    ],
+    "weaknesses": [
+      "Requires an Apple Developer Program membership, Team ID, Key ID, and p8 certificate.",
+      "Limited documentation and examples beyond basic JWT generation and weather data fetching."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires registering an app Bundle ID, obtaining a Team ID, and downloading a p8 certificate from the Apple Developer portal.",
+    "alternatives": [
+      {
+        "name": "http",
+        "why_pick_it": "If you prefer making raw REST API requests to Apple WeatherKit or other weather services without a dedicated wrapper library."
+      },
+      {
+        "name": "dio",
+        "why_pick_it": "If you need an advanced HTTP client with interceptors and global configurations for your API calls."
+      }
+    ],
+    "minimal_example": "final weatherKit = WeatherKit();\nfinal token = weatherKit.generateJWT(\n  bundleId: 'com.example',\n  teamId: 'team id',\n  keyId: 'key id',\n  pem: 'example.p8',\n  expiresIn: const Duration(hours: 1),\n);\n\nfinal result = await weatherKit.obtainWeatherData(\n  jwt: token,\n  language: 'ja',\n  latitude: '35.71',\n  longitude: '139.811',\n  dataSets: 'currentWeather',\n);",
+    "confidence": 0.95
+  }
+}

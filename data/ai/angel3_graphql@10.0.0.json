@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "10.0.0",
+  "generatedAt": "2026-11-16T11:21:23.481Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "backend"
+    ],
+    "approach": [
+      "code generation",
+      "declarative"
+    ],
+    "one_liner": "Serve GraphQL APIs over HTTP and WebSockets using the Angel3 framework.",
+    "what_it_does": "Provides request handlers to serve GraphQL schemas, GraphiQL interfaces, file uploads, and WebSockets subscriptions within an Angel3 backend application. It supports schema resolvers integrated with Angel services.",
+    "use_when": [
+      "You are building a backend application using the Angel3 framework and want to expose a GraphQL API.",
+      "You need to handle GraphQL queries, mutations, subscriptions, and file uploads over HTTP and WebSockets."
+    ],
+    "avoid_when": [
+      "you are not using the Angel3 backend framework.",
+      "You are building a client-side Flutter application rather than a server."
+    ],
+    "strengths": [
+      "Integrates seamlessly with Angel3 services for quick CRUD operations.",
+      "Supports modern GraphQL WebSocket subprotocols (graphql-transport-ws) and file uploads.",
+      "Includes built-in GraphiQL support for API exploration."
+    ],
+    "weaknesses": [
+      "Tied strictly to the Angel3 framework ecosystem.",
+      "Requires build_runner and code generation for model types."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding angel3_graphql and its dependencies to pubspec.yaml, and running build_runner to generate types from models.",
+    "alternatives": [],
+    "minimal_example": "var app = Angel();\nvar http = AngelHttp(app);\nvar todoService = app.use('api/todos', MapService());\nvar schema = graphQLSchema(queryType: queryType);\napp.all('/graphql', graphQLHttp(GraphQL(schema)));\napp.get('/graphiql', graphiQL());",
+    "confidence": 1
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.1.0",
+  "generatedAt": "2026-11-16T11:44:22.133Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "theming",
+      "utils"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "TextMate-grammar based syntax highlighter for Flutter ported from Shiki.",
+    "what_it_does": "Tokenizes source code with real VS Code TextMate grammars and Shiki themes and renders it as styled TextSpans or through dedicated widgets. Supports ~250 languages and 75 themes, running on a background isolate or Web Worker.",
+    "use_when": [
+      "You need accurate syntax highlighting that matches VS Code colors.",
+      "You want to display formatted source code inside Flutter widgets.",
+      "You need a TextField controller that highlights syntax as users type."
+    ],
+    "avoid_when": [
+      "You are building a full-featured code editor with advanced IDE features beyond syntax-highlighted text input.",
+      "You want to avoid bundled language grammars and dynamically fetch everything from remote servers without custom loading."
+    ],
+    "strengths": [
+      "Golden-tested token output matching VS Code exactly.",
+      "Supports off-main-thread background isolate highlighting to keep UI smooth.",
+      "Includes a drop-in syntax-highlighting TextEditingController.",
+      "Runs on every platform Flutter supports without mandatory native dependencies."
+    ],
+    "weaknesses": [
+      "Web async highlighting requires setting up a browser Web Worker.",
+      "Very large files still incur Flutter paragraph layout costs."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Pure Dart by default with no native build steps required, though an optional Web Worker can be installed for web async support.",
+    "alternatives": [],
+    "minimal_example": "ShikiCodeView(\n  code: \"void main() => print('Hello');\",\n  lang: CodeLanguages.dart,\n  textStyle: const TextStyle(fontFamily: 'FiraCode', fontSize: 14),\n)",
+    "confidence": 1
+  }
+}

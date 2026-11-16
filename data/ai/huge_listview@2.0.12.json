@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.12",
+  "generatedAt": "2026-11-16T11:46:19.892Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A performant list view that handles any number of items using a fixed-size cache.",
+    "what_it_does": "It provides a ListView replacement capable of handling millions of items by maintaining a fixed-size cache of pages, discarding old pages as new ones are loaded asynchronously. It uses an internal ScrollablePositionedList and a DraggableScrollbar to support item-based scrolling and custom thumbs.",
+    "use_when": [
+      "You need to display massive or infinite lists containing hundreds of thousands or millions of items.",
+      "Items have varying heights and you want to maintain high scrolling performance.",
+      "You want to fetch data in pages asynchronously without keeping all items in memory."
+    ],
+    "avoid_when": [
+      "You only need to display a small, fixed list of items where standard Flutter lists suffice.",
+      "You require tight integration with the platform's standard Scrollbar rather than the custom draggable scrollbar."
+    ],
+    "strengths": [
+      "Handles massive or infinite item counts without memory bloating.",
+      "Supports items with non-uniform heights without performance loss.",
+      "Provides built-in caching via external or internal LRU maps and custom scroll thumbs."
+    ],
+    "weaknesses": [
+      "Does not play nice with the regular Flutter Scrollbar, requiring its own DraggableScrollbar.",
+      "Requires async page loaders rather than simple synchronous lists."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "HugeListView<MyDataItem>(\n  pageSize: 12,\n  pageFuture: (page) => _loadPage(page, 12),\n  itemBuilder: (context, index, entry) {\n    return Text(entry.name);\n  },\n)",
+    "confidence": 0.95
+  }
+}

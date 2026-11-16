@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "9.0.0",
+  "generatedAt": "2026-11-16T11:21:43.615Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [],
+    "approach": [
+      "stream-based",
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "AngularDart components that bind Bloc/Cubit state to the UI via a pipe.",
+    "what_it_does": "Provides a BlocPipe that connects Bloc or Cubit streams to Angular templates, updating the view on state changes. Works with the bloc package to enable BLoC pattern in AngularDart apps.",
+    "use_when": [
+      "You are building a web app with AngularDart and want to use the Bloc state‑management pattern.",
+      "You need a simple way to bind Bloc/Cubit state to Angular templates without writing manual subscriptions."
+    ],
+    "avoid_when": [
+      "Your project is a Flutter app (use flutter_bloc or bloc instead).",
+      "You require code‑generation or advanced DI features not offered by this package."
+    ],
+    "strengths": [
+      "Seamless integration of Bloc with AngularDart via a pipe.",
+      "Supports both Bloc and Cubit APIs.",
+      "Minimal boilerplate for UI binding."
+    ],
+    "weaknesses": [
+      "Limited to AngularDart/web; not usable in Flutter or mobile contexts.",
+      "Frequent breaking changes tied to ngdart and bloc version upgrades."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add angular_bloc, ngdart and bloc to pubspec, import angular_bloc.dart, and use BlocPipe in component metadata.",
+    "alternatives": [
+      {
+        "name": "bloc",
+        "why_pick_it": "Core Bloc package works everywhere and can be used directly without Angular‑specific glue."
+      },
+      {
+        "name": "flutter_bloc",
+        "why_pick_it": "Provides similar pipe‑like widgets for Flutter apps, the natural counterpart for mobile."
+      }
+    ],
+    "minimal_example": "import 'package:angular/angular.dart';\nimport 'package:angular_bloc/angular_bloc.dart';\nimport 'package:bloc/bloc.dart';\n\nclass CounterCubit extends Cubit<int> {\n  CounterCubit() : super(0);\n  void increment() => emit(state + 1);\n}\n\n@Component(\n  selector: 'counter-page',\n  template: '''\n    <h2>Count: {{ $pipe.bloc(counterCubit) }}</h2>\n    <button (click)=\"counterCubit.increment()\">+</button>\n  ''',\n  pipes: [BlocPipe],\n)\nclass CounterPageComponent implements OnInit, OnDestroy {\n  late final CounterCubit counterCubit;\n  void ngOnInit() => counterCubit = CounterCubit();\n  void ngOnDestroy() => counterCubit.close();\n}",
+    "confidence": 0.9
+  }
+}

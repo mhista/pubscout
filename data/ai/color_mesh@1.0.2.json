@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.2",
+  "generatedAt": "2026-11-16T11:44:04.196Z",
+  "data": {
+    "primary_category": "theming",
+    "secondary_categories": [
+      "animation"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A multi-point mesh gradient that extends Gradient and can be used in decorations and animations.",
+    "what_it_does": "Provides a MeshGradient class that works similarly to RadialGradient and LinearGradient, supporting up to 8 colors with customizable offsets, strengths, and sigmas. It also includes MeshGradientContainer and AnimatedMeshGradientContainer widgets for building static or animated mesh gradient backgrounds.",
+    "use_when": [
+      "You want to add multi-point mesh gradients to your Flutter app UI.",
+      "You need an animated gradient background that shuffles colors periodically.",
+      "You want to use a custom gradient inside standard decorations like BoxDecoration."
+    ],
+    "avoid_when": [
+      "You are running on Android emulators using Impeller OpenGLES where the shader is currently not working.",
+      "You prefer simple linear or radial gradients built natively into Flutter without shaders."
+    ],
+    "strengths": [
+      "Supports up to 8 colors with configurable offsets, strengths, and sigmas.",
+      "Supports lerping for smooth animations with BoxDecoration and AnimatedContainer.",
+      "Includes ready-to-use container widgets for quick implementation."
+    ],
+    "weaknesses": [
+      "Requires shader precaching or initialization at app startup.",
+      "Shader compatibility issues on certain configurations like Impeller OpenGLES on Android emulators."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Call await MeshGradient.precacheShader() at app startup in main().",
+    "alternatives": [],
+    "minimal_example": "Future<void> main() async {\n  await MeshGradient.precacheShader();\n  runApp(const MyApp());\n}\n\nclass MyMeshContainer extends StatelessWidget {\n  const MyMeshContainer({super.key});\n\n  @override\n  Widget build(BuildContext context) {\n    return Container(\n      decoration: BoxDecoration(\n        gradient: MeshGradient(\n          colors: const [\n            Colors.red,\n            Colors.green,\n            Colors.yellow,\n            Colors.blue,\n          ],\n          offsets: const [\n            Offset(0, 0),\n            Offset(0, 1),\n            Offset(1, 0),\n            Offset(1, 1),\n          ],\n          strengths: const [1, 1, 1, 1],\n          sigmas: const [0.3, 0.2, 0.3, 0.25],\n        ),\n      ),\n    );\n  }\n}",
+    "confidence": 0.95
+  }
+}

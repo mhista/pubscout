@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.12.1",
+  "generatedAt": "2026-11-16T11:40:14.016Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "images"
+    ],
+    "approach": [
+      "declarative",
+      "no controllers"
+    ],
+    "one_liner": "A Flutter widget for creating customizable drawing canvases with a declarative API.",
+    "what_it_does": "Provides a flexible drawing canvas widget that captures touch, stylus, and mouse inputs. It supports stroke management via state, custom smoothing algorithms, intersection detection, and custom painters.",
+    "use_when": [
+      "You want to allow users to draw freely with fingers or styluses on a canvas.",
+      "You need a controller-free, fully declarative drawing widget.",
+      "You require device-aware drawing behaviors like stylus-only input or pressure sensitivity."
+    ],
+    "avoid_when": [
+      "You need built-in state management solutions like undo/redo out of the box (requires manual implementation).",
+      "You are building complex vector graphics editing software."
+    ],
+    "strengths": [
+      "Fully declarative API with no controllers required.",
+      "Device-aware input handling for distinguishing stylus, finger, and mouse.",
+      "Rich stroke data including pressure, tilt, and orientation."
+    ],
+    "weaknesses": [
+      "Features like undo/redo and zoom/pan must be implemented by the app developer.",
+      "Not documented for offline local persistence of canvas states."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "class MyDrawingPage extends StatefulWidget {\n  @override\n  _MyDrawingPageState createState() => _MyDrawingPageState();\n}\n\nclass _MyDrawingPageState extends State<MyDrawingPage> {\n  List<Stroke> _strokes = [];\n\n  @override\n  Widget build(BuildContext context) {\n    return Draw(\n      strokes: _strokes,\n      onStrokeDrawn: (stroke) {\n        setState(() {\n          _strokes = [..._strokes, stroke];\n        });\n      },\n    );\n  }\n}",
+    "confidence": 0.95
+  }
+}

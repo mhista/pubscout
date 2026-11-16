@@ -1,0 +1,47 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.0",
+  "generatedAt": "2026-11-16T11:52:47.225Z",
+  "data": {
+    "primary_category": "maps",
+    "secondary_categories": [
+      "theming"
+    ],
+    "approach": [
+      "declarative",
+      "imperative"
+    ],
+    "one_liner": "Provides customizable map themes and preset styles for map implementations.",
+    "what_it_does": "A Flutter plugin that supplies built-in and custom map themes alongside persistence capabilities for user preferences. It offers widgets and managers to style map components dynamically, currently supporting Google Maps.",
+    "use_when": [
+      "You want to easily add dark, night, or retro themes to Google Maps in Flutter.",
+      "You need automatic persistence for user map theme selections.",
+      "You want pre-built UI selectors for changing map styles."
+    ],
+    "avoid_when": [
+      "You are using map engines other than Google Maps (currently unsupported by this plugin).",
+      "You require complex vector styling outside of standard map JSON styles."
+    ],
+    "strengths": [
+      "Includes 5 built-in themes (Standard, Dark, Night, Night Blue, Retro).",
+      "Supports auto-persistence of user theme choices via shared_preferences.",
+      "Provides flexible usage patterns: all-in-one widget, separate selector, and programmatic manager."
+    ],
+    "weaknesses": [
+      "Currently restricted to Google Maps implementation.",
+      "Limited to JSON-based map styling."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires setting up Google Maps API keys on Android and iOS following the standard google_maps_flutter platform setup guides.",
+    "alternatives": [
+      {
+        "name": "google_maps_flutter",
+        "why_pick_it": "If you prefer to implement manual map styling and custom JSON themes directly without an auxiliary theming package."
+      }
+    ],
+    "minimal_example": "MapThemeWidget(\n  builder: (mapStyle) {\n    return GoogleMap(\n      initialCameraPosition: CameraPosition(\n        target: LatLng(37.4219983, -122.084),\n        zoom: 14.0,\n      ),\n      style: mapStyle.isEmpty ? null : mapStyle,\n    );\n  },\n)",
+    "confidence": 0.95
+  }
+}

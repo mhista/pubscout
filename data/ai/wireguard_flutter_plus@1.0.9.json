@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.9",
+  "generatedAt": "2026-11-16T11:26:31.049Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "device",
+      "web-desktop"
+    ],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "A Flutter plugin for WireGuard VPN implementation across Android, iOS, macOS, Windows, and Linux.",
+    "what_it_does": "A Flutter plugin that sets up and controls WireGuard VPN connections. It provides traffic statistics, tunnel management, split tunneling, and key generation across Android, iOS, macOS, Windows, and Linux.",
+    "use_when": [
+      "You need to establish and manage WireGuard VPN connections in a Flutter app.",
+      "You need real-time download and upload traffic statistics for active VPN sessions.",
+      "You require cross-platform VPN support including desktop and mobile environments."
+    ],
+    "avoid_when": [
+      "Your app uses a different VPN protocol (e.g., OpenVPN) instead of WireGuard.",
+      "You cannot perform platform-specific setup for native Network Extensions on Apple platforms."
+    ],
+    "strengths": [
+      "Cross-platform support covering Android, iOS, macOS, Windows, and Linux.",
+      "Real-time traffic statistics and connection stage streams.",
+      "Modern support including Android 16KB page sizes."
+    ],
+    "weaknesses": [
+      "Requires complex native configuration on Apple platforms (Network Extensions, App Groups).",
+      "Desktop platforms require specific privileges or external tools (Admin privileges on Windows, wireguard-tools and openresolv on Linux)."
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Requires creating a Network Extension target and configuring App Groups in Xcode for iOS and macOS. Windows requires running as Administrator, and Linux requires installing wireguard-tools and openresolv.",
+    "alternatives": [],
+    "minimal_example": "import 'package:wireguard_flutter_plus/wireguard_flutter_plus.dart';\n\nfinal wireguard = WireGuardFlutter.instance;\n\nvoid initVpn() async {\n  await wireguard.initialize(\n    interfaceName: 'wg0',\n    vpnName: \"Orban VPN\",\n  );\n}",
+    "confidence": 0.95
+  }
+}

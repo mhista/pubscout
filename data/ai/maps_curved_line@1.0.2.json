@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.2",
+  "generatedAt": "2026-11-16T11:58:13.141Z",
+  "data": {
+    "primary_category": "maps",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Generate points to draw curved lines on Google Maps.",
+    "what_it_does": "A package to help draw curved lines on Google Maps. It generates a list of LatLng which can be used to render a curved polyline between a start and end LatLng.",
+    "use_when": [
+      "You need to draw a curved route between two points on Google Maps",
+      "You want a cost-effective way to display routes without complex routing engines"
+    ],
+    "avoid_when": [
+      "You are not using google_maps_flutter",
+      "You need detailed road-following navigation routes"
+    ],
+    "strengths": [
+      "Simple API to generate curved line coordinates",
+      "Integrates directly with google_maps_flutter"
+    ],
+    "weaknesses": [
+      "Limited functionality strictly focused on generating curve points",
+      "Not documented for non-Google map packages"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the dependency to pubspec.yaml and import the package.",
+    "alternatives": [
+      {
+        "name": "google_maps_flutter",
+        "why_pick_it": "Core Google Maps plugin which can render polylines directly if you manage the coordinates yourself."
+      }
+    ],
+    "minimal_example": "import 'package:maps_curved_line/maps_curved_line.dart';\n\nfinal LatLng _point1 = LatLng(12.947437, 77.681345);\nfinal LatLng _point2 = LatLng(12.948767, 77.689120);\n\nPolyline(\n  polylineId: PolylineId(\"line 1\"),\n  points: MapsCurvedLines.getPointsOnCurve(_point1, _point2),\n)",
+    "confidence": 0.95
+  }
+}

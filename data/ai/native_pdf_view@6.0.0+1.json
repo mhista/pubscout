@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "6.0.0+1",
+  "generatedAt": "2026-11-16T11:54:02.164Z",
+  "data": {
+    "primary_category": "files",
+    "secondary_categories": [
+      "ui-kits",
+      "web-desktop"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Flutter plugin to render and display PDF files across Web, macOS, Windows, Android, and iOS.",
+    "what_it_does": "Renders PDF documents within Flutter apps using a PdfView widget and a PdfController. It supports opening files from assets, local paths, memory data, or networks via companion libraries, and offers customizable page builders and navigation controls.",
+    "use_when": [
+      "You need to display PDF documents directly inside a multiplatform Flutter application UI.",
+      "You want to control page navigation, zooming, and custom page rendering for PDFs."
+    ],
+    "avoid_when": [
+      "You only need basic file picking or downloading without rendering the PDF contents.",
+      "You prefer using the newer officially recommended `pdfx` package directly instead of this proxy."
+    ],
+    "strengths": [
+      "Cross-platform support covering Web, Windows, macOS, Android, and iOS.",
+      "Provides a comprehensive PdfController for page manipulation and view state management.",
+      "Allows custom rendering options and page builders."
+    ],
+    "weaknesses": [
+      "The plugin has been renamed and republished as `pdfx`, meaning this package acts primarily as a proxy.",
+      "Requires platform-specific setup steps for web (pdfjs) and windows (pdfium)."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "For web, run `flutter pub run native_pdf_view:install_web` to add pdfjs. For windows, run the installer tool to configure pdfium in CMakeLists.txt.",
+    "alternatives": [],
+    "minimal_example": "import 'package:native_pdf_view/native_pdf_view.dart';\n\nfinal pdfController = PdfController(\n  document: PdfDocument.openAsset('assets/sample.pdf'),\n);\n\nWidget pdfView() => PdfView(\n  controller: pdfController,\n);",
+    "confidence": 0.95
+  }
+}

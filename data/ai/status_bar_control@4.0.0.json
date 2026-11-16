@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.0.0",
+  "generatedAt": "2026-11-16T11:27:43.836Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "theming"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Control status bar and navigation bar color, style, visibility, and translucent properties.",
+    "what_it_does": "Allows developers to imperatively control the device's status bar and navigation bar appearance across Android and iOS. You can change colors, adjust themes, toggle visibility, and manage translucent properties or full-screen modes.",
+    "use_when": [
+      "You need programmatic control over status bar and navigation bar colors or styles.",
+      "You are building an app that requires custom edge-to-edge styling or hiding the status bar dynamically."
+    ],
+    "avoid_when": [
+      "You only need standard declarative Flutter SystemUiOverlayStyle wrappers.",
+      "You need extensive non-status-bar device features not covered by this package."
+    ],
+    "strengths": [
+      "Supports both Android and iOS with additional Android navigation bar methods.",
+      "Updated to support modern Android edge-to-edge requirements (Android 15+) and Swift Package Manager."
+    ],
+    "weaknesses": [
+      "Platform support varies for certain methods (e.g., network activity indicator is iOS-only; navigation bar features are Android-only).",
+      "Imperative approach requires awaiting futures rather than declarative widget configurations."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "On iOS, you may need to add UIViewControllerBasedStatusBarAppearance false to Info.plist. On Android, you may optionally add windowLayoutInDisplayCutoutMode to styles.xml.",
+    "alternatives": [],
+    "minimal_example": "await StatusBarControl.setColor(Colors.green, animated: true);",
+    "confidence": 1
+  }
+}

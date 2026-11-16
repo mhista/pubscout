@@ -1,0 +1,48 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.6.0",
+  "generatedAt": "2026-11-16T11:37:08.117Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [],
+    "approach": [
+      "stream-based"
+    ],
+    "one_liner": "A BLoC implementation that uses async generators to emit state streams.",
+    "what_it_does": "It provides a StreamBloc class that converts events into streams of states using mapEventToStates. The API is compatible with the official bloc package and can be used with flutter_bloc widgets. It also offers a BlocLifecycleMixin for stream-based Bloc-to-Bloc communication.",
+    "use_when": [
+      "You need generator-based event handling",
+      "You want to keep compatibility with bloc 8.x",
+      "You want to use stream transformers on events",
+      "You prefer a single method to emit multiple states"
+    ],
+    "avoid_when": [
+      "You prefer the newer on() pattern of bloc 8.x",
+      "You rely heavily on freezed-generated union types",
+      "You need the latest bloc features not yet merged"
+    ],
+    "strengths": [
+      "Supports async generators for multiple state emissions",
+      "Compatible with flutter_bloc widgets",
+      "Allows native stream transformations",
+      "Provides lifecycle mixin for stream communication"
+    ],
+    "weaknesses": [
+      "Older API, less documentation",
+      "May not support newest bloc features",
+      "Requires manual handling of identical states"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "bloc",
+        "why_pick_it": "Official, actively maintained, uses on() pattern and integrates with freezed"
+      }
+    ],
+    "minimal_example": "class CounterEvent {}\nclass Increment implements CounterEvent {}\nclass Decrement implements CounterEvent {}\nclass StreamCounterBloc extends StreamBloc<CounterEvent, int> {\n  StreamCounterBloc() : super(0);\n  @override\n  Stream<int> mapEventToStates(CounterEvent event) async* {\n    if (event is Increment) yield state + 1;\n    else if (event is Decrement) yield state - 1;\n  }\n}",
+    "confidence": 0.8
+  }
+}

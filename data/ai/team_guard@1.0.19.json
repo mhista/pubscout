@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.19",
+  "generatedAt": "2026-11-16T11:51:54.160Z",
+  "data": {
+    "primary_category": "testing",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Custom lint plugin to block forbidden Flutter widgets and enforce team architectural rules.",
+    "what_it_does": "Team Guard is a custom lint plugin that restricts forbidden widgets, classes, and functions across Flutter projects. It guides developers toward approved design system replacements using IDE Quick Fixes, automated migrations, and terminal audit commands.",
+    "use_when": [
+      "You want to enforce design system rules and prevent usage of raw widgets like Text or Colors.",
+      "You need automated project-wide codebase migration for forbidden widgets.",
+      "You want to run terminal audits and CI/CD checks for unauthorized code patterns."
+    ],
+    "avoid_when": [
+      "Your project does not use custom lint plugins or static analyzer extensions.",
+      "You prefer manual code reviews over automated lint enforcement for architectural rules."
+    ],
+    "strengths": [
+      "Provides automated bulk codebase migration via CLI.",
+      "Offers one-click IDE Quick Fixes and batch fixing for files.",
+      "Avoids false positives with PDF libraries and local variables through semantic analysis."
+    ],
+    "weaknesses": [
+      "Requires proper setup of the external custom_lint analyzer plugin in your IDE and analysis options.",
+      "Limited to rule definitions configured in team_guard.yaml."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add team_guard to dev_dependencies, run dart run team_guard:setup to generate team_guard.yaml and configure analysis_options.yaml, and ensure the Custom Lint extension is installed in your IDE.",
+    "alternatives": [],
+    "minimal_example": "widgets:\n  Text:\n    replacement: CustomText\n    severity: error\n    reason: Always use CustomText to enforce typography scale and localization.",
+    "confidence": 1
+  }
+}

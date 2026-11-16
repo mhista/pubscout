@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.0",
+  "generatedAt": "2026-11-16T11:21:30.524Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [
+      "networking",
+      "files"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Native libtorrent 2.0 bindings with built-in HTTP streaming server for torrent video playback.",
+    "what_it_does": "Wraps the C++ libtorrent engine via FFI to download torrents, monitor progress, and provide an HTTP streaming server for instant video playback via local URLs. Supports Windows, Linux, macOS, iOS, and Android.",
+    "use_when": [
+      "You need to stream video or media files directly from magnet links or torrent files in a Flutter application.",
+      "You require high-performance torrent downloads on mobile or desktop without relying on external native wrappers."
+    ],
+    "avoid_when": [
+      "You need a pure Dart torrent implementation without native binaries or complex C++ dependencies.",
+      "Your target environment operates entirely offline without downloading prebuilt native binaries on the first build."
+    ],
+    "strengths": [
+      "Powered by libtorrent 2.1.1 C++ engine for high download speeds and efficient peer discovery.",
+      "Built-in HTTP streaming server with range-request support for media players.",
+      "Cross-platform support across Android, iOS, Windows, Linux, and macOS."
+    ],
+    "weaknesses": [
+      "First build requires downloading 10–80 MB of prebuilt native binaries.",
+      "Android requires foreground services to maintain downloads while the app is in the background."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires INTERNET permission on Android, network client entitlements on macOS, and optional foreground service setup for background Android streaming.",
+    "alternatives": [],
+    "minimal_example": "import 'package:libtorrent_flutter/libtorrent_flutter.dart';\n\nawait LibtorrentFlutter.init();\nfinal engine = LibtorrentFlutter.instance;\nfinal id = engine.addMagnet('magnet:?xt=urn:btih:...');\n",
+    "confidence": 0.95
+  }
+}

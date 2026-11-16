@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.0.4",
+  "generatedAt": "2026-11-16T11:42:07.667Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "animation"
+    ],
+    "approach": [
+      "declarative",
+      "stream-based"
+    ],
+    "one_liner": "An expandable button that animates between idle, progress, success, and error states using BLoC.",
+    "what_it_does": "It provides customizable buttons that react to background processes by morphing shapes and displaying loading, success, or error states. It integrates with the flutter_bloc package to manage state changes during asynchronous operations.",
+    "use_when": [
+      "You want buttons to give visual feedback for asynchronous actions like API calls.",
+      "Your project already utilizes flutter_bloc for state management."
+    ],
+    "avoid_when": [
+      "You do not use the BLoC pattern in your application.",
+      "You need to dynamically update text inside the button when its width is set to null."
+    ],
+    "strengths": [
+      "Built-in support for progress, success, and error states via BLoC.",
+      "Includes default parameter factories for quick styling of different button states."
+    ],
+    "weaknesses": [
+      "Known bug where updating text on a button with a null width does not adjust properly.",
+      "Requires using the dartz package for Either types in actions."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [],
+    "minimal_example": "MinimalisticButton(\n  bloc: _successBloc,\n  text: 'Animated success button',\n  onTap: () => _successBloc.add(TriggerAnyAnimatedButtonEvent(13)),\n)",
+    "confidence": 0.9
+  }
+}

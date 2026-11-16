@@ -1,0 +1,37 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.4.2",
+  "generatedAt": "2026-11-16T11:43:12.167Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "A customizable tree view widget for Flutter built on top of ListView.",
+    "what_it_does": "ListTreeView manages the tree structure of hierarchical data and lets you design your own row UI using an itemBuilder. It features infinite depth, row recycling through ListView, asynchronous lazy loading, and imperative control via a controller for operations like insert, remove, expand, collapse, and selection.",
+    "use_when": [
+      "You need to display hierarchical data in a tree structure with customizable row UI.",
+      "You require infinite child levels and child nodes with lazy loading capabilities.",
+      "You want efficient rendering using visible-node recycling via ListView."
+    ],
+    "avoid_when": [
+      "You are looking for a pre-styled UI kit or material tree component out of the box."
+    ],
+    "strengths": [
+      "Bring-your-own-UI approach with a custom item builder.",
+      "Efficient rendering by recycling visible nodes through ListView.",
+      "Supports asynchronous lazy loading of child nodes."
+    ],
+    "weaknesses": [
+      "Requires managing a separate controller and extending a specific NodeData class."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [],
+    "minimal_example": "ListTreeView(\n  controller: _controller,\n  itemBuilder: (BuildContext context, NodeData data) {\n    final item = data as TreeNodeData;\n    return Padding(\n      padding: EdgeInsets.only(left: item.level * 16.0),\n      child: ListTile(\n        title: Text(item.label ?? ''),\n      ),\n    );\n  },\n)",
+    "confidence": 1
+  }
+}

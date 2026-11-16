@@ -1,0 +1,56 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.3.1",
+  "generatedAt": "2026-11-16T12:16:27.569Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [
+      "dependency-injection"
+    ],
+    "approach": [
+      "declarative",
+      "no codegen",
+      "reactive-programming"
+    ],
+    "one_liner": "Complete state management with hierarchical dependency injection and async query caching.",
+    "what_it_does": "Zenify is a Flutter state management framework providing hierarchical dependency injection, automatic query caching, and offline-first resilience. It features zero boilerplate and no code generation, letting you tie controllers and data queries directly to widget scopes and routes.",
+    "use_when": [
+      "You want built-in TanStack Query style async state handling without code generation",
+      "You need hierarchical, route-scoped dependency injection with automatic cleanup",
+      "You require offline-first persistence and automatic request deduplication"
+    ],
+    "avoid_when": [
+      "You prefer strict BLoC architecture and event-stream separation",
+      "You already use Riverpod or Provider and want to stick to those ecosystems"
+    ],
+    "strengths": [
+      "Built-in query caching, deduplication, and offline-first resilience",
+      "Automatic lifecycle management and memory cleanup via scoped DI",
+      "Zero boilerplate and zero code generation requirements"
+    ],
+    "weaknesses": [
+      "Smaller ecosystem and community compared to mature solutions like Riverpod or Bloc",
+      "Global and scope-based mutable patterns might not fit strict functional programming preferences"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Initialize via Zen.init() in main() and configure routes with ZenRoute and ZenModule.",
+    "alternatives": [
+      {
+        "name": "riverpod",
+        "why_pick_it": "Compile-safe dependency injection and robust provider patterns with a massive community."
+      },
+      {
+        "name": "bloc",
+        "why_pick_it": "Strict, predictable state management based on event streams and clear state transitions."
+      },
+      {
+        "name": "provider",
+        "why_pick_it": "Simple, lightweight state management built natively around Flutter's InheritedWidget architecture."
+      }
+    ],
+    "minimal_example": "class CounterController extends ZenController {\n  final count = 0.obs();\n  void increment() => count.value++;\n}",
+    "confidence": 0.95
+  }
+}

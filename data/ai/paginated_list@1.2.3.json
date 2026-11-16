@@ -1,0 +1,37 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.2.3",
+  "generatedAt": "2026-11-16T11:44:15.609Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A Paginated List and Grid widget that displays items using infinite scrolling.",
+    "what_it_does": "Provides a PaginatedList and PaginatedGrid widget that automatically requests additional items as the user scrolls to the end. It handles loading indicators, last page detection, and supports horizontal or vertical scrolling.",
+    "use_when": [
+      "You need infinite scrolling or pagination for lists or grids.",
+      "You want to easily trigger a load-more callback when reaching the end of the scrollable area."
+    ],
+    "avoid_when": [
+      "You are not using a paginated data source or infinite scroll pattern."
+    ],
+    "strengths": [
+      "Supports both lists and grids.",
+      "Built-in handling of loading indicators and last page states.",
+      "Easy integration with state management solutions like BLoC."
+    ],
+    "weaknesses": [
+      "Requires explicit parent sizing (like Expanded or SizedBox) since the main parent is a ListView.builder.",
+      "Limited to the built-in pagination trigger based on visibility of the last item."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "PaginatedList<Movie>(\n    loadingIndicator: const CircularProgressIndicator(),\n    items: state.movies,\n    isLastPage: state.isLastPage,\n    onLoadMore: (index) => context.read<MovieBloc>().loadMore(),\n    builder: (movie, index) => Text(movie.title),\n)",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.18.0",
+  "generatedAt": "2026-11-16T12:13:51.857Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [
+      "codegen"
+    ],
+    "approach": [
+      "code generation"
+    ],
+    "one_liner": "Strongly-typed postgres ORM providing easy bindings between Dart classes and PostgreSQL databases.",
+    "what_it_does": "Stormberry maps Dart classes to a PostgreSQL database using annotations and code generation. It supports all kinds of relations without complex configuration and handles database migrations.",
+    "use_when": [
+      "You are building a Dart or Flutter backend that uses PostgreSQL.",
+      "You want strongly-typed database models and automatic code generation for relations and queries."
+    ],
+    "avoid_when": [
+      "You are using a non-relational database or a SQL database other than PostgreSQL.",
+      "You prefer writing raw SQL queries or manual mappers without code generation."
+    ],
+    "strengths": [
+      "Strongly-typed models and repositories",
+      "Easy relation handling without complex configuration",
+      "Built-in database migration tool"
+    ],
+    "weaknesses": [
+      "Requires re-running build_runner for model changes",
+      "Strictly limited to PostgreSQL databases"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add stormberry and build_runner, set up annotated model classes with part files, run build_runner, and use the stormberry migrate tool.",
+    "alternatives": [
+      {
+        "name": "drift",
+        "why_pick_it": "If you need a robust SQLite-based local database solution instead of a remote PostgreSQL database."
+      }
+    ],
+    "minimal_example": "import 'package:stormberry/stormberry.dart';\npart 'model.schema.dart';\n\n@Model()\nabstract class User {\n  @PrimaryKey()\n  String get id;\n  String get name;\n}",
+    "confidence": 0.95
+  }
+}

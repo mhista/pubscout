@@ -1,0 +1,51 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.0.3",
+  "generatedAt": "2026-11-16T12:17:13.687Z",
+  "data": {
+    "primary_category": "notifications",
+    "secondary_categories": [
+      "backend"
+    ],
+    "approach": [
+      "declarative",
+      "stream-based"
+    ],
+    "one_liner": "Handle Firebase Cloud Messaging notifications with built-in local notifications support.",
+    "what_it_does": "Provides a widget-based approach to handle Firebase Cloud Messaging and display local notifications when the app is in the foreground, background, or terminated. It exposes callbacks and streams to manage notification events, taps, tokens, and custom sounds.",
+    "use_when": [
+      "You want to display Firebase push notifications while the app is in the foreground without extra setup.",
+      "You prefer a widget-based approach to manage notification callbacks and data.",
+      "You need built-in stream subscriptions for notification taps and incoming messages."
+    ],
+    "avoid_when": [
+      "You are not using Firebase Cloud Messaging for push notifications.",
+      "You want to avoid native configuration steps like enabling core library desugaring on Android."
+    ],
+    "strengths": [
+      "Foreground notification display without extra boilerplate.",
+      "Widget-based approach that integrates with Flutter's UI architecture.",
+      "Built-in streams for notification arrivals and taps."
+    ],
+    "weaknesses": [
+      "Requires platform-specific setup including Android core library desugaring and minimum SDK version 24.",
+      "Re-exports major versions of underlying packages, making breaking changes cascade."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires Android minSdk 24, enabling core library desugaring in build.gradle, Java 17 compatibility, and Firebase project configuration.",
+    "alternatives": [
+      {
+        "name": "firebase_messaging",
+        "why_pick_it": "If you want lower-level control over Firebase Cloud Messaging without the wrapper widget."
+      },
+      {
+        "name": "onesignal_flutter",
+        "why_pick_it": "If you prefer a comprehensive third-party push notification provider instead of Firebase."
+      }
+    ],
+    "minimal_example": "FirebaseNotifications(\n  child: MyApp(),\n  onTap: (notificationInfo) {\n    // Handle notification tap\n  },\n)",
+    "confidence": 0.95
+  }
+}

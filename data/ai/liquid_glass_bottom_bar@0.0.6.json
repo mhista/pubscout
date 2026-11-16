@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.0.6",
+  "generatedAt": "2026-11-16T11:41:46.474Z",
+  "data": {
+    "primary_category": "navigation",
+    "secondary_categories": [
+      "widgets",
+      "animation"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A Flutter bottom navigation bar with frosted glass background and animated active pill.",
+    "what_it_does": "Provides a bottom navigation bar that uses a blur effect to create a glass‑like background. The active tab is highlighted with a translucent, animated pill and optional badge counters.",
+    "use_when": [
+      "You want a glass‑morphism style bottom navigation bar",
+      "You need a simple drop‑in widget with customizable colors, blur intensity, and badges"
+    ],
+    "avoid_when": [
+      "You require built‑in routing or deep‑link handling",
+      "Performance is critical on low‑end devices due to blur rendering"
+    ],
+    "strengths": [
+      "Eye‑catching glass effect with real blur",
+      "Highly customizable (colors, height, blur, labels, badges)",
+      "Simple API, works as a drop‑in Scaffold.bottomNavigationBar"
+    ],
+    "weaknesses": [
+      "Blur can be GPU‑intensive on older devices",
+      "Only visual navigation; no routing logic included",
+      "Requires Scaffold(extendBody:true) and background content for effect"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the package, run flutter pub get, and use Scaffold(extendBody:true) so the frosted effect can sample content behind the bar.",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:liquid_glass_bottom_bar/liquid_glass_bottom_bar.dart';\n\nclass MyScreen extends StatefulWidget {\n  const MyScreen({super.key});\n  @override\n  State<MyScreen> createState() => _MyScreenState();\n}\n\nclass _MyScreenState extends State<MyScreen> {\n  int _currentIndex = 0;\n  final _pages = const [Center(child: Text('Home')), Center(child: Text('Search')), Center(child: Text('Profile'))];\n  @override\n  Widget build(BuildContext context) {\n    return Scaffold(\n      extendBody: true,\n      appBar: AppBar(title: const Text('Liquid Glass Demo')),\n      body: IndexedStack(index: _currentIndex, children: _pages),\n      bottomNavigationBar: LiquidGlassBottomBar(\n        items: const [\n          LiquidGlassBottomBarItem(icon: Icons.home_outlined, activeIcon: Icons.home, label: 'Home'),\n          LiquidGlassBottomBarItem(icon: Icons.search_outlined, label: 'Search'),\n          LiquidGlassBottomBarItem(icon: Icons.person_outline, activeIcon: Icons.person, label: 'Profile', badge: 5),\n        ],\n        currentIndex: _currentIndex,\n        onTap: (i) => setState(() => _currentIndex = i),\n        activeColor: Color(0xFF34C3FF),\n        barBlurSigma: 16,\n        activeBlurSigma: 24,\n      ),\n    );\n  }\n}\n",
+    "confidence": 0.97
+  }
+}

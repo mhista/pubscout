@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.8.0",
+  "generatedAt": "2026-11-16T11:21:09.109Z",
+  "data": {
+    "primary_category": "files",
+    "secondary_categories": [
+      "device",
+      "web-desktop"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Pick directories and list file system entries across Android, iOS, macOS, Windows, Linux, and Web.",
+    "what_it_does": "A Flutter plugin providing native system dialogs for directory picking and file system entry listing. It supports streaming large directory trees and persisting access across app restarts via platform-specific features like bookmarks and URI permissions.",
+    "use_when": [
+      "You need users to pick directories using native system dialogs across desktop, mobile, and web.",
+      "You need to list or stream contents of picked directories recursively.",
+      "You need to maintain access to folders across app restarts using bookmarks or URI permissions."
+    ],
+    "avoid_when": [
+      "You only need to pick individual files rather than directories.",
+      "Your target browser environment is Firefox or Safari on the web, which lack directory picker support."
+    ],
+    "strengths": [
+      "Cross-platform support including Android, iOS, macOS, Windows, Linux, and Web.",
+      "Supports directory listing and stream-based entry reading for large folders.",
+      "Persistent access handling for picked folders across app restarts."
+    ],
+    "weaknesses": [
+      "Web platform support is restricted to Chromium browsers (Chrome, Edge) supporting the File System Access API.",
+      "Requires platform-specific setup on macOS (entitlements)."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires adding security-scoped bookmark entitlements to macOS Release and DebugProfile entitlements.",
+    "alternatives": [],
+    "minimal_example": "import 'package:dir_picker/dir_picker.dart';\n\nfinal PickedLocation? location = await DirPicker.pick();\nif (location != null) {\n  final entries = await DirPicker.listEntries(location, recursive: true);\n  for (final entry in entries) {\n    print('${entry.relativePath}');\n  }\n}",
+    "confidence": 0.95
+  }
+}

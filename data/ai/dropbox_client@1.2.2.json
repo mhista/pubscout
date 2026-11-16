@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.2.2",
+  "generatedAt": "2026-11-16T11:42:07.871Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [
+      "auth",
+      "files"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Dropbox client for Flutter supporting Android and iOS.",
+    "what_it_does": "Provides a Flutter plugin for accessing Dropbox storage. It supports user authorization via the Dropbox app or a web browser, along with listing, uploading, and downloading files.",
+    "use_when": [
+      "You need to integrate Dropbox file storage and syncing into your Flutter application.",
+      "You want to allow users to authenticate with Dropbox using OAuth or PKCE flow."
+    ],
+    "avoid_when": [
+      "You require a backend-agnostic storage client or support for non-Android/iOS platforms (like web or desktop).",
+      "You prefer pure Dart solutions without complex native setup steps."
+    ],
+    "strengths": [
+      "Supports both legacy authorization and modern OAuth 2.0 PKCE flow.",
+      "Provides file upload and download progress callbacks.",
+      "Supports listing folders and fetching temporary links."
+    ],
+    "weaknesses": [
+      "Requires manual native configuration in AndroidManifest.xml and Info.plist.",
+      "Limited platform support (only Android and iOS).",
+      "Requires app delegate code modifications for iOS."
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Requires registering a Dropbox API app, modifying AndroidManifest.xml, and updating Info.plist and AppDelegate (Swift or Objective-C) for iOS.",
+    "alternatives": [],
+    "minimal_example": "import 'package:dropbox_client/dropbox_client.dart';\n\nFuture initDropbox() async {\n    await Dropbox.init(dropbox_clientId, dropbox_key);\n}",
+    "confidence": 0.95
+  }
+}

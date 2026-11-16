@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.0",
+  "generatedAt": "2026-11-16T12:00:08.257Z",
+  "data": {
+    "primary_category": "auth",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Verify emails using an OTP-based method with a custom or default server.",
+    "what_it_does": "A Flutter package that allows developers to verify that a provided email is valid and existing by sending and validating an OTP. It supports both a default test server (with limitations) and custom production servers.",
+    "use_when": [
+      "You need to verify user email ownership via OTP during registration or login",
+      "You want to connect to a custom backend node server for email verification"
+    ],
+    "avoid_when": [
+      "You are using a fully managed auth provider like Firebase Auth that handles email verification out of the box",
+      "You require advanced multi-factor authentication beyond simple email OTP"
+    ],
+    "strengths": [
+      "Easy setup for sending and validating OTPs with minimal parameters",
+      "Supports custom server configurations for production use",
+      "Includes enriched log messages for debugging"
+    ],
+    "weaknesses": [
+      "Test server has a strict limitation of 30 mails",
+      "Requires setting up and hosting an external Node server for production use"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires instantiating EmailAuth and optionally configuring a remote server URL and key.",
+    "alternatives": [
+      {
+        "name": "firebase_auth",
+        "why_pick_it": "Provides built-in email verification and comprehensive authentication features without requiring a custom backend."
+      }
+    ],
+    "minimal_example": "EmailAuth emailAuth = new EmailAuth(sessionName: \"Sample session\");\nbool result = await emailAuth.sendOtp(recipientMail: _emailController.value.text, otpLength: 5);",
+    "confidence": 0.95
+  }
+}

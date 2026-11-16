@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.1.1",
+  "generatedAt": "2026-11-16T12:08:03.053Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [],
+    "approach": [
+      "code generation"
+    ],
+    "one_liner": "Dart client for Open-Meteo APIs covering forecast, historical, air quality, and marine data.",
+    "what_it_does": "A pure Dart client for every free Open-Meteo API including forecast, historical weather, air quality, marine, flood, climate, ensemble, seasonal, satellite radiation, elevation, and geocoding. It requires no API key and works across mobile, web, desktop, and server-side Dart.",
+    "use_when": [
+      "You need weather data, forecasts, or historical climate data from Open-Meteo in a Dart or Flutter application.",
+      "You want a typed client for geocoding, air quality, marine, or elevation data without managing raw HTTP requests."
+    ],
+    "avoid_when": [
+      "You require a commercial weather provider with localized physical radar maps or SLA guarantees.",
+      "You are using a different weather API backend entirely."
+    ],
+    "strengths": [
+      "Covers a comprehensive list of Open-Meteo APIs (forecast, historical, air quality, marine, flood, etc.).",
+      "No API key required.",
+      "Pure Dart package compatible with Flutter, CLI tools, and server-side Dart."
+    ],
+    "weaknesses": [
+      "Tied specifically to the Open-Meteo service provider ecosystem.",
+      "Ensemble and seasonal endpoints require specific accessor methods instead of standard typed fields."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the dependency to pubspec.yaml; no special native configuration or API keys needed.",
+    "alternatives": [],
+    "minimal_example": "import 'package:weather_open_meteo_client/weather_open_meteo_client.dart';\n\nfinal api = OpenMeteoApi();\nfinal weather = await api.getWeatherByCityName('London');\nprint('${weather.current?.temperature2m}');\napi.close();",
+    "confidence": 0.95
+  }
+}

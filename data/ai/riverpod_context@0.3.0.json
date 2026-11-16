@@ -1,0 +1,51 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.3.0",
+  "generatedAt": "2026-11-16T11:57:46.967Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "declarative"
+    ],
+    "one_liner": "Brings back context.read and context.watch extensions for Riverpod.",
+    "what_it_does": "Brings back context.read and context.watch extensions for Riverpod discontinued in version 1.0.0. Provides convenient context extensions like read, watch, refresh, invalidate, listen, and subscribe to interact with providers.",
+    "use_when": [
+      "You want to use context.read and context.watch style interactions with Riverpod",
+      "You want an alternative to ConsumerWidget and ConsumerStatefulWidget"
+    ],
+    "avoid_when": [
+      "You prefer using official Riverpod ConsumerWidgets without context extensions",
+      "You cannot add InheritedConsumer underneath the root ProviderScope"
+    ],
+    "strengths": [
+      "Familiar context-based API for developers coming from Provider",
+      "Supports .select(), provider families, and autoDispose providers"
+    ],
+    "weaknesses": [
+      "Requires adding InheritedConsumer under the root ProviderScope",
+      "Requires caution and rules (like context.prime) when conditionally watching providers"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add InheritedConsumer underneath the root ProviderScope.",
+    "alternatives": [
+      {
+        "name": "riverpod",
+        "why_pick_it": "Use the official core package and standard Consumer widgets instead of context extensions."
+      },
+      {
+        "name": "flutter_riverpod",
+        "why_pick_it": "Provides official widget bindings and Consumer widgets for Flutter."
+      },
+      {
+        "name": "provider",
+        "why_pick_it": "Native context.read/watch state management solution without Riverpod."
+      }
+    ],
+    "minimal_example": "ProviderScope(\n  child: InheritedConsumer(\n    child: MyApp(),\n  ),\n)",
+    "confidence": 1
+  }
+}

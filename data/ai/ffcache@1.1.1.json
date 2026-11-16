@@ -1,0 +1,47 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.1.1",
+  "generatedAt": "2026-11-16T11:27:13.827Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "File-based key-value store with automatic cache expiration in temporary folders.",
+    "what_it_does": "ffcache is a file-based key-value store that saves data in the app's temporary folder and on the web via idb_shim. It automatically expires cached data after a set duration and cleans up old entries upon initialization.",
+    "use_when": [
+      "You need to store temporary key-value data with expiration times.",
+      "You want to cache strings, bytes, or JSON data locally."
+    ],
+    "avoid_when": [
+      "You need a general-purpose permanent key-value store, as the OS can delete temporary files at any time."
+    ],
+    "strengths": [
+      "Supports automatic cache expiration and timeouts.",
+      "Supports strings, bytes, and JSON data.",
+      "Cross-platform support including iOS, Android, macOS, Windows, Linux, and Web."
+    ],
+    "weaknesses": [
+      "Data can be deleted by the OS at any time because it resides in the temporary folder.",
+      "Not suitable for general-purpose key-value storage."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "For web platform usage, calling cache.init() is required.",
+    "alternatives": [
+      {
+        "name": "shared_preferences",
+        "why_pick_it": "If you need a persistent, general-purpose key-value store that is not cleared by the OS unexpectedly."
+      },
+      {
+        "name": "flutter_cache_manager",
+        "why_pick_it": "If you are specifically caching web files and media with advanced download management."
+      }
+    ],
+    "minimal_example": "final cache = FFCache();\nawait cache.init();\nawait cache.setString('key', 'value');\nfinal value = await cache.getString('key');",
+    "confidence": 0.95
+  }
+}

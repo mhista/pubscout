@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "5.0.0",
+  "generatedAt": "2026-11-16T11:58:00.643Z",
+  "data": {
+    "primary_category": "testing",
+    "secondary_categories": [
+      "state-management"
+    ],
+    "approach": [
+      "stream-based"
+    ],
+    "one_liner": "Easily test rxBlocs and states from the FlutterRxBloc package.",
+    "what_it_does": "Provides testing utilities such as rxBlocTest and rxBlocFakeAsyncTest to write unit tests for RxBloc implementations with ease. It allows verifying emitted states, acting on bloc events, skipping initial values, and handling asynchronous code using FakeAsync.",
+    "use_when": [
+      "You are using rx_bloc and flutter_rx_bloc for state management and need to write unit tests for your blocs.",
+      "You need to test complex blocs featuring debounce or throttle operations using fake async."
+    ],
+    "avoid_when": [
+      "You are using a different state management solution such as Riverpod or standard Bloc.",
+      "You do not use RxBloc in your architecture."
+    ],
+    "strengths": [
+      "Simplifies testing of RxBloc streams and states.",
+      "Supports fake async execution to speed up tests involving throttle or debounce time."
+    ],
+    "weaknesses": [
+      "Strictly coupled to the rx_bloc ecosystem.",
+      "Limited documentation outside of README examples."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "bloc_test",
+        "why_pick_it": "If you are using standard bloc/flutter_bloc instead of rx_bloc."
+      }
+    ],
+    "minimal_example": "rxBlocTest<CounterBloc,int>(\n  'Emits [] when created',\n  build: () async => CounterBloc(), \n  state: (bloc) => bloc.states.count,\n  expect: [],\n);",
+    "confidence": 1
+  }
+}

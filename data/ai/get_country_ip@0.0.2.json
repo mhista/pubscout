@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.0.2",
+  "generatedAt": "2026-11-16T11:22:00.442Z",
+  "data": {
+    "primary_category": "maps",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Fetch device's public IP and geolocation via background isolate.",
+    "what_it_does": "The package retrieves the user's public IP address and looks up its geolocation data such as country, region, city, and ISP. It performs the network request in a background isolate to keep the UI thread responsive.",
+    "use_when": [
+      "When you need to personalize content based on the user's location",
+      "When you want to log or analyze traffic by IP",
+      "When you need a lightweight IP-based geolocation solution"
+    ],
+    "avoid_when": [
+      "When the device is offline or the API is unreachable",
+      "When privacy concerns prevent sending the IP to an external service"
+    ],
+    "strengths": [
+      "Runs network logic in a background isolate for smooth UI",
+      "Lightweight and easy to integrate",
+      "Provides comprehensive geolocation data"
+    ],
+    "weaknesses": [
+      "Relies on an external API, no offline support",
+      "No built-in caching or retry logic",
+      "No privacy controls for IP exposure"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:get_country_ip/get_country_ip.dart';\n\nvoid fetchLocation() async {\n  final ipService = GetCountryIp();\n  final location = await ipService.getIPLocation();\n  if (location != null) {\n    print(\"Location Info: $location\");\n  } else {\n    print(\"Failed to get location.\");\n  }\n}",
+    "confidence": 0.9
+  }
+}

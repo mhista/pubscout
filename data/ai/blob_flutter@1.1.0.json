@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "1.1.0",
+  "generatedAt": "2026-11-16T11:27:46.309Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "animation"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A Flutter widget that renders a high‑performance 3D particle blob using GPU shaders and background isolates.",
+    "what_it_does": "It draws thousands of particles in 3D space, applying procedural noise for shape, and uses a single GPU draw call for smooth animation. The widget supports touch interaction, depth sorting, and auto‑fit to its parent.",
+    "use_when": [
+      "You need a visually striking 3D blob effect for a splash screen or background.",
+      "You want interactive particle animation without writing custom shaders or isolate logic.",
+      "You need responsive sizing across devices and web.",
+      "You want to control the blob at runtime via a controller."
+    ],
+    "avoid_when": [
+      "You need a lightweight widget with minimal dependencies for a simple UI.",
+      "You are targeting very low‑end devices where GPU shaders may not be available.",
+      "You require custom physics beyond what the controller exposes."
+    ],
+    "strengths": [
+      "Zero‑jank architecture with background isolate math.",
+      "Hardware‑accelerated shaders for smooth gradients and shimmer.",
+      "Single GPU draw call via Canvas.drawRawPoints.",
+      "Auto‑fit and responsive sizing."
+    ],
+    "weaknesses": [
+      "Requires Flutter 3.10+ for isolate and shader support.",
+      "Web performance may need tuning for very high particle counts.",
+      "Limited to 3D particle blobs; not a general animation framework."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dependency in pubspec and import package: import 'package:blob_flutter/blob_flutter.dart';",
+    "alternatives": [],
+    "minimal_example": "import 'package:blob_flutter/blob_flutter.dart';\n\nBlobFlutter(\n  particleCount: 5000,\n  autoFit: true,\n  enableDepthSort: true,\n  enableDepthCueing: true,\n  noiseType: BlobNoiseType.harmonic,\n  gradient: const LinearGradient(colors: [Colors.cyanAccent, Colors.purpleAccent]),\n);",
+    "confidence": 0.92
+  }
+}

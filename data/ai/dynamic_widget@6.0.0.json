@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "6.0.0",
+  "generatedAt": "2026-11-16T11:45:55.494Z",
+  "data": {
+    "primary_category": "ui-kits",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A backend-driven UI toolkit to build dynamic Flutter user interfaces using JSON.",
+    "what_it_does": "Allows you to convert JSON strings into Flutter widgets dynamically at runtime. It mirrors standard Flutter widget structures and properties, enabling you to update app UIs remotely without republishing to app stores.",
+    "use_when": [
+      "You need to update app UIs dynamically by pushing JSON files from a backend.",
+      "You want to perform UI A/B testing without publishing new app versions to app stores."
+    ],
+    "avoid_when": [
+      "Your application requires complex custom widget logic that cannot be easily serialized to JSON or parsed via custom widget parsers.",
+      "You want a fully native compiled UI experience without the overhead of interpretation."
+    ],
+    "strengths": [
+      "Supports a wide array of built-in Flutter widgets.",
+      "Provides a DynamicWidgetJsonExportor to easily export your Flutter code into JSON strings.",
+      "Extensible through custom WidgetParsers."
+    ],
+    "weaknesses": [
+      "Building widgets from JSON strings can be time-consuming and requires careful handling (such as FutureBuilder).",
+      "Does not support every single Flutter widget and property out of the box."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [],
+    "minimal_example": "Future<Widget> _buildWidget(BuildContext context) async {\n  return DynamicWidgetBuilder.build(jsonString, context, new DefaultClickListener());\n}",
+    "confidence": 0.95
+  }
+}

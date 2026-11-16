@@ -1,0 +1,52 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.0.3",
+  "generatedAt": "2026-11-16T11:40:20.507Z",
+  "data": {
+    "primary_category": "camera",
+    "secondary_categories": [
+      "audio-video"
+    ],
+    "approach": [
+      "declarative",
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "High-performance camera plugin built on the Nitro FFI bridge with zero method-channel overhead.",
+    "what_it_does": "Provides photo and video capture, code scanning, frame processing, and GPU filters. Built on the Nitro FFI bridge for zero method-channel overhead.",
+    "use_when": [
+      "You need high-performance camera capture and live frame processing without method-channel overhead.",
+      "You require built-in barcode and QR code scanning with background isolate decoding.",
+      "You want vision-camera-style declarative and imperative camera controls in Flutter."
+    ],
+    "avoid_when": [
+      "Your target platforms do not include Android or iOS.",
+      "You only need to pick existing photos and videos from the device gallery rather than capturing live."
+    ],
+    "strengths": [
+      "Zero method-channel overhead using the Nitro FFI bridge.",
+      "Zero-copy frame hand-off and background isolate processing.",
+      "Comprehensive feature set including photo/video capture, live filters, and code scanning."
+    ],
+    "weaknesses": [
+      "Requires platform-specific setup including iOS usage descriptions in Info.plist.",
+      "Early version release (0.0.3) which may still have evolving APIs."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires iOS 13.0+ with camera, microphone, and photo library usage descriptions in Info.plist. Android permissions are merged automatically but require runtime requests.",
+    "alternatives": [
+      {
+        "name": "camera",
+        "why_pick_it": "Official Flutter camera plugin backed by the Flutter team with broad community usage."
+      },
+      {
+        "name": "mobile_scanner",
+        "why_pick_it": "Dedicated high-performance QR and barcode scanner plugin if full camera and video controls are unnecessary."
+      }
+    ],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:nitro_camera/nitro_camera.dart';\n\nclass CameraScreen extends StatefulWidget {\n  const CameraScreen({super.key});\n  @override\n  State<CameraScreen> createState() => _CameraScreenState();\n}\n\nclass _CameraScreenState extends State<CameraScreen> {\n  CameraController? _controller;\n\n  @override\n  void initState() {\n    super.initState();\n    _open();\n  }\n\n  Future<void> _open() async {\n    await CameraController.requestCameraPermission();\n    final devices = await CameraController.getAvailableCameraDevices();\n    final back = devices.backCamera() ?? devices.first;\n    final controller = CameraController(device: back, audio: true);\n    await controller.initialize(fps: 30);\n    setState(() => _controller = controller);\n  }\n\n  @override\n  void dispose() {\n    _controller?.dispose();\n    super.dispose();\n  }\n\n  @override\n  Widget build(BuildContext context) {\n    final c = _controller;\n    if (c == null || !c.isInitialized) {\n      return const Center(child: CircularProgressIndicator());\n    }\n    return Stack(\n      children: [\n        Positioned.fill(child: CameraPreview(controller: c)),\n      ],\n    );\n  }\n}",
+    "confidence": 0.95
+  }
+}

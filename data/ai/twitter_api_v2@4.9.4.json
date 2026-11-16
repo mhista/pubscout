@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.9.4",
+  "generatedAt": "2026-11-16T11:38:09.377Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "auth"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Dart and Flutter client library for the Twitter API v2.0.",
+    "what_it_does": "Provides a comprehensive wrapper for Twitter API v2.0 endpoints supporting tweets, users, spaces, lists, media uploads, and streaming. Handles authentication, automatic retries, and rate limiting natively.",
+    "use_when": [
+      "You need to integrate Twitter API v2 endpoints into a Dart or Flutter application.",
+      "You want built-in support for streaming, media uploads, and safe pagination."
+    ],
+    "avoid_when": [
+      "You are building an app for a social media platform other than Twitter.",
+      "You only require a generic HTTP client and do not need Twitter-specific models."
+    ],
+    "strengths": [
+      "Supports all Twitter API v2 endpoints, expansions, and fields.",
+      "Built-in automatic retry with exponential backoff and jitter.",
+      "Supports high-performance streaming and large media uploads with progress tracking."
+    ],
+    "weaknesses": [
+      "Tightly coupled to the Twitter API, making it useless if Twitter changes its API terms or pricing.",
+      "Requires external packages like twitter_oauth2_pkce for complete user authentication flows."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires developer credentials and API keys obtained from the Twitter Developer Portal.",
+    "alternatives": [],
+    "minimal_example": "import 'package:twitter_api_v2/twitter_api_v2.dart' as v2;\n\nFuture<void> main() async {\n  final twitter = v2.TwitterApi(\n    bearerToken: 'YOUR_TOKEN_HERE',\n  );\n\n  final me = await twitter.users.lookupMe();\n  print(me.data.name);\n}",
+    "confidence": 1
+  }
+}

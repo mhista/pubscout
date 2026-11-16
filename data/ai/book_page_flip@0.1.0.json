@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.1.0",
+  "generatedAt": "2026-11-16T11:46:07.926Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "animation"
+    ],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "A 3D book page-turn widget with realistic page curl and shadows.",
+    "what_it_does": "Provides a widget that displays content as an open book with pages that curl in 3D when dragged or animated. Supports building pages from widgets or decoded images, with customizable paper materials and effects.",
+    "use_when": [
+      "You want to display a book, magazine, or photo album interface with realistic page turning.",
+      "You need to turn pages via drag gestures or programmatically from code."
+    ],
+    "avoid_when": [
+      "You only need a simple linear list or standard page view without book-style 3D page curls.",
+      "You have an odd number of pages and cannot accommodate two-page spreads."
+    ],
+    "strengths": [
+      "True 3D page curl on a real mesh with shadows and lighting effects.",
+      "Easily builds pages from standard Flutter widgets or images using BookFlip.builder.",
+      "Cross-platform support across all 6 Flutter platforms."
+    ],
+    "weaknesses": [
+      "Requires an even page count for optimal two-page spread viewing.",
+      "Pages must be presented two at a time."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "BookFlip.builder(\n  pageCount: 6,\n  pageSize: const Size(360, 500),\n  pageBuilder: (context, index) => ColoredBox(\n    color: Colors.primaries[index % Colors.primaries.length],\n    child: Center(\n      child: Text(\n        'Page ${index + 1}',\n        style: const TextStyle(fontSize: 48, color: Colors.white),\n      ),\n    ),\n  ),\n)",
+    "confidence": 1
+  }
+}

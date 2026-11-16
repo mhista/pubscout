@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.2.0",
+  "generatedAt": "2026-11-16T12:14:48.972Z",
+  "data": {
+    "primary_category": "files",
+    "secondary_categories": [
+      "storage",
+      "device"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Allows users to pick files with persistent permissions for reading and writing later.",
+    "what_it_does": "A Flutter plugin enabling users to open, read, write back to, and create files on external media. It supports persistent permissions on Android and secure bookmarks on iOS.",
+    "use_when": [
+      "You need to read and update files selected by the user across app restarts",
+      "You need to create new files on external storage via user prompts"
+    ],
+    "avoid_when": [
+      "You only need temporary sandboxed internal app storage",
+      "You need full desktop support beyond URL event listening"
+    ],
+    "strengths": [
+      "Supports persistent file permissions on Android and secure bookmarks on iOS",
+      "Handles open intents and file handlers from external apps",
+      "Allows creating new files with custom names and directory selection"
+    ],
+    "weaknesses": [
+      "MacOS support is limited to listening for URL events",
+      "Requires platform-specific configuration for file handlers and document browsers"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires native configuration on iOS (plist keys) and Android (AndroidManifest intent filters) for file handlers.",
+    "alternatives": [],
+    "minimal_example": "Future<void> readFile() async {\n  final fileInfo = await FilePickerWritable().openFile((fileInfo, file) async {\n    return fileInfo;\n  });\n}",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.0",
+  "generatedAt": "2026-11-16T11:54:19.818Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [
+      "notifications"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Play system ringtones, alarms, notifications and custom audio on Android and iOS.",
+    "what_it_does": "Plays default device alarms, ringtones, notification sounds, local audio files, and Flutter assets. Features looping, perceptual volume scaling, playback state streams, and error handling.",
+    "use_when": [
+      "You need to play alarms, ringtones, or notification sounds in your app.",
+      "You are migrating away from the unmaintained flutter_ringtone_player package.",
+      "You need to play custom audio files or assets with looping and volume controls on Android and iOS."
+    ],
+    "avoid_when": [
+      "You need complex audio streaming, mixing, or advanced audio processing.",
+      "You are targeting macOS or web, which are not currently supported."
+    ],
+    "strengths": [
+      "Supports looping, volume, and stop controls consistently on both Android and iOS.",
+      "Provides playback state streams and typed exceptions.",
+      "Drop-in migration path for flutter_ringtone_player users."
+    ],
+    "weaknesses": [
+      "macOS and web support are not yet implemented.",
+      "Limited to short sound effects, ringtones, alarms, and notifications rather than full-scale media player features."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "To keep a sound playing while your app is in the background on iOS, add audio to UIBackgroundModes in Info.plist.",
+    "alternatives": [
+      {
+        "name": "just_audio",
+        "why_pick_it": "If you need a feature-rich media player for complex audio playback, streaming, and advanced controls."
+      },
+      {
+        "name": "audioplayers",
+        "why_pick_it": "If you need a general-purpose audio playback library for multiple simultaneous tracks or simple audio effects."
+      }
+    ],
+    "minimal_example": "import 'package:flutter_ringtone_player_plus/flutter_ringtone_player_plus.dart';\n\nconst player = RingtonePlayer();\n\nawait player.playAlarm();\nawait player.playNotification(volume: 0.5);\nawait player.stop();",
+    "confidence": 0.95
+  }
+}

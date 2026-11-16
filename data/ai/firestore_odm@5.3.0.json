@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "5.3.0",
+  "generatedAt": "2026-11-16T11:49:03.785Z",
+  "data": {
+    "primary_category": "backend",
+    "secondary_categories": [
+      "codegen",
+      "storage"
+    ],
+    "approach": [
+      "code generation",
+      "stream-based"
+    ],
+    "one_liner": "Type-safe Firestore ODM for Flutter and Dart with code generation.",
+    "what_it_does": "Generates typed queries, updates, aggregates, transactions, and streams for Firestore documents based on model descriptions. It provides compile-time safety for fields, filters, and partial updates while keeping runtime performance close to raw cloud_firestore.",
+    "use_when": [
+      "You want type-safe queries and partial updates for Cloud Firestore",
+      "You need fast build-time code generation for your Firebase data models"
+    ],
+    "avoid_when": [
+      "You use backend platforms other than Cloud Firestore",
+      "You prefer writing raw string-based Firestore queries without code generation"
+    ],
+    "strengths": [
+      "Typed filters, ordering, nested fields, and aggregations",
+      "Fast build times compared to legacy alternatives",
+      "Built-in support for transactions, batches, and subcollections"
+    ],
+    "weaknesses": [
+      "Requires running build_runner for code generation after model edits",
+      "Experimental features like Firestore Pipelines require an Enterprise database"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding firestore_odm, cloud_firestore, and firebase_core, plus dev dependencies firestore_odm_builder and build_runner, followed by running code generation.",
+    "alternatives": [],
+    "minimal_example": "final db = FirestoreODM(appSchema);\nfinal adults = await db.users\n    .where(($) => $.age(isGreaterThanOrEqualTo: 18))\n    .get();",
+    "confidence": 1
+  }
+}

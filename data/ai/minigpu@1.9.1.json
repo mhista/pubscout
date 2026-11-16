@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.9.1",
+  "generatedAt": "2026-11-16T11:51:02.115Z",
+  "data": {
+    "primary_category": "ai-ml",
+    "secondary_categories": [
+      "games"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Multiplatform GPU compute for Dart and Flutter using WebGPU and Dawn.",
+    "what_it_does": "Brings cross-platform GPU compute shaders to Dart and Flutter applications. It integrates WGSL and WebGPU directly utilizing a Dawn backend across mobile, desktop, and web.",
+    "use_when": [
+      "You need to run high-performance compute shaders or AI-ML math models on the GPU across multiple platforms.",
+      "You want to process video frames or perform direct GPU buffer copies without CPU round-trips."
+    ],
+    "avoid_when": [
+      "You are building a standard UI app that doesn't require low-level GPU acceleration.",
+      "You cannot handle complex native build setups involving CMake and Dawn."
+    ],
+    "strengths": [
+      "Cross-platform support including Windows, Linux, macOS, Web, Android, and iOS.",
+      "Built-in persistent shader caching to mitigate compilation overhead.",
+      "Direct video frame import and interop for zero-copy GPU processing."
+    ],
+    "weaknesses": [
+      "Dawn backend can take a long time to build and requires a recent version of CMake and Emscripten for web.",
+      "Experimental library with potential build friction on native platforms."
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Requires CMake 3.22+ and Emscripten for web. Dawn is cloned and compiled automatically on first build, which may take time. Android requires a manually supplied shader cache directory.",
+    "alternatives": [],
+    "minimal_example": "final gpu = Minigpu();\nawait gpu.init();\nfinal shader = gpu.createComputeShader();\nshader.loadKernelString('''\n@group(0) @binding(0) var<storage, read_write> inp: array<f32>;\n@compute @workgroup_size(256)\nfn main(@builtin(global_invocation_id) id: vec3<u32>) {}\n''');",
+    "confidence": 0.95
+  }
+}

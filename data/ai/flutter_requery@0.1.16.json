@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.1.16",
+  "generatedAt": "2026-11-16T11:45:26.617Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "state-management"
+    ],
+    "approach": [
+      "declarative",
+      "imperative"
+    ],
+    "one_liner": "Flutter widget library for fetching, caching and invalidating async data.",
+    "what_it_does": "Provides a Query widget that runs a Future, caches its result and rebuilds on cache invalidation. A global queryCache lets you invalidate or optimistically update cached data.",
+    "use_when": [
+      "You need simple data fetching without boilerplate like Bloc or FutureBuilder",
+      "You want automatic cache invalidation and optimistic updates across screens"
+    ],
+    "avoid_when": [
+      "Complex state logic that requires fine‑grained control",
+      "You need a full‑featured networking client (e.g., Dio)"
+    ],
+    "strengths": [
+      "Minimal API, easy to drop into existing code",
+      "Built‑in cache invalidation and optimistic response support"
+    ],
+    "weaknesses": [
+      "Limited to simple Future‑based queries, no built‑in retry or pagination",
+      "No code generation or advanced networking features"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "Query<List<String>>(\n  'myKey',\n  future: () async => [\"Hello\"],\n  builder: (context, response) {\n    if (response.loading) return Text('Loading...');\n    if (response.error != null) return Text('Error');\n    return ListView(children: response.data.map((e) => Text(e)).toList());\n  },\n);",
+    "confidence": 0.9
+  }
+}

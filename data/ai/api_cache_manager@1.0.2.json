@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "1.0.2",
+  "generatedAt": "2026-11-16T11:38:23.938Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Stores REST API responses in SQLite for offline access",
+    "what_it_does": "The package saves API responses to a local SQLite database and retrieves them by key. It provides methods to add, get, delete, and clear cached data.",
+    "use_when": [
+      "You need offline access to API data",
+      "You want to reduce network calls and speed up rendering",
+      "You prefer a simple key‑value cache backed by SQLite"
+    ],
+    "avoid_when": [
+      "You need caching for large binary files or images",
+      "You already use a dedicated cache manager like flutter_cache_manager",
+      "You require advanced cache eviction policies"
+    ],
+    "strengths": [
+      "Simple API with add/get/delete/clear",
+      "Built on SQLite for persistence",
+      "No extra code generation or build steps"
+    ],
+    "weaknesses": [
+      "Limited to JSON‑like data, not binary",
+      "No built‑in eviction or expiration logic",
+      "No support for image or file caching"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "var cacheData = await APICacheManager().addCacheData(APICacheDBModel(key, syncData));\nvar data = await APICacheManager().getCacheData(key);",
+    "confidence": 0.8
+  }
+}

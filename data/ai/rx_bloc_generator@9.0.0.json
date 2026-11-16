@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "9.0.0",
+  "generatedAt": "2026-11-16T11:37:43.942Z",
+  "data": {
+    "primary_category": "codegen",
+    "secondary_categories": [
+      "state-management"
+    ],
+    "approach": [
+      "code generation",
+      "stream-based"
+    ],
+    "one_liner": "Code generator for rx_bloc that eliminates boilerplate code.",
+    "what_it_does": "Generates zero-boilerplate implementations for rx_bloc classes by analyzing event and state definitions. It automatically creates subjects, inputs, events, and dispose methods based on custom annotations.",
+    "use_when": [
+      "You are building an app using the rx_bloc state management pattern.",
+      "You want to remove repetitive boilerplate code for handling bloc inputs, outputs, and disposal."
+    ],
+    "avoid_when": [
+      "you are not using the rx_bloc package for state management.",
+      "You prefer writing your BLoC or stream boilerplate manually without a code generator."
+    ],
+    "strengths": [
+      "Significantly reduces boilerplate for rx_bloc implementations.",
+      "Supports event seeding, custom event types, and custom states.",
+      "Integrates seamlessly with build_runner."
+    ],
+    "weaknesses": [
+      "Requires running build_runner to generate files.",
+      "Strict adherence to naming conventions and abstract class structures is required."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add rx_bloc_generator and build_runner to dev_dependencies and run build_runner.",
+    "alternatives": [],
+    "minimal_example": "abstract class NewsBlocEvents {\n  void fetch();\n}\n\nabstract class NewsBlocStates {\n  Stream<List<News>> get news;\n}\n\n@RxBloc()\nclass NewsBloc extends $NewsBloc {\n  @override\n  Stream<List<News>> _mapToNewsState() => _$fetchEvent.switchMap((_) => ...);\n}",
+    "confidence": 1
+  }
+}

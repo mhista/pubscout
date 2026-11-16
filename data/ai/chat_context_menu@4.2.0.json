@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.2.0",
+  "generatedAt": "2026-11-16T11:49:09.773Z",
+  "data": {
+    "primary_category": "ui-kits",
+    "secondary_categories": [
+      "widgets",
+      "animation"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "iOS-style chat context menus and selectable text widgets for Flutter applications.",
+    "what_it_does": "Provides a customizable chat context menu widget with smooth animations, arrow indicators, positioning modes, and custom selectable text support. It handles positioning, background dimming, barrier cutouts, and popup layouts for chat bubbles or text.",
+    "use_when": [
+      "You are building a chat application and need an iOS-style context menu for messages.",
+      "You need customizable text selection with draggable handles and floating context menus.",
+      "You want to anchor popups either outside widget bounds or directly at pointer/touch coordinates."
+    ],
+    "avoid_when": [
+      "You only need standard Material popup menus without custom chat animations or arrow indicators.",
+      "Your project does not use Flutter."
+    ],
+    "strengths": [
+      "Smooth animations and iOS-style design out of the box.",
+      "Supports multiple positioning modes including outside bounds and direct pointer coordinates.",
+      "Includes custom selectable text (`ChatSelectableText`) with desktop interactions like mouse drag and right-click."
+    ],
+    "weaknesses": [
+      "Limited primarily to chat context menus and selectable text rather than general-purpose UI component libraries.",
+      "Specific styling relies on custom wrappers and builders."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "ChatContextMenuWrapper(\n  positionMode: ChatContextMenuPositionMode.outside,\n  menuBuilder: (context, hideMenu) => MyMenuContent(onClose: hideMenu),\n  widgetBuilder: (context, showMenu, hideMenu) {\n    return GestureDetector(\n      onLongPress: showMenu,\n      child: const Text('Long press me'),\n    );\n  },\n)",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.0.0",
+  "generatedAt": "2026-11-16T11:27:55.073Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [
+      "storage"
+    ],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "Manage global state and persist variables using InheritedModel.",
+    "what_it_does": "A wrapper over InheritedModel that lets you manage global state in Flutter apps with low boilerplate. It can be used anywhere in Dart code even without a BuildContext, and supports optional persistence via shared_preferences.",
+    "use_when": [
+      "You want simple global state management without complex boilerplate",
+      "You need to access and update state outside of a BuildContext",
+      "You want optional automatic persistence to shared preferences"
+    ],
+    "avoid_when": [
+      "Your project requires a strictly scoped, non-global state architecture",
+      "You prefer stream-based or reactive state management solutions like BLoC"
+    ],
+    "strengths": [
+      "Works anywhere in Dart code even without a BuildContext",
+      "Only rebuilds widgets that subscribe to updates using .of(context)",
+      "Built-in support for persisting values using shared_preferences"
+    ],
+    "weaknesses": [
+      "Relies on global variables which can make testing harder",
+      "Very limited documentation and changelog history"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Wrap your root app widget with SharedValue.wrapApp().",
+    "alternatives": [
+      {
+        "name": "shared_preferences",
+        "why_pick_it": "If you only need key-value storage without the global state wrapper."
+      }
+    ],
+    "minimal_example": "final SharedValue<int> counter = SharedValue(\n  value: 0,\n);\n\nvoid main() {\n  runApp(\n    SharedValue.wrapApp(\n      MyApp(),\n    ),\n  );\n}",
+    "confidence": 0.95
+  }
+}

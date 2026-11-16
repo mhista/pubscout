@@ -1,0 +1,51 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "1.0.0",
+  "generatedAt": "2026-11-16T11:38:17.837Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "A Dart wrapper for the Telegram Bot API to send and receive messages.",
+    "what_it_does": "Provides a Bot class to interact with Telegram Bot API, handling updates, sending messages, and configuring allowed update types. Works on native, Flutter, and JavaScript platforms.",
+    "use_when": [
+      "You need a quick way to integrate a Telegram bot into a Dart or Flutter app",
+      "You prefer a lightweight wrapper without heavy dependencies"
+    ],
+    "avoid_when": [
+      "You require advanced features like built‑in state management or code generation",
+      "You need a highly opinionated architecture for bot handling"
+    ],
+    "strengths": [
+      "Simple API mirroring Telegram methods",
+      "Supports both functional and OOP usage styles",
+      "Works across multiple platforms (android, ios, web, desktop)"
+    ],
+    "weaknesses": [
+      "Limited to Telegram; no multi‑service support",
+      "Relies on manual error handling for network issues",
+      "No built‑in code generation or advanced abstractions"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "http",
+        "why_pick_it": "A generic HTTP client that can be used to call Telegram Bot API directly without an additional wrapper"
+      },
+      {
+        "name": "dio",
+        "why_pick_it": "Offers more features like interceptors and advanced request handling for custom Telegram integrations"
+      }
+    ],
+    "minimal_example": "import 'package:dart_telegram_bot/dart_telegram_bot.dart';\nimport 'package:dart_telegram_bot/telegram_entities.dart';\n\nvoid main() {\n  Bot(\n    token: 'BOT_TOKEN',\n    onReady: (bot) => bot.start(clean: true),\n  ).onUpdate((bot, update) async {\n    bot.sendMessage(ChatID(update.message!.chat.id), update.message!.text!);\n  });\n}",
+    "confidence": 0.9
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.1.2",
+  "generatedAt": "2026-11-16T12:17:19.454Z",
+  "data": {
+    "primary_category": "navigation",
+    "secondary_categories": [
+      "animation",
+      "widgets"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "iOS-style full-screen back swipe gesture PageRoute that avoids horizontal scroll conflicts.",
+    "what_it_does": "Provides a custom PageRoute for Flutter that enables full-screen back swiping, similar to iOS navigation. It includes smart conflict resolution to work seamlessly with horizontal scrollables like PageView and ListView.",
+    "use_when": [
+      "You want iOS-style full-screen back swipe navigation in your Flutter app.",
+      "Your screens contain horizontal scrollables that conflict with standard edge swipe gestures."
+    ],
+    "avoid_when": [
+      "You are exclusively using a declarative router like go_router and cannot easily swap out PageRoute types.",
+      "You do not need custom page transition animations or gestures."
+    ],
+    "strengths": [
+      "Full-screen swipe from anywhere on the screen.",
+      "Smart conflict resolution with horizontal scrollables.",
+      "Customizable edge width, transition curves, and durations."
+    ],
+    "weaknesses": [
+      "Limited to standard Navigator PageRoute usage as documented.",
+      "No declarative routing integration details provided."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Not documented",
+    "alternatives": [
+      {
+        "name": "auto_route",
+        "why_pick_it": "If you need a complete declarative routing and code-generation navigation solution with deep linking support."
+      },
+      {
+        "name": "go_router",
+        "why_pick_it": "If you prefer official declarative routing for managing app navigation and deep links."
+      }
+    ],
+    "minimal_example": "Navigator.of(context).push(\n  BackSwipePageRoute(\n    builder: (_) => const DetailPage(),\n  ),\n);",
+    "confidence": 0.95
+  }
+}

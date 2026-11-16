@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.0.0",
+  "generatedAt": "2026-11-16T11:57:19.634Z",
+  "data": {
+    "primary_category": "testing",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "declarative",
+      "imperative"
+    ],
+    "one_liner": "Run a local mock HTTP server inside your Flutter app for REST API testing.",
+    "what_it_does": "Configures and runs a local HTTP server directly within your Flutter application to simulate REST API calls. It allows developers to define mock endpoints and behaviors in code, and offers live control via a companion desktop app or an embedded mobile UI overlay.",
+    "use_when": [
+      "You need to simulate a REST backend during development or testing",
+      "Backend endpoints are delayed, under construction, or unreliable",
+      "You need to switch between success and error response presets at runtime"
+    ],
+    "avoid_when": [
+      "You are building for production",
+      "You prefer external hosted mocking solutions"
+    ],
+    "strengths": [
+      "Compile-safe mock endpoint definitions",
+      "Works completely offline without a backend dependency",
+      "Live response editing via a desktop app or in-app UI without rebuilding"
+    ],
+    "weaknesses": [
+      "Unprotected traffic and running a server on-device introduces security issues, making it unsuitable for production",
+      "Limited platform support (Android, iOS, and Web)"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Ensure WidgetsFlutterBinding.ensureInitialized() is called before starting Mockzilla. Requires minimum Android SDK 24 (Target SDK 36) and iOS 15.0+.",
+    "alternatives": [],
+    "minimal_example": "final mockzillaConfig = MockzillaConfig().addEndpoint(\n    () => EndpointConfig(\n        name: \"Hello world\",\n        endpointMatcher: (request) => request.uri.endsWith(\"/hello-world\"),\n        defaultHandler: (request) => const MockzillaHttpResponse(\n            body: jsonEncode(const HelloWorldResponse())),\n        ),\n        errorHandler: (request) => const MockzillaHttpResponse(\n            statusCode: 418,\n        ),\n    ),\n);\n\nWidgetsFlutterBinding.ensureInitialized();\nawait Mockzilla.startMockzilla(mockzillaConfig);",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.2",
+  "generatedAt": "2026-11-16T11:42:25.831Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A timer widget that continues to work correctly even when the app is locked.",
+    "what_it_does": "Provides a CountDownWidget that tracks time with a configurable duration and step duration. It exposes the remaining duration through a builder function and a callback.",
+    "use_when": [
+      "You need a countdown timer displayed in the UI that must remain accurate even if the device locks.",
+      "You want a simple widget-based timer with callback support for duration changes."
+    ],
+    "avoid_when": [
+      "You need complex background task execution rather than just a UI countdown widget.",
+      "You require advanced state management integration beyond the provided builder pattern."
+    ],
+    "strengths": [
+      "Works correctly even if the app is locked.",
+      "Provides a simple builder pattern to easily render remaining time.",
+      "Supports autoStart configuration and custom step durations."
+    ],
+    "weaknesses": [
+      "Very limited documentation and configuration options beyond basic countdown features.",
+      "No alternative packages available in the catalog to compare against."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [],
+    "minimal_example": "Scaffold(\n      body: Center(\n        child: CountDownWidget(\n          duration: Duration(seconds: 20),\n          builder: (context, duration) {\n            return Text(duration.inSeconds.toString());\n          },\n          onDurationRemainChanged: (duration) {\n            print('duration:${duration.toString()}');\n          },\n        ),\n      },\n)",
+    "confidence": 0.95
+  }
+}

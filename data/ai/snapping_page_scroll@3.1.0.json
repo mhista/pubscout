@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "3.1.0",
+  "generatedAt": "2026-11-16T11:39:27.155Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A PageView that snaps to the nearest page or scrolls multiple pages based on scroll velocity.",
+    "what_it_does": "It provides a PageView-like widget that disables snapping when the user scrolls faster than a threshold, allowing multi-page scrolls, and re-enables snapping when the velocity slows. The widget can be controlled via a PageController.",
+    "use_when": [
+      "You need a carousel that behaves differently based on swipe speed",
+      "You want to avoid page snapping during fast swipes",
+      "You prefer a declarative widget over custom scroll logic"
+    ],
+    "avoid_when": [
+      "You need fine-grained control over scroll physics beyond velocity thresholds",
+      "You are building a non-page-based scrollable list"
+    ],
+    "strengths": [
+      "Simple API, single widget, no extra dependencies",
+      "Supports all Flutter platforms",
+      "Built-in velocity-based snapping logic",
+      "Compatible with PageController for navigation"
+    ],
+    "weaknesses": [
+      "No support for custom scroll physics beyond velocity threshold",
+      "Limited to page-based scrolling only",
+      "No built-in page indicators or animations"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dependency in pubspec.yaml and import package",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:snapping_page_scroll/snapping_page_scroll.dart';\n\nclass Demo extends StatelessWidget {\n  final controller = PageController(viewportFraction: 0.75);\n  @override\n  Widget build(BuildContext context) {\n    return SnappingPageScroll(\n      controller: controller,\n      children: List.generate(6, (i) => Card(child: Text('Card ${i+1}'))),\n    );\n  }\n}",
+    "confidence": 0.95
+  }
+}

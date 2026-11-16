@@ -1,0 +1,48 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.3.0",
+  "generatedAt": "2026-11-16T12:14:55.256Z",
+  "data": {
+    "primary_category": "camera",
+    "secondary_categories": [
+      "ai-ml"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Scan Machine Readable Zones from identity documents on iOS and Android.",
+    "what_it_does": "Provides a Flutter widget to scan Machine Readable Zones (MRZ) from passports, IDs, and visas using the device camera. It supports multiple MRZ formats including TD1, TD2, TD3, MRV-A, and MRV-B.",
+    "use_when": [
+      "You need to scan passport or ID card MRZ zones inside a mobile app",
+      "You want a drop-in camera widget specifically designed for identity document reading"
+    ],
+    "avoid_when": [
+      "You only need general barcode or QR scanning rather than OCR text/MRZ reading",
+      "You cannot accept the maintenance state of the package or need active issue-resolution by the author"
+    ],
+    "strengths": [
+      "Supports multiple MRZ formats (TD1, TD2, TD3, MRV-A, MRV-B)",
+      "Includes optional built-in overlay widget for alignment"
+    ],
+    "weaknesses": [
+      "The author explicitly states they lack testing devices and time, relying primarily on pull requests",
+      "Requires platform-specific configuration and specific iOS deployment targets"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires setting iOS deployment target to 13 and adding NSCameraUsageDescription in Info.plist. Swift Package Manager is recommended for iOS to support Apple Silicon simulators. Android camera permissions must be handled.",
+    "alternatives": [
+      {
+        "name": "mobile_scanner",
+        "why_pick_it": "If you need a more actively maintained general barcode and QR scanning solution."
+      },
+      {
+        "name": "camera",
+        "why_pick_it": "If you want full raw control over the camera feed to build a custom processing pipeline."
+      }
+    ],
+    "minimal_example": "MRZScanner(\n  withOverlay: true,\n  onControllerCreated: (controller) => onControllerCreated(controller),\n)",
+    "confidence": 0.95
+  }
+}

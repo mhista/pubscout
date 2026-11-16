@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "7.2.0",
+  "generatedAt": "2026-11-16T11:37:38.131Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "auth",
+      "storage"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Runtime application self-protection for Flutter to detect root, emulators, debuggers, and SSL pinning.",
+    "what_it_does": "Detects runtime tampering including root, jailbreak, emulators, debuggers, hooks, and VPNs on Android and iOS. Provides SSL certificate pinning, screen capture protection, and a built-in security reporting client.",
+    "use_when": [
+      "You need to protect a high-security financial or enterprise app from rooted or modified devices.",
+      "You require SSL certificate pinning to prevent man-in-the-middle attacks.",
+      "You need to ship security telemetry and threat events back to your own backend."
+    ],
+    "avoid_when": [
+      "Your application does not handle sensitive user or enterprise data requiring anti-tampering measures.",
+      "You are targeting platforms other than Android and iOS."
+    ],
+    "strengths": [
+      "Detects 16 different threats across Android and iOS.",
+      "Includes built-in SSL certificate pinning supporting local and remote certificates.",
+      "Offers automatic or manual encrypted local queueing for security reports sent to your backend."
+    ],
+    "weaknesses": [
+      "Requires platform-specific configuration and Swift Package Manager for iOS.",
+      "Some detection mechanisms might cause false positives on heavily customized or developer devices."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires Android API 24+ and iOS 15.0+ with Swift Package Manager enabled. Configuration requires specifying team IDs, bundle IDs, and signing certificate hashes.",
+    "alternatives": [],
+    "minimal_example": "Future<void> main() async {\n  WidgetsFlutterBinding.ensureInitialized();\n  await FlutterRasp.instance.initialize(\n    config: const RaspConfig(\n      policy: ThreatPolicy.high,\n      monitoringInterval: Duration(seconds: 10),\n    ),\n    onThreatDetected: (threats) => debugPrint('$threats'),\n  );\n  runApp(const MyApp());\n}",
+    "confidence": 0.95
+  }
+}

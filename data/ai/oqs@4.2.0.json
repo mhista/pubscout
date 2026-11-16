@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.2.0",
+  "generatedAt": "2026-11-16T11:48:52.297Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Dart FFI bindings for liboqs enabling post-quantum cryptography primitives like ML-KEM and ML-DSA.",
+    "what_it_does": "Provides high-performance post-quantum cryptography (PQC) key encapsulation and signature primitives in Dart via FFI bindings to liboqs. It supports dynamic library loading across Android, iOS, Windows, macOS, and Linux, and offers constant-time comparison methods to prevent timing side-channels.",
+    "use_when": [
+      "You need post-quantum key encapsulation mechanisms (ML-KEM, Falcon) in a Dart or Flutter application.",
+      "You want post-quantum digital signatures with optional context-aware parameters."
+    ],
+    "avoid_when": [
+      "You cannot include native binaries or build the required liboqs native library for your deployment target."
+    ],
+    "strengths": [
+      "High-performance post-quantum cryptography support via native liboqs bindings.",
+      "Cross-platform support covering Android, iOS, Windows, macOS, and Linux.",
+      "Includes constant-time comparison methods to guard against timing side-channels."
+    ],
+    "weaknesses": [
+      "Requires manual setup and management of native liboqs binaries for each target platform.",
+      "Changes upstream in liboqs (such as breaking name changes or removed algorithms) directly impact the Dart API behavior."
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Requires obtaining and setting up a native liboqs dynamic library or XCFramework for each target platform (Android, iOS, Windows, macOS, Linux).",
+    "alternatives": [],
+    "minimal_example": "import 'package:oqs/oqs.dart';\n\nvoid main() {\n  LibOQS.init();\n  final kems = LibOQS.getSupportedKEMAlgorithms();\n  final kem = KEM.create(kems.first)!;\n  final kp = kem.generateKeyPair();\n  final enc = kem.encapsulate(kp.publicKey);\n  final dec = kem.decapsulate(enc.ciphertext, kp.secretKey);\n  print(dec.length == enc.sharedSecret.length);\n  kem.dispose();\n  LibOQS.cleanup();\n}",
+    "confidence": 1
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "1.0.3",
+  "generatedAt": "2026-11-16T11:48:07.017Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "animation",
+      "forms"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Animated weight picker widget for selecting weight values via swipe or drag.",
+    "what_it_does": "Provides a customizable widget that lets users pick a weight value with an animated scale. It supports metric and imperial units and allows fine‑grained increments.",
+    "use_when": [
+      "You need a weight input in a fitness or health app",
+      "You want a visually engaging picker instead of a simple slider",
+      "You need support for both metric and imperial units",
+      "You want to customize the appearance of the picker"
+    ],
+    "avoid_when": [
+      "You only need a basic numeric input",
+      "You are building a non‑Flutter platform",
+      "You require persistence or state management beyond the widget"
+    ],
+    "strengths": [
+      "Animated UI for better user experience",
+      "Highly customizable options (intervals, colors, text)",
+      "Supports both metric and imperial units",
+      "Simple API with onChange callback"
+    ],
+    "weaknesses": [
+      "Only handles weight selection, not other numeric types",
+      "No built‑in state management or persistence",
+      "Limited documentation beyond README",
+      "No unit tests included"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "final double min = 0;\nfinal double max = 10;\nString selectedValue = '';\n@override\nvoid initState() {\n  selectedValue = min.toString();\n  super.initState();\n}\n@override\nWidget build(BuildContext context) {\n  return Scaffold(\n    appBar: AppBar(title: const Text('Animated Weight Picker')),\n    body: Center(\n      child: AnimatedWeightPicker(\n        min: min,\n        max: max,\n        onChange: (newValue) {\n          setState(() {\n            selectedValue = newValue;\n          });\n        },\n      ),\n    ),\n  );\n}",
+    "confidence": 0.9
+  }
+}

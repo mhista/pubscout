@@ -1,0 +1,37 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.1.3",
+  "generatedAt": "2026-11-16T11:57:30.314Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "declarative",
+      "fluent"
+    ],
+    "one_liner": "A powerful API query builder for constructing structured queries with filtering, ordering, and pagination.",
+    "what_it_does": "It provides a type-safe, fluent interface for building complex API queries with filtering, sorting, pagination, and field selection. It includes converters to serialize queries into standard API formats like REST, GraphQL, or OData.",
+    "use_when": [
+      "You need to build complex, structured API queries programmatically with nested AND/OR logic.",
+      "You want to decouple query construction from the underlying transport or API format."
+    ],
+    "avoid_when": [
+      "Your application only executes raw SQL queries or hardcoded API endpoints without dynamic filtering needs."
+    ],
+    "strengths": [
+      "Type-safe fluent interface for query building",
+      "Support for nested filter groups with unlimited nesting",
+      "Extensible converters for custom API formats"
+    ],
+    "weaknesses": [
+      "Requires learning a specific query construction model"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "final query = ApiQuery(\n  filtering: and(\n    filters: [\n      where('email', 'contains', '@example.com'),\n      wheres('status', 'in', ['active', 'pending']),\n    ],\n  ),\n);",
+    "confidence": 1
+  }
+}

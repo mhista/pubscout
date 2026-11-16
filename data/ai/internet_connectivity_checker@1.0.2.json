@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.2",
+  "generatedAt": "2026-11-16T11:42:13.861Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative",
+      "stream-based"
+    ],
+    "one_liner": "Manage widgets dynamically based on actual internet access.",
+    "what_it_does": "Checks if the device has an actual connection to the internet rather than just network status. Provides a ConnectivityBuilder widget and a stream to easily handle online, offline, and checking states.",
+    "use_when": [
+      "You need to verify true internet access instead of just local network connectivity",
+      "You want to dynamically render online/offline widgets using a simple builder"
+    ],
+    "avoid_when": [
+      "You only need local network or connection type information without pinging the internet"
+    ],
+    "strengths": [
+      "Provides a convenient ConnectivityBuilder widget",
+      "Exposes a Dart stream for custom logic",
+      "Configurable polling interval"
+    ],
+    "weaknesses": [
+      "Relies on polling at regular time intervals rather than push-based native events",
+      "Limited documentation on fallback/ping targets"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "connectivity_plus",
+        "why_pick_it": "Provides comprehensive connectivity status for Wi-Fi, cellular, etc., across platforms."
+      }
+    ],
+    "minimal_example": "ConnectivityBuilder(\n  builder: (status) {\n    bool connected = status == ConnectivityStatus.online;\n    return Text(connected ? \"Online\" : \"Offline\");\n  },\n)",
+    "confidence": 0.95
+  }
+}

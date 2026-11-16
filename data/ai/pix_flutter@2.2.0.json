@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.2.0",
+  "generatedAt": "2026-11-16T11:38:25.941Z",
+  "data": {
+    "primary_category": "payments",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "A wrapper for the Brazilian PIX API compatible with most PSPs.",
+    "what_it_does": "Provides a Dart wrapper around the PIX API to generate static QR codes, manage immediate or due-date charges, handle batch charges, configure webhooks, and process refunds.",
+    "use_when": [
+      "You are building a Flutter app that integrates with Brazilian PIX payment systems.",
+      "You need to handle PIX charges, immediate collections, and webhook configurations."
+    ],
+    "avoid_when": [
+      "You need built-in UI components for rendering the QR code directly (requires a separate package like qr_flutter).",
+      "You are working with non-Brazilian payment gateways."
+    ],
+    "strengths": [
+      "Supports multiple types of PIX charges including immediate, due-date, and batch collections.",
+      "Compatible with most Payment Service Providers (PSPs) following the official PIX API standard."
+    ],
+    "weaknesses": [
+      "Does not render QR codes natively, requiring an external package like qr_flutter.",
+      "Documentation relies heavily on external PSP and official PIX docs."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the dependency to pubspec.yaml and import the package. Note that you may need an additional package like qr_flutter to display the generated QR code graphics.",
+    "alternatives": [],
+    "minimal_example": "PixFlutter pixFlutter = PixFlutter(\n      payload: Payload(\n          pixKey: 'SUA_CHAVE_PIX',\n          description: 'DESCRIÇÃO_DA_COMPRA',\n          merchantName: 'MERCHANT_NAME',\n          merchantCity: 'CITY_NAME',\n          txid: 'TXID',\n          amount: 'AMOUNT'\n      )\n);\n\npixFlutter.getQRCode();",
+    "confidence": 0.95
+  }
+}

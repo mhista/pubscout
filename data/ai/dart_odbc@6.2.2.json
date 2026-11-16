@@ -1,0 +1,56 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "6.2.2",
+  "generatedAt": "2026-11-16T11:21:43.216Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Dart library for connecting to ODBC data sources and executing SQL queries.",
+    "what_it_does": "Provides async‑first APIs to connect, run queries, fetch tables and stream large result sets via ODBC. It wraps native ODBC bindings using ffi and supports both isolate‑based non‑blocking and optional blocking clients.",
+    "use_when": [
+      "You need to access an existing ODBC data source (SQL Server, Oracle, MySQL, PostgreSQL, etc.) from Dart/Flutter",
+      "You require streaming of large query results without loading everything into memory",
+      "You want a single cross‑platform client that works on Windows, macOS and Linux"
+    ],
+    "avoid_when": [
+      "You target mobile platforms only and prefer pure Dart SQLite solutions",
+      "You need a high‑level ORM or code‑generated data models",
+      "You cannot add native ffi dependencies or need pure Dart without native libraries"
+    ],
+    "strengths": [
+      "Cross‑platform ODBC support via ffi",
+      "Non‑blocking isolate implementation by default",
+      "Prepared statements and cursor‑based streaming",
+      "Direct access to native ODBC functions for advanced use cases"
+    ],
+    "weaknesses": [
+      "Requires native ODBC driver manager installed on the target system",
+      "Limited to platforms where ffi is available (no web)",
+      "No built‑in ORM or code‑generation features"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Install ODBC driver manager (e.g., unixODBC on Linux/macOS, native driver manager on Windows). Ensure the appropriate database driver is available and accessible. No build_runner needed, just add the package and import it.",
+    "alternatives": [
+      {
+        "name": "sqflite",
+        "why_pick_it": "Pure Dart SQLite client for mobile and desktop, no native ODBC dependencies"
+      },
+      {
+        "name": "sqlite3",
+        "why_pick_it": "Direct SQLite bindings via ffi, suitable when SQLite is sufficient"
+      },
+      {
+        "name": "drift",
+        "why_pick_it": "Provides a higher‑level ORM‑like API on top of sqlite3 with code generation"
+      }
+    ],
+    "minimal_example": "import 'package:dart_odbc/dart_odbc.dart';\n\nfinal odbc = DartOdbc(dsn: 'myDsn');\nawait odbc.connect(username: 'user', password: 'pass');\nfinal rows = await odbc.execute('SELECT * FROM my_table');\nprint(rows);\nawait odbc.disconnect();",
+    "confidence": 0.85
+  }
+}

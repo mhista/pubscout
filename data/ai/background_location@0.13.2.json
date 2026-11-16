@@ -1,0 +1,46 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.13.2",
+  "generatedAt": "2026-11-16T11:42:25.880Z",
+  "data": {
+    "primary_category": "maps",
+    "secondary_categories": [
+      "device"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "A Flutter plugin to get location updates in the background for Android and iOS.",
+    "what_it_does": "Provides background location tracking using CoreLocation on iOS and FusedLocationProvider on Android. It exposes location updates containing latitude, longitude, altitude, bearing, accuracy, speed, time, and mock status.",
+    "use_when": [
+      "You need to continuously track user location even when the app is running in the background.",
+      "Targeting both Android and iOS with native location services."
+    ],
+    "avoid_when": [
+      "You only need foreground location updates.",
+      "You want a fully managed reactive stream library without manual service start and stop commands."
+    ],
+    "strengths": [
+      "Supports background execution on both Android and iOS.",
+      "Allows configuration of distance filters and time intervals.",
+      "Supports custom Android notification settings for foreground services."
+    ],
+    "weaknesses": [
+      "Requires manual platform configuration and permission declarations.",
+      "Known issue where starting the service multiple times causes duplicate callbacks unless explicitly stopped."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding location permissions and background modes to iOS Info.plist and Android Manifest.xml.",
+    "alternatives": [
+      {
+        "name": "geolocator",
+        "why_pick_it": "More actively maintained cross-platform location plugin with robust permission handling and extensive configuration options."
+      }
+    ],
+    "minimal_example": "BackgroundLocation.setAndroidNotification(title: \"Title\", message: \"Message\", icon: \"@mipmap/ic_launcher\");\nBackgroundLocation.startLocationService(distanceFilter: 10);\nBackgroundLocation.getLocationUpdates((location) {\n  print(location);\n});",
+    "confidence": 0.95
+  }
+}

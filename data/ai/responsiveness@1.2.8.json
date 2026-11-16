@@ -1,0 +1,55 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.2.8",
+  "generatedAt": "2026-11-16T12:07:18.288Z",
+  "data": {
+    "primary_category": "layout",
+    "secondary_categories": [
+      "codegen"
+    ],
+    "approach": [
+      "declarative",
+      "code generation"
+    ],
+    "one_liner": "Minimal responsive framework using Bootstrap breakpoints by default with optional code generation.",
+    "what_it_does": "Provides widgets and utilities like ResponsiveValue, ResponsiveChild, and ResponsiveParent to build screen-size-aware UIs. It supports Bootstrap breakpoints out of the box and allows custom breakpoints through code generation.",
+    "use_when": [
+      "You want a minimal responsive framework based on Bootstrap breakpoints",
+      "You need to adapt widget properties, children, or wrapping widgets based on screen width",
+      "You want to define custom breakpoints using a JSON file and code generation"
+    ],
+    "avoid_when": [
+      "You need complex navigation-level adaptive layouts that aren't covered by basic width checks",
+      "You prefer heavy platform-adaptive widget libraries"
+    ],
+    "strengths": [
+      "Easy to use with straightforward widgets like ResponsiveValue and ResponsiveChild",
+      "Supports custom breakpoints via a screen_sizes.json file and code generation",
+      "Falls back to the nearest smaller defined screen size automatically"
+    ],
+    "weaknesses": [
+      "Relies on a custom code generation script (`dart run responsiveness`) rather than standard build_runner if using custom breakpoints",
+      "Limited to width-based breakpoints"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "To use custom breakpoints, create a screen_sizes.json file at the root of the project and run `dart run responsiveness`.",
+    "alternatives": [
+      {
+        "name": "responsive_framework",
+        "why_pick_it": "More feature-rich framework for scaling and handling responsive layouts across different screen sizes."
+      },
+      {
+        "name": "responsive_builder",
+        "why_pick_it": "Popular alternative for building responsive UIs using widget builders for different screen types."
+      },
+      {
+        "name": "sizer",
+        "why_pick_it": "Alternative approach focusing on sizing widgets and fonts dynamically based on screen dimensions."
+      }
+    ],
+    "minimal_example": "static const fontSize = ResponsiveValue<double>(xs: 20.0, sm: 21.0, md: 22.0);\n\n@override\nWidget build(BuildContext context) {\n  return Text(\n    \"Hello World\",\n    style: TextStyle(fontSize: fontSize.of(context)),\n  );\n}",
+    "confidence": 0.95
+  }
+}

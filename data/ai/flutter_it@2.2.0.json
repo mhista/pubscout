@@ -1,0 +1,55 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "2.2.0",
+  "generatedAt": "2026-11-16T11:37:57.032Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [
+      "dependency-injection"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Re-exports get_it, watch_it, command_it, and listen_it for a single import.",
+    "what_it_does": "Provides a convenience package that bundles the flutter_it ecosystem: get_it for DI, watch_it for reactive state, command_it for command pattern, and listen_it for ValueListenable utilities. Importing it gives access to all four libraries without adding each separately.",
+    "use_when": [
+      "You need both DI and reactive state management from the flutter_it ecosystem",
+      "You want a single import to explore multiple flutter_it packages",
+      "You prefer the practical Flutter Architecture approach"
+    ],
+    "avoid_when": [
+      "You only need one of the underlying packages and want to keep dependencies minimal",
+      "You prefer a different state‑management or DI solution"
+    ],
+    "strengths": [
+      "One‑stop import for four related packages",
+      "Works with the Practical Flutter Architecture pattern",
+      "All packages are kept up‑to‑date together"
+    ],
+    "weaknesses": [
+      "Adds all four dependencies even if only some are used",
+      "May be larger than importing individual packages"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "get",
+        "why_pick_it": "Provides DI and simple state management without the additional watch_it/command_it layers"
+      },
+      {
+        "name": "provider",
+        "why_pick_it": "Popular DI and state‑management solution with minimal boilerplate"
+      },
+      {
+        "name": "riverpod",
+        "why_pick_it": "Offers a more powerful, compile‑time safe state‑management approach"
+      }
+    ],
+    "minimal_example": "import 'package:flutter_it/flutter_it.dart';\n\nfinal getIt = GetIt.instance;\n\nvoid setup() {\n  getIt.registerSingleton<ApiService>(ApiService());\n}\n\nclass MyWidget extends WatchingWidget {\n  @override\n  Widget build(BuildContext context) {\n    final api = watchIt<ApiService>();\n    final data = watchValue((DataModel m) => m.value);\n    return Text('\\$data');\n  }\n}",
+    "confidence": 0.97
+  }
+}

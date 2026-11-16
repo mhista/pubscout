@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.0.1",
+  "generatedAt": "2026-11-16T12:00:15.896Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Provides declarative API and UI widgets to query Elasticsearch and OpenSearch.",
+    "what_it_does": "Connects Flutter applications to Elasticsearch and OpenSearch backends using a declarative API. It binds UI widgets with different types of search queries and includes features like voice search, recent searches, and popular suggestions.",
+    "use_when": [
+      "Building a search interface backed by Elasticsearch or OpenSearch",
+      "Integrating ReactiveSearch.io into a Flutter application"
+    ],
+    "avoid_when": [
+      "Not using Elasticsearch or OpenSearch as a backend",
+      "Needing a simple local SQLite or key-value storage"
+    ],
+    "strengths": [
+      "Declarative API for Elasticsearch and OpenSearch queries",
+      "Built-in support for voice search and autosuggestions",
+      "Reactive UI bindings through SearchWidgetConnector"
+    ],
+    "weaknesses": [
+      "Tied specifically to Elasticsearch, OpenSearch, and ReactiveSearch.io",
+      "Limited to specific search ecosystem patterns"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires adding flutter_searchbox and searchbase to pubspec.yaml and wrapping the app with SearchBaseProvider.",
+    "alternatives": [],
+    "minimal_example": "final searchbaseInstance = SearchBase('index', 'https://domain', 'credentials');\n\nSearchBaseProvider(\n  searchbase: searchbaseInstance,\n  child: MaterialApp(\n    home: Scaffold(\n      body: SearchWidgetConnector(\n        id: 'result-widget',\n        dataField: 'title',\n        builder: (context, searchController) => Container(),\n      ),\n    ),\n  ),\n);",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.0.4",
+  "generatedAt": "2026-11-16T12:08:35.900Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Flutter plugin to retrieve device details like IMEI, model, API level, and CPU type.",
+    "what_it_does": "Provides methods to retrieve device hardware and OS information for both Android and iOS platforms. It fetches details such as device IMEI number, model name, API level, CPU type, and manufacturer name.",
+    "use_when": [
+      "You need to gather device-specific metrics and hardware info.",
+      "You need to read the device's IMEI number on supported platforms."
+    ],
+    "avoid_when": [
+      "You require official or widely-maintained device info packages with broader platform support.",
+      "You cannot request runtime phone state permissions on Android."
+    ],
+    "strengths": [
+      "Supports multiple device identifiers like IMEI, model, and API level.",
+      "Works for both Android and iOS."
+    ],
+    "weaknesses": [
+      "Requires manual Android permissions for reading phone state.",
+      "Limited documentation and fewer updates compared to official community alternatives."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "In Android, add the READ_PHONE_STATE permission to AndroidManifest.xml and request runtime permissions for API targeting Marshmallow and above.",
+    "alternatives": [
+      {
+        "name": "device_info_plus",
+        "why_pick_it": "It is the official, well-maintained community package for retrieving detailed device information across all Flutter platforms."
+      }
+    ],
+    "minimal_example": "import 'package:device_information/device_information.dart';\n\ntry {\n  String imeiNo = await DeviceInformation.deviceIMEINumber;\n  String modelName = await DeviceInformation.deviceModel;\n} on PlatformException {\n  // Handle error\n}",
+    "confidence": 0.95
+  }
+}

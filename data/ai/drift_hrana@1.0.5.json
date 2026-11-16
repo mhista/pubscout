@@ -1,0 +1,46 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "1.0.5",
+  "generatedAt": "2026-11-16T11:47:08.834Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Wraps hrana to connect drift to remote libsql/Turso databases",
+    "what_it_does": "Provides a Drift-compatible database implementation that talks to a remote libsql server over WebSocket. It handles connection, authentication, and migration without requiring local SQLite.",
+    "use_when": [
+      "You need to use drift with a remote Turso/libsql backend",
+      "You want a single database instance shared across devices via a server"
+    ],
+    "avoid_when": [
+      "You only need local storage or a different backend like SQLite or Firebase"
+    ],
+    "strengths": [
+      "Zero-copy integration with drift",
+      "Supports migrations and transactions",
+      "No extra code generation needed",
+      "Cross-platform (web, mobile, desktop)"
+    ],
+    "weaknesses": [
+      "Requires running a libsql server",
+      "Limited to libsql/Turso backends",
+      "No offline support"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add drift_hrana to pubspec, run a libsql server (e.g., via Docker), import HranaDatabase and pass it to your Drift database constructor",
+    "alternatives": [
+      {
+        "name": "drift",
+        "why_pick_it": "Use local SQLite instead of a remote server"
+      }
+    ],
+    "minimal_example": "import 'package:drift/drift.dart';\nimport 'package:drift_hrana/drift_hrana.dart';\n\n@DriftDatabase(...)\nclass AppDatabase extends _$AppDatabase {\n  AppDatabase(super.e);\n  @override int get schemaVersion => 1;\n}\n\nvoid main() async {\n  final db = AppDatabase(HranaDatabase(\n    Uri.parse('ws://localhost:8080/'),\n    jwtToken: null,\n  ));\n}\n",
+    "confidence": 0.9
+  }
+}

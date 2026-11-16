@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "6.2.1",
+  "generatedAt": "2026-11-16T12:06:42.362Z",
+  "data": {
+    "primary_category": "maps",
+    "secondary_categories": [
+      "device",
+      "utils"
+    ],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "Calculates real-time mobility features like places, stops, and home stay from location data.",
+    "what_it_does": "Processes location sample streams to compute mobility metrics such as significant places, stops, moves, home stay, location entropy, and distance traveled. It runs as a singleton and relies on an external location plugin for raw GPS data.",
+    "use_when": [
+      "You need to derive real-time mobility analytics and behavioral features from phone location history.",
+      "You are already capturing background location updates and want to analyze stops, places, and home stay."
+    ],
+    "avoid_when": [
+      "You just need a basic map view or simple geolocation coordinates without analytics.",
+      "You cannot guarantee that your app has persistent background location permissions (ALWAYS access)."
+    ],
+    "strengths": [
+      "Provides complex derived metrics like location entropy and home stay out of the box.",
+      "Stream-based architecture integrates cleanly with background location streams."
+    ],
+    "weaknesses": [
+      "Does not handle OS location permissions or raw data collection natively; requires a separate location plugin.",
+      "Feature calculations can result in fallback values (-1.0) if prerequisites (like nighttime data or minimum places) are not met."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires an external location plugin (like carp_background_location) to supply location samples, plus explicit OS-level permissions for background location access.",
+    "alternatives": [],
+    "minimal_example": "MobilityFeatures().stopDuration = Duration(seconds: 20);\nMobilityFeatures().placeRadius = 50;\nMobilityFeatures().stopRadius = 5.0;\nMobilityFeatures().startListening(locationSampleStream);\nmobilitySubscription = MobilityFeatures().contextStream.listen((context) {\n  print('Context received: ${context.toJson()}');\n});",
+    "confidence": 0.95
+  }
+}

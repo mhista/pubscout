@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "1.2.1",
+  "generatedAt": "2026-11-16T11:39:42.465Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "devtools"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Real-time Dio HTTP request/response logger with a web dashboard.",
+    "what_it_does": "Intercepts Dio calls and records request and response details, then serves them via a local web dashboard. The dashboard shows headers, bodies, status codes and lets you copy cURL commands. It works on Android, iOS, macOS, Windows and Linux.",
+    "use_when": [
+      "Debugging network traffic during development",
+      "Testing API interactions with live visual feedback"
+    ],
+    "avoid_when": [
+      "Production builds where logged data could be exposed",
+      "Apps that need encrypted or authenticated logging"
+    ],
+    "strengths": [
+      "Live, interactive dashboard across platforms",
+      "Zero code‑generation, just add an interceptor",
+      "Supports release builds via build‑time flag"
+    ],
+    "weaknesses": [
+      "Logs are unauthenticated and exposed on the local network",
+      "Works only with Dio, not other HTTP clients",
+      "Not compatible with Flutter Web"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add cote_network_logger to pubspec, call await startNetworkLogServer() before runApp, add CoteNetworkLogger interceptor to Dio instance, ensure port 3000 is free.",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter/widgets.dart';\nimport 'package:dio/dio.dart';\nimport 'package:cote_network_logger/cote_network_logger.dart';\n\nfinal dio = Dio()..interceptors.add(const CoteNetworkLogger());\n\nvoid main() async {\n  WidgetsFlutterBinding.ensureInitialized();\n  await startNetworkLogServer();\n  runApp(MyApp());\n}",
+    "confidence": 0.95
+  }
+}

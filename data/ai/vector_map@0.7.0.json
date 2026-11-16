@@ -1,0 +1,52 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.7.0",
+  "generatedAt": "2026-11-16T11:50:13.947Z",
+  "data": {
+    "primary_category": "maps",
+    "secondary_categories": [],
+    "approach": [
+      "declarative",
+      "imperative"
+    ],
+    "one_liner": "Pure‑Flutter vector map widget that renders GeoJSON data.",
+    "what_it_does": "It parses GeoJSON strings and displays them as interactive vector maps. The map can be styled, layered, and annotated with markers, legends, and hover effects.",
+    "use_when": [
+      "You need a lightweight, fully Flutter‑based map without native SDKs or WebViews",
+      "You want to visualise custom GeoJSON data with custom theming and interactivity"
+    ],
+    "avoid_when": [
+      "You require satellite imagery, street maps, or routing features",
+      "You need platform‑specific map SDKs with offline tiles"
+    ],
+    "strengths": [
+      "No native platform dependencies – works on all Flutter targets",
+      "Highly customizable theming and rule‑based styling",
+      "Supports multi‑layer maps and interactive features like hover and click"
+    ],
+    "weaknesses": [
+      "Limited to vector data – no raster tiles or built‑in map providers",
+      "Feature set smaller than full‑featured map SDKs (e.g., no built‑in geocoding)"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "flutter_map",
+        "why_pick_it": "Provides raster tile support and extensive plugins for markers, clustering, and offline maps"
+      },
+      {
+        "name": "google_maps_flutter",
+        "why_pick_it": "Offers Google Maps tiles, street view, and built‑in place search"
+      },
+      {
+        "name": "geolocator",
+        "why_pick_it": "If you only need location services without rendering a map"
+      }
+    ],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:vector_map/vector_map.dart';\n\nFuture<void> main() async {\n  WidgetsFlutterBinding.ensureInitialized();\n  final geoJson = '{\"type\":\"FeatureCollection\",\"features\":[]}'; // your GeoJSON string\n  final source = await MapDataSource.geoJson(geoJson: geoJson);\n  final layer = MapLayer(dataSource: source);\n  final controller = VectorMapController();\n  controller.addLayer(layer);\n  runApp(MaterialApp(home: Scaffold(body: VectorMap(controller: controller))));\n}",
+    "confidence": 0.78
+  }
+}

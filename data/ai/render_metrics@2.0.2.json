@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "2.0.2",
+  "generatedAt": "2026-11-16T11:41:00.287Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Retrieve widget screen coordinates and compare positions at runtime",
+    "what_it_does": "Wrap widgets with RenderMetricsObject to expose their RenderData, then query a RenderParametersManager for absolute coordinates or differences between two widgets.",
+    "use_when": [
+      "Need to know widget position for custom layout logic",
+      "Implement drag‑and‑drop or snapping features",
+      "Debug UI alignment issues"
+    ],
+    "avoid_when": [
+      "You only need static layout, not runtime metrics",
+      "Performance‑critical code where extra RenderObject traversal is costly"
+    ],
+    "strengths": [
+      "Simple API, no code generation",
+      "Supports all Flutter platforms",
+      "Provides full coordinate set and diff helpers"
+    ],
+    "weaknesses": [
+      "Requires wrapping every target widget",
+      "Adds a RenderObject layer, may affect performance",
+      "No built‑in animation or reactive updates"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dependency, create RenderParametersManager, wrap widgets with RenderMetricsObject",
+    "alternatives": [],
+    "minimal_example": "final manager=RenderParametersManager<dynamic>();\nRenderMetricsObject(id:\"widget1\",manager:manager,child:Container());\nRenderData data=manager.getRenderData(\"widget1\");",
+    "confidence": 0.85
+  }
+}

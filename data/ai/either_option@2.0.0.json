@@ -1,0 +1,37 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.0",
+  "generatedAt": "2026-11-16T11:27:18.394Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "functional programming"
+    ],
+    "one_liner": "A simple library for error handling with Either and Option functional programming types.",
+    "what_it_does": "Provides Either and Option monad abstractions to handle missing or erroneous values and optional data safely in Dart and Flutter projects.",
+    "use_when": [
+      "You want functional-style error handling using Either instead of throwing exceptions.",
+      "You need to represent optional values explicitly using Option, Some, and None."
+    ],
+    "avoid_when": [
+      "You prefer traditional try-catch exception handling.",
+      "You already use a comprehensive functional programming library that includes Either and Option."
+    ],
+    "strengths": [
+      "Lightweight and simple to understand.",
+      "Brings popular functional patterns from languages like Scala and Haskell to Dart."
+    ],
+    "weaknesses": [
+      "Limited feature set compared to fully-fledged functional programming libraries.",
+      "Minimal documentation outside of basic README examples."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add either_option to pubspec.yaml dependencies.",
+    "alternatives": [],
+    "minimal_example": "Future<Either<ServerError, User>> getUser(int id) async {\n  final res = await http.get(baseUrl);\n  if (res.statusCode == 200) {\n    return Right(User.fromJson(json.decode(res.body)));\n  }\n  return Left(ServerError(\"Error\"));\n}",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,56 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.2.1+1",
+  "generatedAt": "2026-11-16T11:28:51.274Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [
+      "dependency-injection",
+      "navigation",
+      "localization"
+    ],
+    "approach": [
+      "declarative",
+      "stream-based",
+      "hooks"
+    ],
+    "one_liner": "A comprehensive framework for state management, dependency injection, routing, and localization.",
+    "what_it_does": "Flutter Control is a modular framework that streamlines app architecture by combining state management, a built-in service locator, navigation, reactive observables, and localization support.",
+    "use_when": [
+      "You want an all-in-one framework for state management, DI, and routing without wiring multiple small packages.",
+      "You prefer modular architecture with independent modules and service locators.",
+      "You need reactive state bindings combined with custom lifecycle-aware widgets and hooks."
+    ],
+    "avoid_when": [
+      "You prefer single-purpose libraries and want to choose your own state management or routing solution.",
+      "You want to avoid heavy framework lock-in.",
+      "You rely heavily on compile-time code generation for navigation or state models."
+    ],
+    "strengths": [
+      "Comprehensive ecosystem covering state, DI, navigation, and localization in one package.",
+      "Built-in Service Locator with Factory and Singleton patterns.",
+      "Reactive observables like ActionControl and FieldControl integrated with UI builders.",
+      "Context extensions and hooks for lazy initialization and clean lifecycle management."
+    ],
+    "weaknesses": [
+      "High level of framework lock-in due to its monolithic approach.",
+      "Extensive learning curve to understand all custom architectural concepts and base classes."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Initialize the core framework in main.dart using Control.initControl and wrap your app with ControlRoot.",
+    "alternatives": [
+      {
+        "name": "go_router",
+        "why_pick_it": "If you need a standard, declarative routing package maintained directly by the Flutter team instead of a framework-specific navigation system."
+      },
+      {
+        "name": "auto_route",
+        "why_pick_it": "If you prefer code-generation-based type-safe routing and deep linking."
+      }
+    ],
+    "minimal_example": "void main() async {\n  WidgetsFlutterBinding.ensureInitialized();\n  await Control.initControl(\n    entries: {\n      MyService: MyService(),\n    },\n  );\n  runApp(MyApp());\n}",
+    "confidence": 0.95
+  }
+}

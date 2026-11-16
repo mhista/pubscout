@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.2.0",
+  "generatedAt": "2026-11-16T11:48:05.246Z",
+  "data": {
+    "primary_category": "files",
+    "secondary_categories": [
+      "web-desktop"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Use native file explorers on Windows, macOS, and Linux to pick files, directories, and save files.",
+    "what_it_does": "Provides a Dart API to invoke native desktop file pickers and save dialogs for Windows, macOS, and Linux using FFI. It supports single or multiple file selection, custom extension filters, directory picking, and file saving without requiring Go Flutter.",
+    "use_when": [
+      "You need native desktop file picking or saving on Windows, macOS, and Linux",
+      "You want a pure Dart implementation using FFI instead of Go-based desktop plugins"
+    ],
+    "avoid_when": [
+      "You are building for Android, iOS, or web platforms",
+      "You want active feature updates (this package is archived in favor of the main file_picker package)"
+    ],
+    "strengths": [
+      "Pure Dart implementation using FFI with no Go dependency",
+      "Supports file extension filters, multi-selection, directory picking, and file saving",
+      "Mirrors the API of Miguel Pruivo's file_picker package"
+    ],
+    "weaknesses": [
+      "Archived package that only receives bug fixes",
+      "Does not support mobile platforms (Android, iOS) or the web"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Not documented",
+    "alternatives": [],
+    "minimal_example": "try {\n  final result = await pickFiles(\n    allowMultiple: false,\n  );\n  if (result != null) {\n    File file = File(result.files.single.path);\n  } else {\n    // User canceled the picker\n  }\n} catch (e) {\n  print(e);\n}",
+    "confidence": 0.95
+  }
+}

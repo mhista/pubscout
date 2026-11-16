@@ -1,0 +1,47 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.2.3",
+  "generatedAt": "2026-11-16T11:57:55.245Z",
+  "data": {
+    "primary_category": "payments",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Accept one-time, subscription, and pre-approval payments through PayHere in Flutter apps.",
+    "what_it_does": "Allows Flutter applications to initiate PayHere mobile SDK payments natively without redirecting users to a web browser. Supports one-time payments, recurring subscriptions, pre-approvals, and hold-on-card transactions.",
+    "use_when": [
+      "You need to integrate the PayHere payment gateway in a Flutter mobile app.",
+      "You want to process subscriptions or one-time payments natively inside the app."
+    ],
+    "avoid_when": [
+      "You are using a payment gateway other than PayHere.",
+      "You only need web-based checkout integration without native mobile SDK bindings."
+    ],
+    "strengths": [
+      "Enables in-app payments via PayHere without web browser redirection",
+      "Supports multiple transaction types including subscriptions, tokenization, and holds",
+      "Allows item-wise details for invoices"
+    ],
+    "weaknesses": [
+      "Requires platform-specific configuration on both Android and iOS",
+      "Payment verification requires setting up a separate server endpoint for asynchronous notifications"
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Requires adding JitPack Maven repository and ProGuard rules for Android, running pod install for iOS, whitelisting the app package name in the PayHere merchant account, and configuring a backend notification URL.",
+    "alternatives": [
+      {
+        "name": "flutter_stripe",
+        "why_pick_it": "Choose this if you are using Stripe instead of PayHere as your payment gateway."
+      },
+      {
+        "name": "in_app_purchase",
+        "why_pick_it": "Choose this if you want to use official Apple App Store and Google Play Store in-app purchases rather than a third-party gateway."
+      }
+    ],
+    "minimal_example": "import 'package:payhere_mobilesdk_flutter/payhere_mobilesdk_flutter.dart';\n\nMap paymentObject = {\n  \"sandbox\": true,\n  \"merchant_id\": \"1211149\",\n  \"notify_url\": \"https://example.com/notify\",\n  \"order_id\": \"ItemNo12345\",\n  \"items\": \"Hello from Flutter!\",\n  \"amount\": 50.00,\n  \"currency\": \"LKR\",\n  \"first_name\": \"Saman\",\n  \"last_name\": \"Perera\",\n  \"email\": \"samanp@gmail.com\",\n  \"phone\": \"0771234567\",\n  \"address\": \"No.1, Galle Road\",\n  \"city\": \"Colombo\",\n  \"country\": \"Sri Lanka\"\n};\n\nPayHere.startPayment(paymentObject, (paymentId) {\n  print(\"Success: $paymentId\");\n}, (error) {\n  print(\"Failed: $error\");\n}, () {\n  print(\"Dismissed\");\n});",
+    "confidence": 1
+  }
+}

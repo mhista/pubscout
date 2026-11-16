@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.2.1",
+  "generatedAt": "2026-11-16T11:41:01.988Z",
+  "data": {
+    "primary_category": "forms",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "A configurable number input formatter for TextField to format amounts, group digits, and access double values.",
+    "what_it_does": "Provides a TextInputFormatter that manages digit group separation, maximum integral and decimal lengths, and caret behavior for numeric TextField inputs. It allows easy extraction of the underlying double value and syncing with TextEditingControllers.",
+    "use_when": [
+      "You need to format currency or amount inputs in a TextField with custom digit group and decimal separators.",
+      "You need direct access to the underlying double value of the formatted text input."
+    ],
+    "avoid_when": [
+      "You require complex multi-locale internationalized number formatting (where intl might be preferred).",
+      "You need precise high-precision decimal arithmetic beyond standard double floating-point limitations."
+    ],
+    "strengths": [
+      "Minimizes common headaches associated with using intl NumberFormat inside a TextField.",
+      "Easily exposes the underlying double value and formatted string.",
+      "Configurable separators and length limits for integral and fractional parts."
+    ],
+    "weaknesses": [
+      "Susceptible to standard Dart double IEEE 754 floating-point precision limitations for high-precision calculations.",
+      "Requires manual TextEditingController attachment for dynamic external updates."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "TextField(\n  inputFormatters: [AmountInputFormatter()],\n)",
+    "confidence": 0.95
+  }
+}

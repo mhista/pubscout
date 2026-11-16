@@ -1,0 +1,54 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.0.1",
+  "generatedAt": "2026-11-16T11:48:52.022Z",
+  "data": {
+    "primary_category": "notifications",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "imperative",
+      "declarative"
+    ],
+    "one_liner": "Display Apple system-like self-hiding status alerts without interrupting user flow.",
+    "what_it_does": "StatusAlert lets developers display self-hiding system-like status overlays inspired by Apple design guidelines. It supports titles, subtitles, built-in icons, or custom widgets like Rive animations. Only one alert is shown at a time and they automatically dismiss after a configurable duration.",
+    "use_when": [
+      "You want to notify users of non-critical actions (like 'Saved' or 'Subscribed') without blocking interaction.",
+      "You need an overlay notification that mimics Apple's system status style."
+    ],
+    "avoid_when": [
+      "You need complex notification banners that persist until explicitly dismissed by the user.",
+      "You require multiple alerts stacked on top of each other simultaneously."
+    ],
+    "strengths": [
+      "Clean, Apple-like system alert presentation with built-in blur support.",
+      "Simple imperative API (`StatusAlert.show(...)`) for quick integration.",
+      "Supports custom widget configurations such as Rive animations."
+    ],
+    "weaknesses": [
+      "Only one alert can be shown at a time; calling `show()` while active does nothing.",
+      "`onComplete` is not called when manually dismissed using `StatusAlert.hide()`."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [
+      {
+        "name": "fluttertoast",
+        "why_pick_it": "If you want simple native-style toast messages across platforms."
+      },
+      {
+        "name": "bot_toast",
+        "why_pick_it": "If you need a highly customizable notification and toast system with support for custom overlays."
+      },
+      {
+        "name": "another_flushbar",
+        "why_pick_it": "If you prefer top or bottom slide-in flushbars with action buttons and flexible styling."
+      }
+    ],
+    "minimal_example": "StatusAlert.show(\n  context,\n  duration: Duration(seconds: 2),\n  title: 'Subscribed',\n  subtitle: 'You will be notified of new posts',\n  configuration: IconConfiguration(icon: Icons.done),\n  maxWidth: 260,\n);",
+    "confidence": 1
+  }
+}

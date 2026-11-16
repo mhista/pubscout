@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "1.0.7",
+  "generatedAt": "2026-11-16T11:40:09.452Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter plugin to query and switch audio output devices",
+    "what_it_does": "Provides APIs to get the current audio output, list available devices, and switch between speaker, receiver, headphones, and Bluetooth. It also allows listening for device changes and handles errors gracefully.",
+    "use_when": [
+      "You need to control audio routing in a media app",
+      "You want to react to changes in connected audio devices",
+      "You need a null‑safe, type‑safe API for audio output management"
+    ],
+    "avoid_when": [
+      "You only need to play audio without routing control",
+      "You are building a simple audio player that uses just_audio or audioplayers"
+    ],
+    "strengths": [
+      "Supports Android API 21+ and iOS 13+",
+      "Fully null‑safe and type‑safe",
+      "Provides listener callbacks for device changes",
+      "Cross‑platform Flutter 3+ support"
+    ],
+    "weaknesses": [
+      "Only handles output routing, not recording",
+      "No built‑in playback functionality",
+      "Limited to four device types"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter_audio_output/flutter_audio_output.dart';\n\nfinal current = await FlutterAudioOutput.getCurrentOutput();\nprint('Current output: ${current.name} (${current.port})');\nawait FlutterAudioOutput.changeToSpeaker();",
+    "confidence": 0.9
+  }
+}

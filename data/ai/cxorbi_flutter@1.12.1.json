@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.12.1",
+  "generatedAt": "2026-11-16T11:52:52.570Z",
+  "data": {
+    "primary_category": "devtools",
+    "secondary_categories": [
+      "storage"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Analytics, session replay, heatmaps, error capture, and surveys for Flutter.",
+    "what_it_does": "Cxorbi is an analytics and monitoring SDK for Flutter apps on iOS and Android. It captures wireframe session replays, heatmaps, screen views, gestures, performance metrics, error data, feature experiments, and in-app surveys.",
+    "use_when": [
+      "You need session replay and heatmaps for iOS and Android Flutter apps",
+      "You want built-in support for feature flags, A/B testing, and in-app surveys"
+    ],
+    "avoid_when": [
+      "You are targeting web or desktop platforms",
+      "You prefer an open-source self-hosted analytics backend without third-party services"
+    ],
+    "strengths": [
+      "Comprehensive feature set including session replay, heatmaps, and error capture",
+      "Automatic screen tracking via navigator observers",
+      "Includes features for feature experiments and surveys"
+    ],
+    "weaknesses": [
+      "Does not support web or desktop platforms",
+      "Requires explicit opt-in user consent setup for production"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "No manual native Pod or Gradle setup is required for the default integration. Initialize Cxorbi in main() and add CxorbiNavigatorObserver.",
+    "alternatives": [
+      {
+        "name": "sentry_flutter",
+        "why_pick_it": "If you primarily need crash reporting, error tracking, and performance monitoring with deep Flutter integration."
+      }
+    ],
+    "minimal_example": "Future<void> main() async {\n  WidgetsFlutterBinding.ensureInitialized();\n  await Cxorbi.init(CxorbiConfig(\n    apiKey: const String.fromEnvironment('CXORBI_API_KEY'),\n  ));\n  await Cxorbi.instance.optIn();\n  runApp(const MyApp());\n}",
+    "confidence": 0.95
+  }
+}

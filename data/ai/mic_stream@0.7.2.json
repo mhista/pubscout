@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.7.2",
+  "generatedAt": "2026-11-16T11:21:30.659Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [
+      "device"
+    ],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "Receive raw byte streams from a device's microphone.",
+    "what_it_does": "Provides an easy-to-use audio stream from the microphone of mobile and desktop devices. Audio data is returned as a raw PCM Stream of bytes or individual samples.",
+    "use_when": [
+      "You need raw PCM audio byte streams from the microphone.",
+      "You are building custom audio analysis or recording features."
+    ],
+    "avoid_when": [
+      "You just want to playback audio files.",
+      "You need stable 32-bit or floating-point PCM (currently experimental WIP)."
+    ],
+    "strengths": [
+      "Simple API centered around a single Stream method.",
+      "Supports customizable sample rates, bit depths, and channel configurations."
+    ],
+    "weaknesses": [
+      "Some configuration options are platform-dependent.",
+      "Advanced formats like 32-bit and floating-point PCM are experimental."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires adding RECORD_AUDIO permission for Android, NSMicrophoneUsageDescription for iOS, and checking 'Audio Input' in macOS capabilities.",
+    "alternatives": [
+      {
+        "name": "record",
+        "why_pick_it": "If you need a full-featured audio recording package that can record to files or paths rather than just raw byte streams."
+      }
+    ],
+    "minimal_example": "Stream<List<int>> stream = await MicStream.microphone(sampleRate: 44100);\nStreamSubscription<List<int>> listener = stream.listen((samples) => print(samples));",
+    "confidence": 0.95
+  }
+}

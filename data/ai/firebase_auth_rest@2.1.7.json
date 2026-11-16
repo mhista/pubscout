@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "2.1.7",
+  "generatedAt": "2026-11-16T11:35:11.243Z",
+  "data": {
+    "primary_category": "auth",
+    "secondary_categories": [
+      "backend",
+      "networking"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Pure Dart wrapper for Firebase Authentication REST API, works on all Dart platforms.",
+    "what_it_does": "Provides high‑level classes to sign up, sign in, manage users and refresh tokens via Firebase's REST endpoints. Also exposes low‑level REST classes for direct API calls.",
+    "use_when": [
+      "You need Firebase Auth without native SDKs or platform channels",
+      "You target platforms where the official firebase_auth plugin isn’t supported (e.g., pure Dart, server, or web without JS)",
+      "You want to run authentication against the Firebase emulator"
+    ],
+    "avoid_when": [
+      "You already use the official firebase_auth plugin with native SDKs",
+      "You need deep integration with Google Sign‑In or Apple Sign‑In that rely on platform SDKs"
+    ],
+    "strengths": [
+      "Works on all Dart platforms including server and CLI",
+      "No native code or platform‑specific setup required",
+      "Supports parallel logins and automatic token refresh"
+    ],
+    "weaknesses": [
+      "Limited to REST features; no real‑time token revocation handling",
+      "Less mature than the official firebase_auth plugin",
+      "Relies on manual handling of API keys and security rules"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "firebase_auth",
+        "why_pick_it": "Official plugin with native SDK support, richer feature set, and tighter integration with Firebase services"
+      }
+    ],
+    "minimal_example": "final fbAuth = FirebaseAuth(Client(), \"API-KEY\");\nfinal account = await fbAuth.signUpAnonymous();\nprint('Local-ID: ${account.localId}');\nawait account.delete();\naccount.dispose();",
+    "confidence": 0.86
+  }
+}

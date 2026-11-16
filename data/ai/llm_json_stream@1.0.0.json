@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.0",
+  "generatedAt": "2026-11-16T11:54:01.909Z",
+  "data": {
+    "primary_category": "ai-ml",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "stream-based",
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "A streaming JSON parser optimized for parsing LLM responses incrementally.",
+    "what_it_does": "Parses JSON character-by-character as it streams in from LLM responses. Allows path-based subscriptions to properties so you can receive values chunk-by-chunk or await complete values without waiting for the entire response to finish.",
+    "use_when": [
+      "You need to display streaming LLM text responses or JSON data in real-time.",
+      "You want to avoid UI jumps by populating lists and maps progressively as they begin parsing."
+    ],
+    "avoid_when": [
+      "You are parsing standard static JSON files where traditional jsonDecode() is sufficient."
+    ],
+    "strengths": [
+      "Processes incomplete JSON fragments chunk-by-chunk without throwing errors.",
+      "Provides both streams (for live typing effects) and futures (for atomic values) on every property.",
+      "Includes robust handling for escape sequences, unicode, and large arrays."
+    ],
+    "weaknesses": [
+      "Adds overhead compared to built-in JSON decoding if streaming is not required."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "final parser = JsonStreamParser(llmResponseStream);\nparser.getStringProperty('message').stream.listen((chunk) {\n  displayText += chunk;\n});",
+    "confidence": 1
+  }
+}

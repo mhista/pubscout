@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "8.0.0",
+  "generatedAt": "2026-11-16T11:51:02.162Z",
+  "data": {
+    "primary_category": "forms",
+    "secondary_categories": [
+      "widgets",
+      "theming"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Searchable single and multi-select dropdowns with accent-insensitive search and Material 3 theming.",
+    "what_it_does": "Provides single and multiple selection searchable dropdown widgets for Flutter with built-in item creation, editing, and deletion. Uses a controller-driven state management approach and supports accent-insensitive searching, sorting, and Material 3 theming.",
+    "use_when": [
+      "You need a dropdown component with real-time text searching and filtering.",
+      "Users need the ability to add, edit, or delete items directly from the dropdown list.",
+      "You require multi-selection with chips rendered inside the input box."
+    ],
+    "avoid_when": [
+      "You only need a basic, non-searchable native dropdown menu where standard Flutter widgets suffice.",
+      "You are using a Flutter version older than 3.32."
+    ],
+    "strengths": [
+      "Accent- and case-insensitive forgiving search out of the box.",
+      "Controller-driven state management using ChangeNotifier without needing GlobalKeys.",
+      "In-place add, edit, and delete operations with async callbacks and loading spinners."
+    ],
+    "weaknesses": [
+      "Requires Flutter 3.32 or newer, which may be restrictive for older codebases.",
+      "Customizing complex layouts beyond provided settings may require custom row builders."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "class FruitPicker extends StatefulWidget {\n  const FruitPicker({super.key});\n\n  @override\n  State<FruitPicker> createState() => _FruitPickerState();\n}\n\nclass _FruitPickerState extends State<FruitPicker> {\n  late final SearchDropDownController<String> controller =\n      SearchDropDownController<String>(\n    items: const [\n      ValueItem(label: 'Maçã', value: 'apple'),\n      ValueItem(label: 'Banana', value: 'banana'),\n      ValueItem(label: 'Uva', value: 'grape'),\n    ],\n    addMode: false,\n    deleteMode: false,\n    updateSelectedItem: (item) => debugPrint('selected: ${item?.value}'),\n  );\n\n  @override\n  Widget build(BuildContext context) {\n    return SearchDropDown<String>(controller: controller);\n  }\n}",
+    "confidence": 0.95
+  }
+}

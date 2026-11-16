@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.0.5",
+  "generatedAt": "2026-11-16T11:42:37.732Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Prevents screenshots and screen recordings on Android, iOS, and Windows.",
+    "what_it_does": "This plugin sets platform‑specific flags to block screenshot and screen recording. It also provides a callback to detect when a recording starts on iOS.",
+    "use_when": [
+      "Protecting sensitive screens in banking or health apps",
+      "Preventing screen capture in secure admin panels",
+      "Disabling screenshots during video calls"
+    ],
+    "avoid_when": [
+      "Apps that need to allow users to capture the screen for sharing",
+      "Applications that rely on screen recording for tutorials"
+    ],
+    "strengths": [
+      "Cross‑platform support (Android, iOS, Windows)",
+      "Simple API with a single enable/disable method",
+      "No heavy dependencies"
+    ],
+    "weaknesses": [
+      "Does not support macOS or Linux",
+      "May not work on older Windows versions lacking SetWindowDisplayAffinity",
+      "Limited to screenshot/recording protection only"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the package to pubspec, run flutter pub get. On Android add the FLAG_SECURE permission in AndroidManifest.xml if needed. No build_runner or native code changes required.",
+    "alternatives": [],
+    "minimal_example": "import 'package:screenshot_guard/screenshot_guard.dart';\n\nfinal guard = ScreenshotGuard();\n\nvoid toggle() async {\n  await guard.enableSecureFlag(true); // or false\n}",
+    "confidence": 0.9
+  }
+}

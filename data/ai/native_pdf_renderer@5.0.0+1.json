@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "5.0.0+1",
+  "generatedAt": "2026-11-16T11:48:52.045Z",
+  "data": {
+    "primary_category": "files",
+    "secondary_categories": [
+      "images",
+      "web-desktop"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter plugin to render PDF pages as images on Web, MacOS, Windows, Android and iOS.",
+    "what_it_does": "Allows opening PDF documents from assets, files, or raw data, and rendering individual pages into image bytes. It supports multiple platforms including Web, macOS, Windows, Android, and iOS.",
+    "use_when": [
+      "You need to display PDF page previews or render PDF pages as images in a Flutter app.",
+      "You need cross-platform PDF rendering supporting mobile, desktop, and web."
+    ],
+    "avoid_when": [
+      "You want the newer renamed package pdfx instead.",
+      "You need complex interactive PDF viewing features out-of-the-box without manual image rendering."
+    ],
+    "strengths": [
+      "Supports a wide range of platforms: Android, iOS, macOS, Windows, and Web.",
+      "Allows opening documents from assets, files, and bytes.",
+      "Provides control over rendering resolution, background color, and image format."
+    ],
+    "weaknesses": [
+      "Plugin has been renamed and republished as `pdfx`.",
+      "Requires platform-specific setup on Web (PDF.js script tags) and Windows (PDFium version overrides)."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding script tags to index.html for Web and optionally overriding PDFium version in CMakeLists.txt for Windows.",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:native_pdf_renderer/native_pdf_renderer.dart';\n\nvoid main() async {\n  final document = await PdfDocument.openAsset('assets/sample.pdf');\n  final page = await document.getPage(1);\n  final pageImage = await page.render(width: page.width, height: page.height);\n  await page.close();\n  await document.close();\n}",
+    "confidence": 0.95
+  }
+}

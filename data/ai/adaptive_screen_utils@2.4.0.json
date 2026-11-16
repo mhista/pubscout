@@ -1,0 +1,53 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.4.0",
+  "generatedAt": "2026-11-16T11:57:37.512Z",
+  "data": {
+    "primary_category": "layout",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Flutter package for creating responsive UIs based on screen size and orientation.",
+    "what_it_does": "Adaptive screen utils provides methods to check screen size categories like wearable, compact, medium, and expanded based on width, height, and orientation. It allows developers to build responsive UIs that adapt to mobile, tablet, and desktop screens.",
+    "use_when": [
+      "You need to build a responsive Flutter UI targeting multiple form factors like mobile, tablet, and desktop.",
+      "You want a simple utility to check screen size classes using methods like compact, medium, and expanded."
+    ],
+    "avoid_when": [
+      "You require complex, highly customized grid systems or advanced constraint-based layouts.",
+      "You prefer heavy declarative layout frameworks with comprehensive breakpoint builders."
+    ],
+    "strengths": [
+      "Supports multiple platforms including Android, iOS, Web, macOS, Windows, and Linux.",
+      "Provides simple extension methods and functions to easily identify device types.",
+      "Inspired by Android window size classes for intuitive responsive design."
+    ],
+    "weaknesses": [
+      "The approach to determining device types based on width, height, and orientation is a simple approach and may not be accurate for all devices.",
+      "Limited documentation on advanced responsive scaling features compared to larger layout packages."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Just add the dependency to pubspec.yaml and import the package.",
+    "alternatives": [
+      {
+        "name": "responsive_framework",
+        "why_pick_it": "Choose this for a more robust scaling and resizing framework across diverse screen dimensions."
+      },
+      {
+        "name": "responsive_builder",
+        "why_pick_it": "Choose this if you prefer builder widgets specifically targeted at screen size breakpoints."
+      },
+      {
+        "name": "sizer",
+        "why_pick_it": "Choose this if you prefer sizing elements relative to screen width and height percentages."
+      }
+    ],
+    "minimal_example": "import 'package:adaptive_screen_utils/adaptive_screen_utils.dart';\n\nclass MyWidget extends StatelessWidget {\n  @override\n  Widget build(BuildContext context) {\n    final desktop = expanded(context);\n    final tablet = medium(context);\n    return Scaffold(\n      appBar: AppBar(\n        title: Text('Adaptive Screen Utils'),\n      ),\n      body: Builder(\n        builder: (context) {\n         if (desktop) {\n            return Center(child: Text('Desktop'));\n          } else if (tablet) {\n            return Center(child: Text('Tablet'));\n          }\n          return Center(child: Text('Mobile'));\n        },\n      ),\n    );\n  }\n}",
+    "confidence": 0.9
+  }
+}

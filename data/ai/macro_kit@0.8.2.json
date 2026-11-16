@@ -1,0 +1,51 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.8.2",
+  "generatedAt": "2026-11-16T12:12:46.915Z",
+  "data": {
+    "primary_category": "codegen",
+    "secondary_categories": [],
+    "approach": [
+      "code generation"
+    ],
+    "one_liner": "A development-time macro system for instant code generation without build_runner.",
+    "what_it_does": "Macro Kit provides an analyzer-plugin-based macro system that generates code instantly on save in under 100ms. It includes built-in macros for data classes, compile-time computation, asset paths, shader reloading, and embedding files.",
+    "use_when": [
+      "You want fast code generation without the overhead of build_runner",
+      "You need to generate data classes, asset paths, or embed files directly in Dart"
+    ],
+    "avoid_when": [
+      "You rely strictly on standard official Dart macros which have different APIs",
+      "You are targeting environments where analyzer plugins cannot be set up"
+    ],
+    "strengths": [
+      "Generates code in under 100ms after initial run",
+      "Eliminates slow build processes and build_runner conflicts",
+      "Allows real-time debugging of macros inside your app"
+    ],
+    "weaknesses": [
+      "Macros are currently limited to classes, top-level functions, records, and top-level variables",
+      "Requires manual setup of an analysis_options plugin and a macro_context file"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires activating the global tool, configuring plugins in analysis_options.yaml, and creating a macro_context.dart file.",
+    "alternatives": [
+      {
+        "name": "build",
+        "why_pick_it": "If you prefer the standard build system infrastructure over custom development-time macro servers."
+      },
+      {
+        "name": "build_runner",
+        "why_pick_it": "If you need a battle-tested and widely adopted code generation framework across the Dart ecosystem."
+      },
+      {
+        "name": "freezed_annotation",
+        "why_pick_it": "If you want mature union types and immutable data classes via build_runner."
+      }
+    ],
+    "minimal_example": "import 'package:macro_kit/macro_kit.dart';\n\n@dataClassMacro\nclass User with UserData {\n  const User({required this.id, required this.name});\n  final int id;\n  final String name;\n}",
+    "confidence": 0.95
+  }
+}

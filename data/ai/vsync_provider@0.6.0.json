@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.6.0",
+  "generatedAt": "2026-11-16T11:49:03.254Z",
+  "data": {
+    "primary_category": "animation",
+    "secondary_categories": [
+      "state-management"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Provides a vsync ticker for AnimationController compatible with the provider package.",
+    "what_it_does": "VsyncProvider bridges the provider ecosystem with AnimationControllers by supplying the required vsync ticker. This allows widgets to easily handle animations without managing TickerProviderStateMixin manually.",
+    "use_when": [
+      "You are using the provider package for state management and need a vsync for AnimationControllers",
+      "You want to avoid using TickerProviderStateMixin in your StatefulWidgets"
+    ],
+    "avoid_when": [
+      "You are not using the provider package",
+      "you are using an alternative state management solution like Riverpod or Bloc"
+    ],
+    "strengths": [
+      "Simplifies animation controller creation with provider",
+      "Eliminates the need for TickerProviderStateMixin in many cases"
+    ],
+    "weaknesses": [
+      "Tied directly to the provider package ecosystem"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [],
+    "minimal_example": "VsyncProvider(\n  builder: (context, vsync) => AnimationController(\n    vsync: vsync,\n    duration: const Duration(seconds: 1),\n  ),\n)",
+    "confidence": 0.95
+  }
+}

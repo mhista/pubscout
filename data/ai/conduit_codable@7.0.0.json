@@ -1,0 +1,55 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "7.0.0",
+  "generatedAt": "2026-11-16T11:21:08.565Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "storage"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "A library for encoding and decoding dynamic structured data like JSON and YAML into Dart objects.",
+    "what_it_does": "It converts dynamic and structured data formats like JSON and YAML into typed Dart objects by extending a `Coding` base class. It handles object references, cyclical data, and dynamic type casting for collections like lists and maps.",
+    "use_when": [
+      "You need to serialize and deserialize complex JSON or YAML data structures into custom Dart classes manually.",
+      "You are dealing with document references or cyclical data graphs in structured formats.",
+      "You prefer runtime serialization logic over code generation tools."
+    ],
+    "avoid_when": [
+      "You prefer compile-time code generation for your JSON models.",
+      "You want a lightweight, zero-boilerplate serialization solution."
+    ],
+    "strengths": [
+      "Supports decoding and encoding of nested custom objects, lists, and maps.",
+      "Handles document references ($ref) and cyclical data structures natively.",
+      "Provides built-in type coercion and casting support for primitive type arguments."
+    ],
+    "weaknesses": [
+      "Requires manual implementation of encode and decode methods for every class.",
+      "Minimum Dart SDK requirement is relatively strict (>=3.12.0)."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [
+      {
+        "name": "json_annotation",
+        "why_pick_it": "Provides compile-time JSON serialization using code generation instead of manual runtime decoding methods."
+      },
+      {
+        "name": "built_value",
+        "why_pick_it": "Provides immutable value types and builder patterns with robust code generation for serialization."
+      },
+      {
+        "name": "freezed_annotation",
+        "why_pick_it": "Generates immutable union and data classes with built-in JSON serialization capabilities."
+      }
+    ],
+    "minimal_example": "class Person extends Coding {\n  String name;\n\n  @override\n  void decode(KeyedArchive object) {\n    super.decode(object);\n    name = object.decode(\"name\");   \n  }\n\n  @override\n  void encode(KeyedArchive object) {\n    object.encode(\"name\", name);\n  }\n}",
+    "confidence": 0.95
+  }
+}

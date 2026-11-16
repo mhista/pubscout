@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.4.4",
+  "generatedAt": "2026-11-16T11:43:18.530Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "navigation"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "BottomNavigationBar, IndexedStack, and TabController that use item keys instead of indexes.",
+    "what_it_does": "Provides replacements for BottomNavigationBar, IndexedStack, TabController, TabBar, and TabBarView that use item keys (such as enums) instead of numeric indexes. This eliminates the need for manual index-to-meaning conversions and helps avoid range errors.",
+    "use_when": [
+      "You want to use enums or meaningful keys for tabs and navigation stacks instead of magic numbers.",
+      "You need to change the set of tabs or navigation items dynamically without re-creating controllers."
+    ],
+    "avoid_when": [
+      "You strictly require traditional numeric index-based tab and stack handling.",
+      "You are using SingleTickerProviderStateMixin and need to change keys dynamically (TickerProviderStateMixin must be used instead)."
+    ],
+    "strengths": [
+      "Eliminates error-prone index-to-enum conversions.",
+      "Allows mutable tabs and animation durations on controllers without recreation.",
+      "Supports DefaultKeyedTabController for cleaner widget trees."
+    ],
+    "weaknesses": [
+      "Requires TickerProviderStateMixin instead of SingleTickerProviderStateMixin for controllers that change keys.",
+      "Does not check at compile time that the default controller is present in the tree."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "enum TabEnum { favorites, search }\n\nKeyedStack<TabEnum>(\n  itemKey: _tab,\n  children: const {\n    TabEnum.favorites: Center(child: Text('Favorites')),\n    TabEnum.search: Center(child: Text('Search')),\n  },\n)",
+    "confidence": 1
+  }
+}

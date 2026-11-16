@@ -1,0 +1,46 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.7.2",
+  "generatedAt": "2026-11-16T11:22:19.656Z",
+  "data": {
+    "primary_category": "backend",
+    "secondary_categories": [
+      "networking",
+      "storage"
+    ],
+    "approach": [
+      "stream-based",
+      "declarative"
+    ],
+    "one_liner": "Offline-first PocketBase client using Drift for local caching",
+    "what_it_does": "It extends the PocketBase SDK to cache all collections in a local SQLite database and automatically sync changes when connectivity is restored. The API mirrors PocketBase’s, but all reads can be served from the local store and writes are queued for later sync.",
+    "use_when": [
+      "You need offline support for a PocketBase-backed app",
+      "You want reactive UI updates from local data changes",
+      "You want full-text search and complex local filtering without server round-trips"
+    ],
+    "avoid_when": [
+      "You only need a simple client with no offline requirements",
+      "Your app already uses another offline persistence layer",
+      "You need cross-platform support beyond Flutter (e.g., pure Dart)"
+    ],
+    "strengths": [
+      "Automatic offline sync and conflict handling",
+      "Reactive streams that update UI immediately",
+      "Full-text search and powerful local filtering",
+      "Cross-platform Flutter support"
+    ],
+    "weaknesses": [
+      "Adds Drift and SQLite dependencies, increasing bundle size",
+      "Only works with PocketBase, not other backends",
+      "Setup requires defining a Drift schema for each collection"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add pocketbase_drift to pubspec, initialize with $PocketBase.database, define a Drift schema for collections, run any necessary build steps for Drift (build_runner)",
+    "alternatives": [],
+    "minimal_example": "```dart\nimport 'package:pocketbase_drift/pocketbase_drift.dart';\n\nfinal client = $PocketBase.database('http://127.0.0.1:8090');\n\n// Watch a collection reactively\nfinal stream = client.watchRecordsState('posts');\nstream.listen((state) {\n  if (state.hasError) {\n    print('Error: ${state.error}');\n  } else {\n    print('Fetched ${state.data?.length} posts');\n  }\n});\n```",
+    "confidence": 0.9
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.2.0",
+  "generatedAt": "2026-11-16T12:05:01.125Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "ui-kits"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A widget to style and interact with parts of a text string based on predefined rules.",
+    "what_it_does": "The DecoratedText widget allows you to style and make parts of a text string interactive using predefined rules like words, prefixes, tags, URLs, or custom regular expressions. It supports callbacks for taps on matched text and allows text selection.",
+    "use_when": [
+      "You need to highlight specific words, hashtags, mentions, or links inside a block of text.",
+      "You want users to be able to tap on specific styled portions of text such as URLs or hashtags.",
+      "You need custom regular expression styling and inline widget builders within text."
+    ],
+    "avoid_when": [
+      "You only need standard rich text formatting without pattern matching or interactive spans.",
+      "You are building a full markdown parser or rich text editor requiring complex syntax trees."
+    ],
+    "strengths": [
+      "Comes with many built-in rules for words, prefixes, tags, and URLs.",
+      "Supports interactive tap callbacks and selectable text.",
+      "Optimized with internal RegExp caching and efficient tag deduplication."
+    ],
+    "weaknesses": [
+      "Limited to rule-based pattern matching and styling rather than full markup parsing.",
+      "Complex custom regexes may require manual caching for optimal performance."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "DecoratedText(\n    text: \"Like twitter accounts @gabdsg or hashtags #decoratedtext\",\n    rules: [\n        DecoratorRule.startsWith(\n            text: \"@\",\n            onTap: (match) {\n                print(match);\n            },\n            style: TextStyle(\n                color: Colors.blue,\n            ),\n        ),\n    ],\n)",
+    "confidence": 1
+  }
+}

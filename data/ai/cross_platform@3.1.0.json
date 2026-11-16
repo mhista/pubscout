@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "3.1.0",
+  "generatedAt": "2026-11-16T11:28:16.638Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Unified API for detecting the current platform and basic system info across Flutter, web, and desktop.",
+    "what_it_does": "Wraps dart:io and dart:html Platform APIs into a single interface. Offers getters like isWeb, isAndroid, isDesktop and basic properties such as numberOfProcessors and operatingSystemVersion.",
+    "use_when": [
+      "You need simple platform checks to branch code for web, mobile, or desktop.",
+      "You want a single import to access common Platform properties on all supported targets."
+    ],
+    "avoid_when": [
+      "You require detailed device information beyond basic OS detection.",
+      "You need advanced features like hardware sensors or permissions."
+    ],
+    "strengths": [
+      "Single unified API for all Flutter targets",
+      "Covers all major platforms (android, iOS, web, windows, macOS, linux)",
+      "Zero native setup or permissions"
+    ],
+    "weaknesses": [
+      "Only provides basic platform info, no deep device details",
+      "Duplicates functionality already available in dart:io/dart:html",
+      "Limited to the features listed in the README"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "universal_platform",
+        "why_pick_it": "Offers similar cross‑platform detection with a lightweight implementation."
+      }
+    ],
+    "minimal_example": "import 'package:cross_platform/cross_platform.dart';\n\nvoid main() {\n  if (Platform.isWeb) {\n    print('Running on the web');\n  } else if (Platform.isMobile) {\n    print('Running on a mobile device');\n  }\n  print('OS: ${Platform.operatingSystem}');\n}",
+    "confidence": 0.9
+  }
+}

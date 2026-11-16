@@ -1,0 +1,46 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.2.0",
+  "generatedAt": "2026-11-16T11:51:02.313Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "networking",
+      "widgets"
+    ],
+    "approach": [
+      "stream-based",
+      "declarative"
+    ],
+    "one_liner": "Monitors internet connectivity status, connection modes, and measures latency in real-time.",
+    "what_it_does": "Combines OS-level hardware detection with active DNS reachability probes to detect exact connection modes like Wi-Fi, Mobile Data, or VPN. It provides built-in offline UI overlays, network-aware widgets, request retry logic, and an in-app network inspector.",
+    "use_when": [
+      "You need detailed connection mode detection beyond basic on/off states.",
+      "Your app requires a customizable offline UI wrapper or banner.",
+      "You want to inspect HTTP network traffic or measure live connection latency."
+    ],
+    "avoid_when": [
+      "You only need basic platform connectivity status without active reachability checks."
+    ],
+    "strengths": [
+      "Detects connection modes like Wi-Fi, Mobile Data, Ethernet, and VPN.",
+      "Includes prebuilt offline UI styles (Snackbar, Alert Dialog, Custom).",
+      "Provides a built-in in-app network logs inspector and ping latency tracker."
+    ],
+    "weaknesses": [
+      "Depends on specific external packages like dio and connectivity_plus."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Initialize the watcher in main.dart using WidgetsFlutterBinding.ensureInitialized() and setup the wrapper at the root of the app.",
+    "alternatives": [
+      {
+        "name": "connectivity_plus",
+        "why_pick_it": "If you only need basic OS-level connectivity state changes without active reachability probes, offline UI overlays, or network inspection tools."
+      }
+    ],
+    "minimal_example": "WidgetsFlutterBinding.ensureInitialized();\nZoConnectivityWatcher().setUp(\n  checkInterval: Duration(seconds: 1)\n);",
+    "confidence": 0.95
+  }
+}

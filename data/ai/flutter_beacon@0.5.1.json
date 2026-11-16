@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.5.1",
+  "generatedAt": "2026-11-16T12:07:05.490Z",
+  "data": {
+    "primary_category": "maps",
+    "secondary_categories": [
+      "device"
+    ],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "Flutter plugin for scanning and transmitting as an iBeacon on Android and iOS.",
+    "what_it_does": "Allows Flutter apps to scan, range, monitor, and transmit iBeacons on Android and iOS devices. It provides reactive stream APIs for ranging and monitoring beacon regions.",
+    "use_when": [
+      "You need proximity-based indoor positioning using iBeacons.",
+      "Your app needs to transmit as an iBeacon.",
+      "You need to monitor and range beacon regions on iOS and Android."
+    ],
+    "avoid_when": [
+      "You only need general Bluetooth Low Energy (BLE) peripheral/central communication without iBeacon specifics.",
+      "You are developing for platforms other than Android and iOS."
+    ],
+    "strengths": [
+      "Supports both scanning/ranging and broadcasting as a beacon.",
+      "Reactive stream APIs for easy event listening.",
+      "Automatic permission management features."
+    ],
+    "weaknesses": [
+      "Requires manual configuration of location and bluetooth permissions for Android and iOS.",
+      "Bluetooth on iOS simulator is disabled, requiring physical devices for testing."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding location and bluetooth permissions in AndroidManifest.xml and Info.plist, and testing on physical devices.",
+    "alternatives": [],
+    "minimal_example": "final regions = <Region>[];\nregions.add(Region(identifier: 'com.beacon'));\n_streamRanging = flutterBeacon.ranging(regions).listen((RangingResult result) {});",
+    "confidence": 0.95
+  }
+}

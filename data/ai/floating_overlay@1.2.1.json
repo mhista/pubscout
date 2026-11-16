@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "1.2.1",
+  "generatedAt": "2026-11-16T11:46:35.920Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "layout"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Widget wrapper that lets a child float, drag and resize on screen.",
+    "what_it_does": "It provides a FloatingOverlay widget that can be positioned anywhere on the screen and resized by the user. The overlay can be shown or hidden via a controller and supports optional constraints and padding.",
+    "use_when": [
+      "You need a movable, resizable floating widget on top of your UI",
+      "You want to keep the overlay state across route pushes and pops",
+      "You need a simple, declarative API without external dependencies"
+    ],
+    "avoid_when": [
+      "You require complex gesture handling beyond drag and resize",
+      "You need a persistent overlay that survives app restarts or backgrounding"
+    ],
+    "strengths": [
+      "Easy to integrate with a simple controller API",
+      "Supports both absolute and relative sizing",
+      "Handles route changes automatically via RouteObserver",
+      "Provides stream of overlay data for reactive UI"
+    ],
+    "weaknesses": [
+      "Only works on Flutter, no native platform APIs",
+      "Limited to basic drag/resize gestures",
+      "No built‑in persistence or advanced animation options"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "final controller = FloatingOverlayController.absoluteSize(\n  maxSize: const Size(200, 200),\n  minSize: const Size(100, 100),\n  start: Offset.zero,\n  padding: const EdgeInsets.all(20.0),\n  constrained: true,\n);\n\nFloatingOverlay(\n  controller: controller,\n  floatingChild: SizedBox.square(\n    dimension: 100.0,\n    child: Container(\n      decoration: BoxDecoration(\n        color: Theme.of(context).primaryColor,\n        border: Border.all(\n          color: Colors.black,\n          width: 5.0,\n        ),\n      ),\n    ),\n  ),\n  child: Container(),\n);",
+    "confidence": 0.9
+  }
+}

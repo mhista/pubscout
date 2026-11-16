@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "5.0.4",
+  "generatedAt": "2026-11-16T11:43:11.887Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "Pedometer and step detection plugin for Android and iOS.",
+    "what_it_does": "Provides step counts over time ranges, real-time step streaming, and pedestrian status updates using device sensors. Supports both Android and iOS platforms.",
+    "use_when": [
+      "You need to track user steps and walking activity in real-time.",
+      "You want to retrieve historical step counts over specific date ranges."
+    ],
+    "avoid_when": [
+      "Your target Android devices run versions older than Android 10 (minSDK level 29).",
+      "You require guaranteed step counting across all hardware models without sensor compatibility issues."
+    ],
+    "strengths": [
+      "Supports both Android and iOS.",
+      "Provides real-time step streams and pedestrian status.",
+      "Allows querying step count for specific date ranges."
+    ],
+    "weaknesses": [
+      "Requires minimum Android 10 (minSDK level 29).",
+      "Certain manufacturers or older phones may lack necessary sensor support.",
+      "First-time usage after installation returns 0 steps."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires native configuration including Info.plist motion usage description and Podfile updates for iOS, and minimum Android 10, Gradle 8.4, and Kotlin 1.9.10 for Android.",
+    "alternatives": [],
+    "minimal_example": "StreamSubscription? _subStepCount;\n\n@override\nvoid initState() {\n  super.initState();\n  _subStepCount = Pedometer().stepCountStream().listen((steps) => print('Steps: $steps'));\n}\n\n@override\nvoid dispose() {\n  _subStepCount?.cancel();\n  super.dispose();\n}",
+    "confidence": 1
+  }
+}

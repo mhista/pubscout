@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.6.0",
+  "generatedAt": "2026-11-16T11:57:54.736Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "declarative",
+      "stream-based"
+    ],
+    "one_liner": "Flutter widget that listens to system datetime and triggers rebuilds based on specified time units.",
+    "what_it_does": "Provides a DateTimeLoopBuilder widget and DateTimeLoopController to listen to the system's datetime and trigger UI rebuilds or stream emissions based on a specified time unit (such as seconds or minutes). It includes features for pausing, resuming, and mocking time via a getNow parameter.",
+    "use_when": [
+      "You need to build a live clock widget or timer display that updates every second or minute.",
+      "You want to periodically rebuild UI elements based on system time updates.",
+      "You need to mock system datetime for testing time-dependent UI behavior."
+    ],
+    "avoid_when": [
+      "You require high-precision sub-millisecond stopwatch animations where Flutter's standard AnimationController is more appropriate.",
+      "You are handling background task scheduling rather than UI periodic updates."
+    ],
+    "strengths": [
+      "Supports multiple time units (milliseconds, seconds, minutes, hours, days).",
+      "Includes a controller to pause and resume updates to save resources.",
+      "Provides a getNow parameter for straightforward unit testing and time simulation."
+    ],
+    "weaknesses": [
+      "Limited to triggering UI rebuilds based on time intervals rather than complex state management.",
+      "Rebuilding widget trees periodically can impact performance if overused."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "DateTimeLoopBuilder(\n  timeUnit: TimeUnit.seconds,\n  builder: (context, dateTime, child) {\n    return Text('$dateTime');\n  },\n)",
+    "confidence": 1
+  }
+}

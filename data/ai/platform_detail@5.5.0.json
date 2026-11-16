@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "5.5.0",
+  "generatedAt": "2026-11-16T11:46:13.773Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Obtain current platform, device info, IP addresses, theme, and app version details.",
+    "what_it_does": "Provides a unified static API to detect the current platform (including web), check device groups like mobile or desktop, fetch private and public IP addresses, detect light or dark theme, and retrieve device/app version details.",
+    "use_when": [
+      "You need a cross-platform solution that supports web platform detection alongside mobile and desktop.",
+      "You need to retrieve app package metadata, environment details, or device info easily.",
+      "You need to check if the device is in light or dark mode."
+    ],
+    "avoid_when": [
+      "You only need standard Flutter APIs and do not mind implementing manual web checks via kIsWeb.",
+      "You require a complex backend solution for network routing or HTTP requests."
+    ],
+    "strengths": [
+      "Unified API across all platforms including web.",
+      "Provides helper methods for IP detection, device theme, and app version metadata.",
+      "Includes built-in mocked capabilities for testing."
+    ],
+    "weaknesses": [
+      "Requires platform-specific configuration on macOS for certain features like network client entitlements to fetch IP addresses."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "For macOS, you must add the com.apple.security.network.client entitlement to both DebugProfile.entitlements and ReleaseProfile.entitlements files to detect IP addresses.",
+    "alternatives": [],
+    "minimal_example": "import 'package:platform_detail/platform_detail.dart';\n\nvoid main() {\n  PlatformType platform = PlatformDetail.currentPlatform;\n  print('This platform is: $platform');\n}",
+    "confidence": 0.95
+  }
+}

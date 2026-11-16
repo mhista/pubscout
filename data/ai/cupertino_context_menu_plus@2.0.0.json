@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "2.0.0",
+  "generatedAt": "2026-11-16T11:28:42.798Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "animation"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Enhanced CupertinoContextMenu with custom top/bottom widgets, programmatic control, and styling options.",
+    "what_it_does": "Provides a Cupertino-style context menu that supports custom widgets above and below the preview, programmatic opening/closing, and extensive styling of the backdrop and actions sheet. It replaces the default Flutter CupertinoContextMenu with additional flexibility.",
+    "use_when": [
+      "Need a context menu with custom actions or UI beyond the default list",
+      "Require programmatic control to open the menu from a button or gesture",
+      "Want to customize backdrop blur, barrier color, or disable the grow animation",
+      "Need consistent alignment in chat bubbles or other UI layouts"
+    ],
+    "avoid_when": [
+      "Using older Flutter (<3.44) or still relying on package:flutter/cupertino.dart",
+      "Project already uses cupertino_ui but cannot upgrade to Dart 3.12+"
+    ],
+    "strengths": [
+      "Highly customizable UI elements (topWidget, bottomWidgetBuilder)",
+      "Programmatic open/close via controller",
+      "Stable transition without white flash",
+      "Supports custom backdrop blur and barrier color"
+    ],
+    "weaknesses": [
+      "Requires cupertino_ui dependency and Dart 3.12+",
+      "Breaking change in 2.0.0 may affect existing codebases",
+      "No direct alternative in pub.dev list"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add cupertino_ui to pubspec, run `dart fix --apply --code=migrate_design_widgets` if migrating from flutter/cupertino.dart",
+    "alternatives": [],
+    "minimal_example": "final controller = CupertinoContextMenuPlusController();\nCupertinoContextMenuPlus(\n  controller: controller,\n  topWidget: YourReactionsRow(),\n  bottomWidgetBuilder: (context) => ClipRRect(\n    borderRadius: BorderRadius.circular(16),\n    child: ColoredBox(\n      color: CupertinoColors.white,\n      child: Column(\n        mainAxisSize: MainAxisSize.min,\n        children: [\n          CupertinoContextMenuAction(\n            child: const Text('Reply'),\n            onPressed: () {},\n          ),\n        ],\n      ),\n    ),\n  ),\n  child: Container(\n    padding: const EdgeInsets.all(12),\n    child: const Text('Message'),\n  ),\n)",
+    "confidence": 0.9
+  }
+}

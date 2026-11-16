@@ -1,0 +1,51 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.8.1",
+  "generatedAt": "2026-11-16T11:56:09.085Z",
+  "data": {
+    "primary_category": "charts",
+    "secondary_categories": [
+      "ui-kits"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A Flutter wrapper for Highcharts to render interactive line, column, pie, and combination charts.",
+    "what_it_does": "Renders Highcharts.JS charts inside a Flutter application across mobile, desktop, and web. It supports passing charts either as a JSON configuration string or via a fully typed, generated `HCOptions` API.",
+    "use_when": [
+      "You already use Highcharts in your web stack and want to reuse configurations in Flutter",
+      "You need advanced or complex chart types provided by Highcharts JS",
+      "You need native client-side chart exporting to PNG, JPEG, or SVG on mobile and desktop"
+    ],
+    "avoid_when": [
+      "You are targeting Linux (not implemented yet)",
+      "You prefer a 100% native Flutter charting library without a webview or JS dependency",
+      "You need formatters or JS callbacks that cannot be easily expressed via JSON payloads"
+    ],
+    "strengths": [
+      "Supports both raw configuration strings and a typed `HCOptions` API",
+      "Cross-platform support for Android, iOS, Web, Windows, and macOS",
+      "Native saving of chart exports to disk on supported platforms"
+    ],
+    "weaknesses": [
+      "Linux platform is not implemented and shows an unsupported placeholder",
+      "Relies on a WebView wrapper underneath for rendering Highcharts.JS"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires including Highcharts scripts either via CDN (networkScripts) or bundled locally (localScripts). Web platforms require scripts in web/index.html, and macOS requires the downloads entitlement for exporting files.",
+    "alternatives": [
+      {
+        "name": "fl_chart",
+        "why_pick_it": "Pure Flutter implementation for charts without relying on a webview or JS backend."
+      },
+      {
+        "name": "syncfusion_flutter_charts",
+        "why_pick_it": "Comprehensive, high-performance native charts for Flutter with enterprise support."
+      }
+    ],
+    "minimal_example": "HighCharts(\n  size: const Size(400, 300),\n  data: _chartData,\n  networkScripts: const [\n    'https://code.highcharts.com/highcharts.js',\n  ],\n)",
+    "confidence": 0.95
+  }
+}

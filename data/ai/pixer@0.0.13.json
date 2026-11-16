@@ -1,0 +1,47 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.0.13",
+  "generatedAt": "2026-11-16T12:18:12.645Z",
+  "data": {
+    "primary_category": "images",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "High-performance Dart image manipulation backed by Rust FFI for resizing, cropping, and encoding.",
+    "what_it_does": "Provides cross-platform image manipulation like resizing, cropping, rotating, and filtering by running operations through a Rust FFI backend. Uses lazy pipelines to execute multiple operations in a single native call.",
+    "use_when": [
+      "You need high-performance image resizing, cropping, or encoding in Dart or Flutter",
+      "You want to process images using lazy, chainable pipelines",
+      "You need support for multiple platforms including mobile, desktop, and web via WebAssembly"
+    ],
+    "avoid_when": [
+      "You want pure Dart implementations without native binaries or Rust toolchain dependencies",
+      "You only need high-level UI image loading and caching from network URLs"
+    ],
+    "strengths": [
+      "Extremely fast image processing powered by Rust and SIMD",
+      "Lazy pipelines run all operations in a single native call",
+      "Cross-platform support across mobile, desktop, and web"
+    ],
+    "weaknesses": [
+      "Requires managing native binaries or setting up a Rust toolchain for custom formats",
+      "Manual memory disposal is required for loaded native image handles"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Native binaries are downloaded automatically via Dart build hooks. WebAssembly builds require placing pixer.wasm in the web root.",
+    "alternatives": [
+      {
+        "name": "image",
+        "why_pick_it": "Pure Dart alternative for decoding, manipulating, and encoding images without relying on native FFI or Rust binaries."
+      }
+    ],
+    "minimal_example": "import 'package:pixer/pixer.dart';\n\nfinal image = Pixer.fromFile('input.jpg');\nimage.resize(800, 600).grayscale().saveToFile('output.png');\nimage.dispose();",
+    "confidence": 0.95
+  }
+}

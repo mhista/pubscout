@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.3.2",
+  "generatedAt": "2026-11-16T11:47:11.714Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Structured asynchronous programming and cancellable futures for Dart.",
+    "what_it_does": "Structured_async brings structured concurrency concepts to Dart through CancellableFuture. It allows you to cancel asynchronous computations, automatically stops child futures and timers when parent tasks complete or fail, and propagates errors correctly from unawaited async tasks.",
+    "use_when": [
+      "You need to cancel groups of background asynchronous tasks cleanly.",
+      "You want unawaited futures or periodic timers to automatically terminate when their parent scope ends.",
+      "You need robust error propagation from asynchronous tasks that are not explicitly awaited."
+    ],
+    "avoid_when": [
+      "You need built-in cancellation for persistent platform Isolates without writing manual cleanup code.",
+      "You are looking for standard state management or dependency injection tools."
+    ],
+    "strengths": [
+      "Automatically cancels pending timers and futures when a CancellableFuture completes.",
+      "Propagates errors from unawaited child computations to the caller.",
+      "Provides group and stream helpers for managing multiple async operations easily."
+    ],
+    "weaknesses": [
+      "Completed futures and timers inside a cancelled scope will briefly awaken before terminating.",
+      "Isolates spawned inside a CancellableFuture do not terminate automatically without manual cleanup callbacks."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "Future<void> cancellableFutureStopsWhenItReturns() async {\n  await CancellableFuture(() {\n    _runForever(); // no await here\n    return Future.delayed(Duration(milliseconds: 1200));\n  });\n  print('Stopped');\n}",
+    "confidence": 1
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.11.2",
+  "generatedAt": "2026-11-16T11:56:19.821Z",
+  "data": {
+    "primary_category": "dependency-injection",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "An explicit acyclic step dependency framework with concurrent evaluation and dependency injection.",
+    "what_it_does": "Defines steps with acyclic dependencies on other steps, evaluating them concurrently and caching results in a Runner object. It allows overriding steps to inject values or mocks for testing.",
+    "use_when": [
+      "You need to initialize complex projects or servers with multiple interdependent components.",
+      "You want to evaluate complex task graphs where tasks depend on previous results.",
+      "You need to easily override dependencies or mock values during testing."
+    ],
+    "avoid_when": [
+      "You are looking for a standard widget tree state management solution.",
+      "You need a general-purpose service locator without task graph evaluation."
+    ],
+    "strengths": [
+      "Compile-time error for cyclic dependencies.",
+      "Concurrent evaluation of steps based on dependency constraints.",
+      "Built-in support for overriding steps with mock values during testing."
+    ],
+    "weaknesses": [
+      "Niche framework with relatively low adoption compared to standard DI packages."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "get_it",
+        "why_pick_it": "More widely used service locator for Flutter and Dart dependency injection."
+      },
+      {
+        "name": "injectable",
+        "why_pick_it": "Code-generation based dependency injection built on top of get_it."
+      }
+    ],
+    "minimal_example": "final Step<String> messageStep = Step.define('message').build(\n  () => throw UnimplementedError('message must be overriden with input'),\n);\n\nfinal dateTimeStep = Step.define('date-time').build(\n  () => DateTime.now().toString(),\n);\n\nfinal Step<void> printStep = Step.define('print')\n    .dep(messageStep)\n    .dep(dateTimeStep)\n    .build((msg, time) async {\n  await Future.delayed(Duration(milliseconds: 100));\n  print('$msg at $time');\n});",
+    "confidence": 1
+  }
+}

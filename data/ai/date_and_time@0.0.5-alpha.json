@@ -1,0 +1,47 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.0.5-alpha",
+  "generatedAt": "2026-11-16T11:56:13.830Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "testing"
+    ],
+    "approach": [
+      "no codegen",
+      "declarative"
+    ],
+    "one_liner": "Provides clean, immutable Date and Time types separately from DateTime.",
+    "what_it_does": "It separates date and time concepts to simplify code, make comparisons easier, and avoid DateTime complexity. It includes string parsing, date arithmetic, timezone support, and zone-based time control for testing.",
+    "use_when": [
+      "You need to handle calendar dates or time-of-day values independently without DateTime complexity.",
+      "You need robust, flaky-free testing capabilities by mocking dates and times.",
+      "You want a UTC-first approach for date and time operations."
+    ],
+    "avoid_when": [
+      "You heavily rely on native combined Date and Time operations with automatic localized offset logic.",
+      "You are using a stable production release and want to avoid alpha-stage packages."
+    ],
+    "strengths": [
+      "Clean and immutable types for `Date` and `Time`.",
+      "Built-in zone-based time mocking support for tests.",
+      "Intuitive API design with UTC-first operations."
+    ],
+    "weaknesses": [
+      "Currently in alpha stage (version 0.0.5-alpha), meaning APIs may still change.",
+      "Assumes local time during parsing if no timezone is explicitly provided, which can lead to mistakes if mishandled."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "clock",
+        "why_pick_it": "Provides a simple way to get the current time and fake it for testing, if you don't need dedicated immutable Date and Time types."
+      }
+    ],
+    "minimal_example": "final today = Date.today();\nfinal tomorrow = date.add(Duration(days: 1));\nfinal time = Time.fromValues(hour: 14, minute: 30, second: 15);",
+    "confidence": 0.95
+  }
+}

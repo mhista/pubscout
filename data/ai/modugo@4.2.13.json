@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.2.13",
+  "generatedAt": "2026-11-16T11:49:21.672Z",
+  "data": {
+    "primary_category": "navigation",
+    "secondary_categories": [
+      "dependency-injection"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Modular routing and dependency injection system for Flutter using GetIt and GoRouter.",
+    "what_it_does": "Organizes a Flutter application into modules, routes, and dependency injections using GoRouter and GetIt. Supports declarative route syntax, guards, and decoupled event communication across modules.",
+    "use_when": [
+      "You want a modular architecture inspired by Flutter Modular built on top of GoRouter and GetIt",
+      "You need route guards that can automatically propagate to submodules"
+    ],
+    "avoid_when": [
+      "You prefer automatic disposal of module dependencies when leaving a route",
+      "You want to use a navigation solution entirely independent of GoRouter"
+    ],
+    "strengths": [
+      "Clear separation of app code into structured modules",
+      "Declarative DSL for routes and clean dependency registration via GetIt",
+      "Built-in event system for decoupled cross-module communication"
+    ],
+    "weaknesses": [
+      "Dependencies are not automatically disposed and live until the application closes",
+      "Tied tightly to GoRouter and GetIt paradigms"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Configure the root module with Modugo.configure and supply modugoRouter to MaterialApp.router.",
+    "alternatives": [
+      {
+        "name": "go_router",
+        "why_pick_it": "If you prefer using GoRouter directly without Modugo's modular wrapper layer."
+      },
+      {
+        "name": "auto_route",
+        "why_pick_it": "If you prefer code-generation-based routing instead of Modugo's runtime modular approach."
+      }
+    ],
+    "minimal_example": "final class AppModule extends Module {\n  @override\n  void binds() {\n    i.registerSingleton<AuthService>(AuthService());\n  }\n\n  @override\n  List<IRoute> routes() => [\n    route('/', child: (_, _) => const HomePage()),\n  ];\n}\n\nFuture<void> main() async {\n  WidgetsFlutterBinding.ensureInitialized();\n  await Modugo.configure(module: AppModule(), initialRoute: '/');\n  runApp(const AppWidget());\n}",
+    "confidence": 0.95
+  }
+}

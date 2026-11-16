@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.1.0",
+  "generatedAt": "2026-11-16T11:28:10.200Z",
+  "data": {
+    "primary_category": "devtools",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "In-app network inspector for Dio, http, and custom requests with redaction, edit & replay, and exports.",
+    "what_it_does": "Captures HTTP network traffic, logs requests and responses, and provides an in-app dashboard for inspection, editing, and replaying API calls. It also includes an optional performance monitor, file explorer, and cloud syncing.",
+    "use_when": [
+      "You need to inspect HTTP traffic directly inside your Flutter app without a proxy setup.",
+      "You want to allow QA and developers to review network requests, performance metrics, and app sandbox files."
+    ],
+    "avoid_when": [
+      "You need a production-grade file explorer enabled for end-users.",
+      "You require zero external local storage footprint for logs."
+    ],
+    "strengths": [
+      "Automatic capture for Dio and package:http via optional companion packages",
+      "Built-in data redaction for sensitive headers and body keys",
+      "Export options including HAR 1.2, Postman Collection, JSON, and cURL"
+    ],
+    "weaknesses": [
+      "Stores unencrypted logs locally in Hive which could expose sensitive data if redaction is misconfigured",
+      "Requires separate companion packages for Dio or http integration"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Call ApiStudio.initialize() in main and add the appropriate client interceptor or wrapper package.",
+    "alternatives": [],
+    "minimal_example": "await ApiStudio.initialize();\ndio.interceptors.add(ApiStudioDioInterceptor());\nApiStudio.showNavigation(context);",
+    "confidence": 1
+  }
+}

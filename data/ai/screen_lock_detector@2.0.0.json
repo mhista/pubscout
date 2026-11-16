@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.0",
+  "generatedAt": "2026-11-16T11:35:49.662Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "Detect screen lock and unlock events across Android and iOS platforms.",
+    "what_it_does": "A Flutter plugin that enables your app to detect screen lock and unlock events across Android and iOS platforms. It provides native event callbacks and an event stream, as well as a way to perform manual status checks.",
+    "use_when": [
+      "You need to pause sensitive activities when the screen locks.",
+      "You want to log out users or trigger background operations upon device lock/unlock.",
+      "You are building a mobile application for Android and iOS."
+    ],
+    "avoid_when": [
+      "You need to test on simulators or emulators, as native system events are not available there.",
+      "You are targeting web, desktop, or other non-mobile platforms."
+    ],
+    "strengths": [
+      "Supports both event streams and manual status checks.",
+      "Native event callbacks for both Android and iOS."
+    ],
+    "weaknesses": [
+      "Does not work on simulators or emulators due to reliance on native system events.",
+      "Limited platform support (only Android and iOS)."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the dependency to pubspec.yaml. Test on physical devices as it does not function on simulators or emulators.",
+    "alternatives": [],
+    "minimal_example": "ScreenLockDetector.statusStream.listen((status) {\n    print(\"Screen status: $status\");\n    if (status == ScreenStatus.locked) {\n    } else if (status == ScreenStatus.unlocked) {\n    }\n});",
+    "confidence": 1
+  }
+}

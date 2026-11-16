@@ -1,0 +1,47 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "1.0.7",
+  "generatedAt": "2026-11-16T11:47:13.630Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Send messages, images, and markdown to a Slack channel via a webhook.",
+    "what_it_does": "Provides a singleton SlackLogger that posts plain text, images, and rich markdown blocks to a Slack incoming webhook. It wraps HTTP calls to Slack's API for easy logging from Flutter apps.",
+    "use_when": [
+      "You need simple Slack notifications from a Flutter app without a full logging framework",
+      "You want to send alerts, images, or interactive messages to a Slack channel",
+      "You prefer a lightweight dependency (only http)"
+    ],
+    "avoid_when": [
+      "You require structured logging, log levels, or log persistence",
+      "You need advanced log aggregation or analytics beyond Slack"
+    ],
+    "strengths": [
+      "Very small API surface",
+      "No extra setup beyond providing a webhook URL",
+      "Supports images, buttons, and attachments"
+    ],
+    "weaknesses": [
+      "Limited to Slack webhook features only",
+      "No log level management or filtering",
+      "No built‑in retry or error handling"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "logger",
+        "why_pick_it": "General purpose logging with levels, formatting, and multiple output targets"
+      }
+    ],
+    "minimal_example": "final slack = SlackLogger.instance;\nawait slack.send(\"Hello from Flutter!\");",
+    "confidence": 0.97
+  }
+}

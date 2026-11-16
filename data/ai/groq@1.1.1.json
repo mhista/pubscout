@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.1.1",
+  "generatedAt": "2026-11-16T12:08:02.950Z",
+  "data": {
+    "primary_category": "ai-ml",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Dart and Flutter SDK for Groq AI API inference and chat management",
+    "what_it_does": "Allows developers to integrate Groq's generative AI models into Flutter applications. Supports starting chat sessions, sending messages, setting custom system instructions, and handling errors.",
+    "use_when": [
+      "You want to integrate Groq AI conversational models into a Flutter or Dart app",
+      "You need real-time LLM inference speed using Groq models"
+    ],
+    "avoid_when": [
+      "You require on-device local models instead of a cloud API",
+      "You are using a different AI provider like OpenAI or Anthropic and want a dedicated SDK"
+    ],
+    "strengths": [
+      "Simple API configuration and message handling",
+      "Supports custom system instructions and chat history context management",
+      "Built-in error handling via GroqException"
+    ],
+    "weaknesses": [
+      "Community project and not officially affiliated with Groq",
+      "Relies on an external cloud API requiring an active internet connection and API key"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires obtaining a Groq API key and passing it via dart-define or configuration.",
+    "alternatives": [
+      {
+        "name": "firebase_ai",
+        "why_pick_it": "If you prefer using Firebase's Gemini infrastructure for generative AI instead of Groq."
+      },
+      {
+        "name": "llamadart",
+        "why_pick_it": "If you want to run Llama models locally on-device rather than calling a cloud API."
+      }
+    ],
+    "minimal_example": "import 'package:groq/groq.dart';\n\nfinal groqConfiguration = Configuration(\n  model: \"qwen/qwen3-32b\",\n  temperature: 0.7,\n  seed: 10,\n);\n\nfinal groq = Groq(\n  apiKey: 'YOUR_GROQ_API_KEY',\n  configuration: groqConfiguration,\n);\n\ngroq.startChat();\nGroqResponse response = await groq.sendMessage(\"Hello, how are you?\");\nprint(response.choices.first.message.content);",
+    "confidence": 0.95
+  }
+}

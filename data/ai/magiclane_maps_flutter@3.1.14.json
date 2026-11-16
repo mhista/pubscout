@@ -1,0 +1,51 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "3.1.14",
+  "generatedAt": "2026-11-16T11:47:37.010Z",
+  "data": {
+    "primary_category": "maps",
+    "secondary_categories": [
+      "navigation"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Flutter plugin providing interactive maps, routing, and navigation using Magic Lane SDK",
+    "what_it_does": "It renders high‑performance maps with global coverage, supports turn‑by‑turn navigation, routing, real‑time traffic, and offline use. The SDK exposes a GemMap widget and controller for map interaction.",
+    "use_when": [
+      "Building a navigation app with offline maps",
+      "Need real‑time traffic and incident data",
+      "Want customizable map styles and 3D terrain"
+    ],
+    "avoid_when": [
+      "Deploying to production on the web",
+      "Using it in a minimal API‑key‑free demo"
+    ],
+    "strengths": [
+      "High‑performance rendering with 3D terrain",
+      "Offline routing and map download",
+      "Real‑time traffic and incident alerts"
+    ],
+    "weaknesses": [
+      "Web support is alpha and not production ready",
+      "Requires an API key and platform‑specific setup",
+      "Limited documentation on advanced configuration"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add dependency, set API key via GemMap or GemKit.initialize, add Android Maven repo, set iOS min version 14.0, no extra web config needed",
+    "alternatives": [
+      {
+        "name": "google_maps_flutter",
+        "why_pick_it": "Official Google Maps SDK with mature web support"
+      },
+      {
+        "name": "flutter_map",
+        "why_pick_it": "Open‑source map widget using Leaflet, no API key required"
+      }
+    ],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:magiclane_maps_flutter/magiclane_maps_flutter.dart';\n\nconst projectApiToken = String.fromEnvironment('PASTE_YOUR_API_TOKEN_HERE');\n\nvoid main() => runApp(\n  MaterialApp(\n    home: GemMap(\n      appAuthorization: projectApiToken,\n      onMapCreated: (GemMapController controller) {\n        // use controller\n      },\n    ),\n  ),\n);\n",
+    "confidence": 0.85
+  }
+}

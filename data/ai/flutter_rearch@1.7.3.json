@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.7.3",
+  "generatedAt": "2026-11-16T11:27:02.829Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [
+      "dependency-injection"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Declarative state management and dependency injection using capsules and side effects",
+    "what_it_does": "Provides a re-imagined architectural approach for applications through capsules, incremental computation, and side effects. It allows managing state and building UI as pure functions of state and side effects.",
+    "use_when": [
+      "You want a declarative state management and dependency injection system similar to Riverpod without family or autoDispose complexity",
+      "You want high testability with pure functions and minimal need for complex mocks"
+    ],
+    "avoid_when": [
+      "You prefer traditional class-based BLoCs or standard Flutter InheritedWidgets",
+      "You are not willing to wrap your application in a RearchBootstrapper"
+    ],
+    "strengths": [
+      "Enables feature composition through side effects",
+      "Automatic cleanup of idempotent capsules",
+      "High testability with pure functions"
+    ],
+    "weaknesses": [
+      "Requires learning a brand new capsule and side effect mental model",
+      "Smaller ecosystem and community compared to established alternatives like Provider, Riverpod, or Bloc"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Wrap your application widget with a RearchBootstrapper widget in your main.dart.",
+    "alternatives": [],
+    "minimal_example": "final Capsule<(int, void Function())> countManager = capsule((CapsuleHandle use) {\n  final (count, setCount) = use.state(0);\n  return (count, () => setCount(count + 1));\n});",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "7.0.0",
+  "generatedAt": "2026-11-16T11:26:21.345Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "stream-based",
+      "declarative"
+    ],
+    "one_liner": "Flutter widgets that implement the BLoC pattern using reactive streams with rx_bloc and rxdart.",
+    "what_it_does": "Provides a set of Flutter widgets like RxBlocBuilder, RxResultBuilder, and RxBlocProvider to easily integrate reactive BLoC state management into your widget tree. It handles bloc lifecycle, dependency injection, and building UI in response to stream updates.",
+    "use_when": [
+      "You are using the rx_bloc and rxdart architecture in your Flutter application.",
+      "You want concise reactive UI builders like RxBlocBuilder and RxResultBuilder without excessive boilerplate.",
+      "You need dependency injection and scoping for your blocs via RxBlocProvider."
+    ],
+    "avoid_when": [
+      "You prefer the bloc and flutter_bloc packages instead of rx_bloc.",
+      "You are not using reactive streams or RxDart for your state management."
+    ],
+    "strengths": [
+      "Simplifies stream-based UI updates with clean widget builders.",
+      "Built-in handling of Result states via RxResultBuilder.",
+      "Seamless integration with RxBlocProvider for DI and bloc scoping."
+    ],
+    "weaknesses": [
+      "Strictly tied to the rx_bloc and rxdart ecosystem.",
+      "Requires learning the specific rx_bloc patterns and contracts."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add flutter_rx_bloc, rx_bloc, and rxdart to your pubspec.yaml dependencies.",
+    "alternatives": [
+      {
+        "name": "flutter_bloc",
+        "why_pick_it": "If you want to use the standard Bloc library instead of the reactive rx_bloc ecosystem."
+      },
+      {
+        "name": "flutter_riverpod",
+        "why_pick_it": "If you want a modern, compile-safe state management solution without traditional blocs."
+      }
+    ],
+    "minimal_example": "RxBlocBuilder<NewsBlocType, List<News>>(\n  state: (bloc) => bloc.states.news,\n  builder: (context, state, bloc) {\n    return ListView.builder(\n      itemCount: state.length,\n      itemBuilder: (context, index) => Text(state[index].toString()),\n    );\n  },\n)",
+    "confidence": 1
+  }
+}

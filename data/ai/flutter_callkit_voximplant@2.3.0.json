@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.3.0",
+  "generatedAt": "2026-11-16T11:28:22.127Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [
+      "notifications"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter SDK for Apple CallKit integration on iOS applications.",
+    "what_it_does": "Provides native integration with the iOS CallKit framework, allowing Flutter apps to handle incoming and outgoing VoIP calls, call blocking, and call identification using Call Directory extensions.",
+    "use_when": [
+      "You are building a VoIP application on iOS that requires native CallKit integration.",
+      "You need to handle incoming VoIP push notifications and present the native iOS call UI."
+    ],
+    "avoid_when": [
+      "You are targeting Android platforms (Android support was removed in version 2.1.0).",
+      "You do not need native OS-level phone integration for your app."
+    ],
+    "strengths": [
+      "Closely mirrors the native iOS CallKit API structure.",
+      "Supports Call Directory app extensions for call blocking and identification."
+    ],
+    "weaknesses": [
+      "iOS only; Android is not supported.",
+      "Requires manual configuration in native iOS code (AppDelegate, Info.plist)."
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Requires adding UIBackgroundModes voip to Info.plist and native Swift/Objective-C code configuration for push notifications and CallKit setup.",
+    "alternatives": [],
+    "minimal_example": "FCXPlugin _plugin = FCXPlugin();\nFCXProvider _provider = FCXProvider();\nFCXCallController _callController = FCXCallController();\nawait _callController.configure();\nawait _provider.configure(FCXProviderConfiguration('ExampleLocalizedName'));",
+    "confidence": 0.95
+  }
+}

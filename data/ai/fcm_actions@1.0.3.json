@@ -1,0 +1,48 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.3",
+  "generatedAt": "2026-11-16T12:14:49.377Z",
+  "data": {
+    "primary_category": "notifications",
+    "secondary_categories": [
+      "backend",
+      "navigation"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based",
+      "declarative"
+    ],
+    "one_liner": "Production-ready FCM actions, tokens, topics, and routing for Flutter apps.",
+    "what_it_does": "Normalizes Firebase Cloud Messaging payloads, manages tokens and topics, handles action buttons, inline replies, and background tasks, and provides typed event streams and route mapping.",
+    "use_when": [
+      "You need robust action buttons, inline replies, and deep linking for Firebase Cloud Messaging.",
+      "You want centralized routing and middleware for notification events across multiple platforms."
+    ],
+    "avoid_when": [
+      "You only require basic local notifications without Firebase Cloud Messaging.",
+      "You are using a push provider other than FCM."
+    ],
+    "strengths": [
+      "Handles complex notification flows including background actions and inline replies out of the box.",
+      "Supports Android, iOS, macOS, and web with WASM compatibility.",
+      "Includes built-in replay protection, payload size limits, and persistent retries."
+    ],
+    "weaknesses": [
+      "Requires native configuration steps such as APNs entitlements on iOS and Java desugaring on Android.",
+      "Topics are not supported on the web platform."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires running flutterfire configure, enabling Push Notifications and Background Modes in Xcode for iOS, and adding core-library desugaring dependencies for Android.",
+    "alternatives": [
+      {
+        "name": "onesignal_flutter",
+        "why_pick_it": "If you prefer using OneSignal instead of Firebase Cloud Messaging for push notifications."
+      }
+    ],
+    "minimal_example": "final result = await FcmActions.initialize(\n  navigatorKey: navigatorKey,\n  actions: const [\n    NotificationAction(id: 'accept', title: 'Accept'),\n    NotificationAction(id: 'decline', title: 'Decline', destructive: true),\n  ],\n  routes: const [\n    RouteMapper(type: 'chat', route: '/chat'),\n  ],\n  onAction: (event, data) async {\n    debugPrint('${event.actionId}: $data');\n  },\n);",
+    "confidence": 1
+  }
+}

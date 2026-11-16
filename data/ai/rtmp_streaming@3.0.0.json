@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.0.0",
+  "generatedAt": "2026-11-16T11:44:04.165Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [
+      "camera"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter plugin for camera and microphone streaming via RTMP, SRT, RTSP, and WHIP/WHEP.",
+    "what_it_does": "Provides unified video and audio recording and live streaming for Android and iOS. Supports protocols like RTMP, SRT, RTSP, UDP, and WHIP/WHEP, along with multi-streaming and custom filters.",
+    "use_when": [
+      "You need to stream camera and microphone feeds via RTMP, SRT, or WHIP in a Flutter app.",
+      "You require a cross-platform solution supporting both Android and iOS for live broadcasting."
+    ],
+    "avoid_when": [
+      "You only need standard local video playback without publishing or broadcasting.",
+      "You require full WHEP support on Android (WHEP is iOS-alpha only)."
+    ],
+    "strengths": [
+      "Supports multiple streaming protocols including RTMP, SRT, RTSP, and WHIP.",
+      "Cross-platform support for Android and iOS using modern native foundations (RootEncoder and HaishinKit).",
+      "Provides multi-streaming capabilities to stream to multiple destinations simultaneously."
+    ],
+    "weaknesses": [
+      "Some protocols or advanced features (like WHEP or specific camera controls) differ between Android and iOS.",
+      "Requires platform-specific configuration for native build tools and lifecycle setups."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires Android build configurations (AGP, Gradle, Kotlin versions) and Xcode configurations such as UIScene lifecycle adoption for iOS.",
+    "alternatives": [],
+    "minimal_example": "final cameras = await availableCameras();\nfinal controller = CameraController(ResolutionPreset.high, enableAudio: true);\nawait controller.initialize(cameras.first);\nawait controller.startVideoStreaming('rtmp://your-server/live/stream-key', protocol: StreamingProtocol.rtmp);",
+    "confidence": 0.95
+  }
+}

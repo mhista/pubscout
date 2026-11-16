@@ -1,0 +1,48 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.0.92",
+  "generatedAt": "2026-11-16T11:46:13.941Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Search Wikipedia and retrieve page data using Dart and Flutter.",
+    "what_it_does": "A search tool written in Dart that queries Wikipedia, retrieves articles, and fetches full page data using a page ID. It provides structured data like titles, summaries, and links.",
+    "use_when": [
+      "You need to integrate Wikipedia search capabilities into a Flutter application.",
+      "You want to fetch Wikipedia article summaries and details using page IDs."
+    ],
+    "avoid_when": [
+      "You need an official, heavily maintained SDK directly from Wikimedia.",
+      "You require complex offline caching of Wikipedia database dumps."
+    ],
+    "strengths": [
+      "Lightweight and fast implementation",
+      "Easy integration with Flutter projects",
+      "Supports Android, iOS, Web, Windows, macOS, and Linux"
+    ],
+    "weaknesses": [
+      "Very early version (0.0.92)",
+      "Limited feature set beyond basic search and page summary retrieval"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the package dependency to pubspec.yaml and import it.",
+    "alternatives": [
+      {
+        "name": "http",
+        "why_pick_it": "If you prefer building direct REST calls to the MediaWiki API yourself without relying on a wrapper."
+      },
+      {
+        "name": "dio",
+        "why_pick_it": "If you need a robust HTTP client with interceptors and advanced networking features to query the Wikipedia API."
+      }
+    ],
+    "minimal_example": "try{\n    Wikipedia instance = Wikipedia();\n    var result = await instance.searchQuery(searchQuery: \"What is flutter?\",limit: 1);\n    for(int i=0; i<result!.query!.search!.length; i++){\n        print(result.query!.search![i].snippet);\n        if(!(result.query!.search![i].pageid==null)){\n            var resultDescription = await instance.searchSummaryWithPageId(pageId: result.query!.search![i].pageid!);\n            print(resultDescription!.title);\n            print(resultDescription.description);\n        }\n    }\n}catch(e){\n  print(e);\n}",
+    "confidence": 0.95
+  }
+}

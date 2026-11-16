@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.10",
+  "generatedAt": "2026-11-16T11:35:59.306Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "storage"
+    ],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "Network synchronization solution for CRDT data stores over WebSockets.",
+    "what_it_does": "Handles network plumbing between a local CRDT store and a backend. Provides offline-first, real-time synchronization using delta changesets sent over standard WebSockets.",
+    "use_when": [
+      "You need offline-first synchronization with a backend",
+      "You are using a CRDT-compatible local store"
+    ],
+    "avoid_when": [
+      "You do not use CRDTs for your data store",
+      "You require traditional REST or GraphQL API communication"
+    ],
+    "strengths": [
+      "Compatible with all crdt package implementations",
+      "Optimizes bandwidth using delta changesets",
+      "Works over standard WebSockets for broad network compatibility"
+    ],
+    "weaknesses": [
+      "Strictly dependent on the crdt package ecosystem",
+      "Limited to WebSocket-based communication"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Not documented",
+    "alternatives": [],
+    "minimal_example": "final crdt = MapCrdt(['chat']);\nfinal client = CrdtSyncClient(crdt, Uri.parse('ws://localhost:8080'));\nclient.connect();",
+    "confidence": 0.95
+  }
+}

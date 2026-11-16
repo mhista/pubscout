@@ -1,0 +1,51 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.4.6",
+  "generatedAt": "2026-11-16T12:17:43.558Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "Drop-in wrapper for SharedPreferences with type safety and zero boilerplate.",
+    "what_it_does": "Makes local key-value persistence simpler by allowing developers to define variables once with typed Prf objects and use them anywhere with get() and set(). It supports primitives, enums, lists, and JSON without manual string key management.",
+    "use_when": [
+      "You want a cleaner, type-safe alternative to raw SharedPreferences.",
+      "You want to avoid managing string keys and casting values manually across the app."
+    ],
+    "avoid_when": [
+      "You need complex relational queries or high-performance local databases.",
+      "You require secure encryption out of the box for sensitive data."
+    ],
+    "strengths": [
+      "Zero boilerplate with typed variable definitions.",
+      "Automatic caching and isolate-safe options.",
+      "Supports 20+ built-in types, enums, and JSON models seamlessly."
+    ],
+    "weaknesses": [
+      "Relies underneath on SharedPreferences, making it unsuited for large relational datasets."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "No native platform setup required beyond adding the package to pubspec.yaml.",
+    "alternatives": [
+      {
+        "name": "shared_preferences",
+        "why_pick_it": "You want the official raw package without third-party abstractions."
+      },
+      {
+        "name": "flutter_secure_storage",
+        "why_pick_it": "You need encrypted local storage for sensitive tokens or credentials."
+      },
+      {
+        "name": "sqflite",
+        "why_pick_it": "You need a full relational SQL database instead of simple key-value storage."
+      }
+    ],
+    "minimal_example": "final playerCoins = Prf<int>('player_coins');\nawait playerCoins.set(100);\nfinal coins = await playerCoins.get();",
+    "confidence": 1
+  }
+}

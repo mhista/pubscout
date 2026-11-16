@@ -1,0 +1,53 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.0.0",
+  "generatedAt": "2026-11-16T11:22:04.642Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "object-oriented"
+    ],
+    "one_liner": "Unifies local storage packages under a single object-oriented JSON caching interface.",
+    "what_it_does": "JsonCache is an object-oriented package that provides a uniform interface for caching user data locally in JSON format. It acts as a layer on top of various storage packages like SharedPreferences, Hive, LocalStorage, and FlutterSecureStorage.",
+    "use_when": [
+      "You want to abstract your local storage layer behind a unified interface.",
+      "You need to cache Map data easily or store simple values with boolean placeholders.",
+      "You want to combine in-memory caching with persistent local storage seamlessly."
+    ],
+    "avoid_when": [
+      "You need a full relational database with complex querying capabilities.",
+      "You require automatic code-generation for models and JSON serialization."
+    ],
+    "strengths": [
+      "Provides a clean, uniform interface over multiple local storage backends.",
+      "Includes thread-safe in-memory caching and diagnostic wrappers.",
+      "Enables easy unit testing by depending on interfaces rather than concrete implementations."
+    ],
+    "weaknesses": [
+      "Limited to JSON-encodable map structures and specific primitive wrappers.",
+      "Relies on underlying third-party storage packages which must be independently configured."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires initializing the chosen underlying storage package (e.g., SharedPreferences, Hive) before wrapping it with JsonCache.",
+    "alternatives": [
+      {
+        "name": "shared_preferences",
+        "why_pick_it": "If you only need simple key-value storage and do not want an abstraction layer over multiple backends."
+      },
+      {
+        "name": "flutter_secure_storage",
+        "why_pick_it": "If you specifically need encrypted storage without a generic JSON caching layer."
+      },
+      {
+        "name": "sqflite",
+        "why_pick_it": "If you need a full SQL relational database instead of simple JSON key-value caching."
+      }
+    ],
+    "minimal_example": "final sharedPrefs = await SharedPreferences.getInstance();\nfinal JsonCache jsonCache = JsonCacheMem(JsonCacheSharedPreferences(sharedPrefs));\nawait jsonCache.refresh('profile', {'name': 'John Doe'});\nfinal profile = await jsonCache.value('profile');",
+    "confidence": 0.95
+  }
+}

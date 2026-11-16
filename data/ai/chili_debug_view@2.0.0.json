@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.0",
+  "generatedAt": "2026-11-16T11:56:01.843Z",
+  "data": {
+    "primary_category": "devtools",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Flutter debug view to monitor network logs, response times and share logs.",
+    "what_it_does": "Collects, views, and monitors network logs directly inside a Flutter app. It provides a visual debug interface and integrates with Dio to track requests and responses.",
+    "use_when": [
+      "You want QA engineers and project managers to easily inspect network traffic inside the app.",
+      "Your networking layer is built using the Dio package."
+    ],
+    "avoid_when": [
+      "Your network requests do not go through the Dio library.",
+      "You are using a Flutter version older than 3.47.0 (unless using version 1.4.x)."
+    ],
+    "strengths": [
+      "Streamlines testing and debugging workflow for QA and PMs.",
+      "Allows sharing of network logs outside of the app.",
+      "Includes proxy address support."
+    ],
+    "weaknesses": [
+      "Strictly depends on Dio for network logging.",
+      "Requires a high minimum Flutter version (3.47.0+)."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Wrap your app with the DebugView widget providing a navigatorKey and add the NetworkLoggerInterceptor to your Dio instance.",
+    "alternatives": [
+      {
+        "name": "pretty_dio_logger",
+        "why_pick_it": "If you prefer logging network requests directly to the console instead of an in-app UI view."
+      },
+      {
+        "name": "talker",
+        "why_pick_it": "If you need a comprehensive logging and debugging tool that covers more than just network requests."
+      }
+    ],
+    "minimal_example": "import 'package:chili_debug_view/chili_debug_view.dart';\n\nfinal rootKey = GlobalKey<NavigatorState>();\n\nDebugView(\n  navigatorKey: rootKey,\n  showDebugViewButton: true,\n  app: app,\n  onProxySaved: (proxyUrl) { },\n);\n\ndio.interceptors.add(NetworkLoggerInterceptor());",
+    "confidence": 0.95
+  }
+}

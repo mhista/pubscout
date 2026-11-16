@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.1.2",
+  "generatedAt": "2026-11-16T11:44:33.987Z",
+  "data": {
+    "primary_category": "animation",
+    "secondary_categories": [
+      "navigation"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "A Page Route Transition library that helps implement page transition animations.",
+    "what_it_does": "Provides pre-built page transition animations like right-to-left, fade, scale, and bottom-to-top for Flutter navigation. Allows pushing routes with custom visual effects and durations.",
+    "use_when": [
+      "You want to add smooth animations when navigating between pages.",
+      "You prefer an imperative approach to page transitions using custom route builders."
+    ],
+    "avoid_when": [
+      "You are using a declarative routing solution like GoRouter that handles its own page transitions.",
+      "You require complex, interactive, physics-driven shared element transitions."
+    ],
+    "strengths": [
+      "Simple API with multiple built-in transition effects (fade, scale, slide, etc.).",
+      "Easy setup with minimal boilerplate required."
+    ],
+    "weaknesses": [
+      "Limited to predefined transition effects.",
+      "Imperative usage may not integrate seamlessly with advanced declarative routers."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "page_transition",
+        "why_pick_it": "It provides a similar set of ready-to-use page transition animations for Flutter navigation."
+      }
+    ],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:transition/page_route_transition.dart';\n\nvoid main() {\n  runApp(MaterialApp(home: MyApp()));\n}\n\nclass MyApp extends StatelessWidget {\n  @override\n  Widget build(BuildContext context) {\n    return Scaffold(\n      body: Center(\n        child: ElevatedButton(\n          onTap: () {\n            PageRouteTransition.effect = TransitionEffect.rightToLeft;\n            PageRouteTransition.push(context, TargetScreen());\n          },\n          child: Text('Next Page'),\n        ),\n      ),\n    );\n  }\n}",
+    "confidence": 0.95
+  }
+}

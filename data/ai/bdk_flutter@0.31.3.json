@@ -1,0 +1,51 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.31.3",
+  "generatedAt": "2026-11-16T11:27:54.730Z",
+  "data": {
+    "primary_category": "web3",
+    "secondary_categories": [
+      "payments"
+    ],
+    "approach": [
+      "imperative",
+      "code generation"
+    ],
+    "one_liner": "Flutter library for the Bitcoin Development Kit (BDK) to build Bitcoin applications",
+    "what_it_does": "It provides a Flutter wrapper around the Bitcoin Development Kit (BDK), enabling developers to create wallets, manage descriptors, handle transactions, and synchronize with the Bitcoin blockchain using Electrum or other backends.",
+    "use_when": [
+      "You are building a Bitcoin wallet application in Flutter",
+      "You need to create and manage Bitcoin descriptors, keys, and mnemonics",
+      "You need to build, sign, and broadcast Bitcoin transactions"
+    ],
+    "avoid_when": [
+      "You are working with non-Bitcoin cryptocurrencies like Ethereum or Solana",
+      "You only need basic crypto hashing without wallet or blockchain features"
+    ],
+    "strengths": [
+      "Backed by the official Bitcoin Development Kit (BDK)",
+      "Supports Android, iOS, and macOS",
+      "Provides low-level control over descriptors, wallets, and transactions"
+    ],
+    "weaknesses": [
+      "Requires specific native setup (Android min SDK 23, Java 17, NDK)",
+      "Complex API surface requiring familiarity with Bitcoin concepts"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires Android minSdkVersion API 23 or higher, Java 17, and android-ndk 26.3.11579264. iOS deployment target must be 12.0 or greater.",
+    "alternatives": [
+      {
+        "name": "web3dart",
+        "why_pick_it": "Pick web3dart if you are building on Ethereum rather than Bitcoin."
+      },
+      {
+        "name": "blockchain_utils",
+        "why_pick_it": "Pick blockchain_utils for general cryptocurrency utilities and serialization across multiple blockchains."
+      }
+    ],
+    "minimal_example": "import 'package:bdk_flutter/bdk_flutter.dart';\n\nfinal mnemonic = await Mnemonic.create(WordCount.words12);\nfinal descriptorSecretKey = await DescriptorSecretKey.create(\n  network: Network.testnet,\n  mnemonic: mnemonic,\n);\nfinal externalDescriptor = await Descriptor.newBip44(\n  secretKey: descriptorSecretKey,\n  network: Network.testnet,\n  keychain: KeychainKind.externalChain,\n);",
+    "confidence": 0.95
+  }
+}

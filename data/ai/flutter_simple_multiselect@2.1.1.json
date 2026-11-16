@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.1.1",
+  "generatedAt": "2026-11-16T12:07:27.712Z",
+  "data": {
+    "primary_category": "forms",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A simple searchable single or multiselect widget for Flutter with static and async values.",
+    "what_it_does": "Provides a searchable selection widget that can function as a single-select or multi-select dropdown. It supports fetching and searching suggestions dynamically from a server or using static data, with customization options for tags and suggestions.",
+    "use_when": [
+      "You need a tag editor or searchable multi-select dropdown.",
+      "You want to fetch selection suggestions asynchronously from a server.",
+      "You need a single or multi-select input field with customizable styling."
+    ],
+    "avoid_when": [
+      "You need a standard platform-native dropdown menu without tag editing capabilities.",
+      "You do not need search or async suggestion loading."
+    ],
+    "strengths": [
+      "Supports both static and asynchronous data sources.",
+      "Can be used for both single and multi-select interactions.",
+      "Fully customizable tag and suggestion builders."
+    ],
+    "weaknesses": [
+      "Relies on community packages for underlying tag editing functionality.",
+      "Limited documentation outside of the basic README examples."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "FlutterMultiselect(\n    multiselect: true,\n    length: selectedItemsAsync.length,\n    tagBuilder: (context, index) => SelectTag(\n        index: index,\n        label: selectedItemsAsync[index][\"name\"],\n        onDeleted: (value) {\n            selectedItemsAsync.removeAt(index);\n            setState(() {});\n        },\n    ),\n    findSuggestions: (String query) async {\n        return await searchFunctionAsync(query);\n    },\n)",
+    "confidence": 0.95
+  }
+}

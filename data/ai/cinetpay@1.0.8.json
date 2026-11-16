@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.8",
+  "generatedAt": "2026-11-16T11:49:21.902Z",
+  "data": {
+    "primary_category": "payments",
+    "secondary_categories": [
+      "web-desktop"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Integrate the CinetPay payment gateway into your Flutter application.",
+    "what_it_does": "Allows developers to invoke the CinetPay payment checkout, process payments, and receive real-time payment status updates using callbacks. It renders the payment interface via web views and handles transaction configuration.",
+    "use_when": [
+      "You need to accept payments through CinetPay in your Flutter app.",
+      "You want to handle transaction callbacks and error reporting for CinetPay flows."
+    ],
+    "avoid_when": [
+      "You are using a payment gateway other than CinetPay.",
+      "You require complex, headless payment flows without a built-in checkout widget."
+    ],
+    "strengths": [
+      "Provides a ready-to-use checkout widget for CinetPay.",
+      "Supports multiple currencies and payment channels like Mobile Money and Wallets.",
+      "Offers clear callbacks for both successful payment responses and execution errors."
+    ],
+    "weaknesses": [
+      "Requires manual platform-specific configuration for Android and iOS (cleartext traffic / transport security).",
+      "Tied exclusively to the CinetPay service."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding INTERNET permission and enabling cleartext traffic in AndroidManifest.xml, setting minimum Android SDK version >= 19 and compileSdk >= 34, and adding NSAppTransportSecurity exceptions in iOS Info.plist.",
+    "alternatives": [],
+    "minimal_example": "CinetPayGradientCheckout() or CinetPayCheckout(\n    configData: <String, dynamic> {\n        'apikey': 'YOUR_API_KEY',\n        'site_id': YOUR_SITE_ID,\n        'notify_url': 'YOUR_NOTIFY_URL'\n    },\n    paymentData: <String, dynamic> {\n        'transaction_id': 'YOUR_TRANSACTION_ID',\n        'amount': 100,\n        'currency': 'XOF',\n        'channels': 'ALL',\n        'description': 'YOUR_DESCRIPTION'\n    },\n    waitResponse: (response) {\n        print(response);\n    },\n    onError: (error) {\n        print(error);\n    }\n);",
+    "confidence": 0.95
+  }
+}

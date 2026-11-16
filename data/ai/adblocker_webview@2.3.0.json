@@ -1,0 +1,46 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.3.0",
+  "generatedAt": "2026-11-16T11:40:07.388Z",
+  "data": {
+    "primary_category": "web-desktop",
+    "secondary_categories": [
+      "payments"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Flutter WebView implementation that blocks ads and trackers using filter lists.",
+    "what_it_does": "Provides a WebView widget for Flutter with built-in ad and tracker blocking capabilities based on EasyList and AdGuard filter lists. Supports both URL and HTML content loading, navigation control, custom JavaScript injection, whitelisting, and statistics tracking.",
+    "use_when": [
+      "You need to display web content inside your Flutter application while blocking ads and trackers.",
+      "You require domain-based filtering, custom user agents, and element hiding in a WebView.",
+      "You want to track blocking statistics and manage whitelisted domains."
+    ],
+    "avoid_when": [
+      "You require a general-purpose webview without adblocking overhead.",
+      "You need advanced desktop browser features not supported by the underlying mobile-focused webview plugins."
+    ],
+    "strengths": [
+      "Supports EasyList and AdGuard filter lists for robust ad blocking.",
+      "Provides singleton controller for dynamic domain whitelisting and statistics.",
+      "Early resource blocking for better performance."
+    ],
+    "weaknesses": [
+      "Relies on official Flutter WebView plugin which may have platform-specific limitations.",
+      "Requires specific minimum Flutter and Dart versions."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Initialize the singleton controller with a FilterConfig in main() before running the app.",
+    "alternatives": [
+      {
+        "name": "webview_flutter",
+        "why_pick_it": "If you need a standard official WebView without built-in ad blocking capabilities."
+      }
+    ],
+    "minimal_example": "AdBlockerWebview(\n  url: Uri.parse('https://example.com'),\n  shouldBlockAds: true,\n  adBlockerWebviewController: AdBlockerWebviewController.instance,\n)",
+    "confidence": 0.95
+  }
+}

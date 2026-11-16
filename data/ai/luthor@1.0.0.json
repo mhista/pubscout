@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.0",
+  "generatedAt": "2026-11-16T12:00:01.980Z",
+  "data": {
+    "primary_category": "forms",
+    "secondary_categories": [
+      "codegen",
+      "utils"
+    ],
+    "approach": [
+      "declarative",
+      "code generation"
+    ],
+    "one_liner": "A Dart validation library inspired by Zod with optional code generation support.",
+    "what_it_does": "Luthor provides a fluent API for building schema validators and validating structured data in Dart and Flutter. It yields typed output and structured issues with codes, paths, and messages.",
+    "use_when": [
+      "You want Zod-like schema validation in Dart and Flutter.",
+      "You need typed validation output with or without code generation.",
+      "You want custom error messages and cross-field validation."
+    ],
+    "avoid_when": [
+      "You are looking for an all-in-one Flutter form builder UI widget library.",
+      "You are targeting Dart versions older than 3.11."
+    ],
+    "strengths": [
+      "Fluent and intuitive API inspired by Zod.",
+      "Supports optional code generation for type-safe SchemaKeys and ErrorKeys.",
+      "Zero runtime dependencies."
+    ],
+    "weaknesses": [
+      "Requires Dart 3.11 or later.",
+      "Requires learning a custom validation rule syntax and API."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add luthor to pubspec.yaml. Optionally add build_runner and luthor_generator for code generation features.",
+    "alternatives": [],
+    "minimal_example": "import 'package:luthor/luthor.dart';\n\nfinal signup = l.schema({\n  'email': l.string().email().required(),\n  'password': l.string().min(8).required(),\n});\n\nvoid main() {\n  final result = signup.validate({'email': 'test@example.com'});\n}",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.1.1",
+  "generatedAt": "2026-11-16T11:49:21.640Z",
+  "data": {
+    "primary_category": "navigation",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Enables onWillPop callbacks on Cupertino page transitions and improves gesture feedback.",
+    "what_it_does": "Provides a CustomWillPopScope widget that allows developers to handle back navigation and 'onWillPop' callbacks during Cupertino page transitions. It also improves visual feedback for rejected swipe-to-go-back gestures across platforms.",
+    "use_when": [
+      "You need 'onWillPop' functionality on Cupertino page transitions.",
+      "You want to intercept back gestures or hardware back button presses to prevent accidental data loss.",
+      "You need to restrict swipe-to-return behavior on specific screens."
+    ],
+    "avoid_when": [
+      "You are using the standard WillPopScope or PopScope without needing Cupertino-specific page transition adjustments."
+    ],
+    "strengths": [
+      "Enables back interception on Cupertino transitions.",
+      "Improves visual feedback for rejected swipe-to-go-back gestures.",
+      "Supports customizable onWillPop and onPopAction callbacks."
+    ],
+    "weaknesses": [
+      "Requires careful state management for the 'canReturn' flag.",
+      "The 'onWillPop' property should not be changed once set."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "CustomWillPopScope(\n  canReturn: _canReturn,\n  onWillPop: _onWillPop,\n  onPopAction: _onPopAction,\n  child: Scaffold(\n    appBar: AppBar(title: Text('Second Screen')),\n    body: Center(child: Text('Content')),),\n)",
+    "confidence": 0.95
+  }
+}

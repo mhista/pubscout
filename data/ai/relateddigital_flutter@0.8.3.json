@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.8.3",
+  "generatedAt": "2026-11-16T11:49:15.838Z",
+  "data": {
+    "primary_category": "notifications",
+    "secondary_categories": [
+      "devtools",
+      "maps"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Official Related Digital Flutter SDK for analytics, push notifications, and recommendations.",
+    "what_it_does": "Provides APIs for tracking user data, showing in-app messages and stories, handling push notifications, geofencing, and product recommendations.",
+    "use_when": [
+      "You need to integrate Related Digital services into your Flutter app.",
+      "You require push notifications, in-app messaging, and analytics features from Related Digital."
+    ],
+    "avoid_when": [
+      "You only need standard push notifications via Firebase without Related Digital services.",
+      "You want a lightweight independent analytics or tracking library."
+    ],
+    "strengths": [
+      "Official SDK supporting both Android and iOS.",
+      "Comprehensive feature set including analytics, push notifications, geofencing, and recommendations."
+    ],
+    "weaknesses": [
+      "Requires substantial native configuration for both Android and iOS.",
+      "Tight coupling to Related Digital ecosystem services."
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Requires adding JitPack, Google Services config, custom Android Manifest meta-data, iOS App Groups, Notification Service Extension, and updating Podfiles.",
+    "alternatives": [
+      {
+        "name": "onesignal_flutter",
+        "why_pick_it": "If you prefer OneSignal for push notifications and messaging instead of Related Digital."
+      },
+      {
+        "name": "firebase_messaging",
+        "why_pick_it": "If you only need raw Firebase push notifications without the Related Digital backend platform."
+      }
+    ],
+    "minimal_example": "final RelateddigitalFlutter relatedDigitalPlugin = RelateddigitalFlutter();\n\nFuture<void> initLib() async {\n  var initRequest = RDInitRequestModel(\n    appAlias: Platform.isIOS ? 'ios-app-alias' : 'android-app-alias',\n    huaweiAppAlias: 'huawei-app-alias',\n    androidPushIntent: 'com.test.MainActivity',\n    organizationId: 'ORG_ID',\n    siteId: 'SITE_ID',\n    dataSource: 'DATA_SOURCE',\n    maxGeofenceCount: 20,\n    geofenceEnabled: true,\n    inAppNotificationsEnabled: true,\n    logEnabled: true,\n    isIDFAEnabled: true,\n    useNotificationLargeIcon: true,\n    androidIconName: 'ic_launcher',\n  );\n\n  await relatedDigitalPlugin.init(initRequest, _readNotificationCallback);\n}",
+    "confidence": 0.95
+  }
+}

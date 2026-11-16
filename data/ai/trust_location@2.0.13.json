@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.13",
+  "generatedAt": "2026-11-16T11:58:31.527Z",
+  "data": {
+    "primary_category": "maps",
+    "secondary_categories": [
+      "device"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "A Flutter plugin for detecting mock locations on Android devices.",
+    "what_it_does": "Trust Location allows developers to query current geographic coordinates and detect whether an Android device is using a mock location. It supports both one-time queries and periodic streams.",
+    "use_when": [
+      "You need to prevent GPS spoofing or fake locations in your Android app.",
+      "You want to monitor user location changes alongside mock location detection using a timer stream."
+    ],
+    "avoid_when": [
+      "You need robust iOS mock location detection (this plugin explicitly supports Android).",
+      "You do not require high accuracy location mode."
+    ],
+    "strengths": [
+      "Provides a simple boolean flag to check for mock locations.",
+      "Supports stream-based location updates with configurable timer intervals."
+    ],
+    "weaknesses": [
+      "Limited to Android devices.",
+      "Requires high accuracy location mode to be enabled in Android settings."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires adding ACCESS_FINE_LOCATION or ACCESS_COARSE_LOCATION permissions to the Android Manifest and enabling high accuracy mode.",
+    "alternatives": [
+      {
+        "name": "geolocator",
+        "why_pick_it": "Pick geolocator if you need a comprehensive, cross-platform geolocation plugin that also provides mock location detection on Android."
+      }
+    ],
+    "minimal_example": "bool isMockLocation = await TrustLocation.isMockLocation;",
+    "confidence": 0.95
+  }
+}

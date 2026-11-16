@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "1.5.0",
+  "generatedAt": "2026-11-16T11:29:41.826Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "layout"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A Text widget replacement that automatically finds optimal line breaks for balanced multi‑line text.",
+    "what_it_does": "It measures the available width and uses a binary search to determine the narrowest width that keeps the text on the same number of lines, then renders the text at that width. It works with plain Text and RichText, including WidgetSpans.",
+    "use_when": [
+      "You need short footnotes, captions or messages that should look visually balanced across lines.",
+      "You want a drop‑in replacement for Text that handles optimal wrapping without manual \\n characters."
+    ],
+    "avoid_when": [
+      "Rendering large bodies of text where the extra layout calculations add noticeable overhead.",
+      "Using the widget inside slivers that rely on intrinsic sizing (e.g., SliverFillRemaining).",
+      "Performance‑critical UI where every layout pass must be minimal."
+    ],
+    "strengths": [
+      "Automatic optimal line breaking without manual effort",
+      "Supports all standard Text properties and RichText features",
+      "Provides minLines and shrinkWrap options for flexible layouts"
+    ],
+    "weaknesses": [
+      "Adds extra layout passes which can affect performance on very long texts",
+      "Does not work inside certain slivers that depend on intrinsic sizing",
+      "Limited to relatively short texts; not a full replacement for scrolling paragraphs"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "OptimalWrapText(\n  'My slightly longer text that will span 2 or 3 lines',\n)",
+    "confidence": 0.97
+  }
+}

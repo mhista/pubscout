@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "2.0.1",
+  "generatedAt": "2026-11-16T11:22:13.194Z",
+  "data": {
+    "primary_category": "maps",
+    "secondary_categories": [
+      "networking",
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Extract coordinates, zoom, and place info from Google Maps URLs, with short‑URL expansion.",
+    "what_it_does": "Parses various Google Maps URL formats to retrieve latitude, longitude, zoom level, and place name. Expands shortened URLs using HTTP requests and caches results. Supports batch processing and validation utilities.",
+    "use_when": [
+      "You need to obtain location data from user‑provided Google Maps links",
+      "You want to handle short Google Maps URLs without manual expansion",
+      "Batch processing of many map URLs is required"
+    ],
+    "avoid_when": [
+      "You need real‑time map rendering or interactive maps",
+      "You require reverse geocoding or place details beyond what the URL provides"
+    ],
+    "strengths": [
+      "Supports many URL formats",
+      "Built‑in LRU caching reduces network calls",
+      "Clear error handling with custom exceptions",
+      "Batch processing API"
+    ],
+    "weaknesses": [
+      "Relies on network for short‑URL expansion",
+      "Only extracts data present in the URL, no additional place details",
+      "No support for map widgets or UI components"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "geocoding",
+        "why_pick_it": "Provides reverse geocoding and place details from coordinates, useful if you already have lat/lng instead of URLs"
+      }
+    ],
+    "minimal_example": "import 'package:google_maps_url_extractor/google_maps_url_extractor.dart';\n\nvoid main() async {\n  const url = 'https://www.google.com/maps/@37.7749,-122.4194,15z';\n  final info = GoogleMapsUrlExtractor.extractLocationInfo(url);\n  print(info);\n}",
+    "confidence": 0.86
+  }
+}

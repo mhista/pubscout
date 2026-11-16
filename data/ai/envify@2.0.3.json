@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.3",
+  "generatedAt": "2026-11-16T12:08:20.647Z",
+  "data": {
+    "primary_category": "codegen",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "code generation"
+    ],
+    "one_liner": "Handle environment variables safely using .env files and code generation.",
+    "what_it_does": "Envify generates Dart classes containing constant expressions loaded from an environment (.env) file during compile time. This ensures type safety and makes variables available as constant expressions for other annotations.",
+    "use_when": [
+      "You want compile-time safety and constant expressions for environment variables.",
+      "You want to avoid runtime asset loading and decoding overhead for config values."
+    ],
+    "avoid_when": [
+      "You are starting a new project, as this package has been deprecated in favor of Envied."
+    ],
+    "strengths": [
+      "Generates compile-time constant expressions for use in annotations and code generation.",
+      "Supports multiple environment files via annotations.",
+      "Casts values to literal types like int, double, num, bool, and String."
+    ],
+    "weaknesses": [
+      "The package has been deprecated in favor of Envied and will not receive further updates."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add envify and build_runner to dev_dependencies, create a .env file, and run build_runner.",
+    "alternatives": [],
+    "minimal_example": "import 'package:envify/envify.dart';\npart 'env.g.dart';\n\n@Envify()\nabstract class Env {\n    static const key = _Env.key;\n}",
+    "confidence": 0.95
+  }
+}

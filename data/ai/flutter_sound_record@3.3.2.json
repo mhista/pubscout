@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "3.3.2",
+  "generatedAt": "2026-11-16T11:28:36.446Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Record audio from the microphone to a file with configurable codec, bitrate and sample rate.",
+    "what_it_does": "Provides a simple API to start, pause, resume and stop audio recording on Android, iOS and Web. Supports multiple encoders including AAC, AMR and OPUS and returns the recorded file path.",
+    "use_when": [
+      "You need to capture raw audio input in a Flutter app",
+      "Cross‑platform recording (Android, iOS, Web) is required",
+      "You want fine‑grained control over codec and bitrate"
+    ],
+    "avoid_when": [
+      "You only need audio playback (use audioplayers or just_audio)",
+      "Complex audio processing or streaming is required"
+    ],
+    "strengths": [
+      "Zero external native dependencies beyond platform SDKs",
+      "Supports multiple codecs and bitrate settings",
+      "Works on Android, iOS and Web out of the box"
+    ],
+    "weaknesses": [
+      "No built‑in audio visualization or amplitude analysis beyond getAmplitude()",
+      "Limited to file‑based output, no streaming support",
+      "Permission handling must be done manually"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add RECORD_AUDIO permission on Android and NSMicrophoneUsageDescription on iOS; no additional Gradle or Xcode changes required.",
+    "alternatives": [
+      {
+        "name": "record",
+        "why_pick_it": "Provides a similar simple recording API and is the original package this plugin forks from"
+      }
+    ],
+    "minimal_example": "import 'package:record/record.dart';\n\nFuture<void> recordDemo() async {\n  final recorder = Record();\n  if (await recorder.hasPermission()) {\n    await recorder.start(path: 'myFile.m4a', encoder: AudioEncoder.AAC);\n    // ... wait or do other work ...\n    final path = await recorder.stop();\n    print('Recorded file: $path');\n  }\n}",
+    "confidence": 0.95
+  }
+}

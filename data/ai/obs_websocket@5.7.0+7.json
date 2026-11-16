@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "5.7.0+7",
+  "generatedAt": "2026-11-16T11:42:01.695Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "audio-video"
+    ],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "An OBS WebSocket client written in Dart for remote-controlling Open Broadcaster Software.",
+    "what_it_does": "Allows Dart and Flutter applications to connect to the obs-websocket plugin running inside OBS Studio. It provides helper methods for all protocol requests, supports auto-reconnection, handles events, and manages authentication.",
+    "use_when": [
+      "Building a custom remote control companion app for OBS Studio",
+      "Automating streaming and recording workflows using Dart or Flutter"
+    ],
+    "avoid_when": [
+      "Building general-purpose WebSocket connections unrelated to OBS"
+    ],
+    "strengths": [
+      "Full coverage of the obs-websocket v5.x protocol requests and events",
+      "Built-in auto-reconnection with exponential backoff and connection state stream",
+      "Environment variable and .env file configuration support"
+    ],
+    "weaknesses": [
+      "Requires a running instance of OBS with the obs-websocket plugin configured",
+      "Does not handle video rendering or local stream encoding directly"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires the OBS application (v27.x or above) installed with the obs-websocket plugin enabled and reachable on the network.",
+    "alternatives": [],
+    "minimal_example": "final obsWebSocket = await ObsWebSocket.connectFromEnv();\nfinal status = await obs.stream.status;\nif (!status.outputActive) {\n  await obsWebSocket.stream.start();\n}",
+    "confidence": 1
+  }
+}

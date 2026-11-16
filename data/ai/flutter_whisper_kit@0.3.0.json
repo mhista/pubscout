@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.3.0",
+  "generatedAt": "2026-11-16T12:08:14.184Z",
+  "data": {
+    "primary_category": "ai-ml",
+    "secondary_categories": [
+      "audio-video"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "On-device speech recognition and transcription using WhisperKit on iOS and macOS",
+    "what_it_does": "Provides on-device speech-to-text transcription using Whisper models. It supports real-time microphone transcription, audio file transcription, model downloads, language detection, and type-safe error handling.",
+    "use_when": [
+      "You need on-device speech-to-text transcription without sending data to external servers",
+      "You are building iOS or macOS applications that require multilingual speech recognition",
+      "You need real-time streaming transcription or audio file processing"
+    ],
+    "avoid_when": [
+      "You need support for Android or other non-Apple platforms",
+      "You want a lightweight package without large machine learning model sizes"
+    ],
+    "strengths": [
+      "Complete on-device processing ensuring user privacy",
+      "Multiple model sizes available ranging from tiny to large",
+      "Provides stream-based real-time transcription and progress tracking"
+    ],
+    "weaknesses": [
+      "Android platform support is only planned for the future",
+      "Large model files require significant device storage and download time"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires iOS 16.0+ or macOS 13.0+, configuring NSMicrophoneUsageDescription and folder permissions in Info.plist, and setting the macOS deployment target to 13.0+.",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter_whisper_kit/flutter_whisper_kit.dart';\n\nfinal whisperKit = FlutterWhisperKit();\n\nfinal result = await whisperKit.loadModel(\n  'tiny',\n  modelRepo: 'argmaxinc/whisperkit-coreml',\n);\n\nfinal transcription = await whisperKit.transcribeFromFile(\n  '/path/to/audio/file.mp3',\n  options: DecodingOptions(\n    task: DecodingTask.transcribe,\n    language: 'en',\n  ),\n);\nprint('Transcription: ${transcription?.text}');",
+    "confidence": 0.95
+  }
+}

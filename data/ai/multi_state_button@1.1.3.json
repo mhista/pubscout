@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.1.3",
+  "generatedAt": "2026-11-16T12:05:42.500Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "animation"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A Flutter button widget that supports multiple customizable states and animated transitions.",
+    "what_it_does": "Provides a MultiStateButton and SingleStateButton allowing developers to define different states (such as submit, loading, and success) with custom sizes, colors, decorations, and child widgets. It includes a controller to easily transition between states with built-in animations.",
+    "use_when": [
+      "You need a submit button that transitions between loading, success, and error states.",
+      "You want custom animations and sizes for different button states."
+    ],
+    "avoid_when": [
+      "You only need a standard static Material button.",
+      "You require complex state management solutions beyond simple button state transitions."
+    ],
+    "strengths": [
+      "Endless customizability for each state including size, color, and decoration.",
+      "Smooth animated transitions between button states.",
+      "Simple controller API to switch states."
+    ],
+    "weaknesses": [
+      "Limited to button state management only.",
+      "No pre-packaged theme integrations mentioned beyond basic Flutter properties."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:multi_state_button/multi_state_button.dart';\n\nfinal MultiStateButtonController controller = MultiStateButtonController(initialStateName: 'Submit');\n\nMultiStateButton(\n  multiStateButtonController: controller,\n  buttonStates: [\n    ButtonState(\n      stateName: 'Submit',\n      child: Text('Submit'),\n      onPressed: () => controller.setButtonState = 'Loading',\n    ),\n    ButtonState(\n      stateName: 'Loading',\n      child: CircularProgressIndicator(),\n      onPressed: () => controller.setButtonState = 'Submit',\n    ),\n  ],\n);",
+    "confidence": 0.95
+  }
+}

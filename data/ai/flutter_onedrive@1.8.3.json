@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.8.3",
+  "generatedAt": "2026-11-16T11:28:03.812Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [
+      "auth",
+      "files"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Upload, download, and manage files on Microsoft OneDrive from a Flutter app.",
+    "what_it_does": "Connects to Microsoft OneDrive via OAuth authentication to perform file operations such as uploading, downloading, listing files, creating directories, and deleting items.",
+    "use_when": [
+      "You need to sync or backup user application files to their OneDrive account.",
+      "Your app interacts directly with OneDrive using custom OAuth client credentials."
+    ],
+    "avoid_when": [
+      "You require a general-purpose local storage database rather than cloud storage.",
+      "You need support for cloud storage providers other than OneDrive."
+    ],
+    "strengths": [
+      "Provides a straightforward API for common file operations (upload, download, list, delete, create directory).",
+      "Handles authentication flow via OAuth with secure token storage."
+    ],
+    "weaknesses": [
+      "Requires manual app registration and configuration with Microsoft Azure/OneDrive developer portal.",
+      "Limited to a single cloud provider."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires registering an app on the Microsoft developer portal to obtain a client ID and configuring redirect URLs.",
+    "alternatives": [],
+    "minimal_example": "final onedrive = OneDrive(redirectURL: \"your redirect URL\", clientID: \"your client id\");\n\nfinal success = await onedrive.connect(context);\nif (success) {\n  OneDriveResponse response = await onedrive.createDirectory(\"/test\");\n}",
+    "confidence": 0.95
+  }
+}

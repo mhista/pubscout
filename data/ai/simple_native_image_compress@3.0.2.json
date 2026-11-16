@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.0.2",
+  "generatedAt": "2026-11-16T12:10:54.600Z",
+  "data": {
+    "primary_category": "images",
+    "secondary_categories": [
+      "utils",
+      "web-desktop"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Native image compression library supporting Windows, Linux, Android, iOS, and macOS.",
+    "what_it_does": "Resizes and compresses image files from a given path into AVIF, Jpeg, or WebP format as a Uint8List. It supports custom sampling filters, quality settings, and preserves image orientation.",
+    "use_when": [
+      "You need image compression on Windows and Linux desktops",
+      "You want native performance for image resizing and format conversion"
+    ],
+    "avoid_when": [
+      "You need Web support with WASM",
+      "You want to avoid native toolchain dependencies like Rust and Android NDK"
+    ],
+    "strengths": [
+      "Supports desktop platforms (Windows, Linux, macOS) in addition to mobile",
+      "Provides multiple sampling filters and compression formats (Jpeg, WebP, AVIF)",
+      "Keeps image orientation when converted"
+    ],
+    "weaknesses": [
+      "Requires Rust and Android NDK setup",
+      "Does not support Web with WASM"
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Requires installing Rust, cargo tools, and Android NDK for Android targets.",
+    "alternatives": [],
+    "minimal_example": "Future<void> main() async {\n  await NativeImageCompress.init();\n  runApp(const MaterialApp(home: MyApp()));\n}\n\nfinal bytes = await ImageCompress.containFromFilepath(\n  filePath: yourFilePath,\n  compressFormat: CompressFormat.avif,\n  speed: 3,\n  quality: 90,\n  maxWidth: 512,\n  maxHeight: 512,\n  samplingFilter: FilterType.Lanczos3\n);",
+    "confidence": 0.95
+  }
+}

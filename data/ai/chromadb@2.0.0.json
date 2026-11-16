@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.0",
+  "generatedAt": "2026-11-16T12:04:43.479Z",
+  "data": {
+    "primary_category": "ai-ml",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Dart client for the ChromaDB vector database API for AI applications.",
+    "what_it_does": "Provides a pure Dart, type-safe client for ChromaDB with collections, vector search, multi-tenant storage, embeddings, and RAG pipelines across mobile, web, desktop, and server-side Dart.",
+    "use_when": [
+      "You need to connect Dart or Flutter applications to a ChromaDB vector database.",
+      "You are building RAG pipelines or semantic search features in Dart."
+    ],
+    "avoid_when": [
+      "You need an embedded local on-device SQLite database rather than a vector database client."
+    ],
+    "strengths": [
+      "Pure Dart with no Flutter dependency, working across all platforms and backend.",
+      "Type-safe request and response models with minimal dependencies.",
+      "Includes both low-level resources and a high-level ChromaCollection wrapper for auto-embedding."
+    ],
+    "weaknesses": [
+      "Requires a running ChromaDB instance or cloud deployment.",
+      "Requires Dart 3.12 or later."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires adding the dependency to pubspec.yaml and a running ChromaDB server instance.",
+    "alternatives": [],
+    "minimal_example": "import 'package:chromadb/chromadb.dart';\n\nFuture<void> main() async {\n  final client = ChromaClient();\n\n  try {\n    final collection = await client.getOrCreateCollection(name: 'my-documents');\n\n    await collection.add(\n      ids: ['doc-1'],\n      embeddings: [\n        [0.1, 0.2, 0.3],\n      ],\n      documents: ['Hello from ChromaDB'],\n    );\n\n    final results = await collection.query(\n      queryEmbeddings: [\n        [0.1, 0.2, 0.3],\n      ],\n      nResults: 1,\n    );\n\n    print(results.ids);\n  } finally {\n    client.close();\n  }\n}",
+    "confidence": 1
+  }
+}

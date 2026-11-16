@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.3.0+18",
+  "generatedAt": "2026-11-16T12:12:52.792Z",
+  "data": {
+    "primary_category": "payments",
+    "secondary_categories": [
+      "audio-video"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter plugin for the Interactive Media Ads SDKs on Android and iOS.",
+    "what_it_does": "Integrates Google's Interactive Media Ads (IMA) SDK into Flutter apps to request VAST-compliant multimedia ads and manage their playback. It renders ads in a separate container layered over content video players like the video_player plugin.",
+    "use_when": [
+      "You need to display VAST-compliant video ads in your mobile application.",
+      "You are using a video player package and want to monetize content via pre-roll, mid-roll, or post-roll ads."
+    ],
+    "avoid_when": [
+      "You require background audio ads or Google Dynamic Ad Insertion methods, which are currently unsupported.",
+      "You only need standard mobile banner or interstitial display ads instead of video IMA ads."
+    ],
+    "strengths": [
+      "Direct integration with official Google IMA SDKs for Android and iOS.",
+      "Provides granular controls for ad events, requests, and playback managers."
+    ],
+    "weaknesses": [
+      "Requires manual platform-specific configuration such as Android Manifest permissions and Java library desugaring.",
+      "Background audio ads and Google Dynamic Ad Insertion are not supported."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding INTERNET and ACCESS_NETWORK_STATE permissions and enabling coreLibraryDesugaring in Android's build.gradle.kts.",
+    "alternatives": [
+      {
+        "name": "google_mobile_ads",
+        "why_pick_it": "If you want standard banner, interstitial, or rewarded ads rather than VAST-compliant IMA video stream ads."
+      }
+    ],
+    "minimal_example": "final AdDisplayContainer _adDisplayContainer = AdDisplayContainer(\n  onContainerAdded: (AdDisplayContainer container) {\n    final AdsLoader adsLoader = AdsLoader(\n      container: container,\n      onAdsLoaded: (OnAdsLoadedData data) {\n        data.manager.init(settings: AdsRenderingSettings(enablePreloading: true));\n        data.manager.start();\n      },\n      onAdsLoadError: (AdsLoadErrorData data) {},\n    );\n    adsLoader.requestAds(AdsRequest(adTagUrl: 'YOUR_AD_TAG_URL'));\n  },\n);",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.0.0",
+  "generatedAt": "2026-11-16T11:56:08.180Z",
+  "data": {
+    "primary_category": "ui-kits",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "code generation",
+      "imperative"
+    ],
+    "one_liner": "Fully configurable native splash screen plugin for Linux, Windows, and macOS apps.",
+    "what_it_does": "Delivers fully configurable and animated native splash screens on Linux, Windows, and macOS. It uses compile-time asset generation via a CLI tool and native runtime APIs for fast startup visuals without first-frame jank.",
+    "use_when": [
+      "You are building a Flutter desktop application for Linux, Windows, or macOS",
+      "You want to eliminate first-frame jank with native startup visuals"
+    ],
+    "avoid_when": [
+      "You primarily need a mobile-only splash screen solution (iOS/Android)",
+      "You want a pure Dart-only solution without any CLI or native configuration steps"
+    ],
+    "strengths": [
+      "Eliminates first-frame jank with true native rendering on desktop platforms",
+      "Supports compile-time asset generation and runtime animations like fading",
+      "Retina display support with automatic 1x and 2x asset generation on macOS"
+    ],
+    "weaknesses": [
+      "Requires manual platform integration steps in CMakeLists.txt and native app entry points",
+      "Requires a separate CLI tool dependency and command executions for setup and generation"
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Requires adding the CLI dev dependency, running initialization and setup CLI commands, patching platform build files (CMakeLists.txt), and adding native initialization code in C++, C, or Swift depending on the target OS.",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:native_splash_screen/native_splash_screen.dart' as nss;\n\nvoid main() {\n  WidgetsFlutterBinding.ensureInitialized();\n  runApp(const MyApp());\n}\n\nclass MyApp extends StatefulWidget {\n  const MyApp({super.key});\n\n  @override\n  State<MyApp> createState() => _MyAppState();\n}\n\nclass _MyAppState extends State<MyApp> {\n  @override\n  void initState() {\n    super.initState();\n    WidgetsBinding.instance.addPostFrameCallback((_) {\n      nss.close(animation: nss.CloseAnimation.fade);\n    });\n  }\n\n  @override\n  Widget build(BuildContext context) {\n    return MaterialApp(\n      home: Scaffold(\n        appBar: AppBar(title: const Text('Native Splash Screen')),\n      ),\n    );\n  }\n}",
+    "confidence": 0.95
+  }
+}

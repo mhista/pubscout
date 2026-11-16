@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "2.0.2",
+  "generatedAt": "2026-11-16T11:26:58.468Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "layout"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Widgets for infinite scrolling lists and grids",
+    "what_it_does": "Provides InfiniteListView and InfiniteGridView that load more data when scrolled near the end. They mimic the API of ListView and GridView with added hasNext and nextData callbacks.",
+    "use_when": [
+      "You need to display a large list or grid that loads data lazily from a network or database",
+      "You want a simple, drop‑in replacement for ListView/GridView with pagination support"
+    ],
+    "avoid_when": [
+      "Your list is small and static",
+      "You need complex scroll behaviors not supported by the widget"
+    ],
+    "strengths": [
+      "Easy to use, same API as standard ListView/GridView",
+      "Null safety and Flutter 3 compatible",
+      "Handles scroll controller internally",
+      "Supports custom loading widgets"
+    ],
+    "weaknesses": [
+      "Limited to list and grid layouts only",
+      "No support for custom scroll thresholds beyond a single value",
+      "No advanced features like pull‑to‑refresh or error handling"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "InfiniteListView.separated(\n  itemBuilder: (context, index) => Text('$index'),\n  itemCount: _data.length,\n  hasNext: _data.length < 200,\n  nextData: loadNextData,\n  separatorBuilder: (context, index) => Divider(height: 1),\n);",
+    "confidence": 0.9
+  }
+}

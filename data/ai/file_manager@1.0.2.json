@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.2",
+  "generatedAt": "2026-11-16T11:42:01.932Z",
+  "data": {
+    "primary_category": "files",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A Flutter widget and controller to manage, browse, and pick files and folders.",
+    "what_it_does": "Provides a FileManager widget and FileManagerController to display file system entities in a list, navigate directories, sort files by various parameters, and handle folder creation and file access permissions.",
+    "use_when": [
+      "You want to build an in-app file explorer or directory navigator in Flutter.",
+      "You need to list files and folders and allow users to open directories or pick files."
+    ],
+    "avoid_when": [
+      "You are targeting platforms without full support like MacOS or Windows, where support is currently missing or in progress.",
+      "You only need to pick a single file or media item using native system pickers."
+    ],
+    "strengths": [
+      "Easy integration with standard Flutter list views via a builder and snapshot pattern.",
+      "Includes built-in sorting capabilities (by name, type, date, and size).",
+      "Provides a ControlBackButton widget to easily manage system back button behavior in subdirectories."
+    ],
+    "weaknesses": [
+      "Windows and MacOS support are not fully implemented or have active issues.",
+      "Requires manual native permission configuration for Android storage access."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding storage permissions (WRITE_EXTERNAL_STORAGE, READ_EXTERNAL_STORAGE, MANAGE_EXTERNAL_STORAGE) and requestLegacyExternalStorage to AndroidManifest.xml, alongside runtime permission requests.",
+    "alternatives": [],
+    "minimal_example": "FileManager(\n    controller: controller,\n    builder: (context, snapshot) {\n      final List<FileSystemEntity> entities = snapshot;\n      return ListView.builder(\n        itemCount: entities.length,\n        itemBuilder: (context, index) {\n          return ListTile(\n            title: Text(FileManager.basename(entities[index])),\n          );\n        },\n      );\n    },\n)",
+    "confidence": 0.95
+  }
+}

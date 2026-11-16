@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.2.1",
+  "generatedAt": "2026-11-16T12:12:52.733Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "A Dart utility for handling, formatting, and validating person names.",
+    "what_it_does": "It provides a robust set of tools to parse, format, validate, and manipulate person names in various shapes, orders, and writing systems. It handles prefixes, suffixes, initials, middle names, and compound surnames easily.",
+    "use_when": [
+      "You need to format user names consistently across different orders (e.g. given name first vs surname first).",
+      "You are dealing with parsing raw name strings or generating initials and short name variants.",
+      "You need predefined validation rules for various writing systems and characters."
+    ],
+    "avoid_when": [
+      "You need to parse mononames (like 'Plato') or multiple prefixes (like 'Prof. Dr. Einstein').",
+      "You are looking for general text manipulation that isn't specific to human names."
+    ],
+    "strengths": [
+      "Supports multiple naming conventions, writing systems, and compound surnames.",
+      "Highly configurable through the Config API and custom parsers.",
+      "Zero external dependencies."
+    ],
+    "weaknesses": [
+      "Does not support mononames or multiple prefixes.",
+      "Non-standard name cases may require manual parsing and can throw exceptions."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:namefully/namefully.dart';\n\nvoid main() {\n  var name = Namefully('Thomas Alva Edison');\n  print(name.short); // Thomas Edison\n  print(name.format('L, f m')); // EDISON, Thomas Alva\n}",
+    "confidence": 0.95
+  }
+}

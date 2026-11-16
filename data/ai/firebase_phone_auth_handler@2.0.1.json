@@ -1,0 +1,46 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.1",
+  "generatedAt": "2026-11-16T11:47:59.426Z",
+  "data": {
+    "primary_category": "auth",
+    "secondary_categories": [
+      "backend"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Easy Firebase phone authentication with OTP sending, verification, and auto-fetch support.",
+    "what_it_does": "Simplifies phone number authentication using Firebase Auth by managing the OTP request and verification process. Features built-in SMS autofill support for Android and handles reCAPTCHA on Web automatically.",
+    "use_when": [
+      "You are implementing Firebase phone authentication in your Flutter application.",
+      "You want automated SMS OTP auto-fetch support on Android.",
+      "You need a widget-based approach to manage phone verification states."
+    ],
+    "avoid_when": [
+      "You are not using Firebase as your backend authentication provider.",
+      "You require custom multi-factor authentication flows outside standard phone number verification."
+    ],
+    "strengths": [
+      "Supports auto-fetch OTP via SMS on Android out of the box.",
+      "Handles cross-platform flows cleanly across Android, iOS, and Web.",
+      "Widget-based controller lifecycle ensures no state leaks between screens."
+    ],
+    "weaknesses": [
+      "Requires specific platform configurations such as SHA-1/SHA-256 fingerprints on Android and custom URL schemes on iOS.",
+      "Tied directly to Firebase Authentication."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires enabling Phone auth in the Firebase console, registering SHA certificate fingerprints on Android, and adding a custom URL scheme in iOS Info.plist.",
+    "alternatives": [
+      {
+        "name": "firebase_auth",
+        "why_pick_it": "Use the official lower-level Firebase Auth SDK directly if you want full manual control over the phone verification code states and UI."
+      }
+    ],
+    "minimal_example": "FirebasePhoneAuthHandler(\n  phoneNumber: '+911234567890',\n  builder: (context, controller) => Scaffold(\n    body: Center(\n      child: Text('Status: ${controller.otpSendStatus}'),\n    ),\n  ),\n)",
+    "confidence": 1
+  }
+}

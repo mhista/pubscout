@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.1.14",
+  "generatedAt": "2026-11-16T12:04:01.077Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [
+      "backend"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "A helper library that makes MySQL database operations simpler using mysql_client_plus.",
+    "what_it_does": "Wraps mysql_client_plus to provide convenient database utilities like initialization settings, simplified queries, CRUD methods, transaction management, and connection pooling support.",
+    "use_when": [
+      "You want a simpler API for performing MySQL queries and CRUD operations in Dart and Flutter.",
+      "You need transaction support and connection pooling for MySQL databases."
+    ],
+    "avoid_when": [
+      "You are using a non-MySQL database like PostgreSQL, SQLite, or Firebase.",
+      "You prefer writing raw SQL queries directly through the underlying driver without helper wrappers."
+    ],
+    "strengths": [
+      "Provides intuitive helper methods for insertion, updates, deletions, and multi-table queries.",
+      "Supports transactions with automatic rollback on exceptions.",
+      "Supports SSL certificates, connection pooling, and JSON/BLOB types."
+    ],
+    "weaknesses": [
+      "Relies entirely on the maintained status of mysql_client_plus.",
+      "Limited to MySQL databases."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Configure database credentials using MysqlUtilsSettings and manage connections via the singleton instance.",
+    "alternatives": [],
+    "minimal_example": "var db = MysqlUtils(\n  settings: MysqlUtilsSettings(\n    host: '127.0.0.1',\n    port: 3306,\n    user: 'root',\n    password: '',\n    db: 'testdb',\n  ),\n);\nvar row = await db.getOne(table: 'table', fields: '*');\nprint(row);\nawait db.close();",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.1.2",
+  "generatedAt": "2026-11-16T11:53:02.436Z",
+  "data": {
+    "primary_category": "devtools",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "imperative",
+      "declarative"
+    ],
+    "one_liner": "An in-app debug kits platform for Flutter apps produced by the ByteDance Flutter Infra team.",
+    "what_it_does": "Provides an in-app debugging platform with 13 built-in plugin kits (such as UI inspectors, performance monitors, device info, console, and Dio network inspection). Allows developers to create custom plugin kits and integrate them into UME.",
+    "use_when": [
+      "You need in-app debugging tools and visual inspectors for your Flutter application.",
+      "You want to inspect UI layouts, performance, memory, device information, and network requests directly inside the running app."
+    ],
+    "avoid_when": [
+      "You are running your app in release mode (where VM service and some debugging features are unavailable or discouraged).",
+      "You do not want any third-party debug overlays included in your application builds."
+    ],
+    "strengths": [
+      "Comprehensive built-in plugins for UI, performance, device info, console output, and network logging.",
+      "Extensible architecture allowing the creation of custom debug plugin kits.",
+      "Compatible with Flutter 3 and null-safety."
+    ],
+    "weaknesses": [
+      "Some functions rely on VM Service and require specific run parameters like --no-dds.",
+      "Not recommended for use in release or profile modes due to potential risks and lack of VM Service."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dependencies to pubspec.yaml, initialize PluginManager and wrap your app with UMEWidget in debug mode.",
+    "alternatives": [
+      {
+        "name": "inspector",
+        "why_pick_it": "Alternative debugging or inspection tool depending on your specific needs."
+      },
+      {
+        "name": "talker",
+        "why_pick_it": "Alternative logging and debugging toolkit for Flutter applications."
+      }
+    ],
+    "minimal_example": "void main() {\n  if (kDebugMode) {\n    PluginManager.instance\n      ..register(WidgetInfoInspector())\n      ..register(Performance());\n    runApp(UMEWidget(child: MyApp(), enable: true));\n  } else {\n    runApp(MyApp());\n  }\n}",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.2",
+  "generatedAt": "2026-11-16T11:44:39.143Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "animation"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Allows zooming and scrolling a ListView or other Scrollables.",
+    "what_it_does": "Provides a widget that wraps a ListView or other Scrollables to support both zooming and scrolling. Features include double-tap to zoom, programmatic zoom control, and minimum/maximum scale limits.",
+    "use_when": [
+      "You need to allow users to zoom in and out of a scrolling list of items or images.",
+      "You want support for double-tap to zoom and custom gesture handlers on scrollable widgets."
+    ],
+    "avoid_when": [
+      "You only need standard scrolling without any zooming capabilities.",
+      "You are using unsupported scrollable lists that cannot expose their ScrollPosition."
+    ],
+    "strengths": [
+      "Supports double-tap to zoom and double-tap-and-drag gestures.",
+      "Provides a ZoomViewController for programmatic zoom control.",
+      "Compatible with ListView and scrollable_positioned_list."
+    ],
+    "weaknesses": [
+      "Requires manual configuration of controllers across the list and zoom view.",
+      "Using alternative scrollable lists like scrollable_positioned_list requires a custom fork or adapter setup."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Not documented",
+    "alternatives": [],
+    "minimal_example": "class MyApp extends StatefulWidget {\n  const MyApp({super.key});\n  @override\n  State<MyApp> createState() => _MyAppState();\n}\n\nclass _MyAppState extends State<MyApp> {\n  ScrollController controller = ScrollController();\n  @override\n  Widget build(BuildContext context) {\n    return Scaffold(\n      body: ZoomListView(\n        child: ListView.builder(\n            controller: controller,\n            itemCount: 10000,\n            itemBuilder: (context, index) {\n              return Center(\n                  child: Text(\"text $index\")\n              );\n            }\n        ),\n      ),\n    );\n  }\n}",
+    "confidence": 0.95
+  }
+}

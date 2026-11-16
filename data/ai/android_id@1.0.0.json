@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.0",
+  "generatedAt": "2026-11-16T11:21:14.249Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "A Flutter plugin for retrieving the Android ID on Android devices.",
+    "what_it_does": "Provides a simple API to retrieve the unique Android ID string for the device. Returns null on non-Android platforms.",
+    "use_when": [
+      "You need to retrieve the Android ID for analytics or non-advertising tracking",
+      "You are building an Android-specific application or feature requiring device identifiers"
+    ],
+    "avoid_when": [
+      "You need a cross-platform solution for getting unique device identifiers",
+      "You require guaranteed uniqueness across factory resets or app signing key changes"
+    ],
+    "strengths": [
+      "Simple and straightforward API",
+      "Gracefully returns null on non-Android platforms instead of throwing exceptions"
+    ],
+    "weaknesses": [
+      "Only works on Android; returns null on iOS, Web, and other platforms",
+      "Android ID is not globally unique on Android 8+ (it depends on the app-signing key, user, and device)"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires Android API 24 or newer and Java 17+",
+    "alternatives": [],
+    "minimal_example": "import 'package:android_id/android_id.dart';\n\nconst _androidIdPlugin = AndroidId();\n\nfinal String? androidId = await _androidIdPlugin.getId();",
+    "confidence": 0.95
+  }
+}

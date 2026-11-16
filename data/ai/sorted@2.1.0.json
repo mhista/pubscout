@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "2.1.0",
+  "generatedAt": "2026-11-16T11:49:27.782Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Extension method to sort lists and iterables with custom rules.",
+    "what_it_does": "Provides a `sorted` extension that orders collections using configurable rules such as ordered enums, comparable fields, or custom comparators. Supports stable merge sort and works on any `Iterable`.",
+    "use_when": [
+      "You need multi‑criteria or custom ordering for in‑memory collections.",
+      "You want a stable sort without mutating the original list."
+    ],
+    "avoid_when": [
+      "You require reactive or stream‑based sorting.",
+      "You need sorting of massive data sets on a background isolate."
+    ],
+    "strengths": [
+      "Simple, chainable API via extension methods.",
+      "Supports stable merge sort and custom strategies.",
+      "Works on both List and Iterable without mutating the source."
+    ],
+    "weaknesses": [
+      "Only handles sorting; no other collection utilities.",
+      "No built‑in async or parallel sorting support."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "final sortedAuctions = auctions.sorted([\n  SortedOrdered<Auction, AuctionStatus>((a) => a.buyerContext.status,\n      [AuctionStatus.live, AuctionStatus.won, AuctionStatus.lost]),\n  SortedComparable<Auction, DateTime>((a) => a.endedAt),\n  SortedComparable<Auction, DateTime>((a) => a.endedAt, invert: true),\n]);",
+    "confidence": 0.97
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.2.0",
+  "generatedAt": "2026-11-16T11:47:59.990Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "ai-ml"
+    ],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "Dart client for the OpenAI Realtime API over WebSockets",
+    "what_it_does": "Provides a strongly-typed Dart and Flutter client for the OpenAI Realtime API. It communicates over WebSockets, enabling stateful, event-based voice and text interactions.",
+    "use_when": [
+      "You need direct, lower-level WebSocket session management for the OpenAI Realtime API.",
+      "Your Dart or Flutter application requires real-time voice or text interaction with OpenAI models."
+    ],
+    "avoid_when": [
+      "You prefer using the recommended higher-level openai_dart package for OpenAI APIs.",
+      "You are connecting directly to OpenAI from a browser environment where API keys are at risk, without a relay server."
+    ],
+    "strengths": [
+      "Strongly-typed interface for OpenAI Realtime API events and actions.",
+      "Built for both server-side Dart and client-side Flutter apps.",
+      "Includes utilities for handling tools, audio streaming, and session updates."
+    ],
+    "weaknesses": [
+      "Exposes API keys to risk if used directly in a browser environment without a relay server.",
+      "Lower-level alternative compared to the recommended openai_dart package."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires Dart 3.12 or later and an OpenAI API key.",
+    "alternatives": [],
+    "minimal_example": "final client = RealtimeClient(\n  apiKey: Platform.environment['OPENAI_API_KEY'],\n);\nawait client.connect();\nawait client.sendUserMessageContent([\n  const ContentPart.inputText(text: 'How are you?'),\n]);",
+    "confidence": 0.95
+  }
+}

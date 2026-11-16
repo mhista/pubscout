@@ -1,0 +1,47 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.0.6",
+  "generatedAt": "2026-11-16T12:10:04.110Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "Check for live network connectivity status on Android and iOS.",
+    "what_it_does": "A Flutter plugin that checks for internet availability and network connectivity status. It supports stream-based observation, periodic interval checks, and on-demand queries using NetworkCapabilities on Android and NetworkMonitor on iOS.",
+    "use_when": [
+      "You need to listen to live internet availability changes as a stream.",
+      "You need to perform periodic network connectivity checks with a custom duration.",
+      "You need to verify internet connection on call."
+    ],
+    "avoid_when": [
+      "You prefer using more standard community packages like connectivity_plus.",
+      "You do not need native network status capabilities."
+    ],
+    "strengths": [
+      "Provides both stream-based updates and on-call checks.",
+      "Allows custom lookup URLs and periodic intervals.",
+      "Native support for Android NetworkCapabilities and iOS NetworkMonitor."
+    ],
+    "weaknesses": [
+      "Very early version (0.0.6) with limited ecosystem adoption.",
+      "Requires manual setup of Android permissions and minimum SDK versions."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "For Android, add INTERNET and ACCESS_NETWORK_STATE permissions to the manifest. Minimum SDK version is 16. For iOS, minimum required version is 12.0.",
+    "alternatives": [
+      {
+        "name": "connectivity_plus",
+        "why_pick_it": "It is the official and more widely adopted community standard for checking connectivity status across multiple platforms."
+      }
+    ],
+    "minimal_example": "FlutterNetworkConnectivity flutterNetworkConnectivity = FlutterNetworkConnectivity();\nbool _isNetworkConnectedOnCall = await flutterNetworkConnectivity.isInternetConnectionAvailable();",
+    "confidence": 0.95
+  }
+}

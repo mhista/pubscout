@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.2.0",
+  "generatedAt": "2026-11-16T11:27:55.968Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Select a random element from any iterable, optionally using weights.",
+    "what_it_does": "The package exposes a generic randomChoice<T> function that returns a randomly selected item from an iterable. You can provide a parallel list of numeric weights to bias the selection.",
+    "use_when": [
+      "You need a quick, dependency‑free way to pick a random item from a list or set",
+      "You want weighted random selection without pulling in larger libraries"
+    ],
+    "avoid_when": [
+      "Cryptographically secure randomness is required",
+      "You need asynchronous streams or reactive selection"
+    ],
+    "strengths": [
+      "Zero external dependencies",
+      "Null‑safe and works on all Dart platforms",
+      "Supports weighted selection"
+    ],
+    "weaknesses": [
+      "Uses dart:math random, not suitable for security‑critical use",
+      "No async or stream support",
+      "Limited to simple weight lists"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:dart_random_choice/dart_random_choice.dart';\n\nvoid main() {\n  const foods = ['burger','pizza','salad'];\n  const weights = [10,20,0.4];\n  var choice = randomChoice<String>(foods, weights);\n  print(choice);\n}",
+    "confidence": 0.9
+  }
+}

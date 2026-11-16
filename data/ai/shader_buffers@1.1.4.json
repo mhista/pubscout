@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "1.1.4",
+  "generatedAt": "2026-11-16T11:40:09.411Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "animation"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Widget that runs GLSL shaders and feeds their output to other shaders or widgets",
+    "what_it_does": "ShaderBuffers lets you load fragment shaders from assets, pass uniforms, capture pointer events, and chain multiple shader layers. It exposes a controller to play, pause, rewind and query shader state.",
+    "use_when": [
+      "You need to display ShaderToy-like effects in a Flutter app",
+      "You want to layer multiple shaders and use their outputs as textures",
+      "You need interactive shaders that respond to touch or mouse"
+    ],
+    "avoid_when": [
+      "You only need simple image or color manipulation",
+      "You are targeting iOS with Impeller enabled (may have issues)"
+    ],
+    "strengths": [
+      "Easy to set up with a single widget",
+      "Supports multiple layers and custom uniforms",
+      "Provides built‑in uniforms (iResolution, iTime, iMouse)",
+      "Controller API for play/pause/rewind"
+    ],
+    "weaknesses": [
+      "Performance drops with many buffers",
+      "Requires Flutter 3.10+ and may not work on Impeller",
+      "Limited to fragment shaders only"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add package to pubspec, import, provide shader assets and LayerBuffer definitions",
+    "alternatives": [],
+    "minimal_example": "```dart\nfinal mainImage = LayerBuffer(\n  shaderAssetsName: 'shaders/shader_main.glsl',\n  uniforms: Uniforms([\n    Uniform(name: 'blur', range: const RangeValues(0, 1), defaultValue: 0.9),\n  ]),\n);\n\nShaderBuffers(\n  controller: ShaderController(),\n  mainImage: mainImage,\n);\n```",
+    "confidence": 0.85
+  }
+}

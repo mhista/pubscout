@@ -1,0 +1,52 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "2.0.7",
+  "generatedAt": "2026-11-16T11:44:13.119Z",
+  "data": {
+    "primary_category": "maps",
+    "secondary_categories": [
+      "backend"
+    ],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "Flutter plugin for realtime location queries using GeoFire and Firebase.",
+    "what_it_does": "Provides an API to store, query and listen to geographic keys in Firebase Realtime Database. It streams updates when keys enter, exit, or move within a radius around a location.",
+    "use_when": [
+      "You need realtime nearby‑place queries backed by Firebase Realtime Database",
+      "Your app runs on Android or iOS and can add native pod dependencies"
+    ],
+    "avoid_when": [
+      "You target web or desktop platforms",
+      "You use Cloud Firestore instead of Realtime Database",
+      "You need a fully featured mapping UI"
+    ],
+    "strengths": [
+      "Realtime updates via streams",
+      "Simple key‑based API",
+      "Supports Android and iOS with null safety"
+    ],
+    "weaknesses": [
+      "Works only with Firebase Realtime Database",
+      "No web/desktop support",
+      "Requires manual iOS pod configuration"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add pod 'GeoFire' in iOS Podfile as shown in README; ensure Firebase Realtime Database is configured and rules include .indexOn for 'g' field; Android setup is automatic via plugin.",
+    "alternatives": [
+      {
+        "name": "geolocator",
+        "why_pick_it": "Provides location fetching without Firebase dependency and works on all platforms"
+      },
+      {
+        "name": "latlong2",
+        "why_pick_it": "Utility library for geographic calculations if you implement your own backend"
+      }
+    ],
+    "minimal_example": "String path='Sites';\nGeofire.initialize(path);\nawait Geofire.setLocation('myKey',30.730743,76.774948);\nGeofire.queryAtLocation(30.730743,76.774948,5).listen((map){print(map);});",
+    "confidence": 0.78
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.1.1",
+  "generatedAt": "2026-11-16T11:26:24.154Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "device"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Change app icon at runtime on Android and iOS",
+    "what_it_does": "Provides a Flutter plugin that lets you switch the app icon while the app is running. It works on both Android and iOS by enabling/disabling activity aliases or setting alternate icons via the platform APIs.",
+    "use_when": [
+      "You need to change the app icon based on user choice or app state",
+      "You want a runtime icon change without rebuilding the app"
+    ],
+    "avoid_when": [
+      "You only need a single icon or want to change icons at build time",
+      "Your app targets platforms that do not support runtime icon changes"
+    ],
+    "strengths": [
+      "Native implementation, no extra dependencies",
+      "Simple API with isSupported, getCurrentIcon, and setIcon methods"
+    ],
+    "weaknesses": [
+      "Requires manual native configuration in AndroidManifest and Info.plist",
+      "Not supported on all devices (e.g., some Android OEMs may ignore alias changes)"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add activity-alias entries in AndroidManifest.xml and alternate icons in iOS Info.plist and Assets.xcassets. No build_runner or codegen needed.",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter_app_icon_changer/flutter_app_icon_changer.dart';\nfinal changer = FlutterAppIconChangerPlugin();\nawait changer.setIcon('Icon1');",
+    "confidence": 0.8
+  }
+}

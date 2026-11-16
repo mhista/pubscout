@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.0",
+  "generatedAt": "2026-11-16T12:12:46.992Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "animation",
+      "games"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Customizable animated spinning wheel for Flutter with weighted odds and themes.",
+    "what_it_does": "Provides a customizable spinning wheel widget supporting weighted probabilities, server-decided results, swipe-to-spin interactions, and themed frames. It handles slice layouts, animations, and result callbacks out of the box.",
+    "use_when": [
+      "You need a fortune wheel, prize wheel, or lucky draw feature in your app",
+      "You want a wheel that supports weighted odds or server-dictated landing results"
+    ],
+    "avoid_when": [
+      "Your application requires complex 3D physics simulations beyond standard 2D wheel spinning"
+    ],
+    "strengths": [
+      "Supports weighted odds and programmatic result targeting via `spinTo`",
+      "Includes built-in themes, frames, and touch interactions like swipe and tap-to-spin",
+      "Responsive design that scales cleanly to any size"
+    ],
+    "weaknesses": [
+      "Requires Flutter 3.27 / Dart 3.6 or newer"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:spinning_wheel/spinning_wheel.dart';\n\nclass PrizeWheelPage extends StatelessWidget {\n  const PrizeWheelPage({super.key});\n\n  @override\n  Widget build(BuildContext context) {\n    final SpinnerController controller = SpinnerController();\n    final List<WheelSegment<int>> segments = [\n      WheelSegment('100', 100, color: Colors.red),\n      WheelSegment('200', 200, color: Colors.blue),\n    ];\n\n    return Scaffold(\n      body: Center(\n        child: SizedBox(\n          width: 320,\n          height: 320,\n          child: SpinnerWheel<int>(\n            controller: controller,\n            segments: segments,\n            onComplete: (segment, index) {},\n          ),\n        ),\n      ),\n    );\n  }\n}",
+    "confidence": 1
+  }
+}

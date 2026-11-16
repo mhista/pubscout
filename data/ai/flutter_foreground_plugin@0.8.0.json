@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.8.0",
+  "generatedAt": "2026-11-16T12:12:45.883Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "notifications"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "A foreground service plugin for Flutter supporting Android.",
+    "what_it_does": "Allows Flutter applications to run a foreground service on Android with customizable intervals and callbacks. Supports updating notification title and contents.",
+    "use_when": [
+      "You need to run long-running tasks in a foreground service on Android",
+      "You need periodic callback execution within a foreground service"
+    ],
+    "avoid_when": [
+      "You need iOS support",
+      "You need to change the notification level"
+    ],
+    "strengths": [
+      "Supports null safety for Flutter 2.0+",
+      "Provides start and stop callbacks"
+    ],
+    "weaknesses": [
+      "Does not support iOS yet",
+      "Cannot change notification level"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding the FOREGROUND_SERVICE permission, declaring the service in AndroidManifest.xml, setting the min SDK, and providing notification icons.",
+    "alternatives": [],
+    "minimal_example": "void main() {\n  runApp(MyApp());\n  startForegroundService();\n}\n\nvoid startForegroundService() async {\n  await FlutterForegroundPlugin.setServiceMethodInterval(seconds: 5);\n  await FlutterForegroundPlugin.setServiceMethod(globalForegroundService);\n  await FlutterForegroundPlugin.startForegroundService(\n    holdWakeLock: false,\n    title: \"Flutter Foreground Service\",\n    content: \"This is Content\",\n    iconName: \"ic_stat_hot_tub\",\n  );\n}\n\nvoid globalForegroundService() {\n  debugPrint(\"current datetime is ${DateTime.now()}\");\n}",
+    "confidence": 0.95
+  }
+}

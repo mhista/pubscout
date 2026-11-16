@@ -1,0 +1,56 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.34.1",
+  "generatedAt": "2026-11-16T11:56:08.073Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative",
+      "code generation"
+    ],
+    "one_liner": "A simpler, more flexible reactive replacement for ChangeNotifier and ValueNotifier.",
+    "what_it_does": "Live Cells is a reactive programming library for Flutter that provides 'cells' to hold state. It supports functional computed cells, two-way data flow, automated resource management without dispose calls, and a built-in library of widgets for effortless data binding.",
+    "use_when": [
+      "You want a simpler alternative to ChangeNotifier or ValueNotifier with built-in functional computed cells.",
+      "You need two-way data binding between UI elements and state variables.",
+      "You want effortless state restoration with minimal boilerplate."
+    ],
+    "avoid_when": [
+      "You prefer a strictly one-way data flow unidirectional architecture like BLoC.",
+      "You are heavily invested in an existing state management ecosystem like Riverpod or Provider."
+    ],
+    "strengths": [
+      "Supports two-way data flow out of the box.",
+      "No need to manually add and remove listeners or call dispose.",
+      "Cells are unobtrusive and feel like normal values.",
+      "Integrated widget library allows seamless data binding."
+    ],
+    "weaknesses": [
+      "Relatively new ecosystem compared to mature solutions like Provider or BLoC.",
+      "Requires using its own specialized widget wrappers (like LiveTextField, LiveSwitch) for direct property binding."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Compatible with Flutter 3.41.0 and above. Optional code generation available via live_cell_extension.",
+    "alternatives": [
+      {
+        "name": "provider",
+        "why_pick_it": "You want a classic, widely adopted dependency injection and state management solution based on InheritedWidget."
+      },
+      {
+        "name": "riverpod",
+        "why_pick_it": "You want compile-safe, robust provider-like dependency injection without relying on context."
+      },
+      {
+        "name": "bloc",
+        "why_pick_it": "You require a strict, predictable state machine architecture based on streams and events."
+      }
+    ],
+    "minimal_example": "final a = MutableCell(0);\nfinal b = MutableCell(1);\nfinal sum = a + b;\n\nCellWidget.builder(() => Text('${a()} + ${b()} = ${sum()}'));",
+    "confidence": 0.95
+  }
+}

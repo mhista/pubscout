@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.2.2",
+  "generatedAt": "2026-11-16T12:11:07.833Z",
+  "data": {
+    "primary_category": "navigation",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Helper package to define type-safe paths for go_router and other routers without hardcoded strings.",
+    "what_it_does": "Provides a structured way to define navigation paths, parameters, and query strings in one central location. It removes the need for hardcoded string paths throughout your application and handles URI encoding automatically.",
+    "use_when": [
+      "You want to avoid hardcoded route strings in your GoRouter configuration",
+      "You need a type-safe and structured way to handle path parameters and query strings"
+    ],
+    "avoid_when": [
+      "You prefer code generation for your routes",
+      "You do not use go_router or similar path-based navigation packages"
+    ],
+    "strengths": [
+      "Centralizes route path definitions",
+      "Handles URL component encoding automatically",
+      "Provides helper classes for parameters and child routes"
+    ],
+    "weaknesses": [
+      "Requires manual class setup for every path structure",
+      "Does not generate routes automatically via build_runner"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "auto_route",
+        "why_pick_it": "Provides a robust, code-generated routing solution with type-safe arguments out of the box."
+      },
+      {
+        "name": "go_router_builder",
+        "why_pick_it": "Uses code generation to type-check go_router parameters and routes natively."
+      }
+    ],
+    "minimal_example": "class AppPaths {\n  static Path get home => Path('home');\n  static WelcomePath get welcome => WelcomePath();\n}\n\nclass WelcomePath extends Path<WelcomePath> {\n    WelcomePath() : super('welcome');\n\n    Path get login => Path('login', parent: this);\n}",
+    "confidence": 0.95
+  }
+}

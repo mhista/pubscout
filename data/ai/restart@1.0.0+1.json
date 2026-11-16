@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "1.0.0+1",
+  "generatedAt": "2026-11-16T11:46:40.565Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Restarts a Flutter app by recreating the engine at runtime.",
+    "what_it_does": "The plugin creates a new FlutterEngine instance and re‑executes the Dart entry point, effectively restarting the app without closing the native host. It works on Android and iOS via activity or view controller recreation.",
+    "use_when": [
+      "You need to programmatically restart the app (e.g., after a language change or critical config update)",
+      "You want a quick way to reset app state without manual navigation tricks"
+    ],
+    "avoid_when": [
+      "You require a full native app restart (process kill)",
+      "You need a solution that works on web, desktop, or other platforms not listed"
+    ],
+    "strengths": [
+      "Simple single‑call API",
+      "No native code changes required on Android",
+      "Handles iOS plugin re‑registration automatically"
+    ],
+    "weaknesses": [
+      "Only supports Android and iOS",
+      "May not work with all plugin lifecycles",
+      "Potentially disruptive user experience"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the dependency and, for iOS, insert a few lines in AppDelegate.swift to re‑register plugins; no permissions needed.",
+    "alternatives": [],
+    "minimal_example": "import 'package:restart/restart.dart';\n\nvoid someLogic(){\n  // restart the app\n  restart();\n}",
+    "confidence": 0.87
+  }
+}

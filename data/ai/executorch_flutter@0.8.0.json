@@ -1,0 +1,51 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.8.0",
+  "generatedAt": "2026-11-16T11:40:19.946Z",
+  "data": {
+    "primary_category": "ai-ml",
+    "secondary_categories": [
+      "device"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Run on-device ML models and streaming LLMs using PyTorch ExecuTorch.",
+    "what_it_does": "ExecuTorch Flutter provides a Dart API for loading and running ExecuTorch .pte models and streaming text generation models locally via dart:ffi. It handles native platform integration across Android, iOS, macOS, Windows, Linux, and Web.",
+    "use_when": [
+      "You need on-device machine learning inference using PyTorch models in Flutter.",
+      "You want to run streaming local LLMs like Gemma on mobile or desktop devices.",
+      "You require cross-platform support including web and desktop for AI workloads."
+    ],
+    "avoid_when": [
+      "You only need basic cloud-based AI inference handled via hosted backend APIs.",
+      "Your model uses unsupported tokenizers like WordPiece or BERT-family tokenizers for text processing."
+    ],
+    "strengths": [
+      "Supports all 13 ExecuTorch tensor data types.",
+      "Cross-platform support including Android, iOS, macOS, Windows, Linux, and Web.",
+      "Includes experimental streaming LLM support with hardware acceleration backends like XNNPACK, CoreML, and MLX."
+    ],
+    "weaknesses": [
+      "Requires managing large model and tokenizer files on the device.",
+      "Some backends like Vulkan and MLX are experimental or limited to specific platforms."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Configure native build options under hooks.user_defines.executorch_dart in pubspec.yaml and update minimum OS deployment targets for iOS and macOS if required.",
+    "alternatives": [
+      {
+        "name": "llamadart",
+        "why_pick_it": "Choose llamadart if you specifically want to run Llama-based models using llama.cpp in Dart."
+      },
+      {
+        "name": "tflite_flutter",
+        "why_pick_it": "Choose tflite_flutter if your models are in TensorFlow Lite format instead of PyTorch ExecuTorch."
+      }
+    ],
+    "minimal_example": "import 'package:executorch_flutter/executorch_flutter.dart';\n\nfinal model = await loadModelFromAsset('assets/models/model.pte');\nfinal outputs = await model.forward([inputTensor]);\nawait model.dispose();",
+    "confidence": 0.95
+  }
+}

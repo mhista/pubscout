@@ -1,0 +1,53 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.0",
+  "generatedAt": "2026-11-16T11:21:14.521Z",
+  "data": {
+    "primary_category": "layout",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Utilities and resolvers for responsive layouts and type-safe spacings in Flutter.",
+    "what_it_does": "Provides layout resolvers for different breakpoints (such as common desktop/tablet/phone or granular sizes) and type-safe spacing enums with context extensions. It helps handle responsive use-cases with minimal verbosity using custom layout builders.",
+    "use_when": [
+      "You want to build responsive layouts with custom breakpoints based on max width constraints.",
+      "You need type-safe, consistent spacing across different device sizes in your application."
+    ],
+    "avoid_when": [
+      "You prefer media-query based design systems without layout builders.",
+      "You already use a comprehensive alternative framework like responsive_framework."
+    ],
+    "strengths": [
+      "Reduces verbosity when writing responsive layout conditions.",
+      "Provides built-in resolvers like CommonLayout and GranularLayout.",
+      "Offers type-safe spacing utilities and context extensions."
+    ],
+    "weaknesses": [
+      "Requires wrapping your widget tree in custom resolver widgets.",
+      "Breakpoints are completely subjective and must be configured per project constraints."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "responsive_framework",
+        "why_pick_it": "Provides a comprehensive set of widgets for auto-scaling and responsive grid layouts globally across the app."
+      },
+      {
+        "name": "responsive_builder",
+        "why_pick_it": "Offers screen type layout builders and device screen type utilities out of the box."
+      },
+      {
+        "name": "sizer",
+        "why_pick_it": "Allows scaling UI based on device screen size using percentage-based extensions."
+      }
+    ],
+    "minimal_example": "Widget build(BuildContext context) {\n  final layout = context.commonLayout;\n  final textTheme = Theme.of(context).textTheme;\n\n  return layout.value(\n    desktop: () => Text('Desktop layout', style: textTheme.headline1),\n    phone: () => Text('Phone layout', style: textTheme.headline4),\n  );\n}",
+    "confidence": 1
+  }
+}

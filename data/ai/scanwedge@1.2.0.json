@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "1.2.0",
+  "generatedAt": "2026-11-16T11:22:19.564Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "stream-based"
+    ],
+    "one_liner": "Flutter plugin for Android hardware barcode scanners and battery status monitoring.",
+    "what_it_does": "It initializes device-specific scanner interfaces, lets you create custom scan profiles, streams barcode results, and provides battery information for supported Honeywell, Datalogic, Newland, Urovo and Zebra devices.",
+    "use_when": [
+      "You need to use a built‑in hardware scanner on an Android device",
+      "You want fine‑grained control over which barcode types are enabled",
+      "You need battery status or monitoring from the device"
+    ],
+    "avoid_when": [
+      "You are targeting iOS, web or desktop",
+      "Your device is not in the supported list"
+    ],
+    "strengths": [
+      "Supports multiple vendors with a single API",
+      "Provides stream of scans for reactive UI",
+      "Includes battery status and monitoring"
+    ],
+    "weaknesses": [
+      "Only works on Android and only on specific hardware",
+      "No support for non‑Android platforms",
+      "Requires manual profile setup for each vendor"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Call Scanwedge.initialize() before use; no special permissions required beyond normal Android manifest entries for hardware access.",
+    "alternatives": [],
+    "minimal_example": "final plugin = await Scanwedge.initialize();\nplugin.createProfile(ProfileModel(profileName: 'Test', enabledBarcodes: [BarcodeTypes.code128.create(minLength:5,maxLength:10)]));\nplugin.stream.listen((result) => print(result));",
+    "confidence": 0.8
+  }
+}

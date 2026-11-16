@@ -1,0 +1,53 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "1.0.10",
+  "generatedAt": "2026-11-16T11:36:00.660Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen",
+      "async"
+    ],
+    "one_liner": "Fetch live currency exchange rates and convert amounts between currencies.",
+    "what_it_does": "The package contacts a Skysol server to obtain current exchange rates. It provides a simple function to convert an amount from one currency to another using those live rates.",
+    "use_when": [
+      "You need up‑to‑date currency conversion in a Flutter app",
+      "You want a minimal, cross‑platform solution without extra boilerplate"
+    ],
+    "avoid_when": [
+      "You require offline or cached rates",
+      "You need extensive currency metadata or historical data",
+      "You need a highly configurable HTTP client"
+    ],
+    "strengths": [
+      "Very simple API – one async call does the conversion",
+      "Works on all major Flutter platforms (iOS, Android, Web, desktop)",
+      "No code generation or additional setup required"
+    ],
+    "weaknesses": [
+      "Relies on a single external server – no fallback or caching",
+      "Limited error handling and customization",
+      "Only provides conversion, not full currency data"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "http",
+        "why_pick_it": "General purpose HTTP client with more control and no external service dependency"
+      },
+      {
+        "name": "dio",
+        "why_pick_it": "Feature‑rich HTTP client with interceptors, retries and better error handling"
+      }
+    ],
+    "minimal_example": "import 'package:live_currency_rate/live_currency_rate.dart';\n\nFuture<void> main() async {\n  CurrencyRate rate = await LiveCurrencyRate.convertCurrency('USD', 'AED', 500);\n  print(rate.result);\n}",
+    "confidence": 0.85
+  }
+}

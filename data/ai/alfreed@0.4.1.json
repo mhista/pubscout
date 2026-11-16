@@ -1,0 +1,37 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.4.1",
+  "generatedAt": "2026-11-16T12:14:46.901Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Splits business logic from views and manages page/animation state in Flutter.",
+    "what_it_does": "Forces a separation between business logic (presenters), view interfaces, and UI pages. It manages page states, animation controllers, and responsive layouts based on device size categories.",
+    "use_when": [
+      "You want to enforce a strict separation between business logic and UI views.",
+      "You need built-in support for page animation controllers and responsive device sizing."
+    ],
+    "avoid_when": [
+      "You are already using a comprehensive reactive state management solution like BLoC, Riverpod, or Provider and do not need an extra architecture wrapper."
+    ],
+    "strengths": [
+      "Clean separation of business logic via presenters and view interfaces.",
+      "Built-in handling of animation controllers and multi-animations.",
+      "Responsive device sizing context based on standard breakpoint ranges."
+    ],
+    "weaknesses": [
+      "Requires adopting a specific architectural pattern and class structure.",
+      "Not a reactive state management library on its own."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "class SecondPage extends AlfreedPage<MyPresenter, MyModel, ViewInterface> {\n  SecondPage({Object? args}) : super(args: args);\n\n  @override\n  AlfreedPageBuilder<MyPresenter, MyModel, ViewInterface> build() {\n    return AlfreedPageBuilder(\n      key: ValueKey(\"presenter\"),\n      builder: (ctx, presenter, model) {\n        return Scaffold(\n          appBar: AppBar(title: Text(model.title ?? \"\")),\n        );\n      },\n      presenterBuilder: (context) => MyPresenter(),\n      interfaceBuilder: (context) => ViewInterface(context),\n    );\n  }\n}",
+    "confidence": 0.9
+  }
+}

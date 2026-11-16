@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.1.0",
+  "generatedAt": "2026-11-16T11:48:06.961Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Check overlapping DateTime ranges in a list of ranges",
+    "what_it_does": "The package provides a lightweight utility to determine which DateTime ranges overlap. It returns overlapping IDs, the overlapping objects, or a boolean for two ranges.",
+    "use_when": [
+      "Detecting scheduling conflicts",
+      "Validating event overlaps in calendars",
+      "Ensuring non-overlapping time slots"
+    ],
+    "avoid_when": [
+      "Complex recurrence rules or non-DateTime intervals",
+      "When you need to handle time zones or daylight saving adjustments"
+    ],
+    "strengths": [
+      "Fast and lightweight",
+      "Simple API with no code generation",
+      "Handles duplicate ID assertion"
+    ],
+    "weaknesses": [
+      "Only works with DateTimeRange",
+      "No support for recurring events or time zone conversions",
+      "Limited to Flutter platform"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "final range1 = DateTimeRange(start: DateTime.now(), end: DateTime.now().add(const Duration(hours: 2)));\nfinal range2 = DateTimeRange(start: DateTime.now(), end: DateTime.now().add(const Duration(hours: 1)));\nfinal overlapParams = [\n  OverlapParams('001', range1, {}),\n  OverlapParams('002', range2, {}),\n];\nprint(TimeOverlapFinder.findOverlap(overlapParams));",
+    "confidence": 0.9
+  }
+}

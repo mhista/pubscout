@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.2",
+  "generatedAt": "2026-11-16T12:06:02.553Z",
+  "data": {
+    "primary_category": "devtools",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "declarative",
+      "stream-based"
+    ],
+    "one_liner": "Flutter debug overlay for real-time inspection of HTTP requests and WebSockets.",
+    "what_it_does": "Thunder is a debug overlay for Flutter apps that intercepts and monitors `package:http` requests and `web_socket_channel` WebSockets in real time. It provides a slide-out panel with detailed logs, headers, response views, session timelines, and curl command generation.",
+    "use_when": [
+      "You want to inspect HTTP network traffic and WebSockets directly inside your Flutter app during development",
+      "You need an easy slide-out debug overlay panel to search and filter network calls"
+    ],
+    "avoid_when": [
+      "You are using a networking library other than package:http or web_socket_channel that doesn't support the provided middleware",
+      "You need network inspection in production builds (Thunder is intended for debug mode only)"
+    ],
+    "strengths": [
+      "Monitors both HTTP requests and WebSockets with timeline tracking",
+      "Includes search, filter, and clear log features",
+      "Automatically disabled in release builds",
+      "Platform support across Android, iOS, Web, macOS, Linux, and Windows"
+    ],
+    "weaknesses": [
+      "Requires Flutter >= 3.47.0 and Dart >= 3.13.0 for version 2.x",
+      "Limited to package:http-based clients and web_socket_channel"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the package to pubspec.yaml, wrap your app root widget with Thunder, and plug Thunder.middleware into your HTTP client.",
+    "alternatives": [],
+    "minimal_example": "void main() {\n  final client = ApiClient(\n    uri: Uri.parse('https://jsonplaceholder.typicode.com'),\n    middlewares: <ApiClientMiddleware>[Thunder.middleware],\n  );\n\n  runApp(MyApp(client: client));\n}\n\nclass MyApp extends StatelessWidget {\n  const MyApp({required this.client, super.key});\n  final ApiClient client;\n\n  @override\n  Widget build(BuildContext context) => MaterialApp(\n    title: 'My App',\n    home: const HomePage(),\n    builder: (context, child) => Thunder(child: child ?? const SizedBox.shrink()),\n  );\n}",
+    "confidence": 1
+  }
+}

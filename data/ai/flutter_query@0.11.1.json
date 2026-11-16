@@ -1,0 +1,50 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.11.1",
+  "generatedAt": "2026-11-16T11:38:33.349Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "hooks",
+      "declarative"
+    ],
+    "one_liner": "Asynchronous state management for server data with automatic caching and background updates.",
+    "what_it_does": "Fetches, caches, and synchronizes server data in Flutter applications, providing automatic request deduplication, background refetching, and stale-while-revalidate capabilities. It is inspired by TanStack Query and utilizes Flutter hooks.",
+    "use_when": [
+      "You want automatic caching and background refetching for remote server data",
+      "You are already using flutter_hooks in your application"
+    ],
+    "avoid_when": [
+      "You are not using flutter_hooks and prefer traditional state management architectures",
+      "You are dealing with simple local state that does not involve network requests"
+    ],
+    "strengths": [
+      "Automatic caching and stale time configuration",
+      "Request deduplication for shared network requests",
+      "Built-in support for infinite pagination and optimistic updates"
+    ],
+    "weaknesses": [
+      "Requires flutter_hooks for its core API widgets/functions",
+      "Relatively new package with evolving APIs before v1.0.0"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires Flutter >=3.32.0 and Dart >=3.0.0 <4.0.0.",
+    "alternatives": [
+      {
+        "name": "riverpod",
+        "why_pick_it": "If you prefer a robust, global provider-based dependency injection and state management solution without relying strictly on flutter_hooks."
+      },
+      {
+        "name": "bloc",
+        "why_pick_it": "If you want a strict event-driven state management pattern with predictable state transitions."
+      }
+    ],
+    "minimal_example": "useQuery(['user'], fetchUser, seed: Seed.value(cachedUser));",
+    "confidence": 0.95
+  }
+}

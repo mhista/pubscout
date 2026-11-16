@@ -1,0 +1,37 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.2.0",
+  "generatedAt": "2026-11-16T11:42:19.878Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "A Dart List where filters can be applied and elements accessed or modified in that state.",
+    "what_it_does": "Provides a FilteredList class that allows applying filters while retaining the ability to access, modify, insert, or remove elements relative to the filtered or original state.",
+    "use_when": [
+      "You need a collection list that supports active filtering while allowing modifications.",
+      "You want to manipulate items within a filtered subset or the original underlying list seamlessly."
+    ],
+    "avoid_when": [
+      "You need reactive state management frameworks to handle list UI rebuilds automatically.",
+      "You require range modification operations like removeRange, fillRange, or replaceRange which are not yet implemented."
+    ],
+    "strengths": [
+      "Allows fine-grained operations relative to filtered or original scopes (e.g. remove vs removeFromOriginal).",
+      "Simple API that mirrors a standard Dart List."
+    ],
+    "weaknesses": [
+      "Several range methods (removeRange, fillRange, replaceRange) are not implemented yet.",
+      "Limited documentation and features outside of basic list manipulations."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "var list = FilteredList(initialList: [1, 2, 3, 4, 5]);\nlist.setFilter((e) => e > 3); // [4, 5]\nlist.insert(0, 35); // [35, 4, 5]",
+    "confidence": 0.95
+  }
+}

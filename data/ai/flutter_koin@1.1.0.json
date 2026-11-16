@@ -1,0 +1,52 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.1.0",
+  "generatedAt": "2026-11-16T12:07:35.801Z",
+  "data": {
+    "primary_category": "dependency-injection",
+    "secondary_categories": [
+      "codegen"
+    ],
+    "approach": [
+      "code generation",
+      "declarative"
+    ],
+    "one_liner": "A lightweight dependency injection library for Flutter with code generation and scopes.",
+    "what_it_does": "Generates dependency injection registrations from annotations like @RootScoped, @Scoped, and @Factory. It offers constructor injection, interface bindings, and scope-aware lifecycles for Flutter apps.",
+    "use_when": [
+      "You want annotation-based dependency injection with code generation.",
+      "Your app requires root and feature-scoped lifecycles with automatic disposal.",
+      "You prefer constructor injection for required positional and named parameters."
+    ],
+    "avoid_when": [
+      "You require asynchronous factories or asynchronous dependency resolution.",
+      "You need to inject optional constructor parameters automatically."
+    ],
+    "strengths": [
+      "No runtime reflection due to build_runner code generation.",
+      "Scope-aware lifecycles integrated with Flutter widgets via KoinScopeHost.",
+      "Supports interface bindings using bindAs."
+    ],
+    "weaknesses": [
+      "Generated factories and dependency resolution are strictly synchronous.",
+      "Does not support generic classes or constructors with optional parameters for injection.",
+      "Root-scoped dependencies cannot depend on feature-scoped dependencies."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add flutter_koin and build_runner as a dev dependency, then run the build_runner command to generate part files.",
+    "alternatives": [
+      {
+        "name": "get_it",
+        "why_pick_it": "If you prefer a service locator without code generation or part files."
+      },
+      {
+        "name": "injectable",
+        "why_pick_it": "If you need a more feature-complete annotation-based DI framework built on top of get_it."
+      }
+    ],
+    "minimal_example": "import 'package:flutter_koin/flutter_koin.dart';\n\npart 'app_di.koin.dart';\n\n@RootScoped()\nclass ApiClient {\n  String get status => 'Connected';\n}",
+    "confidence": 0.95
+  }
+}

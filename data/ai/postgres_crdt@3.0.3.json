@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "3.0.3",
+  "generatedAt": "2026-11-16T11:44:25.553Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [
+      "backend"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Dart CRDT client for PostgreSQL",
+    "what_it_does": "Provides conflict‑free replicated data types over a PostgreSQL database, enabling distributed, conflict‑free synchronization of data.",
+    "use_when": [
+      "You need to sync data across multiple nodes using PostgreSQL",
+      "You want conflict‑free replication without writing custom merge logic",
+      "You need efficient bulk writes and prepared statements for large datasets"
+    ],
+    "avoid_when": [
+      "You are not using PostgreSQL",
+      "You need a lightweight local storage solution",
+      "You require a fully managed backend service like Firebase"
+    ],
+    "strengths": [
+      "Performance refactor with prepared statements",
+      "Efficient bulk writes",
+      "Custom node IDs and HLC support",
+      "Comprehensive changelog with bug fixes"
+    ],
+    "weaknesses": [
+      "Only works with PostgreSQL",
+      "Requires careful async handling",
+      "No built‑in UI or higher‑level abstractions"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add postgres dependency, configure PostgreSQL instance, await async calls, optionally enable unawaited_futures linter warning",
+    "alternatives": [],
+    "minimal_example": "import 'package:postgres_crdt/postgres_crdt.dart';\n\nfinal api = CrdtApi('postgres://user:pass@localhost:5432/db');\nawait api.connect();\nfinal changeset = await api.getChangeset();\nawait api.applyChangeset(changeset);",
+    "confidence": 0.8
+  }
+}
