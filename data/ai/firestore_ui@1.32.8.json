@@ -1,0 +1,46 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "1.32.8",
+  "generatedAt": "2026-11-17T12:08:02.286Z",
+  "data": {
+    "primary_category": "backend",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "stream-based"
+    ],
+    "one_liner": "Animated Firestore list, grid and staggered widgets that react to realtime updates.",
+    "what_it_does": "Provides FirestoreAnimatedList, FirestoreAnimatedGrid, and FirestoreAnimatedStaggered widgets. They listen to a Firestore query stream and animate insertions, removals, and moves. Custom callbacks allow filtering and debugging.",
+    "use_when": [
+      "You need a realtime list or grid UI backed by Cloud Firestore",
+      "You want automatic animations for data changes without writing manual diff logic"
+    ],
+    "avoid_when": [
+      "You require fine‑grained control over animations beyond the provided defaults",
+      "You are not using Firestore as a data source"
+    ],
+    "strengths": [
+      "Zero boilerplate for animated Firestore lists",
+      "Supports list, grid and staggered layouts",
+      "Customizable filtering and debug logging"
+    ],
+    "weaknesses": [
+      "Tied to Firestore; not usable with other backends",
+      "Limited animation customization",
+      "Adds another dependency on flutter_staggered_grid_view for staggered grids"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add firestore_ui, firebase_core and cloud_firestore to pubspec; ensure Firebase is initialized in main() with Firebase.initializeApp(). No code generation required.",
+    "alternatives": [
+      {
+        "name": "cloud_firestore",
+        "why_pick_it": "Provides raw query streams; you can build custom UI and animations manually for full control"
+      }
+    ],
+    "minimal_example": "FirestoreAnimatedList(\n  query: FirebaseFirestore.instance.collection('messages'),\n  itemBuilder: (context, snapshot, animation, index) => FadeTransition(\n    opacity: animation,\n    child: ListTile(title: Text(snapshot['text'])),\n  ),\n);",
+    "confidence": 0.93
+  }
+}

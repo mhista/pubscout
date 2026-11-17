@@ -1,0 +1,54 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.2",
+  "generatedAt": "2026-11-17T12:15:43.267Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "images"
+    ],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "A Flutter avatar widget with automatic initials fallback and multi-source image support.",
+    "what_it_does": "Avatar Brick wraps network, asset, file, and memory images behind a consistent API while automatically falling back to initials when no photo is available. It provides styling for size, shape, borders, shadows, and colors.",
+    "use_when": [
+      "You need user avatars or profile pictures that support both photos and initials fallbacks",
+      "You want a unified API for network, asset, file, and memory images with shared styling",
+      "You need non-circular avatars with custom borders and shadows"
+    ],
+    "avoid_when": [
+      "You need to use SVGs directly via flutter_svg",
+      "You want cached_network_image integration out of the box",
+      "You need the initials fallback to trigger automatically on a network image load error"
+    ],
+    "strengths": [
+      "One consistent API across all image sources",
+      "Automatic initials generation from full names",
+      "No extra dependencies outside of the Flutter SDK",
+      "Customizable size, shapes, borders, and shadows"
+    ],
+    "weaknesses": [
+      "Does not support SVG widgets directly",
+      "Does not support CachedNetworkImage directly",
+      "Network image load failure renders empty space rather than switching to initials"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "octo_image",
+        "why_pick_it": "Advanced image loading with built-in placeholder and error builders for network images."
+      },
+      {
+        "name": "cached_network_image",
+        "why_pick_it": "If you need network image caching and custom placeholder/error widgets."
+      }
+    ],
+    "minimal_example": "AvatarBrick.network(\n  src: user.avatarUrl,\n  name: user.fullName,\n);",
+    "confidence": 0.95
+  }
+}

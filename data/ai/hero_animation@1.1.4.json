@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "1.1.4",
+  "generatedAt": "2026-11-17T12:08:07.437Z",
+  "data": {
+    "primary_category": "animation",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Animates a child between positions in the same route",
+    "what_it_does": "HeroAnimation moves its child from one layout position to another within the same Route. It works in scrollable lists and supports repositioning between tree nodes.",
+    "use_when": [
+      "Need a hero-like animation within a single route",
+      "Repositioning items in a list or grid",
+      "Animating widgets on tap or state change"
+    ],
+    "avoid_when": [
+      "Cross‑route hero animations are required",
+      "Complex physics‑based motion beyond simple repositioning"
+    ],
+    "strengths": [
+      "Simple API, no extra dependencies",
+      "Works in scrollable widgets",
+      "Supports both same‑node and different‑node repositioning"
+    ],
+    "weaknesses": [
+      "Limited to same route only",
+      "No support for cross‑route transitions",
+      "Requires key or tag management"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "```dart\nHeroAnimationScene(\n  duration: const Duration(milliseconds: 500),\n  curve: Curves.easeIn,\n  child: GestureDetector(\n    onTap: () { setState(() { alignment = Alignment.centerRight; }); },\n    child: Align(\n      alignment: alignment,\n      child: HeroAnimation.child(\n        tag: 'tag_0',\n        child: const Text('SOME TEXT'),\n      ),\n    ),\n  ),\n);\n```",
+    "confidence": 0.9
+  }
+}

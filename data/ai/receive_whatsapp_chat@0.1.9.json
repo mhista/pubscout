@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.1.9",
+  "generatedAt": "2026-11-17T12:21:21.868Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "files"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Receive and parse exported WhatsApp chats shared from the WhatsApp app.",
+    "what_it_does": "Enables Flutter apps to receive exported chat files shared from WhatsApp on Android and iOS. It automatically parses the chat file into members, messages, timestamps, and statistics.",
+    "use_when": [
+      "You are building an app that needs to analyze WhatsApp chats",
+      "You want users to be able to export a chat from WhatsApp and open it directly in your app"
+    ],
+    "avoid_when": [
+      "You need real-time messaging integration via the WhatsApp API",
+      "You only need general file sharing without specific WhatsApp chat parsing"
+    ],
+    "strengths": [
+      "Automatically parses chat files into structured objects (members, messages, stats)",
+      "Supports both Android and iOS platforms",
+      "Provides helper mixin for widgets to easily receive shared chats"
+    ],
+    "weaknesses": [
+      "Requires platform-specific setup on both Android (modifying MainActivity) and iOS (Share Extension and App Groups)",
+      "Works best with chats exported in English"
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Android requires changing MainActivity to extend FlutterShareReceiverActivity. iOS requires creating a Share Extension, configuring App Groups, updating Info.plist files, and modifying the Podfile.",
+    "alternatives": [],
+    "minimal_example": "class _HomePageState extends ReceiveWhatsappChat<HomePage> {\n  final List<ChatContent> chats = [];\n\n  @override\n  void receiveChatContent(ChatContent chatContent) {\n    setState(() => chats.add(chatContent));\n  }\n\n  @override\n  Widget build(BuildContext context) {\n    return ListView(\n      children: [\n        for (final chat in chats)\n          ListTile(\n            title: Text(chat.chatName),\n            subtitle: Text('${chat.sizeOfChat} messages'),\n          ),\n      ],\n    );\n  }\n}",
+    "confidence": 0.95
+  }
+}

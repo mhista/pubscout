@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.0.7+1",
+  "generatedAt": "2026-11-17T12:09:27.994Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "Wrapper for the Web Serial API to use serial ports in Flutter web.",
+    "what_it_does": "Provides a thin Dart wrapper around window.navigator.serial so you can request, open, read from, and write to serial ports from Flutter web. It exposes the native streaming APIs without requiring custom JavaScript.",
+    "use_when": [
+      "You need to communicate with serial devices from a Flutter web app",
+      "You want a zero‑JS, out‑of‑the‑box solution for the Web Serial API"
+    ],
+    "avoid_when": [
+      "Your app targets mobile or desktop platforms",
+      "You require advanced serial features not exposed by the browser API",
+      "You need cross‑platform serial support"
+    ],
+    "strengths": [
+      "Simple, no extra JavaScript needed",
+      "Uses native streaming APIs for read/write",
+      "Works in secure‑context browsers"
+    ],
+    "weaknesses": [
+      "Web‑only, no support for other platforms",
+      "Limited to the capabilities of the browser's Serial API",
+      "Minimal documentation"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Run the app over HTTPS (secure context) to access serial ports; no native setup required.",
+    "alternatives": [],
+    "minimal_example": "import 'dart:html';\nimport 'package:serial/serial.dart';\n\nfinal port = await window.navigator.serial.requestPort();\nawait port.open(baudRate: 9600);\n\nfinal writer = port.writable.writer;\nawait writer.ready;\nawait writer.write(Uint8List.fromList('Hello World.'.codeUnits));\nawait writer.ready;\nawait writer.close();",
+    "confidence": 0.9
+  }
+}

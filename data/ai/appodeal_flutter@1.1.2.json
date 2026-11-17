@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "1.1.2",
+  "generatedAt": "2026-11-17T12:12:32.049Z",
+  "data": {
+    "primary_category": "payments",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Flutter plugin to display Appodeal ads with consent handling.",
+    "what_it_does": "Provides a wrapper around the Appodeal SDK to load and show Banner, MREC, Interstitial, Reward and Non‑Skippable ads. It also includes utilities for user‑consent and iOS tracking authorization.",
+    "use_when": [
+      "You need to integrate Appodeal ads in a Flutter app",
+      "You require built‑in consent dialogs for GDPR/CCPA or iOS 14+ tracking"
+    ],
+    "avoid_when": [
+      "You prefer a maintained official package",
+      "You want to avoid the extra 64K method count or fake AdMob ID requirement"
+    ],
+    "strengths": [
+      "Supports all major Appodeal ad formats",
+      "Handles consent and iOS tracking permission automatically",
+      "Bundled native SDK setup (no manual Gradle/CocoaPods steps)"
+    ],
+    "weaknesses": [
+      "Package is archived and no longer maintained",
+      "May increase method count leading to multidex issues",
+      "Requires adding a dummy AdMob ID if AdMob is not used"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Enable multidex for Android, add fake AdMob APPLICATION_ID if not using AdMob, call Appodeal.requestIOSTrackingAuthorization() on iOS 14+, set Appodeal app keys before initialization",
+    "alternatives": [
+      {
+        "name": "stack_appodeal_flutter",
+        "why_pick_it": "Officially supported by Appodeal and actively maintained"
+      },
+      {
+        "name": "google_mobile_ads",
+        "why_pick_it": "General Google AdMob ads with active support and no forced AdMob ID"
+      }
+    ],
+    "minimal_example": "import 'package:appodeal_flutter/appodeal_flutter.dart';\n\nvoid main() async {\n  WidgetsFlutterBinding.ensureInitialized();\n  Appodeal.setAppKeys(androidAppKey:'YOUR_ANDROID_KEY', iosAppKey:'YOUR_IOS_KEY');\n  await Appodeal.initialize(\n    hasConsent:true,\n    adTypes:[AdType.banner,AdType.interstitial,AdType.reward],\n    testMode:true,\n    verbose:true,\n  );\n  runApp(MyApp());\n}",
+    "confidence": 0.93
+  }
+}

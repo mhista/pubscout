@@ -1,0 +1,48 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "2.0.1",
+  "generatedAt": "2026-11-17T12:19:01.783Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Flutter widget for real-time audio visualizations using custom painter or shaders.",
+    "what_it_does": "AudioFlux captures audio from playback or microphone and renders it as waveforms, FFT spectra, or GPU‑accelerated shader effects. It provides a configurable widget that updates automatically as audio data changes.",
+    "use_when": [
+      "You need a real‑time visual representation of audio in a Flutter app",
+      "You want to display waveforms, frequency spectra, or custom shader effects",
+      "You are already using flutter_soloud or flutter_recorder for audio"
+    ],
+    "avoid_when": [
+      "You only need audio playback without visualization",
+      "You lack the ability to add platform permissions or shader assets",
+      "You require a pure Dart solution without native dependencies"
+    ],
+    "strengths": [
+      "Supports both CustomPainter and shader‑based rendering",
+      "Works on all major Flutter platforms",
+      "Integrates with flutter_soloud and flutter_recorder for live audio capture"
+    ],
+    "weaknesses": [
+      "Relies on external packages that may introduce breaking changes",
+      "Custom shaders require GLSL knowledge",
+      "Setup includes platform‑specific permissions"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add flutter_soloud and flutter_recorder to pubspec, configure microphone/audio permissions, register shader assets in flutter: shaders section, then use AudioFlux widget",
+    "alternatives": [
+      {
+        "name": "just_audio",
+        "why_pick_it": "Provides robust audio playback without the extra visualization layer"
+      }
+    ],
+    "minimal_example": "AudioFlux(\n  fluxType: FluxType.waveform,\n  dataSource: DataSources.soloud,\n  modelParams: ModelParams(\n    waveformParams: WaveformPainterParams(barsWidth: 2, barSpacingScale: 0.5, chunkSize: 1),\n  ),\n)",
+    "confidence": 0.9
+  }
+}

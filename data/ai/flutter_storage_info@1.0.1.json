@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "1.0.1",
+  "generatedAt": "2026-11-17T11:56:58.591Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Flutter plugin to retrieve internal and external storage usage on Android devices.",
+    "what_it_does": "Provides methods to get total, free and used space for internal and external storage, convert values to MB/GB, calculate directory sizes and detect low‑storage conditions. All calls return futures with byte or numeric values.",
+    "use_when": [
+      "You need to display or log device storage statistics",
+      "You want to warn users when device storage is low",
+      "You need to calculate size of specific directories"
+    ],
+    "avoid_when": [
+      "Your app must run on iOS or other platforms without storage support",
+      "You require real‑time storage monitoring without polling",
+      "You prefer a solution that doesn't need extra Android permissions"
+    ],
+    "strengths": [
+      "Simple, focused API for storage queries",
+      "Supports both internal and external (SD card) storage",
+      "Includes helper methods for unit conversion and low‑storage detection"
+    ],
+    "weaknesses": [
+      "Android‑only; iOS support is pending",
+      "Requires READ/WRITE_EXTERNAL_STORAGE permissions",
+      "No streaming or continuous monitoring features"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add <uses-permission android:name=\"android.permission.READ_EXTERNAL_STORAGE\"/> and <uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\"/> to AndroidManifest.xml. No additional build steps required.",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter_storage_info/flutter_storage_info.dart';\n\nvoid main() async {\n  int total = await FlutterStorageInfo.storageTotalSpace;\n  int free = await FlutterStorageInfo.storageFreeSpace;\n  int used = await FlutterStorageInfo.storageUsedSpace;\n  print('Total: $total, Free: $free, Used: $used');\n}",
+    "confidence": 0.9
+  }
+}

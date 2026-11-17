@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "4.1.0",
+  "generatedAt": "2026-11-17T12:19:32.515Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "A Flutter plugin for streaming radio with background playback and lock‑screen controls.",
+    "what_it_does": "Plays online radio streams on Android and iOS, supporting background audio, media controls, and metadata extraction. Provides a queue of sources with navigation and volume control.",
+    "use_when": [
+      "You need continuous radio streaming with background playback",
+      "You want lock‑screen and notification media controls without writing platform code"
+    ],
+    "avoid_when": [
+      "You only need simple one‑off audio playback",
+      "You require advanced audio processing like equalization"
+    ],
+    "strengths": [
+      "Background playback works out‑of‑the‑box",
+      "Supports lock‑screen, notification, CarPlay, Android Auto, and watchOS",
+      "Typed source model and stream‑based state updates"
+    ],
+    "weaknesses": [
+      "Limited to streaming radio URLs (no local files)",
+      "No built‑in support for playlists beyond simple queue",
+      "Relies on platform permissions and manifest changes"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add INTERNET, FOREGROUND_SERVICE, and FOREGROUND_SERVICE_MEDIA_PLAYBACK permissions to AndroidManifest.xml; enable Audio/Background Modes in iOS Signing & Capabilities and optionally allow arbitrary HTTP loads in Info.plist.",
+    "alternatives": [
+      {
+        "name": "audioplayers",
+        "why_pick_it": "Provides a broader set of audio features including local files, playlists, and more mature API, but requires manual background setup."
+      },
+      {
+        "name": "just_audio",
+        "why_pick_it": "Offers extensive audio capabilities, gapless playback, and advanced audio processing; suitable if you need more than simple radio streaming."
+      }
+    ],
+    "minimal_example": "import 'package:flutter_radio_player/flutter_radio_player.dart';\n\nfinal player = FlutterRadioPlayer();\nawait player.initialize([\n  const RadioSource(url: 'https://example.com/stream.m3u8'),\n], playWhenReady: true);\nawait player.play();",
+    "confidence": 0.92
+  }
+}

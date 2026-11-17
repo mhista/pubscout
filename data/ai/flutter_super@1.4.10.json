@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "1.4.10",
+  "generatedAt": "2026-11-17T12:02:36.288Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [
+      "dependency-injection"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Reactive state management framework with built‑in dependency injection for Flutter.",
+    "what_it_does": "Super provides RxNotifier, RxCollections and widget helpers like SuperBuilder and SuperConsumer to build reactive UIs. It also offers a lightweight DI system via Super.init and Super.create.",
+    "use_when": [
+      "You need a simple, MVVM‑style state management solution without code generation.",
+      "You want to inject services globally and mock them easily in tests.",
+      "You prefer a declarative UI that rebuilds only on state changes.",
+      "You want built‑in testing utilities like super_test."
+    ],
+    "avoid_when": [
+      "You already use a mature state manager like Riverpod, Bloc or GetX.",
+      "You need advanced features such as complex navigation or backend integrations that Super does not cover."
+    ],
+    "strengths": [
+      "Zero boilerplate for reactive state and DI.",
+      "Built‑in testing support with super_test.",
+      "Lightweight and easy to integrate into existing projects.",
+      "Supports auto‑dispose for individual dependencies."
+    ],
+    "weaknesses": [
+      "Limited ecosystem compared to Riverpod or Bloc.",
+      "No built‑in navigation or backend clients.",
+      "Documentation is concise but may need deeper exploration for advanced use cases."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dependency in pubspec, wrap root with SuperApp, use Super.init for services.",
+    "alternatives": [
+      {
+        "name": "riverpod",
+        "why_pick_it": "Provides a more mature, feature‑rich state management and DI system with extensive community support."
+      }
+    ],
+    "minimal_example": "```dart\nimport 'package:flutter_super/flutter_super.dart';\n\nvoid main() => runApp(const SuperApp(child: MyApp()));\n\nclass MyApp extends StatelessWidget {\n  const MyApp({super.key});\n  @override\n  Widget build(BuildContext context) => const MaterialApp(home: HomeView());\n}\n\nfinal counter = Super.init(CountNotifier());\nclass CountNotifier extends RxNotifier<int> {\n  @override\n  int initial() => 0;\n  void increment() => state++;\n}\nclass HomeView extends StatelessWidget {\n  const HomeView({super.key});\n  @override\n  Widget build(BuildContext context) => Scaffold(\n    body: Center(\n      child: SuperBuilder(builder: (_) => Text('${counter.state}')),\n    ),\n    floatingActionButton: FloatingActionButton(onPressed: counter.increment),\n  );\n}\n```",
+    "confidence": 0.9
+  }
+}

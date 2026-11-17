@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "6.15.0+300",
+  "generatedAt": "2026-11-17T12:15:37.014Z",
+  "data": {
+    "primary_category": "notifications",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter plugin for Huawei Push Kit, enabling push and local notifications on Android.",
+    "what_it_does": "Provides a Dart interface to Huawei Push Kit SDK, allowing apps to receive push messages, schedule local notifications, and handle deep links. It also supports exact alarm scheduling for Android 12+.",
+    "use_when": [
+      "Need push notifications on Huawei devices",
+      "Want to use Huawei's native push service instead of Firebase",
+      "Require local notification scheduling with exact timing"
+    ],
+    "avoid_when": [
+      "Targeting only iOS or non-Huawei Android devices",
+      "Already using Firebase Cloud Messaging"
+    ],
+    "strengths": [
+      "Full coverage of Huawei Push Kit SDK features",
+      "Handles Android 12+ exact alarm permissions",
+      "Supports scheduled local notifications and deep linking"
+    ],
+    "weaknesses": [
+      "Android‑only, no iOS support",
+      "Requires Huawei account and AppGallery Connect setup",
+      "Must add SCHEDULE_EXACT_ALARM permission manually"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add dependency to pubspec, add android permission <uses-permission android:name=\"android.permission.SCHEDULE_EXACT_ALARM\"/> in AndroidManifest, configure AppGallery Connect credentials, initialize plugin in main.dart.",
+    "alternatives": [
+      {
+        "name": "firebase_messaging",
+        "why_pick_it": "Provides cross‑platform push notifications and works on non‑Huawei devices"
+      }
+    ],
+    "minimal_example": "import 'package:huawei_push/huawei_push.dart';\n\nvoid main() async {\n  WidgetsFlutterBinding.ensureInitialized();\n  await HuaweiPush.instance.initialize();\n  runApp(MyApp());\n}",
+    "confidence": 0.8
+  }
+}

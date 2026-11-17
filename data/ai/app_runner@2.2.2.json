@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.2.2",
+  "generatedAt": "2026-11-17T12:14:47.295Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Configurator for controlled Flutter app initialization, error handling, and splash screen management.",
+    "what_it_does": "Provides a robust entry point structure to initialize asynchronous services before app startup, handle Dart and Flutter errors safely, and display custom splash screens without blocking.",
+    "use_when": [
+      "You need to initialize asynchronous services like Firebase before running the app widget tree.",
+      "You want centralized error handling for uncaught exceptions and Flutter errors.",
+      "You want to show a custom splash screen during asynchronous pre-initialization."
+    ],
+    "avoid_when": [
+      "Your application relies on standard minimal runApp setups without complex pre-initialization.",
+      "You are using a lower Flutter version than 3.10.0 (unless using package version 2.1.2 and below)."
+    ],
+    "strengths": [
+      "Simplifies safe zone configuration and error management.",
+      "Allows pre-initialization of data before building the main app widget.",
+      "Provides independent debug and release error screens."
+    ],
+    "weaknesses": [
+      "Introduces custom abstractions over standard Flutter entry point logic.",
+      "Requires updating configuration patterns when upgrading major package versions."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Replace standard main() implementation with appRunner configuration.",
+    "alternatives": [],
+    "minimal_example": "import 'package:app_runner/app_runner.dart';\nimport 'package:flutter/material.dart';\n\nvoid main() {\n  appRunner(\n    RunnerConfiguration.guarded(\n      widgetConfig: WidgetConfiguration(\n        child: const MyApp(),\n      ),\n      zoneConfig: ZoneConfiguration(\n        onZoneError: (Object error, StackTrace stackTrace) {},\n      ),\n    ),\n  );\n}",
+    "confidence": 1
+  }
+}

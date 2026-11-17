@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.3.0+1",
+  "generatedAt": "2026-11-17T12:23:39.611Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "web-desktop"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Dart FFI bindings to libserialport for accessing serial ports.",
+    "what_it_does": "Provides Dart FFI bindings to the C library libserialport, enabling applications to list available serial ports, open them, read from and write to them.",
+    "use_when": [
+      "You need to communicate with hardware devices over serial ports in a Dart or Flutter application.",
+      "You want stream-based reading capabilities from serial interfaces."
+    ],
+    "avoid_when": [
+      "You are not prepared to bundle or deploy the native libserialport C library with your target application.",
+      "You only need high-level networking protocols instead of direct hardware serial communication."
+    ],
+    "strengths": [
+      "Direct and efficient FFI bindings to libserialport.",
+      "Provides streams for easy asynchronous reading of incoming serial data."
+    ],
+    "weaknesses": [
+      "Requires bundling native binaries on the target host platform.",
+      "Requires additional tooling or wrapper packages (like flutter_libserialport) for automated building and deployment on Flutter."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires libserialport to be bundled or deployed with the host application. For Flutter apps, using flutter_libserialport is recommended as a drop-in solution to handle native builds.",
+    "alternatives": [],
+    "minimal_example": "import 'package:libserialport/libserialport.dart';\n\nfinal name = SerialPort.availablePorts.first;\nfinal port = SerialPort(name);\nif (!port.openReadWrite()) {\n  print(SerialPort.lastError);\n  exit(-1);\n}\n\nport.write(/* ... */);\n\nfinal reader = SerialPortReader(port);\nreader.stream.listen((data) {\n  print('received: $data');\n});",
+    "confidence": 0.95
+  }
+}

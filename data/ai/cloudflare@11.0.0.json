@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "11.0.0",
+  "generatedAt": "2026-11-17T12:03:26.622Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "storage",
+      "backend"
+    ],
+    "approach": [
+      "imperative",
+      "code generation"
+    ],
+    "one_liner": "Dart SDK and client for Cloudflare APIs including Images, Stream, Live Inputs, and R2 storage.",
+    "what_it_does": "Provides a Dart client for interacting with Cloudflare services. It supports managing and uploading images, streaming videos, live inputs, and S3-compatible R2 object storage operations.",
+    "use_when": [
+      "You need to integrate Cloudflare Images, Stream, or Live Inputs into a Dart or Flutter application.",
+      "You are using Cloudflare R2 object storage and need an S3-compatible client implementation.",
+      "You need to perform direct or tus-protocol resumable video and image uploads."
+    ],
+    "avoid_when": [
+      "You are looking for a general-purpose local database or device storage package.",
+      "You require backend services outside of what Cloudflare provides."
+    ],
+    "strengths": [
+      "Covers multiple major Cloudflare services (Images, Stream, Live Inputs, R2).",
+      "Supports direct and resumable uploads using the tus protocol.",
+      "Compatible with both server-side Dart and client-side Flutter applications."
+    ],
+    "weaknesses": [
+      "Exposing sensitive credentials directly in client-side applications requires careful use of direct upload flows.",
+      "Requires managing Cloudflare account IDs and API tokens or keys properly."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the package to pubspec.yaml and initialize the Cloudflare client with your account ID and authentication tokens.",
+    "alternatives": [],
+    "minimal_example": "cloudflare = Cloudflare(\n  accountId: accountId,\n  token: token,\n);\n\nfinal response = await cloudflare.imageAPI.upload(\n  contentFromFile: DataTransmit<XFile>(data: imageFile)\n);",
+    "confidence": 0.95
+  }
+}

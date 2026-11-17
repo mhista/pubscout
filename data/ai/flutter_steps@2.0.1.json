@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "2.0.1",
+  "generatedAt": "2026-11-17T12:10:01.489Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "navigation"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A customizable step indicator widget for horizontal or vertical layouts.",
+    "what_it_does": "Displays a series of steps with optional titles, subtitles, counters, and connecting lines. Supports tap navigation and programmatic control via a controller.",
+    "use_when": [
+      "Building onboarding flows or multi-step forms",
+      "Need a visual progress indicator with custom styling",
+      "Want tap-to-navigate or programmatic step control"
+    ],
+    "avoid_when": [
+      "You need a fully featured wizard with validation logic",
+      "You require complex state management beyond simple step indices"
+    ],
+    "strengths": [
+      "Highly customizable appearance",
+      "Built-in controller for programmatic navigation",
+      "Supports both horizontal and vertical orientations",
+      "No external dependencies"
+    ],
+    "weaknesses": [
+      "Limited to step display; no form validation or data handling",
+      "No built‑in persistence or state restoration",
+      "No unit tests for UI behavior in this snippet"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dependency in pubspec and import package",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:flutter_steps/flutter_steps.dart';\n\nclass MyStepper extends StatelessWidget {\n  @override\n  Widget build(BuildContext context) {\n    final steps = List.generate(\n      5,\n      (i) => Steps(title: 'Step ${i + 1}', subtitle: 'Subtitle'),\n    );\n    return FlutterSteps(\n      steps: steps,\n      direction: Axis.horizontal,\n      showSubtitle: true,\n    );\n  }\n}",
+    "confidence": 0.92
+  }
+}

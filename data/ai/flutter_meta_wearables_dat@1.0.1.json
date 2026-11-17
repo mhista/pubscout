@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "1.0.1",
+  "generatedAt": "2026-11-17T12:05:45.028Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "Flutter plugin to access Meta AI glasses camera and microphone streams.",
+    "what_it_does": "Provides a Dart API to register Meta AI glasses, request permissions, and stream live video (and optional audio) directly into a Flutter Texture. It also exposes raw frame data for further processing.",
+    "use_when": [
+      "You need live video from Meta AI glasses in a Flutter app",
+      "You want raw camera frames for on‑device ML or computer‑vision",
+      "Background streaming of the glasses camera is required"
+    ],
+    "avoid_when": [
+      "Your app targets generic cameras or other wearables",
+      "You need a pure‑Dart solution without native platform code"
+    ],
+    "strengths": [
+      "Native‑to‑Flutter texture rendering eliminates extra decoding",
+      "Complete registration, permission, and session workflow",
+      "Provides raw RGBA/YUV/HEVC frames and optional microphone audio",
+      "Supports background streaming on iOS and Android"
+    ],
+    "weaknesses": [
+      "Works only with Meta wearables; no fallback for other devices",
+      "iOS background streaming may terminate unexpectedly",
+      "Requires native platform configuration and deep‑link handling"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add platform‑specific manifest entries, configure deep‑link handler, request Android permissions and iOS camera/microphone permissions, and follow the setup guide in the README.",
+    "alternatives": [],
+    "minimal_example": "final textureId = await MetaWearablesDat.startStreamSession(null);\nTexture(textureId: textureId);",
+    "confidence": 0.9
+  }
+}

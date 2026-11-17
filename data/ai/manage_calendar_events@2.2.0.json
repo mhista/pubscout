@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.2.0",
+  "generatedAt": "2026-11-17T12:12:40.448Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter plugin to add, edit, and remove device calendar events and reminders on Android and iOS.",
+    "what_it_does": "A Flutter plugin which helps you to add, edit and remove events (with reminders and attendees) from Android and iOS calendars. It also allows listing calendars, reading events by date range or week/month, and creating local calendars.",
+    "use_when": [
+      "You need to read or write device calendar events in your Flutter app.",
+      "You want to manage reminders and attendees on calendar events.",
+      "You need to support both Android and iOS calendar access."
+    ],
+    "avoid_when": [
+      "You need a pure Dart solution without platform-specific calendar permissions.",
+      "You need server-side calendar synchronization rather than local device calendar integration."
+    ],
+    "strengths": [
+      "Supports full CRUD operations for events, reminders, and attendees.",
+      "Cross-platform support for Android and iOS.",
+      "Allows creating and deleting local non-synced calendars."
+    ],
+    "weaknesses": [
+      "Requires manual configuration of platform-specific permissions in AndroidManifest.xml and Info.plist."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires adding READ_CALENDAR and WRITE_CALENDAR permissions for Android, and NSCalendarsUsageDescription and NSCalendarsFullAccessUsageDescription for iOS in Info.plist.",
+    "alternatives": [],
+    "minimal_example": "import 'package:manage_calendar_events/manage_calendar_events.dart';\n\nfinal _calendarPlugin = CalendarPlugin();\nfinal granted = await _calendarPlugin.hasPermissions() ?? false;\nif (!granted) {\n  await _calendarPlugin.requestPermissions();\n}\nfinal calendars = await _calendarPlugin.getCalendars();",
+    "confidence": 0.95
+  }
+}

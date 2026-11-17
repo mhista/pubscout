@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "4.0.0",
+  "generatedAt": "2026-11-17T11:57:18.824Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Displays a list or grid of items grouped by a header.",
+    "what_it_does": "Provides widgets to render a collection of items grouped by a computed header. Supports ListView, GridView and custom builders, with optional sorting within groups.",
+    "use_when": [
+      "You need to show a simple grouped list or grid without writing grouping logic yourself",
+      "You want customizable header and item builders for each group",
+      "You need to integrate a third‑party sticky‑header widget"
+    ],
+    "avoid_when": [
+      "You require advanced virtualization for very large data sets",
+      "You need built‑in pagination or infinite scrolling",
+      "You need complex state‑management or data‑layer integration"
+    ],
+    "strengths": [
+      "Very easy to integrate – just add the dependency and use the widget",
+      "Supports both list and grid layouts with custom header/item builders",
+      "Allows optional sorting of items within each group"
+    ],
+    "weaknesses": [
+      "Limited to basic grouping – no built‑in pagination or lazy loading",
+      "No built‑in scroll‑to‑header functionality",
+      "Breaking API changes between major versions may require code updates"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "GroupedListView.list(\n  items: List<int>.generate(100, (i) => i + 1),\n  itemGrouper: (int i) => i.isEven,\n  headerBuilder: (context, isEven, count) => Container(\n    color: Colors.amber,\n    padding: EdgeInsets.all(16),\n    child: Text(isEven ? 'Even' : 'Odd', style: TextStyle(fontWeight: FontWeight.bold)),\n  ),\n  listItemBuilder: (context, groupCount, indexInGroup, item, originalIndex) =>\n      Padding(padding: EdgeInsets.all(8), child: Text(item.toString())),\n);",
+    "confidence": 0.93
+  }
+}

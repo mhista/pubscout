@@ -1,0 +1,46 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "4.0.0",
+  "generatedAt": "2026-11-17T12:16:21.147Z",
+  "data": {
+    "primary_category": "maps",
+    "secondary_categories": [
+      "device"
+    ],
+    "approach": [
+      "stream-based"
+    ],
+    "one_liner": "Background location tracking for Android and iOS using background_locator_2",
+    "what_it_does": "Provides continuous location updates even when the app is in the background. It is a thin wrapper around the background_locator_2 plugin, exposing a simple API for configuring intervals, distance filters, and notifications.",
+    "use_when": [
+      "Need persistent location updates in background",
+      "Building health or fitness tracking apps",
+      "When the app must keep running after being killed by the OS"
+    ],
+    "avoid_when": [
+      "Only foreground location is required",
+      "When you prefer to handle permissions and location logic yourself"
+    ],
+    "strengths": [
+      "Works in background on both Android and iOS",
+      "Simple API with singleton pattern",
+      "Cross‑platform support via background_locator_2"
+    ],
+    "weaknesses": [
+      "Requires manual permission setup on Android 11+",
+      "Relies on background_locator_2 which may have its own limitations"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add Android permissions (INTERNET, ACCESS_FINE_LOCATION, ACCESS_COARSE_LOCATION, ACCESS_BACKGROUND_LOCATION, WAKE_LOCK, FOREGROUND_SERVICE, RECEIVE_BOOT_COMPLETED) and receiver/service entries. Add iOS Info.plist keys (NSLocationAlwaysAndWhenInUseUsageDescription, NSLocationAlwaysUsageDescription, NSLocationWhenInUseUsageDescription, UIBackgroundModes). Override AppDelegate.swift to register the plugin. No build_runner needed.",
+    "alternatives": [
+      {
+        "name": "background_locator_2",
+        "why_pick_it": "Directly use the underlying plugin if you need more control over its API"
+      }
+    ],
+    "minimal_example": "```dart\n// configure the location manager\nLocationManager().interval = 1;\nLocationManager().distanceFilter = 0;\nLocationManager().notificationTitle = 'CARP Location Example';\nLocationManager().notificationMsg = 'CARP is tracking your location';\n\n// start listening to location updates\nStreamSubscription<LocationDto> sub = LocationManager()\n    .locationStream\n    .listen((loc) => print(loc));\n\n// stop\nsub.cancel();\nLocationManager().stop();\n```",
+    "confidence": 0.9
+  }
+}

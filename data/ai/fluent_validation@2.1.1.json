@@ -1,0 +1,48 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "2.1.1",
+  "generatedAt": "2026-11-17T12:14:58.674Z",
+  "data": {
+    "primary_category": "forms",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "A Dart port of FluentValidation providing chainable rule definitions for object validation.",
+    "what_it_does": "It lets you declare validation rules for model properties using a fluent API. The validator returns a result with error details such as key, message, and code.",
+    "use_when": [
+      "You need reusable, declarative validation logic separate from UI",
+      "You want chainable, readable rule definitions similar to FluentValidation in C#",
+      "You prefer a lightweight solution without code generation"
+    ],
+    "avoid_when": [
+      "You require built‑in UI widgets for displaying errors",
+      "You need extensive localization support (not yet implemented)",
+      "You prefer annotation‑based or code‑gen validators"
+    ],
+    "strengths": [
+      "Fluent, chainable API is easy to read",
+      "Supports many common validators and custom 'must' matcher",
+      "Null‑safe and works on all Flutter platforms"
+    ],
+    "weaknesses": [
+      "No code‑gen, so you write validators manually",
+      "Limited localization support",
+      "Only basic validators; more complex scenarios need custom logic"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "email_validator",
+        "why_pick_it": "Provides a simple email‑validation function without needing a full validation framework"
+      }
+    ],
+    "minimal_example": "class UserValidator extends AbstractValidator<User>{\n  UserValidator(){\n    ruleFor((u)=>u.age,key:'age').isNotNull().greaterThanOrEqual(13);\n    ruleFor((u)=>u.name,key:'name').isNotEmpty();\n  }\n}\n\nfinal validator=UserValidator();\nValidationResult result=validator.validate(user);",
+    "confidence": 0.78
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "2.1.20250301",
+  "generatedAt": "2026-11-17T12:13:19.318Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Provides Vietnamese administrative unit data and lookup functions.",
+    "what_it_does": "Offers a list of level‑1 units and methods to find level‑1, level‑2, and level‑3 units by ID or name. The data is updated from the official source and includes hierarchical relationships.",
+    "use_when": [
+      "You need to display or search Vietnamese administrative units in a Flutter or Dart app.",
+      "You want a lightweight, dependency‑free data source for city, district, and ward information."
+    ],
+    "avoid_when": [
+      "You require real‑time updates from a remote API or need to modify the data structure at runtime."
+    ],
+    "strengths": [
+      "No external dependencies, simple API, up‑to‑date data as of 01/03/2025.",
+      "Fast in‑memory lookup, no network calls needed."
+    ],
+    "weaknesses": [
+      "Only supports Vietnamese units; no internationalization.",
+      "Data size grows with updates; may increase package size."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:dvhcvn/dvhcvn.dart' as dvhcvn;\nfinal haNoi = dvhcvn.findLevel1ById('01');\nfinal baDinh = haNoi.findLevel2ById('001');\nfinal phucXa = baDinh.findLevel3ById('00001');\nprint(phucXa);",
+    "confidence": 0.95
+  }
+}

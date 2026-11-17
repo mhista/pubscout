@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.1.0",
+  "generatedAt": "2026-11-17T12:04:52.406Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "layout"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "High-performance data grid widget for large numeric tables with frozen headers",
+    "what_it_does": "Provides a grid widget that efficiently renders large numeric data sets, supports frozen header rows and columns, and offers auto-fit width columns. It includes callbacks for row taps and long presses.",
+    "use_when": [
+      "You need to display large numeric tables efficiently",
+      "You require frozen header rows or columns for better UX",
+      "You want a lightweight, declarative grid without external code generation"
+    ],
+    "avoid_when": [
+      "You need advanced sorting, filtering or pagination features",
+      "You are working on a very small data set where performance is not a concern",
+      "You require extensive customization beyond the provided API"
+    ],
+    "strengths": [
+      "Optimized layout algorithm for large data",
+      "Frozen header support",
+      "Auto-fit width columns",
+      "Declarative API with callbacks"
+    ],
+    "weaknesses": [
+      "Package is in early development; breaking changes may occur",
+      "Limited feature set (no sorting/filtering/pagination documented)",
+      "No documentation on performance benchmarks"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add to pubspec and run flutter pub get",
+    "alternatives": [],
+    "minimal_example": "class MyWidget extends StatelessWidget {\n  const MyWidget({Key? key}) : super(key: key);\n  @override\n  Widget build(BuildContext context) {\n    return Grid(\n      columns: [\n        GridColumn.autoFitWidth(text: \"Hello\"),\n        GridColumn.autoFitWidth(text: \"World\"),\n      ],\n      rows: [\n        GridRow(children: [\n          GridCell.autoFitWidth(text: \"123.12\", sortValue: 123.12),\n          GridCell.autoFitWidth(text: \"12\", sortValue: 12),\n        ])\n      ],\n    );\n  }\n}",
+    "confidence": 0.7
+  }
+}

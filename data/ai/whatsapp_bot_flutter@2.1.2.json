@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "2.1.2",
+  "generatedAt": "2026-11-17T12:03:09.947Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "A Flutter/Dart library to control WhatsApp Web via Puppeteer for sending messages and handling events.",
+    "what_it_does": "It connects to WhatsApp Web using a headless Chromium instance and provides a client API to send texts, files, and other media. It also streams connection and chat events for reactive handling.",
+    "use_when": [
+      "You need to automate WhatsApp messaging from a Flutter or Dart app",
+      "You want to integrate WhatsApp interactions without using official APIs",
+      "You are building desktop or web automation tools that require WhatsApp access"
+    ],
+    "avoid_when": [
+      "Official, supported WhatsApp integration is required",
+      "You need a solution that works on iOS/Android without extra setup",
+      "You cannot tolerate potential account bans from unofficial clients"
+    ],
+    "strengths": [
+      "Supports desktop, web and mobile via separate package",
+      "Rich set of WhatsApp features (media, contacts, groups)",
+      "Event streams for real‑time handling"
+    ],
+    "weaknesses": [
+      "Relies on web scraping; may break with WhatsApp updates",
+      "Requires Chromium download or external browserless service",
+      "Not officially supported by WhatsApp, risk of bans"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Desktop: first run downloads Chromium; Mobile: add flutter_inappwebview and follow its setup; Web: use whatsapp_bot_flutter_web or provide a browserless endpoint.",
+    "alternatives": [],
+    "minimal_example": "await WhatsappBotFlutter.connect(\n  onQrCode: (qr, img) => print(qr),\n  onConnectionEvent: (e) => print(e),\n);\nawait whatsappClient.chat.sendTextMessage(phone: '1234567890', message: 'Hello');",
+    "confidence": 0.71
+  }
+}

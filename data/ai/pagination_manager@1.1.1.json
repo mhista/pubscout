@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.1.1",
+  "generatedAt": "2026-11-17T12:04:24.861Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [
+      "widgets",
+      "codegen"
+    ],
+    "approach": [
+      "declarative",
+      "code generation"
+    ],
+    "one_liner": "A Flutter library for managing paginated data and infinite scrolling lists.",
+    "what_it_does": "Provides state management and UI widgets for handling paginated data, infinite scrolling, pull-to-refresh, and built-in search functionality with debouncing.",
+    "use_when": [
+      "You need to implement infinite scrolling lists with pagination in Flutter.",
+      "You want built-in search functionality with debouncing combined with pagination.",
+      "You want to minimize boilerplate code for handling loading, error, and empty states in paginated lists."
+    ],
+    "avoid_when": [
+      "You are not using a list or grid-based pagination workflow.",
+      "You require a complex custom caching layer that doesn't fit standard repository interfaces."
+    ],
+    "strengths": [
+      "Built-in support for Bloc/Cubit and custom state management solutions.",
+      "Includes features like lazy loading, pull-to-refresh, and intelligent search debouncing.",
+      "Provides high-level ready-to-use widgets like PaginatedManagerList."
+    ],
+    "weaknesses": [
+      "Relies on a specific repository interface structure for implementation.",
+      "Limited documentation outside of the provided README examples."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires adding the dependency and implementing the PaginatedRepository interface.",
+    "alternatives": [],
+    "minimal_example": "final paginationManager = PaginationManager<MyData>(\n  repository: MyDataRepository(),\n  limitPerPage: 20,\n);\n\nPaginatedManagerList<MyData>(\n  paginationManager: paginationManager,\n  itemBuilder: (context, index, items) {\n    final item = items[index];\n    return ListTile(\n      title: Text(item.title),\n    );\n  },\n);",
+    "confidence": 0.95
+  }
+}

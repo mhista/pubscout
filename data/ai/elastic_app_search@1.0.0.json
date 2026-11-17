@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "1.0.0",
+  "generatedAt": "2026-11-17T12:13:49.830Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Dart/Flutter client for Elastic App Search API",
+    "what_it_does": "Provides a simple, type‑safe API to query Elastic App Search, filter results, and access metadata. It wraps HTTP calls and returns easy‑to‑use objects.",
+    "use_when": [
+      "You need to integrate Elastic App Search into a Flutter app",
+      "You want a fluent query builder with filters, facets, and pagination",
+      "You prefer a single package that covers all App Search endpoints"
+    ],
+    "avoid_when": [
+      "You don't have an Elastic App Search deployment",
+      "You need offline or local search capabilities"
+    ],
+    "strengths": [
+      "Full native endpoint coverage for engine, account, and crawler APIs",
+      "Fluent query syntax with filters, facets, and pagination",
+      "Strong request validation and error mapping",
+      "Built with Dio for robust networking"
+    ],
+    "weaknesses": [
+      "Requires an active Elastic deployment",
+      "No offline support",
+      "Relies on Dio, so adding it to a project adds a dependency"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Create an ElasticAppSearch instance with endpoint and searchKey, then call engine(\"name\").query(\"term\")…",
+    "alternatives": [],
+    "minimal_example": "final service = ElasticAppSearch(\n  endPoint: \"https://host-2376rb.api.swiftype.com\",\n  searchKey: \"search-371auk61r2bwqtdzocdgutmg\",\n);\n\nElasticResponse response = await service\n  .engine(\"search-ui-examples\")\n  .query(\"mountains\")\n  .filter(\"states\", isEqualTo: \"California\")\n  .filter(\"world_heritage_site\", isEqualTo: true)\n  .resultField(\"title\")\n  .resultField(\"description\", snippetSize: 140)\n  .page(1, size: 50)\n  .get();",
+    "confidence": 0.9
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "1.0.0",
+  "generatedAt": "2026-11-17T12:06:56.940Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "A Dart type for precise financial values with exactly four decimal places.",
+    "what_it_does": "Provides a Currency class that stores amounts as integers to avoid floating‑point rounding errors. Supports arithmetic, comparison and parsing from numbers or strings, handling very large values accurately.",
+    "use_when": [
+      "Need exact financial calculations without rounding errors",
+      "Working with large monetary values that exceed double precision"
+    ],
+    "avoid_when": [
+      "Require locale‑aware currency formatting or variable fractional digits",
+      "Performance‑critical code where custom numeric types add overhead"
+    ],
+    "strengths": [
+      "Eliminates floating‑point rounding issues",
+      "Handles very large numbers precisely",
+      "Simple API for arithmetic and parsing"
+    ],
+    "weaknesses": [
+      "Fixed to four fractional digits only",
+      "No built‑in formatting or locale support",
+      "Limited to monetary use‑case"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:currency_type/currency_type.dart';\n\nvoid main() {\n  var a = Currency.parse('0.7');\n  var b = Currency.parse('0.49');\n  var c = a * a;\n  print('\\$a * \\$a = \\$c'); // 0.7000 * 0.7000 = 0.4900\n  print(c == b ? 'Equal' : 'Not Equal'); // Equal\n}",
+    "confidence": 0.9
+  }
+}

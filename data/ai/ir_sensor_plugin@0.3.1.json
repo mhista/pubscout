@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.3.1",
+  "generatedAt": "2026-11-17T12:14:05.504Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter plugin to control Android infrared emitter (IR) sensor.",
+    "what_it_does": "Provides methods to check for an IR emitter, query supported carrier frequencies, set transmission frequency, and transmit IR patterns as hex strings or integer lists. Works only on Android and requires the TRANSMIT_IR permission.",
+    "use_when": [
+      "You need to send infrared commands from a Flutter app on Android devices (e.g., TV remote control).",
+      "You require direct control over carrier frequency and custom IR patterns."
+    ],
+    "avoid_when": [
+      "Running on iOS or other platforms (the plugin will crash).",
+      "You need a cross‑platform solution for multiple sensors."
+    ],
+    "strengths": [
+      "Simple API focused on IR transmission.",
+      "Supports both hex string and integer list patterns.",
+      "Null‑safe and compatible with Flutter 3 and Dart 3."
+    ],
+    "weaknesses": [
+      "Android‑only; no iOS fallback.",
+      "Limited to infrared; no higher‑level abstractions or error handling details."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add <uses-permission android:name=\"android.permission.TRANSMIT_IR\"/> to AndroidManifest.xml. No additional Gradle steps required.",
+    "alternatives": [
+      {
+        "name": "sensors_plus",
+        "why_pick_it": "Provides a broader set of sensor APIs (accelerometer, gyroscope, etc.) and works on both Android and iOS, though it lacks IR-specific functions."
+      }
+    ],
+    "minimal_example": "final bool hasIr = await IrSensorPlugin.hasIrEmitter;\nfinal String freqs = await IrSensorPlugin.getCarrierFrequencies;\nfinal String result = await IrSensorPlugin.transmitString(pattern: \"0000 006d ...\");",
+    "confidence": 0.97
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.3.1",
+  "generatedAt": "2026-11-17T12:12:59.806Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "animation",
+      "ui-kits"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "A Flutter package for interactive onboarding tours with spotlights, animated hand pointers, and live tracking.",
+    "what_it_does": "It lets you highlight widgets with a moving spotlight that stays aligned as the UI changes. An animated hand pointer can demonstrate gestures, and multi‑step tours can guide users through the app. All overlays are managed by a controller and require no extra runtime dependencies.",
+    "use_when": [
+      "First‑run user onboarding",
+      "Teaching complex gestures like pinch or drag",
+      "Feature discovery after an update"
+    ],
+    "avoid_when": [
+      "Static coach marks are sufficient",
+      "You need a pure‑code solution without UI overlays",
+      "App must run on non‑Flutter platforms"
+    ],
+    "strengths": [
+      "Drift‑free per‑frame tracking",
+      "Customizable animated pointer (hand, emoji, SVG, Lottie, Rive)",
+      "No runtime dependencies",
+      "Works on all Flutter platforms"
+    ],
+    "weaknesses": [
+      "Requires GlobalKey for each target",
+      "Only works within Flutter (no web‑only libs)",
+      "No built‑in analytics or persistence"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add keyspot to pubspec, import the package, wrap your app with KeyspotScope and use KeyspotController to show spotlights or tours.",
+    "alternatives": [],
+    "minimal_example": "final keyspot = KeyspotController();\nfinal composeKey = GlobalKey();\n\nKeyspotScope(\n  controller: keyspot,\n  child: MaterialApp(home: Inbox(composeKey: composeKey)),\n);\n\nawait keyspot.spotlight(composeKey);",
+    "confidence": 0.9
+  }
+}

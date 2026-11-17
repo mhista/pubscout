@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.2.0",
+  "generatedAt": "2026-11-17T12:11:28.963Z",
+  "data": {
+    "primary_category": "notifications",
+    "secondary_categories": [
+      "device"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Prompt users to update the app with a native dialog for Android and iOS.",
+    "what_it_does": "Displays a native alert dialog on Android and iOS prompting users to update the app. It supports both forced updates and flexible update flows where users can choose to skip or update later.",
+    "use_when": [
+      "You need to prompt users to update to a newer app version.",
+      "You want to enforce a minimum supported app version using custom logic."
+    ],
+    "avoid_when": [
+      "You want automated background update checks without custom logic.",
+      "You are not targeting Android or iOS."
+    ],
+    "strengths": [
+      "Provides native UI for both Material (Android) and Cupertino (iOS).",
+      "Supports custom app store URLs and alert text labels."
+    ],
+    "weaknesses": [
+      "Requires custom logic to determine when an update is available.",
+      "iOS Info.plist setup required to display the app name."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "For iOS, add CFBundleDisplayName to Info.plist to show the App Name in the Cupertino Alert Dialog.",
+    "alternatives": [],
+    "minimal_example": "NativeUpdater.displayUpdateAlert(\n  context,\n  forceUpdate: true,\n);",
+    "confidence": 1
+  }
+}

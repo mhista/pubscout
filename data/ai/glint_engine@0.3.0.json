@@ -1,0 +1,60 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.3.0",
+  "generatedAt": "2026-11-17T12:06:36.469Z",
+  "data": {
+    "primary_category": "games",
+    "secondary_categories": [
+      "animation",
+      "widgets"
+    ],
+    "approach": [
+      "declarative",
+      "hooks",
+      "no codegen"
+    ],
+    "one_liner": "A Flutter-first 3D engine for rendering glTF models with physics and a real‑time game loop.",
+    "what_it_does": "Glint renders glTF/GLB models as Flutter widgets, supporting PBR lighting, skeletal animation, and deterministic physics. It also provides a ticker‑driven game loop and lets you pin regular Flutter widgets to 3D points.",
+    "use_when": [
+      "building 3D games or interactive product showcases in Flutter",
+      "need real‑time physics, skeletal animation, or vehicle dynamics",
+      "want to overlay Flutter UI directly onto 3D scenes"
+    ],
+    "avoid_when": [
+      "targeting web platforms (not supported)",
+      "requiring ultra‑high‑performance native 3D like Unity or Unreal",
+      "cannot enable Flutter GPU in the app"
+    ],
+    "strengths": [
+      "Deep integration with Flutter GPU for high performance",
+      "Full glTF 2.0 support with PBR, HDRI, and animation",
+      "Deterministic physics and vehicle dynamics",
+      "Ability to embed any Flutter widget in 3D space"
+    ],
+    "weaknesses": [
+      "Limited platform support (Android, iOS, macOS only)",
+      "Early‑stage API; breaking changes expected before 1.0",
+      "Requires manual manifest changes to enable Flutter GPU"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add Flutter GPU flags to iOS/Info.plist, macOS/Info.plist, and AndroidManifest.xml as described in the README; no additional native code needed.",
+    "alternatives": [
+      {
+        "name": "flame",
+        "why_pick_it": "General purpose 2D game engine with a mature ecosystem and many plugins."
+      },
+      {
+        "name": "three_js",
+        "why_pick_it": "Web‑focused 3D engine that works on Flutter Web via JavaScript interop."
+      },
+      {
+        "name": "flutter_scene",
+        "why_pick_it": "Provides a simpler scene graph for 3D rendering without full physics or game loop."
+      }
+    ],
+    "minimal_example": "import 'package:glint_engine/glint_engine.dart';\n\nGlintGpuFirstLight(\n  model: Model.asset('assets/product.glb'),\n  environmentAsset: 'assets/studio.hdr',\n  fallback: const Text('Flutter GPU unavailable'),\n);",
+    "confidence": 0.85
+  }
+}

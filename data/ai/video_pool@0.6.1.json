@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.6.1",
+  "generatedAt": "2026-11-17T12:05:59.863Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [
+      "widgets",
+      "storage"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Video orchestration library for controller pooling, visibility lifecycle, and disk caching.",
+    "what_it_does": "Video_pool manages a fixed pool of player instances to prevent freezing, memory leaks, and overheating in video feed apps. It reuses players as the user scrolls, handles visibility tracking, thermal throttling, disk pre-fetching, and system audio focus.",
+    "use_when": [
+      "Building TikTok, Reels, or Instagram-style video feeds",
+      "Needing smooth 60fps scrolling without decoder teardown and GC pressure"
+    ],
+    "avoid_when": [
+      "Playing a single isolated video player without scrollable feeds"
+    ],
+    "strengths": [
+      "Intelligent controller pooling with zero-jank scrolling",
+      "Automatic thermal throttling and memory pressure management",
+      "Built-in disk pre-fetching and HLS fast-start tuning"
+    ],
+    "weaknesses": [
+      "Requires media_kit platform setup for iOS and Android",
+      "May require platform-specific pod install steps"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Follow media_kit platform preparation guides for iOS (Podfile/Swift Package Manager) and initialize MediaKit in main().",
+    "alternatives": [
+      {
+        "name": "video_player",
+        "why_pick_it": "You want the official standard video player plugin without orchestration pooling overhead or external backend dependencies."
+      },
+      {
+        "name": "just_audio",
+        "why_pick_it": "You primarily need advanced audio streaming and playback features instead of video feed orchestration."
+      }
+    ],
+    "minimal_example": "VideoPoolScope(\n  config: const VideoPoolConfig(maxConcurrent: 3, preloadCount: 1),\n  adapterFactory: (_) => MediaKitAdapter(),\n  sourceResolver: (index) => videos[index],\n  child: VideoFeedView(sources: videos),\n)",
+    "confidence": 0.95
+  }
+}

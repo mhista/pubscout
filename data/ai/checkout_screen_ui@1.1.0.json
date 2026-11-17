@@ -1,0 +1,51 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.1.0",
+  "generatedAt": "2026-11-17T12:20:14.234Z",
+  "data": {
+    "primary_category": "ui-kits",
+    "secondary_categories": [
+      "forms",
+      "payments"
+    ],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "A pre-built checkout screen UI widget with credit card form and native or cash pay options.",
+    "what_it_does": "Provides a pre-built UI widget representing a checkout screen and a standalone credit card form. It handles layout, form inputs, and validation while leaving transaction and payment processing logic to your own system.",
+    "use_when": [
+      "You need a standard checkout screen UI quickly and plan to couple it with your own payment transaction API.",
+      "You want a reusable credit card input form component alongside native pay and cash payment options."
+    ],
+    "avoid_when": [
+      "You require an all-in-one payment processing SDK that handles actual gateway communication rather than UI only.",
+      "Your project uses older Dart or Flutter versions below the specified minimum requirements."
+    ],
+    "strengths": [
+      "Includes both a full checkout page and a standalone credit card form widget.",
+      "Provides built-in card validation and masking patterns.",
+      "Supports custom theming via ThemeExtension."
+    ],
+    "weaknesses": [
+      "UI only; requires manual integration with third-party transaction APIs.",
+      "Does not process payments or integrate natively with payment gateways out of the box."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dependency to pubspec.yaml and import the package. No complex native configuration needed since it is UI only.",
+    "alternatives": [
+      {
+        "name": "flutter_stripe",
+        "why_pick_it": "Choose this if you need deep native Stripe payment integration rather than just a UI-only checkout screen."
+      },
+      {
+        "name": "in_app_purchase",
+        "why_pick_it": "Choose this if you are selling digital goods and subscriptions via official app store billing systems."
+      }
+    ],
+    "minimal_example": "CheckoutPage(\n  data: CheckoutData(\n    priceItems: [PriceItem(name: 'Product', quantity: 1, itemCostCents: 1000)],\n    payToName: 'Vendor',\n    taxRate: 0.05,\n    onCardPay: (card, result) {},\n    onBack: () {},\n  ),\n);",
+    "confidence": 0.95
+  }
+}

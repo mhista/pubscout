@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.1.5",
+  "generatedAt": "2026-11-17T12:08:56.384Z",
+  "data": {
+    "primary_category": "maps",
+    "secondary_categories": [
+      "networking",
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Dart service for Google Places API auto-complete, details, and nearby searches",
+    "what_it_does": "Provides methods to fetch place auto-complete suggestions, detailed place info, and nearby places using the Google Places API. It manages session tokens and handles errors via a custom exception.",
+    "use_when": [
+      "You need place suggestions while typing an address",
+      "You need detailed place data after selecting a suggestion",
+      "You want to show nearby places based on current location"
+    ],
+    "avoid_when": [
+      "You only need basic map display without place queries",
+      "You prefer a fully featured map widget library instead of a service"
+    ],
+    "strengths": [
+      "Simple API, no code generation required",
+      "Handles session tokens automatically",
+      "Supports Android, iOS, web, windows, macos"
+    ],
+    "weaknesses": [
+      "Relies on external Google API key and billing",
+      "No built-in caching or offline support",
+      "Limited to Places API features only"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dependency, call initialize(apiKey: 'YOUR_KEY') before use. Ensure location permissions for nearby places.",
+    "alternatives": [],
+    "minimal_example": "final service = PlacesService();\nservice.initialize(apiKey: 'YOUR_KEY');\nfinal suggestions = await service.getAutoComplete('new york');\nfinal details = await service.getPlaceDetails(suggestions.first.placeId);",
+    "confidence": 0.85
+  }
+}

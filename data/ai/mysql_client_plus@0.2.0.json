@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.2.0",
+  "generatedAt": "2026-11-17T11:56:22.032Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [
+      "backend"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Native MySQL client written in Dart with connection pooling, transactions, and TLS support.",
+    "what_it_does": "Provides a pure Dart client for connecting to MySQL and MariaDB databases. It supports connection pooling, prepared statements, transactions, large result set streaming, and TLS connections.",
+    "use_when": [
+      "You need to connect a Dart or Flutter application directly to a MySQL or MariaDB database.",
+      "You require connection pooling and transaction support in a pure Dart SQL client."
+    ],
+    "avoid_when": [
+      "You need a robust ORM instead of executing raw SQL queries.",
+      "Your architecture mandates talking to databases exclusively through a backend REST/GraphQL API rather than direct client-side database access."
+    ],
+    "strengths": [
+      "Written in pure Dart with support for mobile, desktop, and dart runtimes.",
+      "Supports connection pooling, prepared statements, and transactions.",
+      "Handles SSL/TLS connections and multiple authentication plugins like caching_sha2_password."
+    ],
+    "weaknesses": [
+      "Directly exposing database connections in client applications can be a security risk if not properly secured.",
+      "Lacks advanced ORM features, requiring manual query writing and result mapping."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "No native platform steps required, but network security rules and database access permissions must be configured.",
+    "alternatives": [],
+    "minimal_example": "final pool = MySQLConnectionPool(\n  host: '127.0.0.1',\n  port: 3306,\n  userName: 'your_user',\n  password: 'your_password',\n  maxConnections: 10,\n  databaseName: 'your_database_name',\n);\n\nvar result = await pool.execute(\"SELECT * FROM book WHERE id = :id\", {\"id\": 1});\nfor (final row in result.rows) {\n  print(row.assoc());\n}",
+    "confidence": 0.95
+  }
+}

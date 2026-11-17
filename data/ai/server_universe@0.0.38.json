@@ -1,0 +1,51 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.0.38",
+  "generatedAt": "2026-11-17T11:58:23.221Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "backend",
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Cross‑platform server and edge function helper for REST APIs",
+    "what_it_does": "Provides a lightweight server framework that runs on mobile, desktop, web, and serverless platforms. It exposes a simple API for routing, middleware, and response handling, and supports edge functions on Supabase, Vercel, Netlify, and Cloudflare.",
+    "use_when": [
+      "You need a quick, minimal server for prototyping or small services",
+      "You want to deploy the same code to mobile, desktop, web, or serverless environments",
+      "You prefer a single library over multiple platform‑specific solutions"
+    ],
+    "avoid_when": [
+      "You require advanced features like authentication, database integration, or complex middleware pipelines",
+      "You need extensive documentation or community support",
+      "You are building a large, production‑grade backend that demands mature tooling"
+    ],
+    "strengths": [
+      "Cross‑platform compatibility",
+      "Simple API surface",
+      "Fast startup and low overhead",
+      "Supports edge functions out of the box"
+    ],
+    "weaknesses": [
+      "Limited documentation and examples",
+      "No built‑in auth or database clients",
+      "Sparse community and ecosystem",
+      "Feature set is still evolving"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dependency via `dart pub add server_universe`; import `package:server_universe/native.dart` for native servers. No build_runner or codegen required.",
+    "alternatives": [
+      {
+        "name": "shelf",
+        "why_pick_it": "Mature, well‑documented server framework for Dart with extensive middleware ecosystem"
+      }
+    ],
+    "minimal_example": "import 'package:server_universe/native.dart';\n\nvoid main() async {\n  final app = ServerUniverseNative();\n  app.get('/hello', (req, res) => res.send('Hello World'));\n  await app.listen(port: 8080);\n}\n",
+    "confidence": 0.7
+  }
+}

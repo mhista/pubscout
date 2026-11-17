@@ -1,0 +1,51 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.1.0",
+  "generatedAt": "2026-11-17T12:14:23.345Z",
+  "data": {
+    "primary_category": "animation",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Overlay animation between two widgets using a controller and global keys",
+    "what_it_does": "Provides AnimateTo and AnimateFrom widgets that animate a source widget to a target widget as an overlay. The controller triggers the animation and can transport data to the target.",
+    "use_when": [
+      "You need a simple, declarative overlay animation between two widgets",
+      "You want to animate a widget to a target without custom animation code",
+      "You need to pass data along with the animation"
+    ],
+    "avoid_when": [
+      "You need complex physics or custom animation curves not supported by the package",
+      "You require animations that persist across navigation or need state restoration"
+    ],
+    "strengths": [
+      "Easy to use with minimal boilerplate",
+      "Supports data transfer between source and target",
+      "Works on all Flutter platforms"
+    ],
+    "weaknesses": [
+      "Very new, no advanced features yet",
+      "Limited customization beyond basic overlay",
+      "No support for complex animation curves or physics"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dependency and import package, create controller, wrap widgets with AnimateTo/AnimateFrom",
+    "alternatives": [
+      {
+        "name": "flutter_animate",
+        "why_pick_it": "Provides a broader set of animation helpers and effects"
+      },
+      {
+        "name": "rive",
+        "why_pick_it": "Offers advanced animation and physics-based motion"
+      }
+    ],
+    "minimal_example": "final _controller = AnimateToController();\n\nAnimateTo(controller: _controller, child: const Text('Target'));\nAnimateFrom(key: _controller.tag('tag'), child: const Text('Animatable'));\n\n_controller.animateTag('tag');",
+    "confidence": 0.85
+  }
+}

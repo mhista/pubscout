@@ -1,0 +1,47 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "3.0.0",
+  "generatedAt": "2026-11-17T12:19:41.197Z",
+  "data": {
+    "primary_category": "navigation",
+    "secondary_categories": [
+      "animation"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Widget that animates page changes in a bottom navigation bar",
+    "what_it_does": "Provides a BottomBarPageTransition widget that wraps page content and animates transitions between pages when the bottom navigation index changes. Supports circle, slide, and fade animations with customizable duration and curve.",
+    "use_when": [
+      "You need custom page transition animations for a bottom navigation bar",
+      "You want to avoid reinitializing page widgets after a transition",
+      "You prefer a simple, declarative API without extra dependencies"
+    ],
+    "avoid_when": [
+      "You are using a navigation framework that already handles transitions (e.g., Navigator 2.0 with PageRouteBuilder)",
+      "You need deep link or nested navigation support"
+    ],
+    "strengths": [
+      "Easy to integrate with existing BottomNavigationBar",
+      "Supports multiple animation types out of the box",
+      "No extra build_runner or code generation required"
+    ],
+    "weaknesses": [
+      "Limited to bottom navigation bar use cases",
+      "No support for nested or deep navigation",
+      "Only three animation types available"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "page_transition",
+        "why_pick_it": "Provides generic page transitions that can be used in any navigation context"
+      }
+    ],
+    "minimal_example": "return Scaffold(\n  body: BottomBarPageTransition(\n    builder: (_, index) => _getBody(index),\n    currentIndex: _currentPage,\n    totalLength: totalPage,\n    transitionType: transitionType,\n    transitionDuration: duration,\n    transitionCurve: curve,\n  ),\n  bottomNavigationBar: _getBottomBar(),\n);",
+    "confidence": 0.8
+  }
+}

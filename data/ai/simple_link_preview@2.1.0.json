@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.1.0",
+  "generatedAt": "2026-11-17T12:09:41.371Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Fetch lightweight link preview metadata from HTTP and HTTPS URLs.",
+    "what_it_does": "SimpleLinkPreview fetches and parses HTML metadata from the document head, direct images, and other web content types without downloading entire bodies. It handles redirects, custom timeouts, status validation, and relative URL resolution.",
+    "use_when": [
+      "You need to display link previews or Open Graph cards in your app.",
+      "You want to extract titles, descriptions, icons, and images from web pages efficiently."
+    ],
+    "avoid_when": [
+      "You need to scrape full HTML documents and inspect body elements.",
+      "You need a full embedded web browser view."
+    ],
+    "strengths": [
+      "Lightweight and stops reading HTML as soon as the closing head tag or 1MB limit is reached.",
+      "Supports direct images and various successful MIME types.",
+      "Provides structured error handling and options like timeout and redirect limits."
+    ],
+    "weaknesses": [
+      "Subject to target server's CORS policy on web platforms.",
+      "Does not inspect <img> elements in the document body or make separate favicon requests."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [],
+    "minimal_example": "Future<void> main() async {\n  final preview = await SimpleLinkPreview.getPreview(\n    'https://pub.dev/',\n  );\n  print(preview?.toJson());\n}",
+    "confidence": 0.95
+  }
+}

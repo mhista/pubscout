@@ -1,0 +1,50 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "4.0.1",
+  "generatedAt": "2026-11-17T11:58:47.857Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter client for sending messages, media and catalog items via the WhatsApp Business API.",
+    "what_it_does": "Provides methods to send text, media, template, flow, catalog and product messages through the WhatsApp Business Cloud API. It also supports business profile updates, resumable uploads and error handling.",
+    "use_when": [
+      "You need to send WhatsApp Business messages directly from a Flutter app",
+      "You require web support for WhatsApp messaging",
+      "You want built‑in handling for catalog and flow messages"
+    ],
+    "avoid_when": [
+      "You need a native UI SDK for WhatsApp",
+      "You prefer a fully offline messaging solution",
+      "You don't have a WhatsApp Business account or API access token"
+    ],
+    "strengths": [
+      "Covers most WhatsApp Business API features",
+      "Web platform support and resumable uploads",
+      "Improved performance and detailed error handling"
+    ],
+    "weaknesses": [
+      "Depends on external WhatsApp Cloud API and access token",
+      "No UI widgets, only low‑level API calls",
+      "Limited to WhatsApp Business use case"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Obtain a Meta access token and phone number ID, add internet permission, then instantiate WhatsApp(accessToken, fromNumberId).",
+    "alternatives": [
+      {
+        "name": "http",
+        "why_pick_it": "Lightweight HTTP client if you prefer manual API calls"
+      },
+      {
+        "name": "dio",
+        "why_pick_it": "More feature‑rich HTTP client with interceptors and better error handling"
+      }
+    ],
+    "minimal_example": "```dart\nconst accessToken = 'YOUR_ACCESS_TOKEN';\nconst fromNumberId = 'YOUR_PHONE_NUMBER_ID';\nfinal whatsapp = WhatsApp(accessToken, fromNumberId);\nawait whatsapp.sendMessage(phoneNumber: 'RECIPIENT', text: 'Hello');\n```",
+    "confidence": 0.93
+  }
+}

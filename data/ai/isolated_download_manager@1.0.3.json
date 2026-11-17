@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "1.0.3",
+  "generatedAt": "2026-11-17T12:01:28.412Z",
+  "data": {
+    "primary_category": "files",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based",
+      "no codegen"
+    ],
+    "one_liner": "Isolated file download manager with progress, pause, resume and cancellation.",
+    "what_it_does": "Provides a Dart‑only download manager that runs downloads in reusable isolates. It offers real‑time progress events and controls for pause, resume and cancel, plus a queue system.",
+    "use_when": [
+      "You need background downloads without blocking the UI",
+      "You require progress reporting and the ability to pause or resume downloads",
+      "You want a pure‑Dart solution that works across Android, iOS, Windows, macOS and Linux"
+    ],
+    "avoid_when": [
+      "A simple one‑off HTTP GET is sufficient",
+      "You need native platform download optimizations or system‑level notifications"
+    ],
+    "strengths": [
+      "Runs downloads in isolates, keeping the UI responsive",
+      "Supports pause, resume, cancel and queue management",
+      "Provides real‑time progress events via streams"
+    ],
+    "weaknesses": [
+      "Limited to Dart’s http client, no native download acceleration",
+      "Adds complexity compared to a direct http call",
+      "No built‑in UI, requires a separate Flutter package for widgets"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "await DownloadManager.instance.init(isolates:3);\nfinal request=DownloadManager.instance.download('https://example.com/file');\nrequest.events.listen((e){/* handle progress */});\nrequest.pause();\nrequest.resume();\nrequest.cancel();",
+    "confidence": 0.9
+  }
+}

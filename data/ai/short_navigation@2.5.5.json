@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.5.5",
+  "generatedAt": "2026-11-17T12:22:59.343Z",
+  "data": {
+    "primary_category": "navigation",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Navigate between routes, show dialogs, and access context globally without passing BuildContext.",
+    "what_it_does": "Provides global navigation methods, animated transitions, dialog/bottom sheet helpers, and global access to context-dependent objects like MediaQuery, Theme, and ScaffoldMessenger without requiring a BuildContext instance.",
+    "use_when": [
+      "You want a lightweight imperative navigation setup without writing complex routing declarations",
+      "You need to navigate or show dialogs/snackbars from non-widget classes where BuildContext is unavailable"
+    ],
+    "avoid_when": [
+      "You prefer declarative routing with deep linking support",
+      "You rely on type-safe argument passing and route generation structures"
+    ],
+    "strengths": [
+      "Enables navigation and messenger calls from anywhere without BuildContext",
+      "Includes built-in support for animated page transitions and custom route types"
+    ],
+    "weaknesses": [
+      "Relies on a global navigator key, which can cause issues in multi-navigator or complex modular architectures",
+      "Does not support declarative routing or native deep linking features out of the box"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Pass Go.navigatorKey to the navigatorKey property of MaterialApp in main.dart.",
+    "alternatives": [
+      {
+        "name": "go_router",
+        "why_pick_it": "Choose go_router for robust declarative routing, URL path synchronization, and deep linking support."
+      },
+      {
+        "name": "auto_route",
+        "why_pick_it": "Choose auto_route for heavily type-safe routing and deep linking with code generation."
+      }
+    ],
+    "minimal_example": "MaterialApp(\n  navigatorKey: Go.navigatorKey,\n  home: const HomePage(),\n);\n\n// Anywhere in your code:\nGo.to(HomePage());",
+    "confidence": 0.95
+  }
+}

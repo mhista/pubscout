@@ -1,0 +1,50 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.7.3",
+  "generatedAt": "2026-11-17T12:12:19.761Z",
+  "data": {
+    "primary_category": "navigation",
+    "secondary_categories": [
+      "animation"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Draggable Hero route for Flutter inspired by Instagram transitions.",
+    "what_it_does": "Provides a custom page route that opens by expanding from a source widget or as an adaptive page, and can be closed via dragging or animating back to the source widget.",
+    "use_when": [
+      "You want Instagram-style expand and drag-to-close route transitions.",
+      "You need custom Hero-like route animations that support drag gestures."
+    ],
+    "avoid_when": [
+      "Your source widget context contains GlobalKeys in children.",
+      "You are using a declarative router framework where custom imperative routes are hard to fit."
+    ],
+    "strengths": [
+      "Supports opening with or without a source widget.",
+      "Handles scroll views and drag-to-dismiss interactions natively.",
+      "Configurable dismiss distance and velocity."
+    ],
+    "weaknesses": [
+      "Context provided to the source must not have GlobalKeys in children.",
+      "Source widgets are recreated for the shuttle animation."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the package to pubspec.yaml and import it.",
+    "alternatives": [
+      {
+        "name": "auto_route",
+        "why_pick_it": "For advanced declarative routing with code generation."
+      },
+      {
+        "name": "go_router",
+        "why_pick_it": "For official declarative routing and deep linking support."
+      }
+    ],
+    "minimal_example": "Navigator.of(context).push(\n  DraggableRoute(\n    source: context,\n    builder: (context) => const Page(),\n  ),\n);",
+    "confidence": 0.95
+  }
+}

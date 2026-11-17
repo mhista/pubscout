@@ -1,0 +1,37 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.0",
+  "generatedAt": "2026-11-17T12:19:27.277Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Create and manage a floating bubble overlay on Android screens.",
+    "what_it_does": "Dash Bubble is a Flutter plugin that lets you create a floating bubble overlay on the Android screen. It provides methods to start and stop the bubble, handle runtime permissions like system overlay and post notifications, and listen to various callbacks such as taps, movement, and touch-up/down events.",
+    "use_when": [
+      "You need to display a floating chat head or persistent bubble overlay on Android.",
+      "You want to handle bubble interaction callbacks like movement and tapping."
+    ],
+    "avoid_when": [
+      "You are targeting iOS or platforms other than Android.",
+      "You require drawing over other apps without handling the required Android system overlay permissions."
+    ],
+    "strengths": [
+      "Provides extensive customization options for bubble appearance, behavior, and service notifications.",
+      "Includes touch and move callbacks for rich interactive floating elements."
+    ],
+    "weaknesses": [
+      "Only supports Android; iOS is not supported due to platform limitations.",
+      "Requires runtime overlay and notification permissions on newer Android versions."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Set the minimum SDK version to 21 or higher in android/app/build.gradle. Request system overlay and post notifications permissions at runtime as required by Android.",
+    "alternatives": [],
+    "minimal_example": "DashBubble.instance.requestOverlayPermission();\nDashBubble.instance.startBubble(\n  bubbleOptions: BubbleOptions(bubbleSize: 60),\n  onTap: () => print('Bubble tapped'),\n);",
+    "confidence": 0.95
+  }
+}

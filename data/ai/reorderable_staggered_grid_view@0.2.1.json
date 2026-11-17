@@ -1,0 +1,48 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.2.1",
+  "generatedAt": "2026-11-17T12:02:02.050Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "layout"
+    ],
+    "approach": [
+      "declarative",
+      "imperative"
+    ],
+    "one_liner": "Flutter widget for lazy, draggable, reorderable staggered grid layouts.",
+    "what_it_does": "Provides ReorderableStaggeredGridView and items that can be dragged to change order. Supports lazy building and customizable drag behavior.",
+    "use_when": [
+      "You need a staggered grid where users can reorder items via drag‑and‑drop",
+      "Large collections where lazy loading improves performance",
+      "You want customizable drag feedback and animation"
+    ],
+    "avoid_when": [
+      "A static grid without reordering is needed",
+      "You require automatic order handling without manual state updates"
+    ],
+    "strengths": [
+      "Built‑in drag‑and‑drop reordering",
+      "Lazy construction for large data sets",
+      "Highly customizable appearance and behavior"
+    ],
+    "weaknesses": [
+      "Developer must manually update item list on drop",
+      "Changing crossAxisCount resets scroll position",
+      "Requires GlobalKey on children to preserve state"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "flutter_staggered_grid_view",
+        "why_pick_it": "Provides staggered grid layouts without reordering; simpler if drag‑and‑drop isn’t needed"
+      }
+    ],
+    "minimal_example": "import 'package:reorderable_staggered_grid_view/reorderable_staggered_grid_view.dart';\n\nclass MyGrid extends StatefulWidget{...}\n// inside state:\nlate final List<ReorderableStaggeredGridItem<int>> _items = List.generate(\n 10,\n  (i)=>ReorderableStaggeredGridItem(\n    data:i,\n    isDraggable:i!=0,\n    mainAxisCellCount:Random().nextInt(2)+1,\n    crossAxisCellCount:Random().nextInt(2)+1,\n    child:TileWidget(key:GlobalKey(),title:Text(i.toString())),\n  ),\n);\n\nWidget build(BuildContext context){\n  return ReorderableStaggeredGridView.builder(\n    crossAxisCount:4,\n    itemCount:_items.length,\n    itemBuilder:(c,i)=>_items[i],\n    onAcceptWithDetails:(details,newIndex){\n      final item=_items.firstWhere((e)=>e.data==details.data);\n      setState(()=>{_items.remove(item);_items.insert(newIndex,item);});\n    },\n  );\n}",
+    "confidence": 0.85
+  }
+}

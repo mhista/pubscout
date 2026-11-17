@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "4.1.2",
+  "generatedAt": "2026-11-17T12:07:38.453Z",
+  "data": {
+    "primary_category": "ai-ml",
+    "secondary_categories": [],
+    "approach": [
+      "declarative",
+      "imperative"
+    ],
+    "one_liner": "Flutter framework for building AI agents with tools and multi-agent orchestration",
+    "what_it_does": "Agenix lets you define agents that can use LLMs, invoke tools, and delegate tasks to other agents. It supports multiple LLM providers and includes a memory store and tool registry.",
+    "use_when": [
+      "building AI assistants",
+      "prototyping agent workflows",
+      "implementing multi-agent orchestration"
+    ],
+    "avoid_when": [
+      "needing built‑in persistent storage for production",
+      "requiring a companion package for persistence"
+    ],
+    "strengths": [
+      "multi‑provider LLM support",
+      "tool loop hardening to avoid duplicate side effects",
+      "clear idempotency contract for side‑effecting tools"
+    ],
+    "weaknesses": [
+      "no built‑in persistence (requires agenix_firebase for Firebase)",
+      "larger dependency footprint due to LLM adapters"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add agenix to pubspec, optionally add agenix_firebase for persistence. No build_runner or native permissions required.",
+    "alternatives": [],
+    "minimal_example": "import 'package:agenix/agenix.dart';\n\nfinal agent = await Agent.create(\n  dataStore: DataStore.inMemory(),\n  llm: LLM.geminiLLM(apiKey: 'YOUR_API_KEY', modelName: 'gemini-2.0-flash'),\n  name: 'Assistant',\n  role: 'General purpose assistant',\n);\n\nfinal response = await agent.generateResponse(\n  convoId: 'conversation-1',\n  userMessage: AgentMessage(content: 'What is the weather like today?', isFromAgent: false, generatedAt: DateTime.now()),\n);\nprint(response.content);",
+    "confidence": 0.9
+  }
+}

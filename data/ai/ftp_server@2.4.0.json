@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.4.0",
+  "generatedAt": "2026-11-17T11:58:22.162Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "files",
+      "backend"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Standards-compliant FTP and FTPS server implementation in Dart.",
+    "what_it_does": "Provides a fully-featured FTP and FTPS server running directly inside Dart with support for plain or encrypted TLS, active/passive modes, authentication, and pluggable virtual or physical file system backends.",
+    "use_when": [
+      "You need to embed an FTP or FTPS server into a Dart or Flutter application.",
+      "You want to share local files and directories with other devices over the network.",
+      "You require standards-compliant RFC file operations without external native server binaries."
+    ],
+    "avoid_when": [
+      "You only need an FTP client to connect to external servers.",
+      "Your environment does not allow running socket servers."
+    ],
+    "strengths": [
+      "Supports plain FTP, explicit FTPS, and implicit FTPS.",
+      "Includes zero-config self-signed certificate generation inside Dart.",
+      "Pluggable file system backends for virtual multiple directories or a single physical directory."
+    ],
+    "weaknesses": [
+      "Dart's SecureSocket limitation prevents sending a TLS close_notify, causing some FTP clients (like FileZilla) to report non-properly terminated directory listings.",
+      "Does not support CCC (Clear Command Channel) or REIN under TLS due to Dart SDK socket constraints."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "No external OpenSSL setup required if using the built-in self-signed certificate generator.",
+    "alternatives": [],
+    "minimal_example": "import 'package:ftp_server/ftp_server.dart';\nimport 'package:ftp_server/server_type.dart';\nimport 'package:ftp_server/file_operations/virtual_file_operations.dart';\n\nvoid main() async {\n  final server = FtpServer(\n    21,\n    fileOperations: VirtualFileOperations(['/home/user/shared']),\n    serverType: ServerType.readAndWrite,\n  );\n\n  await server.start();\n}",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.1.0-dev.5",
+  "generatedAt": "2026-11-17T11:57:39.259Z",
+  "data": {
+    "primary_category": "devtools",
+    "secondary_categories": [
+      "storage"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter widget to inspect and edit key‑value storage such as shared_preferences.",
+    "what_it_does": "Provides a UI (StorageView) that connects to a StorageDriver to read, update, and delete values from any key‑value storage backend. Developers can plug in existing drivers or implement their own to view data at runtime.",
+    "use_when": [
+      "You need a quick UI to debug or verify stored preferences during development",
+      "You want to support multiple storage backends (shared_preferences, flutter_secure_storage) with a single inspector"
+    ],
+    "avoid_when": [
+      "Running in production where exposing storage UI is a security risk",
+      "You only need programmatic access without a UI"
+    ],
+    "strengths": [
+      "Works with any storage via a driver interface",
+      "Responsive UI works on mobile, desktop and web",
+      "Low integration effort – just add dependency and provide a driver"
+    ],
+    "weaknesses": [
+      "Limited to key‑value style storage, no SQL table browsing",
+      "Package is still in early development (dev version)",
+      "No built‑in support for secure storage encryption UI"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "shared_preferences",
+        "why_pick_it": "Direct programmatic access to preferences without UI overhead"
+      },
+      {
+        "name": "flutter_secure_storage",
+        "why_pick_it": "Secure storage access when UI inspection is not required"
+      }
+    ],
+    "minimal_example": "final driver = MockStorageDriver();\nScaffold(body: StorageView(storageDriver: driver));",
+    "confidence": 0.78
+  }
+}

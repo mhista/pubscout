@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.0.6",
+  "generatedAt": "2026-11-17T12:03:23.067Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Print receipts via Bluetooth to Android thermal printers",
+    "what_it_does": "This plugin lets Flutter apps send ESC/POS commands to Bluetooth thermal printers. It supports 58mm and 80mm paper sizes and works only on Android.",
+    "use_when": [
+      "Printing receipts in POS or small business apps",
+      "Need a simple API for thermal printers",
+      "Android-only projects that require Bluetooth printing"
+    ],
+    "avoid_when": [
+      "iOS or web targets",
+      "Non-thermal or Wi-Fi printers",
+      "Projects needing cross-platform printing"
+    ],
+    "strengths": [
+      "Supports both 58mm and 80mm printers",
+      "No location permission required",
+      "Simple, declarative API via esc_pos_utils",
+      "Active example project"
+    ],
+    "weaknesses": [
+      "Android only",
+      "Limited to Bluetooth thermal printers",
+      "No built-in image support (requires separate image package)"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dependency to pubspec. No special permissions needed beyond Bluetooth. No build_runner or codegen.",
+    "alternatives": [],
+    "minimal_example": "Ticket testTicket() {\n  final Ticket ticket = Ticket(PaperSize.mm80);\n  ticket.text('Hello World');\n  ticket.feed(2);\n  ticket.cut();\n  return ticket;\n}",
+    "confidence": 0.8
+  }
+}

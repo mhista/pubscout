@@ -1,0 +1,47 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.0",
+  "generatedAt": "2026-11-17T12:08:34.236Z",
+  "data": {
+    "primary_category": "images",
+    "secondary_categories": [
+      "audio-video",
+      "files"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Saves copies of images and videos to the Android Gallery and iOS Photos library.",
+    "what_it_does": "Copies local image and video files into the device's gallery or photo library under a specified album name and returns the new File instance. It handles recognized file extensions, supports scoped storage on Android, and runs operations safely.",
+    "use_when": [
+      "You need to save captured or downloaded images and videos to the system gallery.",
+      "You want a straightforward way to organize saved media into a custom album on Android and iOS."
+    ],
+    "avoid_when": [
+      "You need to query, search, or manage existing items inside the user's gallery or photo library.",
+      "You are trying to save raw remote HTTP/HTTPS URLs directly without downloading them first."
+    ],
+    "strengths": [
+      "Returns a File pointing to the saved media with an optional choice to preserve the original filename.",
+      "Unified behavior across both iOS and Android with background thread processing for large videos.",
+      "Leaves permission handling to external packages like permission_handler for flexible configuration."
+    ],
+    "weaknesses": [
+      "Does not download remote files automatically from HTTP URLs.",
+      "Does not manage permissions internally, requiring explicit manual setup.",
+      "Does not search or read existing items in the gallery."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires configuring storage or photos permissions in AndroidManifest.xml and Info.plist depending on the target OS version.",
+    "alternatives": [
+      {
+        "name": "image",
+        "why_pick_it": "If you need pure Dart image manipulation and processing without saving directly to the device gallery."
+      }
+    ],
+    "minimal_example": "File file = await AddToGallery.addToGallery(\n  originalFile: File('/Some/Media/Path.jpg'),\n  albumName: 'My Awesome App',\n  deleteOriginalFile: false,\n  keepFilename: true,\n);\nprint(\"Saved to gallery with Path: ${file.path}\");",
+    "confidence": 0.95
+  }
+}

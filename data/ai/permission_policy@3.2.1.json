@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.2.1",
+  "generatedAt": "2026-11-17T12:14:35.558Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "state-management"
+    ],
+    "approach": [
+      "declarative",
+      "imperative"
+    ],
+    "one_liner": "Role-based access control and hierarchical permissions management system for Flutter.",
+    "what_it_does": "Provides type-safe permission and role management with inheritance, local caching, and custom storage support. Includes UI widgets like PermissionGuard, PermissionBuilder, and RoleSelector for conditional rendering.",
+    "use_when": [
+      "You need role-based access control (RBAC) in your Flutter app.",
+      "You want hierarchical permissions and role inheritance.",
+      "You need to guard specific UI components or routes based on device permissions."
+    ],
+    "avoid_when": [
+      "You need complex backend-driven user authentication and synchronization out of the box.",
+      "You are looking for hardware device permission management like camera or location permissions."
+    ],
+    "strengths": [
+      "Supports both permission and role inheritance with cycle detection.",
+      "Includes customizable UI widgets (PermissionGuard, RoleSelector).",
+      "Pluggable storage backend interface."
+    ],
+    "weaknesses": [
+      "Completely rewritten in v3 with no automatic migration from v2.",
+      "Device-level roles by default; user-identity mapping requires custom storage implementation."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Initialize the package using PermissionPolicy.instance.initialize() and configure permissions and roles.",
+    "alternatives": [],
+    "minimal_example": "await PermissionPolicy.instance.initialize();\nawait PermissionPolicy.instance.configureSimple({\n  'admin': ['read_posts', 'write_posts', 'delete_posts'],\n});\nbool canEdit = await PermissionPolicy.instance.hasPermission('write_posts');",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.1.1+3",
+  "generatedAt": "2026-11-17T12:07:37.454Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "device",
+      "web-desktop"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Send wake-on-LAN magic packets to devices on a local network.",
+    "what_it_does": "Allows you to construct IP and MAC address instances, optionally include a SecureON password, and send Wake-on-LAN magic packets over UDP to wake local network devices.",
+    "use_when": [
+      "You need to wake up local computers or devices from your Dart/Flutter application using Wake-on-LAN.",
+      "You are targeting Android, iOS, Windows, macOS, or Linux platforms."
+    ],
+    "avoid_when": [
+      "You are targeting web browsers, since UDP sockets are not available in browsers due to security constraints.",
+      "You need delivery confirmation, as UDP sockets cannot confirm if the machine has been successfully awoken."
+    ],
+    "strengths": [
+      "Supports both IPv4 and IPv6 addresses.",
+      "Supports SecureON password authentication and optional repeated packet sending."
+    ],
+    "weaknesses": [
+      "Does not support web platforms because of browser security constraints regarding UDP.",
+      "Cannot confirm if the target machine has actually been awoken due to the nature of UDP."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [],
+    "minimal_example": "String address = 'AA:BB:CC:DD:EE:FF';\nfinal validation = MACAddress.validate(address);\nif(validation.state) {\n  MACAddress mac = MACAddress(address);\n}",
+    "confidence": 1
+  }
+}

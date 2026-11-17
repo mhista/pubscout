@@ -1,0 +1,56 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "2.0.0",
+  "generatedAt": "2026-11-17T12:11:33.692Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "stream-based",
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Flutter plugin for Pusher Channels providing WebSocket communication on Android and iOS.",
+    "what_it_does": "It wraps the native Pusher WebSocket SDKs for Java and Swift, exposing a Dart API to connect, subscribe to channels, bind events, and trigger client events. It supports public, private, encrypted, and presence channels.",
+    "use_when": [
+      "You need real‑time updates via Pusher Channels in a Flutter app",
+      "You target Android and iOS and want a ready‑made client rather than implementing the protocol yourself"
+    ],
+    "avoid_when": [
+      "You require a pure Dart WebSocket solution without native code",
+      "You need WebSocket support on web, desktop, or other platforms not covered by this plugin"
+    ],
+    "strengths": [
+      "Native SDKs give reliable connection handling",
+      "Supports all Pusher channel types including encrypted and presence",
+      "Provides callbacks and stream‑like event handling"
+    ],
+    "weaknesses": [
+      "Only works on Android and iOS; no web/desktop support",
+      "Requires native configuration (Podfile, Proguard)",
+      "Adds native binary size overhead"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add iOS deployment target >=9.0 in Podfile, optionally configure NSAppTransportSecurity. For Android, add Proguard keep rule if code obfuscation is enabled.",
+    "alternatives": [
+      {
+        "name": "web_socket_channel",
+        "why_pick_it": "Pure Dart WebSocket client that works on all Flutter platforms, no native code"
+      },
+      {
+        "name": "shelf_web_socket",
+        "why_pick_it": "Server‑side WebSocket library for Dart, useful if you control the backend"
+      },
+      {
+        "name": "http_multi_server",
+        "why_pick_it": "Provides low‑level socket handling for custom protocols"
+      }
+    ],
+    "minimal_example": "import 'package:pusher_client/pusher_client.dart';\n\nvoid main() {\n  var options = PusherOptions(\n    host: 'example.com',\n    wsPort: 6001,\n    encrypted: false,\n    auth: PusherAuth('http://example.com/auth', headers: {'Authorization':'Bearer token'}),\n  );\n  var pusher = PusherClient('YOUR_APP_KEY', options);\n  pusher.connect();\n  var channel = pusher.subscribe('private-orders');\n  channel.bind('order-status-updated', (event) => print(event.data));\n}",
+    "confidence": 0.93
+  }
+}

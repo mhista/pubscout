@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "1.0.11",
+  "generatedAt": "2026-11-17T11:59:44.720Z",
+  "data": {
+    "primary_category": "games",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Type-safe Dart API for accessing Windows gamepads via Win32",
+    "what_it_does": "Provides a high-level, type-safe interface to query and control up to four XInput gamepads on Windows. It wraps native Win32 calls, exposing state, vibration, and battery information.",
+    "use_when": [
+      "You need to read gamepad input in a Flutter or Dart app on Windows",
+      "You want vibration or battery info without dealing with raw FFI",
+      "You prefer a clean, object-oriented API over low-level Win32 calls"
+    ],
+    "avoid_when": [
+      "You target non-Windows platforms",
+      "You need a cross-platform gamepad library",
+      "You require advanced game engine features beyond input polling"
+    ],
+    "strengths": [
+      "Type-safe, modern Dart API",
+      "Supports up to four controllers with clean state objects",
+      "Includes vibration and battery info out of the box"
+    ],
+    "weaknesses": [
+      "Windows-only",
+      "Depends on the win32 package",
+      "No cross-platform support"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:win32_gamepad/win32_gamepad.dart';\nfinal gamepad = Gamepad(0);\nif (gamepad.isConnected) {\n  gamepad.updateState();\n  print(gamepad.state.buttons.aPressed);\n  gamepad.vibrate(leftMotorSpeed: 32767);\n}",
+    "confidence": 0.9
+  }
+}

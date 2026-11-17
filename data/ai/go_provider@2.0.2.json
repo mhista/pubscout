@@ -1,0 +1,51 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "2.0.2",
+  "generatedAt": "2026-11-17T11:57:58.246Z",
+  "data": {
+    "primary_category": "navigation",
+    "secondary_categories": [
+      "state-management",
+      "widgets"
+    ],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "Scope Provider or Bloc instances to specific go_router routes.",
+    "what_it_does": "Provides GoProviderRoute and ShellProviderRoute widgets that attach providers to a route hierarchy. Providers are created when the route is entered and disposed when the route is popped, simplifying scoped state management with go_router.",
+    "use_when": [
+      "You need route‑specific state without lifting providers to the app root",
+      "You use go_router and want automatic provider lifecycle tied to navigation"
+    ],
+    "avoid_when": [
+      "You prefer a global provider architecture",
+      "You need code‑generation‑based state management"
+    ],
+    "strengths": [
+      "Easy integration with existing Provider or Bloc code",
+      "Automatic disposal of scoped providers",
+      "Works with custom pages via copyWith"
+    ],
+    "weaknesses": [
+      "Adds an extra Navigator which can affect canPop behavior",
+      "Limited to Provider/Bloc patterns, no built‑in support for Riverpod"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "provider",
+        "why_pick_it": "Standard way to scope providers manually in the widget tree"
+      },
+      {
+        "name": "flutter_bloc",
+        "why_pick_it": "Provides similar scoped Bloc support without extra routing wrapper"
+      }
+    ],
+    "minimal_example": "GoProviderRoute(\n  path: '/home',\n  providers: (c, s) => [ChangeNotifierProvider(create: (_) => UserState())],\n  builder: (c, s) => const HomePage(),\n);",
+    "confidence": 0.85
+  }
+}

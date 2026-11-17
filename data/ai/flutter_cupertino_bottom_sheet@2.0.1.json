@@ -1,0 +1,46 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "2.0.1",
+  "generatedAt": "2026-11-17T11:56:51.967Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Cupertino-style bottom sheet that works from any context without a Scaffold, using a screenshot of the screen.",
+    "what_it_does": "It captures the current screen as a RawImage and displays it as a bottom sheet, allowing swipe or button dismissal. The sheet can be opened from anywhere by using a global navigator key or a direct route push.",
+    "use_when": [
+      "Need a Cupertino bottom sheet that can be shown from any part of the app without a Scaffold",
+      "Want a quick, minimal setup for a modal sheet",
+      "Need to avoid passing a BuildContext to open the sheet"
+    ],
+    "avoid_when": [
+      "Need complex custom animations that depend on the underlying widget tree",
+      "Require high-performance rendering for very large screens",
+      "Need to avoid the overhead of taking a screenshot"
+    ],
+    "strengths": [
+      "No Scaffold required, works from any context",
+      "Simple API, just wrap MaterialApp once",
+      "Supports custom app bars and swipe settings"
+    ],
+    "weaknesses": [
+      "Screenshot approach can be heavy on large screens",
+      "Limited to the visual snapshot of the current screen",
+      "Not suitable for highly dynamic content that changes after the sheet opens"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Wrap your MaterialApp with CupertinoBottomSheetRepaintBoundary and optionally set cupertinoBottomSheetNavigatorKey.",
+    "alternatives": [
+      {
+        "name": "modal_bottom_sheet",
+        "why_pick_it": "Provides a more feature‑rich modal bottom sheet with built‑in animations and customization options."
+      }
+    ],
+    "minimal_example": "```dart\nimport 'package:flutter_cupertino_bottom_sheet/flutter_cupertino_bottom_sheet.dart';\n\nvoid main() => runApp(const MyApp());\n\nclass MyApp extends StatelessWidget {\n  const MyApp({super.key});\n  @override\n  Widget build(BuildContext context) {\n    return CupertinoBottomSheetRepaintBoundary(\n      child: MaterialApp(\n        navigatorKey: cupertinoBottomSheetNavigatorKey,\n        home: Scaffold(\n          appBar: AppBar(title: const Text('Demo')),\n          body: Center(\n            child: ElevatedButton(\n              onPressed: () => openCupertinoBottomSheet(\n                builder: (_) => const Text('Hello'),\n              ),\n              child: const Text('Show Sheet'),\n            ),\n          ),\n        ),\n      ),\n    );\n  }\n}\n```",
+    "confidence": 0.9
+  }
+}

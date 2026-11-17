@@ -1,0 +1,50 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.2.0",
+  "generatedAt": "2026-11-17T12:03:50.144Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "no codegen",
+      "declarative",
+      "imperative"
+    ],
+    "one_liner": "A type‑safe wrapper around SharedPreferences with observers and DAO support.",
+    "what_it_does": "Provides a typed API for reading and writing SharedPreferences values, automatically prefixes keys, and caches entries. Adds observer hooks to react to preference changes and lets you define DAOs for schema‑like access.",
+    "use_when": [
+      "You want compile‑time type safety for preference keys",
+      "You need to react to preference changes via observers",
+      "You prefer a DAO‑style, declarative definition of stored values"
+    ],
+    "avoid_when": [
+      "You only need a few simple key‑value pairs and want minimal overhead",
+      "You require encrypted or secure storage out of the box"
+    ],
+    "strengths": [
+      "Type‑safe get/set operations",
+      "Observer callbacks for change tracking",
+      "DAO pattern simplifies schema definition",
+      "Works on all Flutter platforms"
+    ],
+    "weaknesses": [
+      "Adds an extra abstraction layer over SharedPreferences",
+      "Breaking API change in 0.2.0 (generics must extend Object)",
+      "Limited to SharedPreferences; no built‑in encryption"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "shared_preferences",
+        "why_pick_it": "Direct access with no extra abstraction if you only need basic key‑value storage"
+      }
+    ],
+    "minimal_example": "final prefs = await SharedPreferences.getInstance();\nfinal driver = PreferencesDriver(sharedPreferences: prefs);\nclass UserDao extends TypedPreferencesDao {\n  UserDao(super.driver);\n  PreferencesEntry<String> get name => stringEntry('name');\n  PreferencesEntry<int> get age => intEntry('age');\n}\nfinal userDao = UserDao(driver);\nawait userDao.name.set('Alice');\nint age = await userDao.age.get();",
+    "confidence": 0.93
+  }
+}

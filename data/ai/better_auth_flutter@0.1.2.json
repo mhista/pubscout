@@ -1,0 +1,59 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.1.2",
+  "generatedAt": "2026-11-17T11:58:24.038Z",
+  "data": {
+    "primary_category": "auth",
+    "secondary_categories": [
+      "networking",
+      "storage",
+      "state-management"
+    ],
+    "approach": [
+      "stream-based",
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Flutter SDK for Better Auth providing email/password, social sign‑in, session management and reactive auth state.",
+    "what_it_does": "It wraps Better Auth's REST API with a Dio client, handling authentication flows, cookie or bearer sessions, and exposing a sealed Result type for all calls. It also offers Riverpod 3 providers and streams to reactively track auth state.",
+    "use_when": [
+      "You need a custom backend authentication solution rather than Firebase or Supabase",
+      "You want reactive auth state with Riverpod or Stream listeners",
+      "You require secure cookie‑based sessions across platforms"
+    ],
+    "avoid_when": [
+      "You only need simple OAuth with Google/Apple and don't need a full backend",
+      "You prefer a fully managed BaaS like Firebase"
+    ],
+    "strengths": [
+      "Unified API for email, password, social and passkey auth",
+      "Reactive auth state via streams and Riverpod providers",
+      "Secure cookie storage with automatic persistence"
+    ],
+    "weaknesses": [
+      "Tied to Better Auth backend; not a generic OAuth library",
+      "Requires manual setup of the Better Auth server",
+      "No code generation; models must be maintained manually"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add the package, call BetterAuthFlutter.initialize with your server URL before runApp; no native permissions required",
+    "alternatives": [
+      {
+        "name": "firebase_auth",
+        "why_pick_it": "Provides similar auth features with a fully managed backend and extensive Firebase ecosystem"
+      },
+      {
+        "name": "google_sign_in",
+        "why_pick_it": "Simpler if you only need Google OAuth without a custom backend"
+      },
+      {
+        "name": "sign_in_with_apple",
+        "why_pick_it": "Dedicated Apple sign‑in without needing the full Better Auth server"
+      }
+    ],
+    "minimal_example": "import 'package:better_auth_flutter/better_auth_flutter.dart';\n\nvoid main() async {\n  WidgetsFlutterBinding.ensureInitialized();\n  await BetterAuthFlutter.initialize(url: 'https://example.com/api/auth');\n  runApp(const MyApp());\n}\n\nFuture<void> signIn() async {\n  final result = await BetterAuthFlutter.client.signInEmail(email: 'user@example.com', password: 'secret');\n  result.when(\n    success: (data) => print('Welcome ${data.user?.name}'),\n    failure: (error) => print('Error: ${error.message}'),\n  );\n}",
+    "confidence": 0.92
+  }
+}

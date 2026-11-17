@@ -1,0 +1,50 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "3.0.0",
+  "generatedAt": "2026-11-17T12:17:51.396Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "codegen"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Dart wrapper for the Tenrai (formerly Jikan) unofficial MyAnimeList API.",
+    "what_it_does": "Provides typed methods to fetch anime, manga, characters, people, and related data from the Tenrai API. Models are generated with built_value for immutability and JSON parsing.",
+    "use_when": [
+      "You need to read MyAnimeList data without building your own scraper",
+      "You want strongly‑typed Dart models for anime/manga information"
+    ],
+    "avoid_when": [
+      "You require write operations or authentication against MyAnimeList",
+      "You need real‑time updates or WebSocket support"
+    ],
+    "strengths": [
+      "Wide coverage of MyAnimeList endpoints",
+      "Built‑value models give immutable, type‑safe data",
+      "Simple Future‑based API"
+    ],
+    "weaknesses": [
+      "The underlying API is unofficial and may be discontinued",
+      "Some endpoints are missing or not yet available",
+      "Only GET requests; no support for mutations"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the package to pubspec.yaml and run `flutter pub get`. No additional permissions required; built_value models may need `build_runner` if you modify them.",
+    "alternatives": [
+      {
+        "name": "http",
+        "why_pick_it": "Lightweight HTTP client for custom API calls without extra abstractions"
+      },
+      {
+        "name": "dio",
+        "why_pick_it": "More feature‑rich HTTP client with interceptors, cancellation, and advanced options"
+      }
+    ],
+    "minimal_example": "import 'package:jikan_api/jikan_api.dart';\n\nvoid main() async {\n  final api = JikanApi();\n  final anime = await api.getAnime(1);\n  print(anime.title);\n}",
+    "confidence": 0.9
+  }
+}

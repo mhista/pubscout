@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.1.3",
+  "generatedAt": "2026-11-17T12:17:46.102Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Create guided tours and coachmarks for Flutter widgets",
+    "what_it_does": "Hotspot lets you attach callouts to any widget and run a step‑by‑step flow. It uses a provider to manage state and displays overlays with titles, text and optional actions.",
+    "use_when": [
+      "You need a quick onboarding tour for a new screen",
+      "You want to highlight new features in an app",
+      "You need a lightweight, no‑code‑generation solution for tutorials"
+    ],
+    "avoid_when": [
+      "You require highly custom animations or complex branching logic",
+      "You need to integrate with a state‑management library that conflicts with provider"
+    ],
+    "strengths": [
+      "Simple API, no code generation",
+      "Built on provider, easy to integrate",
+      "Supports multiple platforms (android, ios, web, desktop)"
+    ],
+    "weaknesses": [
+      "Limited customization of the overlay appearance",
+      "No built‑in branching or conditional logic",
+      "Relies on provider, so not suitable if you avoid it"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Wrap the widget tree with HotspotProvider and call HotspotProvider.of(context).startFlow() to begin.",
+    "alternatives": [],
+    "minimal_example": "class Example extends StatelessWidget {\n  const Example({Key? key}) : super(key: key);\n  @override\n  Widget build(BuildContext context) {\n    return IconButton(\n      icon: const Icon(Icons.play_arrow),\n      onPressed: () {},\n    ).withHotspot(\n      order: 1,\n      title: 'Tour It!',\n      text: 'This is the first callout in the tour!',\n    );\n  }\n}",
+    "confidence": 0.8
+  }
+}

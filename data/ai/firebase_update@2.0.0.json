@@ -1,0 +1,51 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "2.0.0",
+  "generatedAt": "2026-11-17T12:05:20.113Z",
+  "data": {
+    "primary_category": "backend",
+    "secondary_categories": [
+      "ui-kits",
+      "widgets",
+      "networking"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Force update, maintenance mode and patch notes via Firebase Remote Config for Flutter apps",
+    "what_it_does": "It listens to a Remote Config payload and shows non‑dismissable force‑update dialogs, optional update prompts, maintenance screens, and patch notes. The UI can be built-in or fully custom and reacts in real time.",
+    "use_when": [
+      "You need a single Remote Config payload to control update flow",
+      "You want real‑time updates without restarting the app",
+      "You need both optional and force updates plus maintenance mode"
+    ],
+    "avoid_when": [
+      "You already have a custom update system that doesn’t use Firebase Remote Config",
+      "You need fine‑grained control over fetch intervals beyond what the package offers"
+    ],
+    "strengths": [
+      "Real‑time Remote Config listening",
+      "Built‑in UI with full customization",
+      "Supports optional, force, and maintenance modes in one package",
+      "Handles patch notes in text or HTML"
+    ],
+    "weaknesses": [
+      "Requires Firebase to be configured",
+      "Only works with Firebase Remote Config",
+      "Needs Flutter 3.32+",
+      "Limited to the provided UI unless fully custom"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add firebase_core and firebase_remote_config to pubspec, initialize Firebase in main, call FirebaseUpdate.instance.initialize with navigatorKey and config, ensure Remote Config parameter firebase_update_config is set.",
+    "alternatives": [
+      {
+        "name": "firebase_remote_config",
+        "why_pick_it": "Use only the Remote Config client and implement your own UI logic"
+      }
+    ],
+    "minimal_example": "import 'package:firebase_update/firebase_update.dart';\n\nawait FirebaseUpdate.instance.initialize(\n  navigatorKey: rootNavigatorKey,\n  config: const FirebaseUpdateConfig(),\n);",
+    "confidence": 0.92
+  }
+}

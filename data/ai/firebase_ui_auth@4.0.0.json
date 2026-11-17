@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "4.0.0",
+  "generatedAt": "2026-11-17T11:56:14.845Z",
+  "data": {
+    "primary_category": "auth",
+    "secondary_categories": [
+      "ui-kits",
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Pre-built Firebase Auth UI widgets for Flutter",
+    "what_it_does": "Provides ready‑to‑use screens for email, phone, OAuth sign‑in, email verification, and more, integrating directly with Firebase Auth.",
+    "use_when": [
+      "Need a quick, drop‑in authentication UI",
+      "Want to support multiple providers without custom coding",
+      "Need email verification and link sign‑in out of the box"
+    ],
+    "avoid_when": [
+      "Require a highly custom design or branding",
+      "Want to keep dependencies minimal"
+    ],
+    "strengths": [
+      "Comprehensive provider support (email, phone, OAuth, Apple, Google, Twitter, Facebook)",
+      "Easy integration with Firebase Auth",
+      "Open source and actively maintained"
+    ],
+    "weaknesses": [
+      "Large dependency set (firebase_core, firebase_auth, etc.)",
+      "Recent breaking changes in 4.0.0 require migration"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "flutter pub add firebase_ui_auth",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:firebase_auth/firebase_auth.dart' hide EmailAuthProvider;\nimport 'package:firebase_ui_auth/firebase_ui_auth.dart';\n\nclass MyApp extends StatelessWidget {\n  const MyApp({super.key});\n  @override\n  Widget build(BuildContext context) {\n    final providers = [EmailAuthProvider()];\n    return MaterialApp(\n      initialRoute: FirebaseAuth.instance.currentUser == null ? '/sign-in' : '/profile',\n      routes: {\n        '/sign-in': (context) => SignInScreen(providers: providers),\n        '/profile': (context) => ProfileScreen(providers: providers),\n      },\n    );\n  }\n}",
+    "confidence": 0.9
+  }
+}

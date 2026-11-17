@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "1.1.0",
+  "generatedAt": "2026-11-17T12:09:39.842Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "animation"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Dynamic bottom navigation bar with an animated ball indicator",
+    "what_it_does": "Provides a customizable bottom bar that can be driven by a PageController or an activeIndex. It supports icon rotation, custom spacing, radii, elevation, and item sizing.",
+    "use_when": [
+      "You need a bottom navigation bar with a smooth animated indicator",
+      "You want to control the bar via a PageController or a simple activeIndex",
+      "You need custom spacing or icon rotation effects",
+      "You prefer a lightweight widget with no external dependencies"
+    ],
+    "avoid_when": [
+      "You require a full-featured navigation system with nested routes",
+      "You need advanced theming or integration with other UI kits",
+      "You are building a complex app that needs multiple navigation bars"
+    ],
+    "strengths": [
+      "Highly customizable appearance (spacing, radii, elevation, item size)",
+      "Simple API with no extra dependencies",
+      "Supports both PageController and activeIndex control",
+      "Built-in icon rotation and active color handling"
+    ],
+    "weaknesses": [
+      "Limited to bottom navigation only",
+      "No built-in support for deep linking or nested navigation",
+      "Requires Flutter 3.10+ and Dart 3+"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "```dart\nimport 'package:rolling_bottom_bar/rolling_bottom_bar.dart';\nimport 'package:rolling_bottom_bar/rolling_bottom_bar_item.dart';\n\nRollingBottomBar(\n  controller: _controller,\n  items: [\n    RollingBottomBarItem(Icons.home, label: 'Home'),\n    RollingBottomBarItem(Icons.star, label: 'Favorites'),\n    RollingBottomBarItem(Icons.person, label: 'Profile'),\n  ],\n  activeItemColor: Colors.green.shade700,\n  enableIconRotation: true,\n  onTap: (index) {\n    _controller.animateToPage(index, duration: const Duration(milliseconds: 400), curve: Curves.easeOut);\n  },\n)\n```",
+    "confidence": 0.9
+  }
+}

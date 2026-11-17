@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "2.0.3",
+  "generatedAt": "2026-11-17T12:08:22.597Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Type‑safe Dart API for reading, writing and monitoring the Windows clipboard.",
+    "what_it_does": "Provides high‑level functions to get/set text, file lists and custom data on the Windows clipboard. Includes a stream‑based monitor for clipboard change notifications, all built on top of win32 FFI.",
+    "use_when": [
+      "You need clipboard access in a Windows‑only Flutter or Dart desktop app",
+      "You want a type‑safe, high‑level API without handling raw Win32 calls",
+      "You need real‑time clipboard change notifications"
+    ],
+    "avoid_when": [
+      "Your app targets iOS, Android, Web or other non‑Windows platforms",
+      "You prefer a pure‑Dart solution without native dependencies"
+    ],
+    "strengths": [
+      "Type‑safe, high‑level abstraction over Win32 clipboard",
+      "Stream‑based change monitoring without blocking the main isolate",
+      "Supports text, file lists and custom formats"
+    ],
+    "weaknesses": [
+      "Works only on Windows",
+      "Requires win32 FFI and native build steps"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:win32_clipboard/win32_clipboard.dart';\n\nvoid main() async {\n  Clipboard.setText('Hello, clipboard!');\n  final text = Clipboard.getText();\n  print(text);\n\n  final monitor = ClipboardChangeMonitor();\n  await monitor.start();\n  monitor.events.listen((_) => print('Clipboard changed'));\n  // ...\n  await monitor.close();\n}",
+    "confidence": 0.97
+  }
+}

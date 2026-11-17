@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.0.2",
+  "generatedAt": "2026-11-17T12:02:23.912Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Detects if a user has an ad blocker or DNS-level adblocking enabled.",
+    "what_it_does": "Checks if the device has a DNS-level adblocker, AdGuard DNS, or specific ad networks blocked by making network requests. Verifies internet connectivity before checking to prevent false positives.",
+    "use_when": [
+      "You need to detect if users are blocking ads or analytics endpoints via DNS blockers or extensions.",
+      "You want to prompt users to whitelist your app or disable adblockers."
+    ],
+    "avoid_when": [
+      "Your target audience is in regions where certain ad networks or test domains are entirely blocked (e.g. China).",
+      "You cannot tolerate false positives caused by temporary network drops."
+    ],
+    "strengths": [
+      "Supports multiple built-in ad networks like Google AdMob and Media.net.",
+      "Allows custom ad network URIs and custom test hosts for connectivity checks.",
+      "Cross-platform support across mobile, web, and desktop."
+    ],
+    "weaknesses": [
+      "Relies on network requests, which can fail or trigger false positives if connectivity fluctuates.",
+      "Certain test networks or hosts may be blocked in specific countries like China."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "No complex native setup required. Uses standard HTTP requests.",
+    "alternatives": [],
+    "minimal_example": "AdBlockDetector adBlockDetector = AdBlockDetector();\nbool isAdblocking = await adBlockDetector.isAdBlockEnabled(testAdNetworks: [AdNetworks.googleAdMob]);",
+    "confidence": 0.95
+  }
+}

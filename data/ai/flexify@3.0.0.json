@@ -1,0 +1,52 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.0.0",
+  "generatedAt": "2026-11-17T12:22:07.875Z",
+  "data": {
+    "primary_category": "layout",
+    "secondary_categories": [
+      "navigation",
+      "animation"
+    ],
+    "approach": [
+      "declarative",
+      "imperative"
+    ],
+    "one_liner": "Responsive UI scaling from design dimensions and context-free navigation with page transitions.",
+    "what_it_does": "Scales every size written in code using extensions based on a reference design size, handles navigation without requiring a BuildContext, and provides 14 built-in page transitions. It also adapts layouts depending on whether the app runs on a phone, tablet, or desktop.",
+    "use_when": [
+      "You need to implement a design scaled proportionally across different phone and tablet screen sizes.",
+      "You require navigation actions to be triggered from anywhere in your codebase without a BuildContext.",
+      "You want custom page transitions for Navigator or routers like go_router and auto_route."
+    ],
+    "avoid_when": [
+      "You prefer standard Flutter responsive techniques like LayoutBuilder, MediaQuery, or flexible constraints over design-to-screen pixel scaling.",
+      "You are already using an alternative responsive scaling framework and want to avoid conflicting scale systems."
+    ],
+    "strengths": [
+      "Provides convenient number extensions (.rw, .rh, .rt, .rs) to automatically scale dimensions and fonts.",
+      "Includes context-free navigation methods and 14 built-in route animations.",
+      "Supports MaterialApp, CupertinoApp, WidgetsApp, and routers like go_router and auto_route."
+    ],
+    "weaknesses": [
+      "Forces a strict single design size approach across the app.",
+      "Tying UI measurements directly to a fixed design resolution can sometimes cause unexpected layouts on extreme aspect ratios."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Wrap your root app widget in Flexify and supply your design width and height.",
+    "alternatives": [
+      {
+        "name": "responsive_framework",
+        "why_pick_it": "If you prefer scaling and adapting layouts through responsive breakpoints and UI scaling wrappers rather than direct number extensions."
+      },
+      {
+        "name": "sizer",
+        "why_pick_it": "If you want screen-percentage-based sizing extensions instead of scaling from a fixed design width and height."
+      }
+    ],
+    "minimal_example": "void main() {\n  runApp(\n    const Flexify(\n      designWidth: 375,\n      designHeight: 812,\n      app: MaterialApp(home: HomeScreen()),\n    ),\n  );\n}",
+    "confidence": 1
+  }
+}

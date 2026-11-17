@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "2.0.0",
+  "generatedAt": "2026-11-17T11:57:07.860Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "MMKV-based cache store for Dio HTTP requests",
+    "what_it_does": "Provides a fast, persistent cache store for Dio HTTP requests using MMKV. It supports optional encryption, custom storage spaces, and dependency injection for testing.",
+    "use_when": [
+      "You need a quick, persistent cache for Dio HTTP responses",
+      "You want optional encryption for cached data",
+      "You need to customize storage directories or instance identifiers"
+    ],
+    "avoid_when": [
+      "You are not using Dio or need a different HTTP client",
+      "You require a database or SQL-based cache",
+      "You need a cross-platform cache that works without native MMKV"
+    ],
+    "strengths": [
+      "Fast storage via MMKV",
+      "Optional encryption",
+      "Customizable storage spaces",
+      "Testable with injected MMKV instance"
+    ],
+    "weaknesses": [
+      "Tied to Dio HTTP client",
+      "Requires native MMKV initialization",
+      "Only supports MMKV, not other storage backends"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Initialize MMKV before use: await MMKV.initialize() or await MMKVCacheStore.initialise(); no build_runner needed",
+    "alternatives": [],
+    "minimal_example": "import 'package:http_cache_mmkv_store/http_cache_mmkv_store.dart';\nimport 'package:dio/dio.dart';\nimport 'package:dio_cache_interceptor/dio_cache_interceptor.dart';\n\nFuture<void> setupDio() async {\n  await MMKVCacheStore.initialise();\n  final cacheStore = MMKVCacheStore();\n  final cacheOptions = CacheOptions(store: cacheStore, policy: CachePolicy.request);\n  final dio = Dio()..interceptors.add(DioCacheInterceptor(options: cacheOptions));\n}\n",
+    "confidence": 0.9
+  }
+}

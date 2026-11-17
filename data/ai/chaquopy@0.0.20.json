@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.0.20",
+  "generatedAt": "2026-11-17T12:05:43.283Z",
+  "data": {
+    "primary_category": "backend",
+    "secondary_categories": [
+      "utils",
+      "ai-ml"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Run Python code and scripts on Android inside Flutter apps using the Chaquopy SDK.",
+    "what_it_does": "Allows Flutter apps to execute Python code on Android devices by wrapping the Chaquopy SDK. It provides functions to run scripts and return outputs or errors as maps.",
+    "use_when": [
+      "You need to execute Python scripts or libraries within an Android Flutter application",
+      "You want to leverage Python packages like numpy or scipy inside your app"
+    ],
+    "avoid_when": [
+      "You need cross-platform support for iOS (the plugin currently only supports Android)",
+      "You need complex packages like OpenCV or Matplotlib which require special configuration not yet integrated"
+    ],
+    "strengths": [
+      "Enables running Python code directly on Android",
+      "Supports installing Python packages via pip configuration",
+      "Runs Python code on a separate thread with timeout support"
+    ],
+    "weaknesses": [
+      "Only supports Android currently (no iOS support documented)",
+      "Requires complex native Gradle and manifest configurations",
+      "Chaquopy SDK requires a paid license for unlimited use without notifications/time limits"
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Requires adding Chaquopy Maven repositories, applying the Chaquopy gradle plugin, modifying defaultConfig with ABI filters, updating the Android manifest with PyApplication, and adding a script.py file.",
+    "alternatives": [],
+    "minimal_example": "import 'package:chaquopy/chaquopy.dart';\n\nvoid runPython() async {\n  final result = await Chaquopy.executeCode('print(\"Hello from Python\")');\n  print(result[\"textOutputOrError\"]);\n}",
+    "confidence": 0.95
+  }
+}

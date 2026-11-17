@@ -1,0 +1,54 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.2.1+3",
+  "generatedAt": "2026-11-17T12:12:42.102Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [],
+    "approach": [
+      "declarative",
+      "stream-based"
+    ],
+    "one_liner": "Embeddable NoSQL database with typo-tolerant full-text search.",
+    "what_it_does": "Mimir provides an embedded NoSQL database for Dart and Flutter based on Meilisearch. It allows storing documents and performing fast, typo-tolerant full-text searches and declarative queries.",
+    "use_when": [
+      "You need typo-tolerant and relevant full-text search locally on device",
+      "You want declarative and reactive NoSQL queries"
+    ],
+    "avoid_when": [
+      "You are building for the Mac App Store and need macOS App Sandbox enabled",
+      "You only need simple key-value storage and want to minimize binary size",
+      "You need to open multiple indexes simultaneously on iOS devices"
+    ],
+    "strengths": [
+      "Built-in typo-tolerant full-text search with zero extra configuration",
+      "Reactive streams for queries and documents",
+      "Cross-platform support across mobile and desktop"
+    ],
+    "weaknesses": [
+      "Increases app bundle size significantly",
+      "Cannot be used with macOS App Sandbox",
+      "Only one index can be opened on iOS devices"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires installing rustup on the development computer and disabling App Sandbox for macOS apps.",
+    "alternatives": [
+      {
+        "name": "sqflite",
+        "why_pick_it": "If you prefer a traditional relational SQLite database."
+      },
+      {
+        "name": "drift",
+        "why_pick_it": "If you want a robust, type-safe reactive SQL database builder for Flutter."
+      },
+      {
+        "name": "sqlite3",
+        "why_pick_it": "If you want direct bindings to SQLite."
+      }
+    ],
+    "minimal_example": "final instance = await Mimir.defaultInstance;\nfinal index = instance.getIndex('movies');\nawait index.addDocuments(myMovies);\nfinal results = await index.search(query: 'jarrassic par');",
+    "confidence": 0.95
+  }
+}

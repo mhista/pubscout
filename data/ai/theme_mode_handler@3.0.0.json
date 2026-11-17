@@ -1,0 +1,47 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "3.0.0",
+  "generatedAt": "2026-11-17T12:10:02.728Z",
+  "data": {
+    "primary_category": "theming",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "declarative",
+      "imperative"
+    ],
+    "one_liner": "Widget to switch and persist ThemeMode at runtime.",
+    "what_it_does": "Provides a ThemeModeHandler widget that loads, saves and applies a ThemeMode using a user‑provided manager. It can show a placeholder while loading and offers a helper dialog for selection.",
+    "use_when": [
+      "You need runtime theme switching with persistence",
+      "You want a simple API without external state‑management solutions"
+    ],
+    "avoid_when": [
+      "You already use a full state‑management library (e.g., Bloc, Provider) for theming",
+      "You need advanced theming features like color scheme generation"
+    ],
+    "strengths": [
+      "Minimal API, easy to integrate",
+      "Supports null‑safety and custom placeholder widget",
+      "No extra dependencies beyond Flutter"
+    ],
+    "weaknesses": [
+      "Only handles ThemeMode, not full theming customization",
+      "Requires you to implement IThemeModeManager for persistence",
+      "Limited to light/dark/system modes"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "flex_seed_scheme",
+        "why_pick_it": "Provides comprehensive theming and color scheme generation, useful if you need more than just ThemeMode switching"
+      }
+    ],
+    "minimal_example": "import 'package:theme_mode_handler/theme_mode_handler.dart';\n\nclass MyApp extends StatelessWidget {\n  @override\n  Widget build(BuildContext context) {\n    return ThemeModeHandler(\n      manager: MyManager(),\n      builder: (themeMode) => MaterialApp(\n        themeMode: themeMode,\n        darkTheme: ThemeData.dark(),\n        theme: ThemeData.light(),\n        home: MyHomePage(),\n      ),\n    );\n  }\n}",
+    "confidence": 0.97
+  }
+}

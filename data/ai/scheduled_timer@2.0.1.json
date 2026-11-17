@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "2.0.1",
+  "generatedAt": "2026-11-17T12:02:21.486Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "A simple timer that can be scheduled for a specific time and persists across app restarts.",
+    "what_it_does": "It lets you schedule a callback to run at a given DateTime instead of after a delay. The scheduled time is saved with SharedPreferences and restored after the app restarts. If the time is missed, an optional callback can handle it.",
+    "use_when": [
+      "You need a lightweight, in‑app timer that survives restarts without background services",
+      "You want to avoid platform‑specific alarm APIs and keep everything in Dart"
+    ],
+    "avoid_when": [
+      "The app may be terminated or in the background and you need the timer to fire anyway",
+      "You require high‑precision or OS‑level scheduling"
+    ],
+    "strengths": [
+      "Persists schedule across restarts",
+      "Simple declarative API",
+      "No native code required"
+    ],
+    "weaknesses": [
+      "Runs only while the app is active",
+      "Cannot wake the device or execute in background",
+      "Limited to Flutter’s event loop"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "ScheduledTimer myTimer = ScheduledTimer(\n  id: 'myTimer',\n  onExecute: () => print('Executing myTimer'),\n  defaultScheduledTime: DateTime.now().add(Duration(minutes: 10)),\n  onMissedSchedule: () {\n    print('myTimer missed the scheduled time');\n    myTimer.execute();\n  },\n);",
+    "confidence": 0.9
+  }
+}

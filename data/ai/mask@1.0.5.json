@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "1.0.5",
+  "generatedAt": "2026-11-17T11:59:10.835Z",
+  "data": {
+    "primary_category": "forms",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Provides input masks and validators for common data types",
+    "what_it_does": "Mask offers a set of input formatters and validation functions for CPF, CNPJ, email, money, date, time, phone, and generic patterns. It simplifies form handling by providing ready‑made tools for formatting and validating user input.",
+    "use_when": [
+      "You need to validate Brazilian CPF/CNPJ numbers",
+      "You need to format and validate monetary values",
+      "You need to format dates, times, or phone numbers in forms",
+      "You want a quick way to apply generic masks with minimal configuration"
+    ],
+    "avoid_when": [
+      "You require highly custom or complex validation logic beyond the provided patterns",
+      "You need international phone or date formats not covered by the defaults"
+    ],
+    "strengths": [
+      "Wide coverage of common Brazilian data formats",
+      "Simple API using TextFormField validators and inputFormatters",
+      "No external code generation or build steps required"
+    ],
+    "weaknesses": [
+      "Limited to the predefined masks; custom regex support is minimal",
+      "No support for international formats outside Brazil"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "email_validator",
+        "why_pick_it": "Use if you only need email validation and prefer a dedicated, lightweight package"
+      },
+      {
+        "name": "file_picker_platform_interface",
+        "why_pick_it": "Not relevant – included only to show alternative list"
+      }
+    ],
+    "minimal_example": "TextFormField(\n  autovalidateMode: AutovalidateMode.onUserInteraction,\n  validator: (value) => Mask.validations.money(value, min: 100.0),\n  inputFormatters: [Mask.money()],\n)",
+    "confidence": 0.8
+  }
+}

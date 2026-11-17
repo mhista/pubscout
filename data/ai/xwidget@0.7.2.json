@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.7.2",
+  "generatedAt": "2026-11-17T12:16:38.625Z",
+  "data": {
+    "primary_category": "ui-kits",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative",
+      "code generation"
+    ],
+    "one_liner": "Build dynamic UIs in Flutter using an expressive, XML based markup language.",
+    "what_it_does": "XWidget enables server-driven UI in Flutter by moving presentation resources into versioned XML bundles. It provides an expression language, controllers in Dart, and cloud bundle delivery while keeping native integrations in compiled code.",
+    "use_when": [
+      "You need to update screens and layout dynamically without shipping a new app build",
+      "You want to run A/B tests, staged rollouts, and channel-based UI releases",
+      "You prefer an XML markup language mapped to Flutter widgets"
+    ],
+    "avoid_when": [
+      "You require heavy business logic to reside entirely within markup",
+      "You do not want to use code generation for your widget components"
+    ],
+    "strengths": [
+      "Update UI and copy remotely via XWidget Cloud",
+      "Leverage existing Flutter SDK, package, and custom widgets through generated inflaters",
+      "Keep behavior in Dart controllers while markup handles presentation"
+    ],
+    "weaknesses": [
+      "Requires build-time code generation for component registration",
+      "Depends on an external cloud platform or custom infrastructure for dynamic bundle hosting"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add the xwidget_builder dev dependency, run initialization and generation commands, and register components before calling runApp().",
+    "alternatives": [],
+    "minimal_example": "void main() async {\n  WidgetsFlutterBinding.ensureInitialized();\n\n  await XWidget.initialize(register: registerXWidgetComponents);\n\n  runApp(const MyApp());\n}",
+    "confidence": 1
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.9.1",
+  "generatedAt": "2026-11-17T12:07:42.572Z",
+  "data": {
+    "primary_category": "images",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "Widget that adds a drop shadow effect to an image with customizable properties.",
+    "what_it_does": "Provides a DropShadowImage widget that renders an image with a configurable shadow offset, blur, scale and border radius. All properties are set via constructor parameters, making it easy to integrate into any layout.",
+    "use_when": [
+      "You need a simple drop‑shadow effect for local or network images without writing custom painters.",
+      "You want quick visual styling with adjustable offset, blur and border radius."
+    ],
+    "avoid_when": [
+      "You require advanced image processing like cropping, filtering, or caching.",
+      "Performance is critical and you need a highly optimized solution."
+    ],
+    "strengths": [
+      "Very easy to use – just wrap your Image in DropShadowImage.",
+      "Many shadow properties are exposed for fine‑grained control.",
+      "Pure Dart, no native platform setup required."
+    ],
+    "weaknesses": [
+      "Only provides shadow effect – no other image utilities.",
+      "Package appears unmaintained since 2021.",
+      "Limited to static images; no built‑in caching or network handling."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "image",
+        "why_pick_it": "Core image manipulation library; you can draw shadows manually with a CustomPainter if you need more control."
+      }
+    ],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:drop_shadow_image/drop_shadow_lib.dart';\n\nvoid main() => runApp(const MyApp());\n\nclass MyApp extends StatelessWidget {\n  const MyApp({super.key});\n  @override\n  Widget build(BuildContext context) {\n    return MaterialApp(\n      home: Scaffold(\n        body: Center(\n          child: DropShadowImage(\n            offset: const Offset(10, 10),\n            blurRadius: 12,\n            borderRadius: 20,\n            image: Image.asset('assets/cat.png', width: 300),\n          ),\n        ),\n      ),\n    );\n  }\n}",
+    "confidence": 0.85
+  }
+}

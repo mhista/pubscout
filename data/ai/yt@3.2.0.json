@@ -1,0 +1,55 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.2.0",
+  "generatedAt": "2026-11-17T11:58:35.902Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "auth",
+      "audio-video"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Native Dart interface to YouTube REST APIs including Data, Live Streaming, and Analytics.",
+    "what_it_does": "Provides a Dart and Flutter interface for interacting with multiple YouTube REST APIs, including the YouTube Data, Live Streaming, and Analytics APIs. It supports multiple authentication methods like API keys and OAuth 2.0 with automatic token refresh.",
+    "use_when": [
+      "You need to build Dart or Flutter applications that read or write YouTube data.",
+      "You need to manage YouTube live broadcasts, streams, or live chat histories.",
+      "You require YouTube analytics reporting or channel management capabilities."
+    ],
+    "avoid_when": [
+      "You only need general HTTP requests and do not use YouTube APIs.",
+      "You require auto-generated bindings, as this package is manually crafted."
+    ],
+    "strengths": [
+      "Comprehensive coverage of YouTube Data, Live Streaming, and Analytics APIs.",
+      "Cross-platform support across Dart and Flutter platforms.",
+      "Supports multiple authentication methods including API keys and OAuth 2.0 with PKCE."
+    ],
+    "weaknesses": [
+      "Requires manual file setup and configuration for OAuth credentials.",
+      "Manually crafted API surface rather than auto-generated from discovery documents."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires obtaining an API key or setting up OAuth 2.0 credentials via the Google Cloud Console and placing the secrets file in the expected path.",
+    "alternatives": [
+      {
+        "name": "http",
+        "why_pick_it": "If you prefer making custom raw HTTP calls to the YouTube REST APIs without a dedicated wrapper library."
+      },
+      {
+        "name": "dio",
+        "why_pick_it": "If you want a powerful HTTP client with interceptors for custom REST implementations."
+      },
+      {
+        "name": "googleapis",
+        "why_pick_it": "If you prefer the official Google APIs client library for Dart."
+      }
+    ],
+    "minimal_example": "import 'package:yt/yt.dart';\n\nvoid main() async {\n  final yt = Yt.withApiKey(apiKey: '[your youtube api key]');\n  final results = await yt.search.list(q: 'flutter tutorial', maxResults: 5);\n  for (final item in results.items) {\n    print('${item.snippet?.title}');\n  }\n}",
+    "confidence": 1
+  }
+}

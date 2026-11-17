@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.2.0",
+  "generatedAt": "2026-11-17T12:13:50.195Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter plugin for managing and requesting system permissions across platforms.",
+    "what_it_does": "Permission Master provides an API to check and request various system permissions like camera, location, storage, and microphone across multiple platforms including Android, iOS, web, Windows, macOS, and Linux. It supports context-aware permission dialogs and handles status mapping.",
+    "use_when": [
+      "You need to request and check system permissions across multiple platforms from a single codebase.",
+      "You want built-in support for context-aware permission request dialogs.",
+      "Your app targets diverse platforms including desktop, mobile, and web."
+    ],
+    "avoid_when": [
+      "You prefer an established, widely-adopted permission plugin like permission_handler.",
+      "You want default permissions included without manual native configuration."
+    ],
+    "strengths": [
+      "Cross-platform support including Android, iOS, macOS, Windows, Linux, and Web.",
+      "Comprehensive permission methods and granular status handling.",
+      "Includes context-aware permission dialog functionality."
+    ],
+    "weaknesses": [
+      "Requires manual native configuration for permissions on platforms like iOS and Android to prevent app store rejections.",
+      "Some platform and permission combinations have partial support or are unsupported (e.g., Windows/Linux limits for certain permissions)."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires manual platform configuration (e.g., Info.plist on iOS/macOS, Podfile adjustments, Android manifest configurations) and setting the BuildContext via PermissionMaster.setContext(context) for dialog support.",
+    "alternatives": [
+      {
+        "name": "permission_handler",
+        "why_pick_it": "It is the most popular, battle-tested standard plugin for handling permissions in Flutter."
+      }
+    ],
+    "minimal_example": "import 'package:permission_master/permission_master.dart';\n\nFuture<void> requestCameraAccess() async {\n  final permissionMaster = PermissionMaster();\n  final status = await permissionMaster.requestCameraPermission();\n  if (status == PermissionStatus.granted) {\n    print('Camera permission granted');\n  }\n}",
+    "confidence": 0.95
+  }
+}

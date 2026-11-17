@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.0",
+  "generatedAt": "2026-11-17T11:58:09.884Z",
+  "data": {
+    "primary_category": "navigation",
+    "secondary_categories": [
+      "ui-kits",
+      "widgets"
+    ],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "A Flutter plugin that renders the native iOS Liquid Glass style navigation bar.",
+    "what_it_does": "It uses platform views and method channels to render the actual native iOS UITabBar in your Flutter applications. It integrates with Flutter's standalone material_ui package for theme matching and provides fallback support for non-iOS platforms.",
+    "use_when": [
+      "You are building an iOS app that requires the native Liquid Glass tab bar style.",
+      "You want to use native SF Symbols and native tab badges on iOS.",
+      "You are using Flutter's standalone material_ui package."
+    ],
+    "avoid_when": [
+      "Your app still uses Flutter's legacy in-framework Material or Cupertino libraries.",
+      "You need a custom cross-platform navigation bar that looks identical on Android and iOS."
+    ],
+    "strengths": [
+      "Provides a true native iOS navigation bar look and feel without custom Flutter implementations.",
+      "Supports automatic dark mode, theming, SF Symbols, and native tab badges.",
+      "Includes fallback support for unsupported platforms like Android."
+    ],
+    "weaknesses": [
+      "Requires Xcode 27 or later and iOS runtime restrictions.",
+      "Only renders the glass effect natively on iOS, requiring fallback widgets for other platforms.",
+      "Requires migration to standalone material_ui for version 2.0.0."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires building iOS apps with Xcode 27 or later, Flutter 3.44 or later, and Dart 3.12 or later.",
+    "alternatives": [],
+    "minimal_example": "NativeGlassNavBar(\n  currentIndex: _currentIndex,\n  onTap: (index) {\n    setState(() {\n      _currentIndex = index;\n    });\n  },\n  tabs: const [\n    NativeGlassNavBarItem(\n      label: 'Home',\n      symbol: 'house',\n      selectedSymbol: 'house.fill',\n    ),\n    NativeGlassNavBarItem(label: 'Search', symbol: 'magnifyingglass'),\n    NativeGlassNavBarItem(label: 'Settings', symbol: 'gear'),\n  ],\n)",
+    "confidence": 1
+  }
+}

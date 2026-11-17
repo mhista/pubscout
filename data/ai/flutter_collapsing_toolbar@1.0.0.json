@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "1.0.0",
+  "generatedAt": "2026-11-17T12:14:45.692Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "layout"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A widget that provides a collapsible toolbar with customizable header and actions.",
+    "what_it_does": "The CollapsingToolbar widget expands and collapses as the user scrolls, allowing you to place a header, title, leading widget, and actions. It can be embedded in any ScrollView or ListView and exposes callbacks for collapse events.",
+    "use_when": [
+      "You need a collapsible toolbar in a scrollable layout",
+      "You want a simple, customizable header that reacts to scroll",
+      "You want to integrate a toolbar into complex scroll views without custom animation code"
+    ],
+    "avoid_when": [
+      "You require advanced animation or physics beyond a simple collapse",
+      "You need a fully featured app bar with tabs or bottom navigation"
+    ],
+    "strengths": [
+      "Easy to use declarative API",
+      "Supports custom leading, title, actions, and feature icons",
+      "Works with any ScrollView or ListView"
+    ],
+    "weaknesses": [
+      "Limited to basic collapse behavior",
+      "No built‑in support for tabs or bottom navigation",
+      "Not actively maintained (last release 2021)"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dependency to pubspec and import the package; no special permissions or build_runner needed",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:flutter_collapsing_toolbar/flutter_collapsing_toolbar.dart';\n\nclass Demo extends StatelessWidget {\n  @override\n  Widget build(BuildContext context) {\n    final controller = ScrollController();\n    return Scaffold(\n      body: Column(\n        children: [\n          CollapsingToolbar(\n            controller: controller,\n            expandedHeight: 200,\n            collapsedHeight: 64,\n            title: Text('Demo'),\n            leading: Icon(Icons.menu),\n          ),\n          Expanded(\n            child: ListView.builder(\n              controller: controller,\n              itemCount: 20,\n              itemBuilder: (_, i) => ListTile(title: Text('Item $i')),\n            ),\n          ),\n        ],\n      ),\n    );\n  }\n}",
+    "confidence": 0.8
+  }
+}

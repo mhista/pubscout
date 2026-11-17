@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.2.0",
+  "generatedAt": "2026-11-17T12:12:22.024Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [
+      "utils",
+      "widgets"
+    ],
+    "approach": [
+      "declarative",
+      "imperative"
+    ],
+    "one_liner": "Programmatically restart your Flutter application with callbacks, animations, and advanced control.",
+    "what_it_does": "AppRestarter allows you to restart a Flutter application programmatically by wrapping the root widget and calling a static restart function. It supports custom transition animations, delays, conditional logic, and lifecycle callbacks for cleanup and re-initialization.",
+    "use_when": [
+      "You need to completely reset the application state and widget tree, such as on user logout or language change.",
+      "You want custom transition animations or a delay when restarting the app.",
+      "You need to run asynchronous initialization or cleanup logic before or after a restart."
+    ],
+    "avoid_when": [
+      "You only need to rebuild a single screen or local widget subtree.",
+      "You prefer terminating the native OS process instead of resetting the Flutter widget tree."
+    ],
+    "strengths": [
+      "Zero dependencies and pure Flutter implementation.",
+      "Supports custom animations, delayed restarts, and conditional execution.",
+      "Includes async lifecycle callbacks for state cleanup and service re-initialization (e.g. GetX)."
+    ],
+    "weaknesses": [
+      "Does not terminate the underlying OS process; it only forces a rebuild from the root widget using KeyedSubtree.",
+      "Requires manual re-initialization of global dependencies (like GetX services) after a restart."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Wrap your root widget (above MaterialApp or CupertinoApp) with the AppRestarter widget.",
+    "alternatives": [],
+    "minimal_example": "void main() {\n  runApp(\n    AppRestarter(\n      child: MyApp(),\n    ),\n  );\n}\n\n// To restart:\nAppRestarter.restartApp(context);",
+    "confidence": 1
+  }
+}

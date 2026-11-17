@@ -1,0 +1,54 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.0.6",
+  "generatedAt": "2026-11-17T12:09:30.226Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [],
+    "approach": [
+      "no codegen",
+      "stream-based",
+      "declarative"
+    ],
+    "one_liner": "Embedded local database for Flutter with Rust/LMDB backend, Diesel-style queries, and reactive streams.",
+    "what_it_does": "Provides a local database supporting both key-value records and relational tables mapped directly from your existing data models. Offers Diesel-style typed queries, joins, aggregates, transactions, offline-first sync, and reactive streams.",
+    "use_when": [
+      "You want an offline-first Flutter application with complex querying requirements.",
+      "You prefer writing queries using Diesel-style DSL without using build_runner or complex code generation.",
+      "You need high-performance local storage backed by Rust and LMDB."
+    ],
+    "avoid_when": [
+      "Your application targets platforms other than Android, iOS, web (key-value only), Windows, macOS, and Linux.",
+      "You need standard SQLite features through standard SQL strings rather than a Rust-powered query DSL."
+    ],
+    "strengths": [
+      "No code generation or macros required for tables.",
+      "Supports reactive streams via watch queries.",
+      "Built on top of a fast Rust and LMDB engine with built-in offline-first sync support."
+    ],
+    "weaknesses": [
+      "Tables require the db_dsl_lints analyzer plugin for typed field extensions to avoid manual string-based field paths.",
+      "Full database functionality (tables) is limited to non-web platforms; web only supports the key-value API."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Ships prebuilt with a build hook bundling native libraries for all target platforms. Enable the db_dsl_lints analyzer plugin in analysis_options.yaml for typed table fields.",
+    "alternatives": [
+      {
+        "name": "drift",
+        "why_pick_it": "If you prefer a robust, type-safe SQLite database for Flutter with built-in SQL support and comprehensive migration tooling."
+      },
+      {
+        "name": "sqflite",
+        "why_pick_it": "If you want a lightweight and widely-used standard SQLite plugin with direct SQL execution."
+      },
+      {
+        "name": "shared_preferences",
+        "why_pick_it": "If you only need simple key-value persistence without tables or complex queries."
+      }
+    ],
+    "minimal_example": "await LocalDB.init();\n\nfinal t = User.table;\nawait t.insert([ana, luis]);\n\nfinal adults = await t\n    .filter(t.city.eq('Lima').and(t.age.gt(30)))\n    .order(t.age.desc())\n    .limit(20);",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.2.0",
+  "generatedAt": "2026-11-17T12:09:32.439Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "stream-based",
+      "declarative"
+    ],
+    "one_liner": "Stream-based communication pattern abstraction for decoupled messaging between classes and logic components.",
+    "what_it_does": "Provides mixins like Listener, Sender, MultiListener, and BLoC integrations (ListenerCubit, StateSender) that allow classes and state management components to broadcast and receive messages without passing explicit callbacks or stream references.",
+    "use_when": [
+      "You need decoupled communication between disparate BLoCs, Cubits, or non-UI logic classes.",
+      "You want to avoid manually wiring up and disposing of StreamControllers and StreamSubscriptions between controllers."
+    ],
+    "avoid_when": [
+      "You prefer direct method calls or tightly coupled references for simplicity.",
+      "Your architecture does not use BLoC or stream-based patterns."
+    ],
+    "strengths": [
+      "Eliminates boilerplate code for connecting streams between logic classes.",
+      "Built-in support for BLoC and Cubit integration.",
+      "Supports initial message handling and covariant message types."
+    ],
+    "weaknesses": [
+      "Can obscure direct data flow and dependencies if overused across a large codebase.",
+      "Requires careful lifecycle management (calling cancel/dispose or using ListenerCubit)."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "bloc",
+        "why_pick_it": "If you want standard state management and event handling without global message bus abstractions."
+      }
+    ],
+    "minimal_example": "class LightBulb with Listener<bool> {\n  LightBulb() {\n    listen();\n  }\n\n  bool enabled = false;\n  \n  @override\n  void onMessage(bool message) {\n    enabled = message;\n  }\n\n  void dispose() {\n    cancel();\n  }\n}\n\nclass LightSwitch with Sender<bool> {\n  void enable() {\n    send(true);\n  }\n}",
+    "confidence": 0.95
+  }
+}

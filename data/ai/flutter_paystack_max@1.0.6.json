@@ -1,0 +1,48 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "1.0.6",
+  "generatedAt": "2026-11-17T12:01:26.859Z",
+  "data": {
+    "primary_category": "payments",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter wrapper for Paystack payment gateway with modal UI",
+    "what_it_does": "Provides a simple API to create, initialize and verify Paystack transactions, supporting card, mobile money, USSD, bank transfer, QR and EFT. It opens a modal for user payment and handles verification.",
+    "use_when": [
+      "You need to accept payments via Paystack in a Flutter app",
+      "You want a ready‑made modal UI for all Paystack channels",
+      "You prefer a single package without extra dependencies"
+    ],
+    "avoid_when": [
+      "You need a different payment gateway (Stripe, Adyen, etc.)",
+      "You want server‑side transaction handling only"
+    ],
+    "strengths": [
+      "All Paystack channels supported",
+      "Easy modal integration",
+      "No extra configuration needed",
+      "Active maintenance with recent updates"
+    ],
+    "weaknesses": [
+      "Only Paystack supported",
+      "Limited to Android/iOS (macOS support not documented)",
+      "No advanced customization beyond modal color"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dependency, import package, provide Paystack secret key and callback URL; no build_runner or native config needed",
+    "alternatives": [
+      {
+        "name": "flutter_stripe",
+        "why_pick_it": "If you need Stripe instead of Paystack"
+      }
+    ],
+    "minimal_example": "final request = PaystackTransactionRequest(reference: 'ref', secretKey: 'sk', email: 'user@example.com', amount: 1500, currency: PaystackCurrency.ngn, channel: [PaystackPaymentChannel.card]);\nfinal init = await PaymentService.initializeTransaction(request);\nif (init.status) await PaymentService.showPaymentModal(context, transaction: init, callbackUrl: 'https://example.com/callback');",
+    "confidence": 0.8
+  }
+}

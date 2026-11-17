@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.3.3",
+  "generatedAt": "2026-11-17T12:17:10.615Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Extracts direct media links from supported URLs for streaming or downloading",
+    "what_it_does": "The package parses a given URL from supported sites and returns metadata such as title, thumbnail, duration and a list of available direct links with quality and type. It can be used to stream or download media directly.",
+    "use_when": [
+      "You need to fetch direct media URLs from popular video or media hosting sites",
+      "You want to avoid using the sites’ own players and stream/download directly in your app"
+    ],
+    "avoid_when": [
+      "You only need to display the original site’s player",
+      "You need advanced download management or offline caching"
+    ],
+    "strengths": [
+      "Supports many popular sites (Facebook, Instagram, YouTube, Vimeo, etc.)",
+      "Provides metadata (title, thumbnail, duration) along with direct links",
+      "Simple API with a single `check` method"
+    ],
+    "weaknesses": [
+      "No built‑in download manager or progress tracking",
+      "Limited to the sites listed in the package",
+      "No official support for non‑media sites"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add `direct_link: ^0.3.3` to pubspec and import `package:direct_link/direct_link.dart`",
+    "alternatives": [],
+    "minimal_example": "var directLink = DirectLink();\nvar data = await directLink.check('https://youtube.com/watch?v=xyz');\nif (data != null) {\n  print(data.title);\n  for (var e in data.links!) {\n    print('${e.type} ${e.quality}: ${e.link}');\n  }\n}",
+    "confidence": 0.85
+  }
+}

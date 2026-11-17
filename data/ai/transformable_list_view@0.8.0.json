@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.8.0",
+  "generatedAt": "2026-11-17T12:08:07.512Z",
+  "data": {
+    "primary_category": "animation",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Widget that adds scroll‑based transform animations to ListView and SliverList",
+    "what_it_does": "Extends ListView and SliverList with a callback that returns a Matrix4 for each child based on its scroll position. The callback receives detailed item metrics to create custom animations.",
+    "use_when": [
+      "You need per‑item scroll animations in a list",
+      "You want a simple API without external dependencies",
+      "You prefer declarative widget composition"
+    ],
+    "avoid_when": [
+      "You need complex physics‑based animations beyond simple transforms",
+      "You require state‑management or dependency injection",
+      "You are building a non‑Flutter platform"
+    ],
+    "strengths": [
+      "Zero external dependencies",
+      "Supports both ListView and SliverList",
+      "Provides detailed item metrics for fine‑grained control",
+      "Compatible with all Flutter platforms"
+    ],
+    "weaknesses": [
+      "Only supports transform animations, not other animation types",
+      "Requires manual Matrix4 math",
+      "No built‑in presets for common effects",
+      "No state‑management integration"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dependency to pubspec and import the widget",
+    "alternatives": [],
+    "minimal_example": "TransformableListView.builder(\n  getTransformMatrix: (item) {\n    final progress = item.visibleExtent / item.size.height;\n    final scale = 0.3 + (0.7 * progress);\n    return Matrix4.identity()\n      ..translate(item.size.width / 2)\n      ..scale(scale)\n      ..translate(-item.size.width / 2);\n  },\n  itemBuilder: (ctx, i) => Container(height: 100, color: i.isEven ? Colors.grey : Colors.blue),\n  itemCount: 30,\n);",
+    "confidence": 0.95
+  }
+}

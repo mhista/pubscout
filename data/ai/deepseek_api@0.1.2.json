@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.1.2",
+  "generatedAt": "2026-11-17T12:06:06.979Z",
+  "data": {
+    "primary_category": "ai-ml",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "stream-based",
+      "no codegen"
+    ],
+    "one_liner": "Flutter client for DeepSeek's AI API, enabling chat completions and model management.",
+    "what_it_does": "The package wraps DeepSeek's REST endpoints, offering methods for chat completions, model listing, and streaming responses. It uses Dio for HTTP calls and allows custom configuration.",
+    "use_when": [
+      "You need to call DeepSeek's LLM from a Flutter app",
+      "You want streaming chat responses",
+      "You require simple model management without building your own HTTP layer"
+    ],
+    "avoid_when": [
+      "You need offline/on‑device inference",
+      "You require a full state‑management solution",
+      "You depend on a different AI provider"
+    ],
+    "strengths": [
+      "Easy to integrate with just an API key",
+      "Supports streaming via Dio",
+      "Provides model management helpers"
+    ],
+    "weaknesses": [
+      "Tied only to DeepSeek API",
+      "No code generation or model classes beyond basics",
+      "Documentation limited to README"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:deepseek_api/deepseek_api.dart';\n\nfinal deepseek = DeepSeekAPI(apiKey: 'your-api-key');\nfinal response = await deepseek.createChatCompletion(\n  ChatCompletionRequest(\n    model: 'deepseek-chat',\n    messages: [ChatMessage(role: 'user', content: 'Explain quantum computing in 50 words')],\n    temperature: 0.7,\n    maxTokens: 100,\n  ),\n);\nprint(response.choices.first.message.content);",
+    "confidence": 0.9
+  }
+}

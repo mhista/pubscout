@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "3.0.9",
+  "generatedAt": "2026-11-17T12:09:47.877Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "localization"
+    ],
+    "approach": [
+      "no codegen",
+      "imperative"
+    ],
+    "one_liner": "Formats nullable DateTime into human‑friendly relative or absolute timestamps.",
+    "what_it_does": "Provides an extension that converts a DateTime? into a readable string like \"Just now\", \"5m ago\" or a formatted date when the value is older. It intelligently switches between relative and absolute representations and supports custom locales, time patterns, and future dates.",
+    "use_when": [
+      "Displaying chat or notification timestamps",
+      "Showing feed items where recent dates should be relative and older dates absolute"
+    ],
+    "avoid_when": [
+      "When exact timestamps are required without any relative wording",
+      "High‑frequency updates where formatting overhead matters"
+    ],
+    "strengths": [
+      "Smart switching between relative and absolute formats",
+      "Customizable locale and time pattern",
+      "Supports both past and future dates"
+    ],
+    "weaknesses": [
+      "Flutter‑only, no pure‑Dart fallback",
+      "Relies on intl package, increasing bundle size",
+      "Limited built‑in locale support, requires manual configuration for others"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter_timeago_pro/flutter_timeago_pro.dart';\n\nfinal dt = DateTime.now().subtract(const Duration(minutes: 25));\nprint(dt.toTimeagoFormat()); // \"25m ago\"\n\nfinal future = DateTime.now().add(const Duration(minutes: 45));\nprint(future.toTimeagoFormat()); // \"in 45m\"",
+    "confidence": 0.93
+  }
+}

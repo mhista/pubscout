@@ -1,0 +1,37 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.8.0",
+  "generatedAt": "2026-11-17T12:07:05.316Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Check iOS, Android, and Mac store versions and show update alerts.",
+    "what_it_does": "Checks the application version available on the iOS App Store, Google Play Store, or Mac App Store against the currently installed version. Provides a built-in update alert dialog if a newer version is available.",
+    "use_when": [
+      "You need to prompt users to update their app when a new version is released on official stores.",
+      "You want a straightforward way to fetch the latest store version and open the download URL."
+    ],
+    "avoid_when": [
+      "You require complex in-app update flows managed natively via Google Play In-App Updates API.",
+      "You need detailed platform-specific update mechanics not covered by basic web scraping and store API lookups."
+    ],
+    "strengths": [
+      "Simple API to initialize and check versions via a single method call.",
+      "Supports iOS, Android, and macOS platforms out of the box."
+    ],
+    "weaknesses": [
+      "Relies on web page scraping and store lookups which can break if store layouts change.",
+      "Limited customization options for the update flow beyond provided parameters."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "No special native permissions required, but depends on network connectivity to fetch store metadata.",
+    "alternatives": [],
+    "minimal_example": "import 'package:version_check/version_check.dart';\n\nfinal versionCheck = VersionCheck();\n\n@override\nvoid initState() {\n  super.initState();\n  checkVersion();\n}\n\nFuture checkVersion() async {\n  await versionCheck.checkVersion(context);\n}",
+    "confidence": 0.95
+  }
+}

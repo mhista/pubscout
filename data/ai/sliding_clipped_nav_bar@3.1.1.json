@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "3.1.1",
+  "generatedAt": "2026-11-17T12:04:11.357Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Bottom navigation bar with sliding clipping effect and ripple on tap.",
+    "what_it_does": "Provides a bottom navigation bar where the selected item slides with a clipping animation. Supports up to four items and optional per‑item active/inactive colors.",
+    "use_when": [
+      "You need a small (2‑4 items) animated bottom navigation bar with a distinctive sliding clip effect.",
+      "You want a ready‑made widget that handles the animation without custom code."
+    ],
+    "avoid_when": [
+      "You need more than four navigation items.",
+      "You require a fully customizable navigation bar layout or platform‑specific behavior."
+    ],
+    "strengths": [
+      "Unique sliding clipping animation",
+      "Simple API with optional per‑item colors",
+      "Works on all Flutter platforms"
+    ],
+    "weaknesses": [
+      "Maximum of four items limits complex apps",
+      "Fixed height (around 60) limits design flexibility",
+      "No built‑in support for deep linking or route management"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:sliding_clipped_nav_bar/sliding_clipped_nav_bar.dart';\n\nScaffold(\n  body: PageView(\n    controller: _controller,\n    physics: const NeverScrollableScrollPhysics(),\n  ),\n  bottomNavigationBar: SlidingClippedNavBar(\n    backgroundColor: Colors.white,\n    selectedIndex: _selectedIndex,\n    onButtonPressed: (index) {\n      setState(() => _selectedIndex = index);\n      _controller.animateToPage(index,\n          duration: const Duration(milliseconds: 400),\n          curve: Curves.easeOutQuad);\n    },\n    barItems: const [\n      BarItem(icon: Icons.event, title: 'Events'),\n      BarItem(icon: Icons.search_rounded, title: 'Search'),\n    ],\n  ),\n);",
+    "confidence": 0.9
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.0.9",
+  "generatedAt": "2026-11-17T12:03:30.476Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [
+      "storage"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter package for managing a shopping cart with add/remove, quantity updates, totals and optional persistence.",
+    "what_it_does": "It provides a FlutterCart class to initialize, add items, update quantities, remove items, clear the cart, apply discounts, and retrieve totals and item lists. Persistence can be enabled via shared_preferences.",
+    "use_when": [
+      "You need a lightweight cart solution without pulling in a full state‑management library",
+      "You want simple persistence of cart data across app launches"
+    ],
+    "avoid_when": [
+      "You require reactive streams or Bloc‑style state updates",
+      "You need secure or encrypted storage for cart data",
+      "Your cart data is large or relational and needs a database"
+    ],
+    "strengths": [
+      "Very easy to integrate and use",
+      "Optional persistence with shared_preferences",
+      "No code generation required"
+    ],
+    "weaknesses": [
+      "Only key‑value persistence, not suitable for large data sets",
+      "No built‑in reactive or stream API",
+      "No UI widgets provided"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Call FlutterCart().initializeCart(isPersistenceSupportEnabled: true) before runApp; ensure shared_preferences is added (already a dependency).",
+    "alternatives": [
+      {
+        "name": "sqflite",
+        "why_pick_it": "Provides a full SQLite database for larger or more complex cart data and supports queries beyond simple key‑value storage"
+      }
+    ],
+    "minimal_example": "void main() async {\n  WidgetsFlutterBinding.ensureInitialized();\n  var cart = FlutterCart();\n  await cart.initializeCart(isPersistenceSupportEnabled: true);\n  runApp(MyApp());\n}\n\n// Adding an item\ncart.addToCart(cartModel: CartModel(productId: 'p1', quantity: 1, price: 9.99));",
+    "confidence": 0.9
+  }
+}

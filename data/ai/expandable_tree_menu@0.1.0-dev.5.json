@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.1.0-dev.5",
+  "generatedAt": "2026-11-17T12:14:04.931Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "navigation"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Tree menu widget with expandable/collapsible nodes",
+    "what_it_does": "Provides a recursive tree of menu nodes that can be expanded or collapsed. Each node can contain sub‑nodes and a custom widget is built for each node via a builder callback.",
+    "use_when": [
+      "Building nested navigation menus",
+      "Need a highly customizable tree structure",
+      "Want to use custom widgets for each node",
+      "Require control over twisty position and colors"
+    ],
+    "avoid_when": [
+      "You need asynchronous loading of nodes from a network source",
+      "You need complex state management beyond simple UI interactions"
+    ],
+    "strengths": [
+      "Extensive customization options (colors, decorations, twisty widget)",
+      "Supports arbitrary depth via recursive TreeNode",
+      "Simple API with nodeBuilder and onSelect callbacks"
+    ],
+    "weaknesses": [
+      "No built‑in support for async data loading",
+      "Limited documentation on performance with large trees",
+      "No example of integration with state management libraries"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "```dart\nExpandableTree(\n  nodes: [\n    TreeNode('Category A', subNodes: [TreeNode('Item 1'), TreeNode('Item 2')]),\n    TreeNode('Category B', subNodes: [TreeNode('Item 3')]),\n  ],\n  nodeBuilder: (ctx, value) => Card(child: Text(value.toString())),\n  onSelect: (node) => print('Selected: $node'),\n)\n```",
+    "confidence": 0.9
+  }
+}

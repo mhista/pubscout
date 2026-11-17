@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.2.0",
+  "generatedAt": "2026-11-17T11:58:16.089Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Extracts dates in various formats from raw strings.",
+    "what_it_does": "Parses strings to extract dates using flexible formats, supporting digit-only dates, ISO 8601 timestamps, and alphanumeric dates in multiple languages. It allows configuring custom splitters and month localizations.",
+    "use_when": [
+      "You need to parse unstructured user input containing dates.",
+      "You are dealing with mixed date formats across different languages."
+    ],
+    "avoid_when": [
+      "You only need to parse strict, standardized date formats where DateTime.parse is sufficient."
+    ],
+    "strengths": [
+      "Supports multiple languages and custom month localizations.",
+      "Handles flexible date formats and splitters out of the box.",
+      "Good performance with cached regular expressions and lookup tables."
+    ],
+    "weaknesses": [
+      "Limited built-in month name languages by default (English, Ukrainian, Russian).",
+      "Incomplete or non-existent dates evaluate their DateTime getter to null."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:datify/datify.dart';\n\nvoid main() {\n  final datify = Datify.parse('20th of January, 2021');\n\n  print(datify.date); // 2021-01-20 00:00:00.000\n  print(datify.result); // DatifyResult{year: 2021, month: 1, day: 20}\n}",
+    "confidence": 1
+  }
+}

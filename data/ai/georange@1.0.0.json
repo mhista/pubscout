@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.0",
+  "generatedAt": "2026-11-17T12:10:24.167Z",
+  "data": {
+    "primary_category": "maps",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Encode and decode geohashes, calculate distances, and generate ranges for database queries.",
+    "what_it_does": "Georange helps encode and decode geohashes, calculate distances between two geographic points, and generate latitudinal and longitudinal ranges represented as geohashes to aid in database querying (tested on Firestore).",
+    "use_when": [
+      "You need to query geographic bounding boxes in Firestore using geohashes.",
+      "You want to calculate distances between coordinates in kilometers."
+    ],
+    "avoid_when": [
+      "You require complex map widgets or interactive UI components.",
+      "You need a robust backend-agnostic spatial database solution beyond simple range queries."
+    ],
+    "strengths": [
+      "Simple API for geohash encoding and decoding.",
+      "Calculates distance between coordinates out of the box.",
+      "Provides helper methods to generate query ranges for databases like Firestore."
+    ],
+    "weaknesses": [
+      "Only explicitly tested on Firestore.",
+      "Limited documentation beyond basic geohash ranges and distance."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "not documented",
+    "alternatives": [],
+    "minimal_example": "import 'package:georange/georange.dart';\n\nGeoRange georange = GeoRange();\nvar encoded = georange.encode(-1.2862368, 36.8195783);\nPoint decoded = georange.decode('kzf0tvg5n');\nvar distance = georange.distance(point1, point2);",
+    "confidence": 0.95
+  }
+}
