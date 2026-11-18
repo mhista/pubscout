@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.2.0",
+  "generatedAt": "2026-11-18T11:51:09.576Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "auth"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Generate and verify Time-based One-time Passwords (TOTP) following RFC 6238.",
+    "what_it_does": "An implementation of the Time-based One-time Password algorithm that generates tokens, verifies codes with optional symmetric windows, and calculates remaining time periods with subsecond precision. It supports base32 keys and various cryptographic hash algorithms.",
+    "use_when": [
+      "You need to implement multi-factor authentication (MFA) or two-factor authentication (2FA).",
+      "You are building a client that needs to generate or verify RFC 6238 compliant TOTP tokens."
+    ],
+    "avoid_when": [
+      "You need built-in state persistence or automatic replay attack prevention during verification."
+    ],
+    "strengths": [
+      "Follows the RFC 6238 specification strictly.",
+      "Supports customizable algorithms (SHA1, SHA256, SHA512), periods, and digit counts.",
+      "Provides precise Duration-based time remaining calculations."
+    ],
+    "weaknesses": [
+      "Verification does not persist state or prevent replay, requiring manual tracking in your application.",
+      "Limited to Dart 3.13 or later."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:totp/totp.dart';\n\nvoid main() {\n  final totp = Totp.fromBase32(secret: 'JBSWY3DPEHPK3PXP');\n  print(totp.generate());\n}",
+    "confidence": 0.95
+  }
+}

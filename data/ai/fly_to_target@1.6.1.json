@@ -1,0 +1,46 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.6.1",
+  "generatedAt": "2026-11-18T11:50:57.585Z",
+  "data": {
+    "primary_category": "animation",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Animate multiple widgets flying to target positions simultaneously in Flutter.",
+    "what_it_does": "Allows animating multiple widgets simultaneously to one or more targets using customizable paths, pre-phase spread animations, effects, and decorative particle trails.",
+    "use_when": [
+      "You need to animate items like coins or shopping items flying into a cart or wallet.",
+      "You want custom paths like bezier curves or parabolas for moving UI elements.",
+      "You need particle or star trail effects attached to moving widgets."
+    ],
+    "avoid_when": [
+      "You are looking for page routing or navigation animations between screens.",
+      "You need standard state-driven implicit or explicit UI transitions without flying targets."
+    ],
+    "strengths": [
+      "Supports multiple animation paths like linear, parabolic, and bezier curves.",
+      "Includes pre-phase spread animations and various decorative particle effects.",
+      "Provides a controller-based API with progress-based callback triggers."
+    ],
+    "weaknesses": [
+      "Relies on imperative controller usage rather than purely declarative widget trees.",
+      "Target and item positions heavily depend on GlobalKeys."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "animations",
+        "why_pick_it": "Choose animations for standard Material motion patterns like container transforms and shared axis transitions."
+      }
+    ],
+    "minimal_example": "final _controller = FlyToTargetController();\n\nFuture<void> _flyAll() async {\n  await _controller.flyAll(\n    items: items,\n    target: FlyTargetFromKey(_targetKey),\n  );\n}",
+    "confidence": 0.95
+  }
+}

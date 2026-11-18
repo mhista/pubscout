@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "5.0.0",
+  "generatedAt": "2026-11-18T11:47:52.795Z",
+  "data": {
+    "primary_category": "animation",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative",
+      "imperative"
+    ],
+    "one_liner": "A floating panel window that can be dragged, spring-snapped, parked off-edge, and tapped to grow.",
+    "what_it_does": "Provides a draggable floating panel window for Flutter that spring-snaps to the nearest edge based on momentum, can stash off-screen into a grab tab, and expands in place when tapped. It uses physics-based spring motion and supports gesture control.",
+    "use_when": [
+      "You need a floating picture-in-picture style player or mini-panel over your content.",
+      "You want panels that can snap to edges or stash off-screen into grab tabs."
+    ],
+    "avoid_when": [
+      "Your app relies strictly on standard framework Material widgets without the standalone material_ui package.",
+      "You need a standard bottom sheet or modal dialog instead of a free-roaming floating window."
+    ],
+    "strengths": [
+      "High-performance motion driven directly inside a RenderBox without widget rebuilds during animation.",
+      "Calculates drop targets and spring physics based on actual momentum and Apple-inspired fluid interfaces.",
+      "Persists resting position as intent rather than raw pixels across layout changes."
+    ],
+    "weaknesses": [
+      "Requires the standalone material_ui package instead of standard package:flutter/material.dart.",
+      "expandedBuilder runs its layout up front, meaning expensive initialization inside the builder must be avoided."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add draggable_panel and material_ui to pubspec.yaml. Mount the panel via MaterialApp.builder.",
+    "alternatives": [],
+    "minimal_example": "MaterialApp(\n  builder: (context, child) => DraggablePanel(\n    collapsedBuilder: (context, status) => const Icon(Icons.play_arrow),\n    expandedBuilder: (context, status) => const MiniPlayer(),\n    child: child,\n  ),\n  home: const HomeScreen(),\n)",
+    "confidence": 0.95
+  }
+}

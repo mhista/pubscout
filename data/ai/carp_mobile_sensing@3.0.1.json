@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.0.1",
+  "generatedAt": "2026-11-18T11:51:09.875Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "storage"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based",
+      "declarative"
+    ],
+    "one_liner": "Mobile sensing framework for collecting sensor and device data via configurable probes.",
+    "what_it_does": "A software framework for collecting sensor and device data from phones and wearables using probes, triggers, and tasks. It handles scheduling, local SQLite storage, and background sampling across multiple platforms.",
+    "use_when": [
+      "You need to build a digital phenotyping or mHealth app requiring continuous background sensor data collection.",
+      "You want to collect step counts, ambient light, screen events, and battery status locally or via a study protocol."
+    ],
+    "avoid_when": [
+      "You only need a simple, single sensor check without a full protocol-driven management framework.",
+      "You are targeting platforms other than Android and iOS."
+    ],
+    "strengths": [
+      "Cross-platform support for iOS and Android.",
+      "Extensible architecture supporting custom triggers, probes, and data endpoints.",
+      "Built-in local SQLite storage and background task handling."
+    ],
+    "weaknesses": [
+      "Requires careful platform-specific configuration for background execution and notifications.",
+      "Complex setup for custom study protocols and multi-device coordination."
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Requires configuring flutter_local_notifications for Android/iOS and flutter_background for Android along with appropriate permissions in AndroidManifest.xml and Info.plist.",
+    "alternatives": [],
+    "minimal_example": "SmartPhoneClientManager().configure().then((_) => SmartPhoneClientManager().addStudyFromProtocol(SmartphoneStudyProtocol.local(name: 'Tracking', measures: [Measure(type: SensorSamplingPackage.STEP_EVENT)])).then((study) => SmartPhoneClientManager().tryDeployment(study.studyDeploymentId, study.deviceRoleName).then((_) => SmartPhoneClientManager().resume())));",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.10.0",
+  "generatedAt": "2026-11-18T11:45:19.509Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Typed CLI argument and config file parser with env support",
+    "what_it_does": "Extends Dart's args package to provide typed options, environment variable integration, YAML/JSON config files, and comprehensive validation. It offers a drop‑in replacement for ArgParser via ConfigParser.",
+    "use_when": [
+      "Migrating an existing ArgParser setup to support typed options and multiple config sources",
+      "Building command‑line tools that need environment variable or file based configuration",
+      "Requiring consistent, fail‑fast error reporting for CLI arguments"
+    ],
+    "avoid_when": [
+      "Projects that only need simple flag parsing and are already using args without the need for env or file support"
+    ],
+    "strengths": [
+      "Typed option definitions with automatic parsing and constraints",
+      "Support for environment variables and YAML/JSON config files",
+      "Collects all validation errors upfront for better UX",
+      "Drop‑in replacement for ArgParser with minimal code changes"
+    ],
+    "weaknesses": [
+      "Requires Dart SDK 3.9+ (breaking change in 0.10.0)",
+      "addCommand() not supported, needs BetterCommandRunner from cli_tools",
+      "No code generation support"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dependency, import config, replace ArgParser with ConfigParser; no build_runner needed",
+    "alternatives": [],
+    "minimal_example": "import 'package:config/config.dart';\nfinal parser = ConfigParser();\nparser.addOption('port', defaultsTo: '8080');\nparser.addOption('host', envName: 'HOST');\nfinal results = parser.parse(['--port', '3000']);\nprint(results['port']);",
+    "confidence": 0.85
+  }
+}

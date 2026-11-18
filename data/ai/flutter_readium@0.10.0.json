@@ -1,0 +1,46 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.10.0",
+  "generatedAt": "2026-11-18T11:47:55.500Z",
+  "data": {
+    "primary_category": "ui-kits",
+    "secondary_categories": [
+      "widgets",
+      "audio-video",
+      "networking"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Unified reader widget for EPUB, PDF, audiobooks, comics and WebPub",
+    "what_it_does": "Provides a single Dart API to open, display and interact with a wide range of publication formats. It supports text-to-speech, media overlays, annotations, and custom HTTP headers.",
+    "use_when": [
+      "You need an integrated e‑book reader that supports EPUB, PDF, comics and audiobooks in one place",
+      "You want TTS and media overlay support without writing platform code",
+      "You want a ready‑made widget that handles navigation, highlighting and position restoration"
+    ],
+    "avoid_when": [
+      "You only need to display PDFs or a single format",
+      "You require LCP‑protected publications",
+      "You need a lightweight solution without the extra dependencies"
+    ],
+    "strengths": [
+      "Unified API across formats",
+      "Supports TTS, media overlays, annotations",
+      "Customizable selection actions and decorations",
+      "Cross‑platform (iOS, Android, Web)"
+    ],
+    "weaknesses": [
+      "No LCP support yet",
+      "Platform setup steps are required",
+      "Large dependency footprint"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add native setup for iOS/Android (info.plist, AndroidManifest.xml) and enable web support in pubspec. No build_runner needed.",
+    "alternatives": [],
+    "minimal_example": "```dart\nfinal _readium = FlutterReadium();\nPublication? _publication;\n\nFuture<void> _open() async {\n  _publication = await _readium.openPublication('https://example.com/book.epub');\n}\n\n@override\nWidget build(BuildContext context) {\n  if (_publication == null) return const CircularProgressIndicator();\n  return ReadiumReaderWidget(publication: _publication!);\n}\n```",
+    "confidence": 0.8
+  }
+}

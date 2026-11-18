@@ -1,0 +1,50 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.4.0",
+  "generatedAt": "2026-11-18T11:47:38.068Z",
+  "data": {
+    "primary_category": "camera",
+    "secondary_categories": [
+      "ai-ml",
+      "payments"
+    ],
+    "approach": [
+      "imperative",
+      "declarative"
+    ],
+    "one_liner": "On-device bank card scanner using native OCR without third-party camera plugins.",
+    "what_it_does": "Scans payment cards using the device camera or static images to extract card numbers, expiry dates, and cardholder names. Recognition runs fully on-device via native platform OCR engines (Vision, ML Kit, and PaddleOCR for Web).",
+    "use_when": [
+      "You need to scan credit or debit cards on iOS, Android, and Web.",
+      "You require on-device privacy with zero cloud services or network access."
+    ],
+    "avoid_when": [
+      "You are targeting environments where the 51MB web OCR asset installation is problematic."
+    ],
+    "strengths": [
+      "No third-party camera plugin required.",
+      "Full on-device privacy with multiple card brand support.",
+      "Customizable UI and flexible field requirements."
+    ],
+    "weaknesses": [
+      "Requires a manual web installation step (51MB of models/runtimes for the web).",
+      "Web assembly can run significantly slower on certain older or specific browser versions."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires camera usage description in iOS Info.plist. For web deployments, you must run the dart run flutter_card_scanner_plus:install_web installer command.",
+    "alternatives": [
+      {
+        "name": "mobile_scanner",
+        "why_pick_it": "If you only need standard barcode or QR code scanning instead of full credit card OCR."
+      },
+      {
+        "name": "camera",
+        "why_pick_it": "If you want low-level control over the camera stream to build your own custom computer vision pipeline."
+      }
+    ],
+    "minimal_example": "import 'package:flutter_card_scanner_plus/flutter_card_scanner_plus.dart';\n\nfinal card = await CardScannerPage.show(context);\nif (card != null) {\n  print(card.formattedNumber);\n  print(card.brand);\n}",
+    "confidence": 0.95
+  }
+}

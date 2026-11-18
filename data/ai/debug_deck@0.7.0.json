@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.7.0",
+  "generatedAt": "2026-11-18T11:52:48.382Z",
+  "data": {
+    "primary_category": "devtools",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Drop-in Flutter debug overlay with network inspector, performance monitor, and app autopsy.",
+    "what_it_does": "Provides an isolated, in-app debug overlay featuring a Dio network inspector, live FPS and jank monitoring, log and error console, layout grid, and an app health autopsy grading system.",
+    "use_when": [
+      "You need an in-app Dio network inspector and log console during development and staging.",
+      "You want automatic app health grading and performance tracking directly on device."
+    ],
+    "avoid_when": [
+      "You are running in a strict production environment where debug overlays should not be bundled.",
+      "You do not use Dio for networking."
+    ],
+    "strengths": [
+      "Includes App Autopsy for automated health diagnosis and scoring.",
+      "Features field-and-body search inside requests and responses with exact hit jumps.",
+      "Secret redaction masks sensitive headers and query parameters automatically at capture time."
+    ],
+    "weaknesses": [
+      "Requires Dio as the networking layer.",
+      "Persisting session data to disk writes request/response bodies which requires explicit opt-in."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Initialize via DebugTools.init() in main() and mount DebugToolsHost in your app builder.",
+    "alternatives": [
+      {
+        "name": "talker",
+        "why_pick_it": "A comprehensive logging and error-handling package with extensive UI extensions for monitoring network and exceptions."
+      }
+    ],
+    "minimal_example": "DebugTools.init(\n  enabled: true,\n  appInfo: DebugAppInfo(\n    version: '1.0.0',\n    environmentName: 'Development',\n    baseUrl: 'https://api.example.com',\n  ),\n);",
+    "confidence": 1
+  }
+}

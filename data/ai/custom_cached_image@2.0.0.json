@@ -1,0 +1,55 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "2.0.0",
+  "generatedAt": "2026-11-18T11:51:15.480Z",
+  "data": {
+    "primary_category": "images",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Zero-dependency cached network image widget with shimmer, retry, and profile initials",
+    "what_it_does": "Provides a Flutter widget that loads images from the network, caches them on disk, and displays a shimmer or spinner while loading. It handles errors, retries, and can show profile initials when the image is missing.",
+    "use_when": [
+      "You need a lightweight image loader without external dependencies",
+      "You want built‑in caching and offline support",
+      "You need a shimmer placeholder or retry button",
+      "You want to display profile initials when an image fails"
+    ],
+    "avoid_when": [
+      "You already use cached_network_image or shimmer",
+      "You need advanced image manipulation or decoding",
+      "You require a custom HTTP client beyond the built‑in one"
+    ],
+    "strengths": [
+      "Zero third‑party dependencies",
+      "Built‑in disk cache with ETag/Last‑Modified support",
+      "Offline friendly with stale cache",
+      "Request de‑duplication"
+    ],
+    "weaknesses": [
+      "No support for advanced image formats like SVG or vector graphics",
+      "No direct integration with image picking or editing",
+      "Limited to network images only (no local assets)",
+      "No built‑in support for image transformations (crop, resize)"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dependency in pubspec and import package",
+    "alternatives": [
+      {
+        "name": "cached_network_image",
+        "why_pick_it": "Provides similar caching but with external dependencies and less control over shimmer"
+      },
+      {
+        "name": "octo_image",
+        "why_pick_it": "Offers advanced caching and placeholder options but depends on cached_network_image"
+      }
+    ],
+    "minimal_example": "CustomCachedImage(\n  imageUrl: 'https://example.com/sample.jpg',\n  width: 150,\n  height: 150,\n  borderRadius: 10,\n  fit: BoxFit.cover,\n)",
+    "confidence": 0.95
+  }
+}

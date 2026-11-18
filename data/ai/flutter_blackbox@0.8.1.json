@@ -1,0 +1,51 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.8.1",
+  "generatedAt": "2026-11-18T11:51:56.444Z",
+  "data": {
+    "primary_category": "devtools",
+    "secondary_categories": [
+      "device",
+      "networking"
+    ],
+    "approach": [
+      "no codegen",
+      "imperative"
+    ],
+    "one_liner": "All-in-one Flutter debug overlay and live remote web dashboard for network, logs, and crashes.",
+    "what_it_does": "Provides an in-app debug overlay and remote web dashboard to inspect network traffic, logs, widget rebuilds, performance, storage, and crashes. It automatically disables capture in release builds and supports optional adapters for specific libraries.",
+    "use_when": [
+      "You need a comprehensive on-device and remote debugging overlay during QA and development.",
+      "You want to inspect network requests, storage, performance, and application logs without leaving your app."
+    ],
+    "avoid_when": [
+      "You are building for a platform where visual overlays or debugging tools are not desired.",
+      "You only require a simple logging library without UI overlay features."
+    ],
+    "strengths": [
+      "Zero impact in production due to automatic release build disabling.",
+      "Comprehensive feature set including network inspection, performance metrics, storage viewing, and crash logging.",
+      "Supports streaming diagnostics to a remote web companion."
+    ],
+    "weaknesses": [
+      "Adds overhead to debug builds and package footprint.",
+      "Requires manual adapter setup or CLI generation for certain custom third-party libraries."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Call BlackBox.setup() and wrap your app with BlackBoxOverlay. Optionally run dart run flutter_blackbox:init --generate for adapters.",
+    "alternatives": [
+      {
+        "name": "talker",
+        "why_pick_it": "Advanced and extensible exception handling and logging tool for Flutter apps."
+      },
+      {
+        "name": "logger",
+        "why_pick_it": "Simple, pretty, and powerful logger for Flutter with zero UI overlay overhead."
+      }
+    ],
+    "minimal_example": "import 'package:flutter/foundation.dart';\nimport 'package:flutter_blackbox/flutter_blackbox.dart';\n\nvoid main() {\n  BlackBox.setup(\n    trigger: const BlackBoxTrigger.floatingButton(),\n    enabled: kDebugMode,\n  );\n  runApp(const BlackBoxOverlay(child: MyApp()));\n}",
+    "confidence": 0.95
+  }
+}

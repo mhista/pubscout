@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.0.0",
+  "generatedAt": "2026-11-18T11:52:48.604Z",
+  "data": {
+    "primary_category": "ui-kits",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "A splash screen API for Flutter which can programmatically hide and show the splash screen.",
+    "what_it_does": "Provides an API to programmatically show and hide the native splash screen on Android and iOS. It allows developers to control when the splash screen is dismissed from within their Flutter code.",
+    "use_when": [
+      "You need to keep the native splash screen visible while performing asynchronous initialization tasks in Flutter.",
+      "You want programmatic control over hiding and showing the splash screen on both Android and iOS."
+    ],
+    "avoid_when": [
+      "You only need a static splash screen configuration handled completely by native tools without programmatic dismissal.",
+      "You are using a more modern splash screen package that supports the native Android 12+ splash screen API out of the box."
+    ],
+    "strengths": [
+      "Works on both Android and iOS.",
+      "Simple API with straightforward show and hide methods."
+    ],
+    "weaknesses": [
+      "Requires manual configuration in native Android (MainActivity and layout files) and iOS files.",
+      "Relies on older native embedding approaches which may require extra configuration on newer Android versions."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires modifying MainActivity.kt and creating launch_screen.xml on Android, and customizing LaunchScreen.storyboard on iOS.",
+    "alternatives": [],
+    "minimal_example": "import 'dart:async';\nimport 'package:flutter/material.dart';\nimport 'package:flutter_splash_screen/flutter_splash_screen.dart';\n\nvoid main() => runApp(MyApp());\n\nclass MyApp extends StatefulWidget {\n  @override\n  _MyAppState createState() => _MyAppState();\n}\n\nclass _MyAppState extends State<MyApp> {\n  @override\n  void initState() {\n    super.initState();\n    hideScreen();\n  }\n\n  Future<void> hideScreen() async {\n    Future.delayed(Duration(milliseconds: 1800), () {\n      FlutterSplashScreen.hide();\n    });\n  }\n\n  @override\n  Widget build(BuildContext context) {\n    return MaterialApp(home: Scaffold(body: Center(child: Text('Home'))));\n  }\n}",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.4.1",
+  "generatedAt": "2026-11-18T11:46:06.158Z",
+  "data": {
+    "primary_category": "files",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Dart and Flutter client for SMB2 and SMB3 file shares built on libsmb2.",
+    "what_it_does": "Connects to SMB2 and SMB3 file shares, Samba, Windows, and NAS servers. It allows you to list directories, stream reads, perform atomic downloads and uploads, copy files, and watch directory changes across multiple worker isolates.",
+    "use_when": [
+      "You need to access, read, download, or upload files to a network share or NAS from a Dart or Flutter app.",
+      "You want background worker isolates to handle SMB requests so the UI thread remains unblocked."
+    ],
+    "avoid_when": [
+      "You only need local device storage or cloud-hosted backends like Firebase or Supabase."
+    ],
+    "strengths": [
+      "Runs requests on worker isolates to prevent blocking the UI thread.",
+      "Supports automatic reconnection and retry mechanisms for dropped connections.",
+      "Bundles precompiled libsmb2 binaries with static cryptographic linking for multiple platforms."
+    ],
+    "weaknesses": [
+      "Requires network access during the first build to download and verify native libsmb2 binaries.",
+      "Adds significant app size due to bundled OpenSSL libcrypto support."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires INTERNET permission on Android and network client entitlements on macOS. The first build needs network access to download native binaries.",
+    "alternatives": [],
+    "minimal_example": "import 'package:dart_smb2/dart_smb2.dart';\n\nFuture<void> main() async {\n  final pool = await Smb2Pool.connect(\n    host: '192.168.1.10',\n    share: 'Music',\n    user: 'alice',\n    password: 'secret',\n  );\n  try {\n    for (final entry in await pool.listDirectory('')) {\n      print('${entry.name}  ${entry.isDirectory ? 'dir' : '${entry.size} B'}');\n    }\n  } finally {\n    await pool.disconnect();\n  }\n}",
+    "confidence": 1
+  }
+}

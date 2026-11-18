@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.5.0+1",
+  "generatedAt": "2026-11-18T11:51:00.025Z",
+  "data": {
+    "primary_category": "backend",
+    "secondary_categories": [
+      "auth"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Pure Dart Firebase admin SDK for authentication and Realtime Database.",
+    "what_it_does": "Provides server‑side access to Firebase Auth and Realtime Database using service‑account or default credentials. It supports generating sign‑in links, managing users, and performing database operations without native code.",
+    "use_when": [
+      "Building a Dart backend that needs Firebase admin features",
+      "Running server‑side scripts that manage users or data",
+      "Deploying to platforms without native Firebase SDKs"
+    ],
+    "avoid_when": [
+      "Client‑side mobile or web apps",
+      "Projects that require Cloud Storage or Firestore admin APIs"
+    ],
+    "strengths": [
+      "Pure Dart implementation, no native dependencies",
+      "Supports service‑account and default credentials",
+      "Handles auth and Realtime Database admin tasks"
+    ],
+    "weaknesses": [
+      "Limited to Auth and Realtime Database only",
+      "No support for Cloud Storage, Firestore, or other Firebase services",
+      "Requires manual credential setup"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Place service‑account JSON in project or set GOOGLE_APPLICATION_CREDENTIALS env variable. No build_runner needed.",
+    "alternatives": [],
+    "minimal_example": "import 'package:firebase_admin/firebase_admin.dart';\n\nvoid main() async {\n  var app = FirebaseAdmin.instance.initializeApp(AppOptions(\n    credential: ServiceAccountCredential('service-account.json'),\n  ));\n  var link = await app.auth().generateSignInWithEmailLink('jane@doe.com',\n      ActionCodeSettings(url: 'https://example.com'));\n  print(link);\n}",
+    "confidence": 0.8
+  }
+}

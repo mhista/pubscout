@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "3.0.0",
+  "generatedAt": "2026-11-18T11:51:05.472Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "localization",
+      "ui-kits"
+    ],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "A Flutter widget for creating localized polls with Material 3 styling.",
+    "what_it_does": "Provides a fully controlled poll UI that displays options, voting results, and countdown timers. Supports multiple languages via built‑in locales and custom labels. Uses Material 3 Expressive design by default.",
+    "use_when": [
+      "you need a ready‑made poll interface in a Flutter app",
+      "you want built‑in localization for poll labels and time remaining",
+      "you prefer an immutable, declarative widget API"
+    ],
+    "avoid_when": [
+      "you require complex backend voting logic integrated in the widget",
+      "you need custom charting or non‑poll UI components",
+      "your app runs on Flutter versions older than 3.47"
+    ],
+    "strengths": [
+      "built‑in multilingual support",
+      "Material 3 Expressive look with easy style overrides",
+      "immutable, fully controlled API reduces side effects"
+    ],
+    "weaknesses": [
+      "only provides poll UI, no networking or data persistence",
+      "requires Flutter 3.47+ and the material_ui package",
+      "limited customization beyond provided style options"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "Poll<int>? poll = Poll(\n  title: 'Sample poll',\n  endsAt: DateTime.now().toUtc().add(Duration(days: 5)),\n  isEditable: true,\n  options: [\n    PollOption(id: 1, label: 'Option 1', voteCount: 10),\n    PollOption(id: 2, label: 'Option 2', voteCount: 20),\n  ],\n);\nPollVote<int>? vote;\nSimplePoll<int>(\n  poll: poll,\n  vote: vote,\n  onVoteChanged: (newVote) {\n    poll = poll!.withVoteApplied(previousVote: vote, newVote: newVote);\n    vote = newVote;\n  },\n);",
+    "confidence": 0.9
+  }
+}

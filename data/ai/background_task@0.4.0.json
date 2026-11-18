@@ -1,0 +1,47 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.4.0",
+  "generatedAt": "2026-11-18T11:53:24.556Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "Run Dart code in the background using location updates on Android and iOS.",
+    "what_it_does": "The plugin keeps a Dart isolate alive by receiving location updates even when the app is in the background or task‑killed. It streams those updates so you can execute custom logic, such as step counting or sending location to a server.",
+    "use_when": [
+      "You need periodic background processing triggered by location changes",
+      "You want to monitor distance walked, steps, or arrival at a destination",
+      "Your app must continue work after the user puts it in the background"
+    ],
+    "avoid_when": [
+      "You need background work unrelated to location",
+      "You require execution after a full app termination on iOS without location callbacks",
+      "Battery‑critical apps that cannot afford constant location polling"
+    ],
+    "strengths": [
+      "Uses native location services (significant‑change on iOS, foreground service on Android)",
+      "Works even when the app is task‑killed (iOS significant‑change, Android foreground service)",
+      "Simple stream‑based API"
+    ],
+    "weaknesses": [
+      "Limited to location‑based triggers; cannot run arbitrary background tasks",
+      "Requires many permissions and native setup, impacting battery",
+      "iOS background execution only while location updates are received"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add location permissions (ACCESS_FINE_LOCATION, ACCESS_BACKGROUND_LOCATION, etc.) and FOREGROUND_SERVICE_LOCATION in AndroidManifest; configure iOS Info.plist with NSLocation* keys and UIBackgroundModes (fetch, location); register DispatchEngine in AppDelegate as shown; optionally use permission_handler to request permissions.",
+    "alternatives": [
+      {
+        "name": "geolocator",
+        "why_pick_it": "Provides location updates without the background‑service overhead; suitable if you only need foreground location tracking"
+      }
+    ],
+    "minimal_example": "BackgroundTask.instance.stream.listen((event){/* background work */});\nawait BackgroundTask.instance.start();\nawait BackgroundTask.instance.stop();",
+    "confidence": 0.85
+  }
+}

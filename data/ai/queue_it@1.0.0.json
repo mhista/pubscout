@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "1.0.0",
+  "generatedAt": "2026-11-18T11:51:45.601Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "stream-based"
+    ],
+    "one_liner": "A Dart queue with concurrency, retries and event listeners",
+    "what_it_does": "QueueIt provides an in‑memory queue that can process items concurrently, automatically retry failures, and emit snapshots of its state. It exposes a stream of updates and helper methods for adding, canceling, and querying items.",
+    "use_when": [
+      "Managing background tasks like file uploads or downloads",
+      "Implementing retry logic for transient failures",
+      "Building a simple task scheduler in a Flutter or Dart app"
+    ],
+    "avoid_when": [
+      "Persisting queue state across app restarts",
+      "Needing a database or key‑value store for queued items",
+      "Complex state management that requires a dedicated state‑management solution"
+    ],
+    "strengths": [
+      "Built‑in concurrency control",
+      "Automatic retry with customizable delay and condition",
+      "Stream of queue snapshots for reactive UI updates"
+    ],
+    "weaknesses": [
+      "In‑memory only, no persistence",
+      "No built‑in integration with Flutter widgets (requires flutter_queue_it companion)",
+      "Limited to single‑process usage"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "final queue = QueueIt<int>(\n  parallel: 2,\n  retries: 3,\n  itemHandler: (item) async {\n    print('Processing ${item.data}');\n    await Future<void>.delayed(const Duration(seconds: 1));\n  },\n);\nqueue.onUpdate.listen((snapshot) {\n  print('Event: ${snapshot.event.name}');\n});\nqueue.add(1);\nqueue.add(2);\nqueue.start();",
+    "confidence": 0.9
+  }
+}

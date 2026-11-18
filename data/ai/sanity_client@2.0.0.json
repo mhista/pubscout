@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "2.0.0",
+  "generatedAt": "2026-11-18T11:46:19.822Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "backend",
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Dart client for Sanity.io with GROQ queries and live updates",
+    "what_it_does": "Provides a type‑safe way to execute GROQ queries against Sanity.io’s HTTP API. It also supports live data streams, CDN usage, and image URL building.",
+    "use_when": [
+      "Fetching structured content from Sanity.io",
+      "Implementing live content updates",
+      "Building image URLs with transformations"
+    ],
+    "avoid_when": [
+      "Using older Dart/Flutter versions (requires Dart 3.14+ and Flutter 3.50+)",
+      "Projects that already use a different Sanity client"
+    ],
+    "strengths": [
+      "Strong type safety for queries and responses",
+      "Built‑in live streaming with automatic reconnects",
+      "Flexible image URL builder and external service support"
+    ],
+    "weaknesses": [
+      "Requires recent Dart/Flutter versions",
+      "Breaking changes in v2.0.0 may need migration"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add sanity_client to pubspec.yaml. No build_runner or codegen required.",
+    "alternatives": [],
+    "minimal_example": "final client = SanityClient(\n  SanityConfig(\n    projectId: 'your_project_id',\n    dataset: 'your_dataset',\n    apiVersion: 'v2024-02-16',\n    useCdn: true,\n  ),\n);\n\nfinal movies = await client.fetch('''\n  *[_type == \"movie\"]{_id, title, releaseDate}\n''');",
+    "confidence": 0.9
+  }
+}

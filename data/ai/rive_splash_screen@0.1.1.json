@@ -1,0 +1,52 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.1.1",
+  "generatedAt": "2026-11-18T11:53:08.873Z",
+  "data": {
+    "primary_category": "animation",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Widget that shows a Rive animation while initializing the app and then navigates to a target screen",
+    "what_it_does": "It displays a Rive animation, runs optional start/loop/end animations, waits for a Future or loading flag, then pushes a new route or calls a callback when finished.",
+    "use_when": [
+      "You need a splash screen with a Rive animation during app startup",
+      "You want automatic navigation after initialization",
+      "You want to customize transition animations"
+    ],
+    "avoid_when": [
+      "You prefer a different animation format (Lottie, GIF)",
+      "You need a fully custom splash screen without Rive",
+      "You are targeting a platform that does not support Rive"
+    ],
+    "strengths": [
+      "Easy to integrate with a single line of code",
+      "Supports multiple animation modes (start, loop, end)",
+      "Handles navigation and callbacks automatically"
+    ],
+    "weaknesses": [
+      "Only works with Rive animations",
+      "Small community and limited updates",
+      "No support for other animation types"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "rive",
+        "why_pick_it": "Use Rive directly for full control over animation and state management"
+      },
+      {
+        "name": "lottie",
+        "why_pick_it": "If you prefer Lottie animations instead of Rive"
+      }
+    ],
+    "minimal_example": "SplashScreen.navigate(\n  name: 'intro.riv',\n  next: (_) => MyHomePage(),\n  until: () => Future.delayed(Duration(seconds: 5)),\n  startAnimation: '1',\n);",
+    "confidence": 0.8
+  }
+}

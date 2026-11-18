@@ -1,0 +1,48 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.20.0",
+  "generatedAt": "2026-11-18T11:48:16.448Z",
+  "data": {
+    "primary_category": "ai-ml",
+    "secondary_categories": [
+      "audio-video",
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Run ML models on-device or in the cloud with hybrid routing and streaming inference.",
+    "what_it_does": "The Xybrid Flutter SDK enables running LLMs, ASR (speech-to-text), and TTS (text-to-speech) natively in Flutter apps, either on-device or via cloud routing. It includes model loading, download progress tracking, structured output generation, tool calling, and OpenTelemetry observability.",
+    "use_when": [
+      "You need local, offline AI inference (LLM, ASR, TTS) in your Flutter app.",
+      "You want to route between on-device models and cloud fallbacks dynamically.",
+      "You need structured outputs via GBNF grammars or built-in tool calling."
+    ],
+    "avoid_when": [
+      "You only require standard cloud API integrations without local model dependencies.",
+      "You want a pure Dart solution without native plugin dependencies."
+    ],
+    "strengths": [
+      "Supports completely offline and private native inference for LLMs, ASR, and TTS.",
+      "Provides download progress tracking and built-in caching for model registries.",
+      "Includes support for structured output via JSON schemas and tool calling."
+    ],
+    "weaknesses": [
+      "Relies on native Rust bindings (flutter_rust_bridge) which add complexity to the build process.",
+      "Decision models and certain features have specific platform/device limitations."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires initializing Xybrid in main() with WidgetsFlutterBinding.ensureInitialized().",
+    "alternatives": [
+      {
+        "name": "tflite_flutter",
+        "why_pick_it": "If you want a lightweight TensorFlow Lite solution directly integrated into Flutter without the broader Xybrid cloud-hybrid routing framework."
+      }
+    ],
+    "minimal_example": "import 'package:xybrid_flutter/xybrid_flutter.dart';\n\nFuture<void> main() async {\n  WidgetsFlutterBinding.ensureInitialized();\n  await Xybrid.init();\n  final model = await XybridModelLoader.fromRegistry('kokoro-82m').load();\n  final result = await model.run(XybridEnvelope.text('Hello from Xybrid!'));\n  print('Audio: ${result.audioBytes?.length} bytes');\n}",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.14.0",
+  "generatedAt": "2026-11-18T11:45:24.696Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "devtools"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based",
+      "no codegen"
+    ],
+    "one_liner": "Utilities for building command‑line interfaces, including argument parsing, analytics, and progress reporting.",
+    "what_it_does": "Provides a set of helper libraries for CLI applications such as a configurable command runner, analytics base class, and progress display. It also includes experimental command‑line completion support. The package is framework‑agnostic and can be used in any Dart project.",
+    "use_when": [
+      "You need a ready‑made command runner with built‑in analytics and progress UI for a Dart CLI tool",
+      "You want easy integration of command‑line completion and configurable logging"
+    ],
+    "avoid_when": [
+      "You are building a GUI or web app",
+      "You require a full‑featured CLI framework with sub‑command scaffolding beyond what this package offers"
+    ],
+    "strengths": [
+      "Simple, opinionated API for common CLI needs",
+      "Built‑in analytics flushing and progress streams",
+      "Experimental completion support"
+    ],
+    "weaknesses": [
+      "Limited to command‑line use; no UI components",
+      "Breaking changes in recent versions may require migration"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:cli_tools/cli_tools.dart';\n\nvoid main() async {\n  final runner = BetterCommandRunner('my_cli', 'Example CLI');\n  runner.addCommand(EchoCommand());\n  await runner.run(arguments);\n}\n\nclass EchoCommand extends Command {\n  @override final name = 'echo';\n  @override final description = 'Prints the given text.';\n  EchoCommand() { argParser.addOption('text', abbr: 't'); }\n  @override void run() => print(argResults!['text']);\n}",
+    "confidence": 0.8
+  }
+}

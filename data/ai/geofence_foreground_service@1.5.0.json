@@ -1,0 +1,48 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.5.0",
+  "generatedAt": "2026-11-18T11:52:42.732Z",
+  "data": {
+    "primary_category": "maps",
+    "secondary_categories": [
+      "device",
+      "notifications"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "A Flutter plugin that handles geofencing using a foreground service on Android and Core Location on iOS.",
+    "what_it_does": "Enables monitoring of circular areas and polygon zones in the foreground and background. It triggers callbacks when devices enter, exit, or dwell in specified zones, handling re-registrations after reboots.",
+    "use_when": [
+      "You need background geofencing capabilities on both Android and iOS.",
+      "Your app requires Android foreground service notifications for location tracking.",
+      "You need to monitor circular or polygon-based geographical regions."
+    ],
+    "avoid_when": [
+      "You only need basic maps rendering without geofencing logic.",
+      "You cannot accept the requirement for Android background location permissions."
+    ],
+    "strengths": [
+      "Supports both circular and polygon-based zones.",
+      "Survives Android device reboots and app updates.",
+      "Provides background and foreground geofence monitoring."
+    ],
+    "weaknesses": [
+      "Requires complex native permission and service setup on Android and iOS.",
+      "Platform differences mean some advanced configurations are ignored on iOS."
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Requires Android Multidex, SDK 29+, compileSdk 36+, runtime location and notification permissions, and iOS Info.plist location usage descriptions along with Location updates and Background fetch capabilities.",
+    "alternatives": [
+      {
+        "name": "geolocator",
+        "why_pick_it": "If you need general geolocation updates rather than specialized geofence foreground services."
+      }
+    ],
+    "minimal_example": "Future<void> initPlatformState() async {\n  bool hasServiceStarted = await GeofenceForegroundService().startGeofencingService(\n    contentTitle: 'Test app is running',\n    contentText: 'Running in background',\n    notificationChannelId: 'channel_id',\n    serviceId: 525600,\n    callbackDispatcher: callbackDispatcher,\n  );\n}",
+    "confidence": 0.95
+  }
+}

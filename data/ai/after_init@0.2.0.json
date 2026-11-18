@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.2.0",
+  "generatedAt": "2026-11-18T11:52:59.382Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Provides a didInitState() method to access InheritedWidgets safely after initState.",
+    "what_it_does": "Adds a mixin that calls didInitState() exactly once between initState() and didChangeDependencies(). This lets you read InheritedWidgets before the first build without using post‑frame callbacks.",
+    "use_when": [
+      "You need to read InheritedWidgets during widget initialization",
+      "You want a deterministic lifecycle hook before the first build"
+    ],
+    "avoid_when": [
+      "You already use a state‑management solution that offers its own init hook",
+      "You prefer to avoid extra mixins for simple widgets"
+    ],
+    "strengths": [
+      "Simple, zero‑dependency mixin",
+      "Works on all Flutter platforms",
+      "No code generation or build steps"
+    ],
+    "weaknesses": [
+      "Limited to a single lifecycle hook",
+      "Does not replace full state‑management solutions",
+      "May be redundant if you already use didChangeDependencies"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "class MyWidget extends StatefulWidget {\n  @override\n  State<MyWidget> createState() => _MyWidgetState();\n}\n\nclass _MyWidgetState extends State<MyWidget> with AfterInitMixin<MyWidget> {\n  late Size size;\n  @override\n  void didInitState() {\n    size = MediaQuery.of(context).size;\n  }\n  @override\n  Widget build(BuildContext context) => Center(child: Text(size.toString()));\n}",
+    "confidence": 0.9
+  }
+}

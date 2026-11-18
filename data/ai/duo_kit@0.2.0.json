@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.2.0",
+  "generatedAt": "2026-11-18T11:47:22.742Z",
+  "data": {
+    "primary_category": "layout",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Flutter widgets to layout content around a foldable device’s hinge and strip",
+    "what_it_does": "Provides FoldScaffold, FoldSplitView, FoldAnchor and FoldBridge to position navigation, split panes and dialogs relative to a fold or strip. It preserves widget state across folding and handles insets and keyboard placement.",
+    "use_when": [
+      "You need to support iPhone Duo or other foldable devices",
+      "Your app already defines its own navigation and content widgets",
+      "You want state to survive folding without custom logic"
+    ],
+    "avoid_when": [
+      "You only target non-foldable devices",
+      "You need a fully themed platform UI like adaptive_platform_ui"
+    ],
+    "strengths": [
+      "Keeps state across folds",
+      "Handles insets and keyboard automatically",
+      "Supports dialogs and sheets in the correct half",
+      "Works on Android, iOS, web, desktop"
+    ],
+    "weaknesses": [
+      "Requires iOS 27.1 SDK for full functionality",
+      "Only works on iPhone Duo for fold data; other foldables rely on Flutter’s displayFeatures",
+      "Needs manual wrapping with FoldBridge on iOS"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Wrap the root widget with FoldBridge on iOS, target iOS 15+, use Xcode 27.1 SDK, ensure Flutter 3.41+ and no UIRequiresFullScreen. No build_runner needed.",
+    "alternatives": [],
+    "minimal_example": "```dart\nimport 'package:duo_kit/duo_kit.dart';\n\nvoid main() => runApp(const FoldBridge(child: MyApp()));\n\nclass MyApp extends StatelessWidget {\n  const MyApp({super.key});\n  @override\n  Widget build(BuildContext context) => MaterialApp(\n    home: FoldScaffold(\n      navigationBuilder: (ctx) => BottomNavigationBar(items: [...]),\n      body: FoldSplitView(\n        left: ListView(...),\n        right: DetailView(...),\n      ),\n    ),\n  );\n}\n```",
+    "confidence": 0.9
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "2.0.1",
+  "generatedAt": "2026-11-18T11:50:44.908Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "API to toggle fullscreen mode on web, desktop, and mobile Flutter apps",
+    "what_it_does": "It exposes a FullScreen class that lets you enable or disable fullscreen and listen for changes. The implementation uses nativeapi for desktop and platform channels for web and mobile.",
+    "use_when": [
+      "You need fullscreen mode on web, desktop, or mobile",
+      "You want to react to fullscreen changes in your UI",
+      "You prefer a single package instead of platform-specific code"
+    ],
+    "avoid_when": [
+      "You only target a single platform and have custom native code",
+      "You need advanced window management beyond fullscreen",
+      "You require a declarative widget approach"
+    ],
+    "strengths": [
+      "Cross‑platform support (web, desktop, iOS, Android)",
+      "Simple imperative API",
+      "Listener mixin for easy state updates"
+    ],
+    "weaknesses": [
+      "No declarative widget wrapper",
+      "Limited to fullscreen only, no other window controls",
+      "Documentation is minimal"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dependency, call FullScreen.ensureInitialized() in main, then use FullScreen.setFullScreen() or mixin FullScreenListener",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter_fullscreen/flutter_fullscreen.dart';\n\nvoid main() async {\n  WidgetsFlutterBinding.ensureInitialized();\n  await FullScreen.ensureInitialized();\n  runApp(const MyApp());\n}\n\n// Enable fullscreen\nFullScreen.setFullScreen(true);\n",
+    "confidence": 0.9
+  }
+}

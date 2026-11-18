@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.0.0",
+  "generatedAt": "2026-11-18T11:53:34.582Z",
+  "data": {
+    "primary_category": "images",
+    "secondary_categories": [
+      "camera",
+      "audio-video",
+      "forms"
+    ],
+    "approach": [
+      "imperative",
+      "no native code"
+    ],
+    "one_liner": "In-app image and video picker with built-in cropping, filters, camera, and editing tools.",
+    "what_it_does": "Provides an in-app gallery and camera interface for picking images and videos across mobile, web, and desktop. Users can crop, rotate, apply filters, make adjustments, and add markup before returning the files.",
+    "use_when": [
+      "You need a custom-designed in-app gallery and camera picker rather than the system UI.",
+      "Users need to crop, filter, or edit images before uploading or saving them.",
+      "You need cross-platform support including web and desktop."
+    ],
+    "avoid_when": [
+      "You strictly want the native platform image picker interface.",
+      "Your project cannot migrate to MaterialUiCompatibilityBridge or package:material_ui (required in v3.0.0)."
+    ],
+    "strengths": [
+      "Rich built-in editing features including cropping, filters, adjustments, and markup.",
+      "Cross-platform support for mobile, web, and desktop.",
+      "No native code of its own, minimizing setup issues."
+    ],
+    "weaknesses": [
+      "Requires migration to package:material_ui in version 3.0.0.",
+      "Camera is not supported on web and desktop platforms."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires platform permission declarations in Info.plist (iOS) and AndroidManifest.xml (Android) for camera and photo library access. Version 3.0.0 requires moving your app to package:material_ui or using MaterialUiCompatibilityBridge.",
+    "alternatives": [
+      {
+        "name": "image_picker",
+        "why_pick_it": "If you prefer the standard system-provided picker UI rather than a custom in-app gallery."
+      }
+    ],
+    "minimal_example": "final items = await ImagePickerPlus.pick(context);",
+    "confidence": 0.95
+  }
+}

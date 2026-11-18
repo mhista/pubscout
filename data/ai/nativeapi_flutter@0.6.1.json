@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.6.1",
+  "generatedAt": "2026-11-18T11:45:34.445Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter integration for nativeapi, adding widgets and type conversions.",
+    "what_it_does": "Re-exports nativeapi and provides Flutter widgets for window manipulation, context menus, and asset image loading. It also offers extensions to convert between nativeapi types and dart:ui types.",
+    "use_when": [
+      "Need native window controls or context menus in a Flutter desktop app",
+      "Want to load nativeapi Image from a Flutter asset",
+      "Need to bridge Flutter's multi‑window API to nativeapi"
+    ],
+    "avoid_when": [
+      "Using only mobile platforms without desktop features",
+      "Relying on experimental multi‑window API before Flutter 3.50"
+    ],
+    "strengths": [
+      "Provides ready‑made widgets for window interaction",
+      "Convenient type conversion extensions",
+      "Supports all major desktop platforms"
+    ],
+    "weaknesses": [
+      "Requires Flutter 3.50 / Dart 3.14",
+      "Limited to desktop platforms for most features",
+      "No code generation"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dependency, import package, no extra build steps",
+    "alternatives": [],
+    "minimal_example": "import 'package:nativeapi_flutter/nativeapi_flutter.dart';\nfinal window = WindowManager.instance.getCurrent();\nwindow?.contentSize = const Size(800, 600).toNative();\nfinal Rect bounds = window!.bounds.toRect();",
+    "confidence": 0.85
+  }
+}

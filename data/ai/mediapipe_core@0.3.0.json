@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.3.0",
+  "generatedAt": "2026-11-18T11:51:04.244Z",
+  "data": {
+    "primary_category": "ai-ml",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Shared layer for MediaPipe task packages providing runtime, model downloads, and browser support.",
+    "what_it_does": "Acts as the shared core layer for MediaPipe task packages. It handles the native engine across platforms, verified model downloads, an on-demand model store, and the browser runtime.",
+    "use_when": [
+      "You are building a Flutter app that uses MediaPipe task packages like mediapipe_vision or mediapipe_text.",
+      "You need to bundle, verify, and download MediaPipe machine learning models."
+    ],
+    "avoid_when": [
+      "You are not using any MediaPipe task packages in your application.",
+      "You are looking for a standalone machine learning or LLM client that does not depend on MediaPipe."
+    ],
+    "strengths": [
+      "Cross-platform support including Android, iOS, web, Windows, macOS, and Linux.",
+      "Provides verified model downloads with SHA-256 checks and offline bundling."
+    ],
+    "weaknesses": [
+      "Not intended to be imported or added directly unless your code specifically imports package:mediapipe_core/...",
+      "Requires platform-specific setup for things like model bundling and network permissions for downloads."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires listing models in pubspec.yaml, running bundle_models script, and configuring platform permissions or entitlements if runtime downloads are enabled.",
+    "alternatives": [],
+    "minimal_example": "import 'package:mediapipe_vision/mediapipe_vision.dart';\n\nFuture<int> countFaces(Uint8List rgba, int width, int height) async {\n  final landmarker = await FaceLandmarker.create(\n    FaceLandmarkerOptions(model: VisionModels.faceLandmarker),\n  );\n  try {\n    final result = await landmarker.detect(\n      VisionImage.fromPixels(\n        pixels: rgba,\n        width: width,\n        height: height,\n        format: VisionPixelFormat.rgba,\n      ),\n    );\n    return result.faceLandmarks.length;\n  } finally {\n    await landmarker.dispose();\n  }\n}",
+    "confidence": 0.95
+  }
+}

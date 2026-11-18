@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.0",
+  "generatedAt": "2026-11-18T11:50:51.740Z",
+  "data": {
+    "primary_category": "ai-ml",
+    "secondary_categories": [
+      "utils",
+      "storage"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "A lightweight, in-memory HNSW vector index for Dart and Flutter supporting fast ANN search.",
+    "what_it_does": "Provides an in-memory vector index for performing fast approximate nearest neighbor searches using cosine or Euclidean similarity. Allows adding, searching, deleting, saving, and loading vectors natively in Dart.",
+    "use_when": [
+      "You need on-device vector search or embeddings matching in Dart or Flutter",
+      "You want a pure Dart implementation without native dependencies",
+      "You need to save and load small vector indices locally"
+    ],
+    "avoid_when": [
+      "You require a persistent embedded database for massive enterprise-scale vector collections",
+      "You need complex vector filtering that goes beyond basic distance metrics"
+    ],
+    "strengths": [
+      "Pure Dart implementation with no native dependencies",
+      "Supports both cosine and Euclidean similarity metrics",
+      "Includes built-in save and load serialization methods"
+    ],
+    "weaknesses": [
+      "In-memory storage means indices must be serialized and reloaded for persistence",
+      "Not documented for scaling to millions of high-dimensional vectors compared to specialized native vector databases"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "No native setup or dependencies required.",
+    "alternatives": [],
+    "minimal_example": "final index = LocalHNSW<String>(\n  dim: 3,\n  metric: LocalHnswMetric.cosine,\n);\nindex.add(LocalHnswItem(item: 'apple', vector: [0.1, 0.2, 0.3]));\nfinal result = index.search([0.1, 0.2, 0.3], 2);",
+    "confidence": 1
+  }
+}

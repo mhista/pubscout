@@ -1,0 +1,51 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "10.0.1",
+  "generatedAt": "2026-11-18T11:51:41.799Z",
+  "data": {
+    "primary_category": "charts",
+    "secondary_categories": [
+      "ui-kits",
+      "widgets",
+      "layout"
+    ],
+    "approach": [
+      "declarative",
+      "imperative"
+    ],
+    "one_liner": "A Flutter widget for interactive, themable Gantt charts with drag‑drop and real‑time sync.",
+    "what_it_does": "It renders large Gantt timelines using CustomPainter and lets users create, move, resize, and link tasks. Data can be loaded dynamically and updated in real time via a controller.",
+    "use_when": [
+      "You need a timeline view for project scheduling or resource planning in a Flutter app",
+      "You require interactive task manipulation (drag‑drop, resize) and custom theming",
+      "You want offline‑first support with CRDT‑based sync"
+    ],
+    "avoid_when": [
+      "You only need simple line/bar/pie charts (overkill for Gantt)",
+      "Your app targets very low‑end devices where custom painting of thousands of tasks may be heavy"
+    ],
+    "strengths": [
+      "Highly performant rendering of >10k tasks",
+      "Rich interactivity: drag‑drop, resizing, dependency creation",
+      "Extensive theming and custom widget builders",
+      "Backend‑agnostic with real‑time CRDT sync"
+    ],
+    "weaknesses": [
+      "Large dependency footprint (provider, intl, many server libs)",
+      "Requires Dart 3.13 and Flutter 3.47+ (may limit older projects)",
+      "Not a general‑purpose chart library; focused solely on Gantt"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add the package and its peer dependencies (provider, intl, material_ui). Ensure your app uses Dart 3.13 and Flutter 3.47+. No code‑gen required.",
+    "alternatives": [
+      {
+        "name": "syncfusion_flutter_charts",
+        "why_pick_it": "Provides a wide range of chart types including Gantt, with a mature UI kit and commercial support"
+      }
+    ],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:legacy_gantt_chart/legacy_gantt_chart.dart';\n\nvoid main() => runApp(const MyApp());\n\nclass MyApp extends StatelessWidget {\n  const MyApp({super.key});\n  @override\n  Widget build(BuildContext context) => MaterialApp(\n        home: Scaffold(\n          appBar: AppBar(title: const Text('Gantt Demo')),\n          body: LegacyGanttChartWidget(\n            controller: LegacyGanttController(\n              tasks: [\n                GanttTask(id: '1', title: 'Design', start: DateTime.now(), end: DateTime.now().add(const Duration(days: 5))),\n                GanttTask(id: '2', title: 'Development', start: DateTime.now().add(const Duration(days: 5)), end: DateTime.now().add(const Duration(days: 15))),\n              ],\n            ),\n          ),\n        ),\n      );\n}\n",
+    "confidence": 0.78
+  }
+}

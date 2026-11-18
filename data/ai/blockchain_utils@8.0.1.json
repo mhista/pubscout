@@ -1,0 +1,51 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "8.0.1",
+  "generatedAt": "2026-11-18T11:46:05.965Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "web3"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Comprehensive pure-Dart cryptography and blockchain toolkit with optional Rust backend.",
+    "what_it_does": "Provides core utilities for hashing, encoding, cryptography curves, mnemonics, HD wallets, addresses, and transaction signers across multiple blockchains. Supports a dual backend allowing execution in pure Dart or Rust (FFI/WASM).",
+    "use_when": [
+      "You are building a cryptocurrency wallet or interacting with blockchain networks.",
+      "You need robust cryptographic functions, key derivation, or address encoding in Dart.",
+      "You require cross-platform support for blockchain primitives with optional performance backends."
+    ],
+    "avoid_when": [
+      "You only need a simple, single-purpose library like standard base58 or bip39 and want to minimize dependency weight.",
+      "You need production-verified real hardware wallet communication without simulation testing."
+    ],
+    "strengths": [
+      "Comprehensive coverage of blockchain networks, curve types, and encoding formats.",
+      "Dual backend architecture supporting pure Dart or high-performance Rust execution.",
+      "Extensive support for zero-knowledge, threshold signatures, and Zcash protocols."
+    ],
+    "weaknesses": [
+      "Hardware wallet flows are simulation-tested only and not verified with real devices yet.",
+      "Breaking changes in major versions require migration (e.g. unified BuError types, API restructuring)."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Pure Dart by default. Optional Rust backend requires loading platform dynamic libraries or WASM assets.",
+    "alternatives": [
+      {
+        "name": "web3dart",
+        "why_pick_it": "If you specifically need a dedicated Ethereum-focused client and JSON-RPC provider library."
+      },
+      {
+        "name": "bip39",
+        "why_pick_it": "If you only need basic BIP39 mnemonic generation without a massive multi-chain cryptographic toolkit."
+      }
+    ],
+    "minimal_example": "import 'package:blockchain_utils/blockchain_utils.dart';\n\nvoid main() {\n  final digest = QuickCrypto.sha256Hash([1, 2, 3]);\n  print(digest.toHex());\n}",
+    "confidence": 1
+  }
+}

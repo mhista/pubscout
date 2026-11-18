@@ -1,0 +1,55 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "3.1.0",
+  "generatedAt": "2026-11-18T11:50:59.961Z",
+  "data": {
+    "primary_category": "devtools",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Unified in-app inspector for logs, network, navigation and database events.",
+    "what_it_does": "It captures and displays logs, HTTP traffic, navigation actions and database operations in a single overlay, with filtering, bookmarking and export features.",
+    "use_when": [
+      "Need quick debugging of network and log issues without external tools",
+      "Want to trace navigation flows and database changes during QA",
+      "Require a single API to access multiple devtools"
+    ],
+    "avoid_when": [
+      "You only need simple logging or network inspection, not a full overlay",
+      "Your app targets only web or only native and you prefer platform-specific tools"
+    ],
+    "strengths": [
+      "All-in-one UI for multiple devtools",
+      "Supports Dio, httpClient, WebView traffic",
+      "Exportable Markdown reports with redaction"
+    ],
+    "weaknesses": [
+      "Adds runtime overhead for overlay",
+      "Requires initialization in main()",
+      "Large feature set may be overkill for simple projects"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add to pubspec, call FlutterInspectorKit.initialize() in main(), optionally enable captureHttpClient:true",
+    "alternatives": [
+      {
+        "name": "logger",
+        "why_pick_it": "Lightweight console logging without overlay"
+      },
+      {
+        "name": "talker",
+        "why_pick_it": "Provides logging and network inspection with a simpler API"
+      },
+      {
+        "name": "pretty_dio_logger",
+        "why_pick_it": "Logs Dio requests in console, no UI overlay"
+      }
+    ],
+    "minimal_example": "```dart\nvoid main() {\n  WidgetsFlutterBinding.ensureInitialized();\n  FlutterInspectorKit.initialize();\n  runApp(MyApp());\n}\n```",
+    "confidence": 0.9
+  }
+}

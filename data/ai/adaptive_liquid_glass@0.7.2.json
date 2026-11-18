@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.7.2",
+  "generatedAt": "2026-11-18T11:47:54.509Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "animation"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Provides iOS‑style Liquid Glass widgets with Material 3 fallbacks for Android.",
+    "what_it_does": "Offers adaptive glass‑effect UI components that render native iOS liquid glass on iOS 26+ and Material 3 surfaces on Android. The API is platform‑agnostic, so no branching is required.",
+    "use_when": [
+      "You need iOS‑styled glass UI that matches SwiftUI on iOS 26+",
+      "You want a single API that automatically falls back to Material 3 on Android"
+    ],
+    "avoid_when": [
+      "You target platforms other than iOS or Android (e.g., web, desktop)",
+      "You require highly custom glass shaders beyond the provided presets"
+    ],
+    "strengths": [
+      "Pixel‑accurate iOS liquid glass verified against SwiftUI",
+      "Single adaptive API, no platform checks needed",
+      "Material 3 fallback works out‑of‑the‑box"
+    ],
+    "weaknesses": [
+      "Only supports iOS and Android",
+      "Initial frame may show a plain blur before shaders load"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the dependency and optionally call AdaptiveLiquidGlass.initialize() before runApp()",
+    "alternatives": [
+      {
+        "name": "material_ui",
+        "why_pick_it": "Provides a broad set of cross‑platform widgets without glass‑specific effects"
+      }
+    ],
+    "minimal_example": "import 'package:adaptive_liquid_glass/adaptive_liquid_glass.dart';\nimport 'package:flutter/material.dart';\n\nFuture<void> main() async {\n  await AdaptiveLiquidGlass.initialize();\n  runApp(const MaterialApp(home: Scaffold(body: Center(child: GlassButton(onPressed: null, child: Text('Tap me'))))));\n}",
+    "confidence": 0.9
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.8-flash",
+  "version": "0.15.0",
+  "generatedAt": "2026-11-18T11:47:15.430Z",
+  "data": {
+    "primary_category": "testing",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Streamlined golden testing tool for Flutter with local and CI-safe output support",
+    "what_it_does": "Alchemist simplifies writing and executing golden tests in Flutter by providing declarative test scenarios and groupings. It distinguishes between local human-readable golden tests and cross-platform CI tests that use obscured text and the Ahem font to avoid font rendering discrepancies across operating systems. It also includes configurable diff thresholds, custom pumping behavior, and auto-sizing.",
+    "use_when": [
+      "Writing visual regression and golden tests across multiple platforms without font mismatches failing CI",
+      "Organizing golden tests into structured groups and scenarios in a table format",
+      "Needing fine-grained control over golden test diff thresholds, theming, and gestures"
+    ],
+    "avoid_when": [
+      "You only require basic unit or widget testing without visual screenshot comparisons",
+      "Your project cannot use Dart 3.12+ or migrate to the standalone material_ui / cupertino_ui packages required by 0.15.0"
+    ],
+    "strengths": [
+      "Solves cross-platform font rendering issues on CI by rendering obscured text using the Ahem font",
+      "Provides clean `GoldenTestGroup` and `GoldenTestScenario` APIs to arrange multi-widget tests in a grid",
+      "Supports fine-grained configuration including pixel difference thresholds (`diffThreshold`) and custom pumping"
+    ],
+    "weaknesses": [
+      "Version 0.15.0 introduces a breaking change requiring standalone `material_ui`/`cupertino_ui` packages and minimum Flutter 3.44 / Dart 3.12",
+      "Generates separate sets of golden files for CI and local platforms, increasing repository file size"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires running tests with `flutter test --update-goldens` to generate baseline golden images.",
+    "alternatives": [],
+    "minimal_example": "goldenTest(\n  'renders correctly',\n  fileName: 'list_tile',\n  builder: () => GoldenTestGroup(\n    scenarioConstraints: const BoxConstraints(maxWidth: 600),\n    children: [\n      GoldenTestScenario(\n        name: 'with title',\n        child: ListTile(title: Text('ListTile.title')),\n      ),\n    ],\n  ),\n);",
+    "confidence": 0.95
+  }
+}

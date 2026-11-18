@@ -1,0 +1,51 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.9.1",
+  "generatedAt": "2026-11-18T11:52:42.899Z",
+  "data": {
+    "primary_category": "ai-ml",
+    "secondary_categories": [
+      "device"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "On-device ML inference for Flutter using PyTorch ExecuTorch and dart:ffi.",
+    "what_it_does": "ExecuTorch Flutter provides a Dart API for loading and running ExecuTorch machine learning models (.pte files) and experimental streaming LLMs directly on-device. It handles native platform integration across Android, iOS, macOS, Windows, Linux, and Web.",
+    "use_when": [
+      "You need to run PyTorch machine learning models locally on mobile, desktop, or web.",
+      "You want support for streaming on-device LLMs or real-time camera inference."
+    ],
+    "avoid_when": [
+      "You prefer running heavy inference on remote servers rather than on-device.",
+      "You are using BERT-family tokenizers (WordPiece) which are unsupported by the native tokenizer."
+    ],
+    "strengths": [
+      "Cross-platform support including Android, iOS, macOS, Windows, Linux, and Web.",
+      "Supports multiple backends like XNNPACK, CoreML, Metal, and experimental Vulkan or MLX.",
+      "Includes experimental streaming text generation for on-device LLMs."
+    ],
+    "weaknesses": [
+      "Requires platform configuration and native build hooks setup.",
+      "Tokenizers do not support WordPiece/BERT-family models.",
+      "Some backends like Vulkan or MLX are experimental or platform-restricted."
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Requires native build configuration under pubspec.yaml hooks.user_defines, setting iOS/macOS deployment targets, and running setup_web for web targets.",
+    "alternatives": [
+      {
+        "name": "tflite_flutter",
+        "why_pick_it": "Choose this if you prefer TensorFlow Lite models over PyTorch ExecuTorch for on-device inference."
+      },
+      {
+        "name": "llamadart",
+        "why_pick_it": "Choose this if you want a dedicated Dart library for LLaMA model inference without the ExecuTorch dependency."
+      }
+    ],
+    "minimal_example": "import 'package:executorch_flutter/executorch_flutter.dart';\n\nfinal model = await loadModelFromAsset('assets/models/model.pte');\nfinal outputs = await model.forward([inputTensor]);\nawait model.dispose();",
+    "confidence": 1
+  }
+}

@@ -1,0 +1,51 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.2.0",
+  "generatedAt": "2026-11-18T11:45:44.979Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "utils",
+      "auth"
+    ],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "An http.Client wrapper that automatically refreshes authentication tokens and retries requests.",
+    "what_it_does": "Fresh_http intercepts outgoing HTTP calls, attaches the current auth token, and refreshes it when it expires or a 401 response is received. It also provides a stream to observe authentication state changes.",
+    "use_when": [
+      "You need token‑based authentication with automatic refresh for http package calls",
+      "You want a drop‑in replacement for http.Client without rewriting request code"
+    ],
+    "avoid_when": [
+      "You already use a different HTTP client like dio with its own refresh support",
+      "Your app requires complex token handling that Fresh_http doesn't expose"
+    ],
+    "strengths": [
+      "Transparent integration with package:http",
+      "Handles concurrent refreshes with single‑flight logic",
+      "Provides authenticationStatus stream for UI reactions"
+    ],
+    "weaknesses": [
+      "Limited to http.Client; not a full‑featured networking stack",
+      "Customization beyond provided hooks may require extra code"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "http",
+        "why_pick_it": "Basic client without token management, lighter if you implement refresh yourself"
+      },
+      {
+        "name": "dio",
+        "why_pick_it": "Offers its own Fresh‑dio package with similar auto‑refresh features for dio users"
+      }
+    ],
+    "minimal_example": "final client = Fresh.oAuth2(\n  tokenStorage: InMemoryTokenStorage<OAuth2Token>(),\n  refreshToken: (token, client) async {\n    final response = await client.post(\n      Uri.parse('https://api.example.com/auth/refresh'),\n      body: {'refresh_token': token?.refreshToken},\n    );\n    final body = jsonDecode(response.body) as Map<String, dynamic>;\n    return OAuth2Token(\n      accessToken: body['access_token'],\n      refreshToken: body['refresh_token'],\n      expiresIn: body['expires_in'],\n      issuedAt: DateTime.now(),\n    );\n  },\n);",
+    "confidence": 0.93
+  }
+}

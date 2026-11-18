@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.25.0",
+  "generatedAt": "2026-11-18T11:47:32.301Z",
+  "data": {
+    "primary_category": "layout",
+    "secondary_categories": [
+      "ui-kits",
+      "navigation"
+    ],
+    "approach": [
+      "declarative",
+      "no codegen"
+    ],
+    "one_liner": "Real native iOS UI elements driven by Flutter layout, with matching Flutter UI on Android.",
+    "what_it_does": "Puts a native iOS overlay above the Flutter surface for navigation bars, tab bars, sheets, and glass effects while keeping them in sync with the Flutter layout every frame. On Android and older iOS, it renders matching Flutter replicas for cross-platform support.",
+    "use_when": [
+      "You want native iOS UIKit bars, sheets, and Liquid Glass effects in a Flutter app",
+      "You need a single codebase to serve iOS and Android with platform-appropriate UI replicas",
+      "You want complex native messaging composers and search toolbars driven by Flutter widgets"
+    ],
+    "avoid_when": [
+      "You are building for Web or desktop (which are not supported)",
+      "You need a pure Material Design or Cupertino style without native iOS 26 overlays"
+    ],
+    "strengths": [
+      "Real native iOS 26 UIKit controls like UITabBarController and UINavigationBar",
+      "No platform views per widget, allowing glass widgets to merge and morph naturally",
+      "Consistent Flutter fallback replicas for Android and older iOS versions"
+    ],
+    "weaknesses": [
+      "Pre-release software (0.1 status) where APIs may change",
+      "Does not support Web or desktop platforms due to reliance on dart:ffi"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires Flutter 3.47 or later (Dart 3.13) and iOS deployment target 15.0 or later. Voice recording requires an NSMicrophoneUsageDescription.",
+    "alternatives": [],
+    "minimal_example": "import 'package:veneer/veneer.dart';\n\nclass App extends StatelessWidget {\n  const App({super.key});\n\n  @override\n  Widget build(BuildContext context) => MaterialApp(\n    navigatorObservers: [VeneerNavigatorObserver()],\n    home: const Home(),\n  );\n}",
+    "confidence": 0.95
+  }
+}

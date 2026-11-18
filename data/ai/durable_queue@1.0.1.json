@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.1",
+  "generatedAt": "2026-11-18T11:47:47.828Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [
+      "utils",
+      "networking"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Persistent, retryable task queue for Flutter and Dart that survives crashes and restarts.",
+    "what_it_does": "A durable task queue that handles retries, offline waiting, priorities, dependencies, and recovery. Work is stored as serializable tasks and executed by a worker that owns retries, concurrency, ordering, and crash recovery.",
+    "use_when": [
+      "You need tasks like photo uploads or edits to survive app crashes and restarts",
+      "You require robust retry policies with backoff, jitter, and offline waiting",
+      "You need multi-step task workflows or deduplication"
+    ],
+    "avoid_when": [
+      "You only need simple asynchronous in-memory Futures without persistence",
+      "You want a fully hosted backend task runner"
+    ],
+    "strengths": [
+      "Survives app crashes, restarts, and offline periods",
+      "Supports priorities, dependencies, dead-letter queues, and concurrency limits",
+      "Framework-free core with modular storage and integration packages"
+    ],
+    "weaknesses": [
+      "Requires choosing and configuring a persistent storage adapter for production apps",
+      "Tasks must be fully serializable to JSON"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add durable_queue along with a storage package like durable_queue_sqlite or durable_queue_hive, and register task decoders and handlers on startup.",
+    "alternatives": [],
+    "minimal_example": "Future<void> main() async {\n  final queue = DurableQueue(\n    storage: MemoryQueueStorage(),\n    maxConcurrentTasks: 3,\n  );\n\n  queue.register<UploadPhotoTask>(\n    type: 'upload_photo',\n    decoder: UploadPhotoTask.fromJson,\n    handler: (task, context) async {\n      await photoApi.upload(task.path);\n    },\n  );\n\n  await queue.start();\n\n  await queue.enqueue(\n    UploadPhotoTask(path: '/storage/avatar.jpg'),\n  );\n}",
+    "confidence": 1
+  }
+}

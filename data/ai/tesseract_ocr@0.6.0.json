@@ -1,0 +1,51 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.6.0",
+  "generatedAt": "2026-11-18T11:46:30.286Z",
+  "data": {
+    "primary_category": "ai-ml",
+    "secondary_categories": [
+      "images"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter plugin for on‑device OCR using Tesseract and Apple Vision.",
+    "what_it_does": "Provides OCR capabilities on Android, iOS, macOS, Linux and Web by wrapping Tesseract 4 and Apple Vision. Allows configuration of language, engine mode and page segmentation via OCRConfig.",
+    "use_when": [
+      "You need offline text extraction from images across multiple platforms",
+      "You require support for many languages and custom traineddata assets",
+      "You want a single API that works on mobile, desktop and web"
+    ],
+    "avoid_when": [
+      "You need real‑time barcode/QR scanning (use a scanner package)",
+      "You prefer a pure Dart solution without native dependencies"
+    ],
+    "strengths": [
+      "Cross‑platform (mobile, desktop, web) OCR support",
+      "Configurable engines and language assets",
+      "Handles asset loading and native lifecycle robustly"
+    ],
+    "weaknesses": [
+      "Requires native setup and traineddata assets",
+      "Large asset size for multiple languages",
+      "No built‑in UI widgets, only OCR engine"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add traineddata files to assets, declare them in pubspec.yaml, ensure iOS uses Swift Package Manager or custom CocoaPods, Android needs no extra permissions but includes native libraries",
+    "alternatives": [
+      {
+        "name": "mobile_scanner",
+        "why_pick_it": "Provides fast barcode/QR scanning and basic OCR with less native setup"
+      },
+      {
+        "name": "google_mlkit_barcode_scanning",
+        "why_pick_it": "Offers on‑device OCR via ML Kit with simpler integration for Android/iOS"
+      }
+    ],
+    "minimal_example": "import 'package:tesseract_ocr/tesseract_ocr.dart';\n\nFuture<void> runOcr() async {\n  final config = OCRConfig(languages: ['eng']);\n  final text = await TesseractOcr.extractText('assets/sample.png', config);\n  print('Recognized: $text');\n}",
+    "confidence": 0.93
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.2.0",
+  "generatedAt": "2026-11-18T11:46:18.713Z",
+  "data": {
+    "primary_category": "devtools",
+    "secondary_categories": [
+      "widgets",
+      "networking"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A debug overlay providing log viewers, HTTP inspectors, and custom actions inside your app.",
+    "what_it_does": "It implements a global debug overlay directly in your Flutter app, enabling on-device inspection of logs and HTTP requests. It supports custom widgets for global actions and offers default triggers like touch gestures or keyboard shortcuts.",
+    "use_when": [
+      "You need to inspect logs and HTTP traffic directly on physical devices away from a computer.",
+      "You want a global overlay for custom debugging actions anywhere in your app."
+    ],
+    "avoid_when": [
+      "You only need desktop-attached debugging tools like DevTools.",
+      "You want to avoid adding extra runtime overhead or third-party buckets for logging."
+    ],
+    "strengths": [
+      "Global overlay works above app navigation.",
+      "Built-in integrations for popular HTTP clients like Dio and http.",
+      "Customizable trigger options for mobile and desktop."
+    ],
+    "weaknesses": [
+      "Requires manual setup and wiring of LogBuckets and HttpBuckets.",
+      "May clutter production builds if not conditionally disabled."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Insert the DebugOverlay widget into the builder of your WidgetsApp or MaterialApp.",
+    "alternatives": [
+      {
+        "name": "talker",
+        "why_pick_it": "Provides extensive logging, error handling, and a flexible UI package for debugging Flutter apps."
+      },
+      {
+        "name": "inspector",
+        "why_pick_it": "Alternative inspection utilities for Flutter development."
+      }
+    ],
+    "minimal_example": "MaterialApp(\n  builder: DebugOverlay.builder(),\n  home: const MyHomePage(),\n)",
+    "confidence": 0.95
+  }
+}

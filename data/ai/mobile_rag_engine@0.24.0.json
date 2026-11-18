@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.24.0",
+  "generatedAt": "2026-11-18T11:48:01.886Z",
+  "data": {
+    "primary_category": "ai-ml",
+    "secondary_categories": [
+      "storage",
+      "files"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Build local, on-device RAG in Flutter with semantic search and hybrid retrieval.",
+    "what_it_does": "Provides a Dart package to ingest documents, chunk them, embed them on-device using ONNX, and run hybrid vector (HNSW) and keyword (BM25) search. Works completely offline with local storage and integrates with any LLM.",
+    "use_when": [
+      "You need offline, on-device document search and retrieval for a Flutter app.",
+      "User data must stay on the device for privacy and zero server cost.",
+      "You want to combine vector search and keyword retrieval before feeding context to an LLM."
+    ],
+    "avoid_when": [
+      "You require cloud-hosted vector databases or server-side document processing.",
+      "You need built-in OCR for scanned, image-only PDFs without external setup."
+    ],
+    "strengths": [
+      "Completely offline and private operation with local embedding and SQLite storage.",
+      "Hybrid retrieval combining HNSW vector search and BM25 keyword search via RRF fusion.",
+      "Compatible with any custom LLM generation function or backend."
+    ],
+    "weaknesses": [
+      "Requires manual platform configuration and downloading model packs for native dependencies.",
+      "Scanned or image-only PDFs require an external OCR layer.",
+      "Model assets must be bundled and initialized correctly."
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Requires running a Dart setup script for model presets, adjusting native iOS/macOS host deployment targets, and adding model assets to pubspec.yaml.",
+    "alternatives": [],
+    "minimal_example": "final rag = MobileRag.instance;\nawait rag.addDocument('Refunds are accepted within 14 days of purchase.');\nfinal result = await rag.searchHybridWithContext('How long is the refund period?', tokenBudget: 2000);\nprint(result.context.text);",
+    "confidence": 0.95
+  }
+}

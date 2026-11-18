@@ -1,0 +1,54 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "3.0.0",
+  "generatedAt": "2026-11-18T11:52:01.970Z",
+  "data": {
+    "primary_category": "backend",
+    "secondary_categories": [
+      "widgets",
+      "ui-kits",
+      "utils"
+    ],
+    "approach": [
+      "declarative",
+      "stream-based",
+      "no codegen"
+    ],
+    "one_liner": "Pre‑built Flutter widgets for displaying Firebase Realtime Database data.",
+    "what_it_does": "The package offers ready‑made UI components that connect to Firebase Realtime Database and automatically update when the data changes. It includes helpers for queries, pagination and common list/detail patterns, reducing boilerplate code.",
+    "use_when": [
+      "You need a quick UI to show realtime data from Firebase without writing low‑level stream handling.",
+      "You are building admin panels, dashboards or simple list/detail screens that map directly to database nodes."
+    ],
+    "avoid_when": [
+      "You require highly custom UI or complex interactions that the provided widgets cannot express.",
+      "Your app does not use Firebase or you prefer a different backend."
+    ],
+    "strengths": [
+      "Speeds up development by providing ready‑made widgets.",
+      "Seamlessly integrates with FlutterFire and works on all major platforms.",
+      "Handles realtime streams and pagination out of the box."
+    ],
+    "weaknesses": [
+      "Limited customization compared to building widgets manually.",
+      "Adds an extra dependency layer; breaking changes may require migration.",
+      "Only works with Firebase Realtime Database, not other backends."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add firebase_core, firebase_database and firebase_ui_database to pubspec, initialize Firebase in main(), configure iOS/Android native Firebase files (Google‑Service‑Info.plist, google-services.json). No CocoaPods required after v3.0.0.",
+    "alternatives": [
+      {
+        "name": "firebase_database",
+        "why_pick_it": "Provides low‑level access to Realtime Database without UI abstractions, giving full control."
+      },
+      {
+        "name": "cloud_firestore",
+        "why_pick_it": "If you prefer Firestore over Realtime Database, this package offers similar UI helpers for Firestore data."
+      }
+    ],
+    "minimal_example": "import 'package:flutter/material.dart';\nimport 'package:firebase_core/firebase_core.dart';\nimport 'package:firebase_ui_database/firebase_ui_database.dart';\n\nvoid main() async {\n  WidgetsFlutterBinding.ensureInitialized();\n  await Firebase.initializeApp();\n  runApp(const MyApp());\n}\n\nclass MyApp extends StatelessWidget {\n  const MyApp({super.key});\n  @override\n  Widget build(BuildContext context) {\n    return MaterialApp(\n      home: Scaffold(\n        appBar: AppBar(title: const Text('Realtime List')),\n        body: FirebaseDatabaseListView(\n          query: FirebaseDatabase.instance.ref('items'),\n          itemBuilder: (context, snapshot) {\n            return ListTile(title: Text(snapshot.child('name').value.toString()));\n          },\n        ),\n      ),\n    );\n  }\n}",
+    "confidence": 0.93
+  }
+}
