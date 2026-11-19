@@ -1,0 +1,46 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.20.1",
+  "generatedAt": "2026-11-19T11:43:58.431Z",
+  "data": {
+    "primary_category": "ai-ml",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "stream-based",
+      "hooks"
+    ],
+    "one_liner": "On‑device LLM inference for Dart/Flutter across native and web",
+    "what_it_does": "Runs GGUF (llama.cpp) and LiteRT‑LM models locally, providing streaming chat, embeddings, multimodal input, and structured JSON output. It supports native platforms and experimental web support via WebGPU.",
+    "use_when": [
+      "Need offline, no‑network LLM inference in a Flutter app",
+      "Want streaming chat or embeddings without a server",
+      "Require multimodal (audio, image) input or text‑to‑speech",
+      "Target multiple platforms (Android, iOS, macOS, Windows, Linux, web)"
+    ],
+    "avoid_when": [
+      "Relying on GPU‑heavy models on low‑end devices",
+      "Using web exclusively where experimental support may be unstable",
+      "Need cloud‑based inference or large model hosting"
+    ],
+    "strengths": [
+      "Offline, no network required",
+      "Cross‑platform support (native + experimental web)",
+      "Streaming API and structured JSON output",
+      "Multimodal capabilities (audio, image, TTS)"
+    ],
+    "weaknesses": [
+      "Complex native setup (runtime packages, build hooks)",
+      "Web support is experimental",
+      "Requires native C++ toolchain resolution on first run",
+      "Large model binaries increase app size"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add companion runtime packages (llamadart_llama_cpp_flutter, llamadart_litert_lm_flutter, etc.), run `dart run llamadart:web_setup` for web, ensure iOS/macOS deployment targets, and include runtime assets via build hook.",
+    "alternatives": [],
+    "minimal_example": "import 'package:llamadart/llamadart.dart';\n\nFuture<void> main() async {\n  final engine = await LlamaEngine.load(\n    LlamaModel(\n      ModelSource.parse(\n        'hf://unsloth/SmolLM2-135M-Instruct-GGUF/SmolLM2-135M-Instruct-Q2_K.gguf',\n      ),\n    ),\n  );\n  try {\n    final reply = await engine.create(\n      const [\n        LlamaChatMessage.fromText(\n          role: LlamaChatRole.user,\n          text: 'Explain local inference in one sentence.',\n        ),\n      ],\n      params: const GenerationParams(maxTokens: 48),\n    ).text();\n    print(reply);\n  } finally {\n    await engine.dispose();\n  }\n}",
+    "confidence": 0.85
+  }
+}

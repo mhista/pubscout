@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.2.1",
+  "generatedAt": "2026-11-19T11:44:20.762Z",
+  "data": {
+    "primary_category": "animation",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Text that morphs letter by letter, outline into outline, and into icons.",
+    "what_it_does": "Provides widgets that smoothly morph text letter by letter between different styles, weights, sizes, fonts, words, or icons using OpenType outline data. At rest, it renders as native plain text.",
+    "use_when": [
+      "You want smooth typographic transitions between different weights, fonts, or words.",
+      "You are building Hero animations where titles need to morph smoothly between screens.",
+      "You want text labels to morph into icons seamlessly."
+    ],
+    "avoid_when": [
+      "You are using complex contextual script shapes like Arabic or Indic where letter morphing fails.",
+      "You rely heavily on fonts loaded dynamically at runtime that cannot be bundled in pubspec.yaml."
+    ],
+    "strengths": [
+      "No crossfade or ghosting; outlines truly morph into each other.",
+      "Falls back to pixel-perfect plain text at the start and end of animations.",
+      "Supports iOS system fonts (SF Pro) without bundling font assets."
+    ],
+    "weaknesses": [
+      "Requires font files to be bundled and readable in pubspec.yaml for custom fonts.",
+      "Does not support contextual shaping or ligatures out of the box."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Bundle the font files you want to morph between in pubspec.yaml.",
+    "alternatives": [],
+    "minimal_example": "AnimatedMorphText(\n  'New Word',\n  style: TextStyle(fontFamily: 'Fraunces', fontWeight: FontWeight.w600, fontSize: 52),\n)",
+    "confidence": 0.95
+  }
+}

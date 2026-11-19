@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "5.0.1",
+  "generatedAt": "2026-11-19T11:45:39.748Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Handles runtime permissions for Android and iOS with customizable dialogs",
+    "what_it_does": "EasyPermissionValidator wraps the permission_handler plugin to request permissions at runtime. It provides a simple API and customizable messages or dialogs for each permission request.",
+    "use_when": [
+      "When you need to request camera, location, contacts, microphone, or other device permissions",
+      "When you want to show a custom dialog or localized messages for permission requests"
+    ],
+    "avoid_when": [
+      "When you need platform‑specific permission handling beyond what permission_handler offers",
+      "When building a web or desktop‑only app that does not require runtime permissions"
+    ],
+    "strengths": [
+      "Simple API that hides permission_handler complexity",
+      "Supports custom dialogs and localized messages",
+      "Handles both Android and iOS permissions in one place"
+    ],
+    "weaknesses": [
+      "Relies on permission_handler, so any limitations of that plugin apply",
+      "No support for web or desktop platforms",
+      "Requires manual native permission declarations"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add required permissions to ios/Runner/Info.plist and android/app/src/main/AndroidManifest.xml as listed in the README. No build_runner needed.",
+    "alternatives": [],
+    "minimal_example": "final validator = EasyPermissionValidator(context: context, appName: 'My App');\nfinal granted = await validator.camera();\nif (granted) { /* use camera */ }",
+    "confidence": 0.9
+  }
+}

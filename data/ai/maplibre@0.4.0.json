@@ -1,0 +1,50 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.4.0",
+  "generatedAt": "2026-11-19T11:44:13.766Z",
+  "data": {
+    "primary_category": "maps",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative",
+      "imperative"
+    ],
+    "one_liner": "Performant vector maps for Flutter supporting Mapbox Vector Tiles across all six platforms.",
+    "what_it_does": "Renders interactive vector and raster maps using the MapLibre Native C API and maplibre-gl-js. It provides typed style layers, sources, offline map capabilities, and declarative annotations that render directly into Flutter textures or HTML elements.",
+    "use_when": [
+      "You need interactive vector or raster maps across Android, iOS, macOS, Windows, Linux, and web.",
+      "You want maps to render into Flutter textures so that standard widgets compose seamlessly over and around them."
+    ],
+    "avoid_when": [
+      "You require the older maplibre_gl package architecture and are not ready to migrate to version 0.4.",
+      "Your project targets Android versions below API level 24, iOS 15, or macOS 14.3."
+    ],
+    "strengths": [
+      "Supports six platforms using a unified API via FFI and JS interop.",
+      "Fast interop without platform views on desktop and mobile.",
+      "Full style spec with typed style layers, sources, and expressions."
+    ],
+    "weaknesses": [
+      "UI widgets like map compass do not automatically follow the app's Material Theme.",
+      "Requires minimum OS versions (Android API 24, iOS 15, macOS 14.3)."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires platform setup steps and specific minimum OS versions (Android API 24, iOS 15, macOS 14.3). Swift Package Manager is required for iOS and macOS.",
+    "alternatives": [
+      {
+        "name": "flutter_map",
+        "why_pick_it": "A pure Dart interactive map package that does not rely on native MapLibre SDKs."
+      },
+      {
+        "name": "google_maps_flutter",
+        "why_pick_it": "If your application specifically requires Google Maps data and platform views rather than MapLibre."
+      }
+    ],
+    "minimal_example": "MapLibreMap(\n  options: MapOptions(\n    style: MapStyle.url('https://demotiles.maplibre.org/style.json'),\n    initCamera: .position(center: Geographic(lon: 9.17, lat: 47.68), zoom: 7),\n  ),\n  layers: [\n    CircleLayer(\n      points: [Feature(geometry: Point(Geographic(lon: 9.17, lat: 47.68)))],\n      color: const .literal(Colors.blue),\n      radius: const .literal(12),\n    ),\n  ],\n)",
+    "confidence": 0.95
+  }
+}

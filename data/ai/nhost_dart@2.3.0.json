@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.3.0",
+  "generatedAt": "2026-11-19T11:45:12.803Z",
+  "data": {
+    "primary_category": "backend",
+    "secondary_categories": [
+      "auth",
+      "storage"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Dart and Flutter client for Nhost Auth, Storage, Functions, and GraphQL.",
+    "what_it_does": "Provides API clients for Nhost services, allowing users to handle authentication, file storage, serverless functions, and GraphQL helpers. It supports both cloud subdomains and self-hosted service URLs.",
+    "use_when": [
+      "You are building a Dart or Flutter application backed by Nhost.",
+      "You need to handle user registration, login, and multi-factor authentication.",
+      "You need to upload, store, and transform files securely."
+    ],
+    "avoid_when": [
+      "Your backend is built on Firebase, Supabase, or Appwrite instead of Nhost.",
+      "You only require low-level HTTP networking without Nhost services."
+    ],
+    "strengths": [
+      "Comprehensive integration with Nhost authentication and storage APIs.",
+      "Supports both cloud-hosted subdomains and self-hosted project URLs.",
+      "Includes GraphQL adapter support."
+    ],
+    "weaknesses": [
+      "Tightly coupled to the Nhost ecosystem.",
+      "Limited documentation outside of basic initialization and sample usage."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Initialize NhostClient with your subdomain or service URLs.",
+    "alternatives": [],
+    "minimal_example": "import 'package:nhost_dart/nhost_dart.dart';\n\nvoid main() async {\n  final nhost = NhostClient(\n    subdomain: Subdomain(\n      region: 'eu-central-1',\n      subdomain: 'backend-5e69d1d7',\n    ),\n  );\n\n  final authResponse = await nhost.auth.signUp(\n    email: 'new-user@gmail.com',\n    password: 'password-1',\n  );\n\n  await nhost.auth.signOut();\n  nhost.close();\n}",
+    "confidence": 0.95
+  }
+}

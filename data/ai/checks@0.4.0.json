@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.4.0",
+  "generatedAt": "2026-11-19T11:43:58.903Z",
+  "data": {
+    "primary_category": "testing",
+    "secondary_categories": [],
+    "approach": [
+      "declarative",
+      "imperative"
+    ],
+    "one_liner": "A framework for checking test expectations against values and building custom expectations.",
+    "what_it_does": "Provides a literate API to express test expectations and build custom expectations. It allows checking values with descriptive failures, cascading assertions, and support for asynchronous values and streams.",
+    "use_when": [
+      "You are writing unit or widget tests in Dart and want a literate expectation API.",
+      "You need to build custom expectations for your own types."
+    ],
+    "avoid_when": [
+      "You are writing production code (this package is strictly for testing).",
+      "You rely on production use cases where experimental packages with frequent breaking changes are an issue."
+    ],
+    "strengths": [
+      "Literate and readable API using cascade syntax and dot shorthands.",
+      "Robust support for asynchronous expectations and streams.",
+      "Clear failure reporting with detailed expectations."
+    ],
+    "weaknesses": [
+      "Still experimental with a high expected rate of API and breaking changes.",
+      "For production use cases, package:test and package:matcher are recommended instead."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add a dev_dependency on checks and import package:checks/checks.dart in your test code.",
+    "alternatives": [],
+    "minimal_example": "void main() {\n  test('sample test', () {\n    check(actual).equals(expected);\n    check(someList).isNotEmpty;\n    check(someObject).isA<Map>();\n    check(someString)..startsWith('a')..endsWith('z')..contains('lmno');\n  });\n}",
+    "confidence": 1
+  }
+}

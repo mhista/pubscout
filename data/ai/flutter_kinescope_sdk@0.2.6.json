@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.2.6",
+  "generatedAt": "2026-11-19T11:44:18.655Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Flutter plugin providing a Kinescope video player with native Android/iOS and web embed implementations.",
+    "what_it_does": "It wraps the Kinescope video service in a single Dart API (`KinescopePlayer` and `KinescopePlayerController`). The plugin uses native ExoPlayer on Android, AVPlayer on iOS, and an iframe embed on Web, exposing features like DRM, offline download, PiP and quality selection.",
+    "use_when": [
+      "You need to play Kinescope‑hosted videos with native performance and DRM support.",
+      "You want a single widget that works on Android, iOS and Web with offline download capability."
+    ],
+    "avoid_when": [
+      "You need a generic video player not tied to Kinescope.",
+      "You prefer a pure‑Dart solution without native setup."
+    ],
+    "strengths": [
+      "Native playback on Android and iOS for smooth performance",
+      "DRM and offline download support",
+      "Unified API across mobile and web"
+    ],
+    "weaknesses": [
+      "Works only with Kinescope videos",
+      "Requires native configuration (manifest, CocoaPods, JDK 17)",
+      "Limited to the features provided by the Kinescope SDK"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add Android manifest entries and API key, ensure JDK 17, set minSdk 24; configure iOS deployment target (iOS 15), CocoaPods tag, and PiP permissions; no build_runner needed.",
+    "alternatives": [
+      {
+        "name": "video_player",
+        "why_pick_it": "A generic Flutter video player that works with any video source and has fewer native setup steps."
+      }
+    ],
+    "minimal_example": "KinescopePlayer(\n  controller: KinescopePlayerController(\n    'yourVideoId',\n    parameters: const PlayerParameters(\n      autoplay: true,\n      muted: true,\n    ),\n  ),\n  aspectRatio: 16/9,\n)",
+    "confidence": 0.97
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "2.1.1",
+  "generatedAt": "2026-11-19T11:43:58.777Z",
+  "data": {
+    "primary_category": "testing",
+    "secondary_categories": [],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "Utility for testing subprocesses with line‑by‑line stdout/stderr streams.",
+    "what_it_does": "Provides a TestProcess class that wraps dart:io Process for easier testing. It offers line‑oriented stdout/stderr streams via StreamQueue and helpers like shouldExit and debugging output.",
+    "use_when": [
+      "You need to run and verify CLI tools or other subprocesses in unit tests.",
+      "You want line‑by‑line assertions on stdout/stderr using the test package's stream matchers."
+    ],
+    "avoid_when": [
+      "You are writing production code that launches processes.",
+      "You need full control over signals on Windows (unsupported)."
+    ],
+    "strengths": [
+      "Line‑by‑line stdout/stderr streams simplify assertions.",
+      "Built‑in integration with the test package’s stream matchers.",
+      "Debugging output automatically shows process logs on failure."
+    ],
+    "weaknesses": [
+      "Only intended for testing, not for runtime process management.",
+      "Limited signal support on Windows.",
+      "Requires Dart 3.1, so older SDKs cannot use it."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "process",
+        "why_pick_it": "Standard dart:io Process API gives full control without testing‑specific helpers."
+      }
+    ],
+    "minimal_example": "import 'package:test/test.dart';\nimport 'package:test_process/test_process.dart';\n\nvoid main() {\n  test('pub get gets dependencies', () async {\n    var process = await TestProcess.start('dart', ['pub', 'get']);\n    await expectLater(process.stdout, emits('Resolving dependencies...'));\n    await expectLater(process.stdout, emitsThrough('Got dependencies!'));\n    await process.shouldExit(0);\n  });\n}",
+    "confidence": 0.97
+  }
+}

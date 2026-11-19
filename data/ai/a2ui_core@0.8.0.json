@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.8.0",
+  "generatedAt": "2026-11-19T11:44:04.554Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "declarative",
+      "reactive"
+    ],
+    "one_liner": "Framework-agnostic Dart SDK for the A2UI protocol supporting messages, data binding, and state models.",
+    "what_it_does": "Provides protocol message parsing and validation, reactive state management using preact_signals, basic catalogs with validation and formatting functions, reactive component tree resolution, and bidirectional RPC coordination.",
+    "use_when": [
+      "You are building Dart or Flutter clients that render the A2UI protocol.",
+      "You need reactive state management and data binding for A2UI components.",
+      "You require message parsing and validation for A2UI v0.9, v0.9.1, and v1.0 envelopes."
+    ],
+    "avoid_when": [
+      "You are not using the A2UI protocol in your application.",
+      "You need legacy A2UI v0.8 payload runtime processing."
+    ],
+    "strengths": [
+      "Supports multiple versions of the A2UI protocol (v0.9, v0.9.1, v1.0).",
+      "Built-in reactive state management with preact_signals.",
+      "Comprehensive JSON Schema validation and bidirectional RPC handling."
+    ],
+    "weaknesses": [
+      "Strictly tied to the A2UI protocol specification.",
+      "Legacy v0.8 payloads are not supported."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:a2ui_core/a2ui_core.dart';\n\nvoid main() {\n  final catalog = BasicCatalog.v1_0();\n  final processor = MessageProcessor(\n    catalogs: [catalog],\n    defaultVersion: A2uiProtocolVersion.v1_0,\n    outboundListener: (RendererToAgentMessage message) {\n      print('Outbound: ${message.toJson()}');\n    },\n    unifiedOutbound: true,\n  );\n\n  final Subscription sub = processor.model.onSurfaceCreated.subscribe((surface) {\n    print('Created surface: ${surface.id}');\n  });\n\n  processor.processMessages([\n    {\n      'version': '1.0',\n      'createSurface': {\n        'surfaceId': 'main',\n        'catalogId': BasicCatalog.v1_0Id,\n      },\n    },\n  ]);\n\n  sub.unsubscribe();\n  processor.dispose();\n}",
+    "confidence": 0.95
+  }
+}
