@@ -1,0 +1,55 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "1.0.1",
+  "generatedAt": "2026-11-20T11:41:41.456Z",
+  "data": {
+    "primary_category": "dependency-injection",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "A lightweight, no‑dependency DI library for Dart and Flutter.",
+    "what_it_does": "Provides scoped, singleton and transient references with simple override and automatic disposal support. Uses top‑level variables for fast lookups and safe error handling.",
+    "use_when": [
+      "You need a minimal DI solution without code generation.",
+      "You want easy testing via overrides in widget sub‑trees.",
+      "You prefer a small API surface and no extra package dependencies."
+    ],
+    "avoid_when": [
+      "You require advanced code‑generated injection (e.g., @Injectable).",
+      "You need a large ecosystem of plugins and integrations."
+    ],
+    "strengths": [
+      "Zero external dependencies, keeping the app size small.",
+      "Fast lookups without hash‑maps.",
+      "Built‑in disposal for ChangeNotifier/Disposable objects.",
+      "Simple API that’s easy to learn."
+    ],
+    "weaknesses": [
+      "Limited feature set compared to more mature DI containers.",
+      "No code‑generation support for compile‑time safety.",
+      "Smaller community and fewer third‑party extensions."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "get_it",
+        "why_pick_it": "Mature, feature‑rich DI container with extensive community support."
+      },
+      {
+        "name": "injector",
+        "why_pick_it": "Provides similar lightweight DI with a slightly different API."
+      },
+      {
+        "name": "injectable",
+        "why_pick_it": "Offers compile‑time code generation for type‑safe injection if you need that."
+      }
+    ],
+    "minimal_example": "final settingsServiceRef = Ref.scoped((ctx) => SettingsService());\n\nclass SettingsPage extends StatelessWidget {\n  @override\n  Widget build(BuildContext context) {\n    final service = settingsServiceRef.of(context);\n    return Text(service.getThemeMode());\n  }\n}",
+    "confidence": 0.93
+  }
+}

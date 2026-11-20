@@ -1,0 +1,48 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.23.0",
+  "generatedAt": "2026-11-20T11:41:39.297Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [
+      "backend"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "MySQL and MariaDB database driver for Dart and Flutter",
+    "what_it_does": "A library for connecting to and querying MySQL and MariaDB databases. It allows executing queries with parameters, handling results, inserting, updating data, and running multi-statement queries.",
+    "use_when": [
+      "You need to connect a Dart or Flutter application directly to a MySQL or MariaDB database",
+      "You want client-side parameter binding and SQL execution similar to package:postgres"
+    ],
+    "avoid_when": [
+      "You are building for Flutter Web, as sockets are not supported on the web platform",
+      "You prefer an ORM or a declarative database builder like drift"
+    ],
+    "strengths": [
+      "Keeps behavior and defaults close to major MySQL drivers and package:postgres",
+      "Supports connection settings, parameterized queries, and batch multi-queries"
+    ],
+    "weaknesses": [
+      "Does not work on Flutter Web due to socket limitations",
+      "DECIMAL values are read as Strings, requiring manual parsing or third-party types for math"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Not documented",
+    "alternatives": [
+      {
+        "name": "sqflite",
+        "why_pick_it": "Pick sqflite if you need local SQLite database storage on mobile instead of a remote MySQL server."
+      },
+      {
+        "name": "drift",
+        "why_pick_it": "Pick drift for a reactive, type-safe SQLite ORM experience."
+      }
+    ],
+    "minimal_example": "var settings = new ConnectionSettings(host: 'localhost', port: 3306, user: 'bob', password: 'wibble', db: 'mydb');\nvar conn = await MySqlConnection.connect(settings);\nvar results = await conn.query('select name, email from users where id = ?', [1]);",
+    "confidence": 0.95
+  }
+}

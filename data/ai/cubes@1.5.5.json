@@ -1,0 +1,54 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "1.5.5",
+  "generatedAt": "2026-11-20T11:46:42.183Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [
+      "dependency-injection"
+    ],
+    "approach": [
+      "no codegen",
+      "imperative"
+    ],
+    "one_liner": "Simple state manager with built‑in dependency injection using observable values.",
+    "what_it_does": "Cubes lets you create Cube classes that hold business logic and expose ObservableValues. Widgets rebuild only when those observables change, and Cubes are provided via a lightweight DI container.",
+    "use_when": [
+      "You need lightweight state management without code generation.",
+      "You want built‑in DI and fine‑grained widget rebuilds."
+    ],
+    "avoid_when": [
+      "Your app requires complex stream handling or advanced state features like bloc or riverpod.",
+      "You rely heavily on code‑gen tools for boilerplate reduction."
+    ],
+    "strengths": [
+      "No code‑generation step required.",
+      "Fine‑grained rebuilds improve performance.",
+      "Integrated DI simplifies object creation."
+    ],
+    "weaknesses": [
+      "Smaller ecosystem compared to popular state libraries.",
+      "Limited advanced features (e.g., middleware, testing utilities)."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "get_it",
+        "why_pick_it": "Provides pure DI without additional state‑management layer."
+      },
+      {
+        "name": "stacked_shared",
+        "why_pick_it": "Offers state management with DI and more built‑in utilities."
+      },
+      {
+        "name": "flutter_modular",
+        "why_pick_it": "Combines DI and navigation for larger modular apps."
+      }
+    ],
+    "minimal_example": "import 'package:cubes/cubes.dart';\nimport 'package:flutter/material.dart';\n\nvoid main(){\n  Cubes.registerFactory((i)=>CounterCube());\n  runApp(MaterialApp(home: CounterScreen()));\n}\n\nclass CounterCube extends Cube{final count=0.obs;void increment()=>count.modify((v)=>v+1);}\n\nclass CounterScreen extends CubeWidget<CounterCube>{\n  const CounterScreen({Key?key}):super(key:key);\n  @override\n  Widget buildView(BuildContext ctx, CounterCube c){\n    return Scaffold(\n      body: Center(child: c.count.build<int>((v)=>Text('$v'))),\n      floatingActionButton: FloatingActionButton(onPressed:c.increment,child:Icon(Icons.add)),\n    );\n  }\n}",
+    "confidence": 0.93
+  }
+}

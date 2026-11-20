@@ -1,0 +1,54 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "2.0.0",
+  "generatedAt": "2026-11-20T11:41:41.318Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "layout",
+      "navigation"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A responsive Flutter navigation bar that switches between a full bar and a drawer based on screen size.",
+    "what_it_does": "The package provides an AdaptiveNavBar widget that renders a traditional app bar on larger screens and collapses into a drawer menu on mobile devices. It relies on the material_ui library for theming and widget implementations.",
+    "use_when": [
+      "You need a single navigation widget that works across web, desktop, and mobile without writing custom responsive code.",
+      "Your app already uses material_ui and targets Flutter 3.47+."
+    ],
+    "avoid_when": [
+      "Your project still depends on the default flutter/material.dart library.",
+      "You require advanced navigation features like deep linking or nested routing beyond a simple bar."
+    ],
+    "strengths": [
+      "Zero‑code responsive behavior – the widget adapts automatically.",
+      "Integrates with material_ui, keeping styling consistent.",
+      "Simple API – same as previous 1.x versions."
+    ],
+    "weaknesses": [
+      "Requires migration to material_ui and Flutter 3.47+, which may be a breaking change for existing apps.",
+      "Limited to basic navigation UI; no built‑in routing or state management."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add adaptive_navbar ^2.0.0 and material_ui to pubspec, ensure Flutter 3.47+ and migrate imports to material_ui (run dart fix --apply --code=migrate_design_widgets).",
+    "alternatives": [
+      {
+        "name": "responsive_framework",
+        "why_pick_it": "Provides a full set of breakpoints and responsive utilities to build custom navigation bars without a dedicated widget."
+      },
+      {
+        "name": "responsive_builder",
+        "why_pick_it": "Offers responsive widget builders that let you create your own adaptive navbar with fine‑grained control."
+      },
+      {
+        "name": "value_layout_builder",
+        "why_pick_it": "A lightweight helper for building layout‑aware widgets, suitable for custom navbar implementations."
+      }
+    ],
+    "minimal_example": "import 'package:material_ui/material_ui.dart';\nimport 'package:adaptive_navbar/adaptive_navbar.dart';\n\nclass MyHome extends StatelessWidget {\n  @override\n  Widget build(BuildContext context) {\n    return Scaffold(\n      appBar: AdaptiveNavBar(\n        title: Text('My App'),\n        items: [\n          NavBarItem(label: 'Home', icon: Icons.home, onTap: () {}),\n          NavBarItem(label: 'Settings', icon: Icons.settings, onTap: () {}),\n        ],\n      ),\n      body: Center(child: Text('Content')),\n    );\n  }\n}",
+    "confidence": 0.85
+  }
+}

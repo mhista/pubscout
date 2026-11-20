@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.8",
+  "generatedAt": "2026-11-20T11:47:32.440Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "Create two-component states with an isolated backend part and a frontend part for UI-isolates.",
+    "what_it_does": "Isolator splits state logic into a Frontend component that runs in the UI thread and a Backend component that runs in a separate isolate. It enables communication between them to handle CPU-heavy computations or big-data parsing without dropping UI frames. It also supports interactors for communication between different backends.",
+    "use_when": [
+      "You have heavy CPU-bound tasks or data parsing that causes jank in the UI isolate",
+      "You want to organize state into isolated backend components and frontend UI components"
+    ],
+    "avoid_when": [
+      "Your application is simple and state management can be handled on a single thread without performance issues",
+      "You are targeting platforms where isolates have limitations or you prefer standard single-threaded state managers"
+    ],
+    "strengths": [
+      "Keeps the UI thread unblocked for smooth 60/120 fps animations",
+      "Provides a structured way to run business logic in background isolates without complex boilerplate"
+    ],
+    "weaknesses": [
+      "Adds architectural complexity with split Frontend and Backend components",
+      "Does not provide true multi-threading on Flutter Web due to platform limitations"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires structuring state into paired Frontend and Backend components rather than standard single-class state management.",
+    "alternatives": [
+      {
+        "name": "flutter_bloc",
+        "why_pick_it": "If you want standard single-threaded reactive state management with extensive community plugins and widgets."
+      },
+      {
+        "name": "riverpod",
+        "why_pick_it": "If you prefer a compile-safe, modern provider-based state management solution without managing isolates manually."
+      }
+    ],
+    "minimal_example": "// Minimal example not documented in detail in the provided README excerpt",
+    "confidence": 0.9
+  }
+}

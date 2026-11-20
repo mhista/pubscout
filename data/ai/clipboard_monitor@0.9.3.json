@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.9.3",
+  "generatedAt": "2026-11-20T11:46:03.036Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter plugin that notifies when the system clipboard text changes on Android and iOS.",
+    "what_it_does": "Provides a static API to register callbacks that are invoked whenever the clipboard content is updated while the app is running. Supports registering multiple callbacks and removing them individually or all at once.",
+    "use_when": [
+      "You need real‑time clipboard change notifications inside a running app",
+      "You want a simple callback‑based API without streams or code generation"
+    ],
+    "avoid_when": [
+      "The app may be backgrounded or not running (monitoring stops)",
+      "You require clipboard access on Android 10+ when the app is not in focus"
+    ],
+    "strengths": [
+      "Lightweight and easy to integrate",
+      "Works on both Android and iOS with a single API",
+      "No additional build steps or code generation required"
+    ],
+    "weaknesses": [
+      "Does not work when the app is not in the foreground",
+      "Limited to text content only"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:clipboard_monitor/clipboard_monitor.dart';\n\nvoid startClipboardMonitor() {\n  ClipboardMonitor.registerCallback(onClipboardText);\n}\n\nvoid stopClipboardMonitor() {\n  ClipboardMonitor.unregisterCallback(onClipboardText);\n}\n\nvoid onClipboardText(String text) {\n  print('clipboard changed: $text');\n}\n\nvoid stopAllClipboardMonitoring() {\n  ClipboardMonitor.unregisterAllCallbacks();\n}",
+    "confidence": 0.85
+  }
+}

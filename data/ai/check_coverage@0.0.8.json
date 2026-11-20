@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.0.8",
+  "generatedAt": "2026-11-20T11:43:41.762Z",
+  "data": {
+    "primary_category": "devtools",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "CLI tool that checks lcov coverage against a threshold",
+    "what_it_does": "It reads an lcov tracefile and exits with status 0 if the coverage is at or above the given percentage, otherwise it exits with status 1 and prints the top uncovered files.",
+    "use_when": [
+      "Enforcing a minimum coverage percentage in CI pipelines",
+      "Running coverage checks locally during development"
+    ],
+    "avoid_when": [
+      "You need to analyze coverage in formats other than lcov",
+      "You want a graphical coverage report"
+    ],
+    "strengths": [
+      "Very small dependency footprint",
+      "Simple command line usage",
+      "No build or code generation required"
+    ],
+    "weaknesses": [
+      "Only supports lcov tracefiles",
+      "No support for other coverage formats or platforms"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "```\ndart test --coverage=.coverage\nformat_coverage -l -c -i .coverage --report-on=lib | check_coverage 98\n```",
+    "confidence": 0.9
+  }
+}

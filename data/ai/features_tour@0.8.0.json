@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.8.0",
+  "generatedAt": "2026-11-20T11:43:15.753Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "ui-kits"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Create ordered tours to introduce widget features in your app using enums.",
+    "what_it_does": "Enables you to build ordered, step-by-step feature tours and user onboarding flows. It highlights specific widgets, supports custom callouts and buttons, persists progress via a controller, and provides lifecycle callbacks.",
+    "use_when": [
+      "You need to guide first-time users through your app interface.",
+      "You want ordered widget highlights driven by strongly typed enums."
+    ],
+    "avoid_when": [
+      "You need complex out-of-the-box multi-page dialog walkthroughs without widget wrappers.",
+      "Your app does not use Flutter or Material."
+    ],
+    "strengths": [
+      "Strongly typed enum-based step ordering and caching.",
+      "Extensive customization options for callouts, buttons, and global defaults."
+    ],
+    "weaknesses": [
+      "Requires wrapping individual target widgets with `FeaturesTour`.",
+      "Persisted state changes keys on upgrade, causing tours to show once more."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Initialize global config or set up a FeaturesTourController with an enum.",
+    "alternatives": [],
+    "minimal_example": "final tourController = FeaturesTourController<HomeTourStep>('HomePage');\n\nFeaturesTour<HomeTourStep>(\n    controller: tourController,\n    step: HomeTourStep.drawer,\n    nextStep: HomeTourStep.drawerButton,\n    introduce: const Text('Tap here to open the drawer'),\n    child: IconButton(\n        icon: const Icon(Icons.menu),\n        onPressed: () {},\n    ),\n)",
+    "confidence": 1
+  }
+}

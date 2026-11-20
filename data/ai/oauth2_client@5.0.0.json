@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "5.0.0",
+  "generatedAt": "2026-11-20T11:41:33.314Z",
+  "data": {
+    "primary_category": "auth",
+    "secondary_categories": [
+      "networking",
+      "storage"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Interact with OAuth2 servers and handle token storage and refreshing in Flutter.",
+    "what_it_does": "A Flutter library that helps interact with OAuth2 servers using flows like Authorization Code, Client Credentials, and Implicit Grant. It includes classes for transparent authorized requests, secure token storage, and automatic token refreshing, along with predefined clients for popular services like Google, Facebook, and GitHub.",
+    "use_when": [
+      "You need to authenticate users via custom or third-party OAuth2 providers in Flutter.",
+      "You want automatic handling of token refreshing and storage using secure storage."
+    ],
+    "avoid_when": [
+      "You only need built-in Firebase Authentication or Google Sign-In via specialized SDKs."
+    ],
+    "strengths": [
+      "Supports multiple OAuth2 flows (Authorization Code, Client Credentials, Implicit Grant).",
+      "Pre-defined clients for many popular providers (Google, Facebook, GitHub, Microsoft, etc.).",
+      "Helper class automates token refreshing and secure storage."
+    ],
+    "weaknesses": [
+      "Requires platform-specific configuration such as custom URI schemes and Android Manifest updates.",
+      "Tokens on the web platform are stored in localStorage which is unencrypted."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires adding intent filters for custom URI schemes in AndroidManifest.xml, setting the platform version in ios/Podfile, and following setup guides for flutter_web_auth_2 and flutter_secure_storage.",
+    "alternatives": [
+      {
+        "name": "google_sign_in",
+        "why_pick_it": "If you specifically need native Google sign-in integration rather than generic OAuth2."
+      },
+      {
+        "name": "firebase_auth",
+        "why_pick_it": "If you are using Firebase for backend authentication instead of a custom OAuth2 server."
+      }
+    ],
+    "minimal_example": "GoogleOAuth2Client client = GoogleOAuth2Client(customUriScheme: 'my.test.app', redirectUri: 'my.test.app:/oauth2redirect');\nOAuth2Helper oauth2Helper = OAuth2Helper(client, grantType: OAuth2Helper.authorizationCode, clientId: 'your_client_id', clientSecret: 'your_client_secret', scopes: ['https://www.googleapis.com/auth/drive.readonly']);\nhttp.Response resp = await oauth2Helper.get('https://www.googleapis.com/drive/v3/files');",
+    "confidence": 1
+  }
+}

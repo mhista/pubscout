@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.0.0",
+  "generatedAt": "2026-11-20T11:43:21.815Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "storage",
+      "device"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "A collection of utility classes for SharedPreferences, screen adaptation, widgets, and directories.",
+    "what_it_does": "Provides common utility classes for Flutter development including SharedPreferences handling via SpUtil, screen and font adaptation via ScreenUtil, widget rendering monitoring via WidgetUtil, and directory path management via DirectoryUtil.",
+    "use_when": [
+      "You need a quick way to handle synchronous SharedPreferences storage for primitives and objects.",
+      "You want a straightforward screen adaptation and scaling utility.",
+      "You need to retrieve local directory paths or monitor widget bounding boxes."
+    ],
+    "avoid_when": [
+      "You prefer modern state-of-the-art state management or separate specialized utility packages.",
+      "You require advanced asynchronous local database solutions like SQLite or Hive."
+    ],
+    "strengths": [
+      "Combines multiple essential utility classes into a single package.",
+      "Simplifies SharedPreferences usage with helper methods for objects and lists.",
+      "Offers helpful screen and font scaling helpers."
+    ],
+    "weaknesses": [
+      "Some components like sp_util have been split into separate standalone libraries.",
+      "Older codebase style relying heavily on static singleton utilities."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Initialize SharedPreferences using `await SpUtil.getInstance();` inside `main()` if using SpUtil.",
+    "alternatives": [],
+    "minimal_example": "void main() async {\n  WidgetsFlutterBinding.ensureInitialized();\n  await SpUtil.getInstance();\n  runApp(MyApp());\n}",
+    "confidence": 0.95
+  }
+}

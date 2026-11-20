@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.1.3",
+  "generatedAt": "2026-11-20T11:44:03.511Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Flutter plugin to setup and control VPN connections via Wireguard tunnels.",
+    "what_it_does": "Allows Flutter applications to initialize, start, and stop WireGuard VPN tunnels across multiple platforms. It provides streams and methods to check the current connection stage.",
+    "use_when": [
+      "You need to connect your Flutter application to a WireGuard VPN server.",
+      "You want to monitor VPN connection state changes in real-time."
+    ],
+    "avoid_when": [
+      "You are building a general-purpose HTTP/WebSocket networking app that does not require a VPN tunnel."
+    ],
+    "strengths": [
+      "Cross-platform support including Android, iOS, Windows, macOS, and Linux.",
+      "Provides real-time updates on VPN connection stages."
+    ],
+    "weaknesses": [
+      "Requires administrator privileges on Windows and sudo/root privileges on Linux to create and manipulate tunnels.",
+      "Platform-specific system dependencies must be configured (e.g., wireguard-tools on Linux)."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires native configuration such as administrative permissions on Windows, installing wireguard and wireguard-tools on Linux, and configuring provider bundle identifiers on iOS.",
+    "alternatives": [],
+    "minimal_example": "final wireguard = WireGuardFlutter.instance;\nawait wireguard.initialize(interfaceName: 'wg0');\nawait wireguard.startVpn(\n  serverAddress: 'demo.wireguard.com:51820',\n  wgQuickConfig: conf,\n  providerBundleIdentifier: 'com.example',\n);",
+    "confidence": 1
+  }
+}

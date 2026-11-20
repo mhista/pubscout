@@ -1,0 +1,51 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.2.1",
+  "generatedAt": "2026-11-20T11:41:21.599Z",
+  "data": {
+    "primary_category": "dependency-injection",
+    "secondary_categories": [
+      "codegen"
+    ],
+    "approach": [
+      "code generation",
+      "declarative"
+    ],
+    "one_liner": "Constructor-based compile-time dependency injection framework for Dart and Flutter.",
+    "what_it_does": "Provides compile-time dependency injection using annotations and code generation. It wires services explicitly via constructors and modules without relying on runtime reflection or global state.",
+    "use_when": [
+      "You want compile-time validation for missing dependencies and cycles",
+      "You prefer explicit constructor-based dependency injection without runtime lookups",
+      "You are building a Flutter application that benefits from typed view model factories and zero reflection overhead"
+    ],
+    "avoid_when": [
+      "You prefer runtime dependency injection or service-locator patterns like get_it",
+      "You do not want to use code generation and build_runner in your workflow"
+    ],
+    "strengths": [
+      "Compile-time validation catches wiring issues and cycles early",
+      "Zero runtime overhead and no reflection",
+      "Refactor-safe with strong Flutter and view model integration"
+    ],
+    "weaknesses": [
+      "Requires running build_runner for code generation",
+      "Strictly enforces constructor injection"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add inject_annotation and build_runner with inject_generator as dev dependencies, then run build_runner.",
+    "alternatives": [
+      {
+        "name": "injectable",
+        "why_pick_it": "If you want a more annotation-friendly abstraction on top of get_it service locator rather than pure compile-time constructor injection."
+      },
+      {
+        "name": "get_it",
+        "why_pick_it": "If you prefer a simpler runtime service locator instead of generating compile-time components."
+      }
+    ],
+    "minimal_example": "@inject\nclass CounterViewModel extends ChangeNotifier {\n  int count = 0;\n  void increment() {\n    count++;\n    notifyListeners();\n  }\n}",
+    "confidence": 1
+  }
+}

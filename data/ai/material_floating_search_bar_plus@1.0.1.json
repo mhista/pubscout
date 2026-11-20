@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.1",
+  "generatedAt": "2026-11-20T11:43:57.870Z",
+  "data": {
+    "primary_category": "ui-kits",
+    "secondary_categories": [
+      "widgets",
+      "animation"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "An expandable and animated floating search bar widget for Flutter.",
+    "what_it_does": "Provides a persistent floating search bar widget that expands and animates between states. It supports custom transitions, query handling with debounce delays, and integration with scrollables to hide or show on scroll.",
+    "use_when": [
+      "You want a persistent Google-style floating search bar in your app.",
+      "You need expandable search suggestions or animated transitions on search open and close."
+    ],
+    "avoid_when": [
+      "You only need a static standard app bar search input field without floating or expansion animations.",
+      "You require complex search indexing or backend integration out of the box."
+    ],
+    "strengths": [
+      "Smooth animations and built-in transitions like circular, expanding, and slide fade.",
+      "Customizable width, margins, actions, and scrolling behaviors.",
+      "Active continuation of a popular package with Flutter 3 support."
+    ],
+    "weaknesses": [
+      "Requires careful handling of scrollable heights and shrink-wrapping unless isScrollControlled is used.",
+      "Not documented for non-Flutter platforms beyond mobile and desktop."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "FloatingSearchBar(\n  hint: 'Search...',\n  scrollPadding: const EdgeInsets.only(top: 16, bottom: 56),\n  transitionDuration: const Duration(milliseconds: 800),\n  transitionCurve: Curves.easeInOut,\n  physics: const BouncingScrollPhysics(),\n  axisAlignment: 0.0,\n  openAxisAlignment: 0.0,\n  width: 600,\n  debounceDelay: const Duration(milliseconds: 500),\n  onQueryChanged: (query) {},\n  transition: CircularFloatingSearchBarTransition(),\n  builder: (context, transition) {\n    return ClipRRect(\n      borderRadius: BorderRadius.circular(8),\n      child: Material(\n        color: Colors.white,\n        elevation: 4.0,\n        child: Column(\n          mainAxisSize: MainAxisSize.min,\n          children: [ListTile(title: Text('Result 1'))],\n        ),\n      ),\n    );\n  },\n)",
+    "confidence": 0.95
+  }
+}

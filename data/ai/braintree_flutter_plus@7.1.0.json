@@ -1,0 +1,47 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "7.1.0",
+  "generatedAt": "2026-11-20T11:43:45.970Z",
+  "data": {
+    "primary_category": "payments",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "A Flutter wrapper for native Braintree SDKs supporting custom UI and payment sheets.",
+    "what_it_does": "Wraps native Braintree SDKs for iOS and Android, allowing developers to implement either Braintree's drop-in payment sheet or a custom Flutter UI using credit cards, PayPal, and 3D Secure verification.",
+    "use_when": [
+      "You need to integrate Braintree payments into your Flutter application.",
+      "You require custom Flutter-based payment UI using Braintree tokenization."
+    ],
+    "avoid_when": [
+      "You need Venmo or Google Pay on Android (not currently supported by the Android v5 integration).",
+      "Your app targets iOS versions below 16.0 or Android SDK below API 23."
+    ],
+    "strengths": [
+      "Actively maintained fork with modern platform support (iOS 16+, Android 12+).",
+      "Supports both custom Flutter UIs and a cross-platform payment sheet.",
+      "Includes fixes for PayPal vault flows and Xcode build issues."
+    ],
+    "weaknesses": [
+      "Venmo and Google Pay are not currently supported on Android.",
+      "Requires manual configuration for Android intent-filters and iOS URL schemes when using PayPal/3D Secure."
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Requires setting minSdkVersion to at least 23 on Android, setting iOS deployment target to 16.0, and configuring URL schemes or intent filters for PayPal and 3D Secure.",
+    "alternatives": [
+      {
+        "name": "flutter_stripe",
+        "why_pick_it": "Choose this if you prefer processing payments via Stripe instead of Braintree."
+      },
+      {
+        "name": "in_app_purchase",
+        "why_pick_it": "Choose this if you are implementing standard digital goods in-app purchases via Apple App Store or Google Play Store."
+      }
+    ],
+    "minimal_example": "final request = BraintreePayPalRequest(amount: '13.37');\nBraintreePaymentMethodNonce result = await Braintree.requestPaypalNonce(\n   '<Insert your tokenization key or client token here>',\n   request,\n);",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "1.1.0",
+  "generatedAt": "2026-11-20T11:42:34.264Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Provides a non‑opaque RuntimeType object for runtime type checks and casting.",
+    "what_it_does": "RuntimeType wraps a generic type so you can pass type information around at runtime. It enables subtype checking, type checks, and calling functions with type arguments dynamically.",
+    "use_when": [
+      "You need to inspect or compare types at runtime beyond what Dart's Type offers",
+      "You want to pass type information to generic functions or callbacks",
+      "You need to call functions with type arguments dynamically"
+    ],
+    "avoid_when": [
+      "The static type system already solves your problem",
+      "Performance‑critical code where extra indirection is undesirable",
+      "You rely on dart:mirrors or other reflection mechanisms"
+    ],
+    "strengths": [
+      "Enables runtime subtype checks without mirrors",
+      "Simple API based on generics",
+      "Adds extensions for calling functions with RuntimeType arguments"
+    ],
+    "weaknesses": [
+      "Limited to Dart; not a full reflection solution",
+      "May not handle all complex generic scenarios",
+      "Adds a small runtime overhead"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "final stringType = RuntimeType<String>();\nbool isSubtype = <int>[] is List<num>; // example of underlying trick",
+    "confidence": 0.9
+  }
+}

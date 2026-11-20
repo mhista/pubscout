@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.7.0",
+  "generatedAt": "2026-11-20T11:43:27.730Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [
+      "notifications"
+    ],
+    "approach": [
+      "declarative",
+      "imperative"
+    ],
+    "one_liner": "Flutter plugin for WhatsApp, Google Meet, and Teams-style VoIP call UI and native notifications.",
+    "what_it_does": "Provides a plug-and-play call UI and VoIP workflow for WebRTC video and audio calls. Handles native full-screen incoming call intents on Android, CallKit on iOS, ongoing-call notifications, and conference layouts.",
+    "use_when": [
+      "You are building audio or video calls with WebRTC and need native WhatsApp-style incoming/outgoing call UX.",
+      "You need integration with Android full-screen intents and iOS CallKit out of the box."
+    ],
+    "avoid_when": [
+      "Your app does not implement voice or video calls.",
+      "You require custom native incoming call UI on iOS (iOS uses system CallKit UI)."
+    ],
+    "strengths": [
+      "Plug-and-play UI for 1-to-1 and multi-participant conference calls.",
+      "Cold-start ready with event buffering and startup route resolution from push notifications.",
+      "Works with any WebRTC backend via CallwaveEngine implementation."
+    ],
+    "weaknesses": [
+      "Requires specific native configuration on Android and iOS.",
+      "High platform coupling for VoIP-specific intents and native call integrations."
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Requires Android API 26+ and iOS 13+. Needs host Activity intent actions on Android, CocoaPods or Swift Package Manager on iOS, and implementation of CallwaveEngine callbacks.",
+    "alternatives": [],
+    "minimal_example": "class MyCallwaveEngine extends CallwaveEngine {\n  @override\n  Future<void> onAnswerCall(CallSession session) async {\n    final roomToken = session.callData.extra?['roomToken'];\n    await mySdk.join(roomToken);\n    session.reportConnected();\n  }\n}",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "2.1.2",
+  "generatedAt": "2026-11-20T11:43:35.389Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Flutter widgets to view and download email messages using enough_mail.",
+    "what_it_does": "Provides MimeMessageViewer to render already‑fetched MIME messages and MimeMessageDownloader to fetch content on demand. It integrates with enough_mail and uses InAppWebView for rich HTML rendering, supporting dark mode and external image blocking.",
+    "use_when": [
+      "You need to display email content in a Flutter app",
+      "You already use the enough_mail library for mail handling",
+      "You want built‑in support for HTML rendering, dark mode, and image handling"
+    ],
+    "avoid_when": [
+      "You are not building an email client",
+      "You require a pure web solution without native webview",
+      "You need a custom rendering engine not based on InAppWebView"
+    ],
+    "strengths": [
+      "Tight integration with enough_mail",
+      "Supports dark mode and external image blocking",
+      "Allows custom fetch methods and download timeouts",
+      "Uses InAppWebView for accurate HTML rendering"
+    ],
+    "weaknesses": [
+      "Depends on native InAppWebView, adding platform setup",
+      "Requires xml dependency override",
+      "Limited to email use‑case"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add dependency overrides for xml (^6.0.1) and ensure InAppWebView platform setup (Android/iOS) as per its docs",
+    "alternatives": [],
+    "minimal_example": "import 'package:enough_mail/enough_mail.dart';\nimport 'package:enough_mail_flutter/enough_mail_flutter.dart';\n\nWidget build(MimeMessage mimeMessage) {\n  return MimeMessageViewer(\n    mimeMessage: mimeMessage,\n    blockExternalImages: false,\n    mailtoDelegate: (uri, msg) async => /* handle mailto */,\n  );\n}",
+    "confidence": 0.95
+  }
+}

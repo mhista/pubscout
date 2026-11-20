@@ -1,0 +1,37 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.5.1",
+  "generatedAt": "2026-11-20T11:43:45.890Z",
+  "data": {
+    "primary_category": "payments",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter plugin for the Razorpay Custom UI SDK on Android and iOS",
+    "what_it_does": "Provides a wrapper around native Android and iOS Razorpay Custom UI SDKs, enabling payment processing, event listening for success and errors, and fetching recommended payment instruments.",
+    "use_when": [
+      "You need to integrate Razorpay payments with custom UI flows in a Flutter app.",
+      "Your app targets Android and iOS platforms with native Razorpay SDK support."
+    ],
+    "avoid_when": [
+      "You are using standard Razorpay checkout instead of custom UI SDKs.",
+      "You need pure Dart implementations without native Android and iOS SDK dependencies."
+    ],
+    "strengths": [
+      "Direct integration with native Razorpay Custom SDKs",
+      "Event-based communication for payment success and failures"
+    ],
+    "weaknesses": [
+      "Requires manual configuration of native minimum API levels and iOS deployment targets",
+      "Limited to specific native platforms (Android and iOS)"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires minimum Android API level 19 or higher, iOS minimum deployment target 10.0 or higher, enabling bitcode/Swift versions on iOS, and Proguard rules for Android builds.",
+    "alternatives": [],
+    "minimal_example": "import 'package:razorpay_flutter_customui/razorpay_flutter_customui.dart';\n\n_razorpay = Razorpay();\n_razorpay.on(Razorpay.EVENT_PAYMENT_SUCCESS, _handlePaymentSuccess);\n_razorpay.on(Razorpay.EVENT_PAYMENT_ERROR, _handlePaymentError);\n\nvar options = {\n  'key': '<YOUR_KEY_HERE>',\n  'amount': 100,\n};\n_razorpay.submit(options);",
+    "confidence": 0.95
+  }
+}

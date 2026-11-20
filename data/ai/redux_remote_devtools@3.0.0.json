@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.0.0",
+  "generatedAt": "2026-11-20T11:44:09.562Z",
+  "data": {
+    "primary_category": "devtools",
+    "secondary_categories": [
+      "state-management"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Remote DevTools for Redux.dart to inspect state changes during runtime.",
+    "what_it_does": "Connects a Dart Redux store to a Remote Devtools Server, enabling developers to inspect state changes and time-travel during runtime. It translates actions and states into JSON formats to communicate with the JavaScript Remote Devtools server.",
+    "use_when": [
+      "You are using Redux for state management in Dart or Flutter and want to inspect state changes remotely.",
+      "You want to use time-travel debugging with Redux DevTools."
+    ],
+    "avoid_when": [
+      "You are not using Redux as your state management solution.",
+      "Your actions and state are extremely difficult to serialize to JSON."
+    ],
+    "strengths": [
+      "Enables powerful time-travel debugging for Redux.dart applications.",
+      "Supports custom action/state encoders and decoders."
+    ],
+    "weaknesses": [
+      "Requires a running Node.js Remote Devtools server instance.",
+      "Actions and state must be JSON encodable for full functionality."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires running the remotedev-server via npm and configuring RemoteDevToolsMiddleware as the last middleware in your store.",
+    "alternatives": [],
+    "minimal_example": "var remoteDevtools = RemoteDevToolsMiddleware('192.168.1.52:8000');\nfinal store = DevToolsStore<AppState>(searchReducer, middleware: [remoteDevtools]);\nremoteDevtools.store = store;\nawait remoteDevtools.connect();",
+    "confidence": 0.95
+  }
+}

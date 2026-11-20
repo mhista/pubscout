@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.3.0",
+  "generatedAt": "2026-11-20T11:47:18.496Z",
+  "data": {
+    "primary_category": "devtools",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Architecture linter plugin that enforces layer boundaries and banned imports via analyzer rules",
+    "what_it_does": "It analyzes Dart/Flutter projects to detect architectural violations such as improper imports between layers. The plugin reports lints in IDEs and can exit with a code based on severity.",
+    "use_when": [
+      "You need to enforce a strict layered architecture in a large codebase",
+      "You want automated linting for import rules and layer configuration",
+      "You prefer configuration over code generation"
+    ],
+    "avoid_when": [
+      "Your project has a very flat structure with no layers",
+      "You need runtime enforcement rather than static analysis"
+    ],
+    "strengths": [
+      "Configurable via YAML, supports custom layer paths and severities",
+      "CLI support for CI pipelines",
+      "Integrates with existing analyzer plugins",
+      "No build_runner or code generation required"
+    ],
+    "weaknesses": [
+      "Only works with Dart/Flutter analyzer, not for other languages",
+      "Requires manual YAML configuration",
+      "No UI component, purely linting"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add to dev_dependencies, configure analysis_options.yaml, run analyzer or CLI",
+    "alternatives": [],
+    "minimal_example": "```yaml\narchitecture_linter:\n  layers:\n    - name: \"Domain\"\n      path: \"(domain)\"\n    - name: \"Presentation\"\n      path: \"(presentation)\"\n  banned_imports:\n    - layer: *presentationLayer\n      banned:\n        - *domainLayer\n```",
+    "confidence": 0.92
+  }
+}

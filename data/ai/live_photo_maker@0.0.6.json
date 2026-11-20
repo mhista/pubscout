@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.0.6",
+  "generatedAt": "2026-11-20T11:41:41.006Z",
+  "data": {
+    "primary_category": "images",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Creates Live Photo files for iOS lock screen wallpaper.",
+    "what_it_does": "Provides a simple API to generate a Live Photo from a cover image, optional video or audio, and size parameters. The generated file can be saved to the device and used as a lock‑screen wallpaper on iOS.",
+    "use_when": [
+      "You need to programmatically create Live Photos for iOS lock‑screen wallpapers.",
+      "You want a quick way to combine an image with video or audio into a Live Photo."
+    ],
+    "avoid_when": [
+      "Your app targets Android only (Live Photo not supported).",
+      "You require extensive customization of the Live Photo generation process."
+    ],
+    "strengths": [
+      "Simple, single‑method API.",
+      "Supports both video and audio content.",
+      "Works as a Flutter plugin for iOS."
+    ],
+    "weaknesses": [
+      "No Android support.",
+      "Limited documentation and examples.",
+      "No configuration options beyond basic parameters."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add the plugin to pubspec, run flutter pub get, and ensure iOS project has required permissions for media access; no additional native code required beyond the plugin integration.",
+    "alternatives": [],
+    "minimal_example": "bool success = await LivePhotoMaker.create(\n    coverImage: coverImage!.path,\n    imagePath: contentImage?.path,\n    voicePath: contentVoice?.path,\n    width: movWidth,\n    height: movHeight);\n",
+    "confidence": 0.7
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.1.0",
+  "generatedAt": "2026-11-20T11:45:30.753Z",
+  "data": {
+    "primary_category": "web-desktop",
+    "secondary_categories": [
+      "widgets"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Disables the native web context menu for a specific Flutter widget",
+    "what_it_does": "Provides a widget that prevents the default browser context menu from appearing when right-clicking a specific child widget on Flutter Web. On non-web platforms, it acts as a pass-through and does nothing.",
+    "use_when": [
+      "You want to show a custom Flutter context menu on web for a specific widget instead of the global browser menu.",
+      "You need your web app to be WASM compatible."
+    ],
+    "avoid_when": [
+      "You want to disable the context menu globally across the entire app (which can be done via Flutter's built-in BrowserContextMenu).",
+      "Your app does not target Flutter Web."
+    ],
+    "strengths": [
+      "Targeted disabling of context menus for specific widgets rather than globally.",
+      "Safe to use across all platforms as it safely no-ops on non-web targets.",
+      "WASM compatible."
+    ],
+    "weaknesses": [
+      "Limited to solving a single specific web-only UI problem."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "DisableWebContextMenu(\n  child: Container(\n    width: 200,\n    height: 200,\n    child: Text('Right click to show custom menu'),\n  ),\n)",
+    "confidence": 1
+  }
+}

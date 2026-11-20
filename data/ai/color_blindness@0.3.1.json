@@ -1,0 +1,38 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.3.1",
+  "generatedAt": "2026-11-20T11:47:07.809Z",
+  "data": {
+    "primary_category": "theming",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "declarative"
+    ],
+    "one_liner": "Simulate color blindness across Material 3 color schemes or individual colors in Flutter.",
+    "what_it_does": "It simulates eight color vision deficiencies (such as deuteranopia, protanopia, and tritanopia) on individual colors or complete Material 3 color schemes. It also calculates color contrast ratios and checks contrast issues to audit accessibility.",
+    "use_when": [
+      "You need to audit your app's Material 3 theme and colors for accessibility against color blindness.",
+      "You want to preview how your UI looks under different color vision deficiencies."
+    ],
+    "avoid_when": [
+      "You require rigorous physiological LMS cone-space simulations (like Brettel or Machado models) instead of lightweight 3x3 RGB matrix approximations."
+    ],
+    "strengths": [
+      "Supports eight distinct color vision deficiencies.",
+      "Works directly with Material 3 ColorSchemes and individual Flutter Colors.",
+      "Includes built-in contrast ratio checking and accessibility auditing tools."
+    ],
+    "weaknesses": [
+      "Uses lightweight sRGB matrix approximations rather than physiological cone-space modeling.",
+      "Limited to color simulation and contrast checking utilities."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "No native setup or permissions required. Simply add the dependency and import the package.",
+    "alternatives": [],
+    "minimal_example": "ThemeData(\n  colorScheme: ColorScheme.fromSeed(\n    seedColor: const Color(0xFF006C51),\n  ).simulateColorBlindness(ColorBlindnessType.deuteranopia),\n)",
+    "confidence": 1
+  }
+}

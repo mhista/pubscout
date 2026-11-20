@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.2.1",
+  "generatedAt": "2026-11-20T11:43:33.525Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [
+      "dependency-injection",
+      "utils"
+    ],
+    "approach": [
+      "stream-based",
+      "declarative"
+    ],
+    "one_liner": "A toolkit for writing software in Dart featuring an effect system and dependency management.",
+    "what_it_does": "Elemental provides a ZIO building block for writing effectful synchronous or asynchronous programs, a Layer system for composing dependencies, and nucleus for simple state and dependency management. It also includes immutable data structures and functional programming primitives like Option and Either.",
+    "use_when": [
+      "You want to build functional, effect-driven applications in Dart.",
+      "You need robust dependency composition using layers.",
+      "You want to manage state and dependencies using nucleus."
+    ],
+    "avoid_when": [
+      "You prefer traditional imperative Dart programming without functional effect systems.",
+      "You are looking for a standard UI-focused state management solution without functional abstractions."
+    ],
+    "strengths": [
+      "Provides a comprehensive ZIO effect system for Dart.",
+      "Built-in layer composition for dependencies.",
+      "Includes immutable data structures via fast_immutable_collections."
+    ],
+    "weaknesses": [
+      "Steep learning curve for developers unfamiliar with functional programming or ZIO concepts.",
+      "Documentation outside of pub.dev and basic examples is limited."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add element to your pubspec.yaml dependencies.",
+    "alternatives": [],
+    "minimal_example": "import 'package:elemental/elemental.dart';\n\nZIO<NoEnv, Never, String> greeting(String name) => ZIO(() => \"Hello $name!\");\n\nIO<Unit> log(String message) => IO(() => print(message)).asUnit;\n\ngreeting.tap(log).run();",
+    "confidence": 0.95
+  }
+}

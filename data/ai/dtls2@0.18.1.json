@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.18.1",
+  "generatedAt": "2026-11-20T11:42:01.978Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "DTLS library for Dart implemented via FFI bindings to OpenSSL.",
+    "what_it_does": "Provides datagram socket encryption through a client and server implementation supporting DTLS in PKI and PSK mode via OpenSSL FFI bindings.",
+    "use_when": [
+      "You need encrypted datagram socket communication (DTLS) in a Dart or Flutter app.",
+      "You are targeting native platforms (Android, iOS, Windows, macOS, Linux) and can bundle or preinstall OpenSSL."
+    ],
+    "avoid_when": [
+      "You are building for the Web, as datagram sockets and this package are not supported on web platforms.",
+      "You want to avoid external native dependencies like OpenSSL."
+    ],
+    "strengths": [
+      "Offers both client and server implementations with PKI and PSK mode support.",
+      "Familiar Stream-based and connection-oriented API wrapping RawDatagramSocket."
+    ],
+    "weaknesses": [
+      "Requires OpenSSL dynamic libraries (libssl and libcrypto) to be available or bundled on the target platform.",
+      "Connecting to a server currently does not work on macOS.",
+      "Handshake message corruption can occur when too many cipher suites are offered."
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Requires libssl and libcrypto from OpenSSL to be available. On Android, iOS, Windows, and macOS they often need to be bundled or installed via package managers like Homebrew or Chocolatey.",
+    "alternatives": [],
+    "minimal_example": "import 'dart:async';\nimport 'dart:convert';\nimport 'dart:io';\nimport 'dart:typed_data';\nimport 'package:dtls2/dtls2.dart';\n\nvoid main() async {\n  final dtlsClient = await DtlsClient.bind(\"::\", 0);\n  final context = DtlsClientContext(\n    verify: false,\n    withTrustedRoots: false,\n  );\n  try {\n    final connection = await dtlsClient.connect(\n      InternetAddress(\"::1\"),\n      5684,\n      context,\n    );\n    connection.send(Uint8List.fromList(utf8.encode('Hello World')));\n  } finally {\n    await dtlsClient.close();\n  }\n}",
+    "confidence": 0.95
+  }
+}

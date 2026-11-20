@@ -1,0 +1,52 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "1.0.2",
+  "generatedAt": "2026-11-20T11:41:21.344Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Intercept and modify HTTP requests/responses using the http package.",
+    "what_it_does": "Provides a wrapper to add interceptors for logging, authentication, and error handling around HTTP calls. Works with the Dart http client and compatible libraries like Chopper and Dio compatibility layer.",
+    "use_when": [
+      "You need to add custom headers or logging to all HTTP requests",
+      "You want a simple way to handle errors centrally without modifying each call",
+      "You are using the http package or compatible clients and need interceptor support"
+    ],
+    "avoid_when": [
+      "You require interception for Image.network or other widgets that use dart:io HttpClient",
+      "You need a full-featured HTTP client with built‑in interceptors like Dio",
+      "You need code‑generation based API clients"
+    ],
+    "strengths": [
+      "Easy to integrate with existing http client code",
+      "Supports chaining multiple interceptors",
+      "Works with popular wrappers like Chopper and Retrofit compatibility layer"
+    ],
+    "weaknesses": [
+      "Limited to the http package ecosystem",
+      "Cannot intercept low‑level HttpClient used by Flutter's Image.network",
+      "Provides no code‑generation or advanced features like retry policies out of the box"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "dio",
+        "why_pick_it": "Full‑featured HTTP client with built‑in interceptor support and advanced features"
+      },
+      {
+        "name": "http",
+        "why_pick_it": "Standard HTTP client without extra abstraction, suitable if you don't need interception"
+      }
+    ],
+    "minimal_example": "import 'package:http/http.dart' as http;\nimport 'package:http_client_interceptor/http_client_interceptor.dart';\n\nfinal client = HttpClientProxy(interceptors:[\n  HttpInterceptorWrapper(onRequest:(req){\n    req.headers['Authorization']='Bearer TOKEN';\n    return OnRequest.next(req);\n  })\n]);\n\nfinal response = await client.get(Uri.parse('https://api.example.com/data'));\nprint(response.body);",
+    "confidence": 0.92
+  }
+}

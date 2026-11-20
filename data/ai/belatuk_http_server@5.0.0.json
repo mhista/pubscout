@@ -1,0 +1,55 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "5.0.0",
+  "generatedAt": "2026-11-20T11:43:54.859Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Utility classes that simplify building Dart server‑side HTTP services with HttpServer.",
+    "what_it_does": "Provides high‑level helpers such as body parsing, virtual directory serving, and request handling for Dart command‑line or server applications. It enforces RFC‑compliant JSON and form‑urlencoded handling and offers safe redirects and error handling.",
+    "use_when": [
+      "You need to serve static files or APIs from a Dart server without writing low‑level HttpServer boilerplate",
+      "You require strict RFC‑compliant request/response parsing for JSON and form data"
+    ],
+    "avoid_when": [
+      "Your app runs on Flutter mobile/web where dart:io is unavailable",
+      "You need client‑side HTTP calls rather than server handling"
+    ],
+    "strengths": [
+      "Strict RFC‑compliant parsing reduces bugs",
+      "Built‑in virtual directory with safe redirects",
+      "Works with pure Dart server code"
+    ],
+    "weaknesses": [
+      "Only works in server/CLI environments",
+      "Breaking changes require Dart 3.13+",
+      "Limited to server utilities, not a full web framework"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "http",
+        "why_pick_it": "General purpose client‑side HTTP library, but also provides HttpServer utilities"
+      },
+      {
+        "name": "http_multi_server",
+        "why_pick_it": "Offers multi‑isolate HttpServer handling, useful for scaling"
+      },
+      {
+        "name": "shelf_proxy",
+        "why_pick_it": "Provides middleware‑style request handling for Dart servers"
+      }
+    ],
+    "minimal_example": "import 'dart:io';\nimport 'package:belatuk_http_server/belatuk_http_server.dart';\n\nFuture<void> main() async {\n  var server = await HttpServer.bind(InternetAddress.loopbackIPv4, 8080);\n  var handler = VirtualDirectory(server);\n  await handler.serve();\n}",
+    "confidence": 0.92
+  }
+}

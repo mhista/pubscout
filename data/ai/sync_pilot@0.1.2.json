@@ -1,0 +1,56 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.1.2",
+  "generatedAt": "2026-11-20T11:45:23.334Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "stream-based"
+    ],
+    "one_liner": "Database-agnostic, offline-first sync engine for Dart and Flutter",
+    "what_it_does": "sync_pilot orchestrates optimistic local CRUD, outbox compaction, temporary ID mapping, 3‑way conflict resolution, and delta sync between any local store and any backend. It emits reactive streams for UI updates.",
+    "use_when": [
+      "You need offline-first sync without locking into a specific database or backend",
+      "You want automatic outbox compaction and temporary ID handling",
+      "You need field‑level conflict resolution and delta pagination"
+    ],
+    "avoid_when": [
+      "You only need simple local persistence",
+      "You already use a dedicated backend sync solution like Firebase Realtime Database or Supabase's built‑in sync"
+    ],
+    "strengths": [
+      "Zero external runtime dependencies",
+      "Supports any local store (SQLite, Drift, Hive, SharedPreferences, in‑memory) and any backend (REST, GraphQL, gRPC, Firebase, Supabase, etc.)",
+      "Built‑in optimistic CRUD, outbox compaction, and temporary ID mapping",
+      "Field‑level 3‑way merge and delta sync"
+    ],
+    "weaknesses": [
+      "No built‑in UI widgets or form helpers",
+      "Requires manual configuration of adapters for each storage/transport",
+      "Learning curve for setting up conflict resolvers and adapters"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add sync_pilot to pubspec, create SyncPilotEngine with localStore and remoteAdapter, implement ConflictResolver, no build_runner needed",
+    "alternatives": [
+      {
+        "name": "drift",
+        "why_pick_it": "Provides built‑in local persistence and optional sync via drift's built‑in sync features"
+      },
+      {
+        "name": "sqflite",
+        "why_pick_it": "If you only need local SQLite storage without sync"
+      },
+      {
+        "name": "flutter_secure_storage",
+        "why_pick_it": "For secure key‑value storage, not sync"
+      }
+    ],
+    "minimal_example": "```dart\nfinal engine = SyncPilotEngine<Todo>(\n  entityName: 'todos',\n  getId: (t) => t.id,\n  toJson: (t) => t.toJson(),\n  fromJson: Todo.fromJson,\n  localStore: InMemorySyncStore<Todo>(getId: (t) => t.id),\n  conflictResolver: ConflictResolver<Todo>.fieldLevelMerge(\n    fromJson: Todo.fromJson,\n  ),\n  remoteAdapter: CallbackRemoteSyncAdapter<Todo>(\n    onPush: (op) async => const PushOperationResult.success(),\n    onPullDelta: (cp) async => const RemoteDeltaPage<Todo>(\n      upserted: [],\n      deletedIds: [],\n      nextCheckpoint: '2026-11-07T12:00:00Z',\n      hasMore: false,\n    ),\n  ),\n);\n```",
+    "confidence": 0.92
+  }
+}

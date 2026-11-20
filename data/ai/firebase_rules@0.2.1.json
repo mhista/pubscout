@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.2.1",
+  "generatedAt": "2026-11-20T11:47:20.300Z",
+  "data": {
+    "primary_category": "backend",
+    "secondary_categories": [
+      "codegen"
+    ],
+    "approach": [
+      "code generation",
+      "declarative"
+    ],
+    "one_liner": "A type-safe Firebase rules generator for Firestore, Storage, and Realtime Database",
+    "what_it_does": "Generates Firebase security rules from type-safe Dart definitions. Provides custom lint rules to catch issues before deployment and mimics native syntax for easy migration.",
+    "use_when": [
+      "You want type-safe access to your data model when writing Firebase security rules",
+      "You want code completion and compile-time checks for your rules language"
+    ],
+    "avoid_when": [
+      "You prefer writing native Firebase security rules directly in JavaScript-like syntax",
+      "You are not using Dart for defining your security rules"
+    ],
+    "strengths": [
+      "Type-safe access to your data model",
+      "Code completion for the rules language",
+      "Custom lint rules to catch issues before deployment"
+    ],
+    "weaknesses": [
+      "Early in development and subject to breaking changes",
+      "Realtime Database rules are not fully type-safe"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires build_runner and custom_lint plugins in dev_dependencies and an analysis_options.yaml configuration.",
+    "alternatives": [],
+    "minimal_example": "import 'package:firebase_rules/firebase.dart';\nimport 'shared.dart';\n\n@FirebaseRules(service: Service.firestore)\nfinal firestoreRules = [\n  Match<FirestoreResource>(\n    firestoreRoot,\n    matches: (database, request, resource) => [\n      Match<FirestoreResource<User>>(\n        '/users/{userId}',\n        rules: (userId, request, resource) => [\n          Allow([Operation.read], resource.data.userId.rules() == userId),\n        ],\n      ),\n    ],\n  ),\n];",
+    "confidence": 0.95
+  }
+}

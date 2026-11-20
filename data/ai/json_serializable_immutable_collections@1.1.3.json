@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.1.3",
+  "generatedAt": "2026-11-20T11:45:25.696Z",
+  "data": {
+    "primary_category": "codegen",
+    "secondary_categories": [],
+    "approach": [
+      "code generation"
+    ],
+    "one_liner": "Extends json_serializable to support immutable collections like BuiltList and KtList.",
+    "what_it_does": "It adds support for additional immutable collection types, including BuiltList, BuiltSet, BuiltMap, KtList, KtSet, and KtMap, when using json_serializable for code generation.",
+    "use_when": [
+      "You use json_serializable and need to serialize BuiltValue collections",
+      "You use json_serializable and need to serialize Kt collections"
+    ],
+    "avoid_when": [
+      "You do not use code generation or json_serializable",
+      "You only need standard Dart collections or standard json_serializable supported types"
+    ],
+    "strengths": [
+      "Enables seamless JSON serialization for immutable collections",
+      "Integrates directly with the json_serializable ecosystem"
+    ],
+    "weaknesses": [
+      "Requires specific build.yaml configuration to avoid builder conflicts",
+      "Unofficial package relying on json_serializable internals"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add to dev_dependencies and configure build.yaml to prevent conflicts with the standard json_serializable builder.",
+    "alternatives": [
+      {
+        "name": "built_value",
+        "why_pick_it": "Provides its own immutable value types and built-in serialization solution instead of relying on json_serializable."
+      }
+    ],
+    "minimal_example": "dependencies:\n  dev_dependencies:\n    json_serializable_immutable_collections: <current_version>",
+    "confidence": 0.95
+  }
+}

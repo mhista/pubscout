@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "5.5.0",
+  "generatedAt": "2026-11-20T11:46:55.936Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [
+      "backend"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "A fluent SQL query builder library for PostgreSQL and MySQL databases in Dart.",
+    "what_it_does": "Allows developers to construct and execute SQL queries (inserts, updates, deletes, selects) in a fluent, method-chaining manner for PostgreSQL and MySQL. It also implements connection pooling and a basic pre-ORM model mapping feature without code generation.",
+    "use_when": [
+      "You need to execute raw or structured SQL queries against PostgreSQL or MySQL databases from Dart.",
+      "You want a fluent query-building API without dealing with heavy ORM code generation."
+    ],
+    "avoid_when": [
+      "You are using a non-SQL database like Firebase or Hive.",
+      "You require a full-featured, complex ORM with advanced relationships and lazy loading."
+    ],
+    "strengths": [
+      "Supports both PostgreSQL and MySQL drivers.",
+      "Fluent API style for common SQL clauses, transactions, and relation mapping.",
+      "Built-in connection pooling and reconnection resiliency."
+    ],
+    "weaknesses": [
+      "Requires manual handling of field and table name escaping in certain contexts.",
+      "Pre-ORM features are relatively basic compared to full ORM solutions."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires database connection parameters (host, port, username, password) configured via DBConnectionInfo.",
+    "alternatives": [],
+    "minimal_example": "import 'package:fluent_query_builder/fluent_query_builder.dart';\n\nvoid main() {\n  final pgsqlCom = DBConnectionInfo(\n    host: 'localhost',\n    database: 'banco_teste',\n    driver: ConnectionDriver.pgsql,\n    port: 5432,\n    username: 'user',\n    password: 'pass',\n  );\n\n  DbLayer().connect(pgsqlCom).then((db) async {\n    final result = await db.select().from('usuarios').getAsMap();\n    print(result);\n  });\n}",
+    "confidence": 0.95
+  }
+}

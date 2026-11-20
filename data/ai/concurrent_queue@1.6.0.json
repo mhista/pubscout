@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.6.0",
+  "generatedAt": "2026-11-20T11:41:44.886Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Priority queue with concurrency control for async and sync operations.",
+    "what_it_does": "Provides a concurrency-controlled priority queue for Dart and Flutter. It is useful for rate-limiting asynchronous tasks such as REST API calls or heavy CPU/memory operations.",
+    "use_when": [
+      "You need to rate-limit or throttle concurrent API requests.",
+      "You want to manage a queue of tasks with concurrency limits."
+    ],
+    "avoid_when": [
+      "You do not need concurrency control or prioritization for your tasks."
+    ],
+    "strengths": [
+      "Simple API similar to Sindre Sorhus's p-queue",
+      "Supports concurrency limits and idle state monitoring"
+    ],
+    "weaknesses": [
+      "Limited documentation beyond basic and advanced examples"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "async",
+        "why_pick_it": "Provides core Dart asynchronous tools and primitives like queues and pools if you prefer standard library utilities."
+      }
+    ],
+    "minimal_example": "import 'package:concurrent_queue/concurrent_queue.dart';\n\nfinal queue = ConcurrentQueue(\n  concurrency: 2\n);\n\nqueue.add(() async {\n  await Future.delayed(Duration(seconds: 5));\n  print('Done waiting for 5 seconds');\n});",
+    "confidence": 0.95
+  }
+}

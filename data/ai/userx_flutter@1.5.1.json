@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "1.5.1",
+  "generatedAt": "2026-11-20T11:42:24.312Z",
+  "data": {
+    "primary_category": "devtools",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter plugin for UserX session recording and UX analytics with sensitive content masking.",
+    "what_it_does": "Provides APIs to start UserX session recording, configure rendering, and mask sensitive widgets via OccludeWrapper. Captures UI interactions on iOS and Android, including support for TextureView rendering on Android.",
+    "use_when": [
+      "You need built‑in session recording and UX analytics for a Flutter app",
+      "You must mask sensitive UI elements like credit‑card fields",
+      "You target iOS 15+ and Android API 21+"
+    ],
+    "avoid_when": [
+      "You require a cross‑platform analytics solution not tied to UserX",
+      "You need support for web or desktop platforms",
+      "Your iOS deployment target is below 15"
+    ],
+    "strengths": [
+      "Simple API with just a few method calls",
+      "Built‑in widget masking (OccludeWrapper)",
+      "Handles background screenshot capture on iOS",
+      "No extra runtime permissions required"
+    ],
+    "weaknesses": [
+      "iOS minimum version 15 limits older devices",
+      "Only works with the UserX backend",
+      "Requires native SDK update via pod install"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add userx_flutter to pubspec, run `flutter pub get`, then execute `pod install --repo-update` and set iOS deployment target to 15.0 in Podfile and Xcode project.",
+    "alternatives": [],
+    "minimal_example": "import 'package:userx_flutter/userx_flutter.dart';\n\nawait UserX.start('YOUR_API_KEY');\n\nOccludeWrapper(\n  child: TextField(controller: cardNumber),\n);",
+    "confidence": 0.93
+  }
+}

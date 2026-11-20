@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.4.0",
+  "generatedAt": "2026-11-20T11:41:26.932Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "devtools"
+    ],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Dio interceptor and network logger for Alice network inspector UI",
+    "what_it_does": "Integrates the Dio HTTP client with the Alice inspector plugin. Allows you to log, inspect, and debug Dio requests and responses inside a native Flutter UI.",
+    "use_when": [
+      "You use the Dio package for network requests in Flutter",
+      "You need a visual in-app tool to inspect and debug HTTP traffic"
+    ],
+    "avoid_when": [
+      "You are not using the Dio HTTP client",
+      "You do not need a visual network logger in your app"
+    ],
+    "strengths": [
+      "Simple integration via Dio interceptors",
+      "Provides a dedicated native Flutter UI for debugging network calls"
+    ],
+    "weaknesses": [
+      "Tied specifically to the Alice package and Dio",
+      "Adds overhead and debug tooling dependencies to the codebase"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add Alice and alice_dio to dependencies, create AliceDioAdapter, add it to Alice and to Dio interceptors.",
+    "alternatives": [
+      {
+        "name": "dio",
+        "why_pick_it": "If you only need the HTTP client functionality without the Alice UI inspector."
+      },
+      {
+        "name": "http",
+        "why_pick_it": "If you prefer the basic Dart HTTP client instead of Dio."
+      }
+    ],
+    "minimal_example": "AliceDioAdapter aliceDioAdapter = AliceDioAdapter();\nAlice alice = Alice()..addAdapter(aliceDioAdapter);\nDio dio = Dio()..interceptors.add(aliceDioAdapter);",
+    "confidence": 1
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "1.2.4",
+  "generatedAt": "2026-11-20T11:45:23.429Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "networking",
+      "utils"
+    ],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "Cross‑platform plugin to discover printers and send ESC/POS byte commands via Bluetooth, USB or network.",
+    "what_it_does": "The package scans for Bluetooth, BLE and network printers, connects to them, and streams state changes. It then sends raw List<int> bytes to the selected printer on Android, iOS and Windows.",
+    "use_when": [
+      "You need to print receipts or tickets from a Flutter app on Android, iOS or Windows.",
+      "You require low‑level control over ESC/POS commands and multiple connection types (Bluetooth, USB, TCP)."
+    ],
+    "avoid_when": [
+      "You only target web or macOS platforms.",
+      "You need high‑level PDF or image printing without handling raw bytes."
+    ],
+    "strengths": [
+      "Supports Android, iOS and Windows with Bluetooth, BLE, USB and network interfaces.",
+      "Provides a state stream for connection status.",
+      "Forked and actively maintained with bug fixes."
+    ],
+    "weaknesses": [
+      "Limited to ESC/POS raw byte printing; no higher‑level layout helpers.",
+      "No web or macOS support.",
+      "Requires native permission setup and platform‑specific configuration."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add Android minSdkVersion 21, Bluetooth permissions, and targetSdk 31. iOS requires NSBluetooth* usage descriptions and background modes in Info.plist. Windows may need IP address configuration for network printers.",
+    "alternatives": [],
+    "minimal_example": "import 'package:flutter_pos_printer_platform/flutter_pos_printer_platform.dart';\n\nfinal manager = PrinterManager.instance;\n// Scan for Bluetooth printers\nmanager.discovery(type: PrinterType.bluetooth).listen((device) => print(device));\n// Connect and print\nawait manager.connect(type: PrinterType.bluetooth, model: BluetoothPrinterInput(name: 'MyPrinter', address: '00:11:22:33:44:55'));\nmanager.send(type: PrinterType.bluetooth, bytes: [0x1B, 0x40, /* ESC/POS commands */]);\nawait manager.disconnect(type: PrinterType.bluetooth);",
+    "confidence": 0.92
+  }
+}

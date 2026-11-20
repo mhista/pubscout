@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3.0.0",
+  "generatedAt": "2026-11-20T11:41:39.585Z",
+  "data": {
+    "primary_category": "devtools",
+    "secondary_categories": [
+      "device"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Plugin for automatic error catching and handling in Flutter apps.",
+    "what_it_does": "Catcher 2 automatically catches uncaught errors and exceptions in Flutter applications and offers multiple ways to handle them, such as logging to the console, showing dialogs, sending emails, or reporting to Sentry, Slack, and Discord.",
+    "use_when": [
+      "You want to automatically catch uncaught application errors and exceptions.",
+      "You need multiple reporting handlers like email, console, Sentry, or custom HTTP endpoints."
+    ],
+    "avoid_when": [
+      "You only require basic crash reporting without any custom UI prompts or handlers."
+    ],
+    "strengths": [
+      "Supports multiple handlers including console, email, Sentry, Slack, Discord, and HTTP.",
+      "Provides built-in report modes like dialogs, notifications, and dedicated pages.",
+      "Cross-platform support across Android, iOS, Web, Linux, Windows, and macOS."
+    ],
+    "weaknesses": [
+      "Requires integrating the navigator key and wrapping the root widget.",
+      "Some handlers have breaking changes depending on external library versions like Dio."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add catcher_2 to pubspec.yaml, add the Catcher2 navigator key to MaterialApp or CupertinoApp, and configure options for debug and release modes.",
+    "alternatives": [],
+    "minimal_example": "import 'package:material_ui/material_ui.dart';\nimport 'package:catcher_2/catcher_2.dart';\n\nmain() {\n  Catcher2Options debugOptions =\n      Catcher2Options(DialogReportMode(), [ConsoleHandler()]);\n  Catcher2(rootWidget: MyApp(), debugConfig: debugOptions);\n}\n\nclass MyApp extends StatelessWidget {\n  @override\n  Widget build(BuildContext context) {\n    return MaterialApp(\n      navigatorKey: Catcher2.navigatorKey,\n      home: Scaffold(\n        appBar: AppBar(title: const Text('Catcher 2 Example')),\n        body: Center(child: TextButton(\n          child: Text('Generate error'),\n          onPressed: () => throw 'Test exception',\n        )),\n      ),\n    );\n  }\n}",
+    "confidence": 1
+  }
+}

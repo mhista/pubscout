@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.1.1",
+  "generatedAt": "2026-11-20T11:44:03.938Z",
+  "data": {
+    "primary_category": "camera",
+    "secondary_categories": [
+      "audio-video"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Native Android and iOS camera wrapper for taking pictures and scanning barcodes.",
+    "what_it_does": "Provides camera preview, picture capturing, and barcode scanning capabilities utilizing native Camera2 API, AVFoundation, and MLFirebase. Includes an easy-to-use controller for flash control, pausing, and resuming.",
+    "use_when": [
+      "You need a quick solution to capture photos and scan barcodes within a Flutter app.",
+      "You want automatic camera permission and resource handling without third-party plugins."
+    ],
+    "avoid_when": [
+      "You need advanced custom camera pipeline manipulation or complex video recording features.",
+      "You prefer pure Dart implementations without native view embeddings."
+    ],
+    "strengths": [
+      "Automatic permission and camera resource lifecycle management",
+      "Supports both picture taking and barcode scanning",
+      "Configurable scale types (fill and fit) and flash modes"
+    ],
+    "weaknesses": [
+      "Limited documentation regarding custom error handling",
+      "Specific native API settings (like API_X vs API_2) have distinct feature trade-offs"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "iOS requires adding io.flutter.embedded_views_preview and Privacy - Camera Usage Description in info.plist.",
+    "alternatives": [
+      {
+        "name": "mobile_scanner",
+        "why_pick_it": "A well-maintained dedicated alternative specifically focused on fast barcode and QR code scanning."
+      },
+      {
+        "name": "camera",
+        "why_pick_it": "The official camera plugin providing deeper control over the device camera preview, image streams, and recording."
+      }
+    ],
+    "minimal_example": "cameraKitController = CameraKitController();\ncameraKitView = CameraKitView(\n  cameraKitController: cameraKitController,\n  hasBarcodeReader: true,\n  barcodeFormat: BarcodeFormats.FORMAT_ALL_FORMATS,\n  scaleType: ScaleTypeMode.fill,\n  previewFlashMode: CameraFlashMode.auto,\n  androidCameraMode: AndroidCameraMode.API_X,\n  cameraSelector: CameraSelector.back,\n  onPermissionDenied: () {},\n  onBarcodeRead: (code) {},\n);",
+    "confidence": 0.95
+  }
+}

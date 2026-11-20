@@ -1,0 +1,54 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.2.2",
+  "generatedAt": "2026-11-20T11:47:32.597Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Clean, type-safe wrapper for Hive databases with auto-initialization and fast queries.",
+    "what_it_does": "Hivez wraps the hive_ce engine to provide a unified API, automatic initialization without manual openBox calls, and built-in options like IndexedBox for ultra-fast full-text searches. It supports regular, lazy, and isolated boxes with zero-migration upgrades from regular Hive.",
+    "use_when": [
+      "You want a cleaner, type-safe API over Hive databases without manual initialization boilerplate.",
+      "You need fast text queries or full-text search capabilities using IndexedBox.",
+      "You require a unified API that lets you seamlessly switch between regular, lazy, and isolated boxes."
+    ],
+    "avoid_when": [
+      "Your project strictly requires standard SQL features and relational querying via SQLite/Drift.",
+      "You are not using Hive and prefer a completely different key-value store like SharedPreferences."
+    ],
+    "strengths": [
+      "Zero setup with auto-initialization on first use.",
+      "Type-safe API eliminating dynamic casting.",
+      "Unified interface across different box types (regular, lazy, isolated, indexed).",
+      "IndexedBox provides dramatic search performance improvements over standard Hive."
+    ],
+    "weaknesses": [
+      "Relies on hive_ce and its adapter code generation setup for custom objects.",
+      "Using isolated boxes requires proper understanding of Dart isolate management."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires adding hivez_flutter and configuring hive_ce adapters using build_runner.",
+    "alternatives": [
+      {
+        "name": "drift",
+        "why_pick_it": "If you need a robust, type-safe relational SQL database instead of a NoSQL key-value store."
+      },
+      {
+        "name": "shared_preferences",
+        "why_pick_it": "If you only need to store simple key-value configuration flags and want minimal setup."
+      },
+      {
+        "name": "flutter_secure_storage",
+        "why_pick_it": "If you specifically need encrypted, secure hardware-backed storage for sensitive data like tokens."
+      }
+    ],
+    "minimal_example": "final box = Box<int, String>('notes');\nawait box.put(1, 'Hello');\nfinal note = await box.get(1);",
+    "confidence": 0.95
+  }
+}

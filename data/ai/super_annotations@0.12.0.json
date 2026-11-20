@@ -1,0 +1,54 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.12.0",
+  "generatedAt": "2026-11-20T11:43:55.061Z",
+  "data": {
+    "primary_category": "codegen",
+    "secondary_categories": [],
+    "approach": [
+      "code generation",
+      "hooks"
+    ],
+    "one_liner": "Generate Dart code using custom annotations defined alongside your source files.",
+    "what_it_does": "Provides base annotation classes and a @CodeGen() library annotation to run custom code‑generation logic during build_runner builds. Developers implement apply() to emit classes, extensions, mixins, etc., into generated .g.dart (or other) files.",
+    "use_when": [
+      "You need custom code generation without writing a separate builder package",
+      "You want to define annotations and generation logic in the same project",
+      "You prefer a simple setup with build_runner"
+    ],
+    "avoid_when": [
+      "You only need standard JSON/serialization code (use json_annotation)",
+      "You require runtime reflection instead of build‑time generation"
+    ],
+    "strengths": [
+      "Minimal boilerplate to start generating code",
+      "Supports multiple generation targets and hooks",
+      "Leverages code_builder for correctly formatted output"
+    ],
+    "weaknesses": [
+      "Limited to build_runner ecosystem",
+      "No runtime code‑gen support",
+      "Requires familiarity with code_builder API"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add super_annotations as a dependency and build_runner as a dev_dependency, then annotate libraries with @CodeGen() and run pub run build_runner build",
+    "alternatives": [
+      {
+        "name": "source_gen",
+        "why_pick_it": "Provides a mature framework for writing generators and integrates with build_runner"
+      },
+      {
+        "name": "build",
+        "why_pick_it": "Core package for defining builders and generators, used by many code‑gen solutions"
+      },
+      {
+        "name": "freezed_annotation",
+        "why_pick_it": "Offers code generation for immutable data classes and unions, with built‑in support in build_runner"
+      }
+    ],
+    "minimal_example": "import 'package:super_annotations/super_annotations.dart';\n\n@CodeGen()\nlibrary example;\n\n@MyAnnotation()\nclass MyClass {\n  MyClass(this.value);\n  final String value;\n}\n\nclass MyAnnotation extends ClassAnnotation {\n  const MyAnnotation();\n  @override\n  void apply(Class target, LibraryBuilder output) {\n    output.body.add(Code('// generated code'));\n  }\n}\n",
+    "confidence": 0.9
+  }
+}

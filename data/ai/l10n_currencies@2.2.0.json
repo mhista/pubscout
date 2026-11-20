@@ -1,0 +1,48 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.2.0",
+  "generatedAt": "2026-11-20T11:41:27.008Z",
+  "data": {
+    "primary_category": "localization",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "no codegen"
+    ],
+    "one_liner": "Provides CLDR-like currency name translations for 149 locales in pure Dart with zero dependencies.",
+    "what_it_does": "Provides currency name translations for 149 different locales using a single-use locale mapper. It supports tree-shaking via dart-define flags and fallback locales.",
+    "use_when": [
+      "You need currency name localizations across multiple locales without heavy dependencies",
+      "You want memory-efficient lazy loading of translation data"
+    ],
+    "avoid_when": [
+      "You need general-purpose UI currency formatting or currency input masking",
+      "You expect mapper instances to be reusable across multiple calls"
+    ],
+    "strengths": [
+      "Zero dependencies",
+      "149 locales supported out of the box",
+      "Memory efficient with lazy initialization and single-use mapper cleanup",
+      "Tree-shakable via dart-define flags"
+    ],
+    "weaknesses": [
+      "Mapper instances are single-use only and cannot be reused after calling localize()"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "intl",
+        "why_pick_it": "Standard internationalization and localization library provided by the Dart team."
+      },
+      {
+        "name": "easy_localization",
+        "why_pick_it": "Popular full-featured localization solution for Flutter apps."
+      }
+    ],
+    "minimal_example": "void main() {\n  final mapper = CurrenciesLocaleMapper();\n  final isoCodes = {\"USD\", \"RUB\", \"PLN\"};\n  final localized = mapper.localize(isoCodes, mainLocale: \"sk\", fallbackLocale: \"cs\");\n  print(\"Names count: ${localized.length}\");\n}",
+    "confidence": 1
+  }
+}

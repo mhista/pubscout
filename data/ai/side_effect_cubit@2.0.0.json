@@ -1,0 +1,40 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "2.0.0",
+  "generatedAt": "2026-11-20T11:42:10.070Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [],
+    "approach": [
+      "stream-based"
+    ],
+    "one_liner": "Adds a separate stream for one-time events in Bloc/Cubit",
+    "what_it_does": "It extends Bloc/Cubit to expose a dedicated stream for side effects, such as navigation or snackbars. The UI listens to this stream instead of state changes, preventing re-triggering on rebuilds.",
+    "use_when": [
+      "handling navigation",
+      "showing snackbars or dialogs",
+      "playing a sound",
+      "logging analytics events"
+    ],
+    "avoid_when": [
+      "when all events can be represented as state changes",
+      "when you need persistent state updates"
+    ],
+    "strengths": [
+      "decouples side effects from state",
+      "prevents re-triggering on rebuilds",
+      "easy to test with side_effect_cubit_test"
+    ],
+    "weaknesses": [
+      "adds extra mixin or base class boilerplate",
+      "requires listening widgets"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "class FeatureCubit extends SideEffectCubit<FeatureState, FeatureSideEffect> {\n  FeatureCubit() : super(FeatureState.initial());\n  void openItem(int id) => produceSideEffect(FeatureSideEffect.openItem(id));\n}",
+    "confidence": 0.9
+  }
+}

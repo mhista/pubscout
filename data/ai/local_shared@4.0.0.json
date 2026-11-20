@@ -1,0 +1,53 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.0.0",
+  "generatedAt": "2026-11-20T11:47:26.433Z",
+  "data": {
+    "primary_category": "storage",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Lightweight cross-platform secure local JSON storage for collections and documents.",
+    "what_it_does": "Local Shared is a secure wrapper for JSON file-based local storage that provides CRUD operations for collections and documents, batch operations, migration semantics, and stream updates across all platforms.",
+    "use_when": [
+      "You need secure local JSON storage for collections and documents.",
+      "You require stream-based observation of changes in local collections.",
+      "You want cross-platform support including Android, iOS, web, Windows, macOS, and Linux."
+    ],
+    "avoid_when": [
+      "You need a full relational SQL database with complex querying capabilities.",
+      "You require high-performance raw key-value caching without JSON overhead."
+    ],
+    "strengths": [
+      "Tested CRUD operations for both collections and single/multiple documents.",
+      "Built-in stream updates for observing data changes.",
+      "Security hardening with resilient keystore handling and auto-wipe mechanisms."
+    ],
+    "weaknesses": [
+      "Relies on JSON file-based wrapping which may not scale for massive datasets.",
+      "Limited to specific collection and document structures provided by the package API."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Initialize the LocalShared instance in your main function after ensuring Flutter is properly initialized.",
+    "alternatives": [
+      {
+        "name": "shared_preferences",
+        "why_pick_it": "If you need a simple, native key-value store without structured JSON collections."
+      },
+      {
+        "name": "flutter_secure_storage",
+        "why_pick_it": "If you only need secure key-value storage rather than a structured JSON collection and document database."
+      },
+      {
+        "name": "sqflite",
+        "why_pick_it": "If you require a full relational SQLite database for complex queries and high performance."
+      }
+    ],
+    "minimal_example": "import 'package:local_shared/local_shared.dart';\n\nvoid main() async {\n  WidgetsFlutterBinding.ensureInitialized();\n  await LocalShared('db').initialize();\n  \n  final result = await Shared.col('myCollection').doc('documentId').create({'key': 'value'});\n}",
+    "confidence": 0.95
+  }
+}

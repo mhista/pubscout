@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "0.0.27",
+  "generatedAt": "2026-11-20T11:42:02.141Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [
+      "backend"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Flutter SDK for background health data sync from Apple HealthKit and Samsung/Health Connect.",
+    "what_it_does": "Synchronizes health and fitness data securely in the background from Apple HealthKit on iOS and Samsung Health or Health Connect on Android to the Open Wearables platform. Handles token authentication, incremental updates, and secure credential storage.",
+    "use_when": [
+      "You need to sync health, sleep, workout, and biometric data to a backend.",
+      "You require background synchronization of health data on iOS and Android."
+    ],
+    "avoid_when": [
+      "You only need to read health data locally without syncing it to an external backend.",
+      "Your target platform is neither iOS nor Android."
+    ],
+    "strengths": [
+      "Supports background sync and incremental updates out of the box.",
+      "Handles multiple Android health providers (Samsung Health and Health Connect).",
+      "Secure credential storage using iOS Keychain and Android EncryptedSharedPreferences."
+    ],
+    "weaknesses": [
+      "Requires platform-specific configuration such as Info.plist entries and Android foreground service types.",
+      "Tied specifically to the Open Wearables backend ecosystem."
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Requires iOS Info.plist usage descriptions, background modes, and HealthKit capability in Xcode. On Android, requires setting minSdk to 29, adding activity-aliases, using FlutterFragmentActivity, and configuring foreground service permissions for Play Store compliance.",
+    "alternatives": [],
+    "minimal_example": "await OpenWearablesHealthSdk.configure(host: 'https://api.example.com');\nawait OpenWearablesHealthSdk.signIn(userId: 'user-id', apiKey: 'your-api-key');\nawait OpenWearablesHealthSdk.requestAuthorization(types: [HealthDataType.steps]);\nawait OpenWearablesHealthSdk.startBackgroundSync();",
+    "confidence": 0.95
+  }
+}

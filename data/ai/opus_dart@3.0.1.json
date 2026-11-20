@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "3.0.1",
+  "generatedAt": "2026-11-20T11:41:35.596Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [],
+    "approach": [
+      "imperative",
+      "stream-based"
+    ],
+    "one_liner": "Wraps libopus for Dart, providing encoding/decoding APIs and optional stream transformers.",
+    "what_it_does": "It exposes libopus functionality via FFI, offering both low‑level bindings and a higher‑level Dart API for encoding PCM to Opus packets and decoding them back. The API includes simple and buffered encoders/decoders and stream transformers.",
+    "use_when": [
+      "You need Opus audio encoding/decoding in a Flutter or Dart app",
+      "You want a Dart‑friendly API that handles memory management",
+      "You need Web support via web_ffi"
+    ],
+    "avoid_when": [
+      "You only need a pure Dart implementation without native code",
+      "You are targeting platforms without libopus binaries"
+    ],
+    "strengths": [
+      "Provides both low‑level bindings and high‑level API",
+      "Supports web via web_ffi",
+      "Includes stream transformers for easy PCM stream handling",
+      "Clear separation of simple vs buffered encoders for performance tuning"
+    ],
+    "weaknesses": [
+      "Requires manual loading of libopus binaries",
+      "Memory must be manually freed to avoid leaks",
+      "No native build system, so distribution of binaries is manual"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Download and ship libopus binaries for each target platform, load them with DynamicLibrary (or web_ffi on web), call initOpus(lib) before using the API. No build_runner needed.",
+    "alternatives": [],
+    "minimal_example": "import 'package:opus_dart/opus_dart.dart';\n\nvoid main(){\n  // Load libopus (platform specific)\n  final lib = /* DynamicLibrary.open(...) */;\n  initOpus(lib);\n  final encoder = SimpleOpusEncoder(sampleRate: 48000, channels: 2);\n  final pcm = Uint8List.fromList([/* PCM data */]);\n  final packet = encoder.encode(pcm);\n  encoder.destroy();\n}",
+    "confidence": 0.92
+  }
+}

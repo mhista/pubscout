@@ -1,0 +1,37 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.1.0",
+  "generatedAt": "2026-11-20T11:45:32.436Z",
+  "data": {
+    "primary_category": "files",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Design custom Flutter pages and turn them into high-quality PDF documents.",
+    "what_it_does": "PDF Maker is a Flutter plugin that allows developers to design custom pages using standard widgets and convert them into high-quality, single-page or multi-page PDF documents. It provides real-time previews, multi-language support, and isolated rendering options for performance optimization.",
+    "use_when": [
+      "You need to generate PDF documents from custom widget layouts in Flutter.",
+      "You want to support multi-page PDF documents with customizable formats, margins, and scales.",
+      "You require background isolate rendering to keep the UI thread responsive during PDF generation."
+    ],
+    "avoid_when": [
+      "You need complex low-level programmatic PDF drawing operations outside of Flutter's widget tree."
+    ],
+    "strengths": [
+      "Design freedom using regular Flutter widgets via BlankPage subclasses.",
+      "Supports both single-page and multi-page PDF document generation.",
+      "Isolated rendering mode to prevent freezing the main UI thread during heavy PDF generation."
+    ],
+    "weaknesses": [
+      "Requires proper management of BuildContext to access theme data and contextual properties."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add pdf_maker to your pubspec.yaml dependencies.",
+    "alternatives": [],
+    "minimal_example": "class TestPage extends BlankPage {\n  const TestPage({super.key});\n\n  @override\n  Widget createPageContent(BuildContext context) {\n    return const Center(\n      child: Text('Save Palestine 🇵🇸'),\n    );\n  }\n}\n\nfinal pdfFile = await const TestPage().toPDF(\n  setup: PageSetup(context: context),\n);",
+    "confidence": 0.95
+  }
+}

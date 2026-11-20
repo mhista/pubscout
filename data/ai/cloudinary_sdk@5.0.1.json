@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "5.0.1",
+  "generatedAt": "2026-11-20T11:47:18.694Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "storage"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Pure Dart SDK for Cloudinary API, enabling signed/unsigned uploads, deletes, and URL generation.",
+    "what_it_does": "Provides a Cloudinary client that can upload files (signed or unsigned), delete single or multiple resources, and construct transformed image URLs. It supports progress callbacks and optional custom API URLs.",
+    "use_when": [
+      "Uploading media to Cloudinary from a server or Flutter app",
+      "Managing Cloudinary assets (delete, list, transform URLs)",
+      "When you need a lightweight, pure Dart solution without UI widgets"
+    ],
+    "avoid_when": [
+      "You need a full-featured image editor or UI widget set",
+      "You are targeting a different cloud storage provider"
+    ],
+    "strengths": [
+      "Supports both signed and unsigned uploads",
+      "Progress callbacks for upload monitoring",
+      "Batch upload and delete helpers",
+      "Pure Dart, works on all platforms"
+    ],
+    "weaknesses": [
+      "Only works with Cloudinary",
+      "No UI components or image editing features",
+      "Requires API key/secret for signed uploads"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add cloudinary_sdk to pubspec, import, instantiate Cloudinary.full or Cloudinary.basic, then call upload/delete methods",
+    "alternatives": [],
+    "minimal_example": "final cloudinary = Cloudinary.full(apiKey: key, apiSecret: secret, cloudName: name);\nfinal response = await cloudinary.uploadResource(\n  CloudinaryUploadResource(filePath: path, fileBytes: bytes, resourceType: CloudinaryResourceType.image, folder: 'myfolder', fileName: 'img.png'));\nif (response.isSuccessful) print(response.secureUrl);",
+    "confidence": 0.9
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "2.0.2",
+  "generatedAt": "2026-11-20T11:43:57.609Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "ai-ml",
+      "codegen"
+    ],
+    "approach": [
+      "no codegen"
+    ],
+    "one_liner": "Repairs malformed JSON strings such as those returned by LLMs or unstable APIs",
+    "what_it_does": "A stateful parser that reads broken JSON strings and fixes common errors like trailing commas, unquoted keys, single quotes, comments, and missing brackets. It returns a decoded Dart object directly.",
+    "use_when": [
+      "Parsing untrusted or malformed JSON from LLM outputs",
+      "Handling slightly invalid JSON returned by third-party APIs or user input",
+      "Extracting valid JSON embedded within surrounding text"
+    ],
+    "avoid_when": [
+      "Working with strict JSON data that is guaranteed to be valid and error-free",
+      "Needing static code generation for type-safe models"
+    ],
+    "strengths": [
+      "Forgiving parser handles missing braces, commas, quotes, and comments",
+      "Extracts JSON objects from surrounding conversational text",
+      "Provides optional diagnostic logging for repair actions"
+    ],
+    "weaknesses": [
+      "Reparing heavily corrupted data can occasionally result in unexpected structure",
+      "Not a replacement for proper schema validation"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:json_repair_flutter/json_repair_flutter.dart';\n\nvoid main() {\n  const malformedJson = \"{name: 'John Doe', age: 30,}\";\n  final decodedData = repairJson(malformedJson);\n  print(decodedData);\n}",
+    "confidence": 0.95
+  }
+}

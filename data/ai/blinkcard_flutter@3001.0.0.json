@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "3001.0.0",
+  "generatedAt": "2026-11-20T11:43:51.679Z",
+  "data": {
+    "primary_category": "camera",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter plugin for card scanning and OCR of identity documents using BlinkCard SDK.",
+    "what_it_does": "It provides a Flutter wrapper around the native BlinkCard SDK for secure payment card scanning, OCR, and information extraction. It supports both default camera UX scanning and DirectAPI static image scanning.",
+    "use_when": [
+      "You need to scan payment or identity cards in your Flutter application.",
+      "You want to extract card details such as cardholder name, card number, and expiry date via camera or static images."
+    ],
+    "avoid_when": [
+      "You only need basic barcode scanning (use mobile_scanner instead).",
+      "Your target iOS platform is below iOS 16.0."
+    ],
+    "strengths": [
+      "Comprehensive card scanning and OCR capabilities.",
+      "Supports both default camera UX and static image DirectAPI scanning.",
+      "Configurable redaction and extraction settings."
+    ],
+    "weaknesses": [
+      "Requires native SDK license key from Microblink Developer Hub.",
+      "Strict minimum requirements including iOS 16.0+ and Android compileSdk 36."
+    ],
+    "setup_effort": "high",
+    "setup_notes": "Requires enabling Swift Package Manager support on iOS, setting minimum iOS version to 16.0, configuring Android compileSdk to 36 and Kotlin 2.1+, and providing a valid Microblink license key.",
+    "alternatives": [
+      {
+        "name": "mobile_scanner",
+        "why_pick_it": "If you only need general barcode and QR code scanning without specialized credit card OCR."
+      }
+    ],
+    "minimal_example": "import 'package:blinkcard_flutter/blinkcard_flutter.dart';\n\nfinal blinkCardPlugin = BlinkCardFlutter();\n\nFuture<void> performScan() async {\n  final blinkCardResult = await blinkCardPlugin.performScan(\n    blinkCardSdkSettings: BlinkCardSdkSettings(licenseKey: 'your-license-key'),\n    blinkCardSessionSettings: BlinkCardSessionSettings(),\n  );\n  print(blinkCardResult?.cardholderName);\n}",
+    "confidence": 0.95
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "13.0.0",
+  "generatedAt": "2026-11-20T11:41:27.653Z",
+  "data": {
+    "primary_category": "ai-ml",
+    "secondary_categories": [
+      "networking"
+    ],
+    "approach": [
+      "imperative",
+      "stream-based",
+      "no codegen"
+    ],
+    "one_liner": "Dart and Flutter client for OpenAI REST APIs and realtime WebSocket/WebRTC workflows.",
+    "what_it_does": "Provides type-safe access to OpenAI APIs including GPT, image and audio generation, embeddings, and realtime workflows. Supports Dart and Flutter across mobile, desktop, web, and servers.",
+    "use_when": [
+      "You need to integrate OpenAI text generation, tool calling, or structured outputs in a Dart or Flutter app.",
+      "You want real-time audio or WebSocket workflows connected to OpenAI models."
+    ],
+    "avoid_when": [
+      "You require on-device local models without external API calls.",
+      "You are using the deprecated Assistants API which shut down on August 26, 2026."
+    ],
+    "strengths": [
+      "Comprehensive API coverage including Responses API, images, audio, agents, and realtime sessions.",
+      "Works in both pure Dart backends and Flutter apps without Flutter-specific dependencies."
+    ],
+    "weaknesses": [
+      "Requires managing API keys and keeping sensitive keys secure on trusted infrastructure rather than client-side apps.",
+      "Relies entirely on remote network calls and third-party service availability."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires Dart 3.12 or later and an OPENAI_API_KEY environment variable or explicit configuration.",
+    "alternatives": [
+      {
+        "name": "llamadart",
+        "why_pick_it": "Choose llamadart if you need to run local language models rather than communicating with the remote OpenAI REST API."
+      },
+      {
+        "name": "firebase_ai",
+        "why_pick_it": "Choose firebase_ai if your infrastructure uses Google's Firebase AI services instead of OpenAI."
+      }
+    ],
+    "minimal_example": "import 'package:openai_dart/openai_dart.dart';\n\nFuture<void> main() async {\n  final client = OpenAIClient.fromEnvironment();\n\n  try {\n    final response = await client.responses.create(\n      const CreateResponseRequest(\n        model: 'gpt-6.2-sol',\n        input: ResponseInput.text('What is the capital of France?'),\n      ),\n    );\n    print(response.outputText);\n  } finally {\n    client.close();\n  }\n}",
+    "confidence": 1
+  }
+}

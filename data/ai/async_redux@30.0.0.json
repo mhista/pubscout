@@ -1,0 +1,50 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "30.0.0",
+  "generatedAt": "2026-11-20T11:41:36.106Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [
+      "testing"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "A Redux-inspired state management library for Flutter.",
+    "what_it_does": "Provides a Store, Actions, and context extensions to manage immutable app state and dispatch actions.",
+    "use_when": [
+      "When you need predictable state management with a unidirectional data flow",
+      "When you prefer explicit actions and reducers"
+    ],
+    "avoid_when": [
+      "When you want a more reactive or hook-based approach"
+    ],
+    "strengths": [
+      "Strong typing and immutability",
+      "Excellent testability",
+      "Mature and battle-tested",
+      "Supports async actions and error handling"
+    ],
+    "weaknesses": [
+      "Verbose boilerplate",
+      "Learning curve for Redux concepts",
+      "Not as reactive as hook-based solutions"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add async_redux to pubspec, create a Store with initial state, wrap the app with StoreProvider, use context.state or context.select in widgets.",
+    "alternatives": [
+      {
+        "name": "riverpod",
+        "why_pick_it": "Provides a simpler, hook-friendly state management with less boilerplate"
+      },
+      {
+        "name": "bloc",
+        "why_pick_it": "Offers a reactive, event-driven approach with built-in stream handling"
+      }
+    ],
+    "minimal_example": "var store = Store<AppState>(initialState: AppState('Mary', 25));\n\nWidget build(context) {\n  return StoreProvider<AppState>(\n    store: store,\n    child: MaterialApp(),\n  );\n}\n\nclass MyWidget extends StatelessWidget {\n  Widget build(context) => Text('${context.state.name} has ${context.state.age} years old');\n}\n",
+    "confidence": 0.8
+  }
+}
