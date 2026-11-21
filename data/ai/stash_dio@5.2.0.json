@@ -1,0 +1,51 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "5.2.0",
+  "generatedAt": "2026-11-21T11:04:46.889Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "storage"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Dio interceptor that caches responses using stash",
+    "what_it_does": "Adds a caching layer to Dio requests by storing responses in a stash cache. Subsequent identical requests are served from the cache instead of hitting the network.",
+    "use_when": [
+      "You need to cache REST API responses to reduce network traffic",
+      "You want offline support for previously fetched data",
+      "You want to avoid duplicate network calls for the same endpoint"
+    ],
+    "avoid_when": [
+      "You require custom caching logic not supported by stash",
+      "You are not using Dio or prefer another HTTP client"
+    ],
+    "strengths": [
+      "Zero‑config integration with Dio",
+      "Supports any stash backend (memory, file, shared_preferences)",
+      "Transparent caching – no changes to request code"
+    ],
+    "weaknesses": [
+      "Depends on the stash package, adding another dependency",
+      "No built‑in support for GraphQL or WebSocket caching",
+      "Limited control over cache eviction policies"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add stash_dio to pubspec, import stash_dio and stash, create a stash store, add cache.interceptor to Dio interceptors",
+    "alternatives": [
+      {
+        "name": "dio",
+        "why_pick_it": "Base HTTP client; no caching but can be extended with custom interceptors"
+      },
+      {
+        "name": "http",
+        "why_pick_it": "Simple HTTP client but lacks built‑in caching"
+      }
+    ],
+    "minimal_example": "import 'package:dio/dio.dart';\nimport 'package:stash/stash_api.dart';\nimport 'package:stash_dio/stash_dio.dart';\nimport 'package:stash_memory/stash_memory.dart';\n\nvoid main() async {\n  final store = await newMemoryCacheStore();\n  final cache = store.cache(eventListenerMode: EventListenerMode.synchronous);\n  final dio = Dio(BaseOptions(baseUrl: 'https://jsonplaceholder.typicode.com'))\n    ..interceptors.addAll([\n      cache.interceptor('/todos/1'),\n      LogInterceptor(requestHeader: false, requestBody: false, responseHeader: false, responseBody: false)\n    ]);\n  final task = await dio.get('/todos/1').then((r) => r.data);\n  print(task);\n}",
+    "confidence": 0.9
+  }
+}

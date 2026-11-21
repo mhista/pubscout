@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.0.2",
+  "generatedAt": "2026-11-21T11:11:19.513Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [
+      "widgets",
+      "web-desktop"
+    ],
+    "approach": [
+      "declarative",
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "Play YouTube videos inline using the official IFrame Player API in a minimal native WebView.",
+    "what_it_does": "embeds YouTube videos across Android, iOS, macOS, Windows, Linux, and web platforms. It uses synchronous native interop (JNI, FFI, js_interop) instead of platform channels, providing instant command execution and state getters. It also supports custom Flutter control overlays and native fullscreen.",
+    "use_when": [
+      "You need to play YouTube videos within your Flutter application across multiple platforms.",
+      "You want synchronous API calls for player controls and getters without dealing with Futures.",
+      "You need to customize player controls using your own Flutter widgets."
+    ],
+    "avoid_when": [
+      "You need to play raw video files or streaming URLs instead of YouTube content.",
+      "You are targeting platforms where you require custom webview fallback behavior beyond what the plugin offers."
+    ],
+    "strengths": [
+      "Synchronous APIs powered by native interop (no platform channel overhead).",
+      "Supports custom Flutter UI overlays via controlsBuilder.",
+      "Native system fullscreen handling without Flutter-side reparenting."
+    ],
+    "weaknesses": [
+      "Hiding certain native elements relies on undocumented CSS selectors which may break if YouTube updates its player.",
+      "Link navigation hooks are ignored on the web due to cross-origin iframe limitations."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Android declares INTERNET automatically (optional Hybrid Composition++ meta-data available). macOS requires the com.apple.security.network.client entitlement.",
+    "alternatives": [],
+    "minimal_example": "import 'package:youtube_player/youtube_player.dart';\n\nfinal controller = YoutubePlayerController.fromVideoId(\n  videoId: 'M7lc1UVf-VE',\n  autoPlay: true,\n  params: const YoutubePlayerParams(mute: true),\n);\n\n// In build():\nYoutubePlayer(controller: controller);",
+    "confidence": 0.95
+  }
+}

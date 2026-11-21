@@ -1,0 +1,43 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "2.0.0",
+  "generatedAt": "2026-11-21T11:04:51.572Z",
+  "data": {
+    "primary_category": "auth",
+    "secondary_categories": [
+      "networking",
+      "storage",
+      "utils"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Provides core logic to authenticate, read, write and manage permissions on Solid PODs.",
+    "what_it_does": "solidpod lets Flutter apps connect to a Solid server, handling OpenID‑Connect authentication and CRUD operations on personal data stores. It also supports permission granting and revoking between users.",
+    "use_when": [
+      "You need to access a Solid POD from a Flutter app",
+      "You require built‑in authentication via Solid‑OIDC",
+      "You want to read/write files and manage permissions programmatically"
+    ],
+    "avoid_when": [
+      "You only need simple HTTP calls without Solid‑specific features",
+      "You are targeting platforms not listed (e.g., web without extra setup)"
+    ],
+    "strengths": [
+      "Full Solid‑OIDC authentication flow",
+      "Handles large file streaming and permission management",
+      "Cross‑platform support (mobile, desktop)"
+    ],
+    "weaknesses": [
+      "Requires native Android/iOS configuration for redirects",
+      "Relies on many heavy dependencies (crypto, oidc, etc.)"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add Android manifest placeholders and XML backup rules; configure client ID JSON‑LD; may need to adjust iOS Info.plist for redirect scheme.",
+    "alternatives": [],
+    "minimal_example": "import 'package:solidpod/solidpod.dart';\n\nFuture<void> main() async {\n  final pod = SolidPod();\n  await pod.authenticate(clientId: 'https://example.com/client.jsonld');\n  final data = await pod.readFile('https://my.pod/resource.txt');\n  print(data);\n}",
+    "confidence": 0.7
+  }
+}

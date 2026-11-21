@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "4.1.0",
+  "generatedAt": "2026-11-21T11:08:00.388Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "backend"
+    ],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "Connects Flutter apps to a Meteor backend over DDP for methods and subscriptions.",
+    "what_it_does": "It provides a client to connect Flutter applications to Meteor backends via DDP over WebSockets. It supports method calls, reactive data collections exposed as streams, authentication flows, and automatic reconnection with backoff.",
+    "use_when": [
+      "You are building a Flutter application with a Meteor backend.",
+      "You need reactive streams for Meteor collections and user authentication status."
+    ],
+    "avoid_when": [
+      "Your backend does not use Meteor or the DDP protocol.",
+      "You require an integrated client-side minimongo database."
+    ],
+    "strengths": [
+      "Seamless integration with StreamBuilder and FutureBuilder.",
+      "Automatic reconnection with exponential backoff and session re-login.",
+      "Built-in EJSON DateTime conversion support."
+    ],
+    "weaknesses": [
+      "No built-in minimongo cache on the client side.",
+      "In-flight method calls are not automatically retried after a disconnection."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Not documented",
+    "alternatives": [],
+    "minimal_example": "final meteor = MeteorClient.connect(url: 'https://yourdomain.com');\n\nStreamBuilder<DdpConnectionStatus>(\n  stream: meteor.status(),\n  builder: (context, snapshot) {\n    if (!snapshot.hasData) return const Text('Status: ---');\n    return Text('Status: ${snapshot.data}');\n  },\n);",
+    "confidence": 0.95
+  }
+}

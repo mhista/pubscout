@@ -1,0 +1,52 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "7.6.1",
+  "generatedAt": "2026-11-21T11:05:23.356Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "codegen",
+      "backend"
+    ],
+    "approach": [
+      "code generation",
+      "stream-based"
+    ],
+    "one_liner": "Typed Dart and Flutter SDK for Vendure GraphQL APIs",
+    "what_it_does": "Provides a channel-aware client for Vendure commerce APIs, supporting catalog, cart, checkout, payment, and customer domains via GraphQL. Includes both a real HTTP/WebSocket data source and an in-memory implementation for testing.",
+    "use_when": [
+      "You are building an app or service that communicates with a Vendure e-commerce backend",
+      "You need channel-aware catalog, cart, and order management in Dart",
+      "You want a structured repository pattern with testable in-memory data sources"
+    ],
+    "avoid_when": [
+      "Your backend is not Vendure",
+      "You prefer writing raw GraphQL queries and mutations manually without a typed SDK"
+    ],
+    "strengths": [
+      "Complete coverage of Vendure shop and admin domains",
+      "Built-in support for multiple auth strategies including native, Firebase, custom, and API keys",
+      "Includes an in-memory data source for offline development and testing"
+    ],
+    "weaknesses": [
+      "Tied strictly to the Vendure e-commerce ecosystem",
+      "Requires build_runner for code generation"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Requires running build_runner to generate zorphy and json entities.",
+    "alternatives": [
+      {
+        "name": "dio",
+        "why_pick_it": "If you prefer a flexible HTTP client for custom REST APIs instead of a dedicated Vendure GraphQL SDK."
+      },
+      {
+        "name": "http",
+        "why_pick_it": "If you want a lightweight standard HTTP client for manual API calls."
+      }
+    ],
+    "minimal_example": "final vendure = await Vendure.initialize(\n  endpoint: 'https://shop.example.com/shop-api',\n  languageCode: 'en',\n);\nfinal order = await vendure.order.getActiveOrder();",
+    "confidence": 0.95
+  }
+}

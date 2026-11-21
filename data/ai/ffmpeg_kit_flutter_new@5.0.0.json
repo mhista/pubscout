@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "5.0.0",
+  "generatedAt": "2026-11-21T11:04:32.638Z",
+  "data": {
+    "primary_category": "audio-video",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Execute FFmpeg and FFprobe commands from Dart on Android, iOS, macOS, Windows and Linux.",
+    "what_it_does": "Provides a single Dart API to run FFmpeg/FFprobe commands across all major platforms. Prebuilt native libraries are bundled, so no manual compilation is required.",
+    "use_when": [
+      "You need to process or convert video/audio files within a Flutter app",
+      "Cross‑platform support (mobile, desktop, Linux) is required",
+      "You require hardware‑accelerated encoding/decoding on iOS/macOS"
+    ],
+    "avoid_when": [
+      "App size must stay minimal (the full GPL bundle is large)",
+      "Your project cannot use GPL‑licensed code",
+      "You only need a tiny subset of codecs"
+    ],
+    "strengths": [
+      "All major codecs including GPL ones are included",
+      "Works on Android, iOS, macOS, Windows and Linux out of the box",
+      "Hardware acceleration on iOS/macOS",
+      "Prebuilt binaries mean no native build steps"
+    ],
+    "weaknesses": [
+      "Large binary size due to full codec set",
+      "GPL license may conflict with proprietary apps",
+      "Requires Flutter 3.41+ and iOS 15/macOS 11 minimum"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add the dependency and run flutter pub get. On iOS/macOS set deployment target >=15.0/11.0 in Podfile or Xcode settings; Android uses an AAR automatically.",
+    "alternatives": [],
+    "minimal_example": "import 'package:ffmpeg_kit_flutter_new/ffmpeg_kit.dart';\n\nfinal session = await FFmpegKit.execute('-i input.mp4 -c:v mpeg4 output.mp4');\nfinal returnCode = await session.getReturnCode();\nif (ReturnCode.isSuccess(returnCode)) {\n  // Success\n} else if (ReturnCode.isCancel(returnCode)) {\n  // Cancelled\n} else {\n  // Failed: inspect await session.getLogs()\n}",
+    "confidence": 0.97
+  }
+}

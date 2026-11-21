@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.5.0",
+  "generatedAt": "2026-11-21T11:05:36.834Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [
+      "utils"
+    ],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "Checks internet connectivity by sending a HEAD request to a target URL.",
+    "what_it_does": "The package sends a HEAD request to a configurable URL (default Google) and reports whether the device can reach the internet at that moment. It provides a PingService with both a one‑off call and a stream subscription for continuous monitoring.",
+    "use_when": [
+      "You need a lightweight way to verify internet reachability before making API calls",
+      "You want to monitor connectivity changes in real time without heavy dependencies"
+    ],
+    "avoid_when": [
+      "Precise latency measurement or low‑level ICMP ping is required",
+      "You need detailed network diagnostics beyond a simple HEAD request"
+    ],
+    "strengths": [
+      "Simple API with single method calls",
+      "Works on Android, iOS and macOS",
+      "Supports Swift Package Manager on iOS"
+    ],
+    "weaknesses": [
+      "Only performs a HEAD request, not a true ping",
+      "Limited diagnostic information"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "PingService().getSubscription(callBack: (e) {\n  setState(() {\n    pingCount++;\n    service = 'Ping has connection $e count: $pingCount';\n  });\n});\n\n// or a single check\nPingService().pingTick();",
+    "confidence": 0.9
+  }
+}

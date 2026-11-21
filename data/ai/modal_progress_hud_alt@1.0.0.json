@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "1.0.0",
+  "generatedAt": "2026-11-21T11:06:14.967Z",
+  "data": {
+    "primary_category": "widgets",
+    "secondary_categories": [
+      "ui-kits"
+    ],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "A modal progress indicator widget to block access to a widget during async operations.",
+    "what_it_does": "Provides a widget wrapper that displays a modal progress indicator (heads-up display) over its child widget. It accepts a boolean to toggle the loading state during asynchronous calls and allows custom spinner configurations.",
+    "use_when": [
+      "You need to block user interaction on a screen or form during an asynchronous network or database call.",
+      "You want a simple overlay loading indicator without managing complex Z-index or Stack layers manually."
+    ],
+    "avoid_when": [
+      "You need complex state management for the loading state outside of local widget state.",
+      "You prefer global loading overlays managed via a navigator observer rather than inline widget wrapping."
+    ],
+    "strengths": [
+      "Simple and lightweight widget wrapper implementation.",
+      "Customizable progress indicators, opacity, colors, and dismissal behavior."
+    ],
+    "weaknesses": [
+      "Requires manual state management (boolean flags) for controlling the loading state.",
+      "Limited to wrapping individual widget subtrees."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "ModalProgressHUD(\n  inAsyncCall: _saving,\n  child: Form(\n    child: Column(\n      children: [\n        RaisedButton(\n          onPressed: _submit,\n          child: Text('Save'),\n        ),\n      ],\n    ),\n  ),\n);",
+    "confidence": 0.95
+  }
+}

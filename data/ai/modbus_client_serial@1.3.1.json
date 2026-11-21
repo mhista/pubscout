@@ -1,0 +1,41 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "1.3.1",
+  "generatedAt": "2026-11-21T11:07:05.610Z",
+  "data": {
+    "primary_category": "networking",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Modbus client for ASCII/RTU over serial ports",
+    "what_it_does": "Provides a Modbus client implementation that can send ASCII and RTU requests via a serial port. It supports auto‑connection, unit ID, timeouts, endianness, and a wide range of Modbus element types.",
+    "use_when": [
+      "Communicating with industrial devices over serial Modbus (ASCII/RTU).",
+      "Building embedded or IoT applications that need Modbus serial access.",
+      "When you need a lightweight client with minimal dependencies for serial communication."
+    ],
+    "avoid_when": [
+      "You only need TCP/UDP Modbus communication.",
+      "You are targeting a pure web environment without native serial support."
+    ],
+    "strengths": [
+      "Minimal dependencies – only logging, libserialport, synchronized, and modbus_client.",
+      "Auto‑connection mode simplifies request handling.",
+      "Full endianness support and a rich set of Modbus element types.",
+      "Cross‑platform support (Android, iOS, Windows, macOS, Linux)."
+    ],
+    "weaknesses": [
+      "Requires native libserialport build or flutter_libserialport package.",
+      "No support for web or pure Dart VM without native binaries.",
+      "Documentation is limited to README and changelog; no extensive examples."
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add flutter_libserialport to your Flutter project or build libserialport manually for Dart projects. No build_runner needed.",
+    "alternatives": [],
+    "minimal_example": "import 'package:modbus_client/modbus_client.dart';\nimport 'package:modbus_client_serial/modbus_client_serial.dart';\n\nvoid main() async {\n  var temp = ModbusInt16Register(\n      name: \"BatteryTemperature\",\n      type: ModbusElementType.inputRegister,\n      address: 22,\n      uom: \"°C\",\n      multiplier: 0.1,\n      onUpdate: (self) => print(self));\n  var client = ModbusClientSerialRtu(portName: \"COM1\", unitId: 1);\n  await client.send(temp.getReadRequest());\n  client.disconnect();\n}",
+    "confidence": 0.9
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "1.0.0",
+  "generatedAt": "2026-11-21T11:05:12.806Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Command-line tool and encoder that sorts JSON maps by key.",
+    "what_it_does": "Provides a CLI to sort JSON files in-place and a JsonSortedEncoder that recursively sorts map keys before encoding. It supports custom indentation and works with any JSON-serializable object.",
+    "use_when": [
+      "You need to keep JSON files sorted for consistency across a team.",
+      "You want all JSON output from your Dart app to be deterministic and sorted.",
+      "You want a quick way to sort a JSON file from the command line during CI.",
+      "You need a lightweight dependency that adds no build‑time code generation."
+    ],
+    "avoid_when": [
+      "You require complex custom serialization logic beyond key sorting.",
+      "You need to sort data structures that are not JSON maps (e.g., custom objects)."
+    ],
+    "strengths": [
+      "Zero dependencies beyond args.",
+      "Simple CLI and encoder API.",
+      "Supports custom indentation.",
+      "Works with Dart SDK 2.12+ and all platforms."
+    ],
+    "weaknesses": [
+      "Only sorts map keys; does not handle custom object serialization.",
+      "No support for sorting lists or other data structures.",
+      "Limited to JSON; not a general-purpose data transformer."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [],
+    "minimal_example": "import 'package:json_sorter/json_sorter.dart';\n\nconst encoder = JsonSortedEncoder.withIndent('  ');\nconst data = {'b': true, 'a': false};\nprint(encoder.convert(data));",
+    "confidence": 0.95
+  }
+}

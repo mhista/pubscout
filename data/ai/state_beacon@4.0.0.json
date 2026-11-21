@@ -1,0 +1,47 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "4.0.0",
+  "generatedAt": "2026-11-21T11:05:40.271Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Reactive signal primitive for Dart/Flutter state management",
+    "what_it_does": "Provides a lightweight signal (Beacon) API for reactive state, supporting writable, derived, async, and various utilities like debounce, throttle, undo/redo. It integrates with Flutter via state_beacon_flutter for widget rebuilds.",
+    "use_when": [
+      "Need minimal boilerplate for simple or medium‑size state",
+      "Prefer signal‑based reactivity over full provider/Bloc patterns",
+      "Want async state handling with automatic loading/error states",
+      "Looking for composable derived values and reactive pipelines"
+    ],
+    "avoid_when": [
+      "Large, complex applications requiring extensive ecosystem support",
+      "Need advanced features like persistence, navigation, or dependency injection beyond what Beacon offers"
+    ],
+    "strengths": [
+      "Very small API surface",
+      "Built‑in async handling with AsyncValue",
+      "Composable derived and effect beacons",
+      "Supports undo/redo, debounce, throttle, and other utilities"
+    ],
+    "weaknesses": [
+      "Limited ecosystem and community examples",
+      "No built‑in persistence or navigation support",
+      "Not as feature‑rich as Riverpod or Bloc for large apps"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "riverpod",
+        "why_pick_it": "Mature, widely adopted state management with extensive ecosystem and tooling"
+      }
+    ],
+    "minimal_example": "final name = Beacon.writable(\"Bob\");\n\nclass ProfileCard extends StatelessWidget {\n  const ProfileCard({super.key});\n  @override\n  Widget build(BuildContext context) {\n    return Text(name.watch(context));\n  }\n}",
+    "confidence": 0.8
+  }
+}

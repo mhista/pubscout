@@ -1,0 +1,44 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-20b",
+  "version": "0.0.4",
+  "generatedAt": "2026-11-21T11:05:57.176Z",
+  "data": {
+    "primary_category": "device",
+    "secondary_categories": [],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Provides detailed Windows system information via Dart.",
+    "what_it_does": "The package exposes getters for user name, CPU, memory, disks, graphics, network, and other hardware details. It requires explicit initialization and can load only requested data to save time.",
+    "use_when": [
+      "You need to display or log detailed Windows hardware info in a Flutter desktop app",
+      "You want to query system properties without writing native code"
+    ],
+    "avoid_when": [
+      "You target macOS, Linux, or mobile platforms",
+      "You need cross‑platform system information"
+    ],
+    "strengths": [
+      "Simple API with named getters",
+      "Selective initialization to reduce overhead",
+      "No external code generation required"
+    ],
+    "weaknesses": [
+      "Windows‑only, no support for other OSes",
+      "Documentation is minimal and README is truncated",
+      "No example of error handling or async patterns"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add dependency, import package, call WindowsSystemInfo.initWindowsInfo(), then access getters.",
+    "alternatives": [
+      {
+        "name": "win32",
+        "why_pick_it": "Provides lower‑level Windows API access if you need more control or additional properties not exposed by windows_system_info"
+      }
+    ],
+    "minimal_example": "import 'package:windows_system_info/windows_system_info.dart';\n\nFuture<void> init() async {\n  await WindowsSystemInfo.initWindowsInfo();\n  if (await WindowsSystemInfo.isInitilized) {\n    print(WindowsSystemInfo.cpu);\n  }\n}",
+    "confidence": 0.8
+  }
+}

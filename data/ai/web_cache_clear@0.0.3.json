@@ -1,0 +1,47 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.0.3",
+  "generatedAt": "2026-11-21T11:05:08.857Z",
+  "data": {
+    "primary_category": "utils",
+    "secondary_categories": [
+      "web-desktop"
+    ],
+    "approach": [
+      "imperative"
+    ],
+    "one_liner": "Flutter web plugin that clears session storage and reloads the page when app version changes.",
+    "what_it_does": "Provides a single method to compare a supplied version string with one stored in the browser's session storage. If they differ, it clears the session storage and forces a page reload, ensuring users see the latest web app version.",
+    "use_when": [
+      "You need to guarantee users load the newest version of a Flutter web app after a deployment",
+      "You want to automatically clear stale session data on version change without manual user action"
+    ],
+    "avoid_when": [
+      "The app runs on mobile or desktop platforms",
+      "You need to preserve session data across version updates",
+      "You require more granular cache control beyond session storage"
+    ],
+    "strengths": [
+      "Very small and easy to integrate",
+      "Works on HTTPS as well as localhost",
+      "No native code or platform-specific setup"
+    ],
+    "weaknesses": [
+      "Only works on web platforms",
+      "Clears only session storage, not other caches",
+      "Limited configurability"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "",
+    "alternatives": [
+      {
+        "name": "flutter_cache_manager",
+        "why_pick_it": "Provides broader cache management for files and assets, useful if you need more than just session storage clearing"
+      }
+    ],
+    "minimal_example": "import 'package:web_cache_clear/web_cache_clear.dart';\n\n@override\nvoid initState() {\n  super.initState();\n  WebCacheClear().checkAppVersion('1.0.3');\n}",
+    "confidence": 0.85
+  }
+}

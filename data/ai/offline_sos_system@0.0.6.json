@@ -1,0 +1,49 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "0.0.6",
+  "generatedAt": "2026-11-21T11:07:11.488Z",
+  "data": {
+    "primary_category": "ai-ml",
+    "secondary_categories": [
+      "device",
+      "utils"
+    ],
+    "approach": [
+      "stream-based",
+      "imperative"
+    ],
+    "one_liner": "Detect crashes and anomalies on‑device using accelerometer/gyroscope data and a TFLite model.",
+    "what_it_does": "The package continuously reads sensor telemetry, runs an on‑device TensorFlow Lite model, and emits a CrashEvent stream when a crash is inferred. It also provides configurable thresholds and cooldown handling.",
+    "use_when": [
+      "You need zero‑latency crash detection that works without network connectivity",
+      "Your app must run entirely offline for safety‑critical scenarios",
+      "You want a ready‑made headless engine to plug into your own UI or emergency workflow"
+    ],
+    "avoid_when": [
+      "You rely on cloud‑based analytics or remote model updates",
+      "Precise crash classification requires more sensors than accelerometer/gyroscope",
+      "You need a full safety system with UI components built‑in"
+    ],
+    "strengths": [
+      "100 % offline inference with no network dependency",
+      "Highly configurable thresholds and cooldown logic",
+      "Simple three‑line integration and stream API"
+    ],
+    "weaknesses": [
+      "Limited to accelerometer and gyroscope data; may produce false positives on varied hardware",
+      "No built‑in UI or emergency action handling – you must implement it"
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Add sensors_plus and tflite_flutter dependencies (already included). Request sensor permissions on Android/iOS if required by the platform.",
+    "alternatives": [
+      {
+        "name": "tflite_flutter",
+        "why_pick_it": "Provides low‑level TFLite inference; you can build a custom detection pipeline if you need full control"
+      }
+    ],
+    "minimal_example": "import 'package:offline_sos_system/offline_sos_system.dart';\n\nfinal engine = SafePulseEngine();\nengine.onCrashDetected.listen((e){print('Crash at ${e.timestamp}, prob ${e.probability}');});\nawait engine.start();",
+    "confidence": 0.9
+  }
+}

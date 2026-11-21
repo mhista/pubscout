@@ -1,0 +1,39 @@
+{
+  "promptVersion": 2,
+  "provider": "groq",
+  "model": "openai/gpt-oss-120b",
+  "version": "6.0.0",
+  "generatedAt": "2026-11-21T11:04:52.355Z",
+  "data": {
+    "primary_category": "codegen",
+    "secondary_categories": [],
+    "approach": [
+      "code generation"
+    ],
+    "one_liner": "Generates freezed models and retrofit API clients from OpenAPI, Swagger, Postman or JSON Schema specs.",
+    "what_it_does": "The package reads API specifications in JSON or YAML and produces immutable freezed data classes with json_serializable support. It also creates retrofit client classes for each API tag, ready for use with dio.",
+    "use_when": [
+      "You need type‑safe, immutable models and Retrofit‑style API clients generated from an OpenAPI/Swagger/Postman spec",
+      "You want to automate boilerplate for large APIs and keep models in sync with the spec"
+    ],
+    "avoid_when": [
+      "The project uses a different HTTP client stack (e.g., http instead of dio)",
+      "You prefer to write models and API calls manually or the API is very small"
+    ],
+    "strengths": [
+      "Supports OpenAPI 3.x, Swagger 2.0, Postman collections and JSON Schema",
+      "Generates immutable freezed models with full JSON serialization",
+      "Creates Retrofit clients per tag, integrating with dio"
+    ],
+    "weaknesses": [
+      "Requires Dart >=3.9 and generated code needs json_serializable >=6.10, raising SDK constraints",
+      "Adds build_runner and multiple code‑gen steps, increasing build complexity",
+      "Tied to dio/retrofit ecosystem, not flexible to other HTTP clients"
+    ],
+    "setup_effort": "medium",
+    "setup_notes": "Add dev dependency swagger_to_dart and build_runner; add runtime deps dio, retrofit, freezed_annotation, json_annotation; configure build.yaml for generator order and update analysis_options.yaml to exclude generated files.",
+    "alternatives": [],
+    "minimal_example": "```yaml\n# pubspec.yaml\ndependencies:\n  dio: ^5.0.0\n  retrofit: ^4.0.0\n  freezed_annotation: ^2.0.0\n  json_annotation: ^4.8.0\n\ndev_dependencies:\n  swagger_to_dart: ^6.0.0\n  build_runner: ^2.4.0\n  freezed: ^2.4.0\n  json_serializable: ^6.10.0\n  retrofit_generator: ^4.0.0\n```\n```sh\n# swagger_to_dart.yaml\nswagger_to_dart:\n  input_directory: api/swagger.json\n  output_directory: lib/src/gen\n```\nRun:\n```sh\ndart run swagger_to_dart\ndart run build_runner build\n```\n```dart\nimport 'package:dio/dio.dart';\nimport 'package:your_project/api/api.dart';\n\nvoid main() async {\n  final dio = Dio();\n  final userApi = UserApi(dio, baseUrl: 'https://api.example.com');\n  final users = await userApi.getUsers();\n  print(users.map((u) => u.name).join(', '));\n}\n```",
+    "confidence": 0.93
+  }
+}

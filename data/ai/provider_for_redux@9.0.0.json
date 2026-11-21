@@ -1,0 +1,47 @@
+{
+  "promptVersion": 2,
+  "provider": "gemini",
+  "model": "gemini-3.5-flash-lite",
+  "version": "9.0.0",
+  "generatedAt": "2026-11-21T11:07:53.427Z",
+  "data": {
+    "primary_category": "state-management",
+    "secondary_categories": [],
+    "approach": [
+      "declarative"
+    ],
+    "one_liner": "Allows using the Provider package with AsyncRedux instead of traditional connector widgets.",
+    "what_it_does": "Bridges AsyncRedux and Provider by providing AsyncReduxProvider, ReduxConsumer, and ReduxSelector. This allows injecting and consuming the Redux store, state, and dispatch methods using Provider patterns instead of standard connector widgets.",
+    "use_when": [
+      "You want to use AsyncRedux for state management while leveraging Provider for dependency injection or widget consumption.",
+      "You are migrating a project between AsyncRedux and Provider-based architectures."
+    ],
+    "avoid_when": [
+      "You are using standard Redux or other state management solutions like Bloc or Riverpod without AsyncRedux.",
+      "You prefer using standard AsyncRedux connector widgets over Provider."
+    ],
+    "strengths": [
+      "Seamless integration between Provider and AsyncRedux.",
+      "Reduces boilerplate by removing the need for traditional connector widgets.",
+      "Supports fine-grained rebuilds using ReduxConsumer and ReduxSelector."
+    ],
+    "weaknesses": [
+      "Strictly tied to AsyncRedux and Provider ecosystem versions.",
+      "Requires learning AsyncRedux conventions alongside Provider."
+    ],
+    "setup_effort": "low",
+    "setup_notes": "Requires adding async_redux and provider dependencies alongside this package.",
+    "alternatives": [
+      {
+        "name": "bloc",
+        "why_pick_it": "If you prefer the BLoC pattern for state management instead of Redux."
+      },
+      {
+        "name": "riverpod",
+        "why_pick_it": "If you want a modern compile-safe dependency injection and state management solution."
+      }
+    ],
+    "minimal_example": "Widget build(BuildContext context) => AsyncReduxProvider<AppState>.value(value: store, child: MaterialApp(home: MyHomePage()));",
+    "confidence": 1
+  }
+}
